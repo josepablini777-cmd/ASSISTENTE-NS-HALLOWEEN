@@ -857,9 +857,10 @@ function Doble-Buffer($ctl) {
 
 try { Add-Type -AssemblyName PresentationCore } catch {}
 $script:reproductores = New-Object System.Collections.ArrayList
-function Sonido($clave) {
-    $k = $script:skin
-    if (-not $k.Sonidos -or -not $k.Sonidos[$clave]) { return }
+function Sonido($clave) { Sonido-De $script:skinNombre $clave }
+function Sonido-De($nombre, $clave) {
+    $k = $Skins[$nombre]
+    if (-not $k -or -not $k.Sonidos -or -not $k.Sonidos[$clave]) { return }
     try {
         $ruta = Ruta (Azar $k.Sonidos[$clave])
         if ($ruta -like '*.mp3') {
@@ -1283,14 +1284,185 @@ $Discusiones = @(
     , @(@('Static Miku', '¡Hola, pececito! ¿Quieres ver dibujos?'), @('Dune', 'DIBUJOS... ¿SE COMEN?'), @('Static Miku', '¡No! ¡Se miran!'), @('Dune', 'DUNE MIRAR. DUNE ABURRIR. DUNE COMER TELE.'), @('Static Miku', '¡Bzzzzt! ¡Mi antena!'))
     , @(@('Mikaela', 'Tengo tu cabeza en la mira, araña.'), @('Velvet', 'Qué halago, cielo. Nadie me mira tan fijamente.'), @('Mikaela', 'Eso... ha sido raro.'), @('Velvet', 'Ven a verme de cerca. Te prometo que no muerdo.'))
     , @(@('c00lgui', 'hackeando a Dune...'), @('Dune', '¿QUÉ SER HACKEAR?'), @('c00lgui', 'error: no se encontró cerebro.'), @('Dune', 'GRRGH. DUNE OFENDIDO.'))
+    , @(@('Zodiac', '¡Ese bicho de arena se está moviendo!'), @('Dune', 'DUNE NADAR. NADAR ES MOVERSE.'), @('Zodiac', '*BANG*'), @('Dune', '*Se traga la bala.* ÑAM. MÁS.'), @('Zodiac', '...este desierto está maldito.'))
+    , @(@('Static Miku', '¡Velvet! ¡Qué voz tan bonita! ¿Cantamos juntas?'), @('Velvet', 'Claro, cielo... acércate un poquito más.'), @('Static Miku', '¡Bzzzzt! ¡Mi antena dice que no!'), @('Velvet', 'Lista, la niña. Muy lista.'))
+    , @(@('SeaDrive', 'Mikaela, ¿te importa dejar de apuntarme con el láser?'), @('Mikaela', 'Es por costumbre. No es personal.'), @('SeaDrive', 'Tengo el punto rojo en la frente.'), @('Mikaela', '*Smokebomb.* Ya no lo tienes.'))
+    , @(@('Angela', 'Velvet, su solicitud de empleo ha sido rechazada. Otra vez.'), @('Velvet', 'Qué pena, cielo. Me encantaba vuestra cafetería.'), @('Angela', 'Desaparecieron tres empleados de la cafetería.'), @('Velvet', '...qué casualidad, ¿verdad?'))
 )
 
 $script:discutiendo = $false; $script:dLineas = $null; $script:dIdx = 0; $script:dImg = $null; $script:dInvitadoHabla = $false
+$script:inv = $null; $script:invSkin = $null; $script:invNombre = $null; $script:invPb = $null; $script:invLbl = $null
+$script:invTexto = ''; $script:invPos = 0; $script:invFx = 0; $script:invAnim = 0; $script:invLado = 1; $script:invSale = $false
+$script:invEst = 0; $script:invRuido = $null
 $dTimer = New-Object System.Windows.Forms.Timer
 $dTimer.Add_Tick({ Paso-Discusion })
 
+# --- temblores de ventana ---
+$script:temblores = New-Object System.Collections.ArrayList
+$shkTimer = New-Object System.Windows.Forms.Timer
+$shkTimer.Interval = 30
+$shkTimer.Add_Tick({
+    for ($i = $script:temblores.Count - 1; $i -ge 0; $i--) {
+        $s = $script:temblores[$i]; $s.T--
+        if ($s.F.IsDisposed) { $script:temblores.RemoveAt($i); continue }
+        if ($s.T -le 0) { $s.F.Location = $s.Base; $script:temblores.RemoveAt($i) }
+        else { $a = [int](4 * $script:K); $s.F.Location = New-Object System.Drawing.Point(($s.Base.X + $Rnd.Next(-$a, $a + 1)), ($s.Base.Y + $Rnd.Next(-$a, $a + 1))) }
+    }
+    if ($script:temblores.Count -eq 0) { $shkTimer.Stop() }
+})
+function Sacudir($f, $ticks) {
+    if (-not $f -or $f.IsDisposed -or $script:glitching -or $script:drag) { return }
+    foreach ($s in $script:temblores) { if ($s.F -eq $f) { $s.T = [Math]::Max($s.T, $ticks); return } }
+    [void]$script:temblores.Add(@{ F = $f; Base = $f.Location; T = $ticks }); $shkTimer.Start()
+}
+$script:humoF = $null
+$humo2Timer = New-Object System.Windows.Forms.Timer
+$humo2Timer.Interval = 1600
+$humo2Timer.Add_Tick({ $humo2Timer.Stop(); if ($script:humoF -and -not $script:humoF.IsDisposed) { $script:humoF.Opacity = $(if ($script:humoF -eq $form) { $script:skin.Opacidad } else { 1.0 }) } })
+function Humo($f) { if (-not $f) { return }; $f.Opacity = 0.3; $script:humoF = $f; $humo2Timer.Stop(); $humo2Timer.Start() }
+
+# --- ventanita del invitado ---
+function Colocar-Invitado {
+    $f = $script:inv; if (-not $f -or $f.IsDisposed) { return }
+    $b = $form.Bounds; $e = 1 - [Math]::Pow(1 - [Math]::Min(1.0, $script:invAnim / 10.0), 3)
+    $off = (1 - $e) * 40 * $script:K
+    $x = if ($script:invLado -gt 0) { $b.Right + 8 * $script:K - $off } else { $b.Left - $f.Width - 8 * $script:K + $off }
+    $f.Location = New-Object System.Drawing.Point([int]$x, [int]($b.Top + 30 * $script:K))
+    $f.Opacity = [Math]::Max(0.0, $e)
+}
+
+function Abrir-Invitado($nombre) {
+    $gk = $Skins[$nombre]; $script:invSkin = $gk; $script:invNombre = $nombre
+    $f = New-Object System.Windows.Forms.Form
+    $f.FormBorderStyle = 'None'; $f.ShowInTaskbar = $false; $f.StartPosition = 'Manual'; $f.Text = 'invitado'
+    $f.Size = New-Object System.Drawing.Size(220, 214); $f.BackColor = $gk.Fondo; $f.Opacity = 0
+    Doble-Buffer $f
+    $script:invPb = $null
+    if ($gk.Gif -and $script:dImg) {
+        $p = New-Object System.Windows.Forms.PictureBox
+        $p.Location = New-Object System.Drawing.Point(10, 36); $p.Size = New-Object System.Drawing.Size(200, 108)
+        $p.SizeMode = 'Zoom'; $p.Image = $script:dImg
+        $p.BackColor = if ($gk.PbFondo) { $gk.PbFondo } else { [System.Drawing.Color]::Transparent }
+        $f.Controls.Add($p); $script:invPb = $p
+    }
+    $l = New-Object System.Windows.Forms.Label
+    $l.Location = New-Object System.Drawing.Point(10, 150); $l.Size = New-Object System.Drawing.Size(200, 56)
+    $l.BackColor = if ($gk.BurFondo) { $gk.BurFondo } else { [System.Drawing.Color]::Black }
+    $l.ForeColor = if ($gk.BurTexto) { $gk.BurTexto } else { $gk.StatusColor }
+    $fb = if ($gk.BurFuente) { $gk.BurFuente } else { 'Consolas' }
+    $l.Font = Fnt($fb, $(if ($fb -eq 'Segoe Print') { 7.5 } else { 8.5 }), [System.Drawing.FontStyle]::Bold)
+    $l.BorderStyle = 'FixedSingle'; $l.Padding = New-Object System.Windows.Forms.Padding(3)
+    $f.Controls.Add($l); $script:invLbl = $l
+    $f.Add_Paint({ Pintar-Invitado $_.Graphics })
+    Escalar $f
+    $f.Owner = $form
+    $wa = [System.Windows.Forms.Screen]::FromControl($form).WorkingArea
+    $script:invLado = if ($form.Right + $f.Width + 12 -le $wa.Right) { 1 } else { -1 }
+    $script:inv = $f; $script:invAnim = 0; $script:invSale = $false; $script:invFx = 14; $script:invTexto = ''; $script:invPos = 0
+    Colocar-Invitado
+    $f.Show()
+    # cada invitado llega con su propio sonido
+    switch ($gk.Estilo) {
+        'oeste' { Sonido-De $nombre 'bang' }
+        'mew' { Sonido-De $nombre 'golpe' }
+        'mlg' { Sonido-De $nombre 'apuntar' }
+        'hacker' { try { [System.Media.SystemSounds]::Hand.Play() } catch {} }
+        default { try { [System.Media.SystemSounds]::Asterisk.Play() } catch {} }
+    }
+    $invTimer.Start()
+}
+
+function Pintar-Invitado($g) {
+    $g.ScaleTransform($script:K, $script:K); $g.SmoothingMode = 'AntiAlias'
+    $gk = $script:invSkin; $W = 220; $H = 214; $fx = $script:invFx
+    if (-not $gk) { return }
+    $g.Clear($gk.Fondo)
+    # fondo y cabecera con el estilo del invitado
+    $cab = $gk.Fondo
+    switch ($gk.Estilo) {
+        'hacker' { $p = New-Object System.Drawing.Pen((C 30 0 0), 1); for ($y = 30; $y -lt $H; $y += 4) { $g.DrawLine($p, 0, $y, $W, $y) }; $cab = (C 0 0 0) }
+        'web' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 0, $W, 31)), $gk.Barra1, $gk.Barra2, 90); $g.FillRectangle($br, 0, 0, $W, 31); $cab = $null }
+        'tele' { $lun = New-Object System.Drawing.SolidBrush((C 255 95 70)); for ($y = 36; $y -lt $H; $y += 18) { for ($x = 4; $x -lt $W; $x += 18) { $g.FillEllipse($lun, $x, $y, 5, 5) } }; $cab = (C 58 44 190) }
+        'mew' { for ($x = 0; $x -lt $W; $x += 20) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 62 44 52))), $x, 30, 10, $H) }; $cab = (C 28 21 24) }
+        'lobo' { $cab = (C 18 23 30) }
+        'mlg' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 0, $W, $H)), (C 57 72 191), (C 229 45 45), 35); $g.FillRectangle($br, 0, 0, $W, $H); $cab = (C 14 14 28) }
+        'oeste' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 238 128 62), (C 250 214 150), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $cab = (C 90 52 28) }
+        'gunsaw' { $p = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(16, 255, 255, 255), 1); for ($y = 0; $y -lt $H; $y += 3) { $g.DrawLine($p, 0, $y, $W, $y) }; $cab = (C 18 9 22) }
+    }
+    if ($cab) { $g.FillRectangle((New-Object System.Drawing.SolidBrush($cab)), 0, 0, $W, 30) }
+    $acento = if ($gk.Acento) { $gk.Acento } else { $gk.Borde }
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush($acento)), 0, 30, $W, 2)
+    $nom = if ($gk.Titulo) { $gk.Titulo } else { $script:invNombre }
+    $est = if ($gk.FuenteTitulo -eq 'Impact') { [System.Drawing.FontStyle]::Regular } else { [System.Drawing.FontStyle]::Bold }
+    $g.DrawString($nom, (FntP($gk.FuenteTitulo, 12, $est)), (New-Object System.Drawing.SolidBrush($gk.TituloColor)), 8, 4)
+    $g.DrawString('INVITADO', (FntP('Consolas', 7, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(170, 200, 200, 200))), ($W - 62), 10)
+    if (-not $script:invPb) {
+        # c00lgui no tiene retrato: su nombre glitcheado
+        $dx = if ($fx -gt 0) { $Rnd.Next(-6, 7) } else { 0 }
+        $g.DrawString('c00lgui', (FntP('Arial Black', 26)), (New-Object System.Drawing.SolidBrush((C 90 0 0))), (24 + $dx + 3), 66)
+        $g.DrawString('c00lgui', (FntP('Arial Black', 26)), [System.Drawing.Brushes]::Red, (24 + $dx), 63)
+    }
+    # efecto de entrada de cada invitado
+    if ($fx -gt 0) {
+        switch ($gk.Estilo) {
+            'hacker' { for ($i = 0; $i -lt 4; $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush(@((C 255 0 0), (C 255 255 255), (C 0 255 255))[$Rnd.Next(3)])), $Rnd.Next(-40, $W), $Rnd.Next(0, $H), $Rnd.Next(40, 200), $Rnd.Next(1, 5)) } }
+            'tele' { $g.FillRectangle([System.Drawing.Brushes]::White, 0, [int]($H / 2 - $fx * 6), $W, [int]($fx * 12)) }
+            'mlg' { Dibujar-Hit $g ($W / 2) 90 ([Math]::Max(10, $fx * 3)); $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(255, $fx * 18), 255, 255, 255))), 0, 0, $W, $H) }
+            'oeste' { $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 140 110 70))), ($W - 52), 52, 22, 22); $g.FillEllipse([System.Drawing.Brushes]::Black, ($W - 46), 58, 10, 10) }
+            'gunsaw' { $y = (14 - $fx) * 16; $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(90, 255, 255, 255))), 0, $y, $W, 10) }
+            'mew' { $z = New-Object System.Drawing.Pen((C 200 40 35), 5); $z.StartCap = 'Round'; $z.EndCap = 'Round'; for ($i = 0; $i -lt 3; $i++) { $g.DrawLine($z, (40 + $i * 40), 40, (90 + $i * 40), 150) } }
+            'web' { $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 40 130 200))), 0, 32, [int]($W * (14 - $fx) / 14), 4) }
+            'lobo' { if ($fx % 4 -lt 2) { $am = New-Object System.Drawing.Pen((C 255 170 40), 3); $g.DrawRectangle($am, 6, 34, ($W - 12), 112) } }
+        }
+    }
+    $g.DrawRectangle((New-Object System.Drawing.Pen($acento, 3)), 1, 1, ($W - 3), ($H - 3))
+}
+
+$invTimer = New-Object System.Windows.Forms.Timer
+$invTimer.Interval = 30
+$invTimer.Add_Tick({
+    $f = $script:inv
+    if (-not $f -or $f.IsDisposed) { $invTimer.Stop(); return }
+    if ($script:invSale) {
+        $script:invAnim -= 1; Colocar-Invitado
+        if ($script:invAnim -le 0) { Cerrar-Invitado }
+        return
+    }
+    if ($script:invAnim -lt 10) { $script:invAnim++; Colocar-Invitado }
+    if ($script:invPos -lt $script:invTexto.Length) { $script:invPos++; $script:invLbl.Text = $script:invTexto.Substring(0, $script:invPos) }
+    if ($script:invEst -gt 0 -and $script:invPb) {
+        $script:invEst--
+        if (-not $script:invRuido) { $script:invRuido = Nuevo-Ruido 64 40 }
+        if ($script:invEst -gt 0) { Llenar-Ruido $script:invRuido; $script:invPb.Image = $script:invRuido; $script:invPb.Invalidate() } else { $script:invPb.Image = $script:dImg }
+    }
+    if ($script:invFx -gt 0) { $script:invFx--; $f.Invalidate() }
+})
+
+function Cerrar-Invitado {
+    $invTimer.Stop()
+    if ($script:inv -and -not $script:inv.IsDisposed) { if ($script:invPb) { $script:invPb.Image = $null }; $script:inv.Close(); $script:inv.Dispose() }
+    $script:inv = $null; $script:invPb = $null; $script:invLbl = $null; $script:invSkin = $null
+    if ($script:dImg) { $script:dImg.Dispose(); $script:dImg = $null }
+    if ($script:invRuido) { $script:invRuido.Dispose(); $script:invRuido = $null }
+}
+
+# efectos según lo que se dice en la discusión
+function Efectos-Linea($quien, $txt) {
+    $esInv = $quien -ne $script:skinNombre
+    $f = if ($esInv) { $script:inv } else { $form }
+    if ($txt -match 'BANG') { Sonido-De 'Zodiac' 'bang'; Sacudir $form 10; Sacudir $script:inv 10; if ($esInv) { $script:invFx = 8 } }
+    elseif ($txt -match 'Smokebomb') { Sonido-De 'Mikaela' 'humo'; Humo $f }
+    elseif ($txt -match 'ÑAM|CHOMP|[Ee]ructa|[Tt]raga') { Sonido-De 'Guillotina' 'comer'; Sacudir $f 6 }
+    elseif ($txt -match 'Bzz') { if ($esInv) { $script:invEst = 12 } else { Corte-Senal 8 } }
+    elseif ($txt -match 'NO TE MUEVAS|GRRGH|FURIOSA|denegada') { Sacudir $f 8 }
+    if ($quien -eq 'Mikaela' -and $txt -match 'mira') { Sonido-De 'Mikaela' 'apuntar' }
+    if ($quien -eq 'Guillotina' -and $txt -match 'boca') { Sonido-De 'Guillotina' 'golpe' }
+    if ($quien -eq 'Static Miku' -and $esInv) { $script:invFx = 6 }
+    if ($quien -eq 'c00lgui' -and $esInv) { $script:invFx = 8 }
+}
+
 function Iniciar-Discusion {
-    if ($script:discutiendo -or (Ocupado)) { return }
+    if ($script:discutiendo -or (Ocupado) -or $form.WindowState -eq 'Minimized') { return }
     $yo = $script:skinNombre
     $cands = @($Discusiones | Where-Object { @($_ | ForEach-Object { $_[0] }) -contains $yo })
     if ($cands.Count -eq 0) { return }
@@ -1298,7 +1470,8 @@ function Iniciar-Discusion {
     $invitado = @($script:dLineas | ForEach-Object { $_[0] } | Where-Object { $_ -ne $yo })[0]
     $script:dImg = Cargar-Img $Skins[$invitado].Gif
     $script:dIdx = 0; $script:discutiendo = $true
-    Paso-Discusion
+    Abrir-Invitado $invitado
+    $dTimer.Interval = 450; $dTimer.Start()
 }
 
 function Paso-Discusion {
@@ -1307,22 +1480,29 @@ function Paso-Discusion {
     if ($script:dIdx -ge $script:dLineas.Count) { Fin-Discusion; return }
     $l = $script:dLineas[$script:dIdx]; $script:dIdx++
     $quien = $l[0]; $txt = $l[1]
-    $script:dInvitadoHabla = $quien -ne $script:skinNombre
-    if ($script:pb) {
-        $caraTimer.Stop(); $tvTimer.Stop()
-        # el invitado "se cuela" en el recuadro del asistente mientras habla
-        if ($script:dInvitadoHabla -and $script:dImg) { $script:pb.Image = $script:dImg } else { $script:pb.Image = (Img-Base) }
+    if ($quien -ne $script:skinNombre) {
+        # habla el invitado, en su ventanita
+        $script:invTexto = $txt; $script:invPos = 0
+        switch ($script:skin.Estilo) {
+            'lobo' { $script:caraModo = 'serio' }
+            { $_ -in @('mew', 'mlg', 'tele', 'oeste') } { if ($Rnd.Next(2) -eq 0) { Cara 'clic' 1600 } }
+        }
+    } else {
+        if ($script:skin.Estilo -eq 'hacker') { Glitch 3 "> $txt" } else { Decir $txt 'abiertos' }
     }
-    Decir "$quien » $txt" 'abiertos'
-    $dTimer.Interval = [Math]::Max(2200, 1400 + $txt.Length * 55)
+    Efectos-Linea $quien $txt
+    $dTimer.Interval = [Math]::Max(2400, 1500 + $txt.Length * 55)
     $dTimer.Start()
 }
 
-function Fin-Discusion {
+function Fin-Discusion($rapido = $false) {
     $dTimer.Stop()
+    $eraDiscusion = $script:discutiendo
     $script:discutiendo = $false; $script:dInvitadoHabla = $false
-    if ($script:pb) { $script:pb.Image = (Img-Base) }
-    if ($script:dImg) { $script:dImg.Dispose(); $script:dImg = $null }
+    if ($rapido) { Cerrar-Invitado; return }
+    if ($script:inv) { $script:invSale = $true; $invTimer.Start() }
+    # a veces el anfitrión remata con su opinión del invitado
+    if ($eraDiscusion -and $script:invNombre -and $Rnd.Next(2) -eq 0) { Decir (Opinion $script:invNombre) 'abiertos' }
 }
 
 # frases cuando no haces nada
@@ -2292,6 +2472,7 @@ $mMove = {
     if ($script:drag -and -not $script:glitching) {
         $p = [System.Windows.Forms.Cursor]::Position
         $form.Location = New-Object System.Drawing.Point(($script:f0.X + $p.X - $script:p0.X), ($script:f0.Y + $p.Y - $script:p0.Y))
+        if ($script:inv) { Colocar-Invitado }   # el invitado viaja pegado al panel
     }
 }
 $mUp = { $script:drag = $false }
@@ -2308,7 +2489,7 @@ function Construir-UI {
     $k = $Skins[$script:skinNombre]; $script:skin = $k
     # quitar las imágenes de la ventana antes de liberarlas (evita la ventana de error al cambiar de skin)
     $caraTimer.Stop(); $tvTimer.Stop(); $revTimer.Stop()
-    Fin-Discusion
+    Fin-Discusion $true
     if ($script:pb) { $script:pb.Image = $null; $form.Controls.Remove($script:pb); $script:pb.Dispose(); $script:pb = $null }
     foreach ($im in @($script:imgs.Values)) { if ($im) { $im.Dispose() } }
     foreach ($set in @($script:caras.Values)) { foreach ($im in $set) { if ($im) { $im.Dispose() } } }
@@ -2412,7 +2593,10 @@ function Construir-UI {
         $pb.Size = New-Object System.Drawing.Size($k.Pb[2], $k.Pb[3])
         $pb.BackColor = if ($k.PbFondo) { $k.PbFondo } else { [System.Drawing.Color]::Transparent }
         if ($k.PbBorde) { $pb.BorderStyle = 'FixedSingle' }
+        # clic derecho sobre el personaje: empieza una discusión
+        $pb.Add_MouseUp({ if ($_.Button -eq 'Right') { Iniciar-Discusion } })
         $pb.Add_Click({
+            if ($_.Button -eq 'Right') { return }
             $k = $script:skin
             switch ($k.Estilo) {
                 'tele' { Cara 'clic' 3000; Decir (Azar $k.Clic) }
@@ -2437,9 +2621,9 @@ function Construir-UI {
         if ($k.Estilo -eq 'mlg') {
             # Snipe: mantener pulsado para cargar, soltar para disparar
             $pb.Cursor = 'Cross'
-            $pb.Add_MouseDown({ $script:snPos = $_.Location; Snipe-Inicio })
+            $pb.Add_MouseDown({ if ($_.Button -eq 'Left') { $script:snPos = $_.Location; Snipe-Inicio } })
             $pb.Add_MouseMove({ $script:snPos = $_.Location; if ($script:snApuntando) { $this.Invalidate() } })
-            $pb.Add_MouseUp({ $script:snPos = $_.Location; Snipe-Disparo })
+            $pb.Add_MouseUp({ if ($_.Button -eq 'Left') { $script:snPos = $_.Location; Snipe-Disparo } })
             $pb.Add_Paint({
                 $g = $_.Graphics; $g.SmoothingMode = 'AntiAlias'
                 if ($script:snApuntando) {
@@ -2471,6 +2655,7 @@ function Construir-UI {
         $form.Controls.Add($pb)
     } else {
         $status.BackColor = [System.Drawing.Color]::Black
+        $status.Add_MouseUp({ if ($_.Button -eq 'Right') { Iniciar-Discusion } })
         $status.Font = Fnt('Consolas', 8.5)
         $status.Location = New-Object System.Drawing.Point(14, 278)
         $status.Size = New-Object System.Drawing.Size(380, 22)

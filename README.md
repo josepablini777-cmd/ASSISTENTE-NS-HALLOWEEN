@@ -15,7 +15,7 @@ Tiene nueve skins, cada una con su propio estilo, animaciones y diálogos:
 | **Velvet** | Araña de Gunsaw, en la pantalla CRT del juego | Pantalla de selección de personaje que se apaga como un monitor viejo |
 | **Dune** | Criatura acuática de Gunsaw que habla como un cavernícola | Igual, con su ficha y sus estadísticas |
 
-Cada skin opina de las demás. Pasa el ratón por los botones del menú **Skins** para oír lo que piensa el asistente de cada una. De vez en cuando, además, **discuten entre ellos**: el otro personaje se cuela en el panel para responder.
+Cada skin opina de las demás. Pasa el ratón por los botones del menú **Skins** para oír lo que piensa el asistente de cada una. De vez en cuando, además, **discuten entre ellos**: el otro personaje aparece en su propia ventanita pegada al panel, con su estilo y su bocadillo. Lo que dicen tiene efectos: los disparos suenan y hacen temblar las ventanas, las Smokebomb las vuelven transparentes y los mordiscos suenan. **Haz clic derecho sobre el personaje** para empezar una discusión cuando quieras.
 
 **Tamaño:** el panel se adapta solo al escalado de tu pantalla. Para hacerlo más grande o más pequeño, cambia `$Tamano = 1.2` al principio de `c00lgui.ps1` (1.0 = normal, 1.5 = grande).
 
