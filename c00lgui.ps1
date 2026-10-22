@@ -76,6 +76,8 @@ $Skins = [ordered]@{
             'Angela'      = '> escaped the L Corp facility. c00lgui online.'
             'Mikaela'     = '> sniper left the server. c00lgui online.'
             'Zodiac'      = '> dodged six bullets. c00lgui online.'
+            'Velvet'      = '> escaped the spider web. c00lgui online.'
+            'Dune'        = '> the sand monster left. c00lgui online.'
         }
         Yo = @('> c00lgui: still the best. no debate.', '> that one is me. obviously.')
         Opina = @{
@@ -85,6 +87,8 @@ $Skins = [ordered]@{
             'Angela'      = @('> Angela is the only AI I can''t breach. yet.', '> L Corp security is... actually good. scary.')
             'Mikaela'     = @('> Mikaela''s aim looks like aimbot. it''s just skill. scary.', '> tried to hack her rifle. it''s not even a computer.')
             'Zodiac'      = @('> Zodiac shot my mouse cursor. twice.', '> cowboy.exe detected. threat level: chaotic.')
+            'Velvet'      = @('> Velvet asked for my IP. said it was for "dinner".', '> do not trust the spider. her voice is a trap.exe')
+            'Dune'        = @('> Dune tried to eat my keyboard. it was wireless.', '> dune.exe: 3 brain cells detected. all hungry.')
         }
         Frases = @(
             '> payload delivered.'
@@ -152,6 +156,8 @@ $Skins = [ordered]@{
             'Angela'      = 'Bienvenido a una empresa normal. Sin monstruos. Bueno, estoy yo.'
             'Mikaela'     = 'La francotiradora se ha ido. Ya puedo asomar la cabeza.'
             'Zodiac'      = 'Por fin. Ese vaquero disparaba a todo lo que se movía. Incluido yo.'
+            'Velvet'      = 'La araña se ha ido. Revisa que no haya dejado telarañas en tus carpetas.'
+            'Dune'        = 'Se fue el bicho de arena. Lo ha dejado todo mojado.'
         }
         Yo = @('Esa skin soy yo. La mejor, obviamente.', 'Ah, sí. Yo. Elección correcta por una vez.')
         Opina = @{
@@ -161,6 +167,8 @@ $Skins = [ordered]@{
             'Angela'      = @('Angela es otra asistente IA. Competencia. No me cae bien.', 'Angela te llama "Manager". Yo te llamo "eh, tú".')
             'Mikaela'     = @('Mikaela es otra gata. Con rifle. Esto ya parece una invasión felina.', 'Mikaela dice "GG EZ" a todo. Hasta a abrir el Excel.')
             'Zodiac'      = @('Zodiac le disparó a mi Wi-Fi. Literalmente.', 'Un gato vaquero loco. Lo que me faltaba.')
+            'Velvet'      = @('Velvet me llamó "cielo". Luego "aperitivo". Mala combinación.', 'Esa voz tan dulce no me engaña. Es una araña.')
+            'Dune'        = @('Dune me preguntó si los asistentes saben a pollo. No.', 'Dune tiene tres palabras de vocabulario. Las tres son comida.')
         }
         Frases = @(
             'Ya está. No me des las gracias, no me pagan.'
@@ -243,6 +251,8 @@ $Skins = [ordered]@{
             'Angela'     = '¡Bzzt! ¡Qué sitio tan gris era ese! ¡Aquí todo tiene color!'
             'Mikaela'    = '¡Bzzt! ¡Ya no hay francotiradores! ¡A bailar!'
             'Zodiac'     = '¡Uf! ¡Ya me puedo mover otra vez! ¡Hola!'
+            'Velvet'     = '¡Bzzt! ¡Ya no hay arañas! ¡Qué alivio!'
+            'Dune'       = '¡Hola! ¡Dune ha dejado la tele llena de agua! ¡Bzzzt!'
         }
         Yo = @('¡Esa soy yo! ¡Hola, yo!', '¡Elígeme! ¡Elígeme! ¡Bzzt!')
         Opina = @{
@@ -252,6 +262,8 @@ $Skins = [ordered]@{
             'Angela'     = @('Angela es muy seria... ¡como una presentadora de noticias!', '¡Angela trabaja en un sitio con monstruos! ¡Como en los dibujos!')
             'Mikaela'    = @('¡Mikaela tiene unas gafas verdes chulísimas!', '¡Mikaela dice que mi tele delata su posición! ¡Jiji!')
             'Zodiac'     = @('¡El vaquero me da miedo! ¡No me muevo, no me muevo!', '¡Zodiac le disparó a mi antena! ¡Bzzzt!')
+            'Velvet'     = @('¡Velvet tiene una voz muy bonita! ...pero me da escalofríos.', '¡Ocho patas! ¡Podría bailar el doble que yo!')
+            'Dune'       = @('¡Dune es como un pececito! ¡Un pececito con muchos dientes!', '¡Dune quiso comerse mi lazo!')
         }
         Frases = @(
             '¡Listo! ¡Como en los dibujos de los sábados!'
@@ -312,11 +324,11 @@ $Skins = [ordered]@{
     # ================================================================ Guillotina (Mewgenics)
     'Guillotina' = @{
         Estilo = 'mew'; Titulo = 'GUILLOTINA'; Sub = 'house boss  ·  mewgenics'; Alto = 312
-        Fondo = (C 232 220 190); Borde = (C 25 20 22)
+        Fondo = (C 46 33 40); Borde = (C 20 14 16)
         TituloColor = (C 240 228 200); SubColor = (C 215 75 60)
         BtnFondo = (C 245 236 212); BtnTexto = (C 25 20 22); BtnTextoHover = (C 25 20 22); BtnBorde = (C 25 20 22); BtnBordeAncho = 2
         BtnHover = (C 215 80 65); BtnPress = (C 120 25 25); BarraBtnTexto = (C 25 20 22)
-        StatusColor = (C 40 30 30); Fuente = 'Impact'; FuenteTitulo = 'Impact'; Opacidad = 1.0; Velocidad = 1
+        StatusColor = (C 240 228 200); Fuente = 'Impact'; FuenteTitulo = 'Impact'; Opacidad = 1.0; Velocidad = 1
         Gif = 'skins\guillotina\idle.gif'; GifClic = 'skins\guillotina\furia.gif'; GifFase2 = 'skins\guillotina\idle_furiosa.gif'
         Cartel = 'skins\guillotina\cartel.png'
         Sonidos = @{
@@ -339,6 +351,8 @@ $Skins = [ordered]@{
             'Angela'      = 'WMEW 99.9: Un gato gigante ha escapado de una instalación de L Corp...'
             'Mikaela'     = '*Escupe una bala de francotirador.*'
             'Zodiac'      = '*Tiene seis balas en la barriga. No le importa.*'
+            'Velvet'      = '*Se come una telaraña. Sabe a araña.*'
+            'Dune'        = '*Huele a pescado. Guillotina se relame.*'
         }
         Yo = @('*Se mira a sí misma. Le gusta lo que ve.*', '*Ronronea. Sí, esa es ella.*')
         Opina = @{
@@ -348,6 +362,8 @@ $Skins = [ordered]@{
             'Angela'      = @('*Angela no parece comestible. Lo va a intentar igual.*', 'WMEW 99.9: Fuentes de L Corp la clasifican como anomalía de riesgo WAW.')
             'Mikaela'     = @('*Mikaela le apunta. Guillotina abre la boca. Se comerá la bala.*', '*Huele a otra gata. Y a pólvora.*')
             'Zodiac'      = @('*Zodiac es del mismo mundo. Guillotina lo respeta. Un poco.*', '*Una vez se comió el sombrero de Zodiac.*')
+            'Velvet'      = @('*Velvet la llama "aperitivo". Guillotina se ríe. Ella es el plato principal.*', '*Mira las patas de Velvet. Ocho patas. Ocho bocados.*')
+            'Dune'        = @('*Dune y Guillotina se miran. Los dos tienen hambre. Tensión.*', '*Guillotina piensa que Dune sería buen sushi.*')
         }
         Frases = @(
             '*ÑAM.*'
@@ -424,6 +440,8 @@ $Skins = [ordered]@{
             'Guillotina'  = 'Manager, la anomalía felina ha sido contenida. Por ahora.'
             'Mikaela'     = 'La francotiradora ha abandonado la instalación. Buenos días, Manager.'
             'Zodiac'      = 'Manager, el pistolero ha sido desarmado. Continúe.'
+            'Velvet'      = 'Manager, la anomalía arácnida ha sido expulsada de la instalación.'
+            'Dune'        = 'El espécimen acuático ha vuelto a su tanque. Continúe, Manager.'
         }
         Yo = @('Esa soy yo, Manager. La opción más eficiente.', 'Una elección lógica, Manager.')
         Opina = @{
@@ -433,6 +451,8 @@ $Skins = [ordered]@{
             'Guillotina'  = @('Guillotina tendría clasificación HE como mínimo. Quizá WAW.', 'No permita que esa anomalía se acerque a los empleados.')
             'Mikaela'     = @('Mikaela: perfil de empleada eficiente. Demasiado ruidosa, eso sí.', 'Le ofrecí un puesto en L Corp. Se negó. Es libre de equivocarse.')
             'Zodiac'      = @('Zodiac sería una anomalía TETH. Peligroso, pero predecible.', 'Ese vaquero disparó a una cámara de seguridad. Se lo descontaré.')
+            'Velvet'      = @('Velvet: riesgo ALEPH en lo personal. No la deje sola con los empleados.', 'Su voz está diseñada para atraer presas. No la escuche, Manager.')
+            'Dune'        = @('Dune tiene la inteligencia de un pez y el apetito de diez.', 'Ese espécimen mordió la cámara de contención. Dos veces.')
         }
         Frases = @(
             'Tarea asignada. Le recomiendo no perder el tiempo.'
@@ -507,6 +527,8 @@ $Skins = [ordered]@{
             'Guillotina'  = '¿La gata gigante? Ya la he estuneado. De nada.'
             'Angela'      = 'He escapado de L Corp. Sin un rasguño.'
             'Zodiac'      = 'Duelo terminado. Gané yo, claro.'
+            'Velvet'      = 'He limpiado la telaraña de mi mira. Ya puedo apuntar otra vez.'
+            'Dune'        = 'Adiós al bicho de arena. Me había mojado el rifle.'
         }
         Yo = @('Esa soy yo. La MVP. Obviamente.', '¿Mikaela? Elección de pro.')
         Opina = @{
@@ -516,6 +538,8 @@ $Skins = [ordered]@{
             'Guillotina'  = @('Guillotina es un objetivo enorme. Imposible fallar.', 'Le disparé a Guillotina. Se comió la bala.')
             'Angela'      = @('Angela me ofreció trabajo en L Corp. Paso, gracias.', 'Angela da más miedo que cualquier Terminator.')
             'Zodiac'      = @('Zodiac dispara a todo lo que se mueve. Amateur. Yo elijo mis objetivos.', 'Seis balas y un revólver. Mi Intervention se ríe.')
+            'Velvet'      = @('Velvet tiene un subfusil y ocho patas. Respeto. De lejos.', 'Le hice headshot a Velvet. Se regeneró. Qué asco.')
+            'Dune'        = @('Dune intentó comerse mi Intervention. Sin cubiertos.', 'Ese bicho nada más rápido de lo que yo corro. Injusto.')
         }
         Frases = @(
             '¡Hitmarker!'
@@ -588,6 +612,8 @@ $Skins = [ordered]@{
             'Guillotina'  = 'Guillotina me ha dejado el desierto libre. Por ahora.'
             'Angela'      = 'Escapé de esa instalación gris. Nadie se movía. Horrible.'
             'Mikaela'     = 'Duelo terminado. La francotiradora no aguantó el cara a cara.'
+            'Velvet'      = '*Se quita telarañas del sombrero.* Mala vecina.'
+            'Dune'        = 'El bicho de arena se ha ido. Mi desierto vuelve a estar seco.'
         }
         Yo = @('*Se mira en el reflejo del revólver. Asiente.*', 'El mejor pistolero del desierto. Ese soy yo.')
         Opina = @{
@@ -597,6 +623,8 @@ $Skins = [ordered]@{
             'Guillotina'  = @('Guillotina y yo somos del mismo juego. Ella come, yo disparo.', 'Le disparé a Guillotina seis veces. Se comió las seis balas.')
             'Angela'      = @('La dama de L Corp no se mueve nunca. No puedo dispararle. Me frustra.')
             'Mikaela'     = @('¿La francotiradora? Buena puntería. Para ser de Roblox.', 'Un rifle de francotirador... de cobardes. Los duelos se hacen cara a cara.')
+            'Velvet'      = @('La araña no se mueve hasta que es tarde. Me pone nervioso.', 'Velvet me invitó a cenar. Yo era la cena.')
+            'Dune'        = @('Dune vive en el agua. En el desierto. No tiene sentido.', '¡Ese bicho se mueve demasiado! ¡BANG!')
         }
         Frases = @(
             '¡BANG!'
@@ -635,6 +663,168 @@ $Skins = [ordered]@{
             'Calculadora'   = @('6 balas menos 1... quedan 5. Sé contar.')
             'Explorador'    = @('*Explora tus carpetas como un forajido.*')
             'CMD'           = @('Pantalla negra como la noche del desierto.')
+        }
+    }
+    # ================================================================ Velvet (Gunsaw)
+    'Velvet' = @{
+        Estilo = 'gunsaw'; Titulo = 'Velvet'; Sub = '14/14 species unlocked  ·  GUNSAW'; Alto = 312
+        Fondo = (C 26 14 30); Borde = (C 10 4 12); Acento = (C 230 30 50)
+        TituloColor = (C 224 220 228); SubColor = (C 170 160 180)
+        BtnFondo = (C 36 22 40); BtnTexto = (C 226 222 230); BtnTextoHover = (C 255 255 255); BtnBorde = (C 125 112 130); BtnBordeAncho = 1
+        BtnHover = (C 130 20 40); BtnPress = (C 230 30 50); BarraBtnTexto = (C 226 222 230)
+        StatusColor = (C 226 222 230); Fuente = 'Consolas'; FuenteTitulo = 'Consolas'; Opacidad = 1.0; Velocidad = 1
+        Gif = 'skins\velvet\retrato.png'; Arte = 'skins\velvet\arte.png'; Arma = 'SMG'; Telarana = $true
+        Pb = @(410, 62, 190, 150); PbFondo = (C 26 14 30); PbBorde = $false
+        Burbuja = @(410, 232, 190, 64); BurFondo = (C 18 9 22); BurTexto = (C 230 225 235); BurFuente = 'Consolas'
+        IntroLineas = @(
+            '- Una extraña criatura femenina parecida a una araña.'
+            '- 4 patas enormes le crecen de la espalda. Solo'
+            '  sirven para dar miedo.'
+            '- Escupe telarañas densas para inmovilizar presas.'
+            '- Usa su voz maternal para atraer a los demás...'
+            'Si te escupe, aguanta. Cuidado con su resistencia.'
+        )
+        IntroStats = @('Aim speed: {r}90%{b}   Move speed: {r}93%', 'Reload speed: {r}90%{b}   Health: {g}120')
+        IntroPie = @('Tanky, with bad weapon handling', '{g}Hold CTRL/LMB to spit out cobweb')
+        Hola = @(
+            'Hola, cielo... ¿has venido a visitarme? Qué detalle.'
+            'Pasa, pasa... no muerdo. Mucho.'
+            'Mi pequeña presa favorita ha vuelto. Digo... mi usuario favorito.'
+            'Bienvenido a mi telaraña, cariño.'
+        )
+        AlVenirDe = @{
+            'c00lgui'     = 'Ese hacker hacía mucho ruido. Aquí estarás tranquilo, cielo.'
+            'SeaDrive'    = 'Ay, esa gatita gruñona... sabría deliciosa. Digo, es muy simpática.'
+            'Static Miku' = 'Qué tele tan ruidosa... aquí todo es calma. Y seda.'
+            'Guillotina'  = 'Esa gata se lo comía todo. Qué modales. Yo juego primero con la comida.'
+            'Angela'      = 'L Corp no me quiso. Dijeron que era "demasiado peligrosa". Exagerados.'
+            'Mikaela'     = 'La francotiradora se ha ido. Mejor, ese punto rojo me ponía nerviosa.'
+            'Zodiac'      = 'El vaquero se ha ido. Lástima, olía a cecina.'
+            'Dune'        = 'Dune se ha ido... ese bobo siempre se come la comida sin jugar con ella.'
+        }
+        Yo = @('Esa soy yo, cielo. ¿Verdad que soy preciosa?', 'Elígeme a mí, cariño. Te trataré muy bien.')
+        Opina = @{
+            'c00lgui'     = @('c00lkidd es como una mosca: hace ruido y acaba en mi telaraña.', '¿Un hacker? Qué mono. Lo guardaré para la cena.')
+            'SeaDrive'    = @('SeaDrive es una gatita adorable. Y tierna. Muy tierna.', 'Invité a SeaDrive a tomar el té. No vino. Lista.')
+            'Static Miku' = @('Qué niña tan alegre... me encantaría tenerla en mi colección.', 'Su tele hace demasiado ruido para mi gusto, cielo.')
+            'Guillotina'  = @('Guillotina come sin elegancia. A la presa hay que saborearla.', 'Ella y yo nos parecemos. Pero yo tengo mejores modales.')
+            'Angela'      = @('Angela no tiene sangre. Qué decepción.', 'Esa máquina me mira como si fuera una anomalía. Qué grosera.')
+            'Mikaela'     = @('La niña del rifle... tan valiente. Tan sabrosa.', 'Dispara desde lejos porque sabe lo que pasa de cerca.')
+            'Zodiac'      = @('El vaquero dispara a todo lo que se mueve. Yo espero a que deje de moverse.', 'Seis balas no bastan para una araña, cariño.')
+            'Dune'        = @('Dune es mi primo bobo. Come sin jugar con la comida. Qué desperdicio.', 'A veces cazamos juntos. Nunca me deja nada.')
+        }
+        Frases = @(
+            'Listo, cielo. Tómate tu tiempo... yo esperaré.'
+            'Ya está abierto, cariño. Ahora quédate quietecito.'
+            'Qué buen chico. Así me gusta.'
+            'Hecho. ¿Ves? Puedo ser muy dulce.'
+        )
+        Idle = @(
+            'Estoy tejiendo... algo especial para ti.'
+            'Tranquilo, cielo. Mis patas de la espalda son solo decoración.'
+            '¿Tienes frío? Puedo envolverte en seda.'
+            'Qué silencio... me encanta cuando la presa se queda quieta.'
+            'Mi voz es dulce, ¿verdad? Todos dicen lo mismo... al principio.'
+            'Tengo muchos ojos y todos te miran a ti, cariño.'
+            'No te vayas todavía. La cena aún no está lista.'
+            'Si te escupo una telaraña, no te lo tomes a mal. Es cariño.'
+            'Ay, qué hambre. No me mires así, era broma. Más o menos.'
+            'Haz clic en mí y te enseño lo que sé hacer con la seda.'
+            'Los demás asistentes me tienen miedo. No sé por qué.'
+        )
+        Clic = @('*Te escupe una telaraña.* Ups. Qué torpe soy.', '*Telaraña.* Ahora no te escaparás, cielo.', '*Envuelve un botón en seda.* Para luego.')
+        PorApp = @{
+            'YouTube'       = @('Pon un vídeo de arañas, cielo. Son mis favoritos.')
+            'Word'          = @('Escribe mi receta favorita: presa al vapor.')
+            'Excel'         = @('Una lista de invitados para cenar. ¿Te apunto?')
+            'PowerPoint'    = @('Diapositiva 1: cómo atrapar a tu presa con dulzura.')
+            'Outlook'       = @('Invitaciones a cenar enviadas, cariño. Vendrán todos.')
+            'OneNote'       = @('Apuntaré quién me cae bien. Y quién sabe bien.')
+            'Access'        = @('Una base de datos de presas. Muy organizada.')
+            'Publisher'     = @('Un póster: "Se busca compañía para cenar".')
+            'Teams'         = @('Una reunión con muchos invitados... deliciosa.')
+            'OneDrive'      = @('En la nube no hay telarañas. Qué aburrido.')
+            'Office Web'    = @('La web... mi especialidad, cielo. Soy una araña.')
+            'Bloc de notas' = @('Bloc de notas. Simple, como mis presas.')
+            'Calculadora'   = @('Calculando raciones... tocamos a ocho patas por cabeza.')
+            'Explorador'    = @('Explorando tus rincones oscuros. Me encantan.')
+            'CMD'           = @('Qué pantalla tan oscura. Como mi rincón favorito.')
+        }
+    }
+    # ================================================================ Dune (Gunsaw)
+    'Dune' = @{
+        Estilo = 'gunsaw'; Titulo = 'Dune'; Sub = '14/14 species unlocked  ·  GUNSAW'; Alto = 312
+        Fondo = (C 26 14 30); Borde = (C 10 4 12); Acento = (C 215 190 140)
+        TituloColor = (C 224 220 228); SubColor = (C 170 160 180)
+        BtnFondo = (C 36 22 40); BtnTexto = (C 226 222 230); BtnTextoHover = (C 255 255 255); BtnBorde = (C 125 112 130); BtnBordeAncho = 1
+        BtnHover = (C 110 90 58); BtnPress = (C 60 150 170); BarraBtnTexto = (C 226 222 230)
+        StatusColor = (C 226 222 230); Fuente = 'Consolas'; FuenteTitulo = 'Consolas'; Opacidad = 1.0; Velocidad = 1
+        Gif = 'skins\dune\retrato.png'; Arte = 'skins\dune\arte.png'; Arma = 'Rapid-fire revolver'; Hambre = $true; Agua = $true
+        Pb = @(410, 62, 190, 150); PbFondo = (C 26 14 30); PbBorde = $false
+        Burbuja = @(410, 232, 190, 64); BurFondo = (C 18 9 22); BurTexto = (C 236 226 204); BurFuente = 'Consolas'
+        IntroLineas = @(
+            '- Una extraña criatura acuática parecida a un insecto.'
+            '- Cuerpo flexible, agallas y camuflaje de arena.'
+            '- Ojos negros enormes y una boca todavía más grande.'
+            '- Mente simple. Solo le mueve el hambre.'
+            '- Habla como un cavernícola: "Ggrrgh.. Cueva.. Gris.."'
+            'Mucha habilidad, mucho peligro. No lo subestimes.'
+        )
+        IntroStats = @('Aim speed: {g}135%{b}   Move speed: {g}111%', 'Reload speed: {g}150%{b}   Health: {r}90')
+        IntroPie = @('{g}Crouch over corpses to eat them and heal', '{g}Breathes underwater  {r}Lowered health regen')
+        Hola = @('GRRGH. DUNE AQUÍ.', 'Hola. Dune. Hambre.', 'Ggrrgh... escritorio... gris...', 'DUNE VENIR. DUNE NADAR.')
+        AlVenirDe = @{
+            'c00lgui'     = 'ROJO RUIDOSO IRSE. BIEN.'
+            'SeaDrive'    = 'GATA RARA IRSE. DUNE OLER GATA TODAVÍA.'
+            'Static Miku' = 'CAJA RUIDO IRSE. CABEZA DUNE MEJOR.'
+            'Guillotina'  = 'GATA GORDA IRSE. GATA GORDA COMER TODO. DUNE TRISTE.'
+            'Angela'      = 'SEÑORA GRIS IRSE. DUNE NO ENTENDER SEÑORA GRIS.'
+            'Mikaela'     = 'CHICA PALO-QUE-HACE-BOOM IRSE.'
+            'Zodiac'      = 'VAQUERO IRSE. DESIERTO SECO. DUNE ODIAR SECO.'
+            'Velvet'      = 'ARAÑA IRSE. ARAÑA NUNCA COMPARTIR COMIDA.'
+        }
+        Yo = @('DUNE. ESE DUNE. DUNE GUAPO.', 'DUNE ELEGIR DUNE.')
+        Opina = @{
+            'c00lgui'     = @('CAJA ROJA HACER BIP. DUNE MORDER CAJA. NO SABER BIEN.', 'HACKER... ¿SE COME?')
+            'SeaDrive'    = @('GATA CON OREJAS RUIDO. ¿SE COME?', 'GATA HABLAR MUCHO. DUNE NO ENTENDER.')
+            'Static Miku' = @('CHICA COLETAS BRILLAR. DUNE GUSTAR BRILLO.', 'CAJA DE MIKU HACER ZZZZT. DUNE ASUSTAR.')
+            'Guillotina'  = @('GATA GORDA... MUCHA COMIDA. DUNE RESPETAR.', 'GATA GORDA COMER A DUNE UNA VEZ. DUNE SALIR.')
+            'Angela'      = @('SEÑORA MÁQUINA NO TENER CARNE. DUNE TRISTE.', 'SEÑORA GRIS MIRAR RARO.')
+            'Mikaela'     = @('CHICA VERDE HACER BOOM DESDE LEJOS. TRAMPOSA.', 'DUNE QUERER PALO DE CHICA VERDE.')
+            'Zodiac'      = @('VAQUERO DISPARAR AGUA. AGUA NO MORIR.', 'SOMBRERO DE VAQUERO PARECER COMIDA.')
+            'Velvet'      = @('ARAÑA LISTA. ARAÑA MALA. ARAÑA PRIMA.', 'ARAÑA JUGAR CON COMIDA. DUNE SOLO COMER.')
+        }
+        Frases = @('ÑAM.', 'GRRGH. HECHO.', 'DUNE ABRIR. DUNE LISTO.', 'BOTÓN... APRETAR... BIEN.')
+        Idle = @(
+            'Ggrrgh...'
+            'DUNE NADAR.'
+            'AGUA BUENA. SECO MALO.'
+            'DUNE TENER HAMBRE. SIEMPRE.'
+            'DUNE CONTAR DEDOS. UNO. DOS. MUCHOS.'
+            'CUEVA... GRIS... OSCURA...'
+            '¿TÚ COMESTIBLE? ...DUNE PREGUNTAR POR AMIGO.'
+            'DUNE OLVIDAR QUÉ HACER.'
+            'BURBUJA. BURBUJA BONITA.'
+            'DUNE TENER AGALLAS. LITERAL.'
+            'SI DUNE TENER HAMBRE, DAR CLIC A DUNE.'
+        )
+        Clic = @('ÑAM ÑAM. GRACIAS.', 'DUNE COMER. DUNE FELIZ.', 'MÁS. DUNE QUERER MÁS.', '*CHOMP* BIEN. BIEN.')
+        PorApp = @{
+            'YouTube'       = @('CAJA CON DIBUJOS QUE SE MUEVEN. DUNE MIRAR.')
+            'Word'          = @('MUCHAS LETRAS. DUNE NO LEER.')
+            'Excel'         = @('CUADRADOS. ¿CUADRADOS SE COMEN?')
+            'PowerPoint'    = @('DIBUJOS UNO DESPUÉS DE OTRO. MAGIA.')
+            'Outlook'       = @('CARTAS. DUNE COMER CARTAS.')
+            'OneNote'       = @('DUNE APUNTAR: HAMBRE.')
+            'Access'        = @('COSA DIFÍCIL. CABEZA DUNE DOLER.')
+            'Publisher'     = @('DUNE HACER DIBUJO. DIBUJO ES DUNE.')
+            'Teams'         = @('MUCHAS CARAS. MUCHA COMIDA.')
+            'OneDrive'      = @('NUBE. NUBE TENER AGUA. DUNE GUSTAR.')
+            'Office Web'    = @('INTERNET. DUNE NO SABER QUÉ ES.')
+            'Bloc de notas' = @('HOJA VACÍA. COMO ESTÓMAGO DE DUNE.')
+            'Calculadora'   = @('NÚMEROS. DUNE SABER UNO. Y DOS.')
+            'Explorador'    = @('DUNE BUSCAR CUEVA EN CARPETAS.')
+            'CMD'           = @('CUEVA NEGRA. DUNE GUSTAR CUEVA.')
         }
     }
 }
@@ -750,7 +940,79 @@ function Fondo-Papel($W, $H) {
     $b1.Dispose(); $b2.Dispose(); $g.Dispose()
     return $bmp
 }
-$script:bmpHex = $null; $script:bmpHexIntro = $null; $script:bmpPapel = $null
+function Fondo-Casa($W, $H) {
+    $bmp = New-Object System.Drawing.Bitmap($W, $H)
+    $g = [System.Drawing.Graphics]::FromImage($bmp); $g.SmoothingMode = 'AntiAlias'
+    # papel pintado a rayas con rombos
+    for ($x = 0; $x -lt $W; $x += 24) {
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 62 44 52))), $x, 0, 12, $H)
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 52 36 44))), ($x + 12), 0, 12, $H)
+    }
+    $orn = New-Object System.Drawing.SolidBrush((C 78 56 64))
+    for ($y = 70; $y -lt 270; $y += 30) { for ($x = 6; $x -lt $W; $x += 24) {
+        $o = if ((($y - 70) / 30) % 2) { 12 } else { 0 }
+        $g.FillPolygon($orn, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF(($x + $o), ($y - 5))), (New-Object System.Drawing.PointF(($x + $o + 4), $y)), (New-Object System.Drawing.PointF(($x + $o), ($y + 5))), (New-Object System.Drawing.PointF(($x + $o - 4), $y))))
+    } }
+    $orn.Dispose()
+    # zócalo y suelo de madera
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 34 24 26))), 0, 262, $W, 6)
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 92 60 40))), 0, 268, $W, ($H - 268))
+    $junta = New-Object System.Drawing.Pen((C 62 40 26), 1)
+    foreach ($y in @(282, 298, 314, 330)) { $g.DrawLine($junta, 0, $y, $W, $y) }
+    $r2 = New-Object System.Random(3)
+    foreach ($y in @(268, 282, 298, 314, 330)) { for ($x = $r2.Next(0, 80); $x -lt $W; $x += $r2.Next(70, 140)) { $g.DrawLine($junta, $x, $y, $x, ($y + 15)) } }
+    $junta.Dispose(); $g.Dispose()
+    return $bmp
+}
+function Fondo-Desierto($W, $H) {
+    $bmp = New-Object System.Drawing.Bitmap($W, $H)
+    $g = [System.Drawing.Graphics]::FromImage($bmp); $g.SmoothingMode = 'AntiAlias'
+    # cielo con tres tonos de atardecer
+    $cielo = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 56, $W, 212)), (C 0 0 0), (C 0 0 0), 90)
+    $mezcla = New-Object System.Drawing.Drawing2D.ColorBlend(3)
+    $mezcla.Colors = @((C 196 78 64), (C 242 140 66), (C 252 212 146)); $mezcla.Positions = @([float]0, [float]0.5, [float]1)
+    $cielo.InterpolationColors = $mezcla
+    $g.FillRectangle($cielo, 0, 56, $W, 212); $cielo.Dispose()
+    # sol con halo
+    foreach ($q in @(@(70, 40), @(50, 60), @(36, 90))) { $g.FillEllipse((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb($q[1], 255, 224, 150))), (525 - $q[0]), (196 - $q[0]), (2 * $q[0]), (2 * $q[0])) }
+    $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 255 236 160))), 497, 168, 56, 56)
+    # montañas lejanas y mesetas
+    $lej = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF(0, 240)), (New-Object System.Drawing.PointF(60, 214)), (New-Object System.Drawing.PointF(110, 228)), (New-Object System.Drawing.PointF(190, 200)), (New-Object System.Drawing.PointF(260, 226)), (New-Object System.Drawing.PointF(340, 206)), (New-Object System.Drawing.PointF(420, 230)), (New-Object System.Drawing.PointF(500, 210)), (New-Object System.Drawing.PointF(616, 232)), (New-Object System.Drawing.PointF(616, 270)), (New-Object System.Drawing.PointF(0, 270)))
+    $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 200 112 84))), $lej)
+    $mes = New-Object System.Drawing.SolidBrush((C 160 76 48))
+    $g.FillPolygon($mes, [System.Drawing.Point[]]@((New-Object System.Drawing.Point(0, 268)), (New-Object System.Drawing.Point(24, 238)), (New-Object System.Drawing.Point(140, 238)), (New-Object System.Drawing.Point(168, 268))))
+    $g.FillPolygon($mes, [System.Drawing.Point[]]@((New-Object System.Drawing.Point(390, 268)), (New-Object System.Drawing.Point(428, 230)), (New-Object System.Drawing.Point(548, 230)), (New-Object System.Drawing.Point(600, 268))))
+    $mes.Dispose()
+    # arena con granitos
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 232 192 126))), 0, 266, $W, ($H - 266))
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 214 170 104))), 0, 266, $W, 3)
+    $r2 = New-Object System.Random(11); $gr = New-Object System.Drawing.SolidBrush((C 206 160 96))
+    for ($i = 0; $i -lt 160; $i++) { $g.FillEllipse($gr, $r2.Next($W), $r2.Next(270, $H), 2, 2) }
+    $gr.Dispose()
+    # saguaros
+    $cac = New-Object System.Drawing.SolidBrush((C 66 108 56)); $bor = New-Object System.Drawing.Pen((C 40 70 34), 1.5)
+    foreach ($cx in @(48, 318)) {
+        foreach ($pz in @(@($cx, 270, 10, 34, 5), @(($cx - 10), 280, 8, 14, 4), @(($cx - 10), 290, 14, 6, 3), @(($cx + 12), 276, 8, 12, 4), @(($cx + 6), 286, 14, 6, 3))) {
+            $p = Ruta-Redonda $pz[0] $pz[1] $pz[2] $pz[3] $pz[4]; $g.FillPath($cac, $p); $g.DrawPath($bor, $p); $p.Dispose()
+        }
+    }
+    $cac.Dispose(); $bor.Dispose(); $g.Dispose()
+    return $bmp
+}
+# texto con colores: {r} rojo, {g} verde, {b} blanco
+function Texto-Marcado($g, $txt, $f, $x, $y) {
+    $cols = @{ r = (C 230 40 50); g = (C 40 220 60); b = (C 226 222 230) }
+    $col = $cols.b; $px = [float]$x
+    $sf = [System.Drawing.StringFormat]::GenericTypographic.Clone()
+    $sf.FormatFlags = $sf.FormatFlags -bor [System.Drawing.StringFormatFlags]::MeasureTrailingSpaces
+    foreach ($trozo in ([regex]::Split($txt, '(\{[rgb]\})'))) {
+        if ($trozo -match '^\{([rgb])\}$') { $col = $cols[$Matches[1]]; continue }
+        if (-not $trozo) { continue }
+        $g.DrawString($trozo, $f, (New-Object System.Drawing.SolidBrush($col)), $px, [float]$y, $sf)
+        $px += $g.MeasureString($trozo, $f, (New-Object System.Drawing.PointF(0, 0)), $sf).Width
+    }
+}
+$script:bmpHex = $null; $script:bmpHexIntro = $null; $script:bmpPapel = $null; $script:bmpCasa = $null; $script:bmpDesierto = $null
 
 # ================= DIÁLOGOS (máquina de escribir + boca de Angela) =================
 $script:twTexto = ''; $script:twPos = 0; $script:twTick = 0
@@ -939,6 +1201,60 @@ function Zodiac-Mover {
     if (Zodiac-Disparo) { Decir '¡NO TE MUEVAS! *BANG*' } else { Decir '¡NO TE MUEVAS! *click*... ¿sin balas? Qué vergüenza.' }
 }
 
+# ================= VELVET: TELARAÑAS =================
+$script:telarana = $null; $script:telas = 0
+$telTimer = New-Object System.Windows.Forms.Timer
+$telTimer.Interval = 25000
+$telTimer.Add_Tick({ $telTimer.Stop(); $script:telarana = $null; if ($script:grid) { foreach ($c in $script:grid.Controls) { $c.Invalidate() } } })
+function Velvet-Escupir {
+    $btns = @($script:grid.Controls | Where-Object { $_.Tag -is [hashtable] })
+    if ($btns.Count -eq 0) { return $false }
+    $b = $btns[$Rnd.Next($btns.Count)]
+    $script:telarana = $b.Tag; $script:telas++
+    foreach ($c in $script:grid.Controls) { $c.Invalidate() }
+    $telTimer.Stop(); $telTimer.Start()
+    $form.Invalidate()
+    return $b.Text
+}
+
+# ================= DUNE: HAMBRE =================
+$script:hambre = 0
+$hambreTimer = New-Object System.Windows.Forms.Timer
+$hambreTimer.Interval = 4000
+$hambreTimer.Add_Tick({
+    if (-not $script:skin.Hambre -or (Ocupado)) { return }
+    $antes = $script:hambre
+    $script:hambre = [Math]::Min(100, $script:hambre + 4)
+    if ($antes -lt 100 -and $script:hambre -ge 100 -and -not $script:discutiendo) { Decir 'GRRRGH... DUNE TENER HAMBRE... (haz clic en Dune para darle de comer)' }
+    $form.Invalidate()
+})
+function Dune-Comer {
+    $script:hambre = 0; $script:salto = 10
+    Decir (Azar $script:skin.Clic)
+    $form.Invalidate()
+}
+
+# ================= ANIMACIÓN DE FONDO (planta rodadora, agua de Dune) =================
+$script:fase = 0.0; $script:tumbX = -300; $script:salto = 0
+$ambTimer = New-Object System.Windows.Forms.Timer
+$ambTimer.Interval = 50
+$ambTimer.Add_Tick({
+    $k = $script:skin; $Z = $script:K
+    if ((Ocupado) -or -not $k) { return }
+    $script:fase += 0.14
+    if ($k.Estilo -eq 'oeste') {
+        $script:tumbX += 4
+        if ($script:tumbX -gt 680) { $script:tumbX = -60 - $Rnd.Next(0, 900) }
+        if ($script:tumbX -gt -40) { $form.Invalidate((New-Object System.Drawing.Rectangle(0, [int](262 * $Z), $form.ClientSize.Width, [int](50 * $Z)))) }
+    }
+    if ($k.Agua -and $script:pb) {
+        # Dune flota en el agua; da un saltito cuando come
+        $extra = 0; if ($script:salto -gt 0) { $script:salto--; $extra = - [Math]::Sin($script:salto / 10.0 * [Math]::PI) * 12 }
+        $script:pb.Top = [int](($k.Pb[1] + [Math]::Sin($script:fase) * 3 + $extra) * $Z)
+        $form.Invalidate((New-Object System.Drawing.Rectangle(0, [int](296 * $Z), $form.ClientSize.Width, [int](20 * $Z))))
+    }
+})
+
 # ================= DISCUSIONES ENTRE ASISTENTES =================
 # cada discusión es una lista de [quién, qué dice]. Solo salen las de la skin activa.
 $Discusiones = @(
@@ -959,6 +1275,14 @@ $Discusiones = @(
     , @(@('Zodiac', '¡Ese panel rojo parpadea! ¡Se mueve!'), @('c00lgui', 'se llama glitch, vaquero.'), @('Zodiac', '*BANG*'), @('c00lgui', '...vale, ese ha dolido.'))
     , @(@('Mikaela', 'Objetivo enorme a las doce. Fácil.'), @('Guillotina', '*Abre la boca de par en par.*'), @('Mikaela', 'Espera... ¿se va a comer la bala?'), @('Guillotina', '*ÑAM.*'))
     , @(@('c00lgui', 'hackeando la tele de Static Miku...'), @('Static Miku', '¡Hola, señor hacker! ¿Quieres ver dibujos?'), @('c00lgui', '...¿qué dibujos?'), @('Static Miku', '¡Todos! ¡Siéntate!'), @('c00lgui', '...vale. solo un episodio.'))
+    , @(@('Velvet', 'Dune, cariño, ¿otra vez comiendo sin jugar con la comida?'), @('Dune', 'COMIDA ES PARA COMER.'), @('Velvet', 'Qué poco refinado eres, primo.'), @('Dune', 'GRRGH. TÚ RARA.'))
+    , @(@('Velvet', 'SeaDrive, cielo, ¿vienes a mi telaraña a tomar el té?'), @('SeaDrive', 'No, gracias. Prefiero seguir vivo.'), @('Velvet', 'Qué desconfiado... me rompes el corazón.'), @('SeaDrive', 'Tienes ocho ojos y ninguno parece triste.'))
+    , @(@('Zodiac', '¡No te muevas, araña!'), @('Velvet', 'Cariño, yo nunca me muevo... hasta que es tarde.'), @('Zodiac', '...eso no me ha gustado nada.'), @('Velvet', 'Seis balas. Ocho patas. Haz cuentas, vaquero.'))
+    , @(@('Dune', 'GATA GORDA. ¿COMIDA?'), @('Guillotina', '*Le mira. Abre la boca.*'), @('Dune', 'NO. DUNE NO COMIDA. DUNE IRSE.'), @('Guillotina', '*Eructa satisfecha.*'))
+    , @(@('Angela', 'Espécimen acuático, vuelva a su tanque.'), @('Dune', '¿TANQUE TENER COMIDA?'), @('Angela', 'No.'), @('Dune', 'ENTONCES NO.'))
+    , @(@('Static Miku', '¡Hola, pececito! ¿Quieres ver dibujos?'), @('Dune', 'DIBUJOS... ¿SE COMEN?'), @('Static Miku', '¡No! ¡Se miran!'), @('Dune', 'DUNE MIRAR. DUNE ABURRIR. DUNE COMER TELE.'), @('Static Miku', '¡Bzzzzt! ¡Mi antena!'))
+    , @(@('Mikaela', 'Tengo tu cabeza en la mira, araña.'), @('Velvet', 'Qué halago, cielo. Nadie me mira tan fijamente.'), @('Mikaela', 'Eso... ha sido raro.'), @('Velvet', 'Ven a verme de cerca. Te prometo que no muerdo.'))
+    , @(@('c00lgui', 'hackeando a Dune...'), @('Dune', '¿QUÉ SER HACKEAR?'), @('c00lgui', 'error: no se encontró cerebro.'), @('Dune', 'GRRGH. DUNE OFENDIDO.'))
 )
 
 $script:discutiendo = $false; $script:dLineas = $null; $script:dIdx = 0; $script:dImg = $null; $script:dInvitadoHabla = $false
@@ -1023,6 +1347,11 @@ $idleTimer.Add_Tick({
         'mlg' {
             if ($r -lt 40) { Sonido 'humo'; $form.Opacity = 0.35; $humoTimer.Start(); Decir '*Smokebomb.* Ahora no me ves.' }
             elseif ($r -lt 52) { Cara 'clic' 2500; Decir '¡¿Un Terminator?! ...falsa alarma.' }
+            else { Decir (Azar $k.Idle) }
+        }
+        'gunsaw' {
+            if ($k.Telarana -and $r -lt 50 -and -not $script:telarana) { $presa = Velvet-Escupir; if ($presa) { Decir "*Escupe una telaraña sobre $presa.* Uy. Se me escapó, cielo." } }
+            elseif ($k.Hambre -and $r -lt 50) { Decir 'BLUB. BLUB. *Dune hace burbujas.*' }
             else { Decir (Azar $k.Idle) }
         }
         'oeste' {
@@ -1383,6 +1712,67 @@ function Transicion-Scope($final) {
     Intro-Overlay 51 $pintar $alTick $final
 }
 
+# --- pantalla de selección de personaje de Gunsaw (Velvet y Dune) ---
+function Transicion-Gunsaw($final) {
+    $script:gaArte = Cargar-Img $script:skin.Arte
+    $script:iRecursos = @($script:gaArte)
+    $pintar = {
+        param($g, $W, $H, $p)
+        $k = $script:skin
+        $g.Clear((C 24 13 28)); $g.SmoothingMode = 'AntiAlias'; $g.TextRenderingHint = 'AntiAlias'
+        $lin = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(18, 255, 255, 255), 1)
+        for ($y = 0; $y -lt $H; $y += 3) { $g.DrawLine($lin, 0, $y, $W, $y) }
+        $lin.Dispose()
+        $blanco = New-Object System.Drawing.SolidBrush((C 222 218 226)); $gris = New-Object System.Drawing.Pen((C 125 112 130), 1)
+        if ($p -ge 2) { $g.DrawString('A-D to switch characters', (FntP('Consolas', 9, [System.Drawing.FontStyle]::Bold)), $blanco, 214, 6) }
+        $n = [Math]::Min($k.Titulo.Length, [Math]::Max(0, $p - 3))
+        $g.DrawString($k.Titulo.Substring(0, $n), (FntP('Consolas', 28, [System.Drawing.FontStyle]::Bold)), $blanco, 14, 10)
+        if ($p -ge 8) { $g.DrawString('14/14 species unlocked', (FntP('Consolas', 9)), (New-Object System.Drawing.SolidBrush((C 190 184 196))), 18, 58) }
+        if ($p -ge 4 -and $script:gaArte -and -not ($p -lt 16 -and $Rnd.Next(4) -eq 0)) {
+            $x = 380 + [Math]::Max(0, 12 - $p) * 18
+            $g.DrawImage($script:gaArte, [int]$x, 8, 226, 270)
+        }
+        if ($p -ge 10) {
+            $g.DrawString('Character', (FntP('Consolas', 11, [System.Drawing.FontStyle]::Bold)), $blanco, 16, 84)
+            $g.DrawRectangle($gris, 16, 104, 354, 118)
+            $quedan = ($p - 10) * 7; $y = 110
+            foreach ($l in $k.IntroLineas) {
+                if ($quedan -le 0) { break }
+                $t = $l.Substring(0, [Math]::Min($l.Length, $quedan)); $quedan -= $l.Length
+                $g.DrawString($t, (FntP('Consolas', 7.5)), $blanco, 22, $y); $y += 18
+            }
+        }
+        if ($p -ge 30) {
+            $g.DrawString('Gameplay', (FntP('Consolas', 11, [System.Drawing.FontStyle]::Bold)), $blanco, 16, 226)
+            $g.DrawRectangle($gris, 16, 246, 262, 52)
+            $y = 250; foreach ($l in $k.IntroStats) { Texto-Marcado $g $l (FntP('Consolas', 7.5, [System.Drawing.FontStyle]::Bold)) 22 $y; $y += 12 }
+            foreach ($l in $k.IntroPie) { Texto-Marcado $g $l (FntP('Consolas', 7.5, [System.Drawing.FontStyle]::Bold)) 22 $y; $y += 12 }
+            $g.DrawRectangle($gris, 284, 246, 86, 52)
+            $fmt = New-Object System.Drawing.StringFormat; $fmt.Alignment = 'Center'
+            $g.DrawString("Starting weapon:`n$($k.Arma)", (FntP('Consolas', 7, [System.Drawing.FontStyle]::Bold)), $blanco, (New-Object System.Drawing.RectangleF(284, 252, 86, 44)), $fmt)
+        }
+        if ($p -ge 40 -and ($p % 6) -lt 4) {
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 40 28 44))), ($W - 150), ($H - 36), 136, 24)
+            $g.DrawRectangle($gris, ($W - 150), ($H - 36), 136, 24)
+            $g.DrawString('BACK TO LEVEL', (FntP('Consolas', 10, [System.Drawing.FontStyle]::Bold)), $blanco, ($W - 142), ($H - 33))
+        }
+        $marco = Ruta-Redonda 2 2 ($W - 4) ($H - 4) 26
+        $g.DrawPath((New-Object System.Drawing.Pen((C 10 4 12), 6)), $marco); $marco.Dispose()
+        $gris.Dispose(); $blanco.Dispose()
+    }
+    # al final el monitor "se apaga" hasta quedar en una línea y un punto
+    $alTick = {
+        param($ov, $p)
+        if ($p -gt 50) {
+            $W = $ov.Width; $H = $ov.Height
+            if ($p -ge 57) { $rc = New-Object System.Drawing.Rectangle([int]($W / 2 - 8), [int]($H / 2 - 3), 16, 6) }
+            else { $alto = [Math]::Max(4, [int]($H * (1 - ($p - 50) / 7.0))); $rc = New-Object System.Drawing.Rectangle(0, [int](($H - $alto) / 2), $W, $alto) }
+            $viejo = $ov.Region; $ov.Region = New-Object System.Drawing.Region($rc); if ($viejo) { $viejo.Dispose() }
+        }
+    }
+    Intro-Overlay 60 $pintar $alTick $final
+}
+
 # --- cartel de SE BUSCA de Zodiac ---
 function Transicion-Wanted($final) {
     $script:wpImg = Cargar-Img $script:skin.Cartel
@@ -1464,7 +1854,76 @@ function Nuevo-Boton($texto, $x, $y, $w, $h) {
     $b.Font = Fnt($k.Fuente, $tam, $estilo)
     $b.Cursor = 'Hand'
     $b.TabStop = $false
+    # algunas skins dibujan sus propios botones (madera, papel, telarañas...)
+    $b.Add_Paint({ Pintar-Boton $_.Graphics $this })
+    $b.Add_MouseEnter({ $this.Invalidate() }); $b.Add_MouseLeave({ $this.Invalidate() })
     return $b
+}
+
+function Ruta-Redonda($x, $y, $w, $h, $r) {
+    $p = New-Object System.Drawing.Drawing2D.GraphicsPath
+    $p.AddArc([float]$x, [float]$y, [float]$r, [float]$r, 180, 90); $p.AddArc([float]($x + $w - $r), [float]$y, [float]$r, [float]$r, 270, 90)
+    $p.AddArc([float]($x + $w - $r), [float]($y + $h - $r), [float]$r, [float]$r, 0, 90); $p.AddArc([float]$x, [float]($y + $h - $r), [float]$r, [float]$r, 90, 90)
+    $p.CloseFigure(); return $p
+}
+
+function Dibujar-Telarana($g, $W, $H) {
+    $g.SmoothingMode = 'AntiAlias'
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(55, 255, 255, 255))), 0, 0, $W, $H)
+    $seda = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(215, 245, 245, 250), [float](1.2 * $script:K))
+    $cx = $W / 2; $cy = $H / 2; $n = 10
+    $rad = @(); for ($i = 0; $i -lt $n; $i++) { $a = 2 * [Math]::PI * $i / $n; $rad += , @([Math]::Cos($a), [Math]::Sin($a)) }
+    foreach ($d in $rad) { $g.DrawLine($seda, [float]$cx, [float]$cy, [float]($cx + $d[0] * $W * 0.62), [float]($cy + $d[1] * $H * 0.9)) }
+    foreach ($f in @(0.25, 0.5, 0.78)) {
+        $pts = New-Object 'System.Drawing.PointF[]' $n
+        for ($i = 0; $i -lt $n; $i++) { $pts[$i] = New-Object System.Drawing.PointF([float]($cx + $rad[$i][0] * $W * 0.62 * $f), [float]($cy + $rad[$i][1] * $H * 0.9 * $f)) }
+        $g.DrawPolygon($seda, $pts)
+    }
+    $seda.Dispose()
+}
+
+function Pintar-Boton($g, $b) {
+    $k = $script:skin; $W = $b.Width; $H = $b.Height; $Z = $script:K
+    $hover = $b.ClientRectangle.Contains($b.PointToClient([System.Windows.Forms.Cursor]::Position))
+    $fmt = New-Object System.Drawing.StringFormat; $fmt.Alignment = 'Center'; $fmt.LineAlignment = 'Center'
+    $rect = New-Object System.Drawing.RectangleF(0, 0, $W, $H)
+    switch ($k.Estilo) {
+        'oeste' {
+            # cartel de madera con vetas y clavos
+            $g.SmoothingMode = 'AntiAlias'
+            $c1 = if ($hover) { (C 190 126 66) } else { (C 150 96 50) }; $c2 = if ($hover) { (C 150 96 48) } else { (C 110 66 32) }
+            $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 0, $W, $H)), $c1, $c2, 90)
+            $g.FillRectangle($br, 0, 0, $W, $H); $br.Dispose()
+            $veta = New-Object System.Drawing.Pen((C 92 56 28), [float](1 * $Z))
+            foreach ($f in @(0.26, 0.5, 0.76)) { $y = [float]($H * $f); $g.DrawBezier($veta, [float](4 * $Z), $y, [float]($W * 0.3), [float]($y - 3 * $Z), [float]($W * 0.62), [float]($y + 3 * $Z), [float]($W - 4 * $Z), $y) }
+            $veta.Dispose()
+            $g.DrawRectangle((New-Object System.Drawing.Pen((C 48 26 10), [float](2 * $Z))), [float]$Z, [float]$Z, [float]($W - 2 * $Z), [float]($H - 2 * $Z))
+            foreach ($nx in @((7 * $Z), ($W - 7 * $Z))) {
+                $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 60 58 62))), [float]($nx - 2.5 * $Z), [float]($H / 2 - 2.5 * $Z), [float](5 * $Z), [float](5 * $Z))
+                $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 170 170 175))), [float]($nx - 1.2 * $Z), [float]($H / 2 - 1.6 * $Z), [float](1.6 * $Z), [float](1.6 * $Z))
+            }
+            $sombra = New-Object System.Drawing.RectangleF([float](1.5 * $Z), [float](1.5 * $Z), $W, $H)
+            $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((C 50 28 12))), $sombra, $fmt)
+            $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((C 252 238 205))), $rect, $fmt)
+        }
+        'mew' {
+            # tarjeta de papel con borde de tinta irregular y sombra
+            $g.SmoothingMode = 'AntiAlias'
+            $g.Clear((C 46 33 40))
+            $r = New-Object System.Random([Math]::Abs($b.Text.GetHashCode()) % 9973)
+            $j = { [float](($r.NextDouble() - 0.5) * 3 * $Z) }
+            $x1 = 2 * $Z; $y1 = 2 * $Z; $x2 = $W - 5 * $Z; $y2 = $H - 5 * $Z
+            $pts = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]($x1 + (& $j)), [float]($y1 + (& $j)))), (New-Object System.Drawing.PointF([float]($x2 + (& $j)), [float]($y1 + (& $j)))), (New-Object System.Drawing.PointF([float]($x2 + (& $j)), [float]($y2 + (& $j)))), (New-Object System.Drawing.PointF([float]($x1 + (& $j)), [float]($y2 + (& $j)))))
+            $somb = [System.Drawing.PointF[]]@($pts | ForEach-Object { New-Object System.Drawing.PointF(($_.X + 3 * $Z), ($_.Y + 3 * $Z)) })
+            $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 18 10 12))), $somb)
+            $papel = if ($hover) { (C 228 96 72) } else { (C 246 236 210) }
+            $g.FillPolygon((New-Object System.Drawing.SolidBrush($papel)), $pts)
+            $tinta = New-Object System.Drawing.Pen((C 20 14 16), [float](2.5 * $Z)); $tinta.LineJoin = 'Round'
+            $g.DrawPolygon($tinta, $pts); $tinta.Dispose()
+            $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((C 25 18 20))), (New-Object System.Drawing.RectangleF(0, 0, ($W - 3 * $Z), ($H - 3 * $Z))), $fmt)
+        }
+    }
+    if ($script:telarana -and $b.Tag -is [hashtable] -and [object]::ReferenceEquals($b.Tag, $script:telarana)) { Dibujar-Telarana $g $W $H }
 }
 
 function Hover-Color($b) {
@@ -1475,6 +1934,13 @@ function Hover-Color($b) {
 
 function Lanzar($item) {
     $k = $script:skin
+    # Velvet: si el botón está atrapado en una telaraña, el primer clic la rompe
+    if ($script:telarana -and [object]::ReferenceEquals($script:telarana, $item)) {
+        $script:telarana = $null; $telTimer.Stop()
+        foreach ($c in $script:grid.Controls) { $c.Invalidate() }
+        Decir '*Rompes la telaraña.* Qué fuerte eres, cielo... vuelve a pulsar para abrirlo.'
+        return
+    }
     $linea = Azar $k.PorApp[$item.Nombre]
     if (-not $linea) { $linea = Azar $k.Frases }
     try {
@@ -1499,6 +1965,12 @@ function Lanzar($item) {
             }
             'oeste' {
                 if (Zodiac-Disparo) { Decir $linea } else { Decir '*click* ...*click* ¡Sin balas! Haz clic en Zodiac para recargar.' }
+            }
+            'gunsaw' {
+                if ($k.Hambre) {
+                    $script:hambre = [Math]::Min(100, $script:hambre + 6); $form.Invalidate()
+                    if ($script:hambre -ge 100) { Decir "DUNE COMER $($item.Nombre.ToUpper()). ÑAM. (tranquilo, se ha abierto igual)" } else { Decir $linea }
+                } else { Decir $linea }
             }
             default { Decir $linea }
         }
@@ -1531,7 +2003,7 @@ function Lanzar($item) {
 function Mostrar-Pagina {
     $grid.Controls.Clear()
     $script:bi = 0
-    $hacker = $script:skin.Estilo -in @('hacker', 'lobo', 'mlg')
+    $hacker = $script:skin.Estilo -in @('hacker', 'lobo', 'mlg', 'gunsaw')
     if ($script:modoSkins) {
         $i = 0
         foreach ($n in $Skins.Keys) {
@@ -1570,6 +2042,7 @@ function Efecto-Entrada($prev) {
         'lobo' { Transicion-Lobo $msg }
         'mlg' { Transicion-Scope $msg }
         'oeste' { Transicion-Wanted $msg }
+        'gunsaw' { Transicion-Gunsaw $msg }
     }
 }
 
@@ -1646,25 +2119,70 @@ $form.Add_Paint({
         }
         'mew' {
             $g.SmoothingMode = 'AntiAlias'
-            if (-not $script:bmpPapel) { $script:bmpPapel = Fondo-Papel 616 344 }
-            $g.DrawImage($script:bmpPapel, 0, 0, 616, 344)
+            # la casa de la colina: papel pintado, suelo de madera y foco sobre Guillotina
+            if (-not $script:bmpCasa) { $script:bmpCasa = Fondo-Casa 616 344 }
+            $g.DrawImage($script:bmpCasa, 0, 0, 616, 344)
+            $luz = New-Object System.Drawing.Drawing2D.GraphicsPath; $luz.AddEllipse(380, 70, 250, 190)
+            $pg = New-Object System.Drawing.Drawing2D.PathGradientBrush($luz)
+            $pg.CenterColor = [System.Drawing.Color]::FromArgb(120, 255, 226, 170); $pg.SurroundColors = @([System.Drawing.Color]::FromArgb(0, 255, 226, 170))
+            $g.FillPath($pg, $luz); $pg.Dispose(); $luz.Dispose()
             # barra de tinta con arañazos
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 36 30 32))), 0, 0, $W, 52)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 28 21 24))), 0, 0, $W, 52)
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 170 40 35))), 0, 52, $W, 4)
-            $ar = New-Object System.Drawing.Pen((C 120 105 95), 3); $ar.StartCap = 'Round'; $ar.EndCap = 'Round'
-            for ($i = 0; $i -lt 3; $i++) { $g.DrawLine($ar, (400 + $i * 12), 10, (388 + $i * 12), 42) }
+            $ar = New-Object System.Drawing.Pen((C 150 60 50), 3); $ar.StartCap = 'Round'; $ar.EndCap = 'Round'
+            for ($i = 0; $i -lt 3; $i++) { $g.DrawLine($ar, (402 + $i * 12), 10, (390 + $i * 12), 42) }
             $ar.Dispose()
-            # barra de vida del jefe
-            $hx = 410; $hy = 62; $hw = 190; $hh = 18
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 60 22 22))), $hx, $hy, $hw, $hh)
+            # barra de vida del jefe con calavera
+            $placa = Ruta-Redonda 405 58 200 26 10
+            $g.FillPath((New-Object System.Drawing.SolidBrush((C 24 18 20))), $placa); $g.DrawPath((New-Object System.Drawing.Pen((C 120 40 35), 2)), $placa); $placa.Dispose()
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 240 228 200))), 409, 60, 22, 22)
+            $g.FillEllipse([System.Drawing.Brushes]::Black, 414, 67, 5, 6); $g.FillEllipse([System.Drawing.Brushes]::Black, 421, 67, 5, 6)
+            $g.FillRectangle([System.Drawing.Brushes]::Black, 417, 76, 6, 2)
+            $hx = 436; $hy = 63; $hw = 164; $hh = 16
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 70 22 22))), $hx, $hy, $hw, $hh)
             $frac = if ($script:gMax -gt 0) { [Math]::Max(0, $script:gHP) / $script:gMax } else { 0 }
-            $colVida = if ($script:gFase2) { (C 230 60 30) } else { (C 190 35 35) }
+            $colVida = if ($script:gFase2) { (C 240 90 30) } else { (C 200 35 35) }
             $g.FillRectangle((New-Object System.Drawing.SolidBrush($colVida)), $hx, $hy, [int]($hw * $frac), $hh)
-            $g.DrawRectangle((New-Object System.Drawing.Pen((C 25 20 22), 2)), $hx, $hy, $hw, $hh)
-            $etq = if ($script:gVivo) { "GUILLOTINA   $($script:gHP)/$($script:gMax)" } else { 'GUILLOTINA   DERROTADA' }
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(60, 255, 255, 255))), $hx, $hy, [int]($hw * $frac), 5)
+            $g.DrawRectangle((New-Object System.Drawing.Pen([System.Drawing.Color]::Black, 2)), $hx, $hy, $hw, $hh)
+            $etq = if (-not $script:gVivo) { 'DERROTADA' } elseif ($script:gFase2) { "¡FURIOSA!  $($script:gHP)/$($script:gMax)" } else { "$($script:gHP)/$($script:gMax)" }
             $fmt = New-Object System.Drawing.StringFormat; $fmt.Alignment = 'Center'; $fmt.LineAlignment = 'Center'
             $g.DrawString($etq, (FntP('Impact', 9)), [System.Drawing.Brushes]::White, (New-Object System.Drawing.RectangleF($hx, $hy, $hw, $hh)), $fmt)
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 36 30 32))), 0, $H - 8, $W, 8)
+        }
+        'gunsaw' {
+            # pantalla CRT morada del menú de personajes de Gunsaw
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush($k.Fondo)), 0, 0, $W, $H)
+            $lin = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(16, 255, 255, 255), 1)
+            for ($y = 0; $y -lt $H; $y += 3) { $g.DrawLine($lin, 0, $y, $W, $y) }
+            $lin.Dispose()
+            $g.SmoothingMode = 'AntiAlias'
+            $gris = New-Object System.Drawing.Pen((C 125 112 130), 1)
+            $g.DrawString('A-D to switch skins', (FntP('Consolas', 8, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 200 195 205))), 300, 6)
+            $g.DrawLine($gris, 12, 56, ($W - 12), 56)
+            $g.DrawRectangle($gris, 409, 61, 191, 151)
+            $g.DrawString('Character', (FntP('Consolas', 9, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 205 200 210))), 408, 215)
+            # caja de estadísticas
+            $g.DrawRectangle($gris, 16, 276, 376, 24)
+            if ($k.Hambre) {
+                Texto-Marcado $g "Aim {g}135%{b}  Health {r}90{b}  HAMBRE" (FntP('Consolas', 8.5, [System.Drawing.FontStyle]::Bold)) 22 281
+                $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 50 36 28))), 248, 282, 136, 12)
+                $colH = if ($script:hambre -ge 100) { (C 230 40 40) } else { $k.Acento }
+                $g.FillRectangle((New-Object System.Drawing.SolidBrush($colH)), 248, 282, [int](136 * $script:hambre / 100), 12)
+                $g.DrawRectangle($gris, 248, 282, 136, 12)
+            } else {
+                Texto-Marcado $g "Aim {r}90%{b}  Move {r}93%{b}  Health {g}120{b}  Telarañas: {r}$($script:telas)" (FntP('Consolas', 8.5, [System.Drawing.FontStyle]::Bold)) 22 281
+            }
+            $gris.Dispose()
+            if ($k.Agua) {
+                # agua con olas animadas bajo Dune
+                $pts = New-Object System.Collections.ArrayList
+                for ($x = 0; $x -le $W; $x += 8) { [void]$pts.Add((New-Object System.Drawing.PointF($x, [float](304 + [Math]::Sin($x / 26.0 + $script:fase) * 3)))) }
+                [void]$pts.Add((New-Object System.Drawing.PointF($W, $H))); [void]$pts.Add((New-Object System.Drawing.PointF(0, $H)))
+                $g.FillPolygon((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(170, 60, 150, 170))), [System.Drawing.PointF[]]$pts.ToArray())
+            }
+            # marco redondeado del monitor
+            $marco = Ruta-Redonda 2 2 ($W - 4) ($H - 4) 26
+            $g.DrawPath((New-Object System.Drawing.Pen((C 10 4 12), 6)), $marco); $marco.Dispose()
         }
         'lobo' {
             if (-not $script:bmpHex) { $script:bmpHex = Fondo-Hexagonos 616 344 (C 30 38 48) }
@@ -1711,34 +2229,37 @@ $form.Add_Paint({
         }
         'oeste' {
             $g.SmoothingMode = 'AntiAlias'
-            # cielo del atardecer, sol, mesetas y arena
-            $cielo = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 52, $W, ($H - 52))), (C 238 128 62), (C 250 214 150), 90)
-            $g.FillRectangle($cielo, 0, 52, $W, ($H - 52)); $cielo.Dispose()
-            $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 255 226 130))), 470, 150, 110, 110)
-            $meseta = New-Object System.Drawing.SolidBrush((C 176 92 52))
-            $g.FillPolygon($meseta, [System.Drawing.Point[]]@((New-Object System.Drawing.Point(0, 270)), (New-Object System.Drawing.Point(30, 236)), (New-Object System.Drawing.Point(150, 236)), (New-Object System.Drawing.Point(180, 270))))
-            $g.FillPolygon($meseta, [System.Drawing.Point[]]@((New-Object System.Drawing.Point(380, 270)), (New-Object System.Drawing.Point(420, 226)), (New-Object System.Drawing.Point(560, 226)), (New-Object System.Drawing.Point(616, 270))))
-            $meseta.Dispose()
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 226 186 120))), 0, 268, $W, ($H - 268))
-            # cactus
-            $cac = New-Object System.Drawing.SolidBrush((C 62 98 52))
-            foreach ($cx in @(60, 330)) {
-                $g.FillRectangle($cac, $cx, 276, 8, 26); $g.FillRectangle($cac, ($cx - 8), 282, 8, 4); $g.FillRectangle($cac, ($cx - 8), 274, 4, 10)
-                $g.FillRectangle($cac, ($cx + 8), 286, 8, 4); $g.FillRectangle($cac, ($cx + 12), 278, 4, 10)
+            if (-not $script:bmpDesierto) { $script:bmpDesierto = Fondo-Desierto 616 344 }
+            $g.DrawImage($script:bmpDesierto, 0, 0, 616, 344)
+            # planta rodadora cruzando el desierto
+            if ($script:tumbX -gt -40 -and $script:tumbX -lt ($W + 40)) {
+                $st = $g.Save()
+                $g.TranslateTransform([float]$script:tumbX, [float](292 - [Math]::Abs([Math]::Sin($script:tumbX / 30.0)) * 8)); $g.RotateTransform([float]($script:tumbX * 4))
+                $rama = New-Object System.Drawing.Pen((C 128 88 44), 1.6)
+                foreach ($a in @(0, 45, 90, 135)) { $g.RotateTransform(45); $g.DrawEllipse($rama, -12, -9, 24, 18) }
+                $g.DrawEllipse((New-Object System.Drawing.Pen((C 100 66 32), 2)), -11, -11, 22, 22)
+                $rama.Dispose(); $g.Restore($st)
             }
-            $cac.Dispose()
-            # barra de madera
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 82 48 26))), 0, 0, $W, 52)
-            $tabla = New-Object System.Drawing.Pen((C 64 36 18), 1)
-            foreach ($y in @(13, 26, 39)) { $g.DrawLine($tabla, 0, $y, $W, $y) }
+            # barra de madera del saloon
+            $mad = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 0, $W, 52)), (C 104 62 32), (C 72 40 20), 90)
+            $g.FillRectangle($mad, 0, 0, $W, 52); $mad.Dispose()
+            $tabla = New-Object System.Drawing.Pen((C 56 30 14), 1)
+            foreach ($y in @(17, 35)) { $g.DrawLine($tabla, 0, $y, $W, $y) }
+            foreach ($x in @(150, 330, 470)) { $g.DrawLine($tabla, $x, 0, $x, 17); $g.DrawLine($tabla, ($x - 60), 17, ($x - 60), 35); $g.DrawLine($tabla, ($x + 40), 35, ($x + 40), 52) }
             $tabla.Dispose()
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 40 22 10))), 0, 52, $W, 4)
-            # tambor del revólver: 6 balas
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 36 18 8))), 0, 52, $W, 4)
+            # cartuchos del revólver: 6 balas
             for ($i = 0; $i -lt 6; $i++) {
-                $bx = 420 + $i * 30; $by = 214
-                $cb = if ($i -lt $script:balas) { (C 215 170 60) } else { (C 70 50 35) }
-                $g.FillEllipse((New-Object System.Drawing.SolidBrush($cb)), $bx, $by, 18, 18)
-                $g.DrawEllipse((New-Object System.Drawing.Pen((C 40 22 10), 2)), $bx, $by, 18, 18)
+                $bx = 422 + $i * 30; $by = 213
+                if ($i -lt $script:balas) {
+                    $vaina = Ruta-Redonda $bx ($by + 6) 14 16 4
+                    $g.FillPath((New-Object System.Drawing.SolidBrush((C 222 178 70))), $vaina); $g.DrawPath((New-Object System.Drawing.Pen((C 90 60 20), 1.5)), $vaina); $vaina.Dispose()
+                    $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 196 110 62))), $bx, $by, 14, 12)
+                    $g.DrawEllipse((New-Object System.Drawing.Pen((C 90 50 25), 1.5)), $bx, $by, 14, 12)
+                    $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(110, 255, 255, 255))), ($bx + 3), ($by + 8), 3, 12)
+                } else {
+                    $g.DrawEllipse((New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(160, 70, 40, 20), 2)), ($bx + 1), ($by + 6), 12, 12)
+                }
             }
         }
         default {
@@ -1797,6 +2318,7 @@ function Construir-UI {
     $script:gHP = 400; $script:gMax = 400; $script:gFase2 = $false; $script:gVivo = $true
     $snTimer.Stop(); $fxTimer.Stop(); $humoTimer.Stop(); $script:snApuntando = $false; $script:hits.Clear(); $script:flash = 0
     $script:balas = 6
+    $script:telarana = $null; $telTimer.Stop(); $script:hambre = 0; $script:salto = 0
     $form.Controls.Clear()
 
     $T = if ($k.Top) { $k.Top } else { 0 }
@@ -1858,7 +2380,7 @@ function Construir-UI {
     $script:status = New-Object System.Windows.Forms.Label
     $status.ForeColor = $k.StatusColor
     $form.Controls.AddRange(@($bSkins, $bMin, $bCerrar, $grid, $bAnt, $lblPag, $bSig, $status))
-    if ($k.Estilo -in @('hacker', 'lobo', 'mlg')) { foreach ($b in @($bSkins, $bMin, $bCerrar, $bAnt, $bSig)) { Hover-Color $b } }
+    if ($k.Estilo -in @('hacker', 'lobo', 'mlg', 'gunsaw')) { foreach ($b in @($bSkins, $bMin, $bCerrar, $bAnt, $bSig)) { Hover-Color $b } }
 
     if ($k.Estilo -eq 'web') {
         $candado = New-Object System.Windows.Forms.Label
@@ -1896,6 +2418,12 @@ function Construir-UI {
                 'tele' { Cara 'clic' 3000; Decir (Azar $k.Clic) }
                 'mew' { Golpe-Guillotina }
                 'mlg' { }   # Mikaela dispara al soltar el ratón (Snipe)
+                'gunsaw' {
+                    if ($k.Telarana) {
+                        $presa = Velvet-Escupir
+                        if ($presa) { Decir "$(Azar $k.Clic) ($presa ha quedado atrapado)" }
+                    } elseif ($k.Hambre) { Dune-Comer }
+                }
                 'oeste' {
                     if ($script:balas -lt 6) {
                         $script:balas = 6; Cara 'recarga' 1500; Sonido 'loco'
@@ -1959,7 +2487,7 @@ function Construir-UI {
 
 Construir-UI
 $form.Add_Shown({
-    $twTimer.Start(); $idleTimer.Start()
+    $twTimer.Start(); $idleTimer.Start(); $ambTimer.Start(); $hambreTimer.Start()
     Efecto-Entrada $null
 })
 [void]$form.ShowDialog()

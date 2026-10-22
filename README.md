@@ -1,7 +1,7 @@
 # c00lgui v3 – panel lanzador con skins de asistentes
 
 Panel para Windows que abre YouTube, las apps de Office y otros programas con un clic.
-Tiene siete skins, cada una con su propio estilo, animaciones y diálogos:
+Tiene nueve skins, cada una con su propio estilo, animaciones y diálogos:
 
 | Skin | Estilo | Efecto al entrar |
 |---|---|---|
@@ -12,6 +12,8 @@ Tiene siete skins, cada una con su propio estilo, animaciones y diálogos:
 | **Angela** | IA de Lobotomy Corporation, con la interfaz de L Corp | Inicio de jornada: "Face the Fear, Build the Future" y el día |
 | **Mikaela** | Francotiradora de PURSUITCORE, estilo MLG | Mira del francotirador, disparo y hitmarker |
 | **Zodiac** | Pistolero loco del desierto de Mewgenics | Cartel de WANTED con "DON'T MOVE!" y balazos |
+| **Velvet** | Araña de Gunsaw, en la pantalla CRT del juego | Pantalla de selección de personaje que se apaga como un monitor viejo |
+| **Dune** | Criatura acuática de Gunsaw que habla como un cavernícola | Igual, con su ficha y sus estadísticas |
 
 Cada skin opina de las demás. Pasa el ratón por los botones del menú **Skins** para oír lo que piensa el asistente de cada una. De vez en cuando, además, **discuten entre ellos**: el otro personaje se cuela en el panel para responder.
 
@@ -38,6 +40,8 @@ No hace falta instalar nada: funciona con PowerShell, que ya viene con Windows 1
   - **Angela:** cada app que abres suma a la cuota de energía del día.
   - **Mikaela:** mantén pulsado sobre ella para cargar el Snipe y suelta para disparar (2 s: cargado, 6 s: sobrecargado).
   - **Zodiac:** gasta una bala con cada app y si mueves la ventana. Haz clic en él para recargar.
+  - **Velvet:** haz clic en ella y escupe una telaraña sobre un botón. El primer clic en ese botón rompe la telaraña.
+  - **Dune:** le entra hambre con el tiempo y con cada app que abres. Haz clic en él para darle de comer.
 
 ## Añadir tus propios botones
 
@@ -59,5 +63,7 @@ Las frases de cada asistente están en la sección `SKINS` del mismo archivo.
 
 - **Mikaela:** personaje de *PURSUITCORE* (Roblox). Imágenes y sonidos de la [wiki de PURSUITCORE](https://pursuitcore.miraheze.org/wiki/Mikaela).
 - **Zodiac:** jefe de *Mewgenics*. Imágenes y sonidos de la [wiki de Mewgenics](https://mewgenics.wiki.gg/wiki/Zodiac).
+
+- **Velvet y Dune:** personajes de *Gunsaw* (Orsoniks). Imágenes de la [wiki de Casualties: Unknown](https://scavprototype.wiki.gg/wiki/Gunsaw).
 
 Proyecto de fans sin ánimo de lucro. Los personajes pertenecen a sus autores.
