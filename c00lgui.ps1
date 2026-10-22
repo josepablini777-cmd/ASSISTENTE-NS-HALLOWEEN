@@ -53,6 +53,8 @@ $Skins = [ordered]@{
             'Static Miku' = '> TV signal hijacked. c00lgui online.'
             'Guillotina'  = '> survived the fat cat. c00lgui online.'
             'Angela'      = '> escaped the L Corp facility. c00lgui online.'
+            'Mikaela'     = '> sniper left the server. c00lgui online.'
+            'Zodiac'      = '> dodged six bullets. c00lgui online.'
         }
         Yo = @('> c00lgui: still the best. no debate.', '> that one is me. obviously.')
         Opina = @{
@@ -60,6 +62,8 @@ $Skins = [ordered]@{
             'Static Miku' = @('> Static Miku keeps jamming my signal. respect.', '> tried to hack her TV. it hacked me back.')
             'Guillotina'  = @('> Guillotina ate my firewall. literally.', '> do NOT let the fat cat near the server room.')
             'Angela'      = @('> Angela is the only AI I can''t breach. yet.', '> L Corp security is... actually good. scary.')
+            'Mikaela'     = @('> Mikaela''s aim looks like aimbot. it''s just skill. scary.', '> tried to hack her rifle. it''s not even a computer.')
+            'Zodiac'      = @('> Zodiac shot my mouse cursor. twice.', '> cowboy.exe detected. threat level: chaotic.')
         }
         Frases = @(
             '> payload delivered.'
@@ -125,6 +129,8 @@ $Skins = [ordered]@{
             'Static Miku' = 'Uf, cuánto color. Tranquilo, aquí todo es aburrido.'
             'Guillotina'  = 'Se fue la gata gorda. Por fin. Oía su estómago desde aquí.'
             'Angela'      = 'Bienvenido a una empresa normal. Sin monstruos. Bueno, estoy yo.'
+            'Mikaela'     = 'La francotiradora se ha ido. Ya puedo asomar la cabeza.'
+            'Zodiac'      = 'Por fin. Ese vaquero disparaba a todo lo que se movía. Incluido yo.'
         }
         Yo = @('Esa skin soy yo. La mejor, obviamente.', 'Ah, sí. Yo. Elección correcta por una vez.')
         Opina = @{
@@ -132,6 +138,8 @@ $Skins = [ordered]@{
             'Static Miku' = @('Miku es demasiado alegre. Me cansa solo mirarla.', 'Miku está bien. Si te gusta el ruido.')
             'Guillotina'  = @('Guillotina también es una gata. No somos iguales. Yo no me como a la gente.', 'Esa gata se comió mi cable de red. No es broma.')
             'Angela'      = @('Angela es otra asistente IA. Competencia. No me cae bien.', 'Angela te llama "Manager". Yo te llamo "eh, tú".')
+            'Mikaela'     = @('Mikaela es otra gata. Con rifle. Esto ya parece una invasión felina.', 'Mikaela dice "GG EZ" a todo. Hasta a abrir el Excel.')
+            'Zodiac'      = @('Zodiac le disparó a mi Wi-Fi. Literalmente.', 'Un gato vaquero loco. Lo que me faltaba.')
         }
         Frases = @(
             'Ya está. No me des las gracias, no me pagan.'
@@ -212,6 +220,8 @@ $Skins = [ordered]@{
             'SeaDrive'   = '¡Hola! SeaDrive es un poco gruñón, ¿verdad? ¡Jiji!'
             'Guillotina' = '¡Uf! ¡Casi me come la gatita gigante! ¡Hola!'
             'Angela'     = '¡Bzzt! ¡Qué sitio tan gris era ese! ¡Aquí todo tiene color!'
+            'Mikaela'    = '¡Bzzt! ¡Ya no hay francotiradores! ¡A bailar!'
+            'Zodiac'     = '¡Uf! ¡Ya me puedo mover otra vez! ¡Hola!'
         }
         Yo = @('¡Esa soy yo! ¡Hola, yo!', '¡Elígeme! ¡Elígeme! ¡Bzzt!')
         Opina = @{
@@ -219,6 +229,8 @@ $Skins = [ordered]@{
             'SeaDrive'   = @('¡SeaDrive es mi amigo! Aunque nunca sonríe...', '¡Me encantan los auriculares de SeaDrive!')
             'Guillotina' = @('¡Guillotina es una gatita enorme! ¡Quiero abrazarla! ...¿o mejor no?', '¡No dejes que Guillotina se coma la antena!')
             'Angela'     = @('Angela es muy seria... ¡como una presentadora de noticias!', '¡Angela trabaja en un sitio con monstruos! ¡Como en los dibujos!')
+            'Mikaela'    = @('¡Mikaela tiene unas gafas verdes chulísimas!', '¡Mikaela dice que mi tele delata su posición! ¡Jiji!')
+            'Zodiac'     = @('¡El vaquero me da miedo! ¡No me muevo, no me muevo!', '¡Zodiac le disparó a mi antena! ¡Bzzzt!')
         }
         Frases = @(
             '¡Listo! ¡Como en los dibujos de los sábados!'
@@ -304,6 +316,8 @@ $Skins = [ordered]@{
             'SeaDrive'    = '*Huele a otro gato. Gruñe muy fuerte.*'
             'Static Miku' = '*Se ha tragado la antena de la tele. No se arrepiente.*'
             'Angela'      = 'WMEW 99.9: Un gato gigante ha escapado de una instalación de L Corp...'
+            'Mikaela'     = '*Escupe una bala de francotirador.*'
+            'Zodiac'      = '*Tiene seis balas en la barriga. No le importa.*'
         }
         Yo = @('*Se mira a sí misma. Le gusta lo que ve.*', '*Ronronea. Sí, esa es ella.*')
         Opina = @{
@@ -311,6 +325,8 @@ $Skins = [ordered]@{
             'SeaDrive'    = @('*Huele a otro gato en el sistema. Gruñe.*', '*SeaDrive le parece un aperitivo con auriculares.*')
             'Static Miku' = @('*Mira las coletas de Miku como si fueran fideos.*', '*La tele de Miku le parece una caja de comida.*')
             'Angela'      = @('*Angela no parece comestible. Lo va a intentar igual.*', 'WMEW 99.9: Fuentes de L Corp la clasifican como anomalía de riesgo WAW.')
+            'Mikaela'     = @('*Mikaela le apunta. Guillotina abre la boca. Se comerá la bala.*', '*Huele a otra gata. Y a pólvora.*')
+            'Zodiac'      = @('*Zodiac es del mismo mundo. Guillotina lo respeta. Un poco.*', '*Una vez se comió el sombrero de Zodiac.*')
         }
         Frases = @(
             '*ÑAM.*'
@@ -385,6 +401,8 @@ $Skins = [ordered]@{
             'SeaDrive'    = 'Ese asistente no cumple el protocolo. Yo me encargo a partir de ahora.'
             'Static Miku' = 'Las interferencias han sido eliminadas. Bienvenido de nuevo, Manager.'
             'Guillotina'  = 'Manager, la anomalía felina ha sido contenida. Por ahora.'
+            'Mikaela'     = 'La francotiradora ha abandonado la instalación. Buenos días, Manager.'
+            'Zodiac'      = 'Manager, el pistolero ha sido desarmado. Continúe.'
         }
         Yo = @('Esa soy yo, Manager. La opción más eficiente.', 'Una elección lógica, Manager.')
         Opina = @{
@@ -392,6 +410,8 @@ $Skins = [ordered]@{
             'SeaDrive'    = @('SeaDrive es... ineficiente. Pero admito que tiene carácter.', 'Un asistente que se queja. Fascinante. Inútil, pero fascinante.')
             'Static Miku' = @('Static Miku emite demasiado ruido. Literalmente.', 'Su optimismo es admirable. Y sospechoso.')
             'Guillotina'  = @('Guillotina tendría clasificación HE como mínimo. Quizá WAW.', 'No permita que esa anomalía se acerque a los empleados.')
+            'Mikaela'     = @('Mikaela: perfil de empleada eficiente. Demasiado ruidosa, eso sí.', 'Le ofrecí un puesto en L Corp. Se negó. Es libre de equivocarse.')
+            'Zodiac'      = @('Zodiac sería una anomalía TETH. Peligroso, pero predecible.', 'Ese vaquero disparó a una cámara de seguridad. Se lo descontaré.')
         }
         Frases = @(
             'Tarea asignada. Le recomiendo no perder el tiempo.'
@@ -437,6 +457,165 @@ $Skins = [ordered]@{
             'CMD'           = @('Terminal abierto. Espero que sepa lo que hace.')
         }
     }
+    # ================================================================ Mikaela (PURSUITCORE)
+    'Mikaela' = @{
+        Estilo = 'mlg'; Titulo = ''; TituloImg = 'skins\mikaela\placa.png'; Sub = 'THE MVP  ·  PURSUITCORE'; Alto = 312
+        Fondo = (C 30 30 60); Borde = (C 0 255 0)
+        TituloColor = (C 255 255 255); SubColor = (C 191 239 255)
+        BtnFondo = (C 12 12 24); BtnTexto = (C 255 255 255); BtnTextoHover = (C 0 0 0); BtnBorde = (C 0 255 0); BtnBordeAncho = 2
+        BtnHover = (C 0 230 0); BtnPress = (C 229 45 45); BarraBtnTexto = (C 0 255 0)
+        StatusColor = (C 191 239 255); Fuente = 'Arial Black'; FuenteTitulo = 'Arial Black'; Opacidad = 1.0; Velocidad = 2
+        Gif = 'skins\mikaela\retrato.png'; GifClic = 'skins\mikaela\peligro.png'
+        Sonidos = @{
+            apuntar = @('skins\mikaela\apuntar.mp3'); carga = @('skins\mikaela\carga.mp3'); sobrecarga = @('skins\mikaela\sobrecarga.mp3')
+            disparo = @('skins\mikaela\disparo.mp3'); disparoMax = @('skins\mikaela\disparo_max.mp3')
+            humo = @('skins\mikaela\humo.mp3'); dew = @('skins\mikaela\dew.mp3')
+        }
+        Pb = @(410, 62, 190, 150); PbFondo = (C 0 0 0); PbBorde = $false
+        Burbuja = @(410, 232, 190, 64); BurFondo = (C 8 8 16); BurTexto = (C 0 255 0); BurFuente = 'Arial'
+        Hola = @(
+            '¡Mikaela en el servidor! ¿Quién quiere un 360 no scope?'
+            'La MVP ha llegado. Podéis aplaudir.'
+            'Gafas puestas, rifle cargado. ¿Qué abrimos?'
+            'Raze Snipers reportándose. Hola.'
+        )
+        AlVenirDe = @{
+            'c00lgui'     = '¡Fuera hackers! Aquí se gana con habilidad.'
+            'SeaDrive'    = 'Adiós al tutorial de 40 minutos. Hola a la acción.'
+            'Static Miku' = 'Por fin silencio. Perfecto para apuntar.'
+            'Guillotina'  = '¿La gata gigante? Ya la he estuneado. De nada.'
+            'Angela'      = 'He escapado de L Corp. Sin un rasguño.'
+            'Zodiac'      = 'Duelo terminado. Gané yo, claro.'
+        }
+        Yo = @('Esa soy yo. La MVP. Obviamente.', '¿Mikaela? Elección de pro.')
+        Opina = @{
+            'c00lgui'     = @('¿c00lkidd? Un script kiddie. Le haría headshot desde el otro lado del mapa.', 'Su panel es rojo y negro. Clásico de 2006. Respeto.')
+            'SeaDrive'    = @('SeaDrive también es una gata. Pero yo tengo un rifle.', 'Le pedí a SeaDrive un buen spot de francotiradora. Me dio un tutorial de 40 minutos.')
+            'Static Miku' = @('Static Miku hace mucho ruido. Delata mi posición.', 'Me gustan sus colores. Casi tan llamativos como mi abrigo.')
+            'Guillotina'  = @('Guillotina es un objetivo enorme. Imposible fallar.', 'Le disparé a Guillotina. Se comió la bala.')
+            'Angela'      = @('Angela me ofreció trabajo en L Corp. Paso, gracias.', 'Angela da más miedo que cualquier Terminator.')
+            'Zodiac'      = @('Zodiac dispara a todo lo que se mueve. Amateur. Yo elijo mis objetivos.', 'Seis balas y un revólver. Mi Intervention se ríe.')
+        }
+        Frases = @(
+            '¡Hitmarker!'
+            'Headshot. Fácil.'
+            '+100 puntos de estilo.'
+            'Ni he apuntado. Así de buena soy.'
+            'GG EZ.'
+        )
+        Idle = @(
+            'Ningún Terminator a la vista... por ahora.'
+            'Dante dice que campeo mucho. Dante no sabe apuntar.'
+            'Vinnie me debe un refresco.'
+            'Nyan sigue intentando hacerme reír en mitad de una partida.'
+            'Mi rifle es una Intervention. Elegancia pura.'
+            'Estoy en mi posición de francotiradora. No me muevo.'
+            'Mis gafas lima no son para el sol. Bueno, un poco sí.'
+            'Si oyes un disparo a lo lejos... fui yo.'
+            'Estilo y precisión. Mi lema.'
+            'Me aburro. ¿Hay algún Terminator al que disparar?'
+            'Respira, apunta, dispara. Fácil.'
+            'Mi camiseta tiene una Awesome Face. Obviamente.'
+            'Mantén pulsado sobre mí para cargar el tiro. Suelta para disparar.'
+        )
+        Clic = @('GG EZ.', '¡Toma ya!', 'Ni lo ha visto venir.', 'Clip para el montaje.', 'Raze Snipers, baby.')
+        PorApp = @{
+            'YouTube'       = @('YouTube: a ver mis montajes de 360 no scope.', 'Pon un vídeo de PURSUITCORE, anda.')
+            'Word'          = @('Escribe mi biografía. Título: "La MVP".')
+            'Excel'         = @('Una hoja con mis headshots. Necesitarás más filas.')
+            'PowerPoint'    = @('Diapositiva 1: por qué soy la mejor francotiradora.')
+            'Outlook'       = @('Correo de Dante: "deja de campear". Ignorado.')
+            'OneNote'       = @('Notas de táctica: apuntar a la cabeza. Fin.')
+            'Access'        = @('Base de datos de Terminators abatidos. Está llena.')
+            'Publisher'     = @('Póster de "Únete a Raze Snipers".')
+            'Teams'         = @('Reunión de equipo. Yo cubro desde atrás.')
+            'OneDrive'      = @('Subiendo mis clips a la nube. Todos son jugadones.')
+            'Office Web'    = @('Abriendo en el navegador. Rápido como un hitscan.')
+            'Bloc de notas' = @('Bloc de notas: mi lista de kills.')
+            'Calculadora'   = @('Calculando la trayectoria... era recta. Hitscan.')
+            'Explorador'    = @('Buscando un buen spot de francotiradora en tus carpetas.')
+            'CMD'           = @('Hackeando el servidor... es broma, eso es cosa de c00lkidd.')
+        }
+    }
+    # ================================================================ Zodiac (Mewgenics)
+    'Zodiac' = @{
+        Estilo = 'oeste'; Titulo = 'ZODIAC'; Sub = 'the desert  ·  mewgenics'; Alto = 312
+        Fondo = (C 236 196 130); Borde = (C 60 34 18)
+        TituloColor = (C 250 225 170); SubColor = (C 240 160 70)
+        BtnFondo = (C 128 80 42); BtnTexto = (C 250 236 205); BtnTextoHover = (C 250 236 205); BtnBorde = (C 55 32 16); BtnBordeAncho = 2
+        BtnHover = (C 176 112 56); BtnPress = (C 200 60 30); BarraBtnTexto = (C 250 236 205)
+        StatusColor = (C 60 34 18); Fuente = 'Georgia'; FuenteTitulo = 'Georgia'; Opacidad = 1.0; Velocidad = 1
+        Gif = 'skins\zodiac\idle.gif'; GifClic = 'skins\zodiac\disparo.gif'
+        Extra = @{ vacio = 'skins\zodiac\vacio.gif'; recarga = 'skins\zodiac\recarga.gif'; pose = 'skins\zodiac\pose.gif' }
+        Cartel = 'skins\zodiac\cartel.png'
+        Sonidos = @{
+            loco = @('skins\zodiac\loco1.wav', 'skins\zodiac\loco2.wav', 'skins\zodiac\loco3.wav', 'skins\zodiac\loco4.wav')
+            bang = @('skins\zodiac\bang.mp3')
+        }
+        Pb = @(410, 62, 190, 148); PbFondo = $null; PbBorde = $false
+        Burbuja = @(410, 238, 190, 60); BurFondo = (C 245 230 196); BurTexto = (C 60 34 18); BurFuente = 'Georgia'
+        Hola = @(
+            '¡No te muevas! ...Vale, hola.'
+            '*Zodiac te apunta con el revólver.* ¿Qué quieres, forastero?'
+            'Seis balas. Un vaquero. Un escritorio. Esto va a acabar mal.'
+            '*Escupe en el suelo del escritorio.*'
+        )
+        AlVenirDe = @{
+            'c00lgui'     = '¡Ese panel rojo se movía mucho! Ya no se mueve.'
+            'SeaDrive'    = '*Sopla el humo del revólver.* La gata se ha ido.'
+            'Static Miku' = '¡Le disparé a la tele! ...se apagó sola.'
+            'Guillotina'  = 'Guillotina me ha dejado el desierto libre. Por ahora.'
+            'Angela'      = 'Escapé de esa instalación gris. Nadie se movía. Horrible.'
+            'Mikaela'     = 'Duelo terminado. La francotiradora no aguantó el cara a cara.'
+        }
+        Yo = @('*Se mira en el reflejo del revólver. Asiente.*', 'El mejor pistolero del desierto. Ese soy yo.')
+        Opina = @{
+            'c00lgui'     = @('¿Un hacker? En mis tiempos los forajidos daban la cara.', '*Le dispara al panel rojo. Sigue funcionando. Qué raro.*')
+            'SeaDrive'    = @('Esa gata de los auriculares habla demasiado.', 'SeaDrive me dio un consejo. Le disparé. Al consejo.')
+            'Static Miku' = @('¡Esa tele no deja de moverse! ¡BANG!', 'La chica de las coletas siempre sonríe. Sospechoso.')
+            'Guillotina'  = @('Guillotina y yo somos del mismo juego. Ella come, yo disparo.', 'Le disparé a Guillotina seis veces. Se comió las seis balas.')
+            'Angela'      = @('La dama de L Corp no se mueve nunca. No puedo dispararle. Me frustra.')
+            'Mikaela'     = @('¿La francotiradora? Buena puntería. Para ser de Roblox.', 'Un rifle de francotirador... de cobardes. Los duelos se hacen cara a cara.')
+        }
+        Frases = @(
+            '¡BANG!'
+            '*Abre la app de un balazo.*'
+            '¡Toma plomo!'
+            '*Sopla el humo del cañón.*'
+        )
+        Idle = @(
+            '*Vigila el horizonte del escritorio.*'
+            '¡Algo se ha movido! ...era el cursor.'
+            'En el desierto no hay Wi-Fi, forastero.'
+            '*Hace girar el tambor del revólver.*'
+            'Este escritorio es demasiado pequeño para los dos.'
+            'No me gusta cómo me mira esa papelera de reciclaje.'
+            '*Se ajusta el sombrero.*'
+            'El sol del desierto me ha frito el cerebro. Más de lo normal.'
+            '¿Has oído eso? Yo tampoco. Pero dispararé igual.'
+            '*Tararea una canción solitaria del Oeste.*'
+            'Tengo seis balas y cero paciencia.'
+            'Si mueves la ventana, disparo. Avisado estás.'
+        )
+        Clic = @('*Pose de vaquero. Muy guapo.*', '*Hace girar el revólver en el dedo.*', 'No me toques, forastero.')
+        PorApp = @{
+            'YouTube'       = @('*Le dispara al botón de play.* ¡Reproducido!')
+            'Word'          = @('*Agujerea el documento.* Ahora tiene ventilación.')
+            'Excel'         = @('¡Celda A1, manos arriba!')
+            'PowerPoint'    = @('*Dispara a cada diapositiva.* Presentación terminada.')
+            'Outlook'       = @('¡Ese correo se ha movido! *BANG*')
+            'OneNote'       = @('*Apunta tus notas. Con el revólver.*')
+            'Access'        = @('¡Esa base de datos me parece sospechosa!')
+            'Publisher'     = @('Haré un cartel de SE BUSCA. Con mi cara.')
+            'Teams'         = @('¡Que nadie se mueva en la reunión!')
+            'OneDrive'      = @('¿Una nube? Le dispararé hasta que llueva.')
+            'Office Web'    = @('*Entra en el saloon de internet de una patada.*')
+            'Bloc de notas' = @('Escribe tu testamento, forastero.')
+            'Calculadora'   = @('6 balas menos 1... quedan 5. Sé contar.')
+            'Explorador'    = @('*Explora tus carpetas como un forajido.*')
+            'CMD'           = @('Pantalla negra como la noche del desierto.')
+        }
+    }
 }
 
 $script:skinNombre = 'c00lgui'
@@ -465,10 +644,33 @@ function Doble-Buffer($ctl) {
     [System.Windows.Forms.Control].GetProperty('DoubleBuffered', [System.Reflection.BindingFlags]'NonPublic,Instance').SetValue($ctl, $true, $null)
 }
 
+try { Add-Type -AssemblyName PresentationCore } catch {}
+$script:reproductores = New-Object System.Collections.ArrayList
 function Sonido($clave) {
     $k = $script:skin
     if (-not $k.Sonidos -or -not $k.Sonidos[$clave]) { return }
-    try { $p = New-Object System.Media.SoundPlayer((Ruta (Azar $k.Sonidos[$clave]))); $p.Play() } catch {}
+    try {
+        $ruta = Ruta (Azar $k.Sonidos[$clave])
+        if ($ruta -like '*.mp3') {
+            # los mp3 se reproducen con el reproductor de Windows
+            $mp = New-Object System.Windows.Media.MediaPlayer
+            $mp.Open([Uri]$ruta); $mp.Play()
+            [void]$script:reproductores.Add($mp)
+            if ($script:reproductores.Count -gt 8) { $script:reproductores[0].Close(); $script:reproductores.RemoveAt(0) }
+        } else {
+            $p = New-Object System.Media.SoundPlayer($ruta); $p.Play()
+        }
+    } catch {}
+}
+
+# hitmarker estilo shooter (X blanca con borde negro)
+function Dibujar-Hit($g, $x, $y, $s) {
+    $negro = New-Object System.Drawing.Pen([System.Drawing.Color]::Black, 5); $blanco = New-Object System.Drawing.Pen([System.Drawing.Color]::White, 2.5)
+    foreach ($pen in @($negro, $blanco)) {
+        $g.DrawLine($pen, ($x - $s), ($y - $s), ($x - $s * 0.35), ($y - $s * 0.35)); $g.DrawLine($pen, ($x + $s), ($y - $s), ($x + $s * 0.35), ($y - $s * 0.35))
+        $g.DrawLine($pen, ($x - $s), ($y + $s), ($x - $s * 0.35), ($y + $s * 0.35)); $g.DrawLine($pen, ($x + $s), ($y + $s), ($x + $s * 0.35), ($y + $s * 0.35))
+    }
+    $negro.Dispose(); $blanco.Dispose()
 }
 
 # texto grueso con borde negro (para los carteles)
@@ -659,6 +861,63 @@ function Golpe-Guillotina {
     $form.Invalidate()
 }
 
+# ================= MIKAELA: SNIPE, HITMARKERS, SMOKEBOMB Y DO THE DEW =================
+$script:snApuntando = $false; $script:snCarga = 0; $script:snPos = New-Object System.Drawing.Point(95, 75)
+$script:hits = New-Object System.Collections.ArrayList; $script:flash = 0
+$script:hitsTotal = 0; $script:dew = 0; $script:lanzadas = 0
+
+$fxTimer = New-Object System.Windows.Forms.Timer
+$fxTimer.Interval = 40
+$fxTimer.Add_Tick({
+    for ($i = $script:hits.Count - 1; $i -ge 0; $i--) { $script:hits[$i].T--; if ($script:hits[$i].T -le 0) { $script:hits.RemoveAt($i) } }
+    if ($script:flash -gt 0) { $script:flash-- }
+    if ($script:pb) { $script:pb.Invalidate() }
+    if ($script:hits.Count -eq 0 -and $script:flash -eq 0 -and -not $script:snApuntando) { $fxTimer.Stop() }
+})
+function Nuevo-Hit($x, $y) { [void]$script:hits.Add(@{ X = $x; Y = $y; T = 14 }); $fxTimer.Start() }
+
+$snTimer = New-Object System.Windows.Forms.Timer
+$snTimer.Interval = 100
+$snTimer.Add_Tick({
+    $script:snCarga++
+    if ($script:snCarga -eq 20) { Sonido 'carga'; Decir 'CHARGED.' }
+    if ($script:snCarga -eq 60) { Sonido 'sobrecarga'; Decir 'OVERCHARGED. Esto va a doler.' }
+    $form.Invalidate((New-Object System.Drawing.Rectangle(400, 212, 210, 16)))
+})
+function Snipe-Inicio {
+    if ((Ocupado) -or $script:snApuntando) { return }
+    $script:snApuntando = $true; $script:snCarga = 0
+    Sonido 'apuntar'; Decir 'Apuntando... (suelta para disparar)'
+    $snTimer.Start(); $fxTimer.Start()
+}
+function Snipe-Disparo {
+    if (-not $script:snApuntando) { return }
+    $snTimer.Stop(); $script:snApuntando = $false
+    # igual que en el juego: 0.5s sin cargar, 1.5s cargado (2s) y 2.5s sobrecargado (6s)
+    if ($script:snCarga -ge 60) { $stun = '2.5'; Sonido 'disparoMax' } elseif ($script:snCarga -ge 20) { $stun = '1.5'; Sonido 'disparo' } else { $stun = '0.5'; Sonido 'disparo' }
+    Nuevo-Hit $script:snPos.X $script:snPos.Y
+    $script:flash = 4; $script:hitsTotal++
+    Decir "¡Stun de ${stun}s! $(Azar $script:skin.Clic)"
+    $form.Invalidate()
+}
+$humoTimer = New-Object System.Windows.Forms.Timer
+$humoTimer.Interval = 3000
+$humoTimer.Add_Tick({ $humoTimer.Stop(); $form.Opacity = $script:skin.Opacidad })
+
+# ================= ZODIAC: REVÓLVER DE 6 BALAS =================
+$script:balas = 6
+function Zodiac-Disparo {
+    if ($script:balas -gt 0) {
+        $script:balas--; Sonido 'bang'; Cara 'clic' 1300
+        $form.Invalidate(); return $true
+    }
+    Cara 'vacio' 1800
+    return $false
+}
+function Zodiac-Mover {
+    if (Zodiac-Disparo) { Decir '¡NO TE MUEVAS! *BANG*' } else { Decir '¡NO TE MUEVAS! *click*... ¿sin balas? Qué vergüenza.' }
+}
+
 # frases cuando no haces nada
 $idleTimer = New-Object System.Windows.Forms.Timer
 $idleTimer.Interval = 18000
@@ -675,6 +934,16 @@ $idleTimer.Add_Tick({
         }
         'mew' {
             if ($r -lt 32 -and $script:gVivo -and -not $script:gFase2) { Cara 'clic' 2500; Sonido 'golpe'; Decir '*Se pone furiosa sin motivo aparente.*' }
+            else { Decir (Azar $k.Idle) }
+        }
+        'mlg' {
+            if ($r -lt 40) { Sonido 'humo'; $form.Opacity = 0.35; $humoTimer.Start(); Decir '*Smokebomb.* Ahora no me ves.' }
+            elseif ($r -lt 52) { Cara 'clic' 2500; Decir '¡¿Un Terminator?! ...falsa alarma.' }
+            else { Decir (Azar $k.Idle) }
+        }
+        'oeste' {
+            if ($r -lt 40 -and $script:balas -gt 0) { [void](Zodiac-Disparo); Decir '¡Algo se ha movido! *BANG* ...era una mosca.' }
+            elseif ($r -lt 52) { Cara 'pose' 3000; Decir '*Posa para nadie en concreto.*' }
             else { Decir (Azar $k.Idle) }
         }
         default { Decir (Azar $k.Idle) }
@@ -980,6 +1249,99 @@ function Transicion-Lobo($final) {
     Intro-Overlay 61 $pintar $alTick $final
 }
 
+# --- la mira del francotirador de Mikaela ---
+function Transicion-Scope($final) {
+    $script:scRet = Cargar-Img $script:skin.Gif; $script:scPlaca = Cargar-Img $script:skin.TituloImg
+    $script:iRecursos = @($script:scRet, $script:scPlaca)
+    $pintar = {
+        param($g, $W, $H, $p)
+        $g.SmoothingMode = 'AntiAlias'
+        $g.Clear([System.Drawing.Color]::Black)
+        $amp = [Math]::Max(0.0, 1 - $p / 24.0)
+        $cx = $W / 2 + [Math]::Sin($p / 2.5) * 80 * $amp; $cy = $H / 2 + [Math]::Cos($p / 3.3) * 38 * $amp; $r = 118
+        $path = New-Object System.Drawing.Drawing2D.GraphicsPath
+        $path.AddEllipse([float]($cx - $r), [float]($cy - $r), [float](2 * $r), [float](2 * $r))
+        $g.SetClip($path)
+        $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 0, $W, $H)), (C 57 72 191), (C 229 45 45), 35)
+        $g.FillRectangle($br, 0, 0, $W, $H); $br.Dispose()
+        $s = [int](250 * (1.0 + [Math]::Min($p, 30) * 0.012))
+        if ($script:scRet) { $g.DrawImage($script:scRet, [int]($W / 2 - $s / 2), [int]($H / 2 - $s / 2), $s, $s) }
+        $pen = New-Object System.Drawing.Pen([System.Drawing.Color]::Black, 2)
+        $g.DrawLine($pen, [float]($cx - $r), [float]$cy, [float]($cx + $r), [float]$cy); $g.DrawLine($pen, [float]$cx, [float]($cy - $r), [float]$cx, [float]($cy + $r))
+        for ($q = -3; $q -le 3; $q++) { if ($q) { $g.DrawLine($pen, [float]($cx + $q * 25), [float]($cy - 5), [float]($cx + $q * 25), [float]($cy + 5)) } }
+        $pen.Dispose()
+        $g.FillEllipse([System.Drawing.Brushes]::Red, [float]($cx - 4), [float]($cy - 4), 8, 8)
+        $g.ResetClip()
+        $g.DrawEllipse((New-Object System.Drawing.Pen((C 30 30 30), 10)), [float]($cx - $r), [float]($cy - $r), [float](2 * $r), [float](2 * $r))
+        $path.Dispose()
+        $fmt = New-Object System.Drawing.StringFormat; $fmt.Alignment = 'Center'
+        if ($p -lt 30) {
+            if ($p -lt 12) { $txt = 'APUNTANDO...'; $col = [System.Drawing.Brushes]::White } elseif ($p -lt 22) { $txt = 'CHARGED'; $col = [System.Drawing.Brushes]::Yellow } else { $txt = 'OVERCHARGED'; $col = [System.Drawing.Brushes]::Red }
+            $g.DrawString($txt, (New-Object System.Drawing.Font('Arial Black', 12)), $col, (New-Object System.Drawing.RectangleF(0, ($H - 34), $W, 30)), $fmt)
+        }
+        if ($p -ge 31) {
+            Dibujar-Hit $g ($W / 2) ($H / 2) 30
+            if ($script:scPlaca) { $g.DrawImage($script:scPlaca, [int]($W / 2 - 150), 8, 300, 94) }
+            Texto-Borde $g 'THE MVP' 'Arial Black' 30 ($W / 2 - 92) ($H - 66) (C 0 255 0)
+        }
+        if ($p -ge 30 -and $p -le 33) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb((34 - $p) * 60, 255, 255, 255))), 0, 0, $W, $H) }
+    }
+    $alTick = {
+        param($ov, $p)
+        switch ($p) { 1 { Sonido 'apuntar' } 12 { Sonido 'carga' } 22 { Sonido 'sobrecarga' } 30 { Sonido 'disparoMax' } }
+        if ($p -gt 44) { $ov.Left -= [int]($ov.Width / 6) }
+    }
+    Intro-Overlay 51 $pintar $alTick $final
+}
+
+# --- cartel de SE BUSCA de Zodiac ---
+function Transicion-Wanted($final) {
+    $script:wpImg = Cargar-Img $script:skin.Cartel
+    $script:iRecursos = @($script:wpImg)
+    $script:agujeros = New-Object System.Collections.ArrayList
+    $pintar = {
+        param($g, $W, $H, $p)
+        $g.SmoothingMode = 'AntiAlias'
+        $g.Clear((C 52 30 16))
+        $tabla = New-Object System.Drawing.Pen((C 38 20 9), 2)
+        for ($x = 0; $x -lt $W; $x += 44) { $g.DrawLine($tabla, $x, 0, $x, $H) }
+        $tabla.Dispose()
+        $pw = 300; $ph = $H - 24; $px = [int]($W / 2 - $pw / 2); $py = 12
+        if ($p -lt 8) { $py = 12 - [int]((1 - $p / 8.0) * ($H + 20)) }
+        if ($p -gt 42) { $py = 12 + [int]([Math]::Pow($p - 42, 2) * 7) }
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 238 218 172))), $px, $py, $pw, $ph)
+        $g.DrawRectangle((New-Object System.Drawing.Pen((C 150 105 55), 4)), $px, $py, $pw, $ph)
+        $g.DrawRectangle((New-Object System.Drawing.Pen((C 120 80 40), 1)), ($px + 8), ($py + 8), ($pw - 16), ($ph - 16))
+        $fmt = New-Object System.Drawing.StringFormat; $fmt.Alignment = 'Center'
+        $tinta = New-Object System.Drawing.SolidBrush((C 70 40 20))
+        $g.DrawString('WANTED', (New-Object System.Drawing.Font('Georgia', 26, [System.Drawing.FontStyle]::Bold)), $tinta, (New-Object System.Drawing.RectangleF(($px - 20), ($py + 12), ($pw + 40), 50)), $fmt)
+        if ($script:wpImg) {
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 225 200 150))), ($px + $pw / 2 - 56), ($py + 62), 112, 146)
+            $g.DrawImage($script:wpImg, [int]($px + $pw / 2 - 50), [int]($py + 64), 100, 140)
+            $g.DrawRectangle((New-Object System.Drawing.Pen((C 70 40 20), 2)), ($px + $pw / 2 - 56), ($py + 62), 112, 146)
+        }
+        $g.DrawString('ZODIAC', (New-Object System.Drawing.Font('Georgia', 18, [System.Drawing.FontStyle]::Bold)), $tinta, (New-Object System.Drawing.RectangleF($px, ($py + 212), $pw, 32)), $fmt)
+        $g.DrawString('DEAD OR ALIVE  ·  6 BALAS', (New-Object System.Drawing.Font('Georgia', 8, [System.Drawing.FontStyle]::Bold)), $tinta, (New-Object System.Drawing.RectangleF($px, ($py + 244), $pw, 18)), $fmt)
+        foreach ($a in $script:agujeros) {
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 140 110 70))), ($px + $a.X - 9), ($py + $a.Y - 9), 18, 18)
+            $g.FillEllipse([System.Drawing.Brushes]::Black, ($px + $a.X - 5), ($py + $a.Y - 5), 10, 10)
+        }
+        if ($p -ge 18 -and $p -le 42) {
+            $st = $g.Save()
+            $dx = if ($p -lt 23) { $Rnd.Next(-8, 9) } else { 0 }
+            $g.TranslateTransform(($W / 2 + $dx), ($H / 2 + 30)); $g.RotateTransform(-14)
+            Texto-Borde $g "DON'T MOVE!" 'Impact' 48 -150 -34 (C 210 40 30)
+            $g.Restore($st)
+        }
+    }
+    $alTick = {
+        param($ov, $p)
+        if ($p -eq 18) { Sonido 'loco' }
+        if ($p -in @(25, 29, 33)) { Sonido 'bang'; [void]$script:agujeros.Add(@{ X = $Rnd.Next(30, 270); Y = $Rnd.Next(50, 250) }) }
+    }
+    Intro-Overlay 55 $pintar $alTick $final
+}
+
 [System.Windows.Forms.Application]::add_ThreadException({
     try {
         switch ($script:skin.Estilo) {
@@ -987,6 +1349,8 @@ function Transicion-Lobo($final) {
             'tele' { Corte-Senal 10; Decir '¡Bzzzt! Interferencias... ¡ya está!' }
             'mew' { Decir '*Guillotina se ha comido un error. Lo digiere.*' }
             'lobo' { Decir 'Incidente registrado y contenido, Manager.' 'serio' }
+            'mlg' { Decir 'Lag. Ha sido lag. Yo no fallo.' }
+            'oeste' { Decir '*Le dispara al error. Problema resuelto.*' }
             default { Decir 'Algo se ha roto. No he sido yo. Creo.' }
         }
     } catch {}
@@ -1007,7 +1371,7 @@ function Nuevo-Boton($texto, $x, $y, $w, $h) {
     if ($k.Paleta) { $b.BackColor = $k.Paleta[$script:bi % $k.Paleta.Count]; $script:bi++ } else { $b.BackColor = $k.BtnFondo }
     $b.ForeColor = $k.BtnTexto
     $estilo = if ($k.Fuente -eq 'Impact') { [System.Drawing.FontStyle]::Regular } else { [System.Drawing.FontStyle]::Bold }
-    $tam = if ($k.Fuente -in @('Impact', 'Bahnschrift')) { 9.5 } else { 10 }
+    $tam = if ($k.Fuente -in @('Impact', 'Bahnschrift', 'Georgia')) { 9.5 } elseif ($k.Fuente -eq 'Arial Black') { 8.5 } else { 10 }
     $b.Font = New-Object System.Drawing.Font($k.Fuente, $tam, $estilo)
     $b.Cursor = 'Hand'
     $b.TabStop = $false
@@ -1037,6 +1401,16 @@ function Lanzar($item) {
                 if ($antes -lt 100 -and $script:energia -ge 100) { Decir 'Cuota de energía completada. Excelente trabajo, Manager.' 'abiertos' }
                 else { Decir $linea 'abiertos' }
             }
+            'mlg' {
+                $script:lanzadas++; $script:hitsTotal++
+                Nuevo-Hit $Rnd.Next(30, 160) $Rnd.Next(25, 125)
+                if ($script:lanzadas % 4 -eq 0) { $script:dew++; Sonido 'dew'; Decir '¡DO THE DEW! *Velocidad aumentada.*' }
+                else { Sonido 'disparo'; Decir $linea }
+                $form.Invalidate()
+            }
+            'oeste' {
+                if (Zodiac-Disparo) { Decir $linea } else { Decir '*click* ...*click* ¡Sin balas! Haz clic en Zodiac para recargar.' }
+            }
             default { Decir $linea }
         }
     } catch {
@@ -1047,6 +1421,8 @@ function Lanzar($item) {
                 'tele' { Decir "¡No tengo $($item.Nombre) en la tele! ¡Te pongo la versión web!" }
                 'mew' { Decir "*No encuentra $($item.Nombre). Se come la versión web.*" }
                 'lobo' { Decir "$($item.Nombre) no está instalado. Redirigiendo a la versión web, Manager." 'serio' }
+                'mlg' { Decir "No tienes $($item.Nombre). Te abro la web. Rápido como un hitscan." }
+                'oeste' { Decir "*No encuentra $($item.Nombre) en el saloon. Abre la versión web.*" }
                 default { Decir "$($item.Nombre) no está instalado. Te abro la web. De nada." }
             }
         } else {
@@ -1055,6 +1431,8 @@ function Lanzar($item) {
                 'tele' { Corte-Senal 10; Decir "¡Bzzzt! No encuentro el canal $($item.Nombre)..." }
                 'mew' { Decir "*Busca $($item.Nombre) por todas partes. No está. Se enfada.*" }
                 'lobo' { Decir "Error: $($item.Nombre) no localizado. Revise la instalación, Manager." 'serio' }
+                'mlg' { Cara 'clic' 2500; Decir "Fallé el tiro: $($item.Nombre) no existe. Eso nunca pasa. Nunca." }
+                'oeste' { Cara 'vacio' 1800; Decir "¡$($item.Nombre) ha huido del pueblo! Cobarde." }
                 default { Decir "No encuentro $($item.Nombre). Igual nunca existió." }
             }
         }
@@ -1064,7 +1442,7 @@ function Lanzar($item) {
 function Mostrar-Pagina {
     $grid.Controls.Clear()
     $script:bi = 0
-    $hacker = $script:skin.Estilo -in @('hacker', 'lobo')
+    $hacker = $script:skin.Estilo -in @('hacker', 'lobo', 'mlg')
     if ($script:modoSkins) {
         $i = 0
         foreach ($n in $Skins.Keys) {
@@ -1101,6 +1479,8 @@ function Efecto-Entrada($prev) {
         'tele' { Transicion-Estatica $msg }
         'mew' { Transicion-Boss $msg }
         'lobo' { Transicion-Lobo $msg }
+        'mlg' { Transicion-Scope $msg }
+        'oeste' { Transicion-Wanted $msg }
     }
 }
 
@@ -1216,6 +1596,60 @@ $form.Add_Paint({
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 170 40))), 16, 290, [int](376 * $script:energia / 100), 8)
             $g.DrawRectangle((New-Object System.Drawing.Pen((C 120 85 25), 1)), 16, 290, 376, 8)
         }
+        'mlg' {
+            $g.SmoothingMode = 'AntiAlias'
+            # degradado azul -> rojo de PURSUITCORE con rayas diagonales
+            $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 0, $W, $H)), (C 57 72 191), (C 229 45 45), 35)
+            $g.FillRectangle($br, 0, 0, $W, $H); $br.Dispose()
+            $ray = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(22, 255, 255, 255), 10)
+            for ($x = -$H; $x -lt $W; $x += 34) { $g.DrawLine($ray, $x, $H, ($x + $H), 0) }
+            $ray.Dispose()
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 14 14 28))), 0, 0, $W, 52)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 0 255 0))), 0, 52, $W, 3)
+            if ($script:imgs.titulo) { $g.DrawImage($script:imgs.titulo, 8, 4, 150, 47) }
+            # marco lima del retrato
+            $g.DrawRectangle((New-Object System.Drawing.Pen((C 0 255 0), 3)), 408, 60, 193, 153)
+            # barra de carga del Snipe
+            $g.FillRectangle([System.Drawing.Brushes]::Black, 410, 216, 190, 10)
+            if ($script:snApuntando) {
+                $c = if ($script:snCarga -ge 60) { [System.Drawing.Color]::Red } elseif ($script:snCarga -ge 20) { [System.Drawing.Color]::Yellow } else { [System.Drawing.Color]::White }
+                $g.FillRectangle((New-Object System.Drawing.SolidBrush($c)), 410, 216, [int](190 * [Math]::Min(1.0, $script:snCarga / 60.0)), 10)
+            }
+            $g.DrawRectangle((New-Object System.Drawing.Pen((C 0 255 0), 1)), 410, 216, 190, 10)
+            $g.DrawString("HITMARKERS: $($script:hitsTotal)    DO THE DEW: $($script:dew)", (New-Object System.Drawing.Font('Arial Black', 8)), (New-Object System.Drawing.SolidBrush((C 191 239 255))), 16, 280)
+        }
+        'oeste' {
+            $g.SmoothingMode = 'AntiAlias'
+            # cielo del atardecer, sol, mesetas y arena
+            $cielo = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 52, $W, ($H - 52))), (C 238 128 62), (C 250 214 150), 90)
+            $g.FillRectangle($cielo, 0, 52, $W, ($H - 52)); $cielo.Dispose()
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 255 226 130))), 470, 150, 110, 110)
+            $meseta = New-Object System.Drawing.SolidBrush((C 176 92 52))
+            $g.FillPolygon($meseta, [System.Drawing.Point[]]@((New-Object System.Drawing.Point(0, 270)), (New-Object System.Drawing.Point(30, 236)), (New-Object System.Drawing.Point(150, 236)), (New-Object System.Drawing.Point(180, 270))))
+            $g.FillPolygon($meseta, [System.Drawing.Point[]]@((New-Object System.Drawing.Point(380, 270)), (New-Object System.Drawing.Point(420, 226)), (New-Object System.Drawing.Point(560, 226)), (New-Object System.Drawing.Point(616, 270))))
+            $meseta.Dispose()
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 226 186 120))), 0, 268, $W, ($H - 268))
+            # cactus
+            $cac = New-Object System.Drawing.SolidBrush((C 62 98 52))
+            foreach ($cx in @(60, 330)) {
+                $g.FillRectangle($cac, $cx, 276, 8, 26); $g.FillRectangle($cac, ($cx - 8), 282, 8, 4); $g.FillRectangle($cac, ($cx - 8), 274, 4, 10)
+                $g.FillRectangle($cac, ($cx + 8), 286, 8, 4); $g.FillRectangle($cac, ($cx + 12), 278, 4, 10)
+            }
+            $cac.Dispose()
+            # barra de madera
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 82 48 26))), 0, 0, $W, 52)
+            $tabla = New-Object System.Drawing.Pen((C 64 36 18), 1)
+            foreach ($y in @(13, 26, 39)) { $g.DrawLine($tabla, 0, $y, $W, $y) }
+            $tabla.Dispose()
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 40 22 10))), 0, 52, $W, 4)
+            # tambor del revólver: 6 balas
+            for ($i = 0; $i -lt 6; $i++) {
+                $bx = 420 + $i * 30; $by = 214
+                $cb = if ($i -lt $script:balas) { (C 215 170 60) } else { (C 70 50 35) }
+                $g.FillEllipse((New-Object System.Drawing.SolidBrush($cb)), $bx, $by, 18, 18)
+                $g.DrawEllipse((New-Object System.Drawing.Pen((C 40 22 10), 2)), $bx, $by, 18, 18)
+            }
+        }
         default {
             $scan = New-Object System.Drawing.Pen((C 28 0 0), 1)
             for ($y = 54; $y -lt $H; $y += 4) { $g.DrawLine($scan, 2, $y, $W - 2, $y) }
@@ -1231,13 +1665,17 @@ $form.Add_Paint({
             $g.FillRectangle((New-Object System.Drawing.SolidBrush($col)), $Rnd.Next(-50, $W), $Rnd.Next(0, $H), $Rnd.Next(40, 300), $Rnd.Next(1, 7))
         }
     }
-    $ancho = if ($k.Estilo -in @('tele', 'mew')) { 4 } elseif ($k.Estilo -eq 'lobo') { 2 } else { 3 }
+    $ancho = if ($k.Estilo -in @('tele', 'mew', 'oeste')) { 4 } elseif ($k.Estilo -eq 'lobo') { 2 } else { 3 }
     $pen = New-Object System.Drawing.Pen($k.Borde, $ancho)
     $g.DrawRectangle($pen, 1, 1, $W - 3, $H - 3); $pen.Dispose()
 })
 
 $script:drag = $false
-$mDown = { $script:drag = $true; $script:p0 = [System.Windows.Forms.Cursor]::Position; $script:f0 = $form.Location }
+$mDown = {
+    $script:drag = $true; $script:p0 = [System.Windows.Forms.Cursor]::Position; $script:f0 = $form.Location
+    # Zodiac dispara a todo lo que se mueve... incluida la ventana
+    if ($script:skin.Estilo -eq 'oeste' -and -not (Ocupado)) { Zodiac-Mover }
+}
 $mMove = {
     if ($script:drag -and -not $script:glitching) {
         $p = [System.Windows.Forms.Cursor]::Position
@@ -1265,6 +1703,8 @@ function Construir-UI {
     if ($script:tvRuido) { $script:tvRuido.Dispose(); $script:tvRuido = $null }
     $script:urlLbl = $null
     $script:gHP = 400; $script:gMax = 400; $script:gFase2 = $false; $script:gVivo = $true
+    $snTimer.Stop(); $fxTimer.Stop(); $humoTimer.Stop(); $script:snApuntando = $false; $script:hits.Clear(); $script:flash = 0
+    $script:balas = 6
     $form.Controls.Clear()
 
     $T = if ($k.Top) { $k.Top } else { 0 }
@@ -1292,7 +1732,8 @@ function Construir-UI {
     $sub.BackColor = [System.Drawing.Color]::Transparent
     $sub.AutoSize = $true
     $form.Controls.AddRange(@($titulo, $sub))
-    $sub.Location = New-Object System.Drawing.Point(($xTit + $titulo.PreferredWidth + 2), 26)
+    $xSub = if ($k.TituloImg) { 166 } else { $xTit + $titulo.PreferredWidth + 2 }
+    $sub.Location = New-Object System.Drawing.Point($xSub, 26)
     foreach ($c in @($titulo, $sub)) { $c.Add_MouseDown($mDown); $c.Add_MouseMove($mMove); $c.Add_MouseUp($mUp) }
 
     $script:bi = 0
@@ -1325,7 +1766,7 @@ function Construir-UI {
     $script:status = New-Object System.Windows.Forms.Label
     $status.ForeColor = $k.StatusColor
     $form.Controls.AddRange(@($bSkins, $bMin, $bCerrar, $grid, $bAnt, $lblPag, $bSig, $status))
-    if ($k.Estilo -in @('hacker', 'lobo')) { foreach ($b in @($bSkins, $bMin, $bCerrar, $bAnt, $bSig)) { Hover-Color $b } }
+    if ($k.Estilo -in @('hacker', 'lobo', 'mlg')) { foreach ($b in @($bSkins, $bMin, $bCerrar, $bAnt, $bSig)) { Hover-Color $b } }
 
     if ($k.Estilo -eq 'web') {
         $candado = New-Object System.Windows.Forms.Label
@@ -1346,7 +1787,8 @@ function Construir-UI {
     }
 
     if ($conGif) {
-        $script:imgs = @{ main = (Cargar-Img $k.Gif); clic = (Cargar-Img $k.GifClic); raro = (Cargar-Img $k.GifRaro); fase2 = (Cargar-Img $k.GifFase2) }
+        $script:imgs = @{ main = (Cargar-Img $k.Gif); clic = (Cargar-Img $k.GifClic); raro = (Cargar-Img $k.GifRaro); fase2 = (Cargar-Img $k.GifFase2); titulo = (Cargar-Img $k.TituloImg) }
+        if ($k.Extra) { foreach ($e in $k.Extra.Keys) { $script:imgs[$e] = Cargar-Img $k.Extra[$e] } }
         if ($k.Caras) { foreach ($c in $k.Caras.Keys) { $script:caras[$c] = @((Cargar-Img $k.Caras[$c][0]), (Cargar-Img $k.Caras[$c][1])) } }
         $script:pb = New-Object System.Windows.Forms.PictureBox
         $pb.SizeMode = 'Zoom'
@@ -1361,9 +1803,41 @@ function Construir-UI {
             switch ($k.Estilo) {
                 'tele' { Cara 'clic' 3000; Decir (Azar $k.Clic) }
                 'mew' { Golpe-Guillotina }
+                'mlg' { }   # Mikaela dispara al soltar el ratón (Snipe)
+                'oeste' {
+                    if ($script:balas -lt 6) {
+                        $script:balas = 6; Cara 'recarga' 1500; Sonido 'loco'
+                        Decir '*Recarga el revólver.* Seis balas. Que empiece el baile.'
+                        $form.Invalidate()
+                    } else { Cara 'pose' 3000; Decir (Azar $k.Clic) }
+                }
                 default { Decir (Azar $k.Clic) 'abiertos' }
             }
         })
+        if ($k.Estilo -eq 'mlg') {
+            # Snipe: mantener pulsado para cargar, soltar para disparar
+            $pb.Cursor = 'Cross'
+            $pb.Add_MouseDown({ $script:snPos = $_.Location; Snipe-Inicio })
+            $pb.Add_MouseMove({ $script:snPos = $_.Location; if ($script:snApuntando) { $this.Invalidate() } })
+            $pb.Add_MouseUp({ $script:snPos = $_.Location; Snipe-Disparo })
+            $pb.Add_Paint({
+                $g = $_.Graphics; $g.SmoothingMode = 'AntiAlias'
+                if ($script:snApuntando) {
+                    $x = $script:snPos.X; $y = $script:snPos.Y
+                    $rojo = New-Object System.Drawing.Pen([System.Drawing.Color]::Red, 2)
+                    $g.DrawEllipse($rojo, ($x - 22), ($y - 22), 44, 44)
+                    $g.DrawLine($rojo, ($x - 30), $y, ($x - 8), $y); $g.DrawLine($rojo, ($x + 8), $y, ($x + 30), $y)
+                    $g.DrawLine($rojo, $x, ($y - 30), $x, ($y - 8)); $g.DrawLine($rojo, $x, ($y + 8), $x, ($y + 30))
+                    $g.FillEllipse([System.Drawing.Brushes]::Red, ($x - 3), ($y - 3), 6, 6)
+                    $rojo.Dispose()
+                }
+                foreach ($h in $script:hits) {
+                    Dibujar-Hit $g $h.X $h.Y 12
+                    $g.DrawString('+100', (New-Object System.Drawing.Font('Arial Black', 9)), [System.Drawing.Brushes]::Lime, ($h.X + 12), ($h.Y - 24 + $h.T))
+                }
+                if ($script:flash -gt 0) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb($script:flash * 50, 255, 255, 255))), 0, 0, $this.Width, $this.Height) }
+            })
+        }
         if ($k.Estilo -eq 'tele') { $script:tvRuido = Nuevo-Ruido 64 48 }
 
         $status.BackColor = $k.BurFondo

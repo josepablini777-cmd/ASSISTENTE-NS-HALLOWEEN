@@ -1,7 +1,7 @@
 # c00lgui v3 – panel lanzador con skins de asistentes
 
 Panel para Windows que abre YouTube, las apps de Office y otros programas con un clic.
-Tiene cinco skins, cada una con su propio estilo, animaciones y diálogos:
+Tiene siete skins, cada una con su propio estilo, animaciones y diálogos:
 
 | Skin | Estilo | Efecto al entrar |
 |---|---|---|
@@ -10,6 +10,8 @@ Tiene cinco skins, cada una con su propio estilo, animaciones y diálogos:
 | **Static Miku** | Miku de Flavor Foley, como un dibujo animado en una tele vieja | Estática de tele y encendido desde el centro |
 | **Guillotina** | Jefa de Mewgenics, sobre papel y tinta | Cartel "GUILLOTINA IS COMING FOR YOU!" con su rugido |
 | **Angela** | IA de Lobotomy Corporation, con la interfaz de L Corp | Inicio de jornada: "Face the Fear, Build the Future" y el día |
+| **Mikaela** | Francotiradora de PURSUITCORE, estilo MLG | Mira del francotirador, disparo y hitmarker |
+| **Zodiac** | Pistolero loco del desierto de Mewgenics | Cartel de WANTED con "DON'T MOVE!" y balazos |
 
 Cada skin opina de las demás. Pasa el ratón por los botones del menú **Skins** para oír lo que piensa el asistente de cada una.
 
@@ -32,6 +34,8 @@ No hace falta instalar nada: funciona con PowerShell, que ya viene con Windows 1
 - **Asistente:** haz clic en el personaje y te contesta.
   - **Guillotina:** cada clic le quita vida. Con 200 o menos se enfurece, como en el juego. Si la derrotas, vuelve buscando venganza.
   - **Angela:** cada app que abres suma a la cuota de energía del día.
+  - **Mikaela:** mantén pulsado sobre ella para cargar el Snipe y suelta para disparar (2 s: cargado, 6 s: sobrecargado).
+  - **Zodiac:** gasta una bala con cada app y si mueves la ventana. Haz clic en él para recargar.
 
 ## Añadir tus propios botones
 
@@ -50,5 +54,8 @@ Las frases de cada asistente están en la sección `SKINS` del mismo archivo.
 - **Static Miku:** personaje de [Flavor Foley](https://flavorfoley.com/FFF/st/), del videoclip *Static*. GIFs de Tenor.
 - **Guillotina:** jefa de *Mewgenics* (Edmund McMillen y Tyler Glaiel). Imágenes y sonidos de la [wiki de Mewgenics](https://mewgenics.wiki.gg/wiki/Guillotina).
 - **Angela:** personaje de *Lobotomy Corporation* (Project Moon). Sprites de la [wiki de Lobotomy Corporation](https://lobotomycorporation.wiki.gg/wiki/Angela/Gallery).
+
+- **Mikaela:** personaje de *PURSUITCORE* (Roblox). Imágenes y sonidos de la [wiki de PURSUITCORE](https://pursuitcore.miraheze.org/wiki/Mikaela).
+- **Zodiac:** jefe de *Mewgenics*. Imágenes y sonidos de la [wiki de Mewgenics](https://mewgenics.wiki.gg/wiki/Zodiac).
 
 Proyecto de fans sin ánimo de lucro. Los personajes pertenecen a sus autores.
