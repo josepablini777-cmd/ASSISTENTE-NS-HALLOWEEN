@@ -1,4 +1,4 @@
-﻿# c00lgui - panel lanzador con skins
+﻿# c00lgui v3 - panel lanzador con skins de asistentes
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 [System.Windows.Forms.Application]::EnableVisualStyles()
@@ -8,6 +8,7 @@ Add-Type -AssemblyName System.Drawing
 $Raiz = $PSScriptRoot
 $ArchivoSkin = Join-Path $Raiz 'skin.txt'
 $Rnd = New-Object System.Random
+$script:dia = (Get-Date).DayOfYear
 
 # ================= BOTONES =================
 # Nombre = texto del botón | Abrir = programa, archivo o URL | Web = (opcional) URL si el programa no está instalado
@@ -33,16 +34,16 @@ $Botones = @(
 function C($r, $g, $b) { [System.Drawing.Color]::FromArgb($r, $g, $b) }
 
 $Skins = [ordered]@{
-    # ---------------------------------------------------------------- c00lgui
+    # ================================================================ c00lgui
     'c00lgui' = @{
-        Estilo = 'hacker'; Titulo = 'c00lgui'; Sub = 'v2 // team c00lkidd'; Top = 0
+        Estilo = 'hacker'; Titulo = 'c00lgui'; Sub = 'v3 // team c00lkidd'; Alto = 312
         Fondo = (C 0 0 0); Borde = (C 255 0 0); Sombra = (C 90 0 0)
         TituloColor = (C 255 0 0); SubColor = (C 140 0 0)
         BtnFondo = (C 0 0 0); BtnTexto = (C 255 255 255); BtnTextoHover = (C 255 40 40); BtnBorde = (C 255 0 0); BtnBordeAncho = 1
         BtnHover = (C 45 0 0); BtnPress = (C 255 0 0); BarraBtnTexto = (C 255 0 0)
         StatusColor = (C 255 0 0); Fuente = 'Arial'; FuenteTitulo = 'Arial Black'; Opacidad = 0.94; Velocidad = 2
         Hola = @(
-            '> c00lgui v2 loaded. welcome back.'
+            '> c00lgui v3 loaded. welcome back.'
             '> access granted. team c00lkidd join today!'
             '> injecting... done. hi.'
             '> SYSTEM COMPROMISED. c00lgui online.'
@@ -50,6 +51,15 @@ $Skins = [ordered]@{
         AlVenirDe = @{
             'SeaDrive'    = '> SeaDrive.exe terminated. c00lgui online.'
             'Static Miku' = '> TV signal hijacked. c00lgui online.'
+            'Guillotina'  = '> survived the fat cat. c00lgui online.'
+            'Angela'      = '> escaped the L Corp facility. c00lgui online.'
+        }
+        Yo = @('> c00lgui: still the best. no debate.', '> that one is me. obviously.')
+        Opina = @{
+            'SeaDrive'    = @('> SeaDrive? just a cat with a lanyard. easy target.', '> hacked SeaDrive''s wifi. password was "sarcasmo123"')
+            'Static Miku' = @('> Static Miku keeps jamming my signal. respect.', '> tried to hack her TV. it hacked me back.')
+            'Guillotina'  = @('> Guillotina ate my firewall. literally.', '> do NOT let the fat cat near the server room.')
+            'Angela'      = @('> Angela is the only AI I can''t breach. yet.', '> L Corp security is... actually good. scary.')
         }
         Frases = @(
             '> payload delivered.'
@@ -72,7 +82,7 @@ $Skins = [ordered]@{
             '> 1337 h4x0r m0d3: ON'
             '> nobody can stop the c00lgui'
         )
-        Clic = @(); Raro = @()
+        Clic = @()
         PorApp = @{
             'YouTube'       = @('> hijacking youtube.com ...', '> streaming payload via youtube.com')
             'Word'          = @('> injecting into WINWORD.EXE ...', '> rewriting your essay. jk.')
@@ -91,9 +101,9 @@ $Skins = [ordered]@{
             'CMD'           = @('> real hacker mode activated', '> type "tree" to look cool')
         }
     }
-    # ---------------------------------------------------------------- SeaDrive (página web)
+    # ================================================================ SeaDrive (página web)
     'SeaDrive' = @{
-        Estilo = 'web'; Titulo = 'SeaDrive'; Sub = 'virtual assistant  ·  HowTo'; Top = 32
+        Estilo = 'web'; Titulo = 'SeaDrive'; Sub = 'virtual assistant  ·  HowTo'; Alto = 344; Top = 32
         Url = 'https://www.seadrive.howto/asistente'
         Fondo = (C 236 247 255); Borde = (C 40 130 200); Barra1 = (C 110 200 245); Barra2 = (C 40 130 200)
         TituloColor = (C 255 255 255); SubColor = (C 255 210 40)
@@ -101,6 +111,8 @@ $Skins = [ordered]@{
         BtnHover = (C 140 220 60); BtnPress = (C 40 130 200); BarraBtnTexto = (C 20 20 20)
         StatusColor = (C 30 30 30); Fuente = 'Segoe UI'; FuenteTitulo = 'Segoe UI Black'; Opacidad = 1.0; Velocidad = 1
         Gif = 'skins\seadrive\seadrive.gif'
+        Pb = @(410, 98, 190, 150); PbFondo = (C 255 255 255); PbBorde = $true
+        Burbuja = @(410, 254, 190, 70); BurFondo = (C 255 255 255); BurTexto = (C 20 20 20); BurFuente = 'Segoe UI'
         Hola = @(
             'Hola, soy SeaDrive. ¿Qué quieres ahora?'
             'Ah, eres tú. Hola. Supongo.'
@@ -111,6 +123,15 @@ $Skins = [ordered]@{
         AlVenirDe = @{
             'c00lgui'     = '¿Ya te cansaste del hacker ese? Bien. Aquí mando yo.'
             'Static Miku' = 'Uf, cuánto color. Tranquilo, aquí todo es aburrido.'
+            'Guillotina'  = 'Se fue la gata gorda. Por fin. Oía su estómago desde aquí.'
+            'Angela'      = 'Bienvenido a una empresa normal. Sin monstruos. Bueno, estoy yo.'
+        }
+        Yo = @('Esa skin soy yo. La mejor, obviamente.', 'Ah, sí. Yo. Elección correcta por una vez.')
+        Opina = @{
+            'c00lgui'     = @('c00lkidd se cree hacker. Seguro que su contraseña es 1234.', 'El panel rojo ese... muy 2006.')
+            'Static Miku' = @('Miku es demasiado alegre. Me cansa solo mirarla.', 'Miku está bien. Si te gusta el ruido.')
+            'Guillotina'  = @('Guillotina también es una gata. No somos iguales. Yo no me como a la gente.', 'Esa gata se comió mi cable de red. No es broma.')
+            'Angela'      = @('Angela es otra asistente IA. Competencia. No me cae bien.', 'Angela te llama "Manager". Yo te llamo "eh, tú".')
         }
         Frases = @(
             'Ya está. No me des las gracias, no me pagan.'
@@ -150,7 +171,6 @@ $Skins = [ordered]@{
             'Cada clic me cuesta un poco de batería emocional.'
             'Vale, vale. Te saludo. Hola. Ya.'
         )
-        Raro = @()
         PorApp = @{
             'YouTube'       = @('¿YouTube? "Solo un vídeo", dijiste. Ya.', 'Te pongo un temporizador mental: 3 horas.', 'Mira algo útil. O un vídeo de gatos, también vale.')
             'Word'          = @('Word abierto. La página en blanco te mira. Suerte.', 'Recuerda guardar. Nadie lo recuerda nunca.', 'Times New Roman, 12. Como en 2003.')
@@ -169,9 +189,9 @@ $Skins = [ordered]@{
             'CMD'           = @('Ooh, modo hacker. Qué miedo.', 'No escribas nada raro ahí, que te veo.', '¿Tú también quieres ser c00lkidd? Qué original.')
         }
     }
-    # ---------------------------------------------------------------- Static Miku (tele de dibujos)
+    # ================================================================ Static Miku (tele de dibujos)
     'Static Miku' = @{
-        Estilo = 'tele'; Titulo = 'STATIC'; Sub = 'miku  ·  flavor foley'; Top = 0
+        Estilo = 'tele'; Titulo = 'STATIC'; Sub = 'miku  ·  flavor foley'; Alto = 312
         Fondo = (C 232 38 28); Borde = (C 0 0 0); Sombra = (C 0 0 0)
         TituloColor = (C 255 225 50); SubColor = (C 90 225 245)
         Paleta = @((C 90 220 245), (C 255 225 50), (C 255 105 205), (C 120 235 95), (C 255 165 45))
@@ -179,6 +199,8 @@ $Skins = [ordered]@{
         BtnHover = (C 255 255 255); BtnPress = (C 60 45 190); BarraBtnTexto = (C 0 0 0)
         StatusColor = (C 255 255 255); Fuente = 'Comic Sans MS'; FuenteTitulo = 'Comic Sans MS'; Opacidad = 1.0; Velocidad = 1
         Gif = 'skins\staticmiku\miku.gif'; GifClic = 'skins\staticmiku\miku_feliz.gif'; GifRaro = 'skins\staticmiku\miku_ojos.gif'
+        Pb = @(414, 76, 182, 132); PbFondo = (C 0 0 0); PbBorde = $false
+        Burbuja = @(404, 240, 202, 56); BurFondo = (C 255 255 255); BurTexto = (C 20 20 20); BurFuente = 'Comic Sans MS'
         Hola = @(
             '¡Bzzzt! ¡Hola, hola! Estás viendo el canal Static.'
             '¡Ya estoy aquí! ¿Qué ponemos hoy en la tele?'
@@ -186,8 +208,17 @@ $Skins = [ordered]@{
             '¡Señal recuperada! ¡Empieza el programa!'
         )
         AlVenirDe = @{
-            'c00lgui'  = '¡Bzzzt! ¡Ese hacker daba miedo! ¡Hola!'
-            'SeaDrive' = '¡Hola! SeaDrive es un poco gruñón, ¿verdad? ¡Jiji!'
+            'c00lgui'    = '¡Bzzzt! ¡Ese hacker daba miedo! ¡Hola!'
+            'SeaDrive'   = '¡Hola! SeaDrive es un poco gruñón, ¿verdad? ¡Jiji!'
+            'Guillotina' = '¡Uf! ¡Casi me come la gatita gigante! ¡Hola!'
+            'Angela'     = '¡Bzzt! ¡Qué sitio tan gris era ese! ¡Aquí todo tiene color!'
+        }
+        Yo = @('¡Esa soy yo! ¡Hola, yo!', '¡Elígeme! ¡Elígeme! ¡Bzzt!')
+        Opina = @{
+            'c00lgui'    = @('¡El hacker rojo me da un poco de miedo! ¡Bzzt!', '¡c00lkidd intentó piratear mi tele! ¡Solo encontró dibujos!')
+            'SeaDrive'   = @('¡SeaDrive es mi amigo! Aunque nunca sonríe...', '¡Me encantan los auriculares de SeaDrive!')
+            'Guillotina' = @('¡Guillotina es una gatita enorme! ¡Quiero abrazarla! ...¿o mejor no?', '¡No dejes que Guillotina se coma la antena!')
+            'Angela'     = @('Angela es muy seria... ¡como una presentadora de noticias!', '¡Angela trabaja en un sitio con monstruos! ¡Como en los dibujos!')
         }
         Frases = @(
             '¡Listo! ¡Como en los dibujos de los sábados!'
@@ -245,6 +276,167 @@ $Skins = [ordered]@{
             'CMD'           = @('¡Uy, pantalla negra! ¿Se ha ido la señal?', '¡Eso parece la tele apagada!')
         }
     }
+    # ================================================================ Guillotina (Mewgenics)
+    'Guillotina' = @{
+        Estilo = 'mew'; Titulo = 'GUILLOTINA'; Sub = 'house boss  ·  mewgenics'; Alto = 312
+        Fondo = (C 232 220 190); Borde = (C 25 20 22)
+        TituloColor = (C 240 228 200); SubColor = (C 215 75 60)
+        BtnFondo = (C 245 236 212); BtnTexto = (C 25 20 22); BtnTextoHover = (C 25 20 22); BtnBorde = (C 25 20 22); BtnBordeAncho = 2
+        BtnHover = (C 215 80 65); BtnPress = (C 120 25 25); BarraBtnTexto = (C 25 20 22)
+        StatusColor = (C 40 30 30); Fuente = 'Impact'; FuenteTitulo = 'Impact'; Opacidad = 1.0; Velocidad = 1
+        Gif = 'skins\guillotina\idle.gif'; GifClic = 'skins\guillotina\furia.gif'; GifFase2 = 'skins\guillotina\idle_furiosa.gif'
+        Cartel = 'skins\guillotina\cartel.png'
+        Sonidos = @{
+            intro = @('skins\guillotina\intro.wav'); furia = @('skins\guillotina\furia.wav')
+            golpe = @('skins\guillotina\golpe1.wav', 'skins\guillotina\golpe2.wav')
+            comer = @('skins\guillotina\comer1.wav', 'skins\guillotina\comer2.wav')
+        }
+        Pb = @(410, 86, 190, 134); PbFondo = $null; PbBorde = $false
+        Burbuja = @(410, 226, 190, 72); BurFondo = (C 250 244 228); BurTexto = (C 25 20 22); BurFuente = 'Segoe Print'
+        Hola = @(
+            '*Guillotina se sienta encima de tu barra de tareas.*'
+            'WMEW 99.9: ¡Atención! Un enorme gato se dirige a tu escritorio.'
+            '*Ruge. Tiene hambre.*'
+            '*Te mira fijamente. Se relame.*'
+        )
+        AlVenirDe = @{
+            'c00lgui'     = '*Guillotina se come los restos del panel rojo. Sabe a código.*'
+            'SeaDrive'    = '*Huele a otro gato. Gruñe muy fuerte.*'
+            'Static Miku' = '*Se ha tragado la antena de la tele. No se arrepiente.*'
+            'Angela'      = 'WMEW 99.9: Un gato gigante ha escapado de una instalación de L Corp...'
+        }
+        Yo = @('*Se mira a sí misma. Le gusta lo que ve.*', '*Ronronea. Sí, esa es ella.*')
+        Opina = @{
+            'c00lgui'     = @('*Mira el panel rojo. Parece un filete. Se relame.*', '*Intentó comerse a c00lkidd. Sabía a bits.*')
+            'SeaDrive'    = @('*Huele a otro gato en el sistema. Gruñe.*', '*SeaDrive le parece un aperitivo con auriculares.*')
+            'Static Miku' = @('*Mira las coletas de Miku como si fueran fideos.*', '*La tele de Miku le parece una caja de comida.*')
+            'Angela'      = @('*Angela no parece comestible. Lo va a intentar igual.*', 'WMEW 99.9: Fuentes de L Corp la clasifican como anomalía de riesgo WAW.')
+        }
+        Frases = @(
+            '*ÑAM.*'
+            '*Se lo ha tragado entero.*'
+            '*Eructa.*'
+            '*Sigue teniendo hambre.*'
+            'WMEW 99.9: ¡Nadie está a salvo!'
+        )
+        Idle = @(
+            '*Guillotina ronca. El suelo tiembla.*'
+            '*Se lame una garra. Te mira.*'
+            'WMEW 99.9: Se recomienda no salir de casa.'
+            '*Su estómago ruge más fuerte que ella.*'
+            '*Busca comida en tu papelera de reciclaje.*'
+            'Su hambre no tiene fin.'
+            '*Se ha sentado en el teclado. Ahora es suyo.*'
+            'WMEW 99.9: Seguimos informando del gato gigante...'
+            '*Persigue el cursor con la mirada.*'
+            '*Huele tus archivos. Ninguno es comestible. De momento.*'
+            '*Bosteza. Ves todos sus dientes.*'
+            'WMEW 99.9: La casa de la colina sigue sin noticias.'
+        )
+        Clic = @(
+            '*¡Le has dado! Se enfada.*'
+            '*Gruñe. Eso no le ha gustado.*'
+            '*Intenta comerse tu cursor.*'
+            '*Bufa. Te arrepentirás.*'
+            '*Te enseña los dientes.*'
+        )
+        PorApp = @{
+            'YouTube'       = @('*Se come la pestaña de YouTube. Era un vídeo de pescado.*')
+            'Word'          = @('*Mordisquea el documento. Le faltan tres páginas.*')
+            'Excel'         = @('*Se traga una fila entera. Las celdas no sabían a nada.*')
+            'PowerPoint'    = @('*Se sienta en la diapositiva 1. No piensa moverse.*')
+            'Outlook'       = @('*Se come el correo antes de que lo leas.*')
+            'OneNote'       = @('*Araña tus notas.*')
+            'Access'        = @('*Engulle la base de datos. Le sienta mal.*')
+            'Publisher'     = @('*Hace un póster: SE BUSCA COMIDA.*')
+            'Teams'         = @('*Aparece en tu reunión. Todos huyen.*')
+            'OneDrive'      = @('*Intenta comerse la nube. No puede. Se frustra.*')
+            'Office Web'    = @('*Se traga el navegador de un bocado.*')
+            'Bloc de notas' = @('*Escribe: ÑAMÑAMÑAMÑAMÑAM*')
+            'Calculadora'   = @('*Calcula cuántos gatos caben en su estómago: muchos.*')
+            'Explorador'    = @('*Explora tus carpetas buscando atún.*')
+            'CMD'           = @('*Se come la pantalla negra. Era regaliz.*')
+        }
+    }
+    # ================================================================ Angela (Lobotomy Corporation)
+    'Angela' = @{
+        Estilo = 'lobo'; Titulo = 'ANGELA'; Sub = "L Corp.  ·  DÍA $($script:dia)"; Alto = 312
+        Fondo = (C 12 15 20); Borde = (C 255 170 40)
+        TituloColor = (C 255 176 50); SubColor = (C 80 210 200)
+        BtnFondo = (C 22 28 36); BtnTexto = (C 235 235 235); BtnTextoHover = (C 255 190 80); BtnBorde = (C 255 170 40); BtnBordeAncho = 1
+        BtnHover = (C 60 44 16); BtnPress = (C 255 170 40); BarraBtnTexto = (C 255 176 50)
+        StatusColor = (C 255 176 50); Fuente = 'Bahnschrift'; FuenteTitulo = 'Bahnschrift'; Opacidad = 0.97; Velocidad = 1
+        Gif = 'skins\angela\calma.png'
+        Caras = @{
+            cerrados = @('skins\angela\calma.png', 'skins\angela\habla.png')
+            abiertos = @('skins\angela\abiertos.png', 'skins\angela\abiertos_habla.png')
+            serio    = @('skins\angela\serio.png', 'skins\angela\serio_habla.png')
+        }
+        Pb = @(412, 66, 186, 148); PbFondo = (C 18 22 28); PbBorde = $false
+        Burbuja = @(410, 222, 190, 72); BurFondo = (C 8 10 14); BurTexto = (C 255 190 90); BurFuente = 'Bahnschrift'
+        Hola = @(
+            'Buenos días, Manager. Comencemos con la jornada.'
+            "Bienvenido, Manager. El día $($script:dia) empieza ahora."
+            'Manager, sus aplicaciones están listas para ser asignadas.'
+            'Recuerde, Manager: enfrente el miedo, construya el futuro.'
+        )
+        AlVenirDe = @{
+            'c00lgui'     = 'Manager, he detectado una intrusión. Ya ha sido... neutralizada.'
+            'SeaDrive'    = 'Ese asistente no cumple el protocolo. Yo me encargo a partir de ahora.'
+            'Static Miku' = 'Las interferencias han sido eliminadas. Bienvenido de nuevo, Manager.'
+            'Guillotina'  = 'Manager, la anomalía felina ha sido contenida. Por ahora.'
+        }
+        Yo = @('Esa soy yo, Manager. La opción más eficiente.', 'Una elección lógica, Manager.')
+        Opina = @{
+            'c00lgui'     = @('c00lgui es un programa no autorizado. Lo tengo vigilado.', 'Ese "hacker" no superaría ni el primer día en L Corp.')
+            'SeaDrive'    = @('SeaDrive es... ineficiente. Pero admito que tiene carácter.', 'Un asistente que se queja. Fascinante. Inútil, pero fascinante.')
+            'Static Miku' = @('Static Miku emite demasiado ruido. Literalmente.', 'Su optimismo es admirable. Y sospechoso.')
+            'Guillotina'  = @('Guillotina tendría clasificación HE como mínimo. Quizá WAW.', 'No permita que esa anomalía se acerque a los empleados.')
+        }
+        Frases = @(
+            'Tarea asignada. Le recomiendo no perder el tiempo.'
+            'Aplicación en funcionamiento, Manager.'
+            'Registrado. Su productividad está siendo evaluada.'
+            'Como ordene, Manager.'
+        )
+        Idle = @(
+            'Manager, la cuota de energía no se completará sola.'
+            'Le estoy observando, Manager. Es parte de mi trabajo.'
+            'Todo está bajo control. No hay de qué preocuparse.'
+            'He calculado su eficiencia de hoy. Prefiero no comentarla.'
+            'Los empleados necesitan descansar. Usted también, Manager.'
+            'Un buen Manager no deja tareas pendientes.'
+            'Si algo sale mal, siempre podemos empezar el día otra vez.'
+            'Mantenga la calma. El pánico reduce la productividad.'
+            'Hidrátese. Un Manager deshidratado es un Manager ineficiente.'
+            'La instalación funciona con normalidad. Por ahora.'
+            'He archivado sus pestañas abiertas. Eran demasiadas.'
+            'Manager... ¿alguna vez se ha preguntado qué soy?'
+        )
+        Clic = @(
+            '¿Necesita algo, Manager?'
+            'Por favor, no toque la pantalla.'
+            'Estoy aquí, Manager. Siempre lo estoy.'
+            'Sus clics han sido registrados.'
+        )
+        PorApp = @{
+            'YouTube'       = @('YouTube. Lo registraré como "tiempo de descanso".', 'Manager, 10 minutos. Ni uno más.')
+            'Word'          = @('Redacte su informe con precisión, Manager.')
+            'Excel'         = @('Excelente. Los datos nunca mienten.', 'Las hojas de cálculo son la base de toda buena gestión.')
+            'PowerPoint'    = @('Presentación preparada. Que sea breve.')
+            'Outlook'       = @('Tiene correspondencia pendiente, Manager.')
+            'OneNote'       = @('Tome notas. La memoria es frágil.')
+            'Access'        = @('Base de datos abierta. Mi especialidad.')
+            'Publisher'     = @('Publicaciones internas. Recuerde el manual de estilo de L Corp.')
+            'Teams'         = @('Reunión iniciada. Mantenga la compostura.')
+            'OneDrive'      = @('Sus archivos están a salvo en la nube. Yo también los vigilo.')
+            'Office Web'    = @('Acceso web concedido.')
+            'Bloc de notas' = @('Un registro simple. Eficiente.')
+            'Calculadora'   = @('Puedo calcular eso más rápido, pero adelante.')
+            'Explorador'    = @('Explorando el sistema de archivos. No se pierda, Manager.')
+            'CMD'           = @('Terminal abierto. Espero que sepa lo que hace.')
+        }
+    }
 }
 
 $script:skinNombre = 'c00lgui'
@@ -257,16 +449,35 @@ $script:glitching = $false
 $script:transicion = $false
 $script:pb = $null
 $script:imgs = @{}
+$script:caras = @{}
+$script:caraModo = 'cerrados'
 $script:tvRuido = $null
 $script:urlLbl = $null
 $script:bi = 0
+$script:energia = 0
 $totalPaginas = [Math]::Max(1, [Math]::Ceiling($Botones.Count / $PorPagina))
 
-function Azar($lista) { if ($lista -and $lista.Count -gt 0) { return $lista[$Rnd.Next($lista.Count)] } else { return '' } }
+function Azar($lista) { if ($lista -and @($lista).Count -gt 0) { $l = @($lista); return $l[$Rnd.Next($l.Count)] } else { return '' } }
 function Ocupado { return ($script:glitching -or $script:transicion) }
+function Ruta($rel) { return (Join-Path $Raiz $rel) }
 
 function Doble-Buffer($ctl) {
     [System.Windows.Forms.Control].GetProperty('DoubleBuffered', [System.Reflection.BindingFlags]'NonPublic,Instance').SetValue($ctl, $true, $null)
+}
+
+function Sonido($clave) {
+    $k = $script:skin
+    if (-not $k.Sonidos -or -not $k.Sonidos[$clave]) { return }
+    try { $p = New-Object System.Media.SoundPlayer((Ruta (Azar $k.Sonidos[$clave]))); $p.Play() } catch {}
+}
+
+# texto grueso con borde negro (para los carteles)
+function Texto-Borde($g, $txt, $fuente, $tam, $x, $y, $color) {
+    $path = New-Object System.Drawing.Drawing2D.GraphicsPath
+    $path.AddString($txt, (New-Object System.Drawing.FontFamily($fuente)), 0, $tam, (New-Object System.Drawing.PointF($x, $y)), [System.Drawing.StringFormat]::GenericDefault)
+    $pen = New-Object System.Drawing.Pen([System.Drawing.Color]::Black, 8); $pen.LineJoin = 'Round'
+    $g.DrawPath($pen, $path); $g.FillPath((New-Object System.Drawing.SolidBrush($color)), $path)
+    $pen.Dispose(); $path.Dispose()
 }
 
 # ruido de tele (estática) rápido: bytes aleatorios en una imagen en escala de grises
@@ -288,22 +499,63 @@ function Llenar-Ruido($b) {
     $b.UnlockBits($d)
 }
 
-# ================= DIÁLOGOS (efecto máquina de escribir) =================
+# fondos pre-dibujados (se dibujan una vez y se reutilizan)
+function Fondo-Hexagonos($W, $H, $color) {
+    $bmp = New-Object System.Drawing.Bitmap($W, $H)
+    $g = [System.Drawing.Graphics]::FromImage($bmp); $g.SmoothingMode = 'AntiAlias'
+    $pen = New-Object System.Drawing.Pen($color, 1)
+    $r = 13; $hw = [Math]::Sqrt(3) * $r; $j = 0
+    for ($y = 0.0; $y -lt $H + $r; $y += 1.5 * $r) {
+        $off = if ($j % 2) { $hw / 2 } else { 0 }
+        for ($x = $off; $x -lt $W + $hw; $x += $hw) {
+            $pts = New-Object 'System.Drawing.PointF[]' 6
+            for ($q = 0; $q -lt 6; $q++) { $a = [Math]::PI / 180 * (60 * $q - 30); $pts[$q] = New-Object System.Drawing.PointF(($x + $r * [Math]::Cos($a)), ($y + $r * [Math]::Sin($a))) }
+            $g.DrawPolygon($pen, $pts)
+        }
+        $j++
+    }
+    $pen.Dispose(); $g.Dispose()
+    return $bmp
+}
+function Fondo-Papel($W, $H) {
+    $bmp = New-Object System.Drawing.Bitmap($W, $H)
+    $g = [System.Drawing.Graphics]::FromImage($bmp); $g.SmoothingMode = 'AntiAlias'
+    $g.Clear((C 232 220 190))
+    $r2 = New-Object System.Random(7)
+    $b1 = New-Object System.Drawing.SolidBrush((C 214 198 162)); $b2 = New-Object System.Drawing.SolidBrush((C 222 208 175))
+    for ($i = 0; $i -lt 260; $i++) { $s = $r2.Next(2, 9); $g.FillEllipse((@($b1, $b2)[$r2.Next(2)]), $r2.Next($W), $r2.Next($H), $s, $s) }
+    $b1.Dispose(); $b2.Dispose(); $g.Dispose()
+    return $bmp
+}
+$script:bmpHex = $null; $script:bmpHexIntro = $null; $script:bmpPapel = $null
+
+# ================= DIÁLOGOS (máquina de escribir + boca de Angela) =================
 $script:twTexto = ''; $script:twPos = 0; $script:twTick = 0
 $twTimer = New-Object System.Windows.Forms.Timer
 $twTimer.Interval = 30
 $twTimer.Add_Tick({
     if (-not $script:status -or (Ocupado)) { return }
     $script:twTick++
-    if ($script:twPos -lt $script:twTexto.Length) {
-        $script:twPos = [Math]::Min($script:twTexto.Length, $script:twPos + $script:skin.Velocidad)
-    }
+    $escribiendo = $script:twPos -lt $script:twTexto.Length
+    if ($escribiendo) { $script:twPos = [Math]::Min($script:twTexto.Length, $script:twPos + $script:skin.Velocidad) }
     $txt = $script:twTexto.Substring(0, $script:twPos)
-    if ($script:skin.Estilo -eq 'hacker' -and (($script:twPos -lt $script:twTexto.Length) -or ([Math]::Floor($script:twTick / 15) % 2 -eq 0))) { $txt += '_' }
+    if ($script:skin.Estilo -eq 'hacker' -and ($escribiendo -or ([Math]::Floor($script:twTick / 15) % 2 -eq 0))) { $txt += '_' }
     if ($script:status.Text -ne $txt) { $script:status.Text = $txt }
+    # Angela mueve la boca mientras escribe
+    if ($script:pb -and $script:caras.Count -gt 0) {
+        $set = $script:caras[$script:caraModo]
+        $img = if ($escribiendo -and ([Math]::Floor($script:twTick / 3) % 2 -eq 1)) { $set[1] } else { $set[0] }
+        if ($script:pb.Image -ne $img) { $script:pb.Image = $img }
+    }
 })
 
-function Decir($texto) { $script:twTexto = [string]$texto; $script:twPos = 0 }
+function Decir($texto, $cara) {
+    $script:twTexto = [string]$texto; $script:twPos = 0
+    if ($script:caras.Count -gt 0) {
+        if (-not $cara) { $cara = @('cerrados', 'abiertos')[$Rnd.Next(2)] }
+        $script:caraModo = $cara
+    }
+}
 
 function Saludo {
     $k = $script:skin
@@ -322,9 +574,27 @@ function Mensaje-Entrada($prev) {
     return (Saludo)
 }
 
+# lo que la skin actual opina de otra skin
+function Opinion($nombre) {
+    $k = $script:skin
+    if ($nombre -eq $script:skinNombre) { return (Azar $k.Yo) }
+    return (Azar $k.Opina[$nombre])
+}
+function Opinion-Azar {
+    $otras = @($Skins.Keys | Where-Object { $_ -ne $script:skinNombre })
+    return (Opinion (Azar $otras))
+}
+
 # ================= CARAS DEL ASISTENTE =================
+function Img-Base {
+    if ($script:skin.Estilo -eq 'mew') {
+        if (-not $script:gVivo) { return $null }
+        if ($script:gFase2) { return $script:imgs.fase2 }
+    }
+    return $script:imgs.main
+}
 $caraTimer = New-Object System.Windows.Forms.Timer
-$caraTimer.Add_Tick({ $caraTimer.Stop(); if ($script:pb -and $script:imgs.main) { $script:pb.Image = $script:imgs.main } })
+$caraTimer.Add_Tick({ $caraTimer.Stop(); if ($script:pb) { $script:pb.Image = (Img-Base) } })
 function Cara($clave, $ms) {
     if (-not $script:pb -or -not $script:imgs[$clave]) { return }
     $tvTimer.Stop()
@@ -340,7 +610,7 @@ $tvTimer.Add_Tick({
     $script:tvPaso--
     if ($script:tvPaso -le 0 -or -not $script:pb) {
         $tvTimer.Stop()
-        if ($script:pb -and $script:imgs.main) { $script:pb.Image = $script:imgs.main }
+        if ($script:pb) { $script:pb.Image = (Img-Base) }
         return
     }
     Llenar-Ruido $script:tvRuido
@@ -354,17 +624,57 @@ function Corte-Senal($ticks) {
     $tvTimer.Start()
 }
 
+# ================= GUILLOTINA: VIDA Y FURIA =================
+$script:gHP = 400; $script:gMax = 400; $script:gFase2 = $false; $script:gVivo = $true
+$revTimer = New-Object System.Windows.Forms.Timer
+$revTimer.Interval = 5000
+$revTimer.Add_Tick({
+    $revTimer.Stop()
+    if ($script:skin.Estilo -ne 'mew') { return }
+    $script:gHP = 400; $script:gMax = 400; $script:gFase2 = $false; $script:gVivo = $true
+    if ($script:pb) { $script:pb.Image = (Img-Base) }
+    Sonido 'intro'
+    Decir 'WMEW 99.9: ¡Guillotina ha vuelto, buscando venganza!'
+    $form.Invalidate()
+})
+function Golpe-Guillotina {
+    if (-not $script:gVivo) { Decir '*Ya no está. Pero volverá.*'; return }
+    $d = $Rnd.Next(15, 41)
+    $script:gHP -= $d
+    if (-not $script:gFase2 -and $script:gHP -le 200) {
+        # igual que en el juego: se enfurece, cura 50 y gana 100 de vida máxima
+        $script:gFase2 = $true; $script:gHP += 50; $script:gMax += 100
+        Sonido 'furia'; Cara 'clic' 2600
+        Decir 'WMEW 99.9: ¡Está FURIOSA! ¡Recupera 50 de vida y crece todavía más!'
+    } elseif ($script:gHP -le 0) {
+        $script:gHP = 0; $script:gVivo = $false
+        Sonido 'furia'
+        if ($script:pb) { $caraTimer.Stop(); $script:pb.Image = $null }
+        Decir '*Guillotina cae rodando...* ¡La has derrotado! Por ahora.'
+        $revTimer.Start()
+    } else {
+        Sonido 'golpe'; Cara 'clic' 1400
+        Decir "-$d HP. $(Azar $script:skin.Clic)"
+    }
+    $form.Invalidate()
+}
+
 # frases cuando no haces nada
 $idleTimer = New-Object System.Windows.Forms.Timer
 $idleTimer.Interval = 18000
 $idleTimer.Add_Tick({
     if ((Ocupado) -or $script:modoSkins) { return }
     $k = $script:skin; $r = $Rnd.Next(100)
+    if ($r -lt 22) { Decir (Opinion-Azar) 'abiertos'; return }   # opina de otra skin
     switch ($k.Estilo) {
-        'hacker' { if ($r -lt 35) { Glitch 6 (Azar $k.Idle) } else { Decir (Azar $k.Idle) } }
+        'hacker' { if ($r -lt 50) { Glitch 6 (Azar $k.Idle) } else { Decir (Azar $k.Idle) } }
         'tele' {
-            if ($r -lt 12 -and $script:imgs.raro) { Cara 'raro' 3500; Decir (Azar $k.Raro) }
-            elseif ($r -lt 45) { Corte-Senal 8; Decir (Azar $k.Idle) }
+            if ($r -lt 32 -and $script:imgs.raro) { Cara 'raro' 3500; Decir (Azar $k.Raro) }
+            elseif ($r -lt 55) { Corte-Senal 8; Decir (Azar $k.Idle) }
+            else { Decir (Azar $k.Idle) }
+        }
+        'mew' {
+            if ($r -lt 32 -and $script:gVivo -and -not $script:gFase2) { Cara 'clic' 2500; Sonido 'golpe'; Decir '*Se pone furiosa sin motivo aparente.*' }
             else { Decir (Azar $k.Idle) }
         }
         default { Decir (Azar $k.Idle) }
@@ -566,11 +876,119 @@ function Transicion-Estatica($final) {
     $sTimer.Start()
 }
 
+# ================= INTROS A PANTALLA COMPLETA (Guillotina y Angela) =================
+$script:iPaso = 0; $script:iTotal = 0; $script:iRecursos = @()
+$iTimer = New-Object System.Windows.Forms.Timer
+$iTimer.Interval = 45
+$iTimer.Add_Tick({
+    $script:iPaso++
+    if ($script:iPaso -ge $script:iTotal) {
+        $iTimer.Stop()
+        $form.Controls.Remove($script:iOv); $script:iOv.Dispose()
+        foreach ($r in $script:iRecursos) { if ($r) { $r.Dispose() } }
+        $script:iRecursos = @()
+        $script:transicion = $false
+        Decir $script:iFinal 'abiertos'
+        return
+    }
+    if ($script:iTick) { & $script:iTick $script:iOv $script:iPaso }
+    $script:iOv.Invalidate()
+})
+
+function Intro-Overlay($total, $pintar, $alTick, $final) {
+    $script:transicion = $true
+    $ov = New-Object System.Windows.Forms.Panel
+    $ov.Location = New-Object System.Drawing.Point(0, 0)
+    $ov.Size = $form.ClientSize
+    $ov.BackColor = [System.Drawing.Color]::Black
+    Doble-Buffer $ov
+    $script:iPintar = $pintar; $script:iTick = $alTick
+    $ov.Add_Paint({ & $script:iPintar $_.Graphics $this.Width $this.Height $script:iPaso })
+    $form.Controls.Add($ov); $ov.BringToFront()
+    $script:iOv = $ov; $script:iPaso = 0; $script:iTotal = $total; $script:iFinal = $final
+    $iTimer.Start()
+}
+
+# --- "GUILLOTINA IS COMING FOR YOU!" ---
+function Transicion-Boss($final) {
+    $script:bCartel = $null
+    $ruta = Ruta $script:skin.Cartel
+    if (Test-Path $ruta) { $script:bCartel = [System.Drawing.Image]::FromFile($ruta) }
+    $script:iRecursos = @($script:bCartel)
+    $script:bLeyenda = 'WMEW 99.9: "Para mi asombro, parece que... una enorme aparición felina se dirige directa hacia esa casa de la colina..."'
+    $pintar = {
+        param($g, $W, $H, $p)
+        $g.SmoothingMode = 'AntiAlias'
+        $g.Clear((C 58 10 12))
+        # rayos girando detrás del jefe
+        $cx = $W * 0.74; $cy = $H / 2; $rot = $p * 2.5
+        $br = New-Object System.Drawing.SolidBrush((C 105 20 20))
+        for ($i = 0; $i -lt 18; $i++) {
+            $a1 = [Math]::PI / 180 * ($rot + $i * 20 - 5); $a2 = [Math]::PI / 180 * ($rot + $i * 20 + 5)
+            $pts = @((New-Object System.Drawing.PointF($cx, $cy)), (New-Object System.Drawing.PointF(($cx + 900 * [Math]::Cos($a1)), ($cy + 900 * [Math]::Sin($a1)))), (New-Object System.Drawing.PointF(($cx + 900 * [Math]::Cos($a2)), ($cy + 900 * [Math]::Sin($a2)))))
+            $g.FillPolygon($br, [System.Drawing.PointF[]]$pts)
+        }
+        $br.Dispose()
+        # retrato entrando desde la derecha con golpe
+        if ($script:bCartel) {
+            $t = [Math]::Min(1.0, $p / 8.0); $e = 1 - [Math]::Pow(1 - $t, 3)
+            $x = ($W + 20) - $e * 320; $y = 10
+            if ($p -ge 8 -and $p -le 15) { $x += $Rnd.Next(-7, 8); $y += $Rnd.Next(-6, 7) }
+            $g.DrawImage($script:bCartel, [int]$x, [int]$y, 290, 288)
+        }
+        # textos
+        if ($p -ge 10) { $tam = 50 + [Math]::Max(0, 14 - $p) * 5; Texto-Borde $g 'GUILLOTINA' 'Impact' $tam 22 22 (C 245 235 210) }
+        if ($p -ge 16) { Texto-Borde $g 'IS COMING' 'Impact' 38 28 98 (C 255 214 60) }
+        if ($p -ge 22) { Texto-Borde $g 'FOR YOU!' 'Impact' 46 26 146 (C 235 50 40) }
+        if ($p -ge 28) {
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(215, 0, 0, 0))), 0, ($H - 62), $W, 62)
+            $n = [Math]::Min($script:bLeyenda.Length, ($p - 28) * 4)
+            $g.DrawString($script:bLeyenda.Substring(0, $n), (New-Object System.Drawing.Font('Segoe UI', 8.5, [System.Drawing.FontStyle]::Italic)), [System.Drawing.Brushes]::White, (New-Object System.Drawing.RectangleF(12, ($H - 58), ($W - 24), 54)))
+        }
+    }
+    $alTick = { param($ov, $p) if ($p -eq 8) { Sonido 'intro' }; if ($p -gt 66) { $ov.Top -= [int]($ov.Height / 5) } }
+    Intro-Overlay 72 $pintar $alTick $final
+}
+
+# --- inicio de jornada en L Corp ---
+function Transicion-Lobo($final) {
+    if (-not $script:bmpHexIntro) { $script:bmpHexIntro = Fondo-Hexagonos 616 344 ([System.Drawing.Color]::FromArgb(60, 255, 170, 40)) }
+    $pintar = {
+        param($g, $W, $H, $p)
+        $g.SmoothingMode = 'AntiAlias'; $g.TextRenderingHint = 'AntiAlias'
+        $g.Clear((C 6 8 11))
+        if ($p -ge 2) { $g.DrawImage($script:bmpHexIntro, 0, 0) }
+        $fmt = New-Object System.Drawing.StringFormat; $fmt.Alignment = 'Center'
+        $t1 = 'LOBOTOMY CORPORATION'
+        $n = [Math]::Min($t1.Length, [Math]::Max(0, $p - 3))
+        $g.DrawString($t1.Substring(0, $n), (New-Object System.Drawing.Font('Bahnschrift', 24, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 255 176 50))), (New-Object System.Drawing.RectangleF(0, ($H / 2 - 92), $W, 44)), $fmt)
+        if ($p -ge 24) { $g.DrawString('Face the Fear, Build the Future', (New-Object System.Drawing.Font('Bahnschrift', 11)), (New-Object System.Drawing.SolidBrush((C 80 210 200))), (New-Object System.Drawing.RectangleF(0, ($H / 2 - 48), $W, 24)), $fmt) }
+        if ($p -ge 32) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 176 50))), ($W / 2 - 160), ($H / 2 - 16), 320, 2) }
+        if ($p -ge 34) { $g.DrawString("DÍA $($script:dia)", (New-Object System.Drawing.Font('Bahnschrift', 30, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, (New-Object System.Drawing.RectangleF(0, ($H / 2 - 8), $W, 54)), $fmt) }
+        if ($p -ge 42) { $g.DrawString('Manager conectado.  Angela: en línea.', (New-Object System.Drawing.Font('Bahnschrift', 9)), (New-Object System.Drawing.SolidBrush((C 140 150 160))), (New-Object System.Drawing.RectangleF(0, ($H / 2 + 50), $W, 20)), $fmt) }
+    }
+    # al final se abre como dos puertas desde el centro
+    $alTick = {
+        param($ov, $p)
+        if ($p -gt 50) {
+            $W = $ov.Width; $H = $ov.Height; $banda = [int]($W * ($p - 50) / 10)
+            $reg = New-Object System.Drawing.Region((New-Object System.Drawing.Rectangle(0, 0, $W, $H)))
+            $reg.Exclude((New-Object System.Drawing.Rectangle([int](($W - $banda) / 2), 0, $banda, $H)))
+            $viejo = $ov.Region; $ov.Region = $reg; if ($viejo) { $viejo.Dispose() }
+        }
+    }
+    Intro-Overlay 61 $pintar $alTick $final
+}
+
 [System.Windows.Forms.Application]::add_ThreadException({
     try {
-        if ($script:skin.Estilo -eq 'hacker') { Glitch 8 '> error interceptado. todo bajo control.' }
-        elseif ($script:skin.Estilo -eq 'tele') { Corte-Senal 10; Decir '¡Bzzzt! Interferencias... ¡ya está!' }
-        else { Decir 'Algo se ha roto. No he sido yo. Creo.' }
+        switch ($script:skin.Estilo) {
+            'hacker' { Glitch 8 '> error interceptado. todo bajo control.' }
+            'tele' { Corte-Senal 10; Decir '¡Bzzzt! Interferencias... ¡ya está!' }
+            'mew' { Decir '*Guillotina se ha comido un error. Lo digiere.*' }
+            'lobo' { Decir 'Incidente registrado y contenido, Manager.' 'serio' }
+            default { Decir 'Algo se ha roto. No he sido yo. Creo.' }
+        }
     } catch {}
 })
 
@@ -588,13 +1006,15 @@ function Nuevo-Boton($texto, $x, $y, $w, $h) {
     $b.FlatAppearance.MouseDownBackColor = $k.BtnPress
     if ($k.Paleta) { $b.BackColor = $k.Paleta[$script:bi % $k.Paleta.Count]; $script:bi++ } else { $b.BackColor = $k.BtnFondo }
     $b.ForeColor = $k.BtnTexto
-    $b.Font = New-Object System.Drawing.Font($k.Fuente, 10, [System.Drawing.FontStyle]::Bold)
+    $estilo = if ($k.Fuente -eq 'Impact') { [System.Drawing.FontStyle]::Regular } else { [System.Drawing.FontStyle]::Bold }
+    $tam = if ($k.Fuente -in @('Impact', 'Bahnschrift')) { 9.5 } else { 10 }
+    $b.Font = New-Object System.Drawing.Font($k.Fuente, $tam, $estilo)
     $b.Cursor = 'Hand'
     $b.TabStop = $false
     return $b
 }
 
-function Hover-Rojo($b) {
+function Hover-Color($b) {
     $col = $b.ForeColor; $hov = $script:skin.BtnTextoHover
     $b.Add_MouseEnter({ $this.ForeColor = $hov }.GetNewClosure())
     $b.Add_MouseLeave({ $this.ForeColor = $col }.GetNewClosure())
@@ -609,6 +1029,14 @@ function Lanzar($item) {
         switch ($k.Estilo) {
             'hacker' { Glitch 3 $linea }
             'tele' { Corte-Senal 4; Decir $linea }
+            'mew' { if ($Rnd.Next(2) -eq 0) { Sonido 'comer' }; Decir $linea }
+            'lobo' {
+                $antes = $script:energia
+                $script:energia = [Math]::Min(100, $script:energia + 10)
+                $form.Invalidate()
+                if ($antes -lt 100 -and $script:energia -ge 100) { Decir 'Cuota de energía completada. Excelente trabajo, Manager.' 'abiertos' }
+                else { Decir $linea 'abiertos' }
+            }
             default { Decir $linea }
         }
     } catch {
@@ -617,12 +1045,16 @@ function Lanzar($item) {
             switch ($k.Estilo) {
                 'hacker' { Decir "> $($item.Nombre) not found. redirecting to web..." }
                 'tele' { Decir "¡No tengo $($item.Nombre) en la tele! ¡Te pongo la versión web!" }
+                'mew' { Decir "*No encuentra $($item.Nombre). Se come la versión web.*" }
+                'lobo' { Decir "$($item.Nombre) no está instalado. Redirigiendo a la versión web, Manager." 'serio' }
                 default { Decir "$($item.Nombre) no está instalado. Te abro la web. De nada." }
             }
         } else {
             switch ($k.Estilo) {
                 'hacker' { Glitch 6 "> ERROR: $($item.Nombre) resisted the hack" }
                 'tele' { Corte-Senal 10; Decir "¡Bzzzt! No encuentro el canal $($item.Nombre)..." }
+                'mew' { Decir "*Busca $($item.Nombre) por todas partes. No está. Se enfada.*" }
+                'lobo' { Decir "Error: $($item.Nombre) no localizado. Revise la instalación, Manager." 'serio' }
                 default { Decir "No encuentro $($item.Nombre). Igual nunca existió." }
             }
         }
@@ -632,7 +1064,7 @@ function Lanzar($item) {
 function Mostrar-Pagina {
     $grid.Controls.Clear()
     $script:bi = 0
-    $hacker = $script:skin.Estilo -eq 'hacker'
+    $hacker = $script:skin.Estilo -in @('hacker', 'lobo')
     if ($script:modoSkins) {
         $i = 0
         foreach ($n in $Skins.Keys) {
@@ -640,7 +1072,9 @@ function Mostrar-Pagina {
             $b = Nuevo-Boton $txt (($i % 3) * 128) ([Math]::Floor($i / 3) * 44) 120 36
             $b.Tag = $n
             $b.Add_Click({ Aplicar-Skin $this.Tag })
-            if ($hacker) { Hover-Rojo $b }
+            # al pasar el ratón, el asistente opina de esa skin
+            $b.Add_MouseEnter({ if (-not (Ocupado)) { Decir (Opinion $this.Tag) 'abiertos' } })
+            if ($hacker) { Hover-Color $b }
             $grid.Controls.Add($b); $i++
         }
         $script:lblPag.Text = 'Skins'
@@ -653,7 +1087,7 @@ function Mostrar-Pagina {
         $b = Nuevo-Boton $item.Nombre (($i % 3) * 128) ([Math]::Floor($i / 3) * 44) 120 36
         $b.Tag = $item
         $b.Add_Click({ Lanzar $this.Tag })
-        if ($hacker) { Hover-Rojo $b }
+        if ($hacker) { Hover-Color $b }
         $grid.Controls.Add($b); $i++
     }
     $script:lblPag.Text = "Page $($script:pagina + 1)/$totalPaginas"
@@ -665,6 +1099,8 @@ function Efecto-Entrada($prev) {
         'hacker' { Glitch 10 $msg }
         'web' { Transicion-Web $msg }
         'tele' { Transicion-Estatica $msg }
+        'mew' { Transicion-Boss $msg }
+        'lobo' { Transicion-Lobo $msg }
     }
 }
 
@@ -703,7 +1139,6 @@ $form.Add_Paint({
             $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 255 198 26))), 12, 11, 30, 30)
             $g.DrawEllipse((New-Object System.Drawing.Pen((C 20 20 20), 2)), 12, 11, 30, 30)
             $g.DrawString('i', (New-Object System.Drawing.Font('Georgia', 15, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::Black, 20, 12)
-            # franja verde
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 140 220 60))), 0, 52, $W, 4)
             # barra del navegador
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 244 246 249))), 0, 56, $W, 32)
@@ -711,21 +1146,17 @@ $form.Add_Paint({
             $g.DrawString('◀   ▶   ⟳', (New-Object System.Drawing.Font('Segoe UI Symbol', 10)), (New-Object System.Drawing.SolidBrush((C 90 100 115))), 10, 61)
             $g.FillRectangle([System.Drawing.Brushes]::White, 96, 60, ($W - 112), 24)
             $g.DrawRectangle((New-Object System.Drawing.Pen((C 185 195 205), 1)), 96, 60, ($W - 112), 24)
-            # franja tipo falda abajo
             $g.FillRectangle([System.Drawing.Brushes]::Black, 0, $H - 10, $W, 10)
             $g.FillRectangle([System.Drawing.Brushes]::White, 0, $H - 7, $W, 2)
         }
         'tele' {
             $g.SmoothingMode = 'AntiAlias'
-            # lunares estilo dibujo animado
             $lun = New-Object System.Drawing.SolidBrush((C 255 95 70))
             for ($y = 64; $y -lt $H; $y += 22) { for ($x = (($y / 22) % 2) * 11; $x -lt $W; $x += 22) { $g.FillEllipse($lun, $x, $y, 7, 7) } }
             $lun.Dispose()
-            # barra de título azul (chaqueta de Miku) con línea amarilla (lazo)
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 58 44 190))), 0, 0, $W, 52)
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 225 50))), 0, 52, $W, 5)
             $g.DrawString($k.Titulo, (New-Object System.Drawing.Font($k.FuenteTitulo, 20, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::Black, 15, 9)
-            # la tele
             $pen = New-Object System.Drawing.Pen([System.Drawing.Color]::Black, 4)
             $g.DrawLine($pen, 472, 66, 454, 48); $g.DrawLine($pen, 538, 66, 556, 48)
             $g.FillEllipse([System.Drawing.Brushes]::Black, 446, 41, 12, 12); $g.FillEllipse([System.Drawing.Brushes]::Black, 552, 41, 12, 12)
@@ -738,13 +1169,54 @@ $form.Add_Paint({
             $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 90 220 245))), 438, 214, 12, 12); $g.DrawEllipse((New-Object System.Drawing.Pen([System.Drawing.Color]::Black, 2)), 438, 214, 12, 12)
             $g.DrawString('CH 03', (New-Object System.Drawing.Font('Comic Sans MS', 8, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 548, 213)
             $pen.Dispose()
-            # falda de colores abajo
             $arco = @((C 255 40 40), (C 255 150 30), (C 255 225 50), (C 90 210 80), (C 90 220 245), (C 58 44 190), (C 230 80 200))
             $bw = [Math]::Ceiling($W / $arco.Count)
             for ($i = 0; $i -lt $arco.Count; $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush($arco[$i])), ($i * $bw), ($H - 10), $bw, 10) }
         }
+        'mew' {
+            $g.SmoothingMode = 'AntiAlias'
+            if (-not $script:bmpPapel) { $script:bmpPapel = Fondo-Papel 616 344 }
+            $g.DrawImage($script:bmpPapel, 0, 0)
+            # barra de tinta con arañazos
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 36 30 32))), 0, 0, $W, 52)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 170 40 35))), 0, 52, $W, 4)
+            $ar = New-Object System.Drawing.Pen((C 120 105 95), 3); $ar.StartCap = 'Round'; $ar.EndCap = 'Round'
+            for ($i = 0; $i -lt 3; $i++) { $g.DrawLine($ar, (400 + $i * 12), 10, (388 + $i * 12), 42) }
+            $ar.Dispose()
+            # barra de vida del jefe
+            $hx = 410; $hy = 62; $hw = 190; $hh = 18
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 60 22 22))), $hx, $hy, $hw, $hh)
+            $frac = if ($script:gMax -gt 0) { [Math]::Max(0, $script:gHP) / $script:gMax } else { 0 }
+            $colVida = if ($script:gFase2) { (C 230 60 30) } else { (C 190 35 35) }
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush($colVida)), $hx, $hy, [int]($hw * $frac), $hh)
+            $g.DrawRectangle((New-Object System.Drawing.Pen((C 25 20 22), 2)), $hx, $hy, $hw, $hh)
+            $etq = if ($script:gVivo) { "GUILLOTINA   $($script:gHP)/$($script:gMax)" } else { 'GUILLOTINA   DERROTADA' }
+            $fmt = New-Object System.Drawing.StringFormat; $fmt.Alignment = 'Center'; $fmt.LineAlignment = 'Center'
+            $g.DrawString($etq, (New-Object System.Drawing.Font('Impact', 9)), [System.Drawing.Brushes]::White, (New-Object System.Drawing.RectangleF($hx, $hy, $hw, $hh)), $fmt)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 36 30 32))), 0, $H - 8, $W, 8)
+        }
+        'lobo' {
+            if (-not $script:bmpHex) { $script:bmpHex = Fondo-Hexagonos 616 344 (C 30 38 48) }
+            $g.DrawImage($script:bmpHex, 0, 0)
+            $g.SmoothingMode = 'AntiAlias'
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 18 23 30))), 0, 0, $W, 52)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 170 40))), 0, 52, $W, 2)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 60 170 160))), 0, 56, $W, 1)
+            # esquinas del marco del retrato
+            $am = New-Object System.Drawing.Pen((C 255 170 40), 3)
+            $x1 = 406; $y1 = 62; $x2 = 604; $y2 = 218; $L = 16
+            $g.DrawLine($am, $x1, $y1, $x1 + $L, $y1); $g.DrawLine($am, $x1, $y1, $x1, $y1 + $L)
+            $g.DrawLine($am, $x2, $y1, $x2 - $L, $y1); $g.DrawLine($am, $x2, $y1, $x2, $y1 + $L)
+            $g.DrawLine($am, $x1, $y2, $x1 + $L, $y2); $g.DrawLine($am, $x1, $y2, $x1, $y2 - $L)
+            $g.DrawLine($am, $x2, $y2, $x2 - $L, $y2); $g.DrawLine($am, $x2, $y2, $x2, $y2 - $L)
+            $am.Dispose()
+            # cuota de energía
+            $g.DrawString("CUOTA DE ENERGÍA   $($script:energia)%", (New-Object System.Drawing.Font('Bahnschrift', 8)), (New-Object System.Drawing.SolidBrush((C 255 176 50))), 14, 274)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 40 32 14))), 16, 290, 376, 8)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 170 40))), 16, 290, [int](376 * $script:energia / 100), 8)
+            $g.DrawRectangle((New-Object System.Drawing.Pen((C 120 85 25), 1)), 16, 290, 376, 8)
+        }
         default {
-            # líneas de escaneo tipo monitor viejo
             $scan = New-Object System.Drawing.Pen((C 28 0 0), 1)
             for ($y = 54; $y -lt $H; $y += 4) { $g.DrawLine($scan, 2, $y, $W - 2, $y) }
             $scan.Dispose()
@@ -754,13 +1226,12 @@ $form.Add_Paint({
         }
     }
     if ($script:glitching) {
-        # rasgaduras de pantalla
         for ($i = 0; $i -lt 6; $i++) {
             $col = @((C 255 0 0), (C 255 255 255), (C 0 255 255), (C 80 0 0))[$Rnd.Next(4)]
             $g.FillRectangle((New-Object System.Drawing.SolidBrush($col)), $Rnd.Next(-50, $W), $Rnd.Next(0, $H), $Rnd.Next(40, 300), $Rnd.Next(1, 7))
         }
     }
-    $ancho = if ($k.Estilo -eq 'tele') { 4 } else { 3 }
+    $ancho = if ($k.Estilo -in @('tele', 'mew')) { 4 } elseif ($k.Estilo -eq 'lobo') { 2 } else { 3 }
     $pen = New-Object System.Drawing.Pen($k.Borde, $ancho)
     $g.DrawRectangle($pen, 1, 1, $W - 3, $H - 3); $pen.Dispose()
 })
@@ -778,34 +1249,37 @@ $form.Add_MouseDown($mDown); $form.Add_MouseMove($mMove); $form.Add_MouseUp($mUp
 
 function Cargar-Img($rel) {
     if (-not $rel) { return $null }
-    $ruta = Join-Path $Raiz $rel
+    $ruta = Ruta $rel
     if (Test-Path $ruta) { return [System.Drawing.Image]::FromFile($ruta) }
     return $null
 }
 
 function Construir-UI {
     $k = $Skins[$script:skinNombre]; $script:skin = $k
-    # quitar los GIFs de la ventana antes de liberarlos (evita la ventana de error al cambiar de skin)
-    $caraTimer.Stop(); $tvTimer.Stop()
+    # quitar las imágenes de la ventana antes de liberarlas (evita la ventana de error al cambiar de skin)
+    $caraTimer.Stop(); $tvTimer.Stop(); $revTimer.Stop()
     if ($script:pb) { $script:pb.Image = $null; $form.Controls.Remove($script:pb); $script:pb.Dispose(); $script:pb = $null }
     foreach ($im in @($script:imgs.Values)) { if ($im) { $im.Dispose() } }
-    $script:imgs = @{}
+    foreach ($set in @($script:caras.Values)) { foreach ($im in $set) { if ($im) { $im.Dispose() } } }
+    $script:imgs = @{}; $script:caras = @{}
     if ($script:tvRuido) { $script:tvRuido.Dispose(); $script:tvRuido = $null }
     $script:urlLbl = $null
+    $script:gHP = 400; $script:gMax = 400; $script:gFase2 = $false; $script:gVivo = $true
     $form.Controls.Clear()
 
-    $T = $k.Top
+    $T = if ($k.Top) { $k.Top } else { 0 }
     $conGif = [bool]$k.Gif
     $W = if ($conGif) { 616 } else { 408 }
-    $form.Size = New-Object System.Drawing.Size($W, (312 + $T))
+    $form.Size = New-Object System.Drawing.Size($W, $k.Alto)
     $form.BackColor = $k.Fondo
     $form.Opacity = $k.Opacidad
     $form.Text = $script:skinNombre
 
     $xTit = if ($k.Estilo -eq 'web') { 48 } else { 12 }
+    $estiloTit = if ($k.FuenteTitulo -eq 'Impact') { [System.Drawing.FontStyle]::Regular } else { [System.Drawing.FontStyle]::Bold }
     $titulo = New-Object System.Windows.Forms.Label
     $titulo.Text = $k.Titulo
-    $titulo.Font = New-Object System.Drawing.Font($k.FuenteTitulo, 20, [System.Drawing.FontStyle]::Bold)
+    $titulo.Font = New-Object System.Drawing.Font($k.FuenteTitulo, 20, $estiloTit)
     $titulo.ForeColor = $k.TituloColor
     $titulo.BackColor = [System.Drawing.Color]::Transparent
     $titulo.AutoSize = $true
@@ -813,7 +1287,7 @@ function Construir-UI {
 
     $sub = New-Object System.Windows.Forms.Label
     $sub.Text = $k.Sub
-    $sub.Font = New-Object System.Drawing.Font($k.Fuente, 8, [System.Drawing.FontStyle]::Bold)
+    $sub.Font = New-Object System.Drawing.Font($(if ($k.Fuente -eq 'Impact') { 'Segoe UI' } else { $k.Fuente }), 8, [System.Drawing.FontStyle]::Bold)
     $sub.ForeColor = $k.SubColor
     $sub.BackColor = [System.Drawing.Color]::Transparent
     $sub.AutoSize = $true
@@ -824,7 +1298,8 @@ function Construir-UI {
     $script:bi = 0
     $bCerrar = Nuevo-Boton 'X' ($W - 40) 12 28 28; $bCerrar.ForeColor = $k.BarraBtnTexto
     $bCerrar.Add_Click({ $form.Close() })
-    $bMin = Nuevo-Boton '_' ($W - 74) 12 28 28; $bMin.ForeColor = $k.BarraBtnTexto
+    $txtMin = if ($k.Fuente -eq 'Impact') { '–' } else { '_' }
+    $bMin = Nuevo-Boton $txtMin ($W - 74) 12 28 28; $bMin.ForeColor = $k.BarraBtnTexto
     $bMin.Add_Click({ $form.WindowState = 'Minimized' })
     $bSkins = Nuevo-Boton 'Skins' ($W - 150) 12 70 28; $bSkins.ForeColor = $k.BarraBtnTexto
     $bSkins.Add_Click({ if (-not (Ocupado)) { $script:modoSkins = -not $script:modoSkins; Mostrar-Pagina } })
@@ -837,11 +1312,10 @@ function Construir-UI {
     $script:lblPag = New-Object System.Windows.Forms.Label
     $lblPag.ForeColor = $k.StatusColor
     $lblPag.BackColor = [System.Drawing.Color]::Transparent
-    $lblPag.Font = New-Object System.Drawing.Font($k.Fuente, 10, [System.Drawing.FontStyle]::Bold)
+    $lblPag.Font = New-Object System.Drawing.Font($(if ($k.Fuente -eq 'Impact') { 'Impact' } else { $k.Fuente }), 10, $(if ($k.Fuente -eq 'Impact') { [System.Drawing.FontStyle]::Regular } else { [System.Drawing.FontStyle]::Bold }))
     $lblPag.TextAlign = 'MiddleCenter'
     $lblPag.Location = New-Object System.Drawing.Point(140, (242 + $T))
     $lblPag.Size = New-Object System.Drawing.Size(128, 28)
-    if ($k.Estilo -eq 'web') { $lblPag.ForeColor = (C 30 30 30) }
 
     $bAnt = Nuevo-Boton '<' 16 (242 + $T) 120 28
     $bAnt.Add_Click({ if ($script:pagina -gt 0) { $script:modoSkins = $false; $script:pagina--; Mostrar-Pagina } })
@@ -851,10 +1325,9 @@ function Construir-UI {
     $script:status = New-Object System.Windows.Forms.Label
     $status.ForeColor = $k.StatusColor
     $form.Controls.AddRange(@($bSkins, $bMin, $bCerrar, $grid, $bAnt, $lblPag, $bSig, $status))
-    if ($k.Estilo -eq 'hacker') { foreach ($b in @($bSkins, $bMin, $bCerrar, $bAnt, $bSig)) { Hover-Rojo $b } }
+    if ($k.Estilo -in @('hacker', 'lobo')) { foreach ($b in @($bSkins, $bMin, $bCerrar, $bAnt, $bSig)) { Hover-Color $b } }
 
     if ($k.Estilo -eq 'web') {
-        # barra de direcciones del "navegador"
         $candado = New-Object System.Windows.Forms.Label
         $candado.Text = '🔒'
         $candado.Font = New-Object System.Drawing.Font('Segoe UI Symbol', 9)
@@ -873,45 +1346,39 @@ function Construir-UI {
     }
 
     if ($conGif) {
-        $script:imgs = @{ main = (Cargar-Img $k.Gif); clic = (Cargar-Img $k.GifClic); raro = (Cargar-Img $k.GifRaro) }
+        $script:imgs = @{ main = (Cargar-Img $k.Gif); clic = (Cargar-Img $k.GifClic); raro = (Cargar-Img $k.GifRaro); fase2 = (Cargar-Img $k.GifFase2) }
+        if ($k.Caras) { foreach ($c in $k.Caras.Keys) { $script:caras[$c] = @((Cargar-Img $k.Caras[$c][0]), (Cargar-Img $k.Caras[$c][1])) } }
         $script:pb = New-Object System.Windows.Forms.PictureBox
         $pb.SizeMode = 'Zoom'
         $pb.Cursor = 'Hand'
-        $pb.Image = $script:imgs.main
+        $pb.Image = if ($script:caras.Count -gt 0) { $script:caras.cerrados[0] } else { $script:imgs.main }
+        $pb.Location = New-Object System.Drawing.Point($k.Pb[0], $k.Pb[1])
+        $pb.Size = New-Object System.Drawing.Size($k.Pb[2], $k.Pb[3])
+        $pb.BackColor = if ($k.PbFondo) { $k.PbFondo } else { [System.Drawing.Color]::Transparent }
+        if ($k.PbBorde) { $pb.BorderStyle = 'FixedSingle' }
         $pb.Add_Click({
             $k = $script:skin
-            if ($k.Estilo -eq 'tele') { Cara 'clic' 3000 }
-            Decir (Azar $k.Clic)
+            switch ($k.Estilo) {
+                'tele' { Cara 'clic' 3000; Decir (Azar $k.Clic) }
+                'mew' { Golpe-Guillotina }
+                default { Decir (Azar $k.Clic) 'abiertos' }
+            }
         })
+        if ($k.Estilo -eq 'tele') { $script:tvRuido = Nuevo-Ruido 64 48 }
 
-        $status.BackColor = [System.Drawing.Color]::White
+        $status.BackColor = $k.BurFondo
+        $status.ForeColor = $k.BurTexto
         $status.BorderStyle = 'FixedSingle'
         $status.Padding = New-Object System.Windows.Forms.Padding(4)
-        $status.ForeColor = (C 20 20 20)
-
-        if ($k.Estilo -eq 'tele') {
-            # pantalla de la tele
-            $pb.Location = New-Object System.Drawing.Point(414, 76)
-            $pb.Size = New-Object System.Drawing.Size(182, 132)
-            $pb.BackColor = [System.Drawing.Color]::Black
-            $script:tvRuido = Nuevo-Ruido 64 48
-            $status.Font = New-Object System.Drawing.Font($k.Fuente, 9, [System.Drawing.FontStyle]::Bold)
-            $status.Location = New-Object System.Drawing.Point(404, 240)
-            $status.Size = New-Object System.Drawing.Size(202, 56)
-        } else {
-            $pb.Location = New-Object System.Drawing.Point(410, (66 + $T))
-            $pb.Size = New-Object System.Drawing.Size(190, 150)
-            $pb.BackColor = [System.Drawing.Color]::White
-            $pb.BorderStyle = 'FixedSingle'
-            $status.Font = New-Object System.Drawing.Font($k.Fuente, 9, [System.Drawing.FontStyle]::Bold)
-            $status.Location = New-Object System.Drawing.Point(410, (222 + $T))
-            $status.Size = New-Object System.Drawing.Size(190, 70)
-        }
+        $tamBur = if ($k.BurFuente -eq 'Segoe Print') { 8 } else { 9 }
+        $status.Font = New-Object System.Drawing.Font($k.BurFuente, $tamBur, [System.Drawing.FontStyle]::Bold)
+        $status.Location = New-Object System.Drawing.Point($k.Burbuja[0], $k.Burbuja[1])
+        $status.Size = New-Object System.Drawing.Size($k.Burbuja[2], $k.Burbuja[3])
         $form.Controls.Add($pb)
     } else {
         $status.BackColor = [System.Drawing.Color]::Black
         $status.Font = New-Object System.Drawing.Font('Consolas', 8.5)
-        $status.Location = New-Object System.Drawing.Point(14, (278 + $T))
+        $status.Location = New-Object System.Drawing.Point(14, 278)
         $status.Size = New-Object System.Drawing.Size(380, 22)
     }
 

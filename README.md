@@ -1,18 +1,22 @@
-# c00lgui – panel lanzador con skins de asistentes
+# c00lgui v3 – panel lanzador con skins de asistentes
 
 Panel para Windows que abre YouTube, las apps de Office y otros programas con un clic.
-Tiene tres skins, cada una con su propio estilo, animaciones y diálogos:
+Tiene cinco skins, cada una con su propio estilo, animaciones y diálogos:
 
 | Skin | Estilo | Efecto al entrar |
 |---|---|---|
 | **c00lgui** | Panel hacker de c00lkidd (Roblox): negro y rojo | Glitch: la ventana tiembla y salen errores falsos |
 | **SeaDrive** | Asistente de YonKaGor, con aspecto de página web | Carga como una web: URL, barra de progreso… |
 | **Static Miku** | Miku de Flavor Foley, como un dibujo animado en una tele vieja | Estática de tele y encendido desde el centro |
+| **Guillotina** | Jefa de Mewgenics, sobre papel y tinta | Cartel "GUILLOTINA IS COMING FOR YOU!" con su rugido |
+| **Angela** | IA de Lobotomy Corporation, con la interfaz de L Corp | Inicio de jornada: "Face the Fear, Build the Future" y el día |
+
+Cada skin opina de las demás. Pasa el ratón por los botones del menú **Skins** para oír lo que piensa el asistente de cada una.
 
 ## Cómo descargarlo
 
 1. Pulsa el botón verde **Code** → **Download ZIP**.
-2. Descomprime el ZIP en cualquier carpeta.
+2. Haz clic derecho en el ZIP → **Extraer todo**.
 3. Haz doble clic en **`c00lgui.vbs`**.
 
 Si Windows muestra un aviso de seguridad, pulsa **Más información → Ejecutar de todas formas**.
@@ -25,7 +29,9 @@ No hace falta instalar nada: funciona con PowerShell, que ya viene con Windows 1
 - **`<` y `>`:** cambian de página.
 - **Skins:** elige otra skin. Se recuerda para la próxima vez.
 - **Mover la ventana:** arrástrala desde el título.
-- **Asistente:** haz clic en el GIF de SeaDrive o de Miku y te contestan.
+- **Asistente:** haz clic en el personaje y te contesta.
+  - **Guillotina:** cada clic le quita vida. Con 200 o menos se enfurece, como en el juego. Si la derrotas, vuelve buscando venganza.
+  - **Angela:** cada app que abres suma a la cuota de energía del día.
 
 ## Añadir tus propios botones
 
@@ -42,5 +48,7 @@ Las frases de cada asistente están en la sección `SKINS` del mismo archivo.
 - **c00lkidd / c00lgui:** personaje y estética de Roblox.
 - **SeaDrive:** personaje de [YonKaGor](https://www.youtube.com/@YonKaGor), de la canción *Top 10 Things To Do Before You Die*. GIF de [Tenor](https://tenor.com/view/seadrive-seadrive-yonkagor-yonkagor-seadrive-yonkagor-furry-gif-13965177036432532238).
 - **Static Miku:** personaje de [Flavor Foley](https://flavorfoley.com/FFF/st/), del videoclip *Static*. GIFs de Tenor.
+- **Guillotina:** jefa de *Mewgenics* (Edmund McMillen y Tyler Glaiel). Imágenes y sonidos de la [wiki de Mewgenics](https://mewgenics.wiki.gg/wiki/Guillotina).
+- **Angela:** personaje de *Lobotomy Corporation* (Project Moon). Sprites de la [wiki de Lobotomy Corporation](https://lobotomycorporation.wiki.gg/wiki/Angela/Gallery).
 
 Proyecto de fans sin ánimo de lucro. Los personajes pertenecen a sus autores.
