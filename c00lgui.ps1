@@ -1,7 +1,28 @@
 ﻿# c00lgui v3 - panel lanzador con skins de asistentes
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
+# el panel mide su propio escalado de pantalla para que nada se corte
+try {
+    Add-Type -Namespace C00l -Name Dpi -MemberDefinition '[System.Runtime.InteropServices.DllImport("user32.dll")] public static extern bool SetProcessDPIAware();'
+    [void][C00l.Dpi]::SetProcessDPIAware()
+} catch {}
 [System.Windows.Forms.Application]::EnableVisualStyles()
+
+# TAMAÑO DEL PANEL: 1.0 = normal, 1.2 = un poco más grande, 1.5 = grande
+$Tamano = 1.2
+$gDpi = [System.Drawing.Graphics]::FromHwnd([IntPtr]::Zero)
+$script:K = [float](($gDpi.DpiX / 96.0) * $Tamano)
+$gDpi.Dispose()
+# fuentes en píxeles: Fnt para controles (ya escalada), FntP para dibujos (los escala ScaleTransform)
+function Fnt($a) {
+    $st = if ($a.Count -ge 3) { $a[2] } else { [System.Drawing.FontStyle]::Regular }
+    New-Object System.Drawing.Font([string]$a[0], [float]($a[1] * 96 / 72 * $script:K), $st, [System.Drawing.GraphicsUnit]::Pixel)
+}
+function FntP($a) {
+    $st = if ($a.Count -ge 3) { $a[2] } else { [System.Drawing.FontStyle]::Regular }
+    New-Object System.Drawing.Font([string]$a[0], [float]($a[1] * 96 / 72), $st, [System.Drawing.GraphicsUnit]::Pixel)
+}
+function Escalar($ctl) { $ctl.Scale((New-Object System.Drawing.SizeF($script:K, $script:K))) }
 # cualquier error interno se convierte en un glitch/mensaje del panel en vez de una ventana de error
 [System.Windows.Forms.Application]::SetUnhandledExceptionMode([System.Windows.Forms.UnhandledExceptionMode]::CatchException)
 
@@ -41,7 +62,7 @@ $Skins = [ordered]@{
         TituloColor = (C 255 0 0); SubColor = (C 140 0 0)
         BtnFondo = (C 0 0 0); BtnTexto = (C 255 255 255); BtnTextoHover = (C 255 40 40); BtnBorde = (C 255 0 0); BtnBordeAncho = 1
         BtnHover = (C 45 0 0); BtnPress = (C 255 0 0); BarraBtnTexto = (C 255 0 0)
-        StatusColor = (C 255 0 0); Fuente = 'Arial'; FuenteTitulo = 'Arial Black'; Opacidad = 0.94; Velocidad = 2
+        StatusColor = (C 255 0 0); Fuente = 'Arial'; FuenteTitulo = 'Arial Black'; Opacidad = 1.0; Velocidad = 2
         Hola = @(
             '> c00lgui v3 loaded. welcome back.'
             '> access granted. team c00lkidd join today!'
@@ -381,7 +402,7 @@ $Skins = [ordered]@{
         TituloColor = (C 255 176 50); SubColor = (C 80 210 200)
         BtnFondo = (C 22 28 36); BtnTexto = (C 235 235 235); BtnTextoHover = (C 255 190 80); BtnBorde = (C 255 170 40); BtnBordeAncho = 1
         BtnHover = (C 60 44 16); BtnPress = (C 255 170 40); BarraBtnTexto = (C 255 176 50)
-        StatusColor = (C 255 176 50); Fuente = 'Bahnschrift'; FuenteTitulo = 'Bahnschrift'; Opacidad = 0.97; Velocidad = 1
+        StatusColor = (C 255 176 50); Fuente = 'Bahnschrift'; FuenteTitulo = 'Bahnschrift'; Opacidad = 1.0; Velocidad = 1
         Gif = 'skins\angela\calma.png'
         Caras = @{
             cerrados = @('skins\angela\calma.png', 'skins\angela\habla.png')
@@ -744,7 +765,7 @@ $twTimer.Add_Tick({
     if ($script:skin.Estilo -eq 'hacker' -and ($escribiendo -or ([Math]::Floor($script:twTick / 15) % 2 -eq 0))) { $txt += '_' }
     if ($script:status.Text -ne $txt) { $script:status.Text = $txt }
     # Angela mueve la boca mientras escribe
-    if ($script:pb -and $script:caras.Count -gt 0) {
+    if ($script:pb -and $script:caras.Count -gt 0 -and -not $script:dInvitadoHabla) {
         $set = $script:caras[$script:caraModo]
         $img = if ($escribiendo -and ([Math]::Floor($script:twTick / 3) % 2 -eq 1)) { $set[1] } else { $set[0] }
         if ($script:pb.Image -ne $img) { $script:pb.Image = $img }
@@ -882,7 +903,7 @@ $snTimer.Add_Tick({
     $script:snCarga++
     if ($script:snCarga -eq 20) { Sonido 'carga'; Decir 'CHARGED.' }
     if ($script:snCarga -eq 60) { Sonido 'sobrecarga'; Decir 'OVERCHARGED. Esto va a doler.' }
-    $form.Invalidate((New-Object System.Drawing.Rectangle(400, 212, 210, 16)))
+    $form.Invalidate()
 })
 function Snipe-Inicio {
     if ((Ocupado) -or $script:snApuntando) { return }
@@ -918,13 +939,76 @@ function Zodiac-Mover {
     if (Zodiac-Disparo) { Decir '¡NO TE MUEVAS! *BANG*' } else { Decir '¡NO TE MUEVAS! *click*... ¿sin balas? Qué vergüenza.' }
 }
 
+# ================= DISCUSIONES ENTRE ASISTENTES =================
+# cada discusión es una lista de [quién, qué dice]. Solo salen las de la skin activa.
+$Discusiones = @(
+    , @(@('c00lgui', 'SeaDrive, tu contraseña del Wi-Fi ya es mía.'), @('SeaDrive', 'Mi contraseña es "deja de molestar". Úsala.'), @('c00lgui', '...eso ha funcionado de verdad. wtf.'), @('SeaDrive', 'Lo sé. Soy un asistente. Asisto.'))
+    , @(@('Angela', 'Programa no autorizado detectado. Identifíquese.'), @('c00lgui', 'team c00lkidd. join today!'), @('Angela', 'Solicitud denegada. Iniciando contención.'), @('c00lgui', 'ok ok, me voy. por ahora.'))
+    , @(@('Static Miku', '¡SeaDrive! ¡Sonríe un poquito! ¡Bzzt!'), @('SeaDrive', 'No. Sonreír gasta batería.'), @('Static Miku', '¡Pues yo sonrío por los dos!'), @('SeaDrive', 'Genial. Ahora me duele la cabeza por los dos.'))
+    , @(@('SeaDrive', 'Oye, Angela. ¿Por qué lo llamas "Manager"?'), @('Angela', 'Porque es su cargo. ¿Cómo lo llama usted?'), @('SeaDrive', '"Eh, tú". Es más cercano.'), @('Angela', 'Y menos profesional. Anotado en su expediente.'))
+    , @(@('Guillotina', '*Olfatea a SeaDrive de arriba abajo.*'), @('SeaDrive', 'Ni se te ocurra. Soy un asistente, no un aperitivo.'), @('Guillotina', '*Se relame.*'), @('SeaDrive', '...voy a cerrar sesión un momento.'))
+    , @(@('Zodiac', '¡No te muevas, gata gorda!'), @('Guillotina', '*No se mueve. Abre la boca.*'), @('Zodiac', '*BANG*'), @('Guillotina', '*Se traga la bala. Eructa.*'), @('Zodiac', '...me voy a otro desierto.'))
+    , @(@('Mikaela', 'Seis balas, vaquero. A mí con una me basta.'), @('Zodiac', 'Los duelos se hacen cara a cara, francotiradora.'), @('Mikaela', 'Por eso nunca ganas los duelos.'), @('Zodiac', '¡NO TE MUEVAS!'), @('Mikaela', '*Smokebomb.* ¿Qué decías?'))
+    , @(@('c00lgui', 'inyectando aimbot en mikaela.exe...'), @('Mikaela', 'No necesito aimbot. Tengo habilidad.'), @('c00lgui', 'aimbot failed: target already too good.'), @('Mikaela', 'GG EZ.'))
+    , @(@('Static Miku', '¡Hola, señor vaquero! ¿Bailamos?'), @('Zodiac', '¡NO TE MUEVAS!'), @('Static Miku', '...¿ni un poquito?'), @('Zodiac', '...bueno. Un pasito. Pero lento.'))
+    , @(@('Static Miku', '¡Angela! ¡Tu programa de la tele es muy gris!'), @('Angela', 'No es un programa. Es una instalación de investigación.'), @('Static Miku', '¡Pues le faltan dibujos!'), @('Angela', '...lo propondré en la próxima reunión.'))
+    , @(@('Angela', 'Anomalía felina. Regrese a su unidad de contención.'), @('Guillotina', '*Se sienta encima de la unidad de contención. La aplasta.*'), @('Angela', '...Manager, necesitaremos una unidad nueva.'))
+    , @(@('Angela', 'Señorita Hawkeye, su puesto en L Corp sigue disponible.'), @('Mikaela', '¿Hay Terminators a los que disparar?'), @('Angela', 'Hay cosas peores que los Terminators.'), @('Mikaela', '...me lo pienso.'))
+    , @(@('Static Miku', '¡Gatita! ¡Ven aquí, gatita!'), @('Guillotina', '*Se acerca. Mira la tele. Abre la boca.*'), @('Static Miku', '¡No, no, la antena no! ¡Bzzzzzt!'))
+    , @(@('Zodiac', '¡Esa gata de los auriculares se ha movido!'), @('SeaDrive', 'Estoy respirando. Es lo que hacemos los seres vivos.'), @('Zodiac', 'Pues respira más quieta.'), @('SeaDrive', 'Increíble. Ni en mi propio panel me dejan en paz.'))
+    , @(@('Zodiac', '¡Ese panel rojo parpadea! ¡Se mueve!'), @('c00lgui', 'se llama glitch, vaquero.'), @('Zodiac', '*BANG*'), @('c00lgui', '...vale, ese ha dolido.'))
+    , @(@('Mikaela', 'Objetivo enorme a las doce. Fácil.'), @('Guillotina', '*Abre la boca de par en par.*'), @('Mikaela', 'Espera... ¿se va a comer la bala?'), @('Guillotina', '*ÑAM.*'))
+    , @(@('c00lgui', 'hackeando la tele de Static Miku...'), @('Static Miku', '¡Hola, señor hacker! ¿Quieres ver dibujos?'), @('c00lgui', '...¿qué dibujos?'), @('Static Miku', '¡Todos! ¡Siéntate!'), @('c00lgui', '...vale. solo un episodio.'))
+)
+
+$script:discutiendo = $false; $script:dLineas = $null; $script:dIdx = 0; $script:dImg = $null; $script:dInvitadoHabla = $false
+$dTimer = New-Object System.Windows.Forms.Timer
+$dTimer.Add_Tick({ Paso-Discusion })
+
+function Iniciar-Discusion {
+    if ($script:discutiendo -or (Ocupado)) { return }
+    $yo = $script:skinNombre
+    $cands = @($Discusiones | Where-Object { @($_ | ForEach-Object { $_[0] }) -contains $yo })
+    if ($cands.Count -eq 0) { return }
+    $script:dLineas = $cands[$Rnd.Next($cands.Count)]
+    $invitado = @($script:dLineas | ForEach-Object { $_[0] } | Where-Object { $_ -ne $yo })[0]
+    $script:dImg = Cargar-Img $Skins[$invitado].Gif
+    $script:dIdx = 0; $script:discutiendo = $true
+    Paso-Discusion
+}
+
+function Paso-Discusion {
+    $dTimer.Stop()
+    if (-not $script:discutiendo) { return }
+    if ($script:dIdx -ge $script:dLineas.Count) { Fin-Discusion; return }
+    $l = $script:dLineas[$script:dIdx]; $script:dIdx++
+    $quien = $l[0]; $txt = $l[1]
+    $script:dInvitadoHabla = $quien -ne $script:skinNombre
+    if ($script:pb) {
+        $caraTimer.Stop(); $tvTimer.Stop()
+        # el invitado "se cuela" en el recuadro del asistente mientras habla
+        if ($script:dInvitadoHabla -and $script:dImg) { $script:pb.Image = $script:dImg } else { $script:pb.Image = (Img-Base) }
+    }
+    Decir "$quien » $txt" 'abiertos'
+    $dTimer.Interval = [Math]::Max(2200, 1400 + $txt.Length * 55)
+    $dTimer.Start()
+}
+
+function Fin-Discusion {
+    $dTimer.Stop()
+    $script:discutiendo = $false; $script:dInvitadoHabla = $false
+    if ($script:pb) { $script:pb.Image = (Img-Base) }
+    if ($script:dImg) { $script:dImg.Dispose(); $script:dImg = $null }
+}
+
 # frases cuando no haces nada
 $idleTimer = New-Object System.Windows.Forms.Timer
 $idleTimer.Interval = 18000
 $idleTimer.Add_Tick({
-    if ((Ocupado) -or $script:modoSkins) { return }
+    if ((Ocupado) -or $script:modoSkins -or $script:discutiendo) { return }
     $k = $script:skin; $r = $Rnd.Next(100)
-    if ($r -lt 22) { Decir (Opinion-Azar) 'abiertos'; return }   # opina de otra skin
+    if ($r -lt 20) { Decir (Opinion-Azar) 'abiertos'; return }   # opina de otra skin
+    if ($r -lt 38) { Iniciar-Discusion; return }                 # discute con otro asistente
     switch ($k.Estilo) {
         'hacker' { if ($r -lt 50) { Glitch 6 (Azar $k.Idle) } else { Decir (Azar $k.Idle) } }
         'tele' {
@@ -1022,7 +1106,7 @@ $wTimer.Add_Tick({
         if ($script:wProg -gt 60 -and $script:wProg -lt 72) { $paso = $Rnd.Next(0, 2) }   # se "atasca" un poco, como las webs de verdad
         $script:wProg = [Math]::Min(100, $script:wProg + $paso)
     }
-    $script:wBar.Width = [int](3 * $script:wProg)
+    $script:wBar.Width = [int](3 * $script:wProg * $script:K)
     $spin = '◐◓◑◒'[$p % 4]
     if ($p -le 16) { $etapa = 'Conectando con seadrive.howto...' }
     elseif ($script:wProg -lt 30) { $etapa = 'Descargando seadrive.gif (37 KB)...' }
@@ -1044,7 +1128,7 @@ $wTimer.Add_Tick({
 
 function Transicion-Web($final) {
     $script:transicion = $true
-    $W = $form.ClientSize.Width; $H = $form.ClientSize.Height
+    $W = [int]($form.ClientSize.Width / $script:K); $H = [int]($form.ClientSize.Height / $script:K)
     $ov = New-Object System.Windows.Forms.Panel
     $ov.Location = New-Object System.Drawing.Point(3, 89)
     $ov.Size = New-Object System.Drawing.Size(($W - 6), ($H - 89 - 11))
@@ -1053,14 +1137,14 @@ function Transicion-Web($final) {
 
     $t1 = New-Object System.Windows.Forms.Label
     $t1.Text = 'seadrive.howto'
-    $t1.Font = New-Object System.Drawing.Font('Segoe UI Light', 22)
+    $t1.Font = Fnt('Segoe UI Light', 22)
     $t1.ForeColor = (C 40 130 200)
     $t1.TextAlign = 'MiddleCenter'
     $t1.Location = New-Object System.Drawing.Point(0, 30)
     $t1.Size = New-Object System.Drawing.Size($ow, 50)
 
     $script:wMsg = New-Object System.Windows.Forms.Label
-    $wMsg.Font = New-Object System.Drawing.Font('Segoe UI Symbol', 9)
+    $wMsg.Font = Fnt('Segoe UI Symbol', 9)
     $wMsg.ForeColor = (C 110 110 110)
     $wMsg.TextAlign = 'MiddleCenter'
     $wMsg.Location = New-Object System.Drawing.Point(0, 90)
@@ -1078,13 +1162,14 @@ function Transicion-Web($final) {
 
     $pie = New-Object System.Windows.Forms.Label
     $pie.Text = '© HowTo Corp.  ·  Tu asistente favorito (no tienes otro)'
-    $pie.Font = New-Object System.Drawing.Font('Segoe UI', 8)
+    $pie.Font = Fnt('Segoe UI', 8)
     $pie.ForeColor = (C 160 160 160)
     $pie.TextAlign = 'MiddleCenter'
     $pie.Location = New-Object System.Drawing.Point(0, ($ov.Height - 26))
     $pie.Size = New-Object System.Drawing.Size($ow, 20)
 
     $ov.Controls.AddRange(@($t1, $wMsg, $barO, $pie))
+    Escalar $ov
     $form.Controls.Add($ov); $ov.BringToFront()
     $script:urlLbl.Text = ''
     $script:wOv = $ov; $script:wPaso = 0; $script:wProg = 0; $script:wFin = 0; $script:wFinal = $final
@@ -1126,13 +1211,14 @@ function Transicion-Estatica($final) {
     Doble-Buffer $ov
     $script:sRuido = Nuevo-Ruido 120 64
     $ov.Add_Paint({
-        $g = $_.Graphics; $W = $this.Width; $H = $this.Height
+        $g = $_.Graphics; $g.ScaleTransform($script:K, $script:K)
+        $W = [int]($this.Width / $script:K); $H = [int]($this.Height / $script:K)
         $g.InterpolationMode = 'NearestNeighbor'; $g.PixelOffsetMode = 'Half'
         $g.DrawImage($script:sRuido, (New-Object System.Drawing.Rectangle(0, 0, $W, $H)))
         if ($script:sPaso % 10 -lt 7) {
-            $g.DrawString('CH 03', (New-Object System.Drawing.Font('Consolas', 20, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::Lime, ($W - 120), 12)
+            $g.DrawString('CH 03', (FntP('Consolas', 20, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::Lime, ($W - 120), 12)
         }
-        $g.DrawString('▶ STATIC', (New-Object System.Drawing.Font('Consolas', 13, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 14, ($H - 36))
+        $g.DrawString('▶ STATIC', (FntP('Consolas', 13, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 14, ($H - 36))
         if ($script:sPaso -gt 24) {
             $banda = [int]($H * ($script:sPaso - 24) / 8)
             $g.FillRectangle([System.Drawing.Brushes]::White, 0, [int](($H - $banda) / 2) - 3, $W, 3)
@@ -1172,7 +1258,10 @@ function Intro-Overlay($total, $pintar, $alTick, $final) {
     $ov.BackColor = [System.Drawing.Color]::Black
     Doble-Buffer $ov
     $script:iPintar = $pintar; $script:iTick = $alTick
-    $ov.Add_Paint({ & $script:iPintar $_.Graphics $this.Width $this.Height $script:iPaso })
+    $ov.Add_Paint({
+        $_.Graphics.ScaleTransform($script:K, $script:K)
+        & $script:iPintar $_.Graphics ([int]($this.Width / $script:K)) ([int]($this.Height / $script:K)) $script:iPaso
+    })
     $form.Controls.Add($ov); $ov.BringToFront()
     $script:iOv = $ov; $script:iPaso = 0; $script:iTotal = $total; $script:iFinal = $final
     $iTimer.Start()
@@ -1212,7 +1301,7 @@ function Transicion-Boss($final) {
         if ($p -ge 28) {
             $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(215, 0, 0, 0))), 0, ($H - 62), $W, 62)
             $n = [Math]::Min($script:bLeyenda.Length, ($p - 28) * 4)
-            $g.DrawString($script:bLeyenda.Substring(0, $n), (New-Object System.Drawing.Font('Segoe UI', 8.5, [System.Drawing.FontStyle]::Italic)), [System.Drawing.Brushes]::White, (New-Object System.Drawing.RectangleF(12, ($H - 58), ($W - 24), 54)))
+            $g.DrawString($script:bLeyenda.Substring(0, $n), (FntP('Segoe UI', 8.5, [System.Drawing.FontStyle]::Italic)), [System.Drawing.Brushes]::White, (New-Object System.Drawing.RectangleF(12, ($H - 58), ($W - 24), 54)))
         }
     }
     $alTick = { param($ov, $p) if ($p -eq 8) { Sonido 'intro' }; if ($p -gt 66) { $ov.Top -= [int]($ov.Height / 5) } }
@@ -1226,15 +1315,15 @@ function Transicion-Lobo($final) {
         param($g, $W, $H, $p)
         $g.SmoothingMode = 'AntiAlias'; $g.TextRenderingHint = 'AntiAlias'
         $g.Clear((C 6 8 11))
-        if ($p -ge 2) { $g.DrawImage($script:bmpHexIntro, 0, 0) }
+        if ($p -ge 2) { $g.DrawImage($script:bmpHexIntro, 0, 0, 616, 344) }
         $fmt = New-Object System.Drawing.StringFormat; $fmt.Alignment = 'Center'
         $t1 = 'LOBOTOMY CORPORATION'
         $n = [Math]::Min($t1.Length, [Math]::Max(0, $p - 3))
-        $g.DrawString($t1.Substring(0, $n), (New-Object System.Drawing.Font('Bahnschrift', 24, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 255 176 50))), (New-Object System.Drawing.RectangleF(0, ($H / 2 - 92), $W, 44)), $fmt)
-        if ($p -ge 24) { $g.DrawString('Face the Fear, Build the Future', (New-Object System.Drawing.Font('Bahnschrift', 11)), (New-Object System.Drawing.SolidBrush((C 80 210 200))), (New-Object System.Drawing.RectangleF(0, ($H / 2 - 48), $W, 24)), $fmt) }
+        $g.DrawString($t1.Substring(0, $n), (FntP('Bahnschrift', 24, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 255 176 50))), (New-Object System.Drawing.RectangleF(0, ($H / 2 - 92), $W, 44)), $fmt)
+        if ($p -ge 24) { $g.DrawString('Face the Fear, Build the Future', (FntP('Bahnschrift', 11)), (New-Object System.Drawing.SolidBrush((C 80 210 200))), (New-Object System.Drawing.RectangleF(0, ($H / 2 - 48), $W, 24)), $fmt) }
         if ($p -ge 32) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 176 50))), ($W / 2 - 160), ($H / 2 - 16), 320, 2) }
-        if ($p -ge 34) { $g.DrawString("DÍA $($script:dia)", (New-Object System.Drawing.Font('Bahnschrift', 30, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, (New-Object System.Drawing.RectangleF(0, ($H / 2 - 8), $W, 54)), $fmt) }
-        if ($p -ge 42) { $g.DrawString('Manager conectado.  Angela: en línea.', (New-Object System.Drawing.Font('Bahnschrift', 9)), (New-Object System.Drawing.SolidBrush((C 140 150 160))), (New-Object System.Drawing.RectangleF(0, ($H / 2 + 50), $W, 20)), $fmt) }
+        if ($p -ge 34) { $g.DrawString("DÍA $($script:dia)", (FntP('Bahnschrift', 30, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, (New-Object System.Drawing.RectangleF(0, ($H / 2 - 8), $W, 54)), $fmt) }
+        if ($p -ge 42) { $g.DrawString('Manager conectado.  Angela: en línea.', (FntP('Bahnschrift', 9)), (New-Object System.Drawing.SolidBrush((C 140 150 160))), (New-Object System.Drawing.RectangleF(0, ($H / 2 + 50), $W, 20)), $fmt) }
     }
     # al final se abre como dos puertas desde el centro
     $alTick = {
@@ -1277,7 +1366,7 @@ function Transicion-Scope($final) {
         $fmt = New-Object System.Drawing.StringFormat; $fmt.Alignment = 'Center'
         if ($p -lt 30) {
             if ($p -lt 12) { $txt = 'APUNTANDO...'; $col = [System.Drawing.Brushes]::White } elseif ($p -lt 22) { $txt = 'CHARGED'; $col = [System.Drawing.Brushes]::Yellow } else { $txt = 'OVERCHARGED'; $col = [System.Drawing.Brushes]::Red }
-            $g.DrawString($txt, (New-Object System.Drawing.Font('Arial Black', 12)), $col, (New-Object System.Drawing.RectangleF(0, ($H - 34), $W, 30)), $fmt)
+            $g.DrawString($txt, (FntP('Arial Black', 12)), $col, (New-Object System.Drawing.RectangleF(0, ($H - 34), $W, 30)), $fmt)
         }
         if ($p -ge 31) {
             Dibujar-Hit $g ($W / 2) ($H / 2) 30
@@ -1314,14 +1403,14 @@ function Transicion-Wanted($final) {
         $g.DrawRectangle((New-Object System.Drawing.Pen((C 120 80 40), 1)), ($px + 8), ($py + 8), ($pw - 16), ($ph - 16))
         $fmt = New-Object System.Drawing.StringFormat; $fmt.Alignment = 'Center'
         $tinta = New-Object System.Drawing.SolidBrush((C 70 40 20))
-        $g.DrawString('WANTED', (New-Object System.Drawing.Font('Georgia', 26, [System.Drawing.FontStyle]::Bold)), $tinta, (New-Object System.Drawing.RectangleF(($px - 20), ($py + 12), ($pw + 40), 50)), $fmt)
+        $g.DrawString('WANTED', (FntP('Georgia', 26, [System.Drawing.FontStyle]::Bold)), $tinta, (New-Object System.Drawing.RectangleF(($px - 20), ($py + 12), ($pw + 40), 50)), $fmt)
         if ($script:wpImg) {
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 225 200 150))), ($px + $pw / 2 - 56), ($py + 62), 112, 146)
             $g.DrawImage($script:wpImg, [int]($px + $pw / 2 - 50), [int]($py + 64), 100, 140)
             $g.DrawRectangle((New-Object System.Drawing.Pen((C 70 40 20), 2)), ($px + $pw / 2 - 56), ($py + 62), 112, 146)
         }
-        $g.DrawString('ZODIAC', (New-Object System.Drawing.Font('Georgia', 18, [System.Drawing.FontStyle]::Bold)), $tinta, (New-Object System.Drawing.RectangleF($px, ($py + 212), $pw, 32)), $fmt)
-        $g.DrawString('DEAD OR ALIVE  ·  6 BALAS', (New-Object System.Drawing.Font('Georgia', 8, [System.Drawing.FontStyle]::Bold)), $tinta, (New-Object System.Drawing.RectangleF($px, ($py + 244), $pw, 18)), $fmt)
+        $g.DrawString('ZODIAC', (FntP('Georgia', 18, [System.Drawing.FontStyle]::Bold)), $tinta, (New-Object System.Drawing.RectangleF($px, ($py + 212), $pw, 32)), $fmt)
+        $g.DrawString('DEAD OR ALIVE  ·  6 BALAS', (FntP('Georgia', 8, [System.Drawing.FontStyle]::Bold)), $tinta, (New-Object System.Drawing.RectangleF($px, ($py + 244), $pw, 18)), $fmt)
         foreach ($a in $script:agujeros) {
             $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 140 110 70))), ($px + $a.X - 9), ($py + $a.Y - 9), 18, 18)
             $g.FillEllipse([System.Drawing.Brushes]::Black, ($px + $a.X - 5), ($py + $a.Y - 5), 10, 10)
@@ -1372,7 +1461,7 @@ function Nuevo-Boton($texto, $x, $y, $w, $h) {
     $b.ForeColor = $k.BtnTexto
     $estilo = if ($k.Fuente -eq 'Impact') { [System.Drawing.FontStyle]::Regular } else { [System.Drawing.FontStyle]::Bold }
     $tam = if ($k.Fuente -in @('Impact', 'Bahnschrift', 'Georgia')) { 9.5 } elseif ($k.Fuente -eq 'Arial Black') { 8.5 } else { 10 }
-    $b.Font = New-Object System.Drawing.Font($k.Fuente, $tam, $estilo)
+    $b.Font = Fnt($k.Fuente, $tam, $estilo)
     $b.Cursor = 'Hand'
     $b.TabStop = $false
     return $b
@@ -1403,7 +1492,7 @@ function Lanzar($item) {
             }
             'mlg' {
                 $script:lanzadas++; $script:hitsTotal++
-                Nuevo-Hit $Rnd.Next(30, 160) $Rnd.Next(25, 125)
+                Nuevo-Hit ([int]($Rnd.Next(30, 160) * $script:K)) ([int]($Rnd.Next(25, 125) * $script:K))
                 if ($script:lanzadas % 4 -eq 0) { $script:dew++; Sonido 'dew'; Decir '¡DO THE DEW! *Velocidad aumentada.*' }
                 else { Sonido 'disparo'; Decir $linea }
                 $form.Invalidate()
@@ -1453,7 +1542,7 @@ function Mostrar-Pagina {
             # al pasar el ratón, el asistente opina de esa skin
             $b.Add_MouseEnter({ if (-not (Ocupado)) { Decir (Opinion $this.Tag) 'abiertos' } })
             if ($hacker) { Hover-Color $b }
-            $grid.Controls.Add($b); $i++
+            Escalar $b; $grid.Controls.Add($b); $i++
         }
         $script:lblPag.Text = 'Skins'
         return
@@ -1466,7 +1555,7 @@ function Mostrar-Pagina {
         $b.Tag = $item
         $b.Add_Click({ Lanzar $this.Tag })
         if ($hacker) { Hover-Color $b }
-        $grid.Controls.Add($b); $i++
+        Escalar $b; $grid.Controls.Add($b); $i++
     }
     $script:lblPag.Text = "Page $($script:pagina + 1)/$totalPaginas"
 }
@@ -1508,7 +1597,9 @@ $form.StartPosition = 'CenterScreen'
 Doble-Buffer $form
 
 $form.Add_Paint({
-    $k = $script:skin; $g = $_.Graphics; $W = $form.ClientSize.Width; $H = $form.ClientSize.Height
+    $k = $script:skin; $g = $_.Graphics
+    $g.ScaleTransform($script:K, $script:K)
+    $W = [int]($form.ClientSize.Width / $script:K); $H = [int]($form.ClientSize.Height / $script:K)
     switch ($k.Estilo) {
         'web' {
             $g.SmoothingMode = 'AntiAlias'
@@ -1518,12 +1609,12 @@ $form.Add_Paint({
             # icono "i" amarillo, como el de la camiseta de SeaDrive
             $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 255 198 26))), 12, 11, 30, 30)
             $g.DrawEllipse((New-Object System.Drawing.Pen((C 20 20 20), 2)), 12, 11, 30, 30)
-            $g.DrawString('i', (New-Object System.Drawing.Font('Georgia', 15, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::Black, 20, 12)
+            $g.DrawString('i', (FntP('Georgia', 15, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::Black, 20, 12)
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 140 220 60))), 0, 52, $W, 4)
             # barra del navegador
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 244 246 249))), 0, 56, $W, 32)
             $g.DrawLine((New-Object System.Drawing.Pen((C 200 205 212), 1)), 0, 88, $W, 88)
-            $g.DrawString('◀   ▶   ⟳', (New-Object System.Drawing.Font('Segoe UI Symbol', 10)), (New-Object System.Drawing.SolidBrush((C 90 100 115))), 10, 61)
+            $g.DrawString('◀   ▶   ⟳', (FntP('Segoe UI Symbol', 10)), (New-Object System.Drawing.SolidBrush((C 90 100 115))), 10, 61)
             $g.FillRectangle([System.Drawing.Brushes]::White, 96, 60, ($W - 112), 24)
             $g.DrawRectangle((New-Object System.Drawing.Pen((C 185 195 205), 1)), 96, 60, ($W - 112), 24)
             $g.FillRectangle([System.Drawing.Brushes]::Black, 0, $H - 10, $W, 10)
@@ -1536,7 +1627,7 @@ $form.Add_Paint({
             $lun.Dispose()
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 58 44 190))), 0, 0, $W, 52)
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 225 50))), 0, 52, $W, 5)
-            $g.DrawString($k.Titulo, (New-Object System.Drawing.Font($k.FuenteTitulo, 20, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::Black, 15, 9)
+            $g.DrawString($k.Titulo, (FntP($k.FuenteTitulo, 20, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::Black, 15, 9)
             $pen = New-Object System.Drawing.Pen([System.Drawing.Color]::Black, 4)
             $g.DrawLine($pen, 472, 66, 454, 48); $g.DrawLine($pen, 538, 66, 556, 48)
             $g.FillEllipse([System.Drawing.Brushes]::Black, 446, 41, 12, 12); $g.FillEllipse([System.Drawing.Brushes]::Black, 552, 41, 12, 12)
@@ -1547,7 +1638,7 @@ $form.Add_Paint({
             $g.FillPath((New-Object System.Drawing.SolidBrush((C 58 44 190))), $path); $g.DrawPath($pen, $path); $path.Dispose()
             $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 255 225 50))), 420, 214, 12, 12); $g.DrawEllipse((New-Object System.Drawing.Pen([System.Drawing.Color]::Black, 2)), 420, 214, 12, 12)
             $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 90 220 245))), 438, 214, 12, 12); $g.DrawEllipse((New-Object System.Drawing.Pen([System.Drawing.Color]::Black, 2)), 438, 214, 12, 12)
-            $g.DrawString('CH 03', (New-Object System.Drawing.Font('Comic Sans MS', 8, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 548, 213)
+            $g.DrawString('CH 03', (FntP('Comic Sans MS', 8, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 548, 213)
             $pen.Dispose()
             $arco = @((C 255 40 40), (C 255 150 30), (C 255 225 50), (C 90 210 80), (C 90 220 245), (C 58 44 190), (C 230 80 200))
             $bw = [Math]::Ceiling($W / $arco.Count)
@@ -1556,7 +1647,7 @@ $form.Add_Paint({
         'mew' {
             $g.SmoothingMode = 'AntiAlias'
             if (-not $script:bmpPapel) { $script:bmpPapel = Fondo-Papel 616 344 }
-            $g.DrawImage($script:bmpPapel, 0, 0)
+            $g.DrawImage($script:bmpPapel, 0, 0, 616, 344)
             # barra de tinta con arañazos
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 36 30 32))), 0, 0, $W, 52)
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 170 40 35))), 0, 52, $W, 4)
@@ -1572,12 +1663,12 @@ $form.Add_Paint({
             $g.DrawRectangle((New-Object System.Drawing.Pen((C 25 20 22), 2)), $hx, $hy, $hw, $hh)
             $etq = if ($script:gVivo) { "GUILLOTINA   $($script:gHP)/$($script:gMax)" } else { 'GUILLOTINA   DERROTADA' }
             $fmt = New-Object System.Drawing.StringFormat; $fmt.Alignment = 'Center'; $fmt.LineAlignment = 'Center'
-            $g.DrawString($etq, (New-Object System.Drawing.Font('Impact', 9)), [System.Drawing.Brushes]::White, (New-Object System.Drawing.RectangleF($hx, $hy, $hw, $hh)), $fmt)
+            $g.DrawString($etq, (FntP('Impact', 9)), [System.Drawing.Brushes]::White, (New-Object System.Drawing.RectangleF($hx, $hy, $hw, $hh)), $fmt)
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 36 30 32))), 0, $H - 8, $W, 8)
         }
         'lobo' {
             if (-not $script:bmpHex) { $script:bmpHex = Fondo-Hexagonos 616 344 (C 30 38 48) }
-            $g.DrawImage($script:bmpHex, 0, 0)
+            $g.DrawImage($script:bmpHex, 0, 0, 616, 344)
             $g.SmoothingMode = 'AntiAlias'
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 18 23 30))), 0, 0, $W, 52)
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 170 40))), 0, 52, $W, 2)
@@ -1591,7 +1682,7 @@ $form.Add_Paint({
             $g.DrawLine($am, $x2, $y2, $x2 - $L, $y2); $g.DrawLine($am, $x2, $y2, $x2, $y2 - $L)
             $am.Dispose()
             # cuota de energía
-            $g.DrawString("CUOTA DE ENERGÍA   $($script:energia)%", (New-Object System.Drawing.Font('Bahnschrift', 8)), (New-Object System.Drawing.SolidBrush((C 255 176 50))), 14, 274)
+            $g.DrawString("CUOTA DE ENERGÍA   $($script:energia)%", (FntP('Bahnschrift', 8)), (New-Object System.Drawing.SolidBrush((C 255 176 50))), 14, 274)
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 40 32 14))), 16, 290, 376, 8)
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 170 40))), 16, 290, [int](376 * $script:energia / 100), 8)
             $g.DrawRectangle((New-Object System.Drawing.Pen((C 120 85 25), 1)), 16, 290, 376, 8)
@@ -1616,7 +1707,7 @@ $form.Add_Paint({
                 $g.FillRectangle((New-Object System.Drawing.SolidBrush($c)), 410, 216, [int](190 * [Math]::Min(1.0, $script:snCarga / 60.0)), 10)
             }
             $g.DrawRectangle((New-Object System.Drawing.Pen((C 0 255 0), 1)), 410, 216, 190, 10)
-            $g.DrawString("HITMARKERS: $($script:hitsTotal)    DO THE DEW: $($script:dew)", (New-Object System.Drawing.Font('Arial Black', 8)), (New-Object System.Drawing.SolidBrush((C 191 239 255))), 16, 280)
+            $g.DrawString("HITMARKERS: $($script:hitsTotal)    DO THE DEW: $($script:dew)", (FntP('Arial Black', 8)), (New-Object System.Drawing.SolidBrush((C 191 239 255))), 16, 280)
         }
         'oeste' {
             $g.SmoothingMode = 'AntiAlias'
@@ -1654,7 +1745,7 @@ $form.Add_Paint({
             $scan = New-Object System.Drawing.Pen((C 28 0 0), 1)
             for ($y = 54; $y -lt $H; $y += 4) { $g.DrawLine($scan, 2, $y, $W - 2, $y) }
             $scan.Dispose()
-            $g.DrawString($k.Titulo, (New-Object System.Drawing.Font($k.FuenteTitulo, 20, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($k.Sombra)), 15, 10)
+            $g.DrawString($k.Titulo, (FntP($k.FuenteTitulo, 20, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($k.Sombra)), 15, 10)
             $pen2 = New-Object System.Drawing.Pen($k.Borde, 2)
             $g.DrawLine($pen2, 0, 52, $W, 52); $pen2.Dispose()
         }
@@ -1696,6 +1787,7 @@ function Construir-UI {
     $k = $Skins[$script:skinNombre]; $script:skin = $k
     # quitar las imágenes de la ventana antes de liberarlas (evita la ventana de error al cambiar de skin)
     $caraTimer.Stop(); $tvTimer.Stop(); $revTimer.Stop()
+    Fin-Discusion
     if ($script:pb) { $script:pb.Image = $null; $form.Controls.Remove($script:pb); $script:pb.Dispose(); $script:pb = $null }
     foreach ($im in @($script:imgs.Values)) { if ($im) { $im.Dispose() } }
     foreach ($set in @($script:caras.Values)) { foreach ($im in $set) { if ($im) { $im.Dispose() } } }
@@ -1719,7 +1811,7 @@ function Construir-UI {
     $estiloTit = if ($k.FuenteTitulo -eq 'Impact') { [System.Drawing.FontStyle]::Regular } else { [System.Drawing.FontStyle]::Bold }
     $titulo = New-Object System.Windows.Forms.Label
     $titulo.Text = $k.Titulo
-    $titulo.Font = New-Object System.Drawing.Font($k.FuenteTitulo, 20, $estiloTit)
+    $titulo.Font = Fnt($k.FuenteTitulo, 20, $estiloTit)
     $titulo.ForeColor = $k.TituloColor
     $titulo.BackColor = [System.Drawing.Color]::Transparent
     $titulo.AutoSize = $true
@@ -1727,12 +1819,12 @@ function Construir-UI {
 
     $sub = New-Object System.Windows.Forms.Label
     $sub.Text = $k.Sub
-    $sub.Font = New-Object System.Drawing.Font($(if ($k.Fuente -eq 'Impact') { 'Segoe UI' } else { $k.Fuente }), 8, [System.Drawing.FontStyle]::Bold)
+    $sub.Font = Fnt($(if ($k.Fuente -eq 'Impact') { 'Segoe UI' } else { $k.Fuente }), 8, [System.Drawing.FontStyle]::Bold)
     $sub.ForeColor = $k.SubColor
     $sub.BackColor = [System.Drawing.Color]::Transparent
     $sub.AutoSize = $true
     $form.Controls.AddRange(@($titulo, $sub))
-    $xSub = if ($k.TituloImg) { 166 } else { $xTit + $titulo.PreferredWidth + 2 }
+    $xSub = if ($k.TituloImg) { 166 } else { $xTit + [int]($titulo.PreferredWidth / $script:K) + 2 }
     $sub.Location = New-Object System.Drawing.Point($xSub, 26)
     foreach ($c in @($titulo, $sub)) { $c.Add_MouseDown($mDown); $c.Add_MouseMove($mMove); $c.Add_MouseUp($mUp) }
 
@@ -1753,7 +1845,7 @@ function Construir-UI {
     $script:lblPag = New-Object System.Windows.Forms.Label
     $lblPag.ForeColor = $k.StatusColor
     $lblPag.BackColor = [System.Drawing.Color]::Transparent
-    $lblPag.Font = New-Object System.Drawing.Font($(if ($k.Fuente -eq 'Impact') { 'Impact' } else { $k.Fuente }), 10, $(if ($k.Fuente -eq 'Impact') { [System.Drawing.FontStyle]::Regular } else { [System.Drawing.FontStyle]::Bold }))
+    $lblPag.Font = Fnt($(if ($k.Fuente -eq 'Impact') { 'Impact' } else { $k.Fuente }), 10, $(if ($k.Fuente -eq 'Impact') { [System.Drawing.FontStyle]::Regular } else { [System.Drawing.FontStyle]::Bold }))
     $lblPag.TextAlign = 'MiddleCenter'
     $lblPag.Location = New-Object System.Drawing.Point(140, (242 + $T))
     $lblPag.Size = New-Object System.Drawing.Size(128, 28)
@@ -1771,14 +1863,14 @@ function Construir-UI {
     if ($k.Estilo -eq 'web') {
         $candado = New-Object System.Windows.Forms.Label
         $candado.Text = '🔒'
-        $candado.Font = New-Object System.Drawing.Font('Segoe UI Symbol', 9)
+        $candado.Font = Fnt('Segoe UI Symbol', 9)
         $candado.ForeColor = (C 30 140 60)
         $candado.BackColor = [System.Drawing.Color]::White
         $candado.Location = New-Object System.Drawing.Point(100, 63)
         $candado.Size = New-Object System.Drawing.Size(20, 19)
         $script:urlLbl = New-Object System.Windows.Forms.Label
         $urlLbl.Text = $k.Url
-        $urlLbl.Font = New-Object System.Drawing.Font('Segoe UI', 9)
+        $urlLbl.Font = Fnt('Segoe UI', 9)
         $urlLbl.ForeColor = (C 40 40 40)
         $urlLbl.BackColor = [System.Drawing.Color]::White
         $urlLbl.Location = New-Object System.Drawing.Point(121, 64)
@@ -1832,8 +1924,8 @@ function Construir-UI {
                     $rojo.Dispose()
                 }
                 foreach ($h in $script:hits) {
-                    Dibujar-Hit $g $h.X $h.Y 12
-                    $g.DrawString('+100', (New-Object System.Drawing.Font('Arial Black', 9)), [System.Drawing.Brushes]::Lime, ($h.X + 12), ($h.Y - 24 + $h.T))
+                    Dibujar-Hit $g $h.X $h.Y (12 * $script:K)
+                    $g.DrawString('+100', (Fnt('Arial Black', 9)), [System.Drawing.Brushes]::Lime, ($h.X + 12), ($h.Y - 24 + $h.T))
                 }
                 if ($script:flash -gt 0) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb($script:flash * 50, 255, 255, 255))), 0, 0, $this.Width, $this.Height) }
             })
@@ -1845,17 +1937,21 @@ function Construir-UI {
         $status.BorderStyle = 'FixedSingle'
         $status.Padding = New-Object System.Windows.Forms.Padding(4)
         $tamBur = if ($k.BurFuente -eq 'Segoe Print') { 8 } else { 9 }
-        $status.Font = New-Object System.Drawing.Font($k.BurFuente, $tamBur, [System.Drawing.FontStyle]::Bold)
+        $status.Font = Fnt($k.BurFuente, $tamBur, [System.Drawing.FontStyle]::Bold)
         $status.Location = New-Object System.Drawing.Point($k.Burbuja[0], $k.Burbuja[1])
         $status.Size = New-Object System.Drawing.Size($k.Burbuja[2], $k.Burbuja[3])
         $form.Controls.Add($pb)
     } else {
         $status.BackColor = [System.Drawing.Color]::Black
-        $status.Font = New-Object System.Drawing.Font('Consolas', 8.5)
+        $status.Font = Fnt('Consolas', 8.5)
         $status.Location = New-Object System.Drawing.Point(14, 278)
         $status.Size = New-Object System.Drawing.Size(380, 22)
     }
 
+    # todo se diseña a tamaño base y luego se escala de una vez (evita textos cortados)
+    $loc = $form.Location
+    Escalar $form
+    $form.Location = $loc
     Mostrar-Pagina
     $script:twTexto = ''; $script:twPos = 0; $status.Text = ''
     $form.Invalidate()

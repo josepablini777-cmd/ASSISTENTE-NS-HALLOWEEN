@@ -13,7 +13,9 @@ Tiene siete skins, cada una con su propio estilo, animaciones y diálogos:
 | **Mikaela** | Francotiradora de PURSUITCORE, estilo MLG | Mira del francotirador, disparo y hitmarker |
 | **Zodiac** | Pistolero loco del desierto de Mewgenics | Cartel de WANTED con "DON'T MOVE!" y balazos |
 
-Cada skin opina de las demás. Pasa el ratón por los botones del menú **Skins** para oír lo que piensa el asistente de cada una.
+Cada skin opina de las demás. Pasa el ratón por los botones del menú **Skins** para oír lo que piensa el asistente de cada una. De vez en cuando, además, **discuten entre ellos**: el otro personaje se cuela en el panel para responder.
+
+**Tamaño:** el panel se adapta solo al escalado de tu pantalla. Para hacerlo más grande o más pequeño, cambia `$Tamano = 1.2` al principio de `c00lgui.ps1` (1.0 = normal, 1.5 = grande).
 
 ## Cómo descargarlo
 
