@@ -1,7 +1,29 @@
-# c00lgui v3 – panel lanzador con skins de asistentes
+# c00lgui v5 – panel lanzador con skins de asistentes
 
 Panel para Windows que abre YouTube, las apps de Office y otros programas con un clic.
-Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code, Build the Larp"). Tiene diecisiete skins, cada una con su propio estilo, animaciones y diálogos:
+
+## Notas del parche – v5
+
+**Skins nuevas**
+- **Kevin** (*Don't Touch My Pizza*, de Nyanwolf): vive en un dibujo de Paint. Cada app es un trozo de pizza que se come; si tocas su pizza se enfada (cuchillo, "I'm going to bite you" y motosierra con fuego). A veces aparece queso azul y puedes quitárselo.
+- **Kennyoung** (músico de pop-punk de Corea del Sur): en el reproductor de su canal de YouTube, con los colores y la portada de blink-182 detrás de los botones. Visitas, likes, conciertos cada 8 apps, un amplificador que hace explotar la guitarra y un botón de suscribirse que funciona. Su intro busca su canal en YouTube y se suscribe.
+
+**Personalización**
+- **Editor de botones** (Ajustes → Editar botones): cambia el orden de los botones, añade los tuyos (webs, programas, archivos, carpetas o enlaces como `steam://`), edítalos o quítalos. Se guardan en `botones.txt`.
+- **Tutorial** en una hoja de cuaderno (Ajustes → Tutorial) con todos los pasos.
+- Los botones entienden carpetas como `%USERPROFILE%\Downloads`.
+
+**Menú Skins**
+- Las skins se ordenan por grupos según de dónde vienen: **YouTube**, **Roblox**, **Videojuegos** y **Artistas**. Debajo del nombre sale su creador o su juego, y `<` `>` pasan de grupo.
+
+**Otros cambios**
+- Logo de inicio con un Tung Tung Sahur nuevo, de busto como el panda.
+- Todas las skins opinan de Kevin y de Kennyoung, y hay más de 20 discusiones nuevas.
+
+**Para quien quiera tocar el código**
+- Al principio de la sección `SKINS` de `c00lgui.ps1` hay una guía paso a paso para añadir skins nuevas.
+- Los grupos del menú Skins se cambian en la lista `$GruposSkins` y el texto del tutorial en `$TextoTutorial`.
+Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code, Build the Larp"). Tiene diecinueve skins, cada una con su propio estilo, animaciones y diálogos:
 
 | Skin | Estilo | Efecto al entrar |
 |---|---|---|
@@ -22,6 +44,8 @@ Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code,
 | **Kasane Teto** | Teto en la pose de *BIRDBRAIN*, bailando sobre el rosa del videoclip | Una bandada de palomas cruza la pantalla, Teto cae rebotando y dice "¡Hiii~!" con su voz real |
 | **Token** | La mascota de femtanyl en una recreativa roja y negra, con estática y glitch | INSERT TOKEN: cae la ficha, su logo, cortes rápidos con títulos de canciones y su cartel |
 | **Tetra** | El gato de *You're Just Like Pop Music* (YonKaGor) en el acuario de neón del videoclip, con estética de cinta VHS | Una cinta VHS: PLAY, escenas del videoclip y el cartel de neón de "Pop Music" |
+| **Kevin** | El lobo verde de *Don't Touch My Pizza* (Nyanwolf), viviendo dentro de un dibujo de Paint sobre un mantel de pizzería | Se abre Paint, un lápiz dibuja su pizza, "DON'T TOUCH MY PIZZA" palabra a palabra, fuego y su cartel con arcoíris, con la polka de fondo |
+| **Kennyoung** | El personaje del músico surcoreano de pop-punk, dentro del reproductor de su canal de YouTube, en un local de ensayo | Su canal carga, se le da al play y suena un riff pop-punk con cortes de sus videoclips y títulos de sus canciones |
 
 Cada skin opina de las demás. Pasa el ratón por los botones del menú **Skins** para oír lo que piensa el asistente de cada una. De vez en cuando, además, **discuten entre ellos**: el otro personaje aparece en su propia ventanita pegada al panel, con su estilo y su bocadillo. Lo que dicen tiene efectos: los disparos suenan y hacen temblar las ventanas, las Smokebomb las vuelven transparentes y los mordiscos suenan. **Haz clic derecho sobre el personaje** para empezar una discusión cuando quieras.
 
@@ -41,7 +65,7 @@ No hace falta instalar nada: funciona con PowerShell, que ya viene con Windows 1
 
 - **Botones:** abren la app. Si una app de Office no está instalada, se abre su versión web. En la página 2 también hay enlaces a **GitHub** y **Wikipedia**.
 - **`<` y `>`:** cambian de página.
-- **Skins:** elige otra skin. Se recuerda para la próxima vez.
+- **Skins:** elige otra skin. Se recuerda para la próxima vez. Las skins están agrupadas según de dónde viene cada personaje (**YouTube**, **Roblox**, **Videojuegos**, **Artistas**); debajo del nombre sale su creador o su juego. Con **`<`** y **`>`** pasas de un grupo a otro.
 - **Mover la ventana:** arrástrala desde el título.
 - **Asistente:** haz clic en el personaje y te contesta.
   - **Guillotina:** cada clic le quita vida. Con 200 o menos se enfurece, como en el juego (el callejón late en rojo y golpea con la barriga). Cada app que abres es un gato engullido. Si la derrotas, vuelve buscando venganza.
@@ -58,6 +82,8 @@ No hace falta instalar nada: funciona con PowerShell, que ya viene con Windows 1
   - **Kasane Teto:** cada app que abres atrae a un pajarito. Al quinto, uno se le posa en la cabeza: **¡BIRDBRAIN!** Haz clic en ella para que salte y diga algo con su voz (y espante a los pájaros). Dice el nombre de algunas apps, canta sola, saluda según la hora y grita "¡wheee!" si arrastras la ventana.
   - **Token:** cada app es una ficha en la recreativa. Haz clic muchas veces seguidas para llenar el HYPE: al máximo, **¡modo BREAKCORE!**
   - **Tetra:** cada app trae un mensaje de su amigo "neems". Cada cuatro clics se pone (o se quita) el **No molestar**.
+  - **Kevin:** cada app que abres es un trozo de pizza que se come; cuando se acaba, llega el repartidor con otra. **No toques su pizza**: a la primera saca un cuchillo y una pistola, a la segunda te avisa de que te va a morder y a la tercera saca la motosierra y todo arde. Si aparece **queso azul**, ese sí puedes quitarlo haciendo clic en la pizza (te lo agradecerá). Haz clic en él para que baile, cante con el micro o, con suerte, se suba a un unicornio.
+  - **Kennyoung:** cada app que abres son visitas y likes para su canal, y cada 8 hay **concierto** con la banda. Haz clic en él para que toque un acorde: el **amplificador** sube y, si llega al máximo, la guitarra **explota**. El botón **SUSCRIBIRSE** del reproductor funciona (con campanita). La barra roja va pasando por sus canciones.
 
 ## Ajustes
 
@@ -65,15 +91,38 @@ El botón **Ajustes** abre una ventanita para: activar o quitar el sonido y su v
 
 **Textos largos:** si una frase no cabe en el bocadillo, al terminar de escribirse vuelve al principio y baja sola. También puedes moverla con la rueda del ratón.
 
-## Añadir tus propios botones
+## Tus propios botones y su orden
 
-Abre `c00lgui.ps1` con el Bloc de notas y busca la lista `$Botones` al principio. Añade una línea como esta:
+Pulsa **Ajustes → Editar botones...** y se abre el editor:
+
+- **▲ Subir / ▼ Bajar:** cambian el orden (el de arriba es el primero del panel).
+- **+ Añadir:** crea un botón tuyo. Puede abrir una web (`roblox.com`), un programa (`notepad.exe` o búscalo con **Archivo...**), una carpeta (`%USERPROFILE%\Downloads` o **Carpeta...**) o cualquier enlace (`steam://`, `discord:`...). **Probar** lo abre para comprobarlo.
+- **Editar / Quitar:** cambian o borran el botón elegido (doble clic también edita).
+- **De serie:** vuelve a los botones de siempre.
+- **Guardar:** el panel se actualiza al momento.
+
+En **Ajustes → Tutorial** hay una hoja con todos los pasos explicados.
+
+Tus botones se guardan en `botones.txt` (una línea por botón: `Nombre | qué abre | web si no está instalado`), que también se puede editar con el Bloc de notas. Si lo borras, vuelven los botones de serie.
+
+Las frases de cada asistente están en la sección `SKINS` de `c00lgui.ps1`.
+
+## Cambiar los grupos del menú Skins
+
+Justo después de la lista de skins, en `c00lgui.ps1`, está `$GruposSkins`. Cada línea es `'nombre de la skin' = 'de dónde viene'`, y el orden de esa lista es el orden del menú:
 
 ```powershell
-@{ Nombre = 'Roblox'; Abrir = 'https://www.roblox.com' }
+'YouTube' = [ordered]@{
+    'SeaDrive' = 'YonKaGor'
+    'Tetra'    = 'YonKaGor'
+}
 ```
 
-Las frases de cada asistente están en la sección `SKINS` del mismo archivo.
+Puedes mover una skin de grupo, cambiar el orden o crear un grupo nuevo. Si una skin no está en ningún grupo, sale sola en **Otras**.
+
+## Añadir una skin nueva
+
+Al principio de la sección `SKINS` de `c00lgui.ps1` hay una guía paso a paso con todos los sitios del código donde hay que añadirla.
 
 ## Créditos
 
@@ -96,5 +145,8 @@ Las frases de cada asistente están en la sección `SKINS` del mismo archivo.
 
 - **Token:** mascota de [femtanyl](https://en.wikipedia.org/wiki/Femtanyl). Dibujo de [kengop1](https://www.deviantart.com/kengop1/art/Token-%28Femtanyl%29-bandage.-1272421771) y cabeza de la intro de [TheDalmatianCatHybri](https://www.deviantart.com/thedalmatiancathybri/art/Token-%28Femtanyl%29-1193320663) (DeviantArt). Sonidos sintetizados para el panel.
 - **Tetra:** personaje de [YonKaGor](https://www.youtube.com/@YonKaGor) (diseño de SentyPurr), del videoclip *You're Just Like Pop Music*. Ficha y escenas del vídeo de la [wiki de YonKaGor](https://kennyon.fandom.com/wiki/Tetra).
+
+- **Kevin:** el lobo de la animación *Don't Touch My Pizza* de Nyanwolf, con la canción de Zombycare ([más información](https://knowyourmeme.com/memes/dont-touch-my-pizza)). GIFs de [Tenor](https://tenor.com/search/dont-touch-my-pizza-gifs). Música: "Pixel Peeker Polka - faster", de Kevin MacLeod ([incompetech.com](https://incompetech.com)), con licencia [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/). Efectos de sonido sintetizados para el panel.
+- **Kennyoung:** personaje del músico y animador [Kennyoung](https://youtube.com/@kennyoung). GIFs de sus videoclips en [Tenor](https://tenor.com/search/kennyoung-gifs) y foto de perfil de la [KennYon Wiki](https://kennyon.fandom.com/wiki/Kennyoung). El riff y los sonidos están sintetizados para el panel (no es su música).
 
 Proyecto de fans sin ánimo de lucro. Los personajes pertenecen a sus autores.

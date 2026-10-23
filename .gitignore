@@ -3,3 +3,6 @@ skin.txt
 
 # ajustes de cada persona (se crean solos)
 ajustes.txt
+
+# botones propios de cada persona (se crean desde Ajustes > Editar botones)
+botones.txt
