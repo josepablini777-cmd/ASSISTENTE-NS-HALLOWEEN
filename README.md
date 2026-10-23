@@ -2,6 +2,12 @@
 
 Panel para Windows que abre YouTube, las apps de Office y otros programas con un clic.
 
+## Notas del parche – v5.1
+
+- **Guillotina, intro nueva:** las imágenes del callejón pasan rápido con el anuncio de la radio WMEW 99.9 del juego; luego ella cae bajo la luz de la farola, aparece el cartel de papel "Guillotina is coming for you!" y una mandíbula de dientes negros se come la pantalla. Un clic la salta.
+- **Kennyoung, intro nueva:** el cielo del atardecer de su vídeo, su silueta con la guitarra y, con un destello, él en color con su nombre "KENNYOUNG – MUSIC, ART, VIDEO".
+- **Kennyoung, estética nueva:** atardecer en el skatepark, borde verde de pegatina y los cuadros de su camisa. Ahora **mueve la boca cuando habla**, y sus vídeos salen en un minirreproductor.
+
 ## Notas del parche – v5
 
 **Skins nuevas**

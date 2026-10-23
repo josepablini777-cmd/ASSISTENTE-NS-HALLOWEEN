@@ -484,7 +484,11 @@ $Skins = [ordered]@{
         BtnHover = (C 215 80 65); BtnPress = (C 120 25 25); BarraBtnTexto = (C 25 20 22)
         StatusColor = (C 240 228 200); Fuente = 'EdmundMcMillen_INTLv4'; FuenteTitulo = 'EdmundMcMillen_INTLv4'; Opacidad = 1.0; Velocidad = 1
         Ancho = 760; Mezclar = $true; Gif = 'skins\guillotina\g_idle.gif'
-        FondoImg = 'skins\guillotina\callejon.jpg'; IntroImg = 'skins\guillotina\cementerio.jpg'
+        FondoImg = 'skins\guillotina\callejon.jpg'
+        # intro (imágenes del juego): las fotos que pasan rápido, el callejón de la jefa, ella, el cartel y el marco de cables
+        IntroFotos = @('skins\guillotina\intro_callejon1.jpg', 'skins\guillotina\intro_callejon2.jpg', 'skins\guillotina\intro_callejon3.jpg', 'skins\guillotina\cementerio.jpg', 'skins\guillotina\callejon.jpg')
+        IntroJefa = 'skins\guillotina\intro_jefa.jpg'; IntroGuillotina = 'skins\guillotina\intro_guillotina.png'
+        IntroCartel = 'skins\guillotina\intro_cartel.png'; IntroMarco = 'skins\guillotina\intro_marco.png'
         Actores = @(
             @{ Id = 'G'; Gif = 'skins\guillotina\g_idle.gif'; Rect = @(432, 66, 316, 190)
                Extra = @{ furiosa = 'skins\guillotina\g_furiosa.gif'; clic = 'skins\guillotina\g_enfado.gif'; inhala = 'skins\guillotina\g_inhala.gif'; inhalaf = 'skins\guillotina\g_inhala_f.gif'
@@ -492,7 +496,7 @@ $Skins = [ordered]@{
         )
         Cartel = 'skins\guillotina\cartel_g.png'
         Sonidos = @{
-            intro = @('skins\guillotina\s_enfado_sfx.wav'); furia = @('skins\guillotina\s_enfado.wav'); radio = @('skins\guillotina\radio.wav')
+            intro = @('skins\guillotina\s_enfado_sfx.wav'); furia = @('skins\guillotina\s_enfado.wav'); radio = @('skins\guillotina\radio_intro.wav')
             golpe = @('skins\guillotina\s_golpe1.wav', 'skins\guillotina\s_golpe2.wav', 'skins\guillotina\s_golpe3.wav'); golpef = @('skins\guillotina\s_golpef1.wav', 'skins\guillotina\s_golpef2.wav')
             comer = @('skins\guillotina\s_inhala1.wav', 'skins\guillotina\s_inhala2.wav'); digiere = @('skins\guillotina\s_digiere.wav'); lanza = @('skins\guillotina\s_lanza.wav')
             barriga = @('skins\guillotina\s_barriga.wav'); muere = @('skins\guillotina\s_muere.wav'); mordisco = @('skins\guillotina\s_mordisco.wav'); paso = @('skins\guillotina\s_paso.wav')
@@ -2142,25 +2146,33 @@ $Skins = [ordered]@{
     # Su personaje de los videoclips, dentro del reproductor de su canal de YouTube.
     'Kennyoung' = @{
         Estilo = 'punk'; Titulo = 'Kennyoung'; Sub = ''; Alto = 320; TituloX = 44
-        # colores de blink-182: negro, blanco y rosa chillón
-        Fondo = (C 10 10 12); Borde = (C 255 64 160); Acento = (C 255 64 160)
-        TituloColor = (C 255 255 255); SubColor = (C 255 64 160)
-        BtnFondo = (C 20 20 24); BtnTexto = (C 255 255 255); BtnTextoHover = (C 10 10 12); BtnBorde = (C 255 64 160); BtnBordeAncho = 2
-        BtnHover = (C 255 64 160); BtnPress = (C 255 255 255); BarraBtnTexto = (C 255 255 255)
-        StatusColor = (C 14 14 16); Fuente = 'Segoe UI'; FuenteTitulo = 'Ink Free'; Opacidad = 1.0; Velocidad = 1
-        Ancho = 760; Mezclar = $true; Gif = 'skins\kennyoung\retrato.gif'; PbFondo = (C 240 232 236); Avatar = 'skins\kennyoung\avatar.png'
-        # GIFs de sus videoclips (Tenor), pasados a formato de vídeo 16:9
+        # estética de sus dibujos: atardecer en el skatepark, borde verde de pegatina y la camisa de cuadros marrón
+        Fondo = (C 250 190 150); Borde = (C 70 50 45); Acento = (C 110 235 140)
+        TituloColor = (C 255 255 255); SubColor = (C 110 235 140)
+        BtnFondo = (C 255 248 240); BtnTexto = (C 70 50 45); BtnTextoHover = (C 30 24 22); BtnBorde = (C 70 50 45); BtnBordeAncho = 2
+        BtnHover = (C 110 235 140); BtnPress = (C 255 200 120); BarraBtnTexto = (C 255 255 255)
+        StatusColor = (C 70 50 45); Fuente = 'Segoe UI'; FuenteTitulo = 'Ink Free'; Opacidad = 1.0; Velocidad = 1
+        Ancho = 760; Mezclar = $true; Gif = 'skins\kennyoung\habla_cerrada.png'; PbFondo = (C 250 196 160); Avatar = 'skins\kennyoung\avatar.png'
+        FondoImg = 'skins\kennyoung\fondo_atardecer.jpg'
+        # Kenny (dibujo con la boca cerrada) y las dos bocas abiertas para cuando habla
         Actores = @(
-            @{ Id = 'Y'; Gif = 'skins\kennyoung\guitarra.gif'; Rect = @(418, 64, 324, 182); Llenar = $true
-               Extra = @{ kaboom = 'skins\kennyoung\kaboom.gif'; yap = 'skins\kennyoung\yap.gif'; piensa = 'skins\kennyoung\piensa.gif'; diablo = 'skins\kennyoung\diablo.gif'
-                          loner = 'skins\kennyoung\loner.gif'; online = 'skins\kennyoung\online.gif'; triste = 'skins\kennyoung\triste.gif'; concierto = 'skins\kennyoung\concierto.gif'
-                          nada = 'skins\kennyoung\nada.gif'; calavera = 'skins\kennyoung\calavera.gif' } }
+            @{ Id = 'Y'; Gif = 'skins\kennyoung\habla_cerrada.png'; Rect = @(500, 46, 258, 272); Respira = $true
+               Extra = @{ abierta1 = 'skins\kennyoung\habla_abierta1.png'; abierta2 = 'skins\kennyoung\habla_abierta2.png' } }
         )
+        # mientras se escribe el bocadillo, va cambiando de boca en este orden ('main' es la boca cerrada)
+        Habla = @{ Id = 'Y'; Bocas = @('abierta1', 'abierta2', 'abierta1', 'main') }
+        # GIFs de sus videoclips (Tenor) para el minirreproductor de su canal: archivo y título
+        Videos = @{
+            guitarra = @('skins\kennyoung\guitarra.gif', 'Someday'); concierto = @('skins\kennyoung\concierto.gif', 'Can''t Keep My Hands Off You (cover)')
+            loner = @('skins\kennyoung\loner.gif', 'Loner'); online = @('skins\kennyoung\online.gif', 'People Online'); nada = @('skins\kennyoung\nada.gif', 'Nothing')
+            piensa = @('skins\kennyoung\piensa.gif', 'I Used To'); triste = @('skins\kennyoung\triste.gif', 'Get Away'); calavera = @('skins\kennyoung\calavera.gif', 'Baby, You''re A Haunted House (cover)')
+            kaboom = @('skins\kennyoung\kaboom.gif', '¡KABOOM!'); diablo = @('skins\kennyoung\diablo.gif', 'DON''T PLAY'); yap = @('skins\kennyoung\yap.gif', 'yap')
+        }
         Sonidos = @{
             acorde = @('skins\kennyoung\acorde.wav', 'skins\kennyoung\acorde2.wav', 'skins\kennyoung\acorde3.wav'); riff = @('skins\kennyoung\riff.wav')
             kaboom = @('skins\kennyoung\kaboom.wav'); publico = @('skins\kennyoung\publico.wav'); campana = @('skins\kennyoung\campana.wav')
         }
-        Burbuja = @(424, 278, 322, 34); BurFondo = $null; InvFondo = (C 33 33 38); BurTexto = (C 255 255 255); BurFuente = 'Trebuchet MS'
+        Burbuja = @(424, 278, 322, 34); BurFondo = $null; InvFondo = (C 255 246 236); BurTexto = (C 60 42 38); BurFuente = 'Trebuchet MS'
         Canciones = @('Someday', 'Maybe Tomorrow', 'Let''s Go', 'Nothing', 'See You!', 'People Online', 'Loner', 'I Used To', 'Parasocial', 'Ready To Say', 'Good Old Green Days', 'Get Away', 'Lethargy', 'Taste of Summer', 'Trash Talkin''')
         Hola = @(
             '¡Annyeong! Soy Kenny. Bueno, Kennyoung. Bueno, como quieras. Pilla una guitarra.'
@@ -2767,41 +2779,23 @@ function Fondo-Escena($k, $W, $H) {
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 230 20 40))), 0, 49, $W, 3)
         }
         'punk' {
-            # pared negra de local de ensayo (colores de blink-182) y, a la derecha, el reproductor de su canal
-            $g.Clear((C 10 10 12))
-            $lad = New-Object System.Drawing.Pen((C 24 24 28), 2)
-            for ($y = 56; $y -lt $H; $y += 16) {
-                $g.DrawLine($lad, 0, $y, $W, $y)
-                $off = if ((($y - 56) / 16) % 2 -eq 0) { 0 } else { 22 }
-                for ($x = $off; $x -lt $W; $x += 44) { $g.DrawLine($lad, $x, $y, $x, ($y + 16)) }
-            }
-            $lad.Dispose()
-            # detrás de los botones, la portada del disco de blink-182: papel blanco, pintura y la cara con flechas
-            $pan = Ruta-Redonda 8 64 394 ($H - 70) 12
-            $g.SetClip($pan)
-            Fondo-Portada $g 8 64 394 ($H - 70)
-            Dibujar-Blink $g 205 160 50
-            $g.ResetClip()
-            $g.DrawPath((New-Object System.Drawing.Pen((C 14 14 16), 3)), $pan); $pan.Dispose()
-            # el reproductor de vídeo
-            $rp = Ruta-Redonda 410 60 340 ($H - 102) 10
-            $g.FillPath((New-Object System.Drawing.SolidBrush((C 15 15 15))), $rp)
-            $g.DrawPath((New-Object System.Drawing.Pen((C 50 50 56), 1.5)), $rp); $rp.Dispose()
-            $g.FillRectangle([System.Drawing.Brushes]::Black, 418, 64, 324, 182)
-            # cabecera de YouTube (modo oscuro): logo rojo, buscador con "kennyoung" y una línea rosa punk
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 15 15 15))), 0, 0, $W, 52)
-            Yt-Logo $g 12 16 $false
-            $caja = Ruta-Redonda 178 14 150 24 12
-            $g.FillPath((New-Object System.Drawing.SolidBrush((C 18 18 18))), $caja); $g.DrawPath((New-Object System.Drawing.Pen((C 48 48 48), 1.2)), $caja); $caja.Dispose()
-            $g.FillPath((New-Object System.Drawing.SolidBrush((C 34 34 34))), (Ruta-Redonda 324 14 40 24 12))
-            Yt-Lupa $g 336 19 14 (C 236 236 236)
-            $g.DrawString('kennyoung pop-punk', (FntP('Segoe UI', 8.5)), (New-Object System.Drawing.SolidBrush((C 200 200 200))), 190, 18)
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 236 20 140))), 0, 50, $W, 2)
-            for ($x = 0; $x -lt $W; $x += 8) { $g.FillRectangle($(if (($x / 8) % 2 -eq 0) { [System.Drawing.Brushes]::White } else { [System.Drawing.Brushes]::Black }), $x, 52, 8, 4); $g.FillRectangle($(if (($x / 8) % 2 -eq 1) { [System.Drawing.Brushes]::White } else { [System.Drawing.Brushes]::Black }), $x, 56, 8, 4) }
-            # pegatina de su banda en la barra
+            # atardecer en el skatepark, como sus dibujos (fondo difuminado)
+            $g.Clear((C 250 190 150))
+            Imagen-Cubrir $g $k.FondoImg 0 0 $W $H 0.5 0.5
+            # panel crema detrás de los botones, con el borde verde en zigzag de sus pegatinas
+            Dibujar-Pegatina $g 12 66 386 ($H - 76) (ARGB 215 255 246 236)
+            # barra de arriba: los cuadros marrones de su camisa y una línea verde
+            Dibujar-Cuadros $g 0 0 $W 50
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 110 235 140))), 0, 50, $W, 4)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 46 34 30))), 0, 54, $W, 2)
+            # púa de guitarra verde como logo
+            $pua = New-Object System.Drawing.Drawing2D.GraphicsPath
+            $pua.AddBezier(12, 16, 22, 10, 32, 10, 38, 16); $pua.AddBezier(38, 16, 38, 26, 30, 34, 25, 40); $pua.AddBezier(25, 40, 20, 34, 12, 26, 12, 16)
+            $g.FillPath((New-Object System.Drawing.SolidBrush((C 110 235 140))), $pua); $g.DrawPath((New-Object System.Drawing.Pen((C 46 34 30), 2)), $pua); $pua.Dispose()
+            # pegatina "PUNK RULZZZ"
             $st = $g.Save(); $g.TranslateTransform(440, 26); $g.RotateTransform(-5)
             $pg = Ruta-Redonda (-64) (-13) 128 26 6
-            $g.FillPath((New-Object System.Drawing.SolidBrush((C 255 64 160))), $pg); $g.DrawPath((New-Object System.Drawing.Pen([System.Drawing.Color]::White, 2.5)), $pg); $pg.Dispose()
+            $g.FillPath((New-Object System.Drawing.SolidBrush((C 110 235 140))), $pg); $g.DrawPath((New-Object System.Drawing.Pen((C 46 34 30), 2.5)), $pg); $pg.Dispose()
             $tw = Ancho-Texto 'PUNK RULZZZ' 'Arial Black' 13
             Texto-Contorno $g 'PUNK RULZZZ' 'Arial Black' 13 (-$tw / 2) (-10) (C 255 255 255) 3
             $g.Restore($st)
@@ -3000,11 +2994,11 @@ function Pintar-Burbuja($g, $k) {
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 230 20 40))), [float]($x + $w - 40), [float]($y - 3), 30, 4)
         }
         'punk' {
-            # comentario de YouTube: caja oscura con el nombre del canal y la marca de verificado
-            $r = Ruta-Redonda $x $y $w $h 10
-            $g.FillPath((New-Object System.Drawing.SolidBrush((C 33 33 33))), $r)
-            $g.DrawPath((New-Object System.Drawing.Pen((ARGB 150 236 20 140), 1.5)), $r); $r.Dispose()
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 80 160))), [float]($x + 1), [float]($y + 6), 3, [float]($h - 12))
+            # bocadillo crema con borde marrón y sombra verde, como una pegatina
+            $g.FillPath((New-Object System.Drawing.SolidBrush((C 110 235 140))), (Ruta-Redonda ($x + 3) ($y + 3) $w $h 12))
+            $r = Ruta-Redonda $x $y $w $h 12
+            $g.FillPath((New-Object System.Drawing.SolidBrush((C 255 248 240))), $r)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 70 50 45), 2)), $r); $r.Dispose()
         }
         'pizza' {
             # bocadillo de cómic dibujado con rotulador, con piquito hacia Kevin
@@ -3076,6 +3070,15 @@ $twTimer.Add_Tick({
     if ($script:skin.Estilo -eq 'hacker' -and ($escribiendo -or ([Math]::Floor($script:twTick / 15) % 2 -eq 0))) { $txt += '_' }
     if ($script:status.Text -ne $txt) { $script:status.Text = $txt; Ajustar-Texto }
     Leer-Texto $escribiendo
+    # personajes dibujados que hablan cambiando de boca (campo Habla de la skin: actor y bocas en orden)
+    $hb = $script:skin.Habla
+    if ($hb) {
+        $a = $script:actores[$hb.Id]
+        if ($a -and $a.Hasta -eq 0) {
+            $pose = if ($escribiendo) { $hb.Bocas[[int][Math]::Floor($script:twTick / 3) % $hb.Bocas.Count] } else { 'main' }
+            if ($a.Pose -ne $pose -and $a.Imgs[$pose]) { $a.Pose = $pose; $a.Frame = 0; Seleccionar-Frame $a; Invalidar-Escena }
+        }
+    }
     # Angela mueve la boca mientras escribe
     if ($script:pb -and $script:caras.Count -gt 0 -and -not $script:dInvitadoHabla) {
         $set = $script:caras[$script:caraModo]
@@ -4353,7 +4356,7 @@ function Gif-Frame($img, $info, $ms) {
 # El botón SUSCRIBIRSE del reproductor funciona (con campanita).
 $script:kyVistas = 0; $script:kyLikes = 0; $script:kyApps = 0; $script:kyAmp = 0.0; $script:kyRotas = 0
 $script:kyCancion = 0; $script:kyProg = 0.0; $script:kySub = $false; $script:kyFx = 0; $script:kyConc = 0; $script:kyFlash = 0
-$KyBoton = @(672, 255, 70, 18)
+$KyBoton = @(184, 14, 100, 24)   # botón SUSCRIBIRSE (en la barra de arriba)
 function Ky-Duracion { return (150 + (($script:kyCancion * 37) % 70)) }   # segundos de cada canción (entre 2:30 y 3:40)
 function Ky-Tiempo($s) { return ('{0}:{1:00}' -f [int][Math]::Floor($s / 60), [int]($s % 60)) }
 function Ky-Numero($n) { if ($n -ge 1000000) { return ('{0:0.0} M' -f ($n / 1000000.0)) } elseif ($n -ge 1000) { return ('{0:0.0} K' -f ($n / 1000.0)) } else { return "$n" } }
@@ -4361,57 +4364,37 @@ function Sub-En-Raton {
     $pt = $form.PointToClient([System.Windows.Forms.Cursor]::Position); $x = $pt.X / $script:K; $y = $pt.Y / $script:K
     return ($x -ge $KyBoton[0] -and $x -le $KyBoton[0] + $KyBoton[2] -and $y -ge $KyBoton[1] -and $y -le $KyBoton[1] + $KyBoton[3])
 }
-# fondo como la portada del disco de blink-182: papel blanco con pintura turquesa y rosa, goterones y salpicaduras
-function Fondo-Portada($g, $x, $y, $w, $h) {
-    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 250 250 248))), $x, $y, $w, $h)
-    $rn = New-Object System.Random 182
-    $tur = New-Object System.Drawing.SolidBrush((ARGB 235 96 206 198)); $ros = New-Object System.Drawing.SolidBrush((ARGB 235 236 20 140))
-    # mancha turquesa a la izquierda: borde derecho ondulado, como un brochazo
-    $pt = New-Object System.Collections.ArrayList
-    [void]$pt.Add((New-Object System.Drawing.PointF([float]($x - 10), [float]($y - 10))))
-    for ($yy = $y - 10; $yy -le $y + $h + 10; $yy += 18) { [void]$pt.Add((New-Object System.Drawing.PointF([float]($x + $w * 0.34 + [Math]::Sin($yy / 23.0) * 9 + $rn.Next(-6, 7)), [float]$yy))) }
-    [void]$pt.Add((New-Object System.Drawing.PointF([float]($x - 10), [float]($y + $h + 10))))
-    $g.FillClosedCurve($tur, [System.Drawing.PointF[]]$pt.ToArray(), [System.Drawing.Drawing2D.FillMode]::Alternate, 0.4)
-    # mancha rosa abajo a la derecha: borde de arriba ondulado
-    $pt = New-Object System.Collections.ArrayList
-    [void]$pt.Add((New-Object System.Drawing.PointF([float]($x + $w + 10), [float]($y + $h + 10))))
-    [void]$pt.Add((New-Object System.Drawing.PointF([float]($x + $w * 0.6), [float]($y + $h + 10))))
-    for ($xx = $x + $w * 0.6; $xx -le $x + $w + 10; $xx += 16) { [void]$pt.Add((New-Object System.Drawing.PointF([float]$xx, [float]($y + $h * 0.46 + [Math]::Sin($xx / 19.0) * 10 + $rn.Next(-6, 7))))) }
-    $g.FillClosedCurve($ros, [System.Drawing.PointF[]]$pt.ToArray(), [System.Drawing.Drawing2D.FillMode]::Alternate, 0.4)
-    # goterones rosas que caen y salpicaduras
-    for ($i = 0; $i -lt 6; $i++) { $dx = $x + $w * 0.62 + $rn.Next(0, [int]($w * 0.36)); $dl = $rn.Next(10, 40); $dy = $y + $h * 0.42 - $dl + 6; $g.FillRectangle($ros, [float]$dx, [float]$dy, 4, [float]$dl); $g.FillEllipse($ros, [float]($dx - 2), [float]($dy - 2), 8, 8) }
-    for ($i = 0; $i -lt 26; $i++) { $sr = $rn.Next(2, 9); $g.FillEllipse($ros, [float]($x + $w * 0.45 + $rn.Next(0, [int]($w * 0.5))), [float]($y + $rn.Next(10, [int]($h * 0.6))), [float]$sr, [float]$sr) }
-    for ($i = 0; $i -lt 14; $i++) { $sr = $rn.Next(2, 7); $g.FillEllipse($tur, [float]($x + $rn.Next(0, [int]($w * 0.55))), [float]($y + $rn.Next(0, [int]$h)), [float]$sr, [float]$sr) }
-    $tur.Dispose(); $ros.Dispose()
+# panel con el borde verde en zigzag de sus pegatinas
+function Dibujar-Pegatina($g, $x, $y, $w, $h, $relleno) {
+    $pts = New-Object System.Collections.ArrayList; $paso = 13; $sal = 7
+    for ($i = 0; $i -le [int]($w / $paso); $i++) { $o = if ($i % 2 -eq 0) { $sal } else { 2 }; [void]$pts.Add((New-Object System.Drawing.PointF([float]($x + $i * $paso), [float]($y - $o)))) }
+    for ($i = 0; $i -le [int]($h / $paso); $i++) { $o = if ($i % 2 -eq 0) { $sal } else { 2 }; [void]$pts.Add((New-Object System.Drawing.PointF([float]($x + $w + $o), [float]($y + $i * $paso)))) }
+    for ($i = 0; $i -le [int]($w / $paso); $i++) { $o = if ($i % 2 -eq 0) { $sal } else { 2 }; [void]$pts.Add((New-Object System.Drawing.PointF([float]($x + $w - $i * $paso), [float]($y + $h + $o)))) }
+    for ($i = 0; $i -le [int]($h / $paso); $i++) { $o = if ($i % 2 -eq 0) { $sal } else { 2 }; [void]$pts.Add((New-Object System.Drawing.PointF([float]($x - $o), [float]($y + $h - $i * $paso)))) }
+    $g.FillPolygon((New-Object System.Drawing.SolidBrush((ARGB 120 110 235 140))), [System.Drawing.PointF[]]@($pts | ForEach-Object { New-Object System.Drawing.PointF(($_.X + 3), ($_.Y + 3)) }))
+    $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 110 235 140))), [System.Drawing.PointF[]]$pts.ToArray())
+    $r = Ruta-Redonda $x $y $w $h 10
+    $g.FillPath((New-Object System.Drawing.SolidBrush($relleno)), $r); $g.DrawPath((New-Object System.Drawing.Pen((C 70 50 45), 2)), $r); $r.Dispose()
 }
-# la cara sonriente de blink-182 pintada en tinta: círculo, ojos en X, sonrisa y flechas negras alrededor
-function Dibujar-Blink($g, $cx, $cy, $r) {
-    $rn = New-Object System.Random 7
-    $neg = New-Object System.Drawing.Pen((C 14 14 16), [float]($r * 0.1)); $neg.StartCap = 'Round'; $neg.EndCap = 'Round'; $neg.LineJoin = 'Round'
-    # flechas: gruesas, con la punta hacia fuera
-    $pu = New-Object System.Drawing.SolidBrush((C 14 14 16))
-    for ($i = 0; $i -lt 6; $i++) {
-        $an = (30 + $i * 60) * [Math]::PI / 180; $c = [Math]::Cos($an); $s = [Math]::Sin($an)
-        $r1 = $r * 1.18; $r2 = $r * 1.62; $r3 = $r * 1.9; $sw = $r * 0.1; $hw = $r * 0.24
-        $p = { param($rr, $off) New-Object System.Drawing.PointF([float]($cx + $c * $rr - $s * $off), [float]($cy + $s * $rr + $c * $off)) }
-        $g.FillPolygon($pu, [System.Drawing.PointF[]]@((& $p $r1 (-$sw)), (& $p $r2 (-$sw)), (& $p $r2 (-$hw)), (& $p $r3 0), (& $p $r2 $hw), (& $p $r2 $sw), (& $p $r1 $sw)))
-    }
-    $pu.Dispose()
-    # círculo de tinta trazado dos veces, un poco irregular, como hecho a mano
-    $g.FillEllipse([System.Drawing.Brushes]::White, [float]($cx - $r), [float]($cy - $r), [float](2 * $r), [float](2 * $r))
-    for ($k = 0; $k -lt 2; $k++) {
-        $pts = New-Object System.Collections.ArrayList
-        for ($a = 0; $a -le 370; $a += 15) { $ra = $a * [Math]::PI / 180; $rr = $r * (1 + ($rn.NextDouble() - 0.5) * 0.05); [void]$pts.Add((New-Object System.Drawing.PointF([float]($cx + [Math]::Cos($ra) * $rr), [float]($cy + [Math]::Sin($ra) * $rr)))) }
-        $g.DrawCurve($neg, [System.Drawing.PointF[]]$pts.ToArray())
-    }
-    foreach ($ex in @(-0.34, 0.34)) {
-        $ox = $cx + $ex * $r; $oy = $cy - 0.2 * $r; $d = 0.15 * $r
-        $g.DrawLine($neg, [float]($ox - $d), [float]($oy - $d), [float]($ox + $d), [float]($oy + $d))
-        $g.DrawLine($neg, [float]($ox - $d), [float]($oy + $d), [float]($ox + $d), [float]($oy - $d))
-    }
-    $g.DrawArc($neg, [float]($cx - 0.58 * $r), [float]($cy - 0.45 * $r), [float](1.16 * $r), [float](1.0 * $r), 18, 144)
-    $neg.Dispose()
+# los cuadros marrones de su camisa
+function Dibujar-Cuadros($g, $x, $y, $w, $h) {
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 96 74 68))), $x, $y, $w, $h)
+    $cl = New-Object System.Drawing.SolidBrush((ARGB 90 190 168 160)); $os = New-Object System.Drawing.Pen((ARGB 70 40 28 24), 2)
+    for ($cy = $y + 4; $cy -lt $y + $h; $cy += 14) { for ($cx = $x + 4 + (($cy / 14) % 2) * 7; $cx -lt $x + $w; $cx += 14) { $g.FillRectangle($cl, [float]$cx, [float]$cy, 7, 7) } }
+    for ($cx = $x; $cx -lt $x + $w; $cx += 28) { $g.DrawLine($os, [float]$cx, [float]$y, [float]$cx, [float]($y + $h)) }
+    $cl.Dispose(); $os.Dispose()
 }
+# vídeos del minirreproductor: se cargan la primera vez que hacen falta
+$script:kyVids = @{}
+function Ky-Gif($n) {
+    if (-not $script:kyVids.ContainsKey($n)) {
+        $d = $script:skin.Videos[$n]; if (-not $d) { return $null }
+        $img = Cargar-Img $d[0]; $script:kyVids[$n] = if ($img) { @{ Img = $img; Info = (Gif-Info $img); Titulo = $d[1] } } else { $null }
+    }
+    return $script:kyVids[$n]
+}
+# pone un vídeo suyo en el minirreproductor durante un rato
+function Ky-Video($n, $ms) { $script:kyVideo = @{ N = $n; Hasta = [Environment]::TickCount + $ms } }
 function Ky-Inv { $Z = $script:K; $form.Invalidate((New-Object System.Drawing.Rectangle(0, [int](244 * $Z), $form.ClientSize.Width, [int](80 * $Z)))) }
 function Ky-Suscribir {
     if (Ocupado) { return }
@@ -4419,10 +4402,10 @@ function Ky-Suscribir {
     if ($script:kySub) {
         Sonido 'campana'; $script:kyLikes += 1
         Flotante '¡SUSCRITO!' 560 200 (C 255 255 255) 16 'Arial Black'
-        Actor-Pose 'Y' 'yap' 1600
+        Ky-Video 'yap' 2500
         Decir (Azar @('¡Gracias por suscribirte! ¿Le has dado a la campanita? ...sí, se la has dado. Ha sonado.', '*Te mira muy serio.* Gracias. De verdad. Ahora somos 1 más. Annyeong.', '¡Un suscriptor más! Esto lo celebro con un acorde. *Rasguea.*'))
     } else {
-        Decir (Azar @('¿Te has desuscrito? ...vale. Lo entiendo. *Toca un acorde muy triste.*', '*Se queda mirando el contador.* No pasa nada. No pasa nada. ...ha pasado algo.')); Actor-Pose 'Y' 'triste' 3000
+        Decir (Azar @('¿Te has desuscrito? ...vale. Lo entiendo. *Toca un acorde muy triste.*', '*Se queda mirando el contador.* No pasa nada. No pasa nada. ...ha pasado algo.')); Ky-Video 'triste' 3000
     }
     $form.Invalidate()
 }
@@ -4431,7 +4414,7 @@ function Ky-App($linea) {
     Flotante "+$v visitas" 600 200 (C 255 255 255) 13 'Arial Black'
     if ($script:kyApps % 8 -eq 0) {
         $script:kyConc = 140; Sonido 'publico'; Sonido 'riff'
-        Actor-Pose 'Y' 'concierto' 8000
+        Ky-Video 'concierto' 8000
         Decir (Azar $script:skin.Concierto)
     } else { Sonido 'acorde'; Decir $linea }
     $form.Invalidate()
@@ -4445,13 +4428,12 @@ function Ky-Clic {
         # la guitarra explota
         $script:kyAmp = 0; $script:kyRotas++; $script:kyFx = 50; $script:kyFlash = 8
         Sonido 'kaboom'; Sacudir $form 14
-        Actor-Pose 'Y' 'kaboom' 3500
+        Ky-Video 'kaboom' 3500
         Decir (Azar $k.Kaboom)
     } elseif ($script:kyAmp -ge 70) {
-        Actor-Pose 'Y' 'diablo' 2600
+        Ky-Video 'diablo' 2600
         Decir (Azar @('¡MÁS ALTO! *El amplificador empieza a echar humo.*', '¡ESTO ES PUNK! *Los ojos le dan vueltas.* ...para ya, que explota.', '*El ampli pita.* Eso es buena señal. Creo.'))
     } else {
-        if ($Rnd.Next(3) -eq 0) { Actor-Pose 'Y' 'yap' 1400 }
         Decir (Azar $k.Clic)
     }
     $form.Invalidate()
@@ -4468,7 +4450,8 @@ function Ky-Tick {
         $script:kyProg = 0; $script:kyCancion = ($script:kyCancion + 1) % $k.Canciones.Count
         if (-not $script:discutiendo -and -not (Ocupado) -and $Rnd.Next(3) -eq 0) { Decir "Siguiente canción: $($k.Canciones[$script:kyCancion]). Esta me gusta. Bueno, me gustan todas. Son mías." 'abiertos' }
     }
-    if ($script:kyFx -gt 0 -or $script:kyConc -gt 0 -or $script:kyFlash -gt 0) { $form.Invalidate() } else { Ky-Inv }
+    if ($script:kyFx -gt 0 -or $script:kyConc -gt 0 -or $script:kyFlash -gt 0) { $form.Invalidate() }
+    else { Ky-Inv; $Z = $script:K; $form.Invalidate((New-Object System.Drawing.Rectangle([int](396 * $Z), [int](56 * $Z), [int](168 * $Z), [int](140 * $Z)))) }   # el minirreproductor siempre se mueve
 }
 
 # ================= ANIMACIÓN DE FONDO (planta rodadora, agua de Dune) =================
@@ -4738,7 +4721,7 @@ function Pintar-Invitado($g) {
         'pop' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 40 14 80), (C 150 40 120), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $p = New-Object System.Drawing.Pen((ARGB 30 0 0 0), 1); for ($y = 30; $y -lt $H; $y += 3) { $g.DrawLine($p, 0, $y, $W, $y) }; $cab = (C 40 12 70) }
         'teto' { $ray = New-Object System.Drawing.Pen((C 252 232 236), 8); for ($x = -$H; $x -lt $W; $x += 26) { $g.DrawLine($ray, $x, 32, ($x + $H), ($H + 32)) }; $ray.Dispose(); $cab = (C 214 40 64) }
         'pizza' { $roja = New-Object System.Drawing.SolidBrush((ARGB 90 220 40 40)); for ($x = 0; $x -lt $W; $x += 28) { $g.FillRectangle($roja, $x, 30, 14, $H) }; for ($y = 30; $y -lt $H; $y += 28) { $g.FillRectangle($roja, 0, $y, $W, 14) }; $roja.Dispose(); $cab = (C 70 200 40) }
-        'punk' { $lad = New-Object System.Drawing.Pen((C 40 40 46), 1.5); for ($y = 32; $y -lt $H; $y += 12) { $g.DrawLine($lad, 0, $y, $W, $y); for ($x = $(if ((($y - 32) / 12) % 2 -eq 0) { 0 } else { 16 }); $x -lt $W; $x += 32) { $g.DrawLine($lad, $x, $y, $x, ($y + 12)) } }; $lad.Dispose(); $cab = (C 0 0 0) }
+        'punk' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 252 206 160), (C 244 150 110), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $br.Dispose(); $cab = (C 96 74 68) }
     }
     if ($cab) { $g.FillRectangle((New-Object System.Drawing.SolidBrush($cab)), 0, 0, $W, 30) }
     $acento = if ($gk.Acento) { $gk.Acento } else { $gk.Borde }
@@ -4884,7 +4867,6 @@ function Paso-Discusion {
             'zorro' { $script:caraModo = 'abiertos' }
             'culto' { if ($Rnd.Next(2) -eq 0) { Cara2 'risa' 1600 } }
             'pizza' { if ($Rnd.Next(2) -eq 0) { Cara (Azar @('piensa', 'chulo', 'sudor')) 1800 } }
-            'punk' { if ($Rnd.Next(2) -eq 0) { Cara (Azar @('yap', 'piensa')) 2000 } }
             { $_ -in @('mew', 'mlg', 'tele', 'oeste') } { if ($Rnd.Next(2) -eq 0) { Cara 'clic' 1600 } }
         }
     } else {
@@ -4982,12 +4964,12 @@ $idleTimer.Add_Tick({
             else { Decir (Azar $k.Idle) }
         }
         'punk' {
-            if ($r -lt 50) { Actor-Pose 'Y' 'loner' 6000; Decir (Azar @('*Se pone con el portátil.* Estoy componiendo. O viendo vídeos. Lo segundo.', '*Se tapa con la manta delante del portátil.* Modo loner activado.', 'Estoy editando el próximo vídeo. Va a salir... algún día.')) }
-            elseif ($r -lt 60) { Actor-Pose 'Y' 'online' 5000; Decir (Azar @('*Mira el portátil.* La gente de internet... a veces son mejores amigos que los de verdad.', 'People online... *tararea.* Esa es mía, por cierto.')) }
-            elseif ($r -lt 70) { Actor-Pose 'Y' 'nada' 7000; Decir (Azar @('*Sale al balcón a ver el atardecer.* Esto pide una canción.', '*Se sienta en la barandilla.* No hago nada. Y me sale genial.')) }
-            elseif ($r -lt 78) { Actor-Pose 'Y' 'piensa' 6000; Decir (Azar @('*Piensa en algo.* ...se me ha olvidado qué pensaba. Era una melodía. Creo.', '*Mira al infinito.* ¿Y si la próxima canción va sobre... nada? Ya tengo una que se llama así.')) }
-            elseif ($r -lt 84) { Actor-Pose 'Y' 'triste' 5000; Decir '*Se pone la capucha y toca algo lento.* A veces también toca canción triste.' }
-            elseif ($r -lt 88) { Actor-Pose 'Y' 'calavera' 5000; Decir '*Aparece disfrazado de esqueleto.* ¿Qué? Siempre es Halloween en el pop-punk.' }
+            if ($r -lt 50) { Ky-Video 'loner' 6000; Decir (Azar @('*Se pone con el portátil.* Estoy componiendo. O viendo vídeos. Lo segundo.', '*Se tapa con la manta delante del portátil.* Modo loner activado.', 'Estoy editando el próximo vídeo. Va a salir... algún día.')) }
+            elseif ($r -lt 60) { Ky-Video 'online' 5000; Decir (Azar @('*Mira el portátil.* La gente de internet... a veces son mejores amigos que los de verdad.', 'People online... *tararea.* Esa es mía, por cierto.')) }
+            elseif ($r -lt 70) { Ky-Video 'nada' 7000; Decir (Azar @('*Sale al balcón a ver el atardecer.* Esto pide una canción.', '*Se sienta en la barandilla.* No hago nada. Y me sale genial.')) }
+            elseif ($r -lt 78) { Ky-Video 'piensa' 6000; Decir (Azar @('*Piensa en algo.* ...se me ha olvidado qué pensaba. Era una melodía. Creo.', '*Mira al infinito.* ¿Y si la próxima canción va sobre... nada? Ya tengo una que se llama así.')) }
+            elseif ($r -lt 84) { Ky-Video 'triste' 5000; Decir '*Se pone la capucha y toca algo lento.* A veces también toca canción triste.' }
+            elseif ($r -lt 88) { Ky-Video 'calavera' 5000; Decir '*Aparece disfrazado de esqueleto.* ¿Qué? Siempre es Halloween en el pop-punk.' }
             else { Decir (Azar $k.Idle) }
         }
         'pizza' {
@@ -5295,44 +5277,124 @@ function Intro-Overlay($total, $pintar, $alTick, $final) {
     $iTimer.Start()
 }
 
-# --- "GUILLOTINA IS COMING FOR YOU!": el cementerio de noche y la radio WMEW 99.9 ---
+# --- "GUILLOTINA IS COMING FOR YOU!": el callejón a toda velocidad con la radio WMEW 99.9, ella bajo la farola,
+#     el cartel de papel y una mandíbula de dientes negros que se come la pantalla ---
+# Va sincronizada con el audio de la radio (unos 17 s), no con los fotogramas. Un clic la salta.
+# Momentos de la intro (en milisegundos desde que empieza el audio):
+$GuiTiempos = @{ CambioFoto = 800; Jefa = 8000; Cae = 8350; Aterriza = 8600; Cartel = 12000; Mordisco = 14800; Fin = 16300 }
+# dónde está la luz de la farola en intro_jefa.jpg (en proporción de la imagen) y el alto de Guillotina
+$GuiFarola = @{ X = 0.764; Suelo = 0.577; Alto = 0.407 }
+# dibuja una imagen llenando la pantalla, con zoom alrededor del punto (fx, fy) de la imagen; devuelve dónde quedó
+function Dibujar-Cubriendo($g, $img, $W, $H, $z, $fx, $fy) {
+    $s0 = [Math]::Max($W / $img.Width, $H / $img.Height); $s = $s0 * $z
+    $px = ($W - $img.Width * $s0) / 2 + $fx * $img.Width * $s0; $py = ($H - $img.Height * $s0) / 2 + $fy * $img.Height * $s0
+    $x = $px - $fx * $img.Width * $s; $y = $py - $fy * $img.Height * $s
+    $g.DrawImage($img, [float]$x, [float]$y, [float]($img.Width * $s), [float]($img.Height * $s))
+    return @{ S = $s; X = $x; Y = $y }
+}
+# la mandíbula: dientes negros que bajan desde arriba y suben desde abajo (c = 0 abierta, 1 cerrada)
+function Dibujar-Mandibula($g, $W, $H, $c) {
+    $n = 9; $tw = $W / $n; $th = 46; $neg = [System.Drawing.Brushes]::Black
+    $modo = $g.SmoothingMode; $g.SmoothingMode = 'None'   # sin suavizado: así no quedan rayas entre los dientes
+    $yb = -$th + $c * ($H / 2 - $th / 2 + $th)          # borde de abajo de la mandíbula de arriba
+    $yt = $H + $th - $c * ($H / 2 - $th / 2 + $th)      # borde de arriba de la mandíbula de abajo
+    $g.FillRectangle($neg, 0, 0, [float]$W, [float][Math]::Max(0, $yb))
+    $g.FillRectangle($neg, 0, [float]$yt, [float]$W, [float][Math]::Max(0, $H - $yt))
+    for ($i = -1; $i -le $n; $i++) {
+        $x = $i * $tw
+        $g.FillPolygon($neg, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$x, [float]$yb)), (New-Object System.Drawing.PointF([float]($x + $tw), [float]$yb)), (New-Object System.Drawing.PointF([float]($x + $tw / 2), [float]($yb + $th)))))
+        $x2 = $x + $tw / 2
+        $g.FillPolygon($neg, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$x2, [float]$yt)), (New-Object System.Drawing.PointF([float]($x2 + $tw), [float]$yt)), (New-Object System.Drawing.PointF([float]($x2 + $tw / 2), [float]($yt - $th)))))
+    }
+    if ($c -ge 0.999) { $g.FillRectangle($neg, 0, 0, [float]$W, [float]$H) }
+    $g.SmoothingMode = $modo
+}
+# cuánto está cerrada la mandíbula: muerde, se abre un poco y vuelve a morder
+function Cierre-Mandibula($t) {
+    if ($t -lt 0) { return 0.0 }
+    if ($t -lt 220) { $q = $t / 220.0; return $q * $q }
+    if ($t -lt 380) { return 1.0 - 0.45 * (($t - 220) / 160.0) }
+    if ($t -lt 560) { return 0.55 + 0.45 * (($t - 380) / 180.0) }
+    return 1.0
+}
 function Transicion-Boss($final) {
-    $script:bFondo = Cargar-Img $script:skin.IntroImg
-    $script:bCartel = Cargar-Img $script:skin.Cartel
-    $script:iRecursos = @($script:bFondo, $script:bCartel)
-    $script:bLeyenda = 'WMEW 99.9: "Para mi asombro, parece que... una enorme aparición felina se dirige directa hacia esa casa de la colina..."'
+    $k = $script:skin
+    $script:bFotos = @($k.IntroFotos | ForEach-Object { Cargar-Img $_ } | Where-Object { $_ })
+    $script:bJefa = Cargar-Img $k.IntroJefa; $script:bGui = Cargar-Img $k.IntroGuillotina
+    $script:bCartel = Cargar-Img $k.IntroCartel; $script:bMarco = Cargar-Img $k.IntroMarco
+    $script:iRecursos = @($script:bFotos) + @($script:bJefa, $script:bGui, $script:bCartel, $script:bMarco)
+    $script:bT0 = 0; $script:bHechos = @{}; $script:bAudio = $null; $script:bSaltar = $false
     $pintar = {
         param($g, $W, $H, $p)
         $g.SmoothingMode = 'AntiAlias'; $g.InterpolationMode = 'HighQualityBilinear'
-        $sx = 0; $sy = 0; if ($p -ge 10 -and $p -le 18) { $sx = $Rnd.Next(-8, 9); $sy = $Rnd.Next(-6, 7) }
-        if ($script:bFondo) { Imagen-Cubrir $g $script:bFondo (-12 + $sx) (-8 + $sy) ($W + 24) ($H + 16) 0.4 0.5 } else { $g.Clear((C 30 10 12)) }
-        $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(150, 70, 8, 12))), 0, 0, $W, $H)
-        # rayos rojos girando detrás de ella
-        $cx = $W * 0.72; $cy = $H / 2; $rot = $p * 2.5
-        $br = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(90, 160, 20, 20))
-        for ($i = 0; $i -lt 18; $i++) {
-            $a1 = [Math]::PI / 180 * ($rot + $i * 20 - 5); $a2 = [Math]::PI / 180 * ($rot + $i * 20 + 5)
-            $g.FillPolygon($br, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$cx, [float]$cy)), (New-Object System.Drawing.PointF([float]($cx + 900 * [Math]::Cos($a1)), [float]($cy + 900 * [Math]::Sin($a1)))), (New-Object System.Drawing.PointF([float]($cx + 900 * [Math]::Cos($a2)), [float]($cy + 900 * [Math]::Sin($a2))))))
+        $T = $GuiTiempos
+        $ms = if ($script:bT0 -gt 0) { [Environment]::TickCount - $script:bT0 } else { 0 }
+        $g.Clear([System.Drawing.Color]::Black)
+        # temblor: al cambiar de foto, al aterrizar ella y al caer el cartel
+        $sx = 0; $sy = 0
+        $temblor = ($ms -lt $T.Jefa -and ($ms % $T.CambioFoto) -lt 120) -or ($ms -ge $T.Aterriza -and $ms -lt $T.Aterriza + 450) -or ($ms -ge $T.Cartel -and $ms -lt $T.Cartel + 350)
+        if ($temblor) { $sx = $Rnd.Next(-7, 8); $sy = $Rnd.Next(-5, 6) }
+        $st = $g.Save(); $g.TranslateTransform([float]$sx, [float]$sy)
+        if ($ms -lt $T.Jefa) {
+            # 1) las fotos del callejón pasan rápido, cada una con un poco de zoom
+            if ($script:bFotos.Count -gt 0) {
+                $i = [int][Math]::Floor($ms / $T.CambioFoto) % $script:bFotos.Count; $q = ($ms % $T.CambioFoto) / $T.CambioFoto
+                [void](Dibujar-Cubriendo $g $script:bFotos[$i] $W $H (1.03 + 0.07 * $q) 0.5 0.5)
+            }
+            if (($ms % $T.CambioFoto) -lt 70) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(150, 255, 255, 255))), -10, -10, ($W + 20), ($H + 20)) }
+        } elseif ($script:bJefa) {
+            # 2) el callejón de la jefa, acercándose poco a poco a la farola; ella cae bajo la luz
+            $z = 1.02 + [Math]::Min(1.0, ($ms - $T.Jefa) / 7000.0) * 0.14
+            $m = Dibujar-Cubriendo $g $script:bJefa $W $H $z $GuiFarola.X 0.5
+            if ($script:bGui -and $ms -ge $T.Cae) {
+                $gh = $GuiFarola.Alto * $script:bJefa.Height * $m.S; $gw = $script:bGui.Width * $gh / $script:bGui.Height
+                $cx = $m.X + $GuiFarola.X * $script:bJefa.Width * $m.S; $suelo = $m.Y + $GuiFarola.Suelo * $script:bJefa.Height * $m.S
+                $tc = [Math]::Min(1.0, ($ms - $T.Cae) / [double]($T.Aterriza - $T.Cae)); $caida = (1 - $tc * $tc) * ($suelo + 20)   # ojo: $T son los tiempos (PowerShell no distingue mayúsculas)
+                $g.FillEllipse((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](110 * $tc), 0, 0, 0))), [float]($cx - $gw * 0.45), [float]($suelo - 9), [float]($gw * 0.9), 16)
+                $g.DrawImage($script:bGui, [float]($cx - $gw / 2), [float]($suelo - $gh - $caida), [float]$gw, [float]$gh)
+                # polvo al aterrizar
+                if ($ms -ge $T.Aterriza -and $ms -lt $T.Aterriza + 600) {
+                    $q = ($ms - $T.Aterriza) / 600.0
+                    foreach ($dx in @(-1, 1)) { for ($j = 0; $j -lt 3; $j++) { $r = 10 + $q * 22 + $j * 5; $g.FillEllipse((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](120 * (1 - $q)), 200, 200, 200))), [float]($cx + $dx * ($gw * 0.42 + $q * 40 + $j * 14) - $r / 2), [float]($suelo - $r * 0.8), [float]$r, [float]($r * 0.7)) } }
+                }
+            }
         }
-        $br.Dispose()
-        # Guillotina entra desde la derecha y aterriza con golpe
-        if ($script:bCartel) {
-            $t = [Math]::Min(1.0, $p / 10.0); $e = 1 - [Math]::Pow(1 - $t, 3)
-            $ch = 300; $cw = $script:bCartel.Width * $ch / $script:bCartel.Height
-            $g.DrawImage($script:bCartel, [int](($W + 20) - $e * ($cw + 40) + $sx), [int](8 + $sy), [int]$cw, [int]$ch)
+        # el marco de cables, postes y basura por delante de todo
+        if ($script:bMarco) { [void](Dibujar-Cubriendo $g $script:bMarco $W $H 1.0 0.5 0.5) }
+        $g.Restore($st)
+        # 3) el cartel de papel cae de golpe
+        if ($script:bCartel -and $ms -ge $T.Cartel) {
+            $q = ($ms - $T.Cartel) / 160.0; $esc = 1.0 + 0.9 * [Math]::Max(0.0, 1 - $q)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int]([Math]::Min(1.0, $q) * 120), 0, 0, 0))), 0, 0, $W, $H)
+            $ch = $H * 0.74; $cw = $script:bCartel.Width * $ch / $script:bCartel.Height
+            $st = $g.Save(); $g.TranslateTransform([float]($W / 2 + $sx), [float]($H / 2 + $sy)); $g.RotateTransform(-2); $g.ScaleTransform([float]$esc, [float]$esc)
+            $g.DrawImage($script:bCartel, [float](-$cw / 2), [float](-$ch / 2), [float]$cw, [float]$ch)
+            $g.Restore($st)
         }
-        if ($p -ge 10) { $tam = 58 + [Math]::Max(0, 16 - $p) * 6; Texto-Contorno $g 'GUILLOTINA' 'EdmundMcMillen_INTLv4' $tam 24 18 (C 245 235 210) 9 }
-        if ($p -ge 18) { Texto-Contorno $g 'IS COMING' 'EdmundMcMillen_INTLv4' 44 30 100 (C 255 214 60) 8 }
-        if ($p -ge 24) { Texto-Contorno $g 'FOR YOU!' 'EdmundMcMillen_INTLv4' 54 28 150 (C 235 50 40) 9 }
-        if ($p -ge 30) {
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(220, 10, 6, 8))), 0, ($H - 56), $W, 56)
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 170 40 35))), 0, ($H - 56), $W, 3)
-            $n = [Math]::Min($script:bLeyenda.Length, ($p - 30) * 4)
-            $g.DrawString($script:bLeyenda.Substring(0, $n), (FntP('TikaFont Adjusted', 10.5, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 240 228 200))), (New-Object System.Drawing.RectangleF(14, ($H - 50), ($W - 28), 48)))
+        # 4) la mandíbula se come la pantalla
+        if ($ms -ge $T.Mordisco) { Dibujar-Mandibula $g $W $H (Cierre-Mandibula ($ms - $T.Mordisco)) }
+    }
+    $alTick = {
+        param($ov, $p)
+        $T = $GuiTiempos
+        if ($p -eq 1) {
+            $script:bT0 = [Environment]::TickCount
+            # la radio; se guarda el reproductor para poder pararla si se salta la intro
+            if ($script:aj.Sonido) { $n = $script:reproductores.Count; Sonido 'radio'; if ($script:reproductores.Count -gt $n -or $script:reproductores.Count -ge 12) { $script:bAudio = $script:reproductores[$script:reproductores.Count - 1] } }
+        }
+        $ms = [Environment]::TickCount - $script:bT0
+        foreach ($ev in @(@($T.Aterriza, 'golpe'), @($T.Cartel, 'intro'), @(($T.Mordisco + 220), 'mordisco'), @(($T.Mordisco + 560), 'mordisco2'))) {
+            if ($ms -ge $ev[0] -and -not $script:bHechos.ContainsKey($ev[1])) { $script:bHechos[$ev[1]] = $true; Sonido ($ev[1] -replace '2$', '') }
+        }
+        if ($script:bSaltar -or $ms -ge $T.Fin) {
+            if ($script:bSaltar -and $script:bAudio) { try { $script:bAudio.Stop() } catch {} }
+            if ($script:iPaso -lt $script:iTotal - 1) { $script:iPaso = $script:iTotal - 1 }
         }
     }
-    $alTick = { param($ov, $p) if ($p -eq 1) { Sonido 'radio' }; if ($p -eq 10) { Sonido 'intro'; Sonido 'furia' }; if ($p -gt 70) { $ov.Top -= [int]($ov.Height / 5) } }
-    Intro-Overlay 76 $pintar $alTick $final
+    Intro-Overlay 2000 $pintar $alTick $final
+    # un clic salta la intro
+    $script:iOv.Add_MouseDown({ $script:bSaltar = $true })
+    $script:iOv.Cursor = 'Hand'
 }
 
 # --- inicio de jornada en L Corp ---
@@ -6188,9 +6250,7 @@ function Transicion-Pizza($final) {
     Intro-Overlay 112 $pintar $alTick $final
 }
 
-# --- Kennyoung: se abre YouTube, se busca "kennyoung", se entra en su canal y te suscribes ---
-# Como la intro de SeaDrive (una página que carga), pero en YouTube. Va sincronizada con el reloj.
-# Partes de la página de YouTube que se usan en la intro:
+# pastillas redondeadas y miniaturas de vídeo (estilo YouTube)
 function Yt-Pastilla($g, $x, $y, $w, $h, $fondo, $texto, $colTexto, $tam) {
     $r = Ruta-Redonda $x $y $w $h ($h / 2)
     $g.FillPath((New-Object System.Drawing.SolidBrush($fondo)), $r); $r.Dispose()
@@ -6198,21 +6258,6 @@ function Yt-Pastilla($g, $x, $y, $w, $h, $fondo, $texto, $colTexto, $tam) {
         $f = FntP('Segoe UI Symbol', $tam, [System.Drawing.FontStyle]::Bold); $tw = $g.MeasureString($texto, $f).Width
         $g.DrawString($texto, $f, (New-Object System.Drawing.SolidBrush($colTexto)), [float]($x + $w / 2 - $tw / 2), [float]($y + $h / 2 - $f.Height / 2))
     }
-}
-function Yt-Lupa($g, $x, $y, $s, $col) {
-    $p = New-Object System.Drawing.Pen($col, [float]($s * 0.16)); $p.StartCap = 'Round'; $p.EndCap = 'Round'
-    $g.DrawEllipse($p, [float]$x, [float]$y, [float]($s * 0.62), [float]($s * 0.62))
-    $g.DrawLine($p, [float]($x + $s * 0.55), [float]($y + $s * 0.55), [float]($x + $s * 0.9), [float]($y + $s * 0.9)); $p.Dispose()
-}
-function Yt-Cursor($g, $x, $y) {
-    $pts = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$x, [float]$y)), (New-Object System.Drawing.PointF([float]$x, [float]($y + 19))), (New-Object System.Drawing.PointF([float]($x + 5), [float]($y + 14))), (New-Object System.Drawing.PointF([float]($x + 9), [float]($y + 22))), (New-Object System.Drawing.PointF([float]($x + 12), [float]($y + 21))), (New-Object System.Drawing.PointF([float]($x + 8), [float]($y + 13))), (New-Object System.Drawing.PointF([float]($x + 14), [float]($y + 13))))
-    $g.FillPolygon([System.Drawing.Brushes]::White, $pts); $g.DrawPolygon((New-Object System.Drawing.Pen([System.Drawing.Color]::Black, 1.2)), $pts)
-}
-function Yt-Logo($g, $x, $y, $con) {
-    $r = Ruta-Redonda $x $y 28 20 6
-    $g.FillPath((New-Object System.Drawing.SolidBrush((C 255 0 0))), $r); $r.Dispose()
-    $g.FillPolygon([System.Drawing.Brushes]::White, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]($x + 11), [float]($y + 5))), (New-Object System.Drawing.PointF([float]($x + 11), [float]($y + 15))), (New-Object System.Drawing.PointF([float]($x + 19), [float]($y + 10)))))
-    if ($con) { $g.DrawString('YouTube', (FntP('Arial', 12, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, [float]($x + 30), [float]($y - 1)) }
 }
 # miniatura de vídeo: el GIF recortado, esquinas redondas y la duración abajo a la derecha
 function Yt-Miniatura($g, $img, $inf, $ms, $x, $y, $w, $h, $dur) {
@@ -6228,152 +6273,81 @@ function Yt-Miniatura($g, $img, $inf, $ms, $x, $y, $w, $h, $dur) {
         $g.DrawString($dur, $f, [System.Drawing.Brushes]::White, [float]($x + $w - $tw - 5), [float]($y + $h - 15))
     }
 }
-# el navegador: pestaña de YouTube, barra de direcciones y la barra roja de carga de arriba
-function Yt-Navegador($g, $W, $H, $url, $carga) {
-    $g.Clear((C 15 15 15))
-    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 32 32 35))), 0, 0, $W, 56)
-    $tab = Ruta-Redonda 10 4 180 26 7
-    $g.FillPath((New-Object System.Drawing.SolidBrush((C 15 15 15))), $tab); $tab.Dispose()
-    $g.FillPath((New-Object System.Drawing.SolidBrush((C 255 0 0))), (Ruta-Redonda 20 11 16 11 3))
-    $g.DrawString('YouTube', (FntP('Segoe UI', 8.5)), [System.Drawing.Brushes]::White, 42, 9)
-    $g.DrawString('×', (FntP('Segoe UI', 9)), (New-Object System.Drawing.SolidBrush((C 170 170 170))), 170, 7)
-    $g.DrawString('◀   ▶   ⟳', (FntP('Segoe UI Symbol', 9)), (New-Object System.Drawing.SolidBrush((C 170 170 170))), 12, 33)
-    Yt-Pastilla $g 96 32 ($W - 112) 20 (C 50 50 54) $null $null 8
-    $g.DrawString("🔒  $url", (FntP('Segoe UI Symbol', 8)), (New-Object System.Drawing.SolidBrush((C 220 220 220))), 108, 34)
-    if ($carga -gt 0 -and $carga -lt 1) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 0 0))), 0, 56, [float]($W * $carga), 3) }
-}
-# la cabecera de YouTube con el buscador (y lo que está escrito en él)
-function Yt-Cabecera($g, $W, $y, $texto, $foco) {
-    $g.DrawString('≡', (FntP('Segoe UI Symbol', 13)), [System.Drawing.Brushes]::White, 14, ($y + 4))
-    Yt-Logo $g 40 ($y + 8) $true
-    $sx = $W / 2 - 190; $sw = 330
-    $caja = Ruta-Redonda $sx ($y + 5) $sw 26 13
-    $g.FillPath((New-Object System.Drawing.SolidBrush((C 18 18 18))), $caja)
-    $g.DrawPath((New-Object System.Drawing.Pen($(if ($foco) { (C 28 98 185) } else { (C 48 48 48) }), 1.2)), $caja); $caja.Dispose()
-    $g.FillPath((New-Object System.Drawing.SolidBrush((C 34 34 34))), (Ruta-Redonda ($sx + $sw - 2) ($y + 5) 46 26 13))
-    Yt-Lupa $g ($sx + $sw + 14) ($y + 11) 15 (C 236 236 236)
-    $tf = FntP('Segoe UI', 9.5)
-    if ($texto) { $g.DrawString($texto, $tf, [System.Drawing.Brushes]::White, [float]($sx + 14), [float]($y + 9)) }
-    else { $g.DrawString('Buscar', $tf, (New-Object System.Drawing.SolidBrush((C 130 130 130))), [float]($sx + 14), [float]($y + 9)) }
-    if ($foco -and ([Environment]::TickCount / 400) % 2 -lt 1) { $cx = $sx + 15 + $g.MeasureString($texto, $tf).Width - 4; $g.DrawLine([System.Drawing.Pens]::White, [float]$cx, [float]($y + 10), [float]$cx, [float]($y + 27)) }
-    $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 120 90 200))), [float]($W - 40), [float]($y + 6), 24, 24)
-    $g.DrawString('T', (FntP('Segoe UI', 10, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, [float]($W - 34), [float]($y + 8))
-}
+
+# --- Kennyoung: el cielo del atardecer, su silueta entra con la guitarra y, con un destello, su nombre ---
+# Imágenes de su vídeo: el cielo vacío (intro_cielo), la silueta (intro_silueta) y él en color (intro_kenny).
+# Va sincronizada con el reloj. Momentos (en milisegundos):
+$KyIntro = @{ Silueta = 1300; Acorde = 1750; Destello = 3300; Nombre = 3500; Lema = 4000; Fin = 6300 }
 function Transicion-Punk($final) {
-    $script:kyI = @{}
-    foreach ($n in @('online', 'loner', 'concierto', 'guitarra')) { $script:kyI[$n] = Cargar-Img "skins\kennyoung\$n.gif" }
-    $script:kyAv = Cargar-Img 'skins\kennyoung\avatar.png'
-    $script:kyInf = @{}; foreach ($n in @($script:kyI.Keys)) { $script:kyInf[$n] = Gif-Info $script:kyI[$n] }
-    $script:iRecursos = @($script:kyI.Values) + @($script:kyAv)
+    $script:kiCielo = Cargar-Img 'skins\kennyoung\intro_cielo.jpg'; $script:kiSil = Cargar-Img 'skins\kennyoung\intro_silueta.png'; $script:kiKenny = Cargar-Img 'skins\kennyoung\intro_kenny.png'
+    $script:iRecursos = @($script:kiCielo, $script:kiSil, $script:kiKenny)
     $script:kyT0 = 0; $script:kyHechos = @{}
+    $r = New-Object System.Random 3
+    $script:kiEstrellas = @(for ($i = 0; $i -lt 40; $i++) { @{ X = $r.NextDouble(); Y = $r.NextDouble() * 0.5; F = $r.NextDouble() * 6; S = 1 + $r.NextDouble() * 1.6 } })
     $pintar = {
         param($g, $W, $H, $p)
-        $g.SmoothingMode = 'AntiAlias'; $g.InterpolationMode = 'HighQualityBilinear'; $g.TextRenderingHint = 'AntiAlias'
+        $g.SmoothingMode = 'AntiAlias'; $g.InterpolationMode = 'HighQualityBilinear'
+        $T = $KyIntro
         $ms = if ($script:kyT0 -gt 0) { [Environment]::TickCount - $script:kyT0 } else { 0 }
-        $busca = 'kennyoung'
-        if ($ms -lt 700) {
-            # 1) se abre el navegador y se escribe youtube.com
-            $url = 'youtube.com'; $url = $url.Substring(0, [Math]::Min($url.Length, [int]($ms / 45)))
-            Yt-Navegador $g $W $H $url ($ms / 700.0)
-            return
+        # 1) el cielo del atardecer, moviéndose despacio, con estrellas que parpadean
+        $z = 1.08 - [Math]::Min(1.0, $ms / 6000.0) * 0.06
+        if ($script:kiCielo) { [void](Dibujar-Cubriendo $g $script:kiCielo $W $H $z 0.3 0.5) }
+        foreach ($e in $script:kiEstrellas) {
+            $al = [int](110 + 110 * [Math]::Sin($ms / 260.0 + $e.F))
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Max(0, $al), 255, 240, 250))), [float]($e.X * $W), [float]($e.Y * $H), [float]$e.S, [float]$e.S)
         }
-        $carga = if ($ms -ge 2300 -and $ms -lt 2650) { ($ms - 2300) / 350.0 } elseif ($ms -ge 3650 -and $ms -lt 4000) { ($ms - 3650) / 350.0 } else { 0 }
-        $direccion = if ($ms -lt 2300) { 'youtube.com' } elseif ($ms -lt 3650) { 'youtube.com/results?search_query=kennyoung' } else { 'youtube.com/@kennyoung' }
-        Yt-Navegador $g $W $H $direccion $carga
-        if ($ms -lt 2650) {
-            # 2) portada de YouTube cargando; se escribe "kennyoung" y salen sugerencias
-            $n = if ($ms -lt 1100) { 0 } else { [Math]::Min($busca.Length, [int](($ms - 1100) / 110)) }
-            Yt-Cabecera $g $W 60 $busca.Substring(0, $n) ($ms -ge 1000)
-            $gris = New-Object System.Drawing.SolidBrush((C 39 39 39))
-            for ($i = 0; $i -lt 4; $i++) {
-                $tx = 24 + $i * 182
-                $g.FillPath($gris, (Ruta-Redonda $tx 106 170 96 10))
-                $g.FillEllipse($gris, $tx, 210, 24, 24); $g.FillPath($gris, (Ruta-Redonda ($tx + 30) 212 130 9 4)); $g.FillPath($gris, (Ruta-Redonda ($tx + 30) 226 90 8 4))
+        # el personaje: misma caja para la silueta y para él en color
+        $kh = $H * 0.93; $kx = $W * 0.73
+        if ($ms -ge $T.Silueta -and $ms -lt $T.Destello -and $script:kiSil) {
+            # 2) su silueta entra desde la derecha y se balancea con la guitarra
+            $tq = [Math]::Min(1.0, ($ms - $T.Silueta) / 450.0); $e = 1 - [Math]::Pow(1 - $tq, 3)
+            $sw = $script:kiSil.Width * $kh / $script:kiSil.Height
+            $bx = $kx - $sw / 2 + (1 - $e) * ($W * 0.5); $by = $H - $kh + [Math]::Sin($ms / 300.0) * 2
+            # brillo rosa detrás al tocar el acorde
+            if ($ms -ge $T.Acorde) {
+                $q = [Math]::Min(1.0, ($ms - $T.Acorde) / 500.0)
+                $gp = New-Object System.Drawing.Drawing2D.GraphicsPath; $gp.AddEllipse([float]($kx - $sw * 0.7), [float]($H * 0.1), [float]($sw * 1.4), [float]($H * 1.0))
+                $pg = New-Object System.Drawing.Drawing2D.PathGradientBrush($gp); $pg.CenterColor = [System.Drawing.Color]::FromArgb([int](140 * (1 - $q * 0.5)), 255, 150, 200); $pg.SurroundColors = @([System.Drawing.Color]::FromArgb(0, 255, 150, 200))
+                $g.FillPath($pg, $gp); $pg.Dispose(); $gp.Dispose()
             }
-            $gris.Dispose()
-            if ($n -ge 3 -and $ms -lt 2300) {
-                $sx = $W / 2 - 190; $sug = @('kennyoung', 'kennyoung people online', 'kennyoung loner', 'kennyoung trash talkin')
-                $caja = Ruta-Redonda $sx 94 330 (12 + $sug.Count * 26) 10
-                $g.FillPath((New-Object System.Drawing.SolidBrush((C 33 33 33))), $caja); $caja.Dispose()
-                for ($i = 0; $i -lt $sug.Count; $i++) {
-                    $yy = 100 + $i * 26
-                    if ($i -eq 0 -and $ms -gt 2100) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 60 60 60))), [float]$sx, [float]$yy, 330, 26) }
-                    Yt-Lupa $g ($sx + 14) ($yy + 6) 13 (C 200 200 200)
-                    $g.DrawString($sug[$i], (FntP('Segoe UI', 9.5, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, [float]($sx + 38), [float]($yy + 3))
-                }
+            $g.DrawImage($script:kiSil, [float]$bx, [float]$by, [float]$sw, [float]$kh)
+        }
+        if ($ms -ge $T.Nombre -and $script:kiKenny) {
+            # 3) él en color y su nombre, que entra deslizando, inclinado
+            $q = [Math]::Min(1.0, ($ms - $T.Nombre) / 350.0); $e = 1 - [Math]::Pow(1 - $q, 3)
+            $cw = $script:kiKenny.Width * $kh / $script:kiKenny.Height
+            $g.DrawImage($script:kiKenny, [float]($kx - $cw / 2 + (1 - $e) * 30), [float]($H - $kh + [Math]::Sin($ms / 300.0) * 2), [float]$cw, [float]$kh)
+            $nx = 40 - (1 - $e) * 520; $ny = $H * 0.36
+            $st = $g.Save(); $g.TranslateTransform([float]$nx, [float]$ny)
+            $sesgo = New-Object System.Drawing.Drawing2D.Matrix(1, 0, -0.22, 1, 0, 0); $g.MultiplyTransform($sesgo)
+            # brillo rosa y letras blancas, como en su vídeo
+            $path = New-Object System.Drawing.Drawing2D.GraphicsPath
+            $path.AddString('KENNYOUNG', (Familia 'Arial Black'), 0, 58, (New-Object System.Drawing.PointF(0, 0)), [System.Drawing.StringFormat]::GenericDefault)
+            foreach ($gr in @(@(22, 40), @(14, 70), @(7, 110))) { $pn = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb($gr[1], 255, 110, 170), [float]$gr[0]); $pn.LineJoin = 'Round'; $g.DrawPath($pn, $path); $pn.Dispose() }
+            $g.FillPath((New-Object System.Drawing.SolidBrush((C 255 244 246))), $path); $path.Dispose()
+            if ($ms -ge $T.Lema) {
+                $lema = 'MUSIC, ART, VIDEO'; $n = [Math]::Min($lema.Length, [int](($ms - $T.Lema) / 45))
+                $g.DrawString($lema.Substring(0, $n), (FntP('Arial', 12, ([System.Drawing.FontStyle]::Bold -bor [System.Drawing.FontStyle]::Italic))), (New-Object System.Drawing.SolidBrush((C 255 236 240))), 70, 74)
             }
-            return
+            $g.Restore($st)
         }
-        Yt-Cabecera $g $W 60 $busca $false
-        if ($ms -lt 3650) {
-            # 3) resultados: su canal arriba del todo; el cursor entra en él
-            $chips = @('Todo', 'Canales', 'Vídeos', 'Shorts')
-            for ($i = 0; $i -lt $chips.Count; $i++) { Yt-Pastilla $g (24 + $i * 76) 98 68 22 $(if ($i -eq 0) { [System.Drawing.Color]::White } else { (C 39 39 39) }) $chips[$i] $(if ($i -eq 0) { [System.Drawing.Color]::Black } else { [System.Drawing.Color]::White }) 8 }
-            $ax = 110; $ay = 132; $ar = 34
-            $g.FillEllipse([System.Drawing.Brushes]::White, [float]($ax - $ar - 2), [float]($ay - 2), [float](2 * $ar + 4), [float](2 * $ar + 4))
-            if ($script:kyAv) { $g.DrawImage($script:kyAv, [float]($ax - $ar), [float]$ay, [float](2 * $ar), [float](2 * $ar)) }
-            $g.DrawString('Kennyoung ✓', (FntP('Segoe UI Symbol', 14, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 190, 132)
-            $g.DrawString('@kennyoung  ·  pop-punk desde Corea del Sur', (FntP('Segoe UI', 8.5)), (New-Object System.Drawing.SolidBrush((C 170 170 170))), 192, 158)
-            $g.DrawString('Músico y animador. Canciones, covers y The Lazy Tails.', (FntP('Segoe UI', 8.5)), (New-Object System.Drawing.SolidBrush((C 170 170 170))), 192, 175)
-            Yt-Pastilla $g ($W - 150) 148 104 28 ([System.Drawing.Color]::White) 'Suscribirse' ([System.Drawing.Color]::Black) 9
-            $g.DrawLine((New-Object System.Drawing.Pen((C 50 50 50), 1)), 24, 212, ($W - 24), 212)
-            Yt-Miniatura $g $script:kyI.loner $script:kyInf.loner $ms 70 222 150 84 '3:12'
-            $g.DrawString('Kennyoung - Loner', (FntP('Segoe UI', 11, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 236, 224)
-            $g.DrawString('Kennyoung ✓  ·  pop-punk', (FntP('Segoe UI Symbol', 8)), (New-Object System.Drawing.SolidBrush((C 170 170 170))), 238, 248)
-            # el cursor va hasta su foto y hace clic
-            $t = [Math]::Min(1.0, [Math]::Max(0.0, ($ms - 2800) / 600.0)); $e = 1 - [Math]::Pow(1 - $t, 3)
-            $cx = 520 - $e * 405; $cy = 290 - $e * 124
-            if ($ms -gt 3400) { $q = ($ms - 3400) / 250.0; $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB ([int]([Math]::Max(0, 1 - $q) * 120)) 255 255 255))), [float]($cx - 30 * $q), [float]($cy - 30 * $q), [float](60 * $q), [float](60 * $q)) }
-            Yt-Cursor $g $cx $cy
-            return
+        # el destello blanco entre la silueta y él en color
+        if ($ms -ge $T.Destello -and $ms -lt $T.Nombre + 400) {
+            $q = ($ms - $T.Destello) / [double]($T.Nombre + 400 - $T.Destello); $al = if ($q -lt 0.35) { $q / 0.35 } else { 1 - ($q - 0.35) / 0.65 }
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](255 * [Math]::Max(0, [Math]::Min(1, $al))), 255, 255, 255))), 0, 0, $W, $H)
         }
-        # 4) su canal: banner punk (la portada de blink-182), foto, nombre, suscribirse y sus vídeos
-        $ban = Ruta-Redonda 16 98 ($W - 32) 70 12
-        $st = $g.Save(); $g.SetClip($ban)
-        Fondo-Portada $g 16 98 ($W - 32) 70
-        Dibujar-Blink $g ($W - 120) 133 22
-        Texto-Color $g 'KENNYOUNG' 'Ink Free' 34 40 108 (C 14 14 16) (C 255 255 255) 6
-        $st2 = $g.Save(); $g.TranslateTransform(420, 134); $g.RotateTransform(-6)
-        $pg = Ruta-Redonda (-58) (-12) 116 24 6
-        $g.FillPath((New-Object System.Drawing.SolidBrush((C 236 20 140))), $pg); $g.DrawPath((New-Object System.Drawing.Pen([System.Drawing.Color]::White, 2.5)), $pg); $pg.Dispose()
-        $tw = Ancho-Texto 'PUNK RULZZZ' 'Arial Black' 12; Texto-Contorno $g 'PUNK RULZZZ' 'Arial Black' 12 (-$tw / 2) (-9) (C 255 255 255) 3
-        $g.Restore($st2); $g.Restore($st); $ban.Dispose()
-        $ax = 60; $ay = 150; $ar = 32
-        $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 15 15 15))), [float]($ax - $ar - 4), [float]($ay - 4), [float](2 * $ar + 8), [float](2 * $ar + 8))
-        if ($script:kyAv) { $g.DrawImage($script:kyAv, [float]($ax - $ar), [float]$ay, [float](2 * $ar), [float](2 * $ar)) }
-        $g.DrawString('Kennyoung ✓', (FntP('Segoe UI Symbol', 15, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 104, 172)
-        $g.DrawString('@kennyoung  ·  pop-punk desde Corea del Sur', (FntP('Segoe UI', 8.5)), (New-Object System.Drawing.SolidBrush((C 170 170 170))), 106, 198)
-        $sus = $ms -ge 4800
-        if ($sus) { Yt-Pastilla $g 106 216 104 24 (C 39 39 39) '🔔 Suscrito' ([System.Drawing.Color]::White) 8.5 }
-        else { Yt-Pastilla $g 106 216 104 24 ([System.Drawing.Color]::White) 'Suscribirse' ([System.Drawing.Color]::Black) 8.5 }
-        if ($ms -ge 4800 -and $ms -lt 5600) { $q = ($ms - 4800) / 800.0; Texto-Contorno $g '🔔' 'Segoe UI Symbol' 18 222 (214 - $q * 26) (C 255 220 80) 3 ([int](255 * (1 - $q))) }
-        # pestañas del canal
-        $tabs = @('Inicio', 'Vídeos', 'Shorts', 'Listas'); $tf = FntP('Segoe UI', 9, [System.Drawing.FontStyle]::Bold); $tx = 24
-        foreach ($tb in $tabs) {
-            $tw = $g.MeasureString($tb, $tf).Width
-            $g.DrawString($tb, $tf, $(if ($tb -eq 'Inicio') { [System.Drawing.Brushes]::White } else { (New-Object System.Drawing.SolidBrush((C 170 170 170))) }), [float]$tx, 250)
-            if ($tb -eq 'Inicio') { $g.FillRectangle([System.Drawing.Brushes]::White, [float]$tx, 268, [float]($tw - 4), 2) }
-            $tx += $tw + 18
-        }
-        $g.DrawLine((New-Object System.Drawing.Pen((C 50 50 50), 1)), 16, 270, 400, 270)
-        Yt-Miniatura $g $script:kyI.online $script:kyInf.online $ms 24 278 74 42 '2:58'
-        Yt-Miniatura $g $script:kyI.concierto $script:kyInf.concierto $ms 106 278 74 42 '3:05'
-        Yt-Miniatura $g $script:kyI.loner $script:kyInf.loner $ms 188 278 74 42 '3:12'
-        # vídeo destacado a la derecha (se reproduce solo, con el riff)
-        Yt-Miniatura $g $script:kyI.guitarra $script:kyInf.guitarra $ms 452 176 ($W - 468) 124 $null
-        $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 0 0))), 452, 298, [float](($W - 468) * [Math]::Min(1.0, ($ms - 3800) / 8000.0)), 2)
-        $g.DrawString('Kennyoung - Get Away', (FntP('Segoe UI', 9, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 452, 302)
+        # al principio sale del negro
+        if ($ms -lt 600) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](255 * (1 - $ms / 600.0)), 0, 0, 0))), 0, 0, $W, $H) }
     }
     $alTick = {
         param($ov, $p)
+        $T = $KyIntro
         if ($p -eq 1) { $script:kyT0 = [Environment]::TickCount }
         $ms = [Environment]::TickCount - $script:kyT0
-        # sonidos en su momento: clic al buscar, acorde al entrar en el canal, campanita al suscribirse
-        foreach ($ev in @(@(2300, 'acorde'), @(3800, 'riff'), @(4800, 'campana'))) {
+        foreach ($ev in @(@($T.Acorde, 'acorde'), @($T.Destello, 'riff'))) {
             if ($ms -ge $ev[0] -and -not $script:kyHechos.ContainsKey($ev[1])) { $script:kyHechos[$ev[1]] = $true; Sonido $ev[1] }
         }
-        # termina un rato después de suscribirse (y la intro sube hacia arriba)
-        if ($ms -gt 6200 -and $script:iPaso -lt $script:iTotal - 7) { $script:iPaso = $script:iTotal - 7 }
+        if ($ms -gt $T.Fin -and $script:iPaso -lt $script:iTotal - 7) { $script:iPaso = $script:iTotal - 7 }
         if ($p -gt $script:iTotal - 7) { $ov.Top -= [int]($ov.Height / 5) }
     }
     Intro-Overlay 400 $pintar $alTick $final
@@ -6522,24 +6496,18 @@ function Pintar-Boton($g, $b) {
             $g.DrawString($b.Text, $b.Font, [System.Drawing.Brushes]::White, $rect, $fmt)
         }
         'punk' {
-            # botón negro semitransparente con borde rosa: deja ver el logo de blink-182 del fondo; al pasar el ratón, rosa
+            # botón crema con borde marrón (como el bocadillo); al pasar el ratón, verde de pegatina
             $g.SmoothingMode = 'AntiAlias'
-            $g.Clear($(if ($enBarra) { (C 0 0 0) } else { (C 6 6 8) }))
-            if (-not $enBarra -and $script:bmpEscena) {
-                # el trozo de fondo que queda detrás del botón
+            $g.Clear($(if ($enBarra) { (C 96 74 68) } else { (C 255 246 236) }))
+            if ($script:bmpEscena) {
+                # el trozo de fondo que queda detrás del botón (para que las esquinas redondas no se vean cuadradas)
                 $pf = $form.PointToClient($b.PointToScreen([System.Drawing.Point]::Empty))
                 $g.DrawImage($script:bmpEscena, (New-Object System.Drawing.Rectangle((-$pf.X), (-$pf.Y), $script:bmpEscena.Width, $script:bmpEscena.Height)))
             }
-            # chips de YouTube: pastilla oscura; al pasar el ratón, blanca (como el chip elegido), con borde rosa punk
-            $r = Ruta-Redonda (1 * $Z) (1 * $Z) ($W - 3 * $Z) ($H - 3 * $Z) ([Math]::Min(($H - 3 * $Z) / 2, 14 * $Z))
-            if ($enBarra) {
-                $g.FillPath((New-Object System.Drawing.SolidBrush($(if ($hover) { (C 255 255 255) } else { (C 39 39 39) }))), $r); $r.Dispose()
-                $g.DrawString($b.Text, $b.Font, $(if ($hover) { [System.Drawing.Brushes]::Black } else { [System.Drawing.Brushes]::White }), $rect, $fmt)
-            } else {
-                $g.FillPath((New-Object System.Drawing.SolidBrush($(if ($hover) { (C 255 255 255) } else { (ARGB 225 33 33 33) }))), $r)
-                $g.DrawPath((New-Object System.Drawing.Pen($(if ($hover) { (C 236 20 140) } else { (ARGB 90 255 255 255) }), [float]($(if ($hover) { 2.5 } else { 1 }) * $Z))), $r); $r.Dispose()
-                $g.DrawString($b.Text, $b.Font, $(if ($hover) { (New-Object System.Drawing.SolidBrush((C 15 15 15))) } else { [System.Drawing.Brushes]::White }), $rect, $fmt)
-            }
+            $r = Ruta-Redonda (1 * $Z) (1 * $Z) ($W - 3 * $Z) ($H - 3 * $Z) ([Math]::Min(($H - 3 * $Z) / 2, 12 * $Z))
+            $g.FillPath((New-Object System.Drawing.SolidBrush($(if ($hover) { (C 110 235 140) } else { (C 255 248 240) }))), $r)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 70 50 45), [float](2 * $Z))), $r); $r.Dispose()
+            $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((C 70 50 45))), $rect, $fmt)
         }
         'pizza' {
             # botón blanco dibujado con rotulador y sombra rosa; al pasar el ratón se pone verde Kevin
@@ -6738,7 +6706,7 @@ function Lanzar($item) {
                 'pop' { Decir "No encuentro $($item.Nombre). Como esos amigos de 2020. Se fue y ya." }
                 'teto' { Sonido 'uhoh'; Decir "¡$($item.Nombre) se ha ido volando! Como un pájaro. Igual vuelve." }
                 'pizza' { Actor-Pose 'V' 'sudor' 2000; Decir "¡No encuentro $($item.Nombre)! ...¿Alguien lo ha tocado? ¿Como a mi pizza? *Suda.*" }
-                'punk' { Actor-Pose 'Y' 'piensa' 2500; Decir "No encuentro $($item.Nombre). Como mis canciones sin terminar: igual algún día aparece." }
+                'punk' { Ky-Video 'piensa' 2500; Decir "No encuentro $($item.Nombre). Como mis canciones sin terminar: igual algún día aparece." }
                 default { Decir "No encuentro $($item.Nombre). Igual nunca existió." }
             }
         }
@@ -7435,55 +7403,56 @@ $form.Add_Paint({
                     }
                 }
                 'punk' {
-                    $vx = 418; $vy = 64; $vw = 324; $vh = 182
-                    # explosión: destello y humo sobre el vídeo
-                    if ($script:kyFlash -gt 0) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(255, $script:kyFlash * 30), 255, 200, 120))), $vx, $vy, $vw, $vh) }
+                    # el minirreproductor de su canal: un vídeo suyo (la canción que suena o lo que esté pasando)
+                    $vx = 406; $vy = 64; $vw = 150; $vh = 84
+                    $v = if ($script:kyVideo -and [Environment]::TickCount -lt $script:kyVideo.Hasta) { $script:kyVideo.N } else { 'guitarra' }
+                    $vid = Ky-Gif $v
+                    $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 150 46 34 30))), (Ruta-Redonda ($vx + 3) ($vy + 3) $vw ($vh + 34) 10))
+                    $g.FillPath((New-Object System.Drawing.SolidBrush((C 255 248 240))), (Ruta-Redonda ($vx - 4) ($vy - 4) ($vw + 8) ($vh + 38) 10))
+                    if ($vid) { Yt-Miniatura $g $vid.Img $vid.Info ([Environment]::TickCount) $vx $vy $vw $vh $null }
+                    $dur = Ky-Duracion; $seg = $script:kyProg * $dur
+                    $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 140 0 0 0))), $vx, ($vy + $vh - 3), $vw, 3)
+                    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 0 0))), $vx, ($vy + $vh - 3), [float]($vw * $script:kyProg), 3)
+                    $titulo = if ($v -eq 'guitarra') { $k.Canciones[$script:kyCancion] } else { $vid.Titulo }
+                    $g.DrawString($titulo, (FntP('Segoe UI', 7.5, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 46 34 30))), (New-Object System.Drawing.RectangleF($vx, ($vy + $vh + 1), $vw, 14)))
+                    $g.DrawString("▶ $(Ky-Tiempo $seg) / $(Ky-Tiempo $dur)   ·   $(Ky-Numero (12400 + $script:kyVistas)) visitas", (FntP('Segoe UI Symbol', 6.5)), (New-Object System.Drawing.SolidBrush((C 110 90 84))), $vx, ($vy + $vh + 15))
+                    # la guitarra explota: destello y humo encima de Kenny
+                    if ($script:kyFlash -gt 0) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(255, $script:kyFlash * 30), 255, 230, 160))), 400, 56, ($W - 400), ($H - 56)) }
                     if ($script:kyFx -gt 0) {
                         $rh = New-Object System.Random 4
-                        for ($i = 0; $i -lt 7; $i++) { $q = 50 - $script:kyFx; $hx = $vx + 40 + $rh.Next(0, 240); $hy = $vy + $vh - 20 - $q * (1.5 + $rh.NextDouble()); $hr = 14 + $q * 0.6
-                            if ($hy -gt $vy) { $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB ([int]([Math]::Min(1.0, $script:kyFx / 20.0) * 110)) 60 60 64))), [float]($hx - $hr / 2), [float]$hy, [float]$hr, [float]$hr) } }
+                        for ($i = 0; $i -lt 8; $i++) { $q = 50 - $script:kyFx; $hx = 510 + $rh.Next(0, 90); $hy = 250 - $q * (1.5 + $rh.NextDouble()); $hr = 14 + $q * 0.7
+                            if ($hy -gt 56) { $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB ([int]([Math]::Min(1.0, $script:kyFx / 20.0) * 120)) 80 70 70))), [float]($hx - $hr / 2), [float]$hy, [float]$hr, [float]$hr) } }
                     }
-                    # concierto: focos de colores que barren todo el panel y "ENCORE!"
+                    # concierto: focos de colores que barren el panel y "ENCORE!"
                     if ($script:kyConc -gt 0) {
                         $al = [int]([Math]::Min(1.0, $script:kyConc / 20.0) * 60)
-                        $cols = @((C 255 255 255), (C 255 80 160), (C 80 180 255))
+                        $cols = @((C 110 235 140), (C 255 120 160), (C 255 220 120))
                         for ($i = 0; $i -lt 3; $i++) {
                             $ox = 120 + $i * 260; $an = [Math]::Sin($script:fase * 0.8 + $i * 2) * 0.5
                             $px1 = $ox + [Math]::Sin($an) * 300; $pts = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$ox, 52)), (New-Object System.Drawing.PointF([float]($px1 - 70), [float]$H)), (New-Object System.Drawing.PointF([float]($px1 + 70), [float]$H)))
                             $g.FillPolygon((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb($al, $cols[$i].R, $cols[$i].G, $cols[$i].B))), $pts)
                         }
-                        if ([Math]::Floor($script:fase * 2) % 2 -eq 0) { $tw = Ancho-Texto 'ENCORE!' 'Arial Black' 24; Texto-Color $g 'ENCORE!' 'Arial Black' 24 ($vx + $vw / 2 - $tw / 2) ($vy + 8) (C 255 255 255) (C 255 80 160) 6 }
+                        if ([Math]::Floor($script:fase * 2) % 2 -eq 0) { Texto-Color $g 'ENCORE!' 'Arial Black' 22 412 196 (C 255 255 255) (C 46 34 30) 6 }
                     }
-                    # controles del reproductor: tiempo y barra roja
-                    $dur = Ky-Duracion; $seg = $script:kyProg * $dur
-                    $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 120 0 0 0))), $vx, ($vy + $vh - 20), $vw, 20)
-                    $g.DrawString(('▶   ' + (Ky-Tiempo $seg) + ' / ' + (Ky-Tiempo $dur)), (FntP('Segoe UI Symbol', 7.5, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, ($vx + 6), ($vy + $vh - 18))
-                    $g.DrawString('HD ⚙ ⛶', (FntP('Segoe UI Symbol', 7.5, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, ($vx + $vw - 58), ($vy + $vh - 18))
-                    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 90 90 90))), $vx, ($vy + $vh), $vw, 3)
-                    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 0 0))), $vx, ($vy + $vh), [float]($vw * $script:kyProg), 3)
-                    $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 255 0 0))), [float]($vx + $vw * $script:kyProg - 5), ($vy + $vh - 3.5), 10, 10)
-                    # título de la canción, canal y botón de suscribirse
-                    if (-not $script:kyAvatar) { $script:kyAvatar = Cargar-Img $k.Avatar }
-                    if ($script:kyAvatar) { $g.DrawImage($script:kyAvatar, 418, 253, 20, 20) }
-                    $g.DrawString($k.Canciones[$script:kyCancion], (FntP('Trebuchet MS', 8.5, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 442, 250)
-                    $g.DrawString("Kennyoung · $(Ky-Numero (12400 + $script:kyVistas)) visualizaciones", (FntP('Trebuchet MS', 6.5)), (New-Object System.Drawing.SolidBrush((C 170 170 170))), 442, 263)
-                    $sb = Ruta-Redonda $KyBoton[0] $KyBoton[1] $KyBoton[2] $KyBoton[3] 9
-                    $g.FillPath((New-Object System.Drawing.SolidBrush($(if ($script:kySub) { (C 70 70 76) } else { (C 255 0 0) }))), $sb); $sb.Dispose()
+                    # botón de suscribirse (en la barra de arriba)
+                    $sb = Ruta-Redonda $KyBoton[0] $KyBoton[1] $KyBoton[2] $KyBoton[3] 11
+                    $g.FillPath((New-Object System.Drawing.SolidBrush($(if ($script:kySub) { (C 70 54 50) } else { (C 230 30 30) }))), $sb)
+                    $g.DrawPath((New-Object System.Drawing.Pen((C 255 248 240), 1.5)), $sb); $sb.Dispose()
                     $ts = if ($script:kySub) { 'SUSCRITO 🔔' } else { 'SUSCRIBIRSE' }
-                    $fs = FntP('Segoe UI Symbol', 6.5, [System.Drawing.FontStyle]::Bold); $tws = $g.MeasureString($ts, $fs).Width
-                    $g.DrawString($ts, $fs, [System.Drawing.Brushes]::White, [float]($KyBoton[0] + $KyBoton[2] / 2 - $tws / 2), [float]($KyBoton[1] + 2))
-                    # visitas, likes, guitarras rotas y el amplificador, en pastillas como las de "Me gusta" de YouTube
-                    $osc = (ARGB 235 33 33 33); $bl = [System.Drawing.Color]::White
-                    Yt-Pastilla $g 16 280 92 26 $osc "♥  $(Ky-Numero $script:kyLikes)" $bl 9
-                    Yt-Pastilla $g 114 280 112 26 $osc "▶  $(Ky-Numero $script:kyVistas) visitas" $bl 8.5
-                    Yt-Pastilla $g 232 280 56 26 $osc "⚡ $($script:kyRotas)" $bl 9
-                    Yt-Pastilla $g 294 280 104 26 $osc $null $null 9
-                    $g.DrawString('AMP', (FntP('Segoe UI', 7.5, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 302, 286)
+                    $fs = FntP('Segoe UI Symbol', 7, [System.Drawing.FontStyle]::Bold); $tws = $g.MeasureString($ts, $fs).Width
+                    $g.DrawString($ts, $fs, [System.Drawing.Brushes]::White, [float]($KyBoton[0] + $KyBoton[2] / 2 - $tws / 2), [float]($KyBoton[1] + 4))
+                    # visitas, likes, guitarras rotas y el amplificador, en pastillas marrones
+                    $osc = (ARGB 235 80 60 54); $bl = [System.Drawing.Color]::White
+                    Yt-Pastilla $g 20 280 92 24 $osc "♥  $(Ky-Numero $script:kyLikes)" $bl 9
+                    Yt-Pastilla $g 116 280 112 24 $osc "▶  $(Ky-Numero $script:kyVistas) visitas" $bl 8.5
+                    Yt-Pastilla $g 232 280 56 24 $osc "⚡ $($script:kyRotas)" $bl 9
+                    Yt-Pastilla $g 292 280 100 24 $osc $null $null 9
+                    $g.DrawString('AMP', (FntP('Segoe UI', 7.5, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 300, 285)
                     for ($i = 0; $i -lt 8; $i++) {
-                        $bh = 5 + $i * 1.6; $bx = 330 + $i * 7.5
+                        $bh = 5 + $i * 1.5; $bx = 328 + $i * 7.5
                         $on = $script:kyAmp -ge ($i + 1) * 12.5 - 6
-                        $colA = if ($i -ge 6) { (C 255 50 50) } elseif ($i -ge 4) { (C 255 210 40) } else { (C 236 20 140) }
-                        $g.FillRectangle((New-Object System.Drawing.SolidBrush($(if ($on) { $colA } else { (C 70 70 76) }))), [float]$bx, [float](300 - $bh), 5, [float]$bh)
+                        $colA = if ($i -ge 6) { (C 255 60 60) } elseif ($i -ge 4) { (C 255 210 60) } else { (C 110 235 140) }
+                        $g.FillRectangle((New-Object System.Drawing.SolidBrush($(if ($on) { $colA } else { (C 120 100 94) }))), [float]$bx, [float](298 - $bh), 5, [float]$bh)
                     }
                 }
                 'pizza' {
@@ -7835,7 +7804,7 @@ function Construir-UI {
     Kaiju-Reiniciar
     $script:antojo = 0
     $script:pzFx = 0; $script:pzQueso = $false; $script:pzEnfado = 0.0; $script:pzGrito = $null; $script:pzLluvia.Clear()
-    $script:kyFx = 0; $script:kyConc = 0; $script:kyFlash = 0; $script:kyAmp = 0.0
+    $script:kyFx = 0; $script:kyConc = 0; $script:kyFlash = 0; $script:kyAmp = 0.0; $script:kyVideo = $null
     if ($script:pzReparto -gt 0) { $script:pzReparto = 0; $script:pzTrozos = 8 }
     $form.Controls.Clear()
 
