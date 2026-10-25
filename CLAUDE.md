@@ -32,6 +32,9 @@ c00lgui es un panel lanzador para Windows (abre YouTube, Office, programas…) c
 7. **Audio:** el panel reproduce **WAV** (SoundPlayer) y **MP3** (MediaPlayer). **OGG no funciona**: conviértelo a WAV (mono para que pese menos).
 8. **Imágenes:** antes de liberar una imagen que esté en un PictureBox, pon `.Image = $null` (si no, sale la ventana de error al cambiar de skin).
 9. No subas los archivos personales: `skin.txt`, `ajustes.txt` y `botones.txt` (ya están en `.gitignore`).
+10. **`[Math]::Min`/`Max` con un número entero redondea:** `[Math]::Min(110, 30.3)` da **30**. Si el otro valor tiene decimales, escribe el número con decimales: `[Math]::Min(110.0, $x + 0.3)`. Este fallo dejó a Pursuer sin recuperar estamina y a varias barras sin bajar nunca.
+11. **Bocadillo:** `Decir` escribe según el tiempo (no se ralentiza aunque haya muchos efectos). Para frases que no se deben cortar (explosiones, modos especiales, finales de minijuego) usa `Decir-Fijo`: bloquea las demás frases hasta que se haya podido leer.
+12. **Ventanitas con fundido:** no dejes la `Opacity` de un formulario en 1.0 después de animarla; déjala en 0.99 (al pasar a 1.0 Windows deja de pintarla hasta que le haces clic).
 
 ## Escalado (DPI)
 
@@ -97,3 +100,6 @@ PowerShell no basta para recortar fondos o editar imágenes. Lo que ha funcionad
 - Los GIF de Tenor se bajan de `media.tenor.com/<id>AAAAC/...gif` (la versión grande).
 - Las imágenes de Fandom bloquean la descarga normal: hace falta una cabecera de navegador (User-Agent, `Referer` de la wiki y `Accept: image/webp`).
 - Reduce los GIF (menos fotogramas, ~300 px, ~100 colores) para que el repositorio no pese demasiado.
+- Las wikis de **Miraheze** (p. ej. `enfosi.miraheze.org`) no abren con curl ni PowerShell en Windows 10 (error de TLS). Usa Edge sin ventana: `msedge --headless=new --dump-dom "https://<wiki>/w/api.php?action=query&list=allimages&ailimit=500&format=json"`. Las imágenes (`static.wikitide.net`) sí se bajan con curl.
+- Las portadas de Bandcamp se bajan en grande cambiando `_2.jpg` por `_10.jpg` (`f4.bcbits.com/img/a<id>_10.jpg`).
+- Cuidado: en una lista `[ordered]@{ 1 = ...; 2 = ... }` el índice `[1]` es la **posición**, no la clave. Para listas numeradas usa un array normal.

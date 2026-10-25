@@ -148,17 +148,50 @@ $Botones = Cargar-Botones
 #      y escribe discusiones nuevas en $Discusiones.
 function C($r, $g, $b) { [System.Drawing.Color]::FromArgb($r, $g, $b) }
 
+# ---- datos de Enfosi (de sus wikis): los 7 Glaggles en el orden de sus oleadas ----
+$EnfosiTipos = @('giggler', 'gazo', 'gloober', 'gembo', 'cheerer', 'gleeber', 'glaaber')
+$EnfosiNombre = @{ giggler = 'Giggler'; gazo = 'Gazo'; gloober = 'Gloober'; gembo = 'Gembo'; cheerer = 'Cheerer'; gleeber = 'Gleeber'; glaaber = 'Glaaber'; gergro = 'Gergro'; borgack = 'Borgack'; risio = 'Risio' }
+# velocidad al andar: los Gleebers son los más rápidos, los Cheerers corren mucho y los Glaabers son los más lentos
+$EnfosiVel = @{ giggler = 1.6; gazo = 1.5; gloober = 1.25; gembo = 1.15; cheerer = 2.2; gleeber = 2.6; glaaber = 0.9 }
+# clics que aguantan después de descubrirlos (según su vida en el juego)
+$EnfosiVida = @{ giggler = 2; gazo = 2; gloober = 3; gembo = 3; cheerer = 2; gleeber = 3; glaaber = 5 }
+# daño a la estatua de cada Enphosian (el del juego)
+$EnfosiDanio = @{ giggler = 100; gazo = 40; gloober = 30; gembo = 100; cheerer = 500; gleeber = 150; glaaber = 200 }
+# lo que dice el juego de cada uno (traducido)
+$EnfosiTexto = @{
+    giggler = '¡Un Giggler alegre! ¡Mira su sonrisa!'
+    gazo    = '¡Un Gazo chiflado! ¡Un experto en tecnología y en disparar de lejos!'
+    gloober = '¡Un Gloober tontorrón! ¡Ayuda a los que lo necesitan!'
+    gembo   = '¡Un Gembo majo! ¡Un soldado con explosivos peligrosos!'
+    cheerer = '¡Un Cheerer juguetón! ¿Qué habrá en esa caja de regalo?'
+    gleeber = '¡Un Gleeber simpático! ¿Vamos a patinar?'
+    glaaber = '¡Un Glaaber espeluznante! ¡Cuidado con su porra!'
+}
+# los cuatro fallos de un disfraz, en el orden de las imágenes de la wiki
+$EnfosiFallo = @{ 1 = 'tenía la piel de otro color'; 2 = 'llevaba un símbolo falso en la camiseta'; 3 = 'no llevaba símbolo en la camiseta'; 4 = 'no tenía cara' }
+# jefes tras las oleadas 2, 4 y 6: imagen, nombre, clics que aguanta, frase
+$EnfosiJefes = @{
+    2 = @('gergro', 'Gergro', 8, '¡JEFE: GERGRO! Un Giggler acróbata con pistola y bate. Dale clics hasta tumbarlo.')
+    4 = @('borgack', 'Borgack', 10, '¡JEFE: BORGACK! Vuela con jetpack y tira dinamita. ¡Que no llegue a la estatua!')
+    6 = @('risio', 'Risio', 12, '¡JEFE: RISIO! Usa las armas de la tienda contra ti. Es el último jefe.')
+}
+$EnfosiPoses = @{ gergro = 'skins\enfosi\gergro.png'; borgack = 'skins\enfosi\borgack.png'; risio = 'skins\enfosi\risio.png' }
+foreach ($t in $EnfosiTipos) {
+    $EnfosiPoses[$t] = "skins\enfosi\$t.png"; $EnfosiPoses["$($t)_e"] = "skins\enfosi\$($t)_enfosi.png"
+    for ($i = 1; $i -le 4; $i++) { $EnfosiPoses["$t$i"] = "skins\enfosi\$($t)_falso$i.png" }
+}
+
 $Skins = [ordered]@{
     # ================================================================ c00lgui
     'c00lgui' = @{
-        Estilo = 'hacker'; Titulo = 'c00lgui'; Sub = 'v5'; Alto = 312
+        Estilo = 'hacker'; Titulo = 'c00lgui'; Sub = 'v6'; Alto = 312
         Fondo = (C 0 0 0); Borde = (C 255 0 0); Sombra = (C 90 0 0)
         TituloColor = (C 255 0 0); SubColor = (C 140 0 0)
         BtnFondo = (C 0 0 0); BtnTexto = (C 255 255 255); BtnTextoHover = (C 255 40 40); BtnBorde = (C 255 0 0); BtnBordeAncho = 1
         BtnHover = (C 45 0 0); BtnPress = (C 255 0 0); BarraBtnTexto = (C 255 0 0)
         StatusColor = (C 255 0 0); Fuente = 'Arial'; FuenteTitulo = 'Arial Black'; Opacidad = 1.0; Velocidad = 2
         Hola = @(
-            '> c00lgui v5 loaded. welcome back.'
+            '> c00lgui v6 loaded. welcome back.'
             '> access granted. team c00lkidd join today!'
             '> injecting... done. hi.'
             '> SYSTEM COMPROMISED. c00lgui online.'
@@ -182,6 +215,7 @@ $Skins = [ordered]@{
             'Tetra'                = '> tetra went offline. status: do not disturb. relatable.'
             'Kevin'                = '> kevin.exe closed. pizza.dat still locked. 8 slices. encrypted.'
             'Kennyoung'            = '> kennyoung.exe closed. the guitar noise stopped. i kinda miss it.'
+            'Enfosi'               = '> enfosi.exe closed. the statue is still standing. somehow.'
         }
         Yo = @('> c00lgui: still the best. no debate.', '> that one is me. obviously.')
         Opina = @{
@@ -203,6 +237,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('> tetra left me on read. 3 months. i have logs.', '> tetra''s cap says "failure". mine says "c00lkidd". we are not the same.')
             'Kevin'                = @('> tried to hack kevin''s pizza. he bit my keyboard. 0/10.', '> kevin draws in ms paint. respect the oldschool.')
             'Kennyoung'            = @('> hacked kennyoung''s channel. uploaded 10h of glitch. more views than his songs. sorry kenny.', '> kenny plays 4 chords. i hack with 4 keys. same energy.')
+            'Enfosi'               = @('> enfosi: spot the fake glaggle. i am the fake glaggle.', '> i hacked the statue. it now says "team c00lkidd".')
         }
         Frases = @(
             '> payload delivered.'
@@ -282,6 +317,7 @@ $Skins = [ordered]@{
             'Tetra'                = 'Se fue Tetra. Somos del mismo creador. Ni nos despedimos. Muy nuestro.'
             'Kevin'                = 'Se fue Kevin. Por fin dejo de oír la canción de la pizza. ...la sigo oyendo en mi cabeza.'
             'Kennyoung'            = 'Se fue Kenny. El amigo de YonKaGor. Muy majo. Muy ruidoso. Muy majo.'
+            'Enfosi'               = 'Se acabaron las oleadas. Tantas sonrisas me cansaban.'
         }
         Yo = @('Esa skin soy yo. La mejor, obviamente.', 'Ah, sí. Yo. Elección correcta por una vez.')
         Opina = @{
@@ -303,6 +339,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('Tetra es lo más parecido a un primo que tengo. Un primo que tampoco contesta.', 'Tetra y yo podríamos estar juntos en silencio horas. Lo mejor de lo mejor.')
             'Kevin'                = @('Kevin grita por una pizza. Yo no grito ni por mi vida. Somos muy distintos.', 'Toqué la pizza de Kevin sin querer. Ahora vivo con miedo.')
             'Kennyoung'            = @('Kenny es amigo de YonKaGor. Así que es medio familia. La familia ruidosa.', 'Kenny toca la guitarra a todas horas. Me pongo los auriculares. Los suyos, porque los míos no aguantan.')
+            'Enfosi'               = @('Enfosi va de distinguir sonrisas falsas. Yo no sonrío. Problema resuelto.', 'Siete oleadas de Glaggles. Yo con una oleada de correos ya tengo bastante.')
         }
         Frases = @(
             'Ya está. No me des las gracias, no me pagan.'
@@ -397,6 +434,7 @@ $Skins = [ordered]@{
             'Tetra'                = '¡Bzzt! ¡Tetra se ha ido! ¡Me dejó en visto! ¡Otra vez!'
             'Kevin'                = '¡Bzzt! ¡Kevin se ha ido! ¡Me dejó la canción de la pizza pegada en la antena!'
             'Kennyoung'            = '¡Bzzt! ¡Kenny se ha ido! ¡Me prometió un feat pop-punk!'
+            'Enfosi'               = '¡Bzzt! ¡Se han ido los Glaggles! ¡Sonreían tanto como yo!'
         }
         Yo = @('¡Esa soy yo! ¡Hola, yo!', '¡Elígeme! ¡Elígeme! ¡Bzzt!')
         Opina = @{
@@ -418,6 +456,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('¡Tetra baila disco! ¡Yo bailo con estática! ¡Fiesta!', '¡Tetra dice que soy pop puro! ¡Bzzt! ¡Me lo apunto!')
             'Kevin'                = @('¡Kevin tiene una canción! ¡Bzzt! ¡Quiero hacer un dueto con él!', '¡Kevin es verde como mi pelo! ...bueno, el mío es turquesa. ¡Casi!')
             'Kennyoung'            = @('¡Kenny toca la guitarra muy rápido! ¡Bzzt! ¡Mi antena baila sola!', '¡Le pedí a Kenny una canción para mi tele! ¡Dice que la hace mañana! Lleva diciendo eso tres semanas.')
+            'Enfosi'               = @('¡Los Glaggles sonríen siempre! ¡Somos familia! ¡Bzzt!', '¡Le pegué a un Gazo sin querer! ¡Era inocente! ¡Lo siento, Gazo!')
         }
         Frases = @(
             '¡Listo! ¡Como en los dibujos de los sábados!'
@@ -527,6 +566,7 @@ $Skins = [ordered]@{
             'Tetra'                = '*Huele a fideos instantáneos. Tetra se ha ido. Los fideos no.*'
             'Kevin'                = '*Huele a pizza. Kevin se ha ido. La pizza no. Se relame.*'
             'Kennyoung'            = '*Escupe una púa de guitarra. Kenny se ha ido.*'
+            'Enfosi'               = '*Se ha ido el juego de las caritas. A Guillotina le sabían a gominola.*'
         }
         Yo = @('*Se mira a sí misma. Le gusta lo que ve.*', '*Ronronea. Sí, esa es ella.*')
         Opina = @{
@@ -543,11 +583,12 @@ $Skins = [ordered]@{
             'Averi'                = @('*Averi le da un sándwich. Guillotina decide no comérsela. Hoy.*', '*Huele a pollo. Viene de la zorrita.*')
             'Sebastian Solace'     = @('*Mira la cola de Sebastian. Parece un pescado enorme. Se relame.*', '*Sebastian le cobró por mirar. Ella se comió la caja registradora.*')
             'Pursuer'              = @('*Pursuer y Guillotina se miran. Uno come fresco, la otra come de todo.*', '*Pursuer desaparece. Guillotina abre la boca por si acaso.*')
-            'Kasane Teto'          = @('*Guillotina mira las coletas de Teto. Parecen dos panes. Se relame.*', '*Teto le ofrece pan a Guillotina. Guillotina se come el pan. Y la bolsa. Y casi a Teto.*')
+            'Kasane Teto'          = @('*Guillotina mira las coletas de Teto. Parecen dos panes. Se relame.*', '*Teto baila delante de Guillotina. Guillotina la sigue con la mirada. Muy atenta. Demasiado atenta.*')
             'Token'                = @('*Guillotina intentó comerse a Token. Token siguió poniendo breakcore dentro.*', '*A Guillotina le gusta el bajo de Token. Le hace cosquillas en la barriga.*')
             'Tetra'                = @('*Guillotina se comió los fideos de Tetra. Y el vaso. Tetra ni se inmutó.*', '*Mira los pendientes de pez de Tetra. Se relame.*')
             'Kevin'                = @('*Mira la pizza de Kevin. Kevin la mira a ella. Nadie se mueve.*', '*Kevin le enseña los dientes. Guillotina le enseña los suyos. Kevin se va.*')
             'Kennyoung'            = @('*Guillotina se comió la guitarra de Kenny. Y el amplificador. Siguió sonando dentro.*', '*Mueve la cabeza al ritmo del pop-punk. Luego se come el altavoz.*')
+            'Enfosi'               = @('*Guillotina mira la estatua de oro. Parece comestible.*', '*Se traga un Cheerer falso. Explota dentro. Guillotina eructa confeti.*')
         }
         Frases = @(
             '*ÑAM.*'
@@ -636,6 +677,7 @@ $Skins = [ordered]@{
             'Tetra'                = 'Manager, el empleado Tetra ha finalizado su turno. Sin contestar al correo.'
             'Kevin'                = 'Manager, la anomalía verde ha abandonado la instalación. Ha dejado migas en el núcleo.'
             'Kennyoung'            = 'Manager, el músico Kennyoung ha abandonado la instalación. El nivel de ruido vuelve a la normalidad.'
+            'Enfosi'               = 'Manager, la defensa de la estatua ha terminado. Registro de strikes: archivado.'
         }
         Yo = @('Esa soy yo, Manager. La opción más eficiente.', 'Una elección lógica, Manager.')
         Opina = @{
@@ -657,6 +699,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('Tetra tiene 412 mensajes sin leer. Un récord en la instalación.', 'Tetra no causa incidentes. Tampoco los resuelve. Interesante.')
             'Kevin'                = @('Kevin: anomalía de tipo comida. Reacción violenta si se toca su pizza. No tocar.', 'Kevin ha mordido a tres agentes. Los tres tocaron la pizza. Patrón detectado.')
             'Kennyoung'            = @('Kennyoung: músico. Nivel de ruido: elevado. Productividad: discutible.', 'Kennyoung ha roto tres guitarras en la instalación. Se lo descontaré de su próxima gira.')
+            'Enfosi'               = @('Los Enphosians imitan a los Glaggles con pequeñas imperfecciones. Muy eficiente.', 'El Ojo de Enphoso no admite contención. Lo he intentado.')
         }
         Frases = @(
             'Tarea asignada. Le recomiendo no perder el tiempo.'
@@ -743,6 +786,7 @@ $Skins = [ordered]@{
             'Tetra'                = 'Tetra se ha desconectado. Ni AFK, directamente offline.'
             'Kevin'                = 'Kevin se ha desconectado. Rage quit por una pizza. Clásico.'
             'Kennyoung'            = 'Kenny se ha desconectado. GG por el concierto.'
+            'Enfosi'               = 'Fin de las oleadas. Ningún Glaggle inocente herido. Casi ninguno.'
         }
         Yo = @('Esa soy yo. La MVP. Obviamente.', '¿Mikaela? Elección de pro.')
         Opina = @{
@@ -764,6 +808,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('Tetra juega sin presión. Rango: madera. Felicidad: diamante.', 'Le pasé el mando a Tetra. Se puso a comer fideos. Respeto.')
             'Kevin'                = @('Le hice un noscope a la pizza de Kevin. Me persiguió con una motosierra. Respeto.', 'Kevin grita más que un niño en el chat de voz. Y eso es mucho.')
             'Kennyoung'            = @('Kenny me hizo una canción para mis clips. Ahora mis noscopes tienen batería.', 'Kenny rompe guitarras como yo rompo récords. Respeto.')
+            'Enfosi'               = @('Le di un headshot a un Gazo falso. Hitmarker. El juego dice que hace daño extra.', 'Distinguir un Enphosian por la camiseta. Eso es puntería de verdad.')
         }
         Frases = @(
             '¡Hitmarker!'
@@ -854,6 +899,7 @@ $Skins = [ordered]@{
             'Tetra'                = 'Tetra se ha ido. Ni se movió en todo el rato. Mi cliente favorito.'
             'Kevin'                = 'El lobo verde se fue. Se llevó la pizza. Ni un trozo para el sheriff.'
             'Kennyoung'            = 'El de la guitarra se fue. Por fin silencio en el desierto.'
+            'Enfosi'               = 'Se acabaron los Glaggles. Por fin puedo disparar a lo que se mueva sin strikes.'
         }
         Yo = @('*Se mira en el reflejo del revólver. Asiente.*', 'El mejor pistolero del desierto. Ese soy yo.')
         Opina = @{
@@ -875,6 +921,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('Tetra no se mueve del sofá. Es el único al que nunca le disparo.', 'Le dije a Tetra "no te muevas". Me dijo "tranqui". Y no se movió. Respeto.')
             'Kevin'                = @('¡No te muevas, lobo! ...me dijo "no toques mi pizza". Tablas.', 'Kevin tiene un cuchillo y una pistola. Yo tengo seis balas. Duelo pendiente.')
             'Kennyoung'            = @('¡No te muevas, músico! ...me ha dicho que está en pleno concierto. Lo dejo pasar.', 'Kenny toca demasiado rápido. Mis balas no le pillan el ritmo.')
+            'Enfosi'               = @('En Enfosi no se dispara a todo lo que se mueve. No lo entiendo. No me gusta.', 'Le disparé a un Giggler. Era inocente. Vino un ojo gigante. Me fui.')
         }
         Frases = @(
             '¡BANG!'
@@ -961,6 +1008,7 @@ $Skins = [ordered]@{
             'Tetra'                = 'Tetra se ha ido, cielo. Me dejó en visto. Qué descaro tan... tentador.'
             'Kevin'                = 'Kevin se ha ido, cielo. Qué pena... olía a pizza y a peligro.'
             'Kennyoung'            = 'Kenny se ha ido, cielo. Qué pena... tocaba tan bien.'
+            'Enfosi'               = 'Los Glaggles se han ido, cariño. Tan sonrientes... tan apetecibles.'
         }
         Yo = @('Esa soy yo, cielo. ¿Verdad que soy preciosa?', 'Elígeme a mí, cariño. Te trataré muy bien.')
         Opina = @{
@@ -982,6 +1030,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('Tetra tiene pendientes de pez, cariño. Me abren el apetito.', 'Tetra no contesta mis mensajes. Me gusta la gente difícil.')
             'Kevin'                = @('Kevin, cariño, es tan tierno cuando se enfada... casi me lo como.', 'Le toqué la pizza a Kevin. Sacó una motosierra. Me encanta este chico.')
             'Kennyoung'            = @('Kenny, cariño, me encantaría que me dedicara una canción. Y luego invitarle a cenar.', 'Kenny siempre tiene ensayo cuando lo invito a cenar. Qué casualidad, cielo.')
+            'Enfosi'               = @('Los Enphosians se disfrazan para acercarse. Qué técnica tan elegante, cielo.', 'Atrapé a un Cheerer en mi telaraña. Era falso. Explotó. Ahora no tengo telaraña.')
         }
         Frases = @(
             'Listo, cielo. Tómate tu tiempo... yo esperaré.'
@@ -1062,6 +1111,7 @@ $Skins = [ordered]@{
             'Tetra'                = 'GATO SOFÁ IRSE. DEJAR FIDEOS. DUNE COMER.'
             'Kevin'                = 'LOBO VERDE IRSE. PIZZA IRSE. DUNE TRISTE.'
             'Kennyoung'            = 'HOMBRE GUITARRA IRSE. DUNE ECHAR DE MENOS RUIDO.'
+            'Enfosi'               = 'CARITAS AMARILLAS IRSE. DUNE TRISTE.'
         }
         Yo = @('DUNE. ESE DUNE. DUNE GUAPO.', 'DUNE ELEGIR DUNE.')
         Opina = @{
@@ -1083,6 +1133,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('TETRA TENER PECES EN OREJAS. DUNE QUERER.', 'TETRA LLAMARSE COMO PEZ. TETRA NO SER PEZ. DUNE CONFUSO.')
             'Kevin'                = @('DUNE TOCAR PIZZA. LOBO GRITAR. DUNE NO ENTENDER.', 'KEVIN COMER PIZZA. ¿DUNE COMER KEVIN? NO. KEVIN MORDER.')
             'Kennyoung'            = @('DUNE GUSTAR GUITARRA. DUNE COMER GUITARRA. KENNY TRISTE.', 'KENNY HACER BUM BUM CON GUITARRA. DUNE BAILAR. DUNE CAER.')
+            'Enfosi'               = @('DUNE QUERER GLOOBNUT. GLOOBER NO DAR. DUNE ENFADADO.', 'ESTATUA DE ORO. DUNE MORDER. DIENTE ROTO.')
         }
         Frases = @('ÑAM.', 'GRRGH. HECHO.', 'DUNE ABRIR. DUNE LISTO.', 'BOTÓN... APRETAR... BIEN.')
         Idle = @(
@@ -1166,6 +1217,7 @@ $Skins = [ordered]@{
             'Tetra'                = 'Cabra: Se fue Tetra. No ha dicho ni adiós. Me cae bien.'
             'Kevin'                = 'Cabra: Se fue el lobo verde. Nos dejó la caja de la pizza. Vacía. Como ofrenda, regular.'
             'Kennyoung'            = 'Cabra: Se fue el de la guitarra. Me ofreció entrar en su banda. Me lo pienso.'
+            'Enfosi'               = 'Cabra: Se fueron los Glaggles. Bailaban delante de la estatua como en un ritual.'
         }
         Yo = @('Cabra: Sí, somos nosotros. Elección divina.', 'Cordero: *Asiente con solemnidad.* *Beee.*')
         Opina = @{
@@ -1187,6 +1239,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('Cabra: Tetra me tiene silenciada. Grité más fuerte. Seguía silenciada.', 'Cordero: *Se sienta en el sofá con Tetra. Ninguno habla. Paz total.*')
             'Kevin'                = @('Cabra: Kevin defiende su pizza como yo defiendo al Cordero. Lo respeto.', 'Cordero: *Toca la pizza de Kevin.* · Cabra: ¡CORRE, CORDERO!')
             'Kennyoung'            = @('Cabra: Kenny tiene un culto. Lo llama "suscriptores". Lo respeto.', 'Cordero: *Mueve la cabeza al ritmo del pop-punk.* · Cabra: El Cordero quiere ser bajista.')
+            'Enfosi'               = @('Cabra: Una estatua de oro a la que todos van a adorar. Eso me suena de algo.', 'Cordero: *Mira con mucha atención la camiseta de un Gazo.* · Cabra: Es falso. Te lo digo yo.')
         }
         Frases = @(
             'Cabra: Hecho. Que no se diga que no hacemos milagros.'
@@ -1287,6 +1340,7 @@ $Skins = [ordered]@{
             'Tetra'                = 'WMEW 99.9: El oyente Tetra ha dejado la ciudad. Pidió una canción de 2020 antes de irse.'
             'Kevin'                = 'WMEW 99.9: El lobo verde ha abandonado la ciudad. Se busca a quien tocó su pizza.'
             'Kennyoung'            = 'WMEW 99.9: El músico Kennyoung ha abandonado la ciudad. Su guitarra no ha sobrevivido.'
+            'Enfosi'               = 'WMEW 99.9: La estatua dorada ha sido evacuada. Los Glaggles han vuelto a casa.'
         }
         Yo = @('Pyrophina: ¡GRRRRRAAAARRRGH! (le gusta)', 'Zaratana: ¡GRRRR, GRRRRR! (a ella también)')
         Opina = @{
@@ -1308,6 +1362,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('WMEW 99.9: Tetra vio la pelea de kaijus desde el sofá. Comiendo fideos.', 'Pyrophina: ¡AAARGH! *Calienta los fideos de Tetra con fuego. Tetra da las gracias.*')
             'Kevin'                = @('WMEW 99.9: Pyrophina le calentó la pizza a Kevin. Primera vez que una kaiju hace algo útil.', 'Zaratana: Grrrr, burp. · WMEW 99.9: Zaratana se ha comido la pizza de Kevin. Se esperan represalias.')
             'Kennyoung'            = @('WMEW 99.9: Concierto de Kennyoung en la calle principal. Pyrophina ha encendido los fuegos artificiales. Y el escenario.', 'Zaratana: *Se mete en el caparazón al oír la guitarra.* · WMEW 99.9: Demasiado volumen para una tortuga.')
+            'Enfosi'               = @('WMEW 99.9: Se han visto Glaggles sospechosos sin cara por la ciudad. No se acerquen.', 'Pyrophina: ¡AAARGH! *Pisa la estatua. Strike para Pyrophina.*')
         }
         Frases = @(
             'WMEW 99.9: ¡Lo han abierto a pisotones!'
@@ -1388,6 +1443,7 @@ $Skins = [ordered]@{
             'Tetra'                = '¡Tetra se ha ido! Le mandé cuarenta stickers. Me contestó uno. ¡UNO!'
             'Kevin'                = '¡Kevin se ha ido! ¡Le di un abrazo y no le toqué la pizza! ¡Récord!'
             'Kennyoung'            = '¡Kenny se ha ido! ¡Le dije que su música es ruidosa! ...¡quería decir guay!'
+            'Enfosi'               = '¡Los Glaggles se han ido! ¡Eran todos tan sonrientes! Bueno, casi todos.'
         }
         Yo = @('¡Esa soy yo! ¿Se me ve bien la cola? No contestes.', '¡Elígeme! Prometo no tropezar con los iconos.')
         Opina = @{
@@ -1409,6 +1465,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('Tetra tiene muchísima calma. ¡Me encanta! Yo no tengo nada de calma.', 'Le cambié medio sándwich a Tetra por medio vaso de fideos. ¡Trato justo!')
             'Kevin'                = @('¡Kevin es muy mono cuando canta! Y da mucho miedo cuando le tocas la pizza.', 'Le dije a Kevin que su pizza "parecía vieja". ¡Quería decir clásica! Me enseñó el cuchillo.')
             'Kennyoung'            = @('¡Kenny toca la guitarra genial! Yo lo intenté y me di con el mástil en la cara.', '¡Le llevé un sándwich a Kenny al ensayo! ...me lo comí yo por el camino. ¡Perdón, Kenny!')
+            'Enfosi'               = @('¡Le di un abrazo a un Glaggle y era un Enphosian! Se rió muy raro.', 'Los Glaggles bailan y luego explotan. ¡Eso no está bien! ...¿o es su forma de ser feliz?')
         }
         Frases = @(
             '¡Abierto! ...¿era ese el que querías? Sí, ¿verdad? Vale.'
@@ -1436,7 +1493,7 @@ $Skins = [ordered]@{
             'A veces digo cosas que suenan fatal. Pero siempre lo digo con cariño.'
             '*Se acurruca en la esquina de la ventana. Ronca un poquito.*'
         )
-        Clic = @('¡Eh! Me has hecho cosquillas en la oreja.', '¡Hola! Sí, sigo aquí. Siempre.', '*Mueve la cola tan fuerte que se cae.*', '¡Te quiero! ...¡como amiga! ¡Como asistente amiga!')
+        Clic = @('¡Eh! Me has hecho cosquillas en la oreja.', '¡Hola! Sí, sigo aquí. Siempre.', '*Mueve la cola tan contenta que tira el vaso de la mesa.* ¡Ups! ¡Lo recojo!', '¡Te quiero! ...¡como amiga! ¡Como asistente amiga!')
         Comer = @('¡Sándwich de pollo! ¡Gracias, gracias, gracias!', '*ÑAM.* ...¡Está buenísimo! Te debo una. O tres.', '¡Mi comida favorita! Eres la mejor persona del escritorio.')
         PorApp = @{
             'YouTube'       = @('¡Pon vídeos de zorros! O de sándwiches. O de zorros comiendo sándwiches.')
@@ -1530,6 +1587,7 @@ $Skins = [ordered]@{
             'Tetra'                = 'Tetra se ha ido. Me compró una linterna para leer mensajes viejos de noche.'
             'Kevin'                = 'El lobo verde se ha ido. No compró nada. Solo preguntó por pizza. Siete veces.'
             'Kennyoung'            = 'El de la guitarra se ha ido. Quería cuerdas. No vendo cuerdas, amigo.'
+            'Enfosi'               = 'Se acabaron las oleadas. Los Glaggles compran en su tienda con monedas. Competencia.'
         }
         Yo = @('Ese soy yo. Tu único amigo.', '¡Elígeme! Tengo buenos precios. Más o menos.')
         Opina = @{
@@ -1551,6 +1609,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('Tetra no habla mucho. Mi cliente favorito, amigo.', 'Tetra preguntó si vendo fideos. Desde entonces, vendo fideos.')
             'Kevin'                = @('Kevin quería pizza. No vendo pizza, amigo. Me miró como si fuera un crimen.', 'Kevin tocó mi mostrador con los dedos llenos de queso. Se lo cobro.')
             'Kennyoung'            = @('Kenny busca cuerdas de guitarra. Aquí abajo no hay. Le vendí una linterna para el escenario.', 'Kenny hace mucho ruido con la guitarra. Atrae entidades. Mal negocio para mí.')
+            'Enfosi'               = @('Enfosi tiene tienda entre oleadas. Gembo Balls, Gloobnuts... Yo vendo cosas más útiles, amigo.', 'Los Enphosians sonríen con muchos dientes. Me caen bien.')
         }
         Frases = @(
             'Hecho. Toma, investigación por las molestias.'
@@ -1564,7 +1623,7 @@ $Skins = [ordered]@{
             'No podéis tenerme aquí abajo para siempre...'
             'Nunca hay un momento aburrido aquí abajo. (Literalmente)'
             'Al menos aquí conmigo estás a salvo. *Risita* Es broma. No lo estás.'
-            '¡Hoppy Hopscotch es mi mejor amigo para siempre!'
+            'Aquí abajo no tengo amigos. Bueno, te tengo a ti, amigo. Mientras sigas comprando.'
             'Aviso al personal de limpieza: los operativos que mandasteis a por mí están en todos los cajones de detrás.'
             'Haz clic en mí para entrar en la tienda, amigo.'
             'Cada programa que abres me trae investigación. Y la investigación se gasta aquí.'
@@ -1632,6 +1691,7 @@ $Skins = [ordered]@{
             'Tetra'                = 'El del sofá se ha ido. Ni corrió. Ni me miró.'
             'Kevin'                = 'El lobo verde se fue. Olía a pizza. No a carne fresca.'
             'Kennyoung'            = 'El de la guitarra se fue. Hacía ruido. Fácil de encontrar.'
+            'Enfosi'               = 'Se fueron las caritas. Ninguna corría. Qué aburrido.'
         }
         Yo = @('...yo.', '*Te mira fijamente sin parpadear.*')
         Opina = @{
@@ -1653,6 +1713,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('Tetra no huye. Se pone los cascos. Me desconcierta.', 'Le dije "carne fresca". Me dejó en visto.')
             'Kevin'                = @('Kevin muerde. Yo muerdo. Él defiende pizza. Yo cazo. Respeto.', 'Le dije "carne fresca". Me dijo "pizza fresca". No lo entendí.')
             'Kennyoung'            = @('Kenny toca la guitarra. Yo toco la armónica. Podríamos tocar juntos. Antes de cazarle.', 'Fui a un concierto de Kenny. Dije "carne fresca". Se acabó el concierto.')
+            'Enfosi'               = @('El Ojo de Enphoso persigue a los que fallan. Respeto.', 'Las sonrisas de los Enphosians tienen dientes. Como la mía.')
         }
         Frases = @('*Desgarra la ventana.* Abierta.', 'Otra presa.', '*Zarpazo.* Hecho.', '¡AHH, CARNE FRESCA!')
         Idle = @(
@@ -1700,7 +1761,7 @@ $Skins = [ordered]@{
         Fotos = @('skins\teto\foto1.jpg', 'skins\teto\foto3.jpg', 'skins\teto\foto2.jpg')
         # dibujo de Teto en la pose de BIRDBRAIN: fanart de BugMangaka (DeviantArt); se balancea al ritmo
         Actores = @(
-            @{ Id = 'T'; Gif = 'skins\teto\teto.png'; Rect = @(566, 30, 150, 266); Baila = $true }
+            @{ Id = 'T'; Gif = 'skins\teto\teto.png'; Rect = @(578, 64, 130, 230); Baila = $true }
         )
         # voz: el banco de voz oficial de Teto (UTAU, de Twindrill)
         # voz: frases cortas hechas con el banco de voz inglés oficial de Teto (más agudo y suave, al estilo de Jamie Paige)
@@ -1755,6 +1816,7 @@ $Skins = [ordered]@{
             'Tetra'                = '¡Tetra se ha ido! Me dijo "hey". ¡Eso es casi un abrazo!'
             'Kevin'                = '¡Kevin se ha ido! ¡Me enseñó su canción! ...¿cómo era? ¡Algo de pizza!'
             'Kennyoung'            = '¡Kenny se ha ido! ¡Hicimos un cover juntos! ...¿cuál era? ¡Da igual, sonó genial!'
+            'Enfosi'               = '¡Los Glaggles se han ido! ¡Bailaban como yo delante de la estatua!'
         }
         Yo = @('¡Esa soy yo! ¡Hiii~!', '¡Elígeme! Bailo, canto y me olvido de todo. ¡Es un pack!')
         Opina = @{
@@ -1776,6 +1838,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('Tetra es de internet como yo. ¡Le mandé un "hiii"! Me lo dejó en visto. ¡Qué guay!', '¡Tetra tiene peces en las orejas! Yo tengo pájaros en la cabeza. ¡Somos un acuario-pajarera!')
             'Kevin'                = @('¡Kevin tiene pizza y yo baguette! ¡Abriremos un restaurante! ...si me deja tocar la pizza. No me deja.', '¡Kevin también es de internet! ¡Su canción y la mía en la misma playlist!')
             'Kennyoung'            = @('¡Kenny es de Corea! ¡Me enseñó a decir "annyeong"! ¡Annyeong! ...¿lo he dicho bien?', '¡Kenny y yo vamos a sacar una canción! Él la escribe y yo me olvido de la letra. ¡Equipo!')
+            'Enfosi'               = @('¡Los Glaggles son como yo! Sonríen y se olvidan de todo. Excepto de la estatua.', '¡Le di un Gloobnut a un Gloober! ¡Era falso! ¡Se lo comió igual!')
         }
         Frases = @(
             '¡Abierto! ...creo. ¡Sí, abierto!'
@@ -1821,18 +1884,19 @@ $Skins = [ordered]@{
         Estilo = 'femta'; Titulo = 'TOKEN'; Sub = 'femtanyl  ·  ch4s3r'; Alto = 320
         Fondo = (C 8 4 6); Borde = (C 230 20 40); Acento = (C 255 255 255)
         TituloColor = (C 255 255 255); SubColor = (C 255 60 70)
-        BtnFondo = (C 14 8 10); BtnTexto = (C 255 255 255); BtnTextoHover = (C 255 255 255); BtnBorde = (C 230 20 40); BtnBordeAncho = 2
-        BtnHover = (C 230 20 40); BtnPress = (C 255 255 255); BarraBtnTexto = (C 255 255 255)
-        StatusColor = (C 255 255 255); Fuente = 'Consolas'; FuenteTitulo = 'Arial Black'; Opacidad = 1.0; Velocidad = 1
-        Ancho = 760; Mezclar = $true; Gif = 'skins\token\token.png'; Logo = 'skins\token\logo.png'
-        # dibujo de Token: fanart de kengop1 (DeviantArt); cabeza de la intro: TheDalmatianCatHybri
+        BtnFondo = (C 255 255 255); BtnTexto = (C 10 6 8); BtnTextoHover = (C 255 255 255); BtnBorde = (C 10 6 8); BtnBordeAncho = 2
+        BtnHover = (C 230 20 40); BtnPress = (C 255 255 255); BarraBtnTexto = (C 10 6 8)
+        StatusColor = (C 255 255 255); Fuente = 'Arial Black'; FuenteTitulo = 'Arial Black'; Opacidad = 1.0; Velocidad = 1
+        Ancho = 760; Mezclar = $true; Gif = 'skins\token\cd1.png'; Logo = 'skins\token\femtanyl_fuego.jpg'; FondoImg = 'skins\token\ciudad.jpg'
+        # arte oficial de femtanyl: portadas de su Bandcamp (dibujadas por Noelle Stockwood). Clic en la portada: la siguiente
         Actores = @(
-            @{ Id = 'K'; Gif = 'skins\token\token.png'; Rect = @(548, 60, 144, 212); Respira = $true }
+            @{ Id = 'K'; Gif = 'skins\token\cd1.png'; Rect = @(470, 60, 204, 204); Respira = $true
+               Extra = @{ cd2 = 'skins\token\cd2.png'; cd3 = 'skins\token\cd3.png'; cd4 = 'skins\token\cd4.png'; cd5 = 'skins\token\cd5.png'; cd6 = 'skins\token\cd6.png'; cd7 = 'skins\token\cd7.png'; cd8 = 'skins\token\cd8.png' } }
         )
         Sonidos = @{
             moneda = @('skins\token\moneda.wav'); golpe = @('skins\token\golpe.wav'); breakcore = @('skins\token\breakcore.wav'); glitch = @('skins\token\glitch.wav')
         }
-        Burbuja = @(424, 278, 322, 34); BurFondo = $null; InvFondo = (C 14 8 10); BurTexto = (C 255 255 255); BurFuente = 'Consolas'
+        Burbuja = @(424, 278, 322, 34); BurFondo = $null; InvFondo = (C 255 255 255); BurTexto = (C 10 6 8); BurFuente = 'Consolas'
         Hola = @(
             'T0K3N 1NS3RT3D. ¿Jugamos?'
             '*Entra rompiendo la pantalla. Se pone una tirita.* Hola.'
@@ -1858,6 +1922,7 @@ $Skins = [ordered]@{
             'Tetra'                = 'Tetra se ha ido. Estaba en No molestar. Le molesté igual.'
             'Kevin'                = 'Kevin se ha ido. Le hice un remix. DON''T TOUCH MY PIZZA a 200 BPM. Temazo.'
             'Kennyoung'            = 'Kenny se ha ido. El único que aguantaba mi volumen. Respeto.'
+            'Enfosi'               = 'Fin de las oleadas. La estatua sobrevive. Yo también. Como siempre.'
         }
         Yo = @('¡Esa ficha soy yo! Méteme en la máquina.', 'Elígeme. Prometo subir el volumen y no bajarlo nunca.')
         Opina = @{
@@ -1879,6 +1944,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('Tetra escucha pop de 2020. Yo le pongo breakcore. Somos muy distintos y me cae genial.', 'Tetra siempre está en No molestar. Yo siempre molesto. Equilibrio.')
             'Kevin'                = @('Kevin grita casi tan fuerte como mi bajo. Casi.', 'Toqué la pizza de Kevin. Sacó una motosierra. Lo convertí en un drop.')
             'Kennyoung'            = @('Kenny hace pop-punk. Yo breakcore. Le remezclé una canción a 200 BPM. Le encantó.', 'Kenny rompió una guitarra. Yo rompí un altavoz. Hicimos un concierto de cosas rotas.')
+            'Enfosi'               = @('Los Enphosians explotan en negro. Yo exploto en ruido. Somos primos.', 'Me confundieron con un Glaggle sin cara. Me pegaron con un bate. Ni lo noté.')
         }
         Frases = @(
             '¡T0K3N 1NS3RT3D! Abierto.'
@@ -1962,6 +2028,7 @@ $Skins = [ordered]@{
             'Token'                = 'Token se ha ido. Por fin silencio. ...vale, lo echo un poco de menos.'
             'Kevin'                = 'Kevin se ha ido. Me mandó una foto de su pizza. La dejé en visto. Ya.'
             'Kennyoung'            = 'Kenny se ha ido. Me escribió. Le contesto mañana. Bueno, un día de estos.'
+            'Enfosi'               = 'Se acabaron las oleadas. Me gustaba verlas desde el sofá.'
         }
         Yo = @('Ese botón soy yo. Elígeme. Sin prisa.', 'Elígeme y te pongo pop de 2020. Del bueno.')
         Opina = @{
@@ -1983,6 +2050,7 @@ $Skins = [ordered]@{
             'Token'                = @('Token pone la música altísima. Me pongo los cascos. Siguen sonando por encima.', 'Token me hizo un remix de mi canción. A 200 BPM. Ya no la reconozco. Me gusta.')
             'Kevin'                = @('Kevin es muy de 2010. Yo soy muy de 2020. Diez años de internet entre los dos.', 'Kevin no deja tocar su pizza. Yo no dejo tocar mis fideos. Nos entendemos.')
             'Kennyoung'            = @('Kenny es amigo de YonKaGor. Así que más o menos somos amigos. Más o menos.', 'Kenny me pasó una canción suya. People Online. ...me tocó un poco, la verdad.')
+            'Enfosi'               = @('Enfosi va de fijarse en los detalles. Yo me fijo en todo. Luego no digo nada.', 'Hay un Glaggle que juega con cohetes y patines. El Gleeber. Mi favorito.')
         }
         Frases = @(
             'Hecho. Te lo abro como quien abre un chat viejo.'
@@ -2071,6 +2139,7 @@ $Skins = [ordered]@{
             'Token'                = 'Token se ha ido. Me hizo un remix de mi canción. A 200 BPM. Un temazo, la verdad.'
             'Tetra'                = 'Tetra se ha ido. Le mandé una foto de mi pizza. Me dejó en visto. Grosero.'
             'Kennyoung'            = 'Se fue Kenny. Tocó la guitarra cerca de mi pizza. No la tocó a ella. Vive.'
+            'Enfosi'               = '¡Se han ido los Glaggles! ¡Ninguno ha tocado mi pizza! ¡BIEN!'
         }
         Yo = @('¡Ese soy yo! El lobo más guapo de todo Paint.', 'Elígeme. Pero trae pizza. Para ti no, para mí.')
         Opina = @{
@@ -2092,6 +2161,7 @@ $Skins = [ordered]@{
             'Token'                = @('Token y yo somos de internet. Él suena fuerte. Yo grito fuerte. Equipo.', 'Token me hizo un remix. "DON''T TOUCH MY PIZZA" a 200 BPM. Lo pongo en bucle.')
             'Tetra'                = @('Tetra come fideos instantáneos. Respeto, pero la pizza es mejor.', 'Tetra tiene el No molestar puesto. Yo tengo el No tocar mi pizza puesto. Siempre.')
             'Kennyoung'            = @('¡Kenny! ¡Hazme una canción pop-punk sobre mi pizza! ¡Que se llame NO LA TOQUES!', 'Kenny rompe guitarras. Yo rompo cosas cuando tocan mi pizza. Nos entendemos.')
+            'Enfosi'               = @('Los Glaggles defienden una estatua. Yo defiendo una pizza. MUCHO más importante.', '¡Un Gembo me tiró una bola explosiva a la pizza! ¡ERA UN ENPHOSIAN! ¡LO SABÍA!')
         }
         Frases = @(
             '¡Abierto! Y no he tocado nada. Bueno, un trozo de pizza. Era mío.'
@@ -2199,6 +2269,7 @@ $Skins = [ordered]@{
             'Token'                = 'Token se ha ido. Él hace breakcore, yo pop-punk. El volumen, igual de alto.'
             'Tetra'                = 'Se fue Tetra. Es de YonKaGor, como SeaDrive. Le escribí. Me dejó en visto. Típico de su casa.'
             'Kevin'                = 'Se fue Kevin. Le toqué la pizza sin querer. Me persiguió con una motosierra. Buen ritmo, eso sí.'
+            'Enfosi'               = 'Se acabaron las oleadas. Les hice una canción a los Glaggles. Explotaron. De alegría, creo.'
         }
         Yo = @('¡Ese soy yo! Bueno, mi personaje. Es más guapo que yo. Y toca mejor.', 'Elígeme. Prometo no romper ninguna guitarra. ...hoy.')
         Opina = @{
@@ -2220,6 +2291,7 @@ $Skins = [ordered]@{
             'Token'                = @('Token hace breakcore. Yo pop-punk. Los dos rompemos altavoces.', 'Token me remezcló una canción a 200 BPM. Ahora dura 40 segundos. Me gusta más.')
             'Tetra'                = @('Tetra es de YonKaGor. Como SeaDrive. Todos los de su casa contestan tarde.', 'Tetra escucha pop de 2020. Yo hacía pop-punk en 2020. Somos de la misma época.')
             'Kevin'                = @('Kevin tiene una canción sobre su pizza. Muy pop-punk, la verdad. Corta y gritona.', 'Le pedí a Kevin un trozo de pizza. No sé qué pasó después. Me desperté lejos.')
+            'Enfosi'               = @('El Giggler tiene una guitarra que aturde a los Enphosians. Necesito esa guitarra.', 'La música de las oleadas está muy bien. "Enphosed", de raleigh. Me la apunto.')
         }
         Frases = @(
             'Abierto. Como un primer acorde: fuerte y sin pensarlo mucho.'
@@ -2264,6 +2336,120 @@ $Skins = [ordered]@{
         Kaboom = @('*Toca tan fuerte que la guitarra EXPLOTA.* ...vale. Era la guitarra buena.', '¡KABOOM! *Queda solo el mástil.* Esto se llama "pop-punk de verdad".', '*La guitarra explota.* ¡TODO EL MUNDO ESTÁ BIEN! ...¿todo el mundo está bien?')
         Concierto = @('¡Esto ya es un concierto! *El público grita.* ¡GRACIAS! ¡SOIS LOS MEJORES! ...somos cuatro.', '¡ENCORE! ¡ENCORE! *Toca otra vez la misma canción. Nadie se queja.*', '*Sube al escenario con la banda.* ¡Uno, dos, tres, cuatro!')
     }
+    # ================================================================ Enfosi (Roblox, de Tumore)
+    # Datos sacados de las wikis del juego (enfosi.miraheze.org y enfosi-tumore.fandom.com)
+    'Enfosi' = @{
+        Estilo = 'enfosi'; Titulo = 'ENFOSI'; Sub = 'tumore  ·  roblox'; Alto = 320
+        Fondo = (C 30 34 48); Borde = (C 40 30 10); Acento = (C 255 214 60)
+        TituloColor = (C 40 30 10); SubColor = (C 90 60 10)
+        BtnFondo = (C 255 255 255); BtnTexto = (C 25 25 25); BtnTextoHover = (C 25 25 25); BtnBorde = (C 25 25 25); BtnBordeAncho = 2
+        BtnHover = (C 255 214 60); BtnPress = (C 255 170 20); BarraBtnTexto = (C 25 25 25)
+        StatusColor = (C 255 255 255); Fuente = 'Arial Rounded MT Bold'; FuenteTitulo = 'Arial Black'; Opacidad = 1.0; Velocidad = 1
+        Ancho = 760; Mezclar = $true; Gif = 'skins\enfosi\giggler_baila.gif'; Logo = 'skins\enfosi\logo.png'; FondoImg = 'skins\enfosi\fondo.jpg'
+        # la estatua (un Giggler gigante en un pedestal de oro) y el Glaggle que camina hacia ella
+        Actores = @(
+            @{ Id = 'E'; Gif = 'skins\enfosi\estatua.png'; Rect = @(402, 96, 128, 172) }
+            @{ Id = 'W'; Gif = 'skins\enfosi\giggler.png'; Rect = @(820, 148, 74, 120); Extra = $EnfosiPoses }
+        )
+        Sonidos = @{
+            golpe = @('skins\enfosi\golpe.wav'); buzzer = @('skins\enfosi\buzzer.wav'); revela = @('skins\enfosi\revela.wav'); ojo = @('skins\enfosi\ojo.wav')
+            ola = @('skins\enfosi\ola.wav'); confeti = @('skins\enfosi\confeti.wav'); estatua = @('skins\enfosi\estatua.wav'); moneda = @('skins\enfosi\moneda.wav')
+            ding = @('skins\enfosi\ding.wav'); alarma = @('skins\enfosi\alarma_jefe.mp3')
+        }
+        Burbuja = @(424, 278, 322, 34); BurFondo = $null; InvFondo = (C 255 255 255); BurTexto = (C 25 25 25); BurFuente = 'Arial Rounded MT Bold'
+        Hola = @(
+            '¡Defiende la estatua! Los Glaggles son buenos... casi todos.'
+            'Bienvenido a Enfosi. 7 oleadas, una estatua y algún Enphosian disfrazado.'
+            '¡Glaggles en camino! Fíjate en su color, en su cara y en el símbolo de su camiseta.'
+            'Regla número uno: no le pegues a un Glaggle inocente. Regla número dos: pégale al que no lo es.'
+        )
+        AlVenirDe = @{
+            'c00lgui'              = 'El panel rojo se ha ido. Parpadeaba mucho. Eso es una imperfección.'
+            'SeaDrive'             = 'Se fue SeaDrive. No sonreía nunca. En Enfosi eso es sospechoso.'
+            'Static Miku'          = 'La tele se ha apagado. Miku sonreía tanto que casi parecía una Glaggle.'
+            'Guillotina'           = 'La gata gigante se ha ido. Se comió tres Glaggles. Strike, strike y strike.'
+            'Angela'               = 'Angela se ha ido. Quería poner a los Enphosians en contención. Aquí se hace con un bate.'
+            'Mikaela'              = 'Se fue la francotiradora. Le dio a un Gazo inocente. Strike.'
+            'Zodiac'               = 'El vaquero se ha ido. Disparaba a todo lo que se movía. Aquí eso son tres strikes seguidos.'
+            'Velvet'               = 'La araña se ha ido. Su telaraña paraba a los Glaggles. A los buenos también.'
+            'Dune'                 = 'Dune se ha ido. Intentó comerse un Gloobnut. Era de un Gloober.'
+            'Cordero y Cabra'      = 'El culto se ha ido. La Cabra gritaba más que un Glaaber enfadado.'
+            'Pyrophina y Zaratana' = 'Las kaijus se han ido. Pisaron la estatua. Dos veces.'
+            'Averi'                = 'Averi se ha ido. Abrazaba a todos los Glaggles. También a los falsos.'
+            'Sebastian Solace'     = 'El tendero se ha ido. Quería vender en la tienda de Enfosi. Aquí se paga en Bintar.'
+            'Pursuer'              = 'El del bosque se ha ido. Sonreía con muchos dientes. Como un Gembo revelado.'
+            'Kasane Teto'          = 'Teto se ha ido. Bailaba como un Glaggle que llega a la estatua. Sin explotar, por suerte.'
+            'Token'                = 'Token se ha ido. Blanco, sin cara de Glaggle y haciendo ruido. Muy sospechoso.'
+            'Tetra'                = 'Tetra se ha ido. Estaba en No molestar. Los Enphosians también ignoran a la gente.'
+            'Kevin'                = 'Kevin se ha ido. Defendía su pizza como si fuera la estatua.'
+            'Kennyoung'            = 'Kennyoung se ha ido. Su guitarra explota igual que una Gembo Ball.'
+        }
+        Yo = @('¡Esa es Enfosi! Elígela y defiende la estatua.', 'Elige Enfosi. Siete oleadas, tres jefes y un Ojo que no quieres conocer.')
+        Opina = @{
+            'c00lgui'              = @('c00lgui parpadea en rojo. En Enfosi, un color raro es una imperfección. Golpéalo.', 'c00lgui no tiene cara. Le falta la cara. Eso es de manual: es un falso.')
+            'SeaDrive'             = @('SeaDrive no sonríe. Ningún Glaggle de verdad deja de sonreír.', 'SeaDrive lleva auriculares, como un Gembo. Pero los Gembos sonríen.')
+            'Static Miku'          = @('Miku sonríe todo el rato. Pasaría por Glaggle. Si no fuera una tele.', 'Una tele con estática. En Enfosi eso sería una imperfección muy rara.')
+            'Guillotina'           = @('Guillotina se come lo que llega a su lado. Si fuera la estatua, no habría que defenderla.', 'Una gata gigante que se come a los Glaggles. Eso son muchos strikes.')
+            'Angela'               = @('Angela vigila una instalación. Nosotros, una estatua. Más o menos lo mismo.', 'Angela sabría distinguir un Enphosian. Lo apuntaría en un informe.')
+            'Mikaela'              = @('Mikaela tiene buena puntería. En Enfosi, la puntería no sirve si disparas a un inocente.', 'Un francotirador en Enfosi sería útil. Si mira antes la camiseta.')
+            'Zodiac'               = @('Zodiac dispara a todo lo que se mueve. En Enfosi eso son tres strikes y el Ojo de Enphoso.', 'Zodiac tiene seis balas. Un Gazo revelado tiene una pistola que no se acaba.')
+            'Velvet'               = @('Velvet espera a que se acerquen. Como los Enphosians disfrazados.', 'Una araña con ocho patas. Ningún Glaggle tiene ocho patas. Sospechoso.')
+            'Dune'                 = @('Dune se come cualquier cosa. Por favor, que no se coma la estatua.', 'Dune habla en mayúsculas. Como los carteles de las oleadas.')
+            'Cordero y Cabra'      = @('El Cordero tiene una corona. La estatua también. Respeto.', 'La Cabra grita. El Glaaber revelado también grita antes de golpear el suelo.')
+            'Pyrophina y Zaratana' = @('Dos kaijus. En Enfosi serían dos jefes. Y una estatua aplastada.', 'Pyrophina echa fuego. El Gemblade también... bueno, explota.')
+            'Averi'                = @('Averi abraza a todo el mundo. En Enfosi tendría muchos strikes. Pero muy cariñosos.', 'Averi regala sándwiches. Los Cheerers regalan cajas. Algunas explotan.')
+            'Sebastian Solace'     = @('Sebastian tiene tienda. En Enfosi también hay tienda entre oleadas. Se paga en monedas.', 'Sebastian sonríe con muchos dientes. Igual que un Enphosian revelado.')
+            'Pursuer'              = @('Pursuer persigue a la gente. El Ojo de Enphoso también. Y a ese no se le puede hacer daño.', 'Pursuer se hace invisible. El Ojo de Enphoso tampoco lo ve nadie más que tú.')
+            'Kasane Teto'          = @('Teto se pasa el día bailando. Los Glaggles bailan al llegar a la estatua. Y luego explotan.', 'Teto tiene taladros en el pelo. El Glaaber tiene cuernos en el casco.')
+            'Token'                = @('Token es blanco y no tiene símbolo en la camiseta. En Enfosi eso es un falso seguro.', 'Token hace ruido. Los Gleebers revelados hacen todavía más.')
+            'Tetra'                = @('Tetra lleva gorra. El Gazo también. Pero el Gazo es azul.', 'Tetra no contesta mensajes. Los Enphosians tampoco hablan. Solo se ríen.')
+            'Kevin'                = @('Kevin defiende su pizza. Nosotros defendemos una estatua. Mismo esfuerzo.', 'No toques la pizza de Kevin. No le pegues a un Glaggle inocente. Reglas parecidas.')
+            'Kennyoung'            = @('Kennyoung toca la guitarra. El Giggler también tiene una: la Giggle Guitar aturde a los Enphosians.', 'La guitarra de Kennyoung explota. La Gembo Ball también. Por algún motivo.')
+        }
+        Frases = @(
+            '¡Abierto! Un Glaggle viene de camino. ¿Será de verdad?'
+            'Hecho. Otro Glaggle se acerca a la estatua.'
+            '¡Listo! Fíjate bien en el que viene ahora.'
+            'Abierto. Vigila su camiseta: ¿lleva el símbolo bien puesto?'
+        )
+        Idle = @(
+            'Los Glaggles inocentes bailan al llegar a la estatua... y luego explotan. De alegría.'
+            'Con tres strikes viene el Ojo de Enphoso. No se le puede hacer daño. Solo huir.'
+            'Cada oleada trae un Glaggle nuevo: Giggler, Gazo, Gloober, Gembo, Cheerer, Gleeber y Glaaber.'
+            'Después de las oleadas 2, 4 y 6 llegan los jefes: Gergro, Borgack y Risio.'
+            'Un falso tiene siempre un fallo: piel de otro color, símbolo raro, sin símbolo o sin cara.'
+            'La moneda de Enfosi se llama Bintar.'
+            'Enfosi es un juego de Roblox de Tumore. La demo salió el 4 de julio de 2025.'
+            'Mapas: Blibble''s Field, Fugorg Factory, Alcázar of Glagovia, Winter Sobberland y más.'
+            'Rangos de cada oleada: Glaggle, Awesome, Basic, Could do better, Doing bad y Enphosed.'
+            'Los Cheerers falsos corren a la estatua y explotan. 500 de daño de golpe.'
+            'El Glaaber es el más grande, el más lento y el que más aguanta.'
+            'Truco de la wiki: la Surprise Tripmine detecta a los Enphosians aunque vayan disfrazados.'
+            'Si el Ojo de Enphoso te pilla, te conviertes en Sobber hasta que acaba la oleada.'
+            'Los Gleebers son los más rápidos. Llegan a la estatua en un suspiro.'
+            'La actualización Smile More salió el 2 de octubre de 2026. Trajo la dificultad Maniac.'
+        )
+        Clic = @('La estatua: un Giggler gigante en un pedestal de oro, con el brazo en alto.', 'Haz clic en el Glaggle que viene. ¡Pero solo si es falso!', 'La estatua aguanta 5000 de vida. 7500 desde la oleada 4 y 10000 en la 7.')
+        PorApp = @{
+            'YouTube'       = @('YouTube abierto. Busca la música de Enfosi: "Enphosed", de raleigh.')
+            'Word'          = @('Word abierto. Escribe la lista: Giggler, Gazo, Gloober, Gembo, Cheerer, Gleeber, Glaaber.')
+            'Excel'         = @('Excel abierto. Apunta los strikes. Que sean pocos.')
+            'PowerPoint'    = @('PowerPoint abierto. Diapositiva 1: "Conoce a tus Glaggles".')
+            'Outlook'       = @('Correo abierto. Asunto: "Hay un Gazo sin cara en la puerta".')
+            'OneNote'       = @('Apunta: piel rara, símbolo falso, sin símbolo, sin cara.')
+            'Access'        = @('Base de datos abierta. Ideal para guardar todas las oleadas.')
+            'Publisher'     = @('Haz un cartel: "GIGGLERS ARE COMING!".')
+            'Teams'         = @('Reunión abierta. Que nadie le pegue a un Glaggle inocente.')
+            'OneDrive'      = @('OneDrive abierto. Guarda ahí las capturas del rango Glaggle.')
+            'Office Web'    = @('Office en la web abierto. Como Enfosi: en la nube de Roblox.')
+            'Bloc de notas' = @('Bloc de notas. Apunta quién era falso. Por si acaso.')
+            'Calculadora'   = @('Calculadora: 3 strikes por 100 puntos menos... mejor no hagas la cuenta.')
+            'Explorador'    = @('Explorador abierto. Como explorar Blibble''s Field.')
+            'CMD'           = @('Consola abierta. Escribe: proteger estatua.')
+            'GitHub'        = @('GitHub abierto. Ahí no hay Enphosians. Que se sepa.')
+            'Wikipedia'     = @('Wikipedia abierta. Para Enfosi, mejor su propia wiki: enfosi.miraheze.org.')
+        }
+    }
 }
 
 # ================= GRUPOS DEL MENÚ SKINS =================
@@ -2286,6 +2472,7 @@ $GruposSkins = [ordered]@{
         'Mikaela'          = 'PURSUITCORE'
         'Sebastian Solace' = 'Pressure'
         'Pursuer'          = 'Die of Death'
+        'Enfosi'           = 'Tumore'
     }
     'Videojuegos' = [ordered]@{
         'Guillotina'           = 'Mewgenics'
@@ -2751,32 +2938,28 @@ function Fondo-Escena($k, $W, $H) {
             $logo = Cargar-Img $k.TituloImg; if ($logo) { $g.DrawImage($logo, 8, 3, 141, 47); $logo.Dispose() }
         }
         'femta' {
-            # femtanyl: negro, rojo y blanco, estática y una pantalla de recreativa
-            $g.Clear((C 8 4 6))
-            $rn = New-Object System.Random 13
-            for ($i = 0; $i -lt 40; $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB $rn.Next(20, 70) 200 20 30))), 0, $rn.Next(52, [int]$H), $W, $rn.Next(1, 4)) }
-            for ($i = 0; $i -lt 900; $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB $rn.Next(20, 90) 255 255 255))), $rn.Next(0, [int]$W), $rn.Next(52, [int]$H), 1, 1) }
-            $st = $g.Save(); $g.TranslateTransform(30, 300); $g.RotateTransform(-6)
-            Texto-Color $g 'femtanyl' 'Arial Black' 96 0 (-110) (ARGB 26 255 30 40) (ARGB 0 0 0 0) 1
-            $g.Restore($st)
-            # pantalla de la recreativa con rayos rojos detrás de Token
-            $g.SetClip((New-Object System.Drawing.RectangleF(412, 62, [float]($W - 422), 210)))
-            $cx = 620; $cy = 150; $br = New-Object System.Drawing.SolidBrush((ARGB 55 230 20 40))
-            for ($i = 0; $i -lt 16; $i++) {
-                $a1 = [Math]::PI / 180 * ($i * 22.5 - 5); $a2 = [Math]::PI / 180 * ($i * 22.5 + 5)
-                $g.FillPolygon($br, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$cx, [float]$cy)), (New-Object System.Drawing.PointF([float]($cx + 500 * [Math]::Cos($a1)), [float]($cy + 500 * [Math]::Sin($a1)))), (New-Object System.Drawing.PointF([float]($cx + 500 * [Math]::Cos($a2)), [float]($cy + 500 * [Math]::Sin($a2))))))
-            }
-            $br.Dispose()
-            $gp = New-Object System.Drawing.Drawing2D.GraphicsPath; $gp.AddEllipse(($cx - 120), ($cy - 120), 240, 240)
-            $pg = New-Object System.Drawing.Drawing2D.PathGradientBrush($gp); $pg.CenterColor = (ARGB 120 230 20 40); $pg.SurroundColors = [System.Drawing.Color[]]@((ARGB 0 230 20 40))
-            $g.FillPath($pg, $gp); $pg.Dispose(); $gp.Dispose()
-            $g.ResetClip()
-            $g.DrawRectangle((New-Object System.Drawing.Pen((C 230 20 40), 3)), 412, 62, ($W - 422), 210)
-            $g.DrawRectangle((New-Object System.Drawing.Pen((ARGB 90 255 255 255), 1)), 416, 66, ($W - 430), 202)
-            $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 120 230 20 40))), 556, 262, 130, 12)
-            # barra de arriba negra con línea roja
+            # la ciudad roja de la portada de "ALL THE TIME" (femtanyl), con puntos de imprenta
+            $g.Clear((C 12 6 8))
+            Imagen-Cubrir $g $k.FondoImg 0 52 $W ($H - 52) 0.5 0.5
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 110 40 0 8))), 0, 52, $W, ($H - 52))
+            $pt = New-Object System.Drawing.SolidBrush((ARGB 46 0 0 0))
+            for ($y = 56; $y -lt $H; $y += 6) { for ($x = (($y / 6) % 2) * 3; $x -lt $W; $x += 6) { $g.FillEllipse($pt, [float]$x, [float]$y, 2.4, 2.4) } }
+            $pt.Dispose()
+            # panel negro detrás de los botones, con borde blanco como una pegatina
+            $pan = Ruta-Redonda 8 60 394 ($H - 66) 6
+            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 225 10 6 8))), $pan); $g.DrawPath((New-Object System.Drawing.Pen([System.Drawing.Color]::White, 2)), $pan); $pan.Dispose()
+            # un vinilo asomando detrás de la portada
+            $vx = 668; $vy = 160; $vr = 94
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 14 12 14))), ($vx - $vr), ($vy - $vr), (2 * $vr), (2 * $vr))
+            $sur = New-Object System.Drawing.Pen((ARGB 50 255 255 255), 0.8)
+            for ($rr = 32; $rr -lt $vr - 4; $rr += 6) { $g.DrawEllipse($sur, ($vx - $rr), ($vy - $rr), (2 * $rr), (2 * $rr)) }
+            $sur.Dispose()
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 230 20 40))), ($vx - 26), ($vy - 26), 52, 52)
+            $g.FillEllipse([System.Drawing.Brushes]::White, ($vx - 3), ($vy - 3), 6, 6)
+            # barra de arriba negra con línea roja y el logo en llamas (portada de MAN BITES DOG)
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 0 0 0))), 0, 0, $W, 52)
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 230 20 40))), 0, 49, $W, 3)
+            $lg = Cargar-Img $k.Logo; if ($lg) { $g.DrawImage($lg, 300, 2, 78, 46); $lg.Dispose() }
         }
         'punk' {
             # atardecer en el skatepark, como sus dibujos (fondo difuminado)
@@ -2861,6 +3044,21 @@ function Fondo-Escena($k, $W, $H) {
             # el logo "Failure" de su gorra
             $lg = Cargar-Img $k.Logo; if ($lg) { $g.DrawImage($lg, 420, 200, 70, 54); $lg.Dispose() }
             $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 90 20 0 40))), 578, 266, 122, 12)
+        }
+        'enfosi' {
+            # un mapa del juego (Blibble's Field) de fondo, con la interfaz de Roblox
+            $g.Clear((C 120 170 230))
+            Imagen-Cubrir $g $k.FondoImg 0 0 $W $H 0.5 0.62
+            # panel oscuro translúcido detrás de los botones
+            $pan = Ruta-Redonda 8 60 394 ($H - 66) 10
+            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 150 15 18 30))), $pan)
+            $g.DrawPath((New-Object System.Drawing.Pen((ARGB 200 255 255 255), 2)), $pan); $pan.Dispose()
+            # barra de arriba amarilla, como el Giggler, y el logo de los Glaggles
+            Degradado $g 0 0 $W 52 (C 255 222 80) (C 250 176 30) 90
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 40 30 10))), 0, 49, $W, 3)
+            $lg = Cargar-Img $k.Logo; if ($lg) { $g.DrawImage($lg, 262, 8, 118, [float]($lg.Height * 118 / $lg.Width)); $lg.Dispose() }
+            # sombra de la estatua en el suelo
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 90 0 0 0))), 412, 258, 112, 14)
         }
         'teto' {
             # el rosa del videoclip de BIRDBRAIN, con fotos del vídeo pegadas como en un álbum
@@ -2987,11 +3185,10 @@ function Pintar-Burbuja($g, $k) {
             $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 0 160 110))), [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]($x + $w * 0.62), [float]($y + 1))), (New-Object System.Drawing.PointF([float]($x + $w * 0.68), [float]($y - 12))), (New-Object System.Drawing.PointF([float]($x + $w * 0.72), [float]($y + 1)))))
         }
         'femta' {
-            # caja negra con borde rojo y esquinas cortadas
-            $pts = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]($x + 8), [float]$y)), (New-Object System.Drawing.PointF([float]($x + $w), [float]$y)), (New-Object System.Drawing.PointF([float]($x + $w), [float]($y + $h - 8))), (New-Object System.Drawing.PointF([float]($x + $w - 8), [float]($y + $h))), (New-Object System.Drawing.PointF([float]$x, [float]($y + $h))), (New-Object System.Drawing.PointF([float]$x, [float]($y + 8))))
-            $g.FillPolygon((New-Object System.Drawing.SolidBrush((ARGB 235 10 4 6))), $pts)
-            $g.DrawPolygon((New-Object System.Drawing.Pen((C 230 20 40), 2)), $pts)
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 230 20 40))), [float]($x + $w - 40), [float]($y - 3), 30, 4)
+            # pegatina blanca con contorno negro y sombra roja, como las portadas de femtanyl
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 230 20 40))), [float]($x + 4), [float]($y + 4), [float]$w, [float]$h)
+            $g.FillRectangle([System.Drawing.Brushes]::White, [float]$x, [float]$y, [float]$w, [float]$h)
+            $g.DrawRectangle((New-Object System.Drawing.Pen([System.Drawing.Color]::Black, 2)), [float]$x, [float]$y, [float]$w, [float]$h)
         }
         'punk' {
             # bocadillo crema con borde marrón y sombra verde, como una pegatina
@@ -3018,6 +3215,14 @@ function Pintar-Burbuja($g, $k) {
             $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 215 34 14 64))), $r)
             $g.DrawPath((New-Object System.Drawing.Pen((ARGB 90 255 92 190), 5)), $r)
             $g.DrawPath((New-Object System.Drawing.Pen((C 90 230 250), 1.6)), $r); $r.Dispose()
+        }
+        'enfosi' {
+            # bocadillo blanco del chat de Roblox, con piquito hacia la estatua
+            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 60 0 0 0))), (Ruta-Redonda ($x + 2) ($y + 3) $w $h 12))
+            $r = Ruta-Redonda $x $y $w $h 12
+            $g.FillPath([System.Drawing.Brushes]::White, $r)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 190 190 200), 1.5)), $r); $r.Dispose()
+            $g.FillPolygon([System.Drawing.Brushes]::White, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]($x + 20), [float]($y + 1))), (New-Object System.Drawing.PointF([float]($x + 26), [float]($y - 10))), (New-Object System.Drawing.PointF([float]($x + 40), [float]($y + 1)))))
         }
         'teto' {
             # bocadillo blanco con borde rojo y piquito hacia Teto
@@ -3058,14 +3263,19 @@ function Texto-Marcado($g, $txt, $f, $x, $y) {
 $script:bmpHex = $null; $script:bmpHexIntro = $null; $script:bmpPapel = $null; $script:bmpCasa = $null; $script:bmpDesierto = $null
 
 # ================= DIÁLOGOS (máquina de escribir + boca de Angela) =================
-$script:twTexto = ''; $script:twPos = 0; $script:twTick = 0
+$script:twTexto = ''; $script:twPos = 0; $script:twTick = 0; $script:twInicio = 0
+# mensajes importantes: mientras se escriben (y un rato para leerlos) nadie los pisa
+$script:twBloqueo = 0; $script:twForzar = $false
 $twTimer = New-Object System.Windows.Forms.Timer
 $twTimer.Interval = 30
 $twTimer.Add_Tick({
     if (-not $script:status -or (Ocupado)) { return }
     $script:twTick++
     $escribiendo = $script:twPos -lt $script:twTexto.Length
-    if ($escribiendo) { $script:twPos = [Math]::Min($script:twTexto.Length, $script:twPos + $script:skin.Velocidad) }
+    if ($escribiendo) {
+        $objetivo = [int](([Environment]::TickCount - $script:twInicio) / 30.0 * $script:skin.Velocidad)
+        $script:twPos = [Math]::Min($script:twTexto.Length, [Math]::Max($script:twPos + $script:skin.Velocidad, $objetivo))
+    }
     $txt = $script:twTexto.Substring(0, $script:twPos)
     if ($script:skin.Estilo -eq 'hacker' -and ($escribiendo -or ([Math]::Floor($script:twTick / 15) % 2 -eq 0))) { $txt += '_' }
     if ($script:status.Text -ne $txt) { $script:status.Text = $txt; Ajustar-Texto }
@@ -3088,7 +3298,9 @@ $twTimer.Add_Tick({
 })
 
 function Decir($texto, $cara) {
-    $script:twTexto = [string]$texto; $script:twPos = 0
+    # si hay un mensaje importante a medias, las frases normales esperan su turno
+    if ([Environment]::TickCount -lt $script:twBloqueo -and -not $script:twForzar) { return }
+    $script:twTexto = [string]$texto; $script:twPos = 0; $script:twInicio = [Environment]::TickCount
     $script:textoManual = $false; $script:leerT = 0
     $k = $script:skin
     # la Cabra y el Cordero ponen voz a lo que dicen (si no acaba de sonar otra cosa)
@@ -3106,6 +3318,13 @@ function Decir($texto, $cara) {
     }
 }
 
+# frase importante: no la corta ninguna otra hasta que se ha escrito y ha dado tiempo a leerla
+function Decir-Fijo($texto, $cara, $extra = 3000) {
+    $script:twForzar = $true
+    try { Decir $texto $cara } finally { $script:twForzar = $false }
+    $ms = ([string]$texto).Length * 30 / [Math]::Max(1, $script:skin.Velocidad)
+    $script:twBloqueo = [Environment]::TickCount + [int]$ms + $extra
+}
 function Saludo {
     $k = $script:skin
     if ($k.Estilo -eq 'teto' -and $Rnd.Next(2) -eq 0) {
@@ -3382,7 +3601,7 @@ function Zodiac-Duelo-Fin($como) {
             Sonido 'bang'; Sonido 'dolor'; Cara 'muere' 2600; Sacudir $form 6; $script:fogonazo = 4
             Flotante ("¡GANASTE!  {0:0.00} s" -f ($ms / 1000.0)) 470 90 (C 255 214 90) 30 'EdmundMcMillen_INTLv4'
             $l = if ($ms -lt 300) { 'Eso ha sido... imposible. ¿Eres un fantasma?' } elseif ($ms -lt 450) { 'Rápido. Muy rápido. Me caigo con estilo.' } else { 'Por los pelos, forastero. Por los pelos.' }
-            Decir ("*Cae al suelo muy dramáticamente.* $l")
+            Decir-Fijo ("*Cae al suelo muy dramáticamente.* $l")
         }
         'lento' {
             $script:duelosP++; $script:disparos++; $script:fogonazo = 4
@@ -3524,7 +3743,8 @@ function Seleccionar-Frame($a) {
 function Invalidar-Escena {
     $Z = $script:K
     $alto = if ($script:skin -and $script:skin.Alto) { [Math]::Max(200, $script:skin.Alto - 100) } else { 200 }
-    $form.Invalidate((New-Object System.Drawing.Rectangle([int](400 * $Z), [int](56 * $Z), [int](($form.ClientSize.Width / $Z - 400) * $Z), [int]($alto * $Z))))
+    # desde un poco más arriba de la escena, para que los saltos no dejen cabezas cortadas bajo la barra
+    $form.Invalidate((New-Object System.Drawing.Rectangle([int](400 * $Z), [int](34 * $Z), [int](($form.ClientSize.Width / $Z - 400) * $Z), [int](($alto + 22) * $Z))))
 }
 function Actor-Pose($id, $pose, $ms) {
     $a = $script:actores[$id]; if (-not $a -or -not $a.Imgs[$pose]) { return }
@@ -3950,7 +4170,7 @@ function Efectos-Caza {
     if ($script:rojoFx -gt 0) { $script:rojoFx--; $hay = $true }
     if ($script:enfadoFx -gt 0) { $script:enfadoFx--; $hay = $true }
     if ($script:destello -gt 0) { $script:destello--; $hay = $true }
-    if ($script:estamina -lt 110) { $script:estamina = [Math]::Min(110, $script:estamina + 0.3); $hay = $true }
+    if ($script:estamina -lt 110) { $script:estamina = [Math]::Min(110.0, $script:estamina + 0.3); $hay = $true }
     if ($script:acechando) { $hay = $true }
     if ($hay) { Invalidar-Escena; $form.Invalidate((New-Object System.Drawing.Rectangle(0, [int](268 * $script:K), [int](400 * $script:K), [int](40 * $script:K)))) }
 }
@@ -3964,7 +4184,7 @@ $script:posaderos = @(@(462, 70), @(500, 70), @(492, 170), @(530, 172), @(448, 2
 function Teto-Cabeza {
     $a = $script:actores['T']; $oy = if ($a) { $a.OY } else { 0 }
     $ox = if ($a) { $a.OX } else { 0 }
-    return @((643 + $ox), (58 + $oy))
+    return @((643 + $ox), (90 + $oy))
 }
 function Pajaros-Vivos { return @($script:pajaros | Where-Object { $_.Est -ne 'huye' }).Count }
 function Teto-Pajaro {
@@ -3986,7 +4206,7 @@ function Teto-Birdbrain {
     Sonido 'birdbrain'; $script:tetoVozT = [Environment]::TickCount
     Flotante 'BIRDBRAIN!' 444 110 (C 255 214 60) 34 'Arial Black'
     $a = $script:actores['T']; if ($a) { $a.Salto = 12 }
-    Decir (Azar @('¡Un pajarito en la cabeza! Ahora sí que tengo cerebro de pájaro. ¡BIRDBRAIN!', '¡Hiii~! ...¿por qué me miráis todos? ¿Tengo algo en el pelo?', '¡Cinco pajaritos! Uno se ha quedado a vivir aquí arriba. Se llama Pan.'))
+    Decir-Fijo (Azar @('¡Un pajarito en la cabeza! Ahora sí que tengo cerebro de pájaro. ¡BIRDBRAIN!', '¡Hiii~! ...¿por qué me miráis todos? ¿Tengo algo en el pelo?', '¡Cinco pajaritos! Uno se ha quedado a vivir aquí arriba. Se llama Pan.'))
     $form.Invalidate()
 }
 $script:tetoVozT = 0; $script:tetoClics = New-Object System.Collections.ArrayList; $script:tetoArrastre = 0
@@ -4088,8 +4308,16 @@ function Dibujar-Polaroid($g, $img, $x, $y, $w, $ang) {
 $script:tkFichas = 0; $script:tkHype = 0.0; $script:tkFx = 0; $script:tkPal = New-Object System.Collections.ArrayList
 $TokenPalabras = @('CH4S3R', 'P3T', 'M3SS', 'S33K H3LP', 'KATAMARI', 'ACT RIGHT', 'DINNER!', 'LOTTERY', 'HEAD UP', 'GIRL HELL 1999', 'WAR GIRL', 'H3Y', 'REACTOR')
 function Token-Palabra { [void]$script:tkPal.Add(@{ Txt = (Azar $TokenPalabras); X = [double]$Rnd.Next(416, 620); Y = [double]$Rnd.Next(70, 230); T = 24; Rot = $Rnd.Next(-14, 15) }) }
+$script:tkCd = 1
+$TokenCanciones = @('AND IM GONE', 'DINNER!', 'MAGFEST', 'WEIGHTLESS!', 'REACTOR', 'BODY THE PISTOL', 'MIX. 01 - PICKMEUP!', 'MIX. 02 - BOTHERED!')
+function Token-Portada($n) {
+    $script:tkCd = $n; $a = $script:actores['K']; if (-not $a) { return }
+    $pose = if ($n -eq 1) { 'main' } else { "cd$n" }
+    $a.Pose = $pose; $a.Base = $pose; $a.Hasta = 0; $a.Frame = 0; Seleccionar-Frame $a
+}
 function Token-Clic {
     $a = $script:actores['K']; if ($a) { $a.Temblor = 10 }
+    Token-Portada (($script:tkCd % 8) + 1)
     $script:tkHype = [Math]::Min(100, $script:tkHype + 22)
     Sonido 'golpe'; Token-Palabra
     if ($script:tkHype -ge 100) { Token-Breakcore } else { Decir (Azar $script:skin.Clic) }
@@ -4099,15 +4327,16 @@ function Token-Breakcore {
     $script:tkHype = 0; $script:tkFx = 60
     Sonido 'breakcore'; Sacudir $form 12
     for ($i = 0; $i -lt 4; $i++) { Token-Palabra }
-    Decir (Azar @('¡¡BREAKCORE MODE!! *Todo tiembla. Token está feliz.*', '¡DROP! *Las ventanas vibran a 200 BPM.*', '¡¡MÁS ALTO!! *Se le cae una oreja. Se la vuelve a poner sin dejar de bailar.*'))
+    Decir-Fijo (Azar @('¡¡BREAKCORE MODE!! *Todo tiembla. Token está feliz.*', '¡DROP! *Las ventanas vibran a 200 BPM.*', '¡¡MÁS ALTO!! *Se le cae una oreja. Se la vuelve a poner sin dejar de bailar.*'))
 }
 function Token-Tick {
     $hay = $false
-    if ($script:tkHype -gt 0) { $script:tkHype = [Math]::Max(0, $script:tkHype - 0.35); $hay = $true }
+    if ($script:tkHype -gt 0) { $script:tkHype = [Math]::Max(0.0, $script:tkHype - 0.35); $hay = $true }
     if ($script:tkFx -gt 0) {
         $script:tkFx--; $hay = $true
         $a = $script:actores['K']; if ($a -and $script:tkFx % 5 -eq 0) { $a.Temblor = 5 }
         if ($script:tkFx % 9 -eq 0) { Token-Palabra }
+        if ($script:tkFx % 3 -eq 0) { Token-Portada ($Rnd.Next(1, 9)) }
         if ($script:tkFx % 12 -eq 0) { Sacudir $form 4 }
     }
     for ($i = $script:tkPal.Count - 1; $i -ge 0; $i--) { $w = $script:tkPal[$i]; $w.T--; $w.Y -= 1.2; $hay = $true; if ($w.T -le 0) { $script:tkPal.RemoveAt($i) } }
@@ -4275,7 +4504,7 @@ function Pizza-Tocar {
         # tercer aviso: motosierra y fuego
         $script:pzFx = 80; Sonido 'grito'; Sacudir $form 16
         Actor-Pose 'V' 'motosierra' 1700
-        Decir (Azar $k.Rabia)
+        Decir-Fijo (Azar $k.Rabia)
     } elseif ($script:pzEnfado -ge 60) {
         Sonido 'grr'; Sacudir $form 6; Actor-Pose 'V' 'muerde' 2600; Actor-Golpe 'V'
         Decir (Azar $k.Toque2)
@@ -4319,7 +4548,7 @@ function Kevin-Tick {
     $a = $script:actores['V']
     # vuelve a su sitio después del fuego o del unicornio
     if ($a -and $a.Llenar -and $a.Pose -notin @('fuego', 'unicornio')) { $a.Rect = $script:pzRect; $a.Llenar = $false; $hay = $true }
-    if ($script:pzEnfado -gt 0 -and $script:pzFx -le 0) { $script:pzEnfado = [Math]::Max(0, $script:pzEnfado - 0.3); $hay = $true }
+    if ($script:pzEnfado -gt 0 -and $script:pzFx -le 0) { $script:pzEnfado = [Math]::Max(0.0, $script:pzEnfado - 0.3); $hay = $true }
     if ($script:pzFx -gt 0) {
         $script:pzFx--; $hay = $true
         if ($script:pzFx -eq 52) { Kevin-Grande 'fuego' 2600; Sonido 'grr' }
@@ -4415,7 +4644,7 @@ function Ky-App($linea) {
     if ($script:kyApps % 8 -eq 0) {
         $script:kyConc = 140; Sonido 'publico'; Sonido 'riff'
         Ky-Video 'concierto' 8000
-        Decir (Azar $script:skin.Concierto)
+        Decir-Fijo (Azar $script:skin.Concierto)
     } else { Sonido 'acorde'; Decir $linea }
     $form.Invalidate()
 }
@@ -4429,7 +4658,7 @@ function Ky-Clic {
         $script:kyAmp = 0; $script:kyRotas++; $script:kyFx = 50; $script:kyFlash = 8
         Sonido 'kaboom'; Sacudir $form 14
         Ky-Video 'kaboom' 3500
-        Decir (Azar $k.Kaboom)
+        Decir-Fijo (Azar $k.Kaboom)
     } elseif ($script:kyAmp -ge 70) {
         Ky-Video 'diablo' 2600
         Decir (Azar @('¡MÁS ALTO! *El amplificador empieza a echar humo.*', '¡ESTO ES PUNK! *Los ojos le dan vueltas.* ...para ya, que explota.', '*El ampli pita.* Eso es buena señal. Creo.'))
@@ -4440,7 +4669,7 @@ function Ky-Clic {
 }
 function Ky-Tick {
     $k = $script:skin
-    if ($script:kyAmp -gt 0) { $script:kyAmp = [Math]::Max(0, $script:kyAmp - 0.4) }
+    if ($script:kyAmp -gt 0) { $script:kyAmp = [Math]::Max(0.0, $script:kyAmp - 0.4) }
     if ($script:kyFx -gt 0) { $script:kyFx--; if ($script:kyFx % 8 -eq 0) { Sacudir $form 3 } }
     if ($script:kyFlash -gt 0) { $script:kyFlash-- }
     if ($script:kyConc -gt 0) { $script:kyConc--; if ($script:kyConc % 25 -eq 0) { $script:kyVistas += $Rnd.Next(50, 300) } }
@@ -4452,6 +4681,226 @@ function Ky-Tick {
     }
     if ($script:kyFx -gt 0 -or $script:kyConc -gt 0 -or $script:kyFlash -gt 0) { $form.Invalidate() }
     else { Ky-Inv; $Z = $script:K; $form.Invalidate((New-Object System.Drawing.Rectangle([int](396 * $Z), [int](56 * $Z), [int](168 * $Z), [int](140 * $Z)))) }   # el minirreproductor siempre se mueve
+}
+
+# ================= ENFOSI: DEFIENDE LA ESTATUA =================
+# Llegan Glaggles a la estatua. Algunos son Enphosians disfrazados con un fallo (piel de otro color,
+# símbolo falso, sin símbolo o sin cara). Clic en el falso para descubrirlo y acabar con él.
+# Clic en un inocente = strike. Con tres strikes viene el Ojo de Enphoso. Datos de las wikis del juego.
+$script:ef = $null; $script:efImgs = @{}
+function Enfosi-HPMax($ola) { if ($ola -ge 7) { return 10000 } elseif ($ola -ge 4) { return 7500 } else { return 5000 } }
+function Enfosi-Reset {
+    $script:ef = @{ Ola = 1; EnOla = 0; PorOla = 4; Strikes = 0; Puntos = 0; Bintar = 0; HP = 5000; HPMax = 5000; Errores = 0
+        Ojo = 0; Sobber = $false; W = $null; Cola = 0; Auto = 0; Banner = $null; Cartel = $null; Siguiente = $null; Rojo = 0; Negro = 0; NX = 0; NY = 0 }
+    $a = $script:actores['W']; if ($a) { $a.Visible = $false }
+}
+function Enfosi-Img($n) {
+    if (-not $script:efImgs.ContainsKey($n)) { $script:efImgs[$n] = Cargar-Img "skins\enfosi\$n" }
+    return $script:efImgs[$n]
+}
+function Enfosi-Pose($pose) {
+    $a = $script:actores['W']; if (-not $a -or -not $a.Imgs[$pose]) { return }
+    $a.Pose = $pose; $a.Base = $pose; $a.Hasta = 0; $a.Frame = 0; $a.Acc = 0; Seleccionar-Frame $a
+}
+function Enfosi-Cartel($img, $ticks, $siguiente) { $script:ef.Cartel = @{ Img = $img; T = $ticks; Max = $ticks }; $script:ef.Siguiente = $siguiente }
+# un Glaggle nuevo empieza a caminar hacia la estatua
+function Enfosi-Llega {
+    $e = $script:ef; if (-not $e -or $e.W -or $e.Banner -or $e.Cartel) { return }
+    $a = $script:actores['W']; if (-not $a) { return }
+    $e.Auto = 0
+    # el primero de cada oleada es siempre el Glaggle nuevo de esa oleada
+    $tipo = if ($e.EnOla -eq 0) { $EnfosiTipos[$e.Ola - 1] } else { $EnfosiTipos[$Rnd.Next(0, $e.Ola)] }
+    $falso = if ($Rnd.NextDouble() -lt 0.45) { $Rnd.Next(1, 5) } else { 0 }
+    $e.W = @{ Tipo = $tipo; Falso = $falso; Estado = 'anda'; X = 700.0; Vida = $EnfosiVida[$tipo]; Atq = 0; Jefe = $false; Baile = 0 }
+    $e.EnOla++
+    Enfosi-Pose $(if ($falso) { "$tipo$falso" } else { $tipo })
+    $a.Rect = @(700, 148, 74, 120); $a.Visible = $true; $a.Alfa = 1.0; $a.Baila = $false; $a.OY = 0
+    Decir $EnfosiTexto[$tipo]
+    Invalidar-Escena
+}
+function Enfosi-Jefe {
+    $e = $script:ef; $a = $script:actores['W']; if (-not $a) { return }
+    $j = $EnfosiJefes[$e.Ola]
+    $e.W = @{ Tipo = $j[0]; Falso = 0; Estado = 'revelado'; X = 680.0; Vida = $j[2]; Atq = 0; Jefe = $true; Baile = 0 }
+    Enfosi-Pose $j[0]
+    $a.Rect = @(680, 118, 100, 150); $a.Visible = $true; $a.Alfa = 1.0; $a.Baila = $false
+    Sonido 'alarma'; Sacudir $form 8
+    Decir-Fijo $j[3]
+}
+function Enfosi-Clic($id) {
+    $e = $script:ef; if (-not $e) { return }
+    if ($id -eq 'E') {
+        if (-not $e.W -and -not $e.Banner -and -not $e.Cartel) { Enfosi-Llega } else { Decir (Azar $script:skin.Clic) }
+        return
+    }
+    $w = $e.W; if (-not $w) { return }
+    $a = $script:actores['W']
+    switch ($w.Estado) {
+        'anda' {
+            Sonido 'golpe'; if ($a) { $a.Temblor = 6 }
+            if ($w.Falso -eq 0) { Enfosi-Strike } else { Enfosi-Revela 'golpe' }
+        }
+        { $_ -in @('revelado', 'ataca') } {
+            $w.Vida--; Sonido 'golpe'; if ($a) { $a.Flash = 6; $a.Temblor = 6 }
+            if ($w.Vida -le 0) { Enfosi-Muere }
+        }
+        'baila' { Decir '¡Déjalo! Está celebrando que ha llegado a la estatua.' }
+    }
+    $form.Invalidate()
+}
+function Enfosi-Strike {
+    $e = $script:ef; $w = $e.W
+    $e.Strikes++; $e.Errores++; $e.Puntos -= 100; $e.Rojo = 10
+    Sonido 'buzzer'; Sacudir $form 8
+    Flotante 'STRIKE' 470 120 (C 230 30 30) 30 'Arial Black'
+    $w.Estado = 'muere'
+    if ($e.Strikes -ge 3 -and $e.Ojo -eq 0 -and -not $e.Sobber) {
+        $e.Ojo = 1; Sonido 'ojo'
+        Decir-Fijo '¡Tres strikes! El Ojo de Enphoso viene a por ti. No se le puede hacer daño...'
+    } else {
+        Decir-Fijo "¡STRIKE! Era un $($EnfosiNombre[$w.Tipo]) inocente. *Suena un zumbido de error enorme.* (strike $($e.Strikes) de 3)"
+    }
+}
+function Enfosi-Revela($como) {
+    $e = $script:ef; $w = $e.W; $a = $script:actores['W']
+    $w.Estado = if ($como -eq 'estatua') { 'ataca' } else { 'revelado' }
+    Enfosi-Pose "$($w.Tipo)_e"
+    Sonido 'revela'; Sacudir $form 6
+    $e.Negro = 14; $e.NX = $w.X + 37; $e.NY = 200
+    Flotante '¡ENPHOSIAN!' ($w.X - 40) 110 (C 20 20 20) 22 'Arial Black'
+    if ($como -eq 'golpe') { Decir-Fijo "¡Era un Enphosian! El $($EnfosiNombre[$w.Tipo]) $($EnfosiFallo[$w.Falso]). ¡Acaba con él!" 1500 }
+    else { Decir-Fijo "¡Un Enphosian ha llegado a la estatua! El $($EnfosiNombre[$w.Tipo]) $($EnfosiFallo[$w.Falso]). ¡Clic en él, rápido!" 1500 }
+}
+function Enfosi-Muere {
+    $e = $script:ef; $w = $e.W
+    $p = if ($w.Jefe) { 1000 } else { 200 }
+    $e.Puntos += $p; Sonido 'ding'
+    Flotante "+$p" ($w.X) 120 (C 255 214 60) 24 'Arial Black'
+    $w.Estado = 'muere'
+    if ($w.Jefe) { Decir-Fijo "¡Has derrotado a $($EnfosiNombre[$w.Tipo])! +1000 puntos." }
+    else { Decir (Azar @('¡Enphosian eliminado! +200.', '¡Uno menos! La estatua está a salvo... de momento.', '¡Bien visto! Ese no era un Glaggle de verdad.')) }
+}
+function Enfosi-Fin-Glaggle {
+    $e = $script:ef; $w = $e.W; $e.W = $null
+    $a = $script:actores['W']; if ($a) { $a.Visible = $false; $a.Baila = $false }
+    if ($w -and $w.Jefe) { Enfosi-Nueva-Ola; return }
+    if ($e.EnOla -ge $e.PorOla) { Enfosi-Fin-Ola }
+}
+function Enfosi-Fin-Ola {
+    $e = $script:ef
+    $n = $e.Errores + $(if ($e.Sobber) { 3 } else { 0 })
+    $r = @('glaggle', 'awesome', 'basic', 'coulddobetter', 'doingbad', 'enphosed')[[Math]::Min(5, $n)]
+    $nom = @{ glaggle = 'GLAGGLE'; awesome = 'AWESOME'; basic = 'BASIC'; coulddobetter = 'COULD DO BETTER'; doingbad = 'DOING BAD'; enphosed = 'ENPHOSED' }[$r]
+    $e.Bintar += 2; Sonido 'moneda'
+    $sig = if ($e.Ola -in @(2, 4, 6)) { 'jefe' } else { 'ola' }
+    Enfosi-Cartel "rango_$r.png" 60 $sig
+    Decir-Fijo "¡Fin de la oleada $($e.Ola)! Rango: $nom. +2 Bintar."
+}
+function Enfosi-Nueva-Ola {
+    $e = $script:ef
+    if ($e.Ola -ge 7) {
+        Decir-Fijo "¡Has sobrevivido a las 7 oleadas! Puntos: $($e.Puntos). La estatua sigue en pie. Volvemos a empezar."
+        $b = $e.Bintar; Enfosi-Reset; $script:ef.Bintar = $b
+    } else { $e.Ola++ }
+    $e = $script:ef
+    $e.EnOla = 0; $e.Strikes = 0; $e.Errores = 0; $e.Ojo = 0; $e.Sobber = $false
+    $max = Enfosi-HPMax $e.Ola; if ($max -gt $e.HPMax) { $e.HPMax = $max; $e.HP = $max }
+    $t = $EnfosiTipos[$e.Ola - 1]
+    $e.Banner = @{ Img = "$($t)_oleada.png"; T = 55 }
+    Sonido 'ola'
+    if ($e.Ola -gt 1) { Decir-Fijo "Oleada $($e.Ola) de 7: ¡llegan los $($EnfosiNombre[$t])s!" 1000 }
+}
+function Enfosi-Derrota {
+    $e = $script:ef
+    Sonido 'revela'; Sacudir $form 14
+    Enfosi-Cartel 'gameover.jpg' 70 'reset'
+    Decir-Fijo "La estatua ha caído. ENPHOSED. Has llegado a la oleada $($e.Ola) con $($e.Puntos) puntos."
+}
+function Enfosi-Tick {
+    $e = $script:ef; if (-not $e) { return }
+    $a = $script:actores['W']; $est = $script:actores['E']
+    if ($e.Rojo -gt 0) { $e.Rojo-- }
+    if ($e.Negro -gt 0) { $e.Negro-- }
+    if ($e.Banner) { $e.Banner.T--; if ($e.Banner.T -le 0) { $e.Banner = $null } }
+    if ($e.Cartel) {
+        $e.Cartel.T--
+        if ($e.Cartel.T -le 0) {
+            $e.Cartel = $null; $s = $e.Siguiente; $e.Siguiente = $null
+            switch ($s) { 'jefe' { Enfosi-Jefe } 'ola' { Enfosi-Nueva-Ola } 'reset' { $b = $e.Bintar; Enfosi-Reset; $script:ef.Bintar = $b; $script:ef.Banner = @{ Img = 'giggler_oleada.png'; T = 55 }; Sonido 'ola' } }
+        }
+    }
+    $e = $script:ef
+    # el Ojo de Enphoso se acerca; si llega, te convierte en Sobber
+    if ($e.Ojo -gt 0) {
+        $e.Ojo++
+        if ($e.Ojo -ge 170) {
+            $e.Ojo = 0; $e.Sobber = $true; $e.Rojo = 14; Sonido 'revela'; Sacudir $form 12
+            Enfosi-Cartel 'gameover.jpg' 30 $null
+            Decir-Fijo 'El Ojo de Enphoso te ha atrapado. Ahora eres un Sobber hasta que acabe la oleada.'
+        }
+    }
+    # un Glaggle de vez en cuando aunque no abras nada (cada 25 s)
+    if (-not $e.W -and -not $e.Banner -and -not $e.Cartel) {
+        if ($e.Cola -gt 0) { $e.Cola--; Enfosi-Llega } else { $e.Auto++; if ($e.Auto -ge 500) { Enfosi-Llega } }
+    }
+    $w = $e.W
+    if ($w -and $a) {
+        $vel = if ($w.Jefe) { 0.9 } else { $EnfosiVel[$w.Tipo] }
+        switch ($w.Estado) {
+            'anda' {
+                $w.X -= $vel
+                if ($w.X -le 528) {
+                    $w.X = 528
+                    if ($w.Falso -gt 0) { Enfosi-Revela 'estatua' }
+                    else { $w.Estado = 'baila'; $w.Baile = 34; $a.Baila = $true; Decir (Azar @('*El Glaggle llega a la estatua y baila. ¡Yeah!*', '¡Un inocente ha llegado sano y salvo! *Baila de alegría.*', '*Baila delante de la estatua... y explota en confeti.* ¡Era de los buenos!')) }
+                }
+            }
+            'revelado' {
+                $w.X -= $vel * $(if ($w.Tipo -eq 'cheerer') { 2.2 } else { 1.5 })
+                if ($w.X -le 528) { $w.X = 528; $w.Estado = 'ataca' }
+            }
+            'ataca' {
+                $w.Atq++
+                if ($w.Atq % 20 -eq 1) {
+                    $d = if ($w.Jefe) { 300 } else { $EnfosiDanio[$w.Tipo] }
+                    $e.HP -= $d; $e.Errores = [Math]::Max($e.Errores, 1); Sonido 'estatua'
+                    if ($est) { $est.Temblor = 8; $est.Flash = 4 }
+                    Flotante "-$d" 440 110 (C 230 30 30) 22 'Arial Black'
+                    # el Cheerer falso explota contra la estatua (y desaparece)
+                    if ($w.Tipo -eq 'cheerer' -and -not $w.Jefe) { $e.Negro = 16; $e.NX = 520; $e.NY = 200; Sacudir $form 12; $w.Estado = 'muere'; $a.Alfa = 0.2 }
+                    if ($e.HP -le 0) { $e.HP = 0; $e.W = $null; $a.Visible = $false; Enfosi-Derrota; return }
+                }
+            }
+            'baila' {
+                $w.Baile--
+                if ($w.Baile -le 0) {
+                    Sonido 'confeti'; $e.Puntos += 50
+                    foreach ($i in 0..4) { Flotante (Azar @('✦', '★', '●')) ($w.X + $Rnd.Next(-10, 60)) (140 + $Rnd.Next(0, 60)) (@((C 255 214 60), (C 255 90 160), (C 90 200 255), (C 120 230 90), (C 255 255 255))[$i]) 18 'Segoe UI Symbol' }
+                    Enfosi-Fin-Glaggle; Invalidar-Escena; return
+                }
+            }
+            'muere' {
+                $a.Alfa = [Math]::Max(0.0, $a.Alfa - 0.1)
+                if ($a.Alfa -le 0) { Enfosi-Fin-Glaggle; Invalidar-Escena; return }
+            }
+        }
+        $a.Rect = @([int]$w.X, $a.Rect[1], $a.Rect[2], $a.Rect[3])
+    }
+    Invalidar-Escena
+    $form.Invalidate((New-Object System.Drawing.Rectangle(0, [int](276 * $script:K), [int](410 * $script:K), [int](44 * $script:K))))
+}
+# carita de las vidas (como la barra de strikes del juego)
+function Dibujar-Carita($g, $x, $y, $r, $bien) {
+    if ($bien) {
+        $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 255 214 60))), [float]($x - $r), [float]($y - $r), [float](2 * $r), [float](2 * $r))
+        $p = New-Object System.Drawing.Pen((C 30 30 30), 1.6); $g.DrawEllipse($p, [float]($x - $r), [float]($y - $r), [float](2 * $r), [float](2 * $r))
+        $g.FillEllipse([System.Drawing.Brushes]::Black, [float]($x - $r * 0.4), [float]($y - $r * 0.45), [float]($r * 0.22), [float]($r * 0.42))
+        $g.FillEllipse([System.Drawing.Brushes]::Black, [float]($x + $r * 0.18), [float]($y - $r * 0.45), [float]($r * 0.22), [float]($r * 0.42))
+        $g.DrawArc($p, [float]($x - $r * 0.6), [float]($y - $r * 0.55), [float]($r * 1.2), [float]($r * 1.1), 20, 140); $p.Dispose()
+    } else {
+        $p = New-Object System.Drawing.Pen((C 230 30 30), 3.5); $p.StartCap = 'Round'; $p.EndCap = 'Round'
+        $g.DrawLine($p, [float]($x - $r * 0.8), [float]($y - $r * 0.8), [float]($x + $r * 0.8), [float]($y + $r * 0.8)); $g.DrawLine($p, [float]($x + $r * 0.8), [float]($y - $r * 0.8), [float]($x - $r * 0.8), [float]($y + $r * 0.8)); $p.Dispose()
+    }
 }
 
 # ================= ANIMACIÓN DE FONDO (planta rodadora, agua de Dune) =================
@@ -4486,6 +4935,7 @@ $ambTimer.Add_Tick({
     if ($k.Estilo -eq 'kaiju') { Kaiju-Particulas }
     if ($k.Estilo -in @('dod', 'pressure')) { Efectos-Caza }
     if ($k.Estilo -eq 'teto') { Teto-Tick }
+    if ($k.Estilo -eq 'enfosi') { Enfosi-Tick }
     if ($k.Estilo -eq 'femta') { Token-Tick }
     if ($k.Estilo -eq 'pop') { Tetra-Tick }
     if ($k.Estilo -eq 'pizza') { Kevin-Tick }
@@ -4574,6 +5024,11 @@ $Discusiones = @(
     , @(@('Zodiac', '¡No te muevas!'), @('Token', '*Vibra a 180 BPM.*'), @('Zodiac', '¡HE DICHO QUE NO TE MUEVAS!'), @('Token', 'No puedo. Es el bajo.'), @('Zodiac', '*BANG* ...¿sigue sonando? Esto es brujería.'))
     , @(@('Mikaela', 'Tetra, ¿una partida?'), @('Tetra', 'Vale. Pero algo tranquilo.'), @('Mikaela', '360 noscope.'), @('Tetra', '...vale, he perdido. Me hago unos fideos.'))
     , @(@('Averi', '¡Tetra! ¡Te he mandado cuarenta stickers!'), @('Tetra', 'Lo sé. Los he visto todos.'), @('Averi', '¿Y por qué no contestas?'), @('Tetra', '*Le manda un sticker.*'), @('Averi', '¡¡CONTESTÓ!!'))
+    , @(@('Enfosi', 'Glaggle sospechoso a la vista: blanco, sin símbolo en la camiseta...'), @('Token', 'Soy Token. Una ficha. No un Glaggle.'), @('Enfosi', '...eso es justo lo que diría un Enphosian.'), @('Token', '*Sube el volumen.* ¿Te lo dice esto?'))
+    , @(@('Zodiac', '¡No te muevas, Glaggle!'), @('Enfosi', '¡Cuidado! Ese era un Giggler inocente.'), @('Zodiac', '*BANG* ...¿cómo que inocente?'), @('Enfosi', 'Strike. Y viene el Ojo de Enphoso a por ti.'), @('Zodiac', '...me voy a otro desierto.'))
+    , @(@('Averi', '¡Qué Glaggles tan monos! ¡Voy a abrazarlos a todos!'), @('Enfosi', 'Ese Cheerer lleva el regalo un poco raro...'), @('Averi', '*Lo abraza.*'), @('Enfosi', '*El regalo explota.* ...era un Enphosian.'), @('Averi', '¡Estoy bien! ¡Huelo a confeti!'))
+    , @(@('Enfosi', 'Un Glaggle verde con un cartel. ¿Gloober de verdad?'), @('Kevin', '¿Lleva pizza? ¡Si lleva pizza es MÍA!'), @('Enfosi', 'Lleva un Gloobnut. Es un donut.'), @('Kevin', '...vale. Puede pasar.'))
+    , @(@('Mikaela', 'Dame un objetivo. El que sea.'), @('Enfosi', 'El Gazo de la izquierda. Fíjate: su símbolo es falso.'), @('Mikaela', '*Headshot.* ¡Hitmarker!'), @('Enfosi', '¡Enphosian eliminado! Así se juega.'))
     , @(@('Zodiac', '¡No te muevas, bicho del bosque!'), @('Pursuer', '*Se vuelve invisible.*'), @('Zodiac', '¿¡Dónde está!? ¡NO TE MUEVAS, DONDE SEA QUE ESTÉS!'), @('Pursuer', '*Detrás de él.* ...te veo.'))
     # --- Kevin (Don't Touch My Pizza) ---
     , @(@('Guillotina', '*Mira la pizza de Kevin. Abre la boca.*'), @('Kevin', '¡¡NO TOQUES MI PIZZA!! *Saca un cuchillo.*'), @('Guillotina', '*Se traga el cuchillo. Eructa.*'), @('Kevin', '...vale. Saco la motosierra.'), @('Guillotina', '*Se aleja muy despacio.*'))
@@ -4603,6 +5058,7 @@ $Discusiones = @(
 )
 
 $script:discutiendo = $false; $script:dLineas = $null; $script:dIdx = 0; $script:dImg = $null; $script:dInvitadoHabla = $false
+$script:dFin = 0; $script:dUltima = $null
 $script:inv = $null; $script:invSkin = $null; $script:invNombre = $null; $script:invPb = $null; $script:invLbl = $null
 $script:invTexto = ''; $script:invPos = 0; $script:invFx = 0; $script:invAnim = 0; $script:invLado = 1; $script:invSale = $false
 $script:invEst = 0; $script:invRuido = $null
@@ -4630,7 +5086,7 @@ function Sacudir($f, $ticks) {
 $script:humoF = $null
 $humo2Timer = New-Object System.Windows.Forms.Timer
 $humo2Timer.Interval = 1600
-$humo2Timer.Add_Tick({ $humo2Timer.Stop(); if ($script:humoF -and -not $script:humoF.IsDisposed) { $script:humoF.Opacity = $(if ($script:humoF -eq $form) { (Opacidad-Base) } else { 1.0 }) } })
+$humo2Timer.Add_Tick({ $humo2Timer.Stop(); if ($script:humoF -and -not $script:humoF.IsDisposed) { $script:humoF.Opacity = $(if ($script:humoF -eq $form) { (Opacidad-Base) } else { 0.99 }); $script:humoF.Invalidate($true) } })
 function Humo($f) { if (-not $f) { return }; $f.Opacity = 0.3; $script:humoF = $f; $humo2Timer.Stop(); $humo2Timer.Start() }
 
 # --- ventanita del invitado ---
@@ -4640,7 +5096,8 @@ function Colocar-Invitado {
     $off = (1 - $e) * 40 * $script:K
     $x = if ($script:invLado -gt 0) { $b.Right + 8 * $script:K - $off } else { $b.Left - $f.Width - 8 * $script:K + $off }
     $f.Location = New-Object System.Drawing.Point([int]$x, [int]($b.Top + 30 * $script:K))
-    $f.Opacity = [Math]::Max(0.0, $e)
+    $f.Opacity = [Math]::Min(0.99, [Math]::Max(0.0, $e))
+    $f.Invalidate($true)
 }
 
 function Abrir-Invitado($nombre) {
@@ -4684,6 +5141,7 @@ function Abrir-Invitado($nombre) {
         'kaiju' { Sonido-De $nombre 'pisoton' }
         'zorro' { Sonido-De $nombre 'yip' }
         'teto' { Sonido-De $nombre 'hi' }
+        'enfosi' { Sonido-De $nombre 'ding' }
         'femta' { Sonido-De $nombre 'golpe' }
         'pop' { Sonido-De $nombre 'ping' }
         'pizza' { Sonido-De $nombre 'nam' }
@@ -4719,6 +5177,7 @@ function Pintar-Invitado($g) {
         'zorro' { $pu = New-Object System.Drawing.SolidBrush((C 250 222 190)); for ($y = 40; $y -lt $H; $y += 18) { for ($x = (($y / 18) % 2) * 9 + 4; $x -lt $W; $x += 18) { $g.FillEllipse($pu, $x, $y, 5, 5) } }; $cab = (C 230 128 56) }
         'femta' { $rn = New-Object System.Random 5; for ($i = 0; $i -lt 30; $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB $rn.Next(30, 90) 230 20 40))), 0, $rn.Next(30, $H), $W, $rn.Next(1, 3)) }; $cab = (C 0 0 0) }
         'pop' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 40 14 80), (C 150 40 120), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $p = New-Object System.Drawing.Pen((ARGB 30 0 0 0), 1); for ($y = 30; $y -lt $H; $y += 3) { $g.DrawLine($p, 0, $y, $W, $y) }; $cab = (C 40 12 70) }
+        'enfosi' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 120 180 240), (C 200 230 255), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $cab = (C 252 200 55) }
         'teto' { $ray = New-Object System.Drawing.Pen((C 252 232 236), 8); for ($x = -$H; $x -lt $W; $x += 26) { $g.DrawLine($ray, $x, 32, ($x + $H), ($H + 32)) }; $ray.Dispose(); $cab = (C 214 40 64) }
         'pizza' { $roja = New-Object System.Drawing.SolidBrush((ARGB 90 220 40 40)); for ($x = 0; $x -lt $W; $x += 28) { $g.FillRectangle($roja, $x, 30, 14, $H) }; for ($y = 30; $y -lt $H; $y += 28) { $g.FillRectangle($roja, 0, $y, $W, 14) }; $roja.Dispose(); $cab = (C 70 200 40) }
         'punk' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 252 206 160), (C 244 150 110), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $br.Dispose(); $cab = (C 96 74 68) }
@@ -4754,6 +5213,7 @@ function Pintar-Invitado($g) {
             'zorro' { for ($i = 0; $i -lt 3; $i++) { Dibujar-Corazon $g (50 + $i * 60) (150 - (14 - $fx) * 8) 10 ([Math]::Min(255, $fx * 18)) } }
             'femta' { for ($i = 0; $i -lt 4; $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush(@((C 230 20 40), (C 255 255 255), (C 40 230 255))[$Rnd.Next(3)])), $Rnd.Next(-40, $W), $Rnd.Next(0, $H), $Rnd.Next(40, 200), $Rnd.Next(2, 6)) } }
             'pop' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 90, 230, 250))), 0, [int]((14 - $fx) * 15), $W, 10) }
+            'enfosi' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 255, 214, 60))), 0, 0, $W, $H) }
             'teto' { for ($i = 0; $i -lt 3; $i++) { Texto-Contorno $g '♪' 'Segoe UI Symbol' 20 (40 + $i * 60) (130 - (14 - $fx) * 7) (@((C 214 40 64), (C 246 170 30), (C 255 255 255))[$i]) 3 ([Math]::Min(255, $fx * 18)) } }
             'pizza' { for ($i = 0; $i -lt 4; $i++) { Dibujar-Trozo $g (30 + $i * 52) (40 + (14 - $fx) * 9 + ($i % 2) * 14) 20 ($fx * 25 + $i * 70) } }
             'punk' { for ($i = 0; $i -lt 3; $i++) { Texto-Contorno $g (@('♪', '♫', '★')[$i]) 'Segoe UI Symbol' 22 (40 + $i * 60) (130 - (14 - $fx) * 7) (@((C 255 255 255), (C 255 80 160), (C 255 255 255))[$i]) 3 ([Math]::Min(255, $fx * 18)) } }
@@ -4842,10 +5302,15 @@ function Encajar-Invitado($txt) {
 function Iniciar-Discusion {
     if (-not $script:aj.Invitados) { return }
     if ($script:discutiendo -or (Ocupado) -or $form.WindowState -eq 'Minimized') { return }
+    # la ventanita de la anterior todavía se está yendo, o acaba de terminar
+    if ($script:inv -or ([Environment]::TickCount - $script:dFin) -lt 2500) { return }
+    if ([Environment]::TickCount -lt $script:twBloqueo) { return }
     $yo = $script:skinNombre
     $cands = @($Discusiones | Where-Object { @($_ | ForEach-Object { $_[0] }) -contains $yo })
     if ($cands.Count -eq 0) { return }
-    $script:dLineas = $cands[$Rnd.Next($cands.Count)]
+    # no repetir la misma conversación dos veces seguidas
+    if ($cands.Count -gt 1) { $cands = @($cands | Where-Object { -not [object]::ReferenceEquals($_, $script:dUltima) }) }
+    $script:dLineas = $cands[$Rnd.Next($cands.Count)]; $script:dUltima = $script:dLineas
     $invitado = @($script:dLineas | ForEach-Object { $_[0] } | Where-Object { $_ -ne $yo })[0]
     $script:dImg = Cargar-Img $Skins[$invitado].Gif
     $script:dIdx = 0; $script:discutiendo = $true
@@ -4870,7 +5335,7 @@ function Paso-Discusion {
             { $_ -in @('mew', 'mlg', 'tele', 'oeste') } { if ($Rnd.Next(2) -eq 0) { Cara 'clic' 1600 } }
         }
     } else {
-        if ($script:skin.Estilo -eq 'hacker') { Glitch 3 "> $txt" } else { Decir $txt 'abiertos' }
+        if ($script:skin.Estilo -eq 'hacker') { Glitch 3 "> $txt" } else { Decir-Fijo $txt 'abiertos' 0 }
     }
     Efectos-Linea $quien $txt
     $dTimer.Interval = [Math]::Max(2400, 1500 + $txt.Length * 55)
@@ -4880,7 +5345,7 @@ function Paso-Discusion {
 function Fin-Discusion($rapido = $false) {
     $dTimer.Stop()
     $eraDiscusion = $script:discutiendo
-    $script:discutiendo = $false; $script:dInvitadoHabla = $false
+    $script:discutiendo = $false; $script:dInvitadoHabla = $false; $script:dFin = [Environment]::TickCount
     if ($rapido) { Cerrar-Invitado; return }
     if ($script:inv) { $script:invSale = $true; $invTimer.Start() }
     # a veces el anfitrión remata con su opinión del invitado
@@ -4951,6 +5416,10 @@ $idleTimer.Add_Tick({
             if ($r -lt 30 -and -not $script:popDND) { [void](Tetra-Mensaje); Decir (Azar @('*Le llega un mensaje. Lo mira. Lo deja en visto.* Luego contesto.', '*Mira el móvil.* Es neems. ...le contesto mañana.', '*Ping.* Uy. Un mensaje. Qué miedo dan los mensajes.')) }
             elseif ($r -lt 45) { Sonido 'disco'; $a = $script:actores['E']; if ($a) { $a.Salto = 12 }; Decir '*Baila un poco de disco sin levantarse mucho del sitio.*' }
             else { Decir (Azar $k.Idle) }
+        }
+        'enfosi' {
+            if ($script:ef -and -not $script:ef.W -and -not $script:ef.Cartel -and $r -lt 40) { Enfosi-Llega }
+            elseif (-not $script:ef -or -not $script:ef.W) { Decir (Azar $k.Idle) }
         }
         'teto' {
             if ($r -lt 18) { Teto-Pajaro; Decir '¡Mira, un pajarito! ...¿de dónde salen todos?' }
@@ -5213,7 +5682,8 @@ $AltoTung = 1.08
 function Logo-Inicio {
     $script:lgImg = if (Test-Path (Ruta 'skins\logo\logo.png')) { Cargar-Img 'skins\logo\logo.png' } else { $null }
     $script:lgImg2 = if (Test-Path (Ruta 'skins\logo\tung.png')) { Cargar-Img 'skins\logo\tung.png' } else { $null }
-    $script:iRecursos = @($script:lgImg, $script:lgImg2)
+    $script:lgImg3 = if (Test-Path (Ruta 'skins\logo\randy.png')) { Cargar-Img 'skins\logo\randy.png' } else { $null }
+    $script:iRecursos = @($script:lgImg, $script:lgImg2, $script:lgImg3)
     $script:iDespues = { Efecto-Entrada $null }
     $pintar = {
         param($g, $W, $H, $p)
@@ -5229,10 +5699,17 @@ function Logo-Inicio {
             $ia = New-Object System.Drawing.Imaging.ImageAttributes; $ia.SetColorMatrix($cm)
             $dh = $alto * $z; $dw = $script:lgImg.Width * $dh / $script:lgImg.Height
             $suelo = $H * 0.66 - 8; $th2 = [Math]::Min($dh * $AltoTung, $suelo - 6); $dh = [Math]::Min($dh, $th2 / $AltoTung); $dw = $script:lgImg.Width * $dh / $script:lgImg.Height; $tw2 = if ($script:lgImg2) { $script:lgImg2.Width * $th2 / $script:lgImg2.Height } else { 0 }
-            $total = $dw + $(if ($script:lgImg2) { $tw2 - $dw * 0.06 } else { 0 })
+            # a la izquierda Randy (solo la parte de arriba), con los ojos a la altura de los del panda
+            $rh = $dh * 0.92; $rw = if ($script:lgImg3) { $script:lgImg3.Width * $rh / $script:lgImg3.Height } else { 0 }
+            $total = $(if ($script:lgImg3) { $rw * 0.82 } else { 0 }) + $dw + $(if ($script:lgImg2) { $tw2 - $dw * 0.06 } else { 0 })
+            # si no cabe (ventana estrecha), se encoge todo un poco
+            $esc = [Math]::Min(1.0, ($W - 16) / [Math]::Max(1.0, $total))
+            $dh *= $esc; $dw *= $esc; $th2 *= $esc; $tw2 *= $esc; $rh *= $esc; $rw *= $esc; $total *= $esc
             $x0 = $W / 2 - $total / 2
-            $g.DrawImage($script:lgImg, (New-Object System.Drawing.Rectangle([int]$x0, [int]($suelo - $dh), [int]$dw, [int]$dh)), 0, 0, $script:lgImg.Width, $script:lgImg.Height, [System.Drawing.GraphicsUnit]::Pixel, $ia)
-            if ($script:lgImg2) { $g.DrawImage($script:lgImg2, (New-Object System.Drawing.Rectangle([int]($x0 + $dw * 0.94), [int]($suelo - $th2), [int]$tw2, [int]$th2)), 0, 0, $script:lgImg2.Width, $script:lgImg2.Height, [System.Drawing.GraphicsUnit]::Pixel, $ia) }
+            $xp = $x0 + $(if ($script:lgImg3) { $rw * 0.82 } else { 0 })
+            if ($script:lgImg3) { $g.DrawImage($script:lgImg3, (New-Object System.Drawing.Rectangle([int]$x0, [int]($suelo - $dh + $dh * 0.104), [int]$rw, [int]$rh)), 0, 0, $script:lgImg3.Width, $script:lgImg3.Height, [System.Drawing.GraphicsUnit]::Pixel, $ia) }
+            $g.DrawImage($script:lgImg, (New-Object System.Drawing.Rectangle([int]$xp, [int]($suelo - $dh), [int]$dw, [int]$dh)), 0, 0, $script:lgImg.Width, $script:lgImg.Height, [System.Drawing.GraphicsUnit]::Pixel, $ia)
+            if ($script:lgImg2) { $g.DrawImage($script:lgImg2, (New-Object System.Drawing.Rectangle([int]($xp + $dw * 0.94), [int]($suelo - $th2), [int]$tw2, [int]$th2)), 0, 0, $script:lgImg2.Width, $script:lgImg2.Height, [System.Drawing.GraphicsUnit]::Pixel, $ia) }
             $ia.Dispose()
         }
         # nombre de la empresa con líneas a los lados
@@ -5652,12 +6129,11 @@ function Transicion-Wanted($final) {
     Intro-Overlay 80 $pintar $alTick $final
 }
 
-# --- INSERT TOKEN: estática, la ficha cae en la recreativa, el logo, cortes a toda velocidad y el cartel final ---
+# --- INSERT TOKEN: la ficha cae en la recreativa, el logo en llamas, cortes con las portadas oficiales y el cartel final ---
 function Transicion-Token($final) {
-    $script:tkImg = Cargar-Img $script:skin.Gif; $script:tkLogo = Cargar-Img $script:skin.Logo
-    $script:tkR = Imagen-Color $script:tkImg (C 255 30 50) 300; $script:tkC = Imagen-Color $script:tkImg (C 40 230 255) 300
-    $script:tkLB = Imagen-Color $script:tkLogo (C 255 255 255) 300; $script:tkLR = Imagen-Color $script:tkLogo (C 255 30 50) 300; $script:tkLC = Imagen-Color $script:tkLogo (C 40 230 255) 300
-    $script:iRecursos = @($script:tkImg, $script:tkLogo, $script:tkR, $script:tkC, $script:tkLB, $script:tkLR, $script:tkLC)
+    $script:tkPort = @(for ($i = 1; $i -le 8; $i++) { Cargar-Img "skins\token\portada$i.jpg" })
+    $script:tkFuego = Cargar-Img $script:skin.Logo
+    $script:iRecursos = @($script:tkPort) + @($script:tkFuego)
     $pintar = {
         param($g, $W, $H, $p)
         $g.SmoothingMode = 'AntiAlias'; $g.InterpolationMode = 'HighQualityBilinear'
@@ -5678,40 +6154,51 @@ function Transicion-Token($final) {
             $cred = if ($p -ge 9) { 'CREDIT 01' } else { 'CREDIT 00' }
             $g.DrawString($cred, (FntP('Consolas', 12, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, ($W - 120), ($H - 28))
         } elseif ($p -lt 24) {
-            # 2) el logo entra de golpe con los colores separados
+            # 2) el logo de femtanyl en llamas, temblando
             $g.Clear($(if ($p -in @(12, 13)) { (C 120 0 14) } else { (C 6 4 6) }))
-            $e = [Math]::Max(1.0, 2.0 - ($p - 12) * 0.25)
-            $lh = 200 * $e; $lw = $script:tkLB.Width * $lh / $script:tkLB.Height
-            $jx = $rn.Next(-6, 7); $sep = 4 + [Math]::Max(0, 18 - ($p - 12) * 2)
-            Dibujar-RGB $g $script:tkLB $script:tkLR $script:tkLC ($W / 2 - $lw / 2 + $jx) ($H / 2 - $lh / 2 - 10) $lw $lh $sep
-            for ($i = 0; $i -lt 5; $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 140 230 20 40))), 0, $rn.Next(0, $H), $W, $rn.Next(1, 5)) }
-            if ($p -ge 16) { Texto-Color $g 'femtanyl' 'Consolas' 18 ($W / 2 - 46) ($H - 50) (C 255 255 255) (C 230 20 40) 3 }
+            if ($script:tkFuego) {
+                $e = [Math]::Max(1.0, 1.6 - ($p - 12) * 0.12)
+                $lh = $H * 0.8 * $e; $lw = $script:tkFuego.Width * $lh / $script:tkFuego.Height
+                $g.DrawImage($script:tkFuego, [float]($W / 2 - $lw / 2 + $rn.Next(-5, 6)), [float]($H / 2 - $lh / 2 + $rn.Next(-4, 5)), [float]$lw, [float]$lh)
+            }
+            for ($i = 0; $i -lt 5; $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 120 230 20 40))), 0, $rn.Next(0, $H), $W, $rn.Next(1, 5)) }
         } elseif ($p -lt 52) {
-            # 3) cortes rápidos: una palabra y Token en otra postura cada pocos fotogramas
+            # 3) cortes rápidos: una portada oficial y una palabra cada pocos fotogramas
             $c = [int](($p - 24) / 3); $rc = New-Object System.Random ($c * 7 + 3)
             $g.Clear($(if ($c % 2 -eq 0) { (C 6 4 6) } else { (C 70 0 10) }))
-            $th = 150 + $rc.Next(0, 160); $tw = $script:tkImg.Width * $th / $script:tkImg.Height
-            $tx = $rc.Next(-40, [int]($W - $tw + 40)); $ty = $rc.Next(-30, [int]([Math]::Max(-29, $H - $th + 30)))
-            $st = $g.Save(); $g.TranslateTransform([float]($tx + $tw / 2), [float]($ty + $th / 2)); $g.RotateTransform([float]$rc.Next(-25, 26)); if ($rc.Next(2) -eq 0) { $g.ScaleTransform(-1, 1) }
-            Dibujar-RGB $g $script:tkImg $script:tkR $script:tkC (-$tw / 2) (-$th / 2) $tw $th (6 + $rc.Next(0, 8))
-            $g.Restore($st)
-            $pal = $TokenPalabras[$c % $TokenPalabras.Count]
-            $st = $g.Save(); $g.TranslateTransform([float]$rc.Next(40, 380), [float]$rc.Next(60, [int]($H - 60))); $g.RotateTransform([float]$rc.Next(-12, 13))
-            Texto-Color $g $pal 'Arial Black' (40 + $rc.Next(0, 22)) 0 0 (C 255 255 255) (C 230 20 40) 6
+            $im = $script:tkPort[$c % 8]
+            if ($im) {
+                $lado = 190 + $rc.Next(0, 70)
+                $st = $g.Save(); $g.TranslateTransform([float]($W * 0.62 + $rc.Next(-60, 60)), [float]($H / 2 + $rc.Next(-20, 20))); $g.RotateTransform([float]$rc.Next(-9, 10))
+                $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 230 20 40))), [float](-$lado / 2 + 6), [float](-$lado / 2 + 6), [float]($lado + 12), [float]($lado + 12))
+                $g.FillRectangle([System.Drawing.Brushes]::White, [float](-$lado / 2 - 6), [float](-$lado / 2 - 6), [float]($lado + 12), [float]($lado + 12))
+                $g.DrawImage($im, [float](-$lado / 2), [float](-$lado / 2), [float]$lado, [float]$lado)
+                $g.Restore($st)
+            }
+            $pal = $TokenCanciones[$c % 8]
+            $st = $g.Save(); $g.TranslateTransform([float]$rc.Next(20, 120), [float]$rc.Next(50, [int]($H - 80))); $g.RotateTransform([float]$rc.Next(-10, 11))
+            Texto-Color $g $pal 'Arial Black' (26 + $rc.Next(0, 12)) 0 0 (C 255 255 255) (C 230 20 40) 6
             $g.Restore($st)
             $sl = New-Object System.Drawing.Pen((ARGB 60 0 0 0), 1); for ($y = 0; $y -lt $H; $y += 3) { $g.DrawLine($sl, 0, $y, $W, $y) }; $sl.Dispose()
         } else {
-            # 4) cartel final: rayos rojos, Token y su nombre
+            # 4) cartel final: rayos rojos, la portada de AND IM GONE y su nombre
             $g.Clear((C 6 4 6))
-            $cx = $W * 0.68; $cy = $H * 0.5; $rot = $p * 3
+            $cx = $W * 0.7; $cy = $H * 0.5; $rot = $p * 3
             $br = New-Object System.Drawing.SolidBrush((ARGB 90 230 20 40))
             for ($i = 0; $i -lt 14; $i++) {
                 $a1 = [Math]::PI / 180 * ($rot + $i * 25.7 - 6); $a2 = [Math]::PI / 180 * ($rot + $i * 25.7 + 6)
                 $g.FillPolygon($br, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$cx, [float]$cy)), (New-Object System.Drawing.PointF([float]($cx + 900 * [Math]::Cos($a1)), [float]($cy + 900 * [Math]::Sin($a1)))), (New-Object System.Drawing.PointF([float]($cx + 900 * [Math]::Cos($a2)), [float]($cy + 900 * [Math]::Sin($a2))))))
             }
             $br.Dispose()
-            $th = $H * 0.86; $tw = $script:tkImg.Width * $th / $script:tkImg.Height
-            Dibujar-RGB $g $script:tkImg $script:tkR $script:tkC ($cx - $tw / 2 + $rn.Next(-2, 3)) ($H - $th - 6) $tw $th (3 + ($p % 3))
+            $im = $script:tkPort[0]
+            if ($im) {
+                $lado = $H * 0.78
+                $st = $g.Save(); $g.TranslateTransform([float]$cx, [float]$cy); $g.RotateTransform(-4)
+                $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 230 20 40))), [float](-$lado / 2 + 8), [float](-$lado / 2 + 8), [float]($lado + 14), [float]($lado + 14))
+                $g.FillRectangle([System.Drawing.Brushes]::White, [float](-$lado / 2 - 7), [float](-$lado / 2 - 7), [float]($lado + 14), [float]($lado + 14))
+                $g.DrawImage($im, [float](-$lado / 2 + $rn.Next(-2, 3)), [float](-$lado / 2), [float]$lado, [float]$lado)
+                $g.Restore($st)
+            }
             $t = [Math]::Min(1.0, ($p - 52) / 5.0); $e = 1 - [Math]::Pow(1 - $t, 3)
             Texto-Color $g 'TOKEN' 'Arial Black' 78 (-380 + $e * 404) 56 (C 255 255 255) (C 230 20 40) 10
             if ($p -ge 56) { Texto-Color $g 'femtanyl' 'Consolas' 26 30 160 (C 255 60 70) (C 0 0 0) 4 }
@@ -5729,7 +6216,6 @@ function Transicion-Token($final) {
     }
     Intro-Overlay 74 $pintar $alTick $final
 }
-
 # --- cinta VHS: pantalla azul, PLAY, escenas del videoclip y el cartel de neón de "Pop Music" ---
 function Transicion-Pop($final) {
     $script:ppFotos = @($script:skin.Fotos | ForEach-Object { Cargar-Img $_ })
@@ -5803,6 +6289,87 @@ function Transicion-Pop($final) {
     }
     Intro-Overlay 74 $pintar $alTick $final
 }
+# --- Enfosi: la portada del juego, "conoce a tus Glaggles", uno se revela, el Ojo de Enphoso y la primera oleada ---
+function Transicion-Enfosi($final) {
+    $script:enIn = @{}
+    foreach ($n in @('portada.jpg', 'logo.png', 'ojo.png', 'enphoso_titulo.png', 'giggler_oleada.png', 'gembo_enfosi.png')) { $script:enIn[$n] = Cargar-Img "skins\enfosi\$n" }
+    foreach ($t in $EnfosiTipos) { $script:enIn[$t] = Cargar-Img "skins\enfosi\$t.png" }
+    $script:iRecursos = @($script:enIn.Values)
+    $pintar = {
+        param($g, $W, $H, $p)
+        $g.SmoothingMode = 'AntiAlias'; $g.InterpolationMode = 'HighQualityBilinear'
+        $sx = 0; $sy = 0; if ($p -ge 44 -and $p -le 50) { $sx = $Rnd.Next(-8, 9); $sy = $Rnd.Next(-6, 7) }
+        if ($p -lt 52) {
+            # portada del juego (un Giggler con un arma y un Enphoso detrás), con un poco de zoom
+            $z = 1 + $p * 0.002
+            $im = $script:enIn['portada.jpg']
+            if ($im) { Imagen-Cubrir $g $im (-$W * ($z - 1) / 2 + $sx) (-$H * ($z - 1) / 2 + $sy) ($W * $z) ($H * $z) 0.5 0.5 }
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB $(if ($p -lt 14) { 90 } else { 170 }) 10 10 20))), 0, 0, $W, $H)
+            # logo de los Glaggles que cae
+            $lg = $script:enIn['logo.png']
+            if ($lg) {
+                $t = [Math]::Min(1.0, $p / 8.0); $e = 1 - [Math]::Pow(1 - $t, 3)
+                $lw = 300; $lh = $lg.Height * $lw / $lg.Width
+                $g.DrawImage($lg, [float]($W / 2 - $lw / 2), [float](-$lh + $e * ($lh + 14)), [float]$lw, [float]$lh)
+            }
+            if ($p -ge 14) {
+                # "conoce a tus Glaggles": van entrando en fila
+                Texto-Color $g 'KNOW YOUR GLAGGLES!' 'Arial Black' 20 ($W / 2 - 132) 112 (C 255 255 255) (C 20 20 20) 5
+                for ($i = 0; $i -lt 7; $i++) {
+                    $t2 = [Math]::Min(1.0, [Math]::Max(0.0, ($p - 16 - $i * 2.5) / 6.0)); if ($t2 -le 0) { continue }
+                    $e2 = 1 - [Math]::Pow(1 - $t2, 3)
+                    $tipo = $EnfosiTipos[$i]
+                    $im = if ($tipo -eq 'gembo' -and $p -ge 44) { $script:enIn['gembo_enfosi.png'] } else { $script:enIn[$tipo] }
+                    if (-not $im) { continue }
+                    $ih = 120; $iw = $im.Width * $ih / $im.Height
+                    $x = 48 + $i * 96 + (1 - $e2) * ($W + 100); $y = $H - $ih - 30 + [Math]::Abs([Math]::Sin(($p + $i) * 0.5)) * -6
+                    $g.DrawImage($im, [float]($x + $sx), [float]($y + $sy), [float]$iw, [float]$ih)
+                }
+                # uno de ellos era un Enphosian: explosión negra
+                if ($p -ge 44 -and $p -lt 52) {
+                    $q = $p - 44; $cx = 48 + 3 * 96 + 30; $cy = $H - 90
+                    for ($k = 0; $k -lt 3; $k++) { $rr = 20 + $q * 14 + $k * 16; $g.DrawEllipse((New-Object System.Drawing.Pen((ARGB ([int](220 - $q * 25)) 0 0 0), 10)), [float]($cx - $rr), [float]($cy - $rr), [float](2 * $rr), [float](2 * $rr)) }
+                    Texto-Color $g '¡ENPHOSIAN!' 'Arial Black' 30 ($cx - 110) ($cy - 150) (C 20 20 20) (C 255 255 255) 6
+                }
+            }
+        } elseif ($p -lt 66) {
+            # el Ojo de Enphoso
+            $g.Clear((C 0 0 0))
+            $q = $p - 52; $al = [Math]::Min(1.0, $q / 6.0)
+            $oj = $script:enIn['ojo.png']
+            if ($oj) {
+                $sz = 180 + $q * 8
+                $cm = New-Object System.Drawing.Imaging.ColorMatrix; $cm.Matrix33 = [float]$al
+                $ia = New-Object System.Drawing.Imaging.ImageAttributes; $ia.SetColorMatrix($cm)
+                $g.DrawImage($oj, (New-Object System.Drawing.Rectangle([int]($W / 2 - $sz / 2), [int]($H / 2 - $sz / 2 + 10), [int]$sz, [int]$sz)), 0, 0, $oj.Width, $oj.Height, [System.Drawing.GraphicsUnit]::Pixel, $ia)
+                $ia.Dispose()
+            }
+            $ti = $script:enIn['enphoso_titulo.png']
+            if ($ti -and $q -ge 4) { $g.DrawImage($ti, [float]($W / 2 - 150), 14, 300, [float]($ti.Height * 300 / $ti.Width)) }
+        } else {
+            # primera oleada
+            $im = $script:enIn['portada.jpg']; if ($im) { Imagen-Cubrir $g $im 0 0 $W $H 0.5 0.5 }
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 120 10 10 20))), 0, 0, $W, $H)
+            $bn = $script:enIn['giggler_oleada.png']
+            if ($bn) {
+                $q = $p - 66; $e = if ($q -lt 4) { $q / 4.0 * 1.15 } elseif ($q -lt 7) { 1.15 - ($q - 4) / 3.0 * 0.15 } else { 1.0 }
+                $bw = 420 * $e; $bh = $bn.Height * $bw / $bn.Width
+                $g.DrawImage($bn, [float]($W / 2 - $bw / 2), [float]($H / 2 - $bh / 2 - 10), [float]$bw, [float]$bh)
+            }
+            Texto-Color $g 'OLEADA 1 / 7' 'Arial Black' 20 ($W / 2 - 80) ($H - 60) (C 255 255 255) (C 20 20 20) 5
+        }
+    }
+    $alTick = {
+        param($ov, $p)
+        if ($p -eq 2) { Sonido 'ding' }
+        if ($p -eq 44) { Sonido 'revela' }
+        if ($p -eq 52) { Sonido 'ojo' }
+        if ($p -eq 66) { Sonido 'ola' }
+        if ($p -gt 82) { $ov.Top -= [int]($ov.Height / 5) }
+    }
+    Intro-Overlay 88 $pintar $alTick $final
+}
+
 # --- el templo de huesos, el ojo de la corona, el círculo ritual y la alianza del Cordero y la Cabra ---
 function Transicion-Culto($final) {
     $script:tcFondo = Cargar-Img $script:skin.IntroImg
@@ -6368,6 +6935,7 @@ function Transicion-Punk($final) {
             'pressure' { Decir 'Algo se ha roto. Lo pondré en oferta.' }
             'dod' { Decir '*Destroza el error de un zarpazo.*' }
             'pizza' { Decir '*Algo se ha roto. Kevin le da un mordisco al error.* Arreglado. Sabía a queso azul. PUAJ.' }
+            'enfosi' { Decir 'Algo se ha roto. ¿Habrá sido un Enphosian? *Lo mira con desconfianza.*' }
             'punk' { Decir 'Algo se ha roto. No era la guitarra, por una vez. *Toca un acorde para arreglarlo.*' }
             default { Decir 'Algo se ha roto. No he sido yo. Creo.' }
         }
@@ -6484,16 +7052,13 @@ function Pintar-Boton($g, $b) {
             $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush($(if ($hover) { (C 255 250 230) } else { (C 255 236 200) }))), $rect, $fmt)
         }
         'femta' {
-            # botón negro con borde rojo; al pasar el ratón se pone rojo y el texto se separa en colores
+            # pegatina blanca con contorno negro y sombra roja; al pasar el ratón se pone roja
             $g.SmoothingMode = 'AntiAlias'
-            $g.Clear($(if ($enBarra) { (C 0 0 0) } else { (C 8 4 6) }))
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush($(if ($hover) { (C 230 20 40) } else { (C 16 8 10) }))), 0, 0, $W, $H)
-            $g.DrawRectangle((New-Object System.Drawing.Pen($(if ($hover) { (C 255 255 255) } else { (C 230 20 40) }), [float](2 * $Z))), [float]$Z, [float]$Z, [float]($W - 2 * $Z), [float]($H - 2 * $Z))
-            if ($hover) {
-                $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((C 40 230 255))), (New-Object System.Drawing.RectangleF([float](2 * $Z), 0, $W, $H)), $fmt)
-                $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((C 120 0 10))), (New-Object System.Drawing.RectangleF([float](-2 * $Z), 0, $W, $H)), $fmt)
-            }
-            $g.DrawString($b.Text, $b.Font, [System.Drawing.Brushes]::White, $rect, $fmt)
+            $g.Clear($(if ($enBarra) { (C 0 0 0) } else { (C 10 6 8) }))
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 230 20 40))), [float](3 * $Z), [float](3 * $Z), [float]($W - 4 * $Z), [float]($H - 4 * $Z))
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush($(if ($hover) { (C 230 20 40) } else { (C 255 255 255) }))), [float]$Z, [float]$Z, [float]($W - 4 * $Z), [float]($H - 4 * $Z))
+            $g.DrawRectangle((New-Object System.Drawing.Pen([System.Drawing.Color]::Black, [float](2 * $Z))), [float]$Z, [float]$Z, [float]($W - 4 * $Z), [float]($H - 4 * $Z))
+            $g.DrawString($b.Text, $b.Font, $(if ($hover) { [System.Drawing.Brushes]::White } else { [System.Drawing.Brushes]::Black }), $rect, $fmt)
         }
         'punk' {
             # botón crema con borde marrón (como el bocadillo); al pasar el ratón, verde de pegatina
@@ -6533,6 +7098,14 @@ function Pintar-Boton($g, $b) {
             $g.DrawPath((New-Object System.Drawing.Pen($(if ($hover) { (C 255 255 255) } else { (C 90 230 250) }), [float](2 * $Z))), $rr); $rr.Dispose()
             $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((ARGB 120 255 92 190))), (New-Object System.Drawing.RectangleF([float](1.5 * $Z), [float](1 * $Z), $W, $H)), $fmt)
             $g.DrawString($b.Text, $b.Font, [System.Drawing.Brushes]::White, $rect, $fmt)
+        }
+        'enfosi' {
+            $g.SmoothingMode = 'AntiAlias'
+            $g.Clear($(if ($enBarra) { (C 252 200 55) } else { (C 34 38 54) }))
+            $rr = Ruta-Redonda (1.5 * $Z) (1.5 * $Z) ($W - 4 * $Z) ($H - 4 * $Z) ([Math]::Min($H - 4 * $Z, 9 * $Z))
+            $g.FillPath((New-Object System.Drawing.SolidBrush($(if ($hover) { (C 255 214 60) } else { (C 255 255 255) }))), $rr)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 25 25 25), [float](2 * $Z))), $rr); $rr.Dispose()
+            $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((C 25 25 25))), $rect, $fmt)
         }
         'teto' {
             # botón blanco y rojo; al pasar el ratón se pone amarillo como sus medias
@@ -6645,6 +7218,11 @@ function Lanzar($item) {
                 if (Tetra-Mensaje) { Decir $linea } else { Decir "$linea (Te ha llegado un mensaje, pero estás en No molestar.)" }
                 $form.Invalidate()
             }
+            'enfosi' {
+                # cada app trae un Glaggle a la estatua
+                if ($script:ef -and -not $script:ef.W -and -not $script:ef.Banner -and -not $script:ef.Cartel) { Enfosi-Llega }
+                else { if ($script:ef) { $script:ef.Cola++ }; Decir $linea }
+            }
             'teto' {
                 Teto-Pajaro
                 $nv = @{ 'YouTube' = 'youtube'; 'Word' = 'word'; 'Excel' = 'excel'; 'Teams' = 'teams' }[$item.Nombre]
@@ -6686,6 +7264,7 @@ function Lanzar($item) {
                 'zorro' { Decir "¡No encuentro $($item.Nombre)! ...¡Te abro la web! ¿Vale? Vale." 'serio' }
                 'femta' { Sonido 'glitch'; Decir "$($item.Nombre) N0T F0UND. Te abro la web. A todo volumen." }
                 'pop' { Decir "No tienes $($item.Nombre). Te abro la web. Tranqui." }
+                'enfosi' { Decir "No tienes $($item.Nombre). Te abro la web. Mientras, vigila la estatua." }
                 'teto' { Sonido 'oops'; Decir "¡No encuentro $($item.Nombre)! Te abro la web. ...¿qué estábamos buscando?" }
                 'pizza' { Decir "¡No tienes $($item.Nombre)! Te abro la web. Mientras carga, me como un trozo. *ÑAM.*" }
                 'punk' { Decir "No tienes $($item.Nombre). Te abro la web. Como cuando no tienes la guitarra y tocas con la de un amigo." }
@@ -6704,6 +7283,7 @@ function Lanzar($item) {
                 'zorro' { Sonido 'ups'; Decir "¡No encuentro $($item.Nombre) por ningún lado! ¡Lo siento muchísimo!" 'serio' }
                 'femta' { Sonido 'glitch'; $a = $script:actores['K']; if ($a) { $a.Temblor = 10 }; Decir "ERR0R: $($item.Nombre) no existe. *Token le pega un cabezazo a la pantalla. Sigue sin existir.*" }
                 'pop' { Decir "No encuentro $($item.Nombre). Como esos amigos de 2020. Se fue y ya." }
+                'enfosi' { Sonido 'buzzer'; Decir "¡$($item.Nombre) no aparece! Como la cara de un Enphosian disfrazado." }
                 'teto' { Sonido 'uhoh'; Decir "¡$($item.Nombre) se ha ido volando! Como un pájaro. Igual vuelve." }
                 'pizza' { Actor-Pose 'V' 'sudor' 2000; Decir "¡No encuentro $($item.Nombre)! ...¿Alguien lo ha tocado? ¿Como a mi pizza? *Suda.*" }
                 'punk' { Ky-Video 'piensa' 2500; Decir "No encuentro $($item.Nombre). Como mis canciones sin terminar: igual algún día aparece." }
@@ -6791,6 +7371,7 @@ function Efecto-Entrada($prev) {
         'pressure' { Transicion-Vent $msg }
         'dod' { Transicion-DoD $msg }
         'teto' { Transicion-Teto $msg }
+        'enfosi' { Transicion-Enfosi $msg }
         'femta' { Transicion-Token $msg }
         'pop' { Transicion-Pop $msg }
         'pizza' { Transicion-Pizza $msg }
@@ -7315,7 +7896,7 @@ $form.Add_Paint({
             $g.DrawRectangle((New-Object System.Drawing.Pen((C 0 255 0), 1)), 410, 216, 190, 10)
             $g.DrawString("HITMARKERS: $($script:hitsTotal)    DO THE DEW: $($script:dew)", (FntP('Arial Black', 8)), (New-Object System.Drawing.SolidBrush((C 191 239 255))), 16, 280)
         }
-        { $_ -in @('culto', 'kaiju', 'zorro', 'mew', 'oeste', 'pressure', 'dod', 'teto', 'femta', 'pop', 'pizza', 'punk') } {
+        { $_ -in @('culto', 'kaiju', 'zorro', 'mew', 'oeste', 'pressure', 'dod', 'teto', 'femta', 'pop', 'pizza', 'punk', 'enfosi') } {
             # skins nuevas: fondo real + personajes grandes + efectos + bocadillo propio
             $g.SmoothingMode = 'AntiAlias'
             # el fondo se prepara siempre con el tamaño fijo de la skin (no con el de la ventana a medio montar)
@@ -7391,6 +7972,10 @@ $form.Add_Paint({
                         for ($i = 0; $i -lt 7; $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush(@((ARGB 150 230 20 40), (ARGB 110 255 255 255), (ARGB 110 40 230 255), (ARGB 200 0 0 0))[$Rnd.Next(4)])), $Rnd.Next(-60, $W), $Rnd.Next(0, $H), $Rnd.Next(60, 400), $Rnd.Next(2, 9)) }
                         if ($script:tkFx % 6 -lt 3) { Texto-Color $g 'BREAKCORE MODE' 'Arial Black' 18 470 66 (C 255 255 255) (C 230 20 40) 4 }
                     }
+                    # la canción de la portada que se ve
+                    $tc = "♪ $($TokenCanciones[$script:tkCd - 1])"; $tw = Ancho-Texto $tc 'Arial Black' 11
+                    $g.FillRectangle([System.Drawing.Brushes]::Black, [float](572 - $tw / 2 - 6), 250, [float]($tw + 12), 20)
+                    Texto-Color $g $tc 'Arial Black' 11 (572 - $tw / 2) 252 (C 255 255 255) (C 230 20 40) 1
                     # fichas y barra de HYPE
                     Texto-Color $g "TOKENS: $($script:tkFichas)" 'Consolas' 15 16 284 (C 255 255 255) (C 230 20 40) 3
                     $bpm = 174 + [int]($script:tkHype * 0.66) + $(if ($script:tkFx -gt 0) { 66 } else { 0 })
@@ -7524,6 +8109,71 @@ $form.Add_Paint({
                     $dnd = if ($script:popDND) { 'NO MOLESTAR: SÍ' } else { 'NO MOLESTAR: NO' }
                     Texto-Color $g $dnd 'Trebuchet MS' 13 168 286 $(if ($script:popDND) { (C 90 230 250) } else { (C 255 214 120) }) (C 30 10 50) 3
                     if ($script:popDND) { $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 90 230 250))), 330, 286, 16, 16); $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 30 14 52))), 335, 283, 15, 15) }
+                }
+                'enfosi' {
+                    $e = $script:ef
+                    if ($e) {
+                        # vida de la estatua
+                        $fr = [Math]::Max(0.0, $e.HP / [double]$e.HPMax)
+                        $cv = if ($fr -gt 0.5) { (C 90 200 60) } elseif ($fr -gt 0.25) { (C 240 180 30) } else { (C 230 40 40) }
+                        Texto-Color $g 'ESTATUA' 'Arial Black' 9 410 60 (C 255 255 255) (C 20 20 20) 3
+                        $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 170 0 0 0))), 408, 76, 118, 12)
+                        $g.FillRectangle((New-Object System.Drawing.SolidBrush($cv)), 410, 78, [int](114 * $fr), 8)
+                        $g.DrawRectangle((New-Object System.Drawing.Pen([System.Drawing.Color]::White, 1)), 408, 76, 118, 12)
+                        # strikes: tres caritas (una X roja por cada strike)
+                        for ($i = 0; $i -lt 3; $i++) { Dibujar-Carita $g (704 + $i * 22) 74 9 ($i -ge $e.Strikes) }
+                        # vida de los Enphosians descubiertos y de los jefes
+                        if ($e.W -and $e.W.Estado -in @('revelado', 'ataca')) {
+                            $aw = $script:actores['W']
+                            for ($i = 0; $i -lt $e.W.Vida; $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 230 40 40))), [float]($e.W.X + 4 + $i * 9), [float]($aw.Rect[1] - 4), 7, 7); $g.DrawRectangle((New-Object System.Drawing.Pen((C 20 20 20), 1)), [float]($e.W.X + 4 + $i * 9), [float]($aw.Rect[1] - 4), 7, 7) }
+                        }
+                        # explosión negra al descubrir un Enphosian
+                        if ($e.Negro -gt 0) {
+                            $q = 16 - $e.Negro
+                            for ($k2 = 0; $k2 -lt 3; $k2++) { $rr = 10 + $q * 6 + $k2 * 10; $g.DrawEllipse((New-Object System.Drawing.Pen((ARGB ([int][Math]::Max(0, 230 - $q * 14)) 0 0 0), 8)), [float]($e.NX - $rr), [float]($e.NY - $rr), [float](2 * $rr), [float](2 * $rr)) }
+                        }
+                        # el Ojo de Enphoso se acerca
+                        if ($e.Ojo -gt 0) {
+                            $q = $e.Ojo; $sz = 40 + $q * 1.15; $al = [float]([Math]::Min(1.0, $q / 20.0) * 0.95)
+                            $ox = 720 - $q * 0.75; $oy = 150
+                            $oj = Enfosi-Img 'ojo.png'
+                            if ($oj) {
+                                $cm = New-Object System.Drawing.Imaging.ColorMatrix; $cm.Matrix33 = $al
+                                $ia = New-Object System.Drawing.Imaging.ImageAttributes; $ia.SetColorMatrix($cm)
+                                $g.DrawImage($oj, (New-Object System.Drawing.Rectangle([int]($ox - $sz / 2), [int]($oy - $sz / 2), [int]$sz, [int]$sz)), 0, 0, $oj.Width, $oj.Height, [System.Drawing.GraphicsUnit]::Pixel, $ia); $ia.Dispose()
+                            }
+                            $tt = Enfosi-Img 'enphoso_titulo.png'
+                            if ($tt -and (([Environment]::TickCount / 350) % 2) -lt 1) { $g.DrawImage($tt, 560, 92, 150, [float]($tt.Height * 150 / $tt.Width)) }
+                        }
+                        # flash rojo de strike
+                        if ($e.Rojo -gt 0) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ([int][Math]::Min(200, $e.Rojo * 14)) 220 20 20))), 400, 56, ($W - 400), 218) }
+                        # cartel de oleada
+                        if ($e.Banner) {
+                            $bi = Enfosi-Img $e.Banner.Img
+                            if ($bi) { $q = 55 - $e.Banner.T; $es = if ($q -lt 4) { $q / 4.0 * 1.1 } elseif ($q -lt 7) { 1.1 - ($q - 4) / 30.0 } else { 1.0 }; $bw = 300 * [Math]::Max(0.05, $es); $bh = $bi.Height * $bw / $bi.Width; $g.DrawImage($bi, [float](585 - $bw / 2), [float](150 - $bh / 2), [float]$bw, [float]$bh) }
+                        }
+                        # rango al acabar la oleada, o la pantalla de GAME OVER
+                        if ($e.Cartel) {
+                            $ci = Enfosi-Img $e.Cartel.Img
+                            if ($ci) {
+                                if ($e.Cartel.Img -eq 'gameover.jpg') {
+                                    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 0 0 0))), 400, 56, ($W - 400), 218)
+                                    $ch = 210; $cw = $ci.Width * $ch / $ci.Height; $g.DrawImage($ci, [float](585 - $cw / 2), 60, [float]$cw, [float]$ch)
+                                } else {
+                                    $q = $e.Cartel.Max - $e.Cartel.T; $es = [Math]::Max(0.05, [Math]::Min(1.0, $q / 5.0))
+                                    $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 120 0 0 0))), 400, 56, ($W - 400), 218)
+                                    $cw = 260 * $es; $ch = $ci.Height * $cw / $ci.Width; $g.DrawImage($ci, [float](585 - $cw / 2), [float](160 - $ch / 2), [float]$cw, [float]$ch)
+                                }
+                            }
+                        }
+                        # marcador: oleada, puntos, Bintar
+                        Texto-Color $g "OLEADA $($e.Ola)/7" 'Arial Black' 14 16 284 (C 255 255 255) (C 20 20 20) 4
+                        Texto-Color $g "PUNTOS $($e.Puntos)" 'Arial Black' 12 140 286 (C 255 214 60) (C 20 20 20) 4
+                        $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 250 200 40))), 268, 286, 16, 16); $g.DrawEllipse((New-Object System.Drawing.Pen((C 120 80 0), 1.5)), 268, 286, 16, 16)
+                        $g.DrawString('B', (FntP('Arial Black', 7)), (New-Object System.Drawing.SolidBrush((C 120 80 0))), 271, 287)
+                        Texto-Color $g "x$($e.Bintar)" 'Arial Black' 12 288 286 (C 255 255 255) (C 20 20 20) 4
+                        if ($e.Sobber) { Texto-Color $g 'SOBBER' 'Arial Black' 12 336 286 (C 110 150 255) (C 20 20 20) 4 }
+                    }
                 }
                 'teto' {
                     # pajaritos posados o volando
@@ -7738,6 +8388,7 @@ function Clic-Actor($id) {
         'pressure' { Sebastian-Clic }
         'dod' { Pursuer-Clic }
         'teto' { Teto-Clic }
+        'enfosi' { Enfosi-Clic $id }
         'femta' { Token-Clic }
         'pop' { Tetra-Clic }
         'pizza' { Kevin-Clic }
@@ -7795,7 +8446,7 @@ function Construir-UI {
     $script:gComidos = 0; $script:disparos = 0; $script:agujeros2.Clear(); $script:fogonazo = 0
     $script:modoTienda = $false; $script:toques = 0; $script:enfadoFx = 0; $script:destello = 0
     $script:acechando = $false; $acechoTimer.Stop(); $script:zarpas.Clear(); $script:ondas.Clear(); $script:gotas.Clear(); $script:rojoFx = 0
-    $script:pajaros.Clear(); $script:birdbrains = 0; $script:duelo = $null
+    $script:pajaros.Clear(); $script:birdbrains = 0; $script:duelo = $null; $script:tkCd = 1
     # personajes dibujados y estado de las skins nuevas
     $actTimer.Stop(); $kRevTimer.Stop()
     Quitar-Actores
@@ -7908,6 +8559,7 @@ function Construir-UI {
     if ($conActores) {
         # personajes grandes dibujados en el panel y bocadillo transparente encima del dibujo
         foreach ($def in $k.Actores) { Nuevo-Actor $def }
+        if ($k.Estilo -eq 'enfosi') { Enfosi-Reset } else { $script:ef = $null }
         $status.BackColor = [System.Drawing.Color]::Transparent
         $status.ForeColor = $k.BurTexto
         $status.UseMnemonic = $false
@@ -8008,7 +8660,7 @@ function Construir-UI {
     Escalar $form
     $form.Location = $loc
     Mostrar-Pagina
-    $script:twTexto = ''; $script:twPos = 0; $status.Text = ''
+    $script:twTexto = ''; $script:twPos = 0; $status.Text = ''; $script:twBloqueo = 0
     $form.Invalidate()
 }
 

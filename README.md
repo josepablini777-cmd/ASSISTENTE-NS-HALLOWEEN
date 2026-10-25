@@ -1,7 +1,45 @@
-# c00lgui v5 – panel lanzador con skins de asistentes
+# 🎃 c00lgui v6 – panel lanzador con skins de asistentes
 
 Panel para Windows que abre YouTube, las apps de Office y otros programas con un clic.
 
+---
+
+## 🎃🕯️ PRÓXIMAMENTE: ACTUALIZACIÓN DE HALLOWEEN 🕯️🎃
+
+> *Algo se mueve entre las calabazas...*
+
+Se acerca la noche más larga del año, y el panel no va a dormir. La próxima gran actualización llega con **tres invitados de miedo**:
+
+| | Personaje | De dónde viene |
+|---|---|---|
+| 🧸 | **Soft Fuzzy Man** | AIMKID |
+| 💀 | **Evil Scary** | *Die of Death* |
+| 🔪 | **Dr. Loomis** | *Halloween* |
+
+🦇 Intros nuevas, sustos nuevos y discusiones nuevas entre ellos y el resto de skins.
+🕸️ Apaga la luz. Abre el panel. Y no mires detrás de ti.
+
+---
+
+## Notas del parche – v6
+
+**Skin nueva: Enfosi** (juego de Roblox de Tumore)
+- Defiende la estatua: llegan **Glaggles** caminando hacia ella y algunos son **Enphosians** disfrazados con un fallo (piel de otro color, símbolo falso, sin símbolo o sin cara). Haz clic en el falso para descubrirlo y acabar con él.
+- Si le pegas a un inocente es **strike**; con tres viene el **Ojo de Enphoso** y te convierte en **Sobber**. 7 oleadas con un Glaggle nuevo cada una, rangos al acabar (Glaggle, Awesome, Basic…), Bintar y los jefes **Gergro**, **Borgack** y **Risio**.
+- Todo sale de las wikis del juego: imágenes, oleadas, daños, velocidades y frases.
+
+**Token, rehecho con el arte oficial de femtanyl**
+- Ahora se ven las portadas de sus canciones (de su Bandcamp) como pegatinas: haz clic para pasar de una a otra. En modo BREAKCORE pasan solas a toda velocidad.
+- Fondo con la ciudad roja de *ALL THE TIME*, un vinilo, botones y bocadillo de pegatina blanca y una intro con sus portadas y su logo en llamas.
+
+**Logo de inicio:** el panda, Randy y Tung Tung Sahur, los tres de busto y a la misma altura. Dura más (unos 6 segundos).
+
+**Arreglos**
+- Pursuer ya recupera estamina, y las barras del amplificador de Kennyoung, del HYPE de Token y del enfado de Kevin bajan con el tiempo.
+- Los mensajes ya no van lentos ni se cortan (explosión de la guitarra, BREAKCORE…).
+- Las ventanitas de las discusiones se ven sin tener que hacerles clic, y una discusión ya no se puede duplicar.
+- A Teto ya no se le corta la cabeza al saltar.
+- Frases sin sentido de Sebastian, Averi y Guillotina, cambiadas.
 ## Notas del parche – v5.1
 
 - **Guillotina, intro nueva:** las imágenes del callejón pasan rápido con el anuncio de la radio WMEW 99.9 del juego; luego ella cae bajo la luz de la farola, aparece el cartel de papel "Guillotina is coming for you!" y una mandíbula de dientes negros se come la pantalla. Un clic la salta.
@@ -29,7 +67,7 @@ Panel para Windows que abre YouTube, las apps de Office y otros programas con un
 **Para quien quiera tocar el código**
 - Al principio de la sección `SKINS` de `c00lgui.ps1` hay una guía paso a paso para añadir skins nuevas.
 - Los grupos del menú Skins se cambian en la lista `$GruposSkins` y el texto del tutorial en `$TextoTutorial`.
-Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code, Build the Larp"). Tiene diecinueve skins, cada una con su propio estilo, animaciones y diálogos:
+Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code, Build the Larp"). Tiene veinte skins, cada una con su propio estilo, animaciones y diálogos:
 
 | Skin | Estilo | Efecto al entrar |
 |---|---|---|
@@ -48,10 +86,11 @@ Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code,
 | **Sebastian Solace** | El tendero de *Pressure*, detrás del mostrador de su tienda en el Hadal Blacksite | Gateas por la ventilación, se abre la rejilla y aparece él |
 | **Pursuer** | El depredador de *Die of Death* en el bosque del mapa Treehouse | La animación de presentación del juego y "AHH, FRESH MEAT!" |
 | **Kasane Teto** | Teto en la pose de *BIRDBRAIN*, bailando sobre el rosa del videoclip | Una bandada de palomas cruza la pantalla, Teto cae rebotando y dice "¡Hiii~!" con su voz real |
-| **Token** | La mascota de femtanyl en una recreativa roja y negra, con estática y glitch | INSERT TOKEN: cae la ficha, su logo, cortes rápidos con títulos de canciones y su cartel |
+| **Token** | La mascota de femtanyl con el arte oficial de sus portadas, como pegatinas sobre la ciudad roja de *ALL THE TIME* | INSERT TOKEN: cae la ficha, su logo en llamas, cortes rápidos con sus portadas y su cartel |
 | **Tetra** | El gato de *You're Just Like Pop Music* (YonKaGor) en el acuario de neón del videoclip, con estética de cinta VHS | Una cinta VHS: PLAY, escenas del videoclip y el cartel de neón de "Pop Music" |
 | **Kevin** | El lobo verde de *Don't Touch My Pizza* (Nyanwolf), viviendo dentro de un dibujo de Paint sobre un mantel de pizzería | Se abre Paint, un lápiz dibuja su pizza, "DON'T TOUCH MY PIZZA" palabra a palabra, fuego y su cartel con arcoíris, con la polka de fondo |
 | **Kennyoung** | El personaje del músico surcoreano de pop-punk, dentro del reproductor de su canal de YouTube, en un local de ensayo | Su canal carga, se le da al play y suena un riff pop-punk con cortes de sus videoclips y títulos de sus canciones |
+| **Enfosi** | El juego de Roblox de Tumore: la estatua de oro en Blibble's Field y los Glaggles que caminan hacia ella | Conoce a tus Glaggles: uno se revela como Enphosian, aparece el Ojo de Enphoso y empieza la oleada 1 |
 
 Cada skin opina de las demás. Pasa el ratón por los botones del menú **Skins** para oír lo que piensa el asistente de cada una. De vez en cuando, además, **discuten entre ellos**: el otro personaje aparece en su propia ventanita pegada al panel, con su estilo y su bocadillo. Lo que dicen tiene efectos: los disparos suenan y hacen temblar las ventanas, las Smokebomb las vuelven transparentes y los mordiscos suenan. **Haz clic derecho sobre el personaje** para empezar una discusión cuando quieras.
 
@@ -90,6 +129,7 @@ No hace falta instalar nada: funciona con PowerShell, que ya viene con Windows 1
   - **Tetra:** cada app trae un mensaje de su amigo "neems". Cada cuatro clics se pone (o se quita) el **No molestar**.
   - **Kevin:** cada app que abres es un trozo de pizza que se come; cuando se acaba, llega el repartidor con otra. **No toques su pizza**: a la primera saca un cuchillo y una pistola, a la segunda te avisa de que te va a morder y a la tercera saca la motosierra y todo arde. Si aparece **queso azul**, ese sí puedes quitarlo haciendo clic en la pizza (te lo agradecerá). Haz clic en él para que baile, cante con el micro o, con suerte, se suba a un unicornio.
   - **Kennyoung:** cada app que abres son visitas y likes para su canal, y cada 8 hay **concierto** con la banda. Haz clic en él para que toque un acorde: el **amplificador** sube y, si llega al máximo, la guitarra **explota**. El botón **SUSCRIBIRSE** del reproductor funciona (con campanita). La barra roja va pasando por sus canciones.
+  - **Enfosi:** cada app trae un Glaggle a la estatua. Haz clic en él solo si es un Enphosian disfrazado (piel de otro color, símbolo falso, sin símbolo o sin cara). Si le pegas a un inocente es strike, y con tres viene el Ojo de Enphoso.
 
 ## Ajustes
 
@@ -149,10 +189,11 @@ Al principio de la sección `SKINS` de `c00lgui.ps1` hay una guía paso a paso c
 - **Pursuer:** personaje de *Die of Death* (Roblox). Imágenes, animaciones y sonidos de la [wiki de Die of Death](https://die-of-death.fandom.com/wiki/Pursuer).
 - **Kasane Teto:** personaje de Twindrill, del videoclip *BIRDBRAIN* (Jamie Paige). Dibujo de [BugMangaka](https://www.deviantart.com/bugmangaka/art/BIRDBRAIN-Teto-Postcard-1295804355); fotos del videoclip sacadas de GIFs de [Tenor](https://tenor.com/search/birdbrain-teto-gifs). Voz: banco de voz UTAU oficial de Teto (© 小山乃舞世 / [Twindrill](https://kasaneteto.jp/utau/)), uso no comercial.
 
-- **Token:** mascota de [femtanyl](https://en.wikipedia.org/wiki/Femtanyl). Dibujo de [kengop1](https://www.deviantart.com/kengop1/art/Token-%28Femtanyl%29-bandage.-1272421771) y cabeza de la intro de [TheDalmatianCatHybri](https://www.deviantart.com/thedalmatiancathybri/art/Token-%28Femtanyl%29-1193320663) (DeviantArt). Sonidos sintetizados para el panel.
+- **Token:** mascota de [femtanyl](https://en.wikipedia.org/wiki/Femtanyl). Arte oficial: las portadas de su [Bandcamp](https://femtanyl.bandcamp.com/music), dibujadas por Noelle Stockwood. Sonidos sintetizados para el panel.
 - **Tetra:** personaje de [YonKaGor](https://www.youtube.com/@YonKaGor) (diseño de SentyPurr), del videoclip *You're Just Like Pop Music*. Ficha y escenas del vídeo de la [wiki de YonKaGor](https://kennyon.fandom.com/wiki/Tetra).
 
 - **Kevin:** el lobo de la animación *Don't Touch My Pizza* de Nyanwolf, con la canción de Zombycare ([más información](https://knowyourmeme.com/memes/dont-touch-my-pizza)). GIFs de [Tenor](https://tenor.com/search/dont-touch-my-pizza-gifs). Música: "Pixel Peeker Polka - faster", de Kevin MacLeod ([incompetech.com](https://incompetech.com)), con licencia [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/). Efectos de sonido sintetizados para el panel.
 - **Kennyoung:** personaje del músico y animador [Kennyoung](https://youtube.com/@kennyoung). GIFs de sus videoclips en [Tenor](https://tenor.com/search/kennyoung-gifs) y foto de perfil de la [KennYon Wiki](https://kennyon.fandom.com/wiki/Kennyoung). El riff y los sonidos están sintetizados para el panel (no es su música).
+- **Enfosi:** juego de Roblox de **Tumore**. Imágenes, sonido del aviso de jefe (recreación) e información de la [wiki de Miraheze](https://enfosi.miraheze.org) y la [wiki de Fandom](https://enfosi-tumore.fandom.com). Los demás sonidos están sintetizados para el panel.
 
 Proyecto de fans sin ánimo de lucro. Los personajes pertenecen a sus autores.
