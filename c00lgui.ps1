@@ -57,6 +57,7 @@ $ArchivoAjustes = Join-Path $Raiz 'ajustes.txt'
 $script:aj = [ordered]@{
     Sonido = $true; Volumen = 100; Invitados = $true; Intros = $true; Charla = 'normal'
     Encima = $false; Tamano = [double]$Tamano; Opacidad = 100; Posicion = $true; Inicio = $false; X = ''; Y = ''
+    Guia = $false   # si ya se ha visto la guía del panda
 }
 function Cargar-Ajustes {
     if (-not (Test-Path $ArchivoAjustes)) { return }
@@ -216,6 +217,7 @@ $Skins = [ordered]@{
             'Kevin'                = '> kevin.exe closed. pizza.dat still locked. 8 slices. encrypted.'
             'Kennyoung'            = '> kennyoung.exe closed. the guitar noise stopped. i kinda miss it.'
             'Enfosi'               = '> enfosi.exe closed. the statue is still standing. somehow.'
+            'Gran'                 = '> gran.exe closed. me ofreció una vacuna. soy un programa. no tengo brazo.'
         }
         Yo = @('> c00lgui: still the best. no debate.', '> that one is me. obviously.')
         Opina = @{
@@ -238,6 +240,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('> tried to hack kevin''s pizza. he bit my keyboard. 0/10.', '> kevin draws in ms paint. respect the oldschool.')
             'Kennyoung'            = @('> hacked kennyoung''s channel. uploaded 10h of glitch. more views than his songs. sorry kenny.', '> kenny plays 4 chords. i hack with 4 keys. same energy.')
             'Enfosi'               = @('> enfosi: spot the fake glaggle. i am the fake glaggle.', '> i hacked the statue. it now says "team c00lkidd".')
+            'Gran'                 = @('> intenté hackear antihuman inc. el firewall tiene colmillos.', '> gran quiere convertir a todos en furries. a mí no puede. soy código. ez.')
         }
         Frases = @(
             '> payload delivered.'
@@ -318,6 +321,7 @@ $Skins = [ordered]@{
             'Kevin'                = 'Se fue Kevin. Por fin dejo de oír la canción de la pizza. ...la sigo oyendo en mi cabeza.'
             'Kennyoung'            = 'Se fue Kenny. El amigo de YonKaGor. Muy majo. Muy ruidoso. Muy majo.'
             'Enfosi'               = 'Se acabaron las oleadas. Tantas sonrisas me cansaban.'
+            'Gran'                 = 'Se ha ido el dragón de la jeringuilla. Por fin puedo dormir sin firmar nada.'
         }
         Yo = @('Esa skin soy yo. La mejor, obviamente.', 'Ah, sí. Yo. Elección correcta por una vez.')
         Opina = @{
@@ -340,6 +344,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('Kevin grita por una pizza. Yo no grito ni por mi vida. Somos muy distintos.', 'Toqué la pizza de Kevin sin querer. Ahora vivo con miedo.')
             'Kennyoung'            = @('Kenny es amigo de YonKaGor. Así que es medio familia. La familia ruidosa.', 'Kenny toca la guitarra a todas horas. Me pongo los auriculares. Los suyos, porque los míos no aguantan.')
             'Enfosi'               = @('Enfosi va de distinguir sonrisas falsas. Yo no sonrío. Problema resuelto.', 'Siete oleadas de Glaggles. Yo con una oleada de correos ya tengo bastante.')
+            'Gran'                 = @('Gran me miró las orejas y dijo "medio camino hecho". No pienso preguntar.', 'Me ofreció un contrato de cuarenta páginas. Lo firmé sin leerlo. Era para que me dejara en paz. ...¿verdad?')
         }
         Frases = @(
             'Ya está. No me des las gracias, no me pagan.'
@@ -435,6 +440,7 @@ $Skins = [ordered]@{
             'Kevin'                = '¡Bzzt! ¡Kevin se ha ido! ¡Me dejó la canción de la pizza pegada en la antena!'
             'Kennyoung'            = '¡Bzzt! ¡Kenny se ha ido! ¡Me prometió un feat pop-punk!'
             'Enfosi'               = '¡Bzzt! ¡Se han ido los Glaggles! ¡Sonreían tanto como yo!'
+            'Gran'                 = '¡Bzzt! ¡Se ha ido el señor de la bata! ¡Me quería poner una vacuna en la antena!'
         }
         Yo = @('¡Esa soy yo! ¡Hola, yo!', '¡Elígeme! ¡Elígeme! ¡Bzzt!')
         Opina = @{
@@ -457,6 +463,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('¡Kevin tiene una canción! ¡Bzzt! ¡Quiero hacer un dueto con él!', '¡Kevin es verde como mi pelo! ...bueno, el mío es turquesa. ¡Casi!')
             'Kennyoung'            = @('¡Kenny toca la guitarra muy rápido! ¡Bzzt! ¡Mi antena baila sola!', '¡Le pedí a Kenny una canción para mi tele! ¡Dice que la hace mañana! Lleva diciendo eso tres semanas.')
             'Enfosi'               = @('¡Los Glaggles sonríen siempre! ¡Somos familia! ¡Bzzt!', '¡Le pegué a un Gazo sin querer! ¡Era inocente! ¡Lo siento, Gazo!')
+            'Gran'                 = @('¡Gran nunca sonríe! ¡Le hice dibujos y los guardó en una carpeta que pone "MUESTRAS"!', '¡Bzzt! ¡Dice que soy una tele y que no le sirvo! ¡Qué grosero!')
         }
         Frases = @(
             '¡Listo! ¡Como en los dibujos de los sábados!'
@@ -567,6 +574,7 @@ $Skins = [ordered]@{
             'Kevin'                = '*Huele a pizza. Kevin se ha ido. La pizza no. Se relame.*'
             'Kennyoung'            = '*Escupe una púa de guitarra. Kenny se ha ido.*'
             'Enfosi'               = '*Se ha ido el juego de las caritas. A Guillotina le sabían a gominola.*'
+            'Gran'                 = '*Se ha ido el dragón verde. Guillotina se ha comido su jeringuilla. Ahora tiene orejas nuevas. Ya tenía.*'
         }
         Yo = @('*Se mira a sí misma. Le gusta lo que ve.*', '*Ronronea. Sí, esa es ella.*')
         Opina = @{
@@ -589,6 +597,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('*Mira la pizza de Kevin. Kevin la mira a ella. Nadie se mueve.*', '*Kevin le enseña los dientes. Guillotina le enseña los suyos. Kevin se va.*')
             'Kennyoung'            = @('*Guillotina se comió la guitarra de Kenny. Y el amplificador. Siguió sonando dentro.*', '*Mueve la cabeza al ritmo del pop-punk. Luego se come el altavoz.*')
             'Enfosi'               = @('*Guillotina mira la estatua de oro. Parece comestible.*', '*Se traga un Cheerer falso. Explota dentro. Guillotina eructa confeti.*')
+            'Gran'                 = @('*Olfatea a Gran. Huele a hospital. No le gusta.*', '*Gran le ofrece la vacuna. Guillotina se come la vacuna, el brazo y la bata. Gran lo anota.*')
         }
         Frases = @(
             '*ÑAM.*'
@@ -678,6 +687,7 @@ $Skins = [ordered]@{
             'Kevin'                = 'Manager, la anomalía verde ha abandonado la instalación. Ha dejado migas en el núcleo.'
             'Kennyoung'            = 'Manager, el músico Kennyoung ha abandonado la instalación. El nivel de ruido vuelve a la normalidad.'
             'Enfosi'               = 'Manager, la defensa de la estatua ha terminado. Registro de strikes: archivado.'
+            'Gran'                 = 'Manager, el doctor de Antihuman Inc. ha abandonado la instalación. Ha dejado contratos sin firmar en recepción.'
         }
         Yo = @('Esa soy yo, Manager. La opción más eficiente.', 'Una elección lógica, Manager.')
         Opina = @{
@@ -700,6 +710,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('Kevin: anomalía de tipo comida. Reacción violenta si se toca su pizza. No tocar.', 'Kevin ha mordido a tres agentes. Los tres tocaron la pizza. Patrón detectado.')
             'Kennyoung'            = @('Kennyoung: músico. Nivel de ruido: elevado. Productividad: discutible.', 'Kennyoung ha roto tres guitarras en la instalación. Se lo descontaré de su próxima gira.')
             'Enfosi'               = @('Los Enphosians imitan a los Glaggles con pequeñas imperfecciones. Muy eficiente.', 'El Ojo de Enphoso no admite contención. Lo he intentado.')
+            'Gran'                 = @('Gran crea anomalías a propósito. En L Corp eso se llama "infracción grave".', 'Me ha pedido muestras de nuestras Abnormalities. He denegado la solicitud. Tres veces.')
         }
         Frases = @(
             'Tarea asignada. Le recomiendo no perder el tiempo.'
@@ -787,6 +798,7 @@ $Skins = [ordered]@{
             'Kevin'                = 'Kevin se ha desconectado. Rage quit por una pizza. Clásico.'
             'Kennyoung'            = 'Kenny se ha desconectado. GG por el concierto.'
             'Enfosi'               = 'Fin de las oleadas. Ningún Glaggle inocente herido. Casi ninguno.'
+            'Gran'                 = 'Se ha ido el de la jeringuilla. Le tenía en la mira todo el rato.'
         }
         Yo = @('Esa soy yo. La MVP. Obviamente.', '¿Mikaela? Elección de pro.')
         Opina = @{
@@ -809,6 +821,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('Le hice un noscope a la pizza de Kevin. Me persiguió con una motosierra. Respeto.', 'Kevin grita más que un niño en el chat de voz. Y eso es mucho.')
             'Kennyoung'            = @('Kenny me hizo una canción para mis clips. Ahora mis noscopes tienen batería.', 'Kenny rompe guitarras como yo rompo récords. Respeto.')
             'Enfosi'               = @('Le di un headshot a un Gazo falso. Hitmarker. El juego dice que hace daño extra.', 'Distinguir un Enphosian por la camiseta. Eso es puntería de verdad.')
+            'Gran'                 = @('Gran me quería dar la vacuna. Le dije que mi única vacuna es un headshot.', 'Si me convierte en furry, ¿me sube la puntería? ...no lo pregunto en serio.')
         }
         Frases = @(
             '¡Hitmarker!'
@@ -900,6 +913,7 @@ $Skins = [ordered]@{
             'Kevin'                = 'El lobo verde se fue. Se llevó la pizza. Ni un trozo para el sheriff.'
             'Kennyoung'            = 'El de la guitarra se fue. Por fin silencio en el desierto.'
             'Enfosi'               = 'Se acabaron los Glaggles. Por fin puedo disparar a lo que se mueva sin strikes.'
+            'Gran'                 = '¡Se ha ido el de la bata verde! Que no vuelva con esa aguja.'
         }
         Yo = @('*Se mira en el reflejo del revólver. Asiente.*', 'El mejor pistolero del desierto. Ese soy yo.')
         Opina = @{
@@ -922,6 +936,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('¡No te muevas, lobo! ...me dijo "no toques mi pizza". Tablas.', 'Kevin tiene un cuchillo y una pistola. Yo tengo seis balas. Duelo pendiente.')
             'Kennyoung'            = @('¡No te muevas, músico! ...me ha dicho que está en pleno concierto. Lo dejo pasar.', 'Kenny toca demasiado rápido. Mis balas no le pillan el ritmo.')
             'Enfosi'               = @('En Enfosi no se dispara a todo lo que se mueve. No lo entiendo. No me gusta.', 'Le disparé a un Giggler. Era inocente. Vino un ojo gigante. Me fui.')
+            'Gran'                 = @('¡Ese doctor me apuntó con una jeringuilla! ¡NO TE MUEVAS! ...me movió él a mí.', 'Dice que ya soy un gato y que no hay nada que mejorar. Me lo tomo como un cumplido.')
         }
         Frases = @(
             '¡BANG!'
@@ -1009,6 +1024,7 @@ $Skins = [ordered]@{
             'Kevin'                = 'Kevin se ha ido, cielo. Qué pena... olía a pizza y a peligro.'
             'Kennyoung'            = 'Kenny se ha ido, cielo. Qué pena... tocaba tan bien.'
             'Enfosi'               = 'Los Glaggles se han ido, cariño. Tan sonrientes... tan apetecibles.'
+            'Gran'                 = 'El doctor se ha ido, cariño. Qué hombre tan frío... me encanta.'
         }
         Yo = @('Esa soy yo, cielo. ¿Verdad que soy preciosa?', 'Elígeme a mí, cariño. Te trataré muy bien.')
         Opina = @{
@@ -1031,6 +1047,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('Kevin, cariño, es tan tierno cuando se enfada... casi me lo como.', 'Le toqué la pizza a Kevin. Sacó una motosierra. Me encanta este chico.')
             'Kennyoung'            = @('Kenny, cariño, me encantaría que me dedicara una canción. Y luego invitarle a cenar.', 'Kenny siempre tiene ensayo cuando lo invito a cenar. Qué casualidad, cielo.')
             'Enfosi'               = @('Los Enphosians se disfrazan para acercarse. Qué técnica tan elegante, cielo.', 'Atrapé a un Cheerer en mi telaraña. Era falso. Explotó. Ahora no tengo telaraña.')
+            'Gran'                 = @('Gran admira mis ocho patas. Es el primer hombre que me mira con interés científico, cielo.', 'Le invité a mi telaraña. Me pidió una muestra de seda. Qué romántico.')
         }
         Frases = @(
             'Listo, cielo. Tómate tu tiempo... yo esperaré.'
@@ -1112,6 +1129,7 @@ $Skins = [ordered]@{
             'Kevin'                = 'LOBO VERDE IRSE. PIZZA IRSE. DUNE TRISTE.'
             'Kennyoung'            = 'HOMBRE GUITARRA IRSE. DUNE ECHAR DE MENOS RUIDO.'
             'Enfosi'               = 'CARITAS AMARILLAS IRSE. DUNE TRISTE.'
+            'Gran'                 = 'DOCTOR VERDE IRSE. DUNE CONTENTO. AGUJA MALA.'
         }
         Yo = @('DUNE. ESE DUNE. DUNE GUAPO.', 'DUNE ELEGIR DUNE.')
         Opina = @{
@@ -1134,6 +1152,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('DUNE TOCAR PIZZA. LOBO GRITAR. DUNE NO ENTENDER.', 'KEVIN COMER PIZZA. ¿DUNE COMER KEVIN? NO. KEVIN MORDER.')
             'Kennyoung'            = @('DUNE GUSTAR GUITARRA. DUNE COMER GUITARRA. KENNY TRISTE.', 'KENNY HACER BUM BUM CON GUITARRA. DUNE BAILAR. DUNE CAER.')
             'Enfosi'               = @('DUNE QUERER GLOOBNUT. GLOOBER NO DAR. DUNE ENFADADO.', 'ESTATUA DE ORO. DUNE MORDER. DIENTE ROTO.')
+            'Gran'                 = @('DOCTOR QUERER DUNE EN TANQUE. DUNE YA VIVIR EN AGUA. DOCTOR TONTO.', 'DUNE MORDER JERINGUILLA. SABER A MENTA. DUNE QUERER MÁS.')
         }
         Frases = @('ÑAM.', 'GRRGH. HECHO.', 'DUNE ABRIR. DUNE LISTO.', 'BOTÓN... APRETAR... BIEN.')
         Idle = @(
@@ -1218,6 +1237,7 @@ $Skins = [ordered]@{
             'Kevin'                = 'Cabra: Se fue el lobo verde. Nos dejó la caja de la pizza. Vacía. Como ofrenda, regular.'
             'Kennyoung'            = 'Cabra: Se fue el de la guitarra. Me ofreció entrar en su banda. Me lo pienso.'
             'Enfosi'               = 'Cabra: Se fueron los Glaggles. Bailaban delante de la estatua como en un ritual.'
+            'Gran'                 = 'Cabra: Se ha ido el doctor verde. Decía que tenía fe. En la especie equivocada.'
         }
         Yo = @('Cabra: Sí, somos nosotros. Elección divina.', 'Cordero: *Asiente con solemnidad.* *Beee.*')
         Opina = @{
@@ -1240,6 +1260,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('Cabra: Kevin defiende su pizza como yo defiendo al Cordero. Lo respeto.', 'Cordero: *Toca la pizza de Kevin.* · Cabra: ¡CORRE, CORDERO!')
             'Kennyoung'            = @('Cabra: Kenny tiene un culto. Lo llama "suscriptores". Lo respeto.', 'Cordero: *Mueve la cabeza al ritmo del pop-punk.* · Cabra: El Cordero quiere ser bajista.')
             'Enfosi'               = @('Cabra: Una estatua de oro a la que todos van a adorar. Eso me suena de algo.', 'Cordero: *Mira con mucha atención la camiseta de un Gazo.* · Cabra: Es falso. Te lo digo yo.')
+            'Gran'                 = @('Cabra: Ese Gran quiere convertir a todos en animales. El Cordero ya lo es. Llega tarde.', 'Cordero: *Mira la jeringuilla verde con mucho interés.* · Cabra: No.')
         }
         Frases = @(
             'Cabra: Hecho. Que no se diga que no hacemos milagros.'
@@ -1341,6 +1362,7 @@ $Skins = [ordered]@{
             'Kevin'                = 'WMEW 99.9: El lobo verde ha abandonado la ciudad. Se busca a quien tocó su pizza.'
             'Kennyoung'            = 'WMEW 99.9: El músico Kennyoung ha abandonado la ciudad. Su guitarra no ha sobrevivido.'
             'Enfosi'               = 'WMEW 99.9: La estatua dorada ha sido evacuada. Los Glaggles han vuelto a casa.'
+            'Gran'                 = 'WMEW 99.9: El dueño de Antihuman Inc. ha abandonado la zona. Se recomienda no aceptar vacunas de desconocidos.'
         }
         Yo = @('Pyrophina: ¡GRRRRRAAAARRRGH! (le gusta)', 'Zaratana: ¡GRRRR, GRRRRR! (a ella también)')
         Opina = @{
@@ -1363,6 +1385,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('WMEW 99.9: Pyrophina le calentó la pizza a Kevin. Primera vez que una kaiju hace algo útil.', 'Zaratana: Grrrr, burp. · WMEW 99.9: Zaratana se ha comido la pizza de Kevin. Se esperan represalias.')
             'Kennyoung'            = @('WMEW 99.9: Concierto de Kennyoung en la calle principal. Pyrophina ha encendido los fuegos artificiales. Y el escenario.', 'Zaratana: *Se mete en el caparazón al oír la guitarra.* · WMEW 99.9: Demasiado volumen para una tortuga.')
             'Enfosi'               = @('WMEW 99.9: Se han visto Glaggles sospechosos sin cara por la ciudad. No se acerquen.', 'Pyrophina: ¡AAARGH! *Pisa la estatua. Strike para Pyrophina.*')
+            'Gran'                 = @('WMEW 99.9: Gran dice que nuestras kaijus son demasiado grandes para su laboratorio. Las kaijus lo han tomado como un reto.', 'Zaratana: *Mira a Gran.* · Pyrophina: ¡AAARGH! *Le quema la bata.*')
         }
         Frases = @(
             'WMEW 99.9: ¡Lo han abierto a pisotones!'
@@ -1444,6 +1467,7 @@ $Skins = [ordered]@{
             'Kevin'                = '¡Kevin se ha ido! ¡Le di un abrazo y no le toqué la pizza! ¡Récord!'
             'Kennyoung'            = '¡Kenny se ha ido! ¡Le dije que su música es ruidosa! ...¡quería decir guay!'
             'Enfosi'               = '¡Los Glaggles se han ido! ¡Eran todos tan sonrientes! Bueno, casi todos.'
+            'Gran'                 = '¡El doctor se ha ido! Le di un sándwich y lo metió en una bolsa que ponía "MUESTRA 47".'
         }
         Yo = @('¡Esa soy yo! ¿Se me ve bien la cola? No contestes.', '¡Elígeme! Prometo no tropezar con los iconos.')
         Opina = @{
@@ -1466,6 +1490,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('¡Kevin es muy mono cuando canta! Y da mucho miedo cuando le tocas la pizza.', 'Le dije a Kevin que su pizza "parecía vieja". ¡Quería decir clásica! Me enseñó el cuchillo.')
             'Kennyoung'            = @('¡Kenny toca la guitarra genial! Yo lo intenté y me di con el mástil en la cara.', '¡Le llevé un sándwich a Kenny al ensayo! ...me lo comí yo por el camino. ¡Perdón, Kenny!')
             'Enfosi'               = @('¡Le di un abrazo a un Glaggle y era un Enphosian! Se rió muy raro.', 'Los Glaggles bailan y luego explotan. ¡Eso no está bien! ...¿o es su forma de ser feliz?')
+            'Gran'                 = @('¡Gran dice que soy la prueba de que los furries son mejores! ...¿eso es bueno? Suena raro.', '¡Le pregunté si quería ser mi amigo y me dio un contrato! ¡No lo he firmado! ...creo.')
         }
         Frases = @(
             '¡Abierto! ...¿era ese el que querías? Sí, ¿verdad? Vale.'
@@ -1588,6 +1613,7 @@ $Skins = [ordered]@{
             'Kevin'                = 'El lobo verde se ha ido. No compró nada. Solo preguntó por pizza. Siete veces.'
             'Kennyoung'            = 'El de la guitarra se ha ido. Quería cuerdas. No vendo cuerdas, amigo.'
             'Enfosi'               = 'Se acabaron las oleadas. Los Glaggles compran en su tienda con monedas. Competencia.'
+            'Gran'                 = 'Se ha ido el doctor, amigo. Quería venderle pilas. Él quería venderme una cola.'
         }
         Yo = @('Ese soy yo. Tu único amigo.', '¡Elígeme! Tengo buenos precios. Más o menos.')
         Opina = @{
@@ -1610,6 +1636,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('Kevin quería pizza. No vendo pizza, amigo. Me miró como si fuera un crimen.', 'Kevin tocó mi mostrador con los dedos llenos de queso. Se lo cobro.')
             'Kennyoung'            = @('Kenny busca cuerdas de guitarra. Aquí abajo no hay. Le vendí una linterna para el escenario.', 'Kenny hace mucho ruido con la guitarra. Atrae entidades. Mal negocio para mí.')
             'Enfosi'               = @('Enfosi tiene tienda entre oleadas. Gembo Balls, Gloobnuts... Yo vendo cosas más útiles, amigo.', 'Los Enphosians sonríen con muchos dientes. Me caen bien.')
+            'Gran'                 = @('Gran me ofreció un trato. Yo soy el que hace los tratos aquí, amigo.', 'Su vacuna no tiene garantía ni devolución. Yo no la vendería.')
         }
         Frases = @(
             'Hecho. Toma, investigación por las molestias.'
@@ -1692,6 +1719,7 @@ $Skins = [ordered]@{
             'Kevin'                = 'El lobo verde se fue. Olía a pizza. No a carne fresca.'
             'Kennyoung'            = 'El de la guitarra se fue. Hacía ruido. Fácil de encontrar.'
             'Enfosi'               = 'Se fueron las caritas. Ninguna corría. Qué aburrido.'
+            'Gran'                 = 'Se ha ido el doctor. No corría. Qué aburrido.'
         }
         Yo = @('...yo.', '*Te mira fijamente sin parpadear.*')
         Opina = @{
@@ -1714,6 +1742,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('Kevin muerde. Yo muerdo. Él defiende pizza. Yo cazo. Respeto.', 'Le dije "carne fresca". Me dijo "pizza fresca". No lo entendí.')
             'Kennyoung'            = @('Kenny toca la guitarra. Yo toco la armónica. Podríamos tocar juntos. Antes de cazarle.', 'Fui a un concierto de Kenny. Dije "carne fresca". Se acabó el concierto.')
             'Enfosi'               = @('El Ojo de Enphoso persigue a los que fallan. Respeto.', 'Las sonrisas de los Enphosians tienen dientes. Como la mía.')
+            'Gran'                 = @('Gran transforma a sus presas. Yo prefiero cazarlas tal como son.', 'Él usa jeringuillas. Yo uso los dientes. Cada uno tiene su método.')
         }
         Frases = @('*Desgarra la ventana.* Abierta.', 'Otra presa.', '*Zarpazo.* Hecho.', '¡AHH, CARNE FRESCA!')
         Idle = @(
@@ -1817,6 +1846,7 @@ $Skins = [ordered]@{
             'Kevin'                = '¡Kevin se ha ido! ¡Me enseñó su canción! ...¿cómo era? ¡Algo de pizza!'
             'Kennyoung'            = '¡Kenny se ha ido! ¡Hicimos un cover juntos! ...¿cuál era? ¡Da igual, sonó genial!'
             'Enfosi'               = '¡Los Glaggles se han ido! ¡Bailaban como yo delante de la estatua!'
+            'Gran'                 = '¡Se ha ido el doctor serio! ¡No me reí ni una vez con él! ¡Ni él conmigo!'
         }
         Yo = @('¡Esa soy yo! ¡Hiii~!', '¡Elígeme! Bailo, canto y me olvido de todo. ¡Es un pack!')
         Opina = @{
@@ -1839,6 +1869,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('¡Kevin tiene pizza y yo baguette! ¡Abriremos un restaurante! ...si me deja tocar la pizza. No me deja.', '¡Kevin también es de internet! ¡Su canción y la mía en la misma playlist!')
             'Kennyoung'            = @('¡Kenny es de Corea! ¡Me enseñó a decir "annyeong"! ¡Annyeong! ...¿lo he dicho bien?', '¡Kenny y yo vamos a sacar una canción! Él la escribe y yo me olvido de la letra. ¡Equipo!')
             'Enfosi'               = @('¡Los Glaggles son como yo! Sonríen y se olvidan de todo. Excepto de la estatua.', '¡Le di un Gloobnut a un Gloober! ¡Era falso! ¡Se lo comió igual!')
+            'Gran'                 = @('¡Gran dice que sigo siendo humana! ¡Pues claro! ...¿por qué lo dice así?', '¡Le canté una canción y apuntó mi "frecuencia vocal"! ¡Qué fan tan raro!')
         }
         Frases = @(
             '¡Abierto! ...creo. ¡Sí, abierto!'
@@ -1923,6 +1954,7 @@ $Skins = [ordered]@{
             'Kevin'                = 'Kevin se ha ido. Le hice un remix. DON''T TOUCH MY PIZZA a 200 BPM. Temazo.'
             'Kennyoung'            = 'Kenny se ha ido. El único que aguantaba mi volumen. Respeto.'
             'Enfosi'               = 'Fin de las oleadas. La estatua sobrevive. Yo también. Como siempre.'
+            'Gran'                 = 'EL DOCTOR SE HA IDO. ME QUERÍA PINCHAR. YA ESTOY PINCHADO DE RUIDO.'
         }
         Yo = @('¡Esa ficha soy yo! Méteme en la máquina.', 'Elígeme. Prometo subir el volumen y no bajarlo nunca.')
         Opina = @{
@@ -1945,6 +1977,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('Kevin grita casi tan fuerte como mi bajo. Casi.', 'Toqué la pizza de Kevin. Sacó una motosierra. Lo convertí en un drop.')
             'Kennyoung'            = @('Kenny hace pop-punk. Yo breakcore. Le remezclé una canción a 200 BPM. Le encantó.', 'Kenny rompió una guitarra. Yo rompí un altavoz. Hicimos un concierto de cosas rotas.')
             'Enfosi'               = @('Los Enphosians explotan en negro. Yo exploto en ruido. Somos primos.', 'Me confundieron con un Glaggle sin cara. Me pegaron con un bate. Ni lo noté.')
+            'Gran'                 = @('Gran dice que tengo "buena base genética". GRACIAS. CREO.', 'Su laboratorio es demasiado silencioso. LE PUSE BREAKCORE. NO LE GUSTÓ.')
         }
         Frases = @(
             '¡T0K3N 1NS3RT3D! Abierto.'
@@ -2029,6 +2062,7 @@ $Skins = [ordered]@{
             'Kevin'                = 'Kevin se ha ido. Me mandó una foto de su pizza. La dejé en visto. Ya.'
             'Kennyoung'            = 'Kenny se ha ido. Me escribió. Le contesto mañana. Bueno, un día de estos.'
             'Enfosi'               = 'Se acabaron las oleadas. Me gustaba verlas desde el sofá.'
+            'Gran'                 = 'Se ha ido Gran. Me miraba como si fuera un experimento.'
         }
         Yo = @('Ese botón soy yo. Elígeme. Sin prisa.', 'Elígeme y te pongo pop de 2020. Del bueno.')
         Opina = @{
@@ -2051,6 +2085,7 @@ $Skins = [ordered]@{
             'Kevin'                = @('Kevin es muy de 2010. Yo soy muy de 2020. Diez años de internet entre los dos.', 'Kevin no deja tocar su pizza. Yo no dejo tocar mis fideos. Nos entendemos.')
             'Kennyoung'            = @('Kenny es amigo de YonKaGor. Así que más o menos somos amigos. Más o menos.', 'Kenny me pasó una canción suya. People Online. ...me tocó un poco, la verdad.')
             'Enfosi'               = @('Enfosi va de fijarse en los detalles. Yo me fijo en todo. Luego no digo nada.', 'Hay un Glaggle que juega con cohetes y patines. El Gleeber. Mi favorito.')
+            'Gran'                 = @('Gran dice que soy la especie superior. Yo solo quiero dormir en el sofá.', 'Me mandó un mensaje. "Su cita para la vacuna es mañana". Lo he dejado en visto.')
         }
         Frases = @(
             'Hecho. Te lo abro como quien abre un chat viejo.'
@@ -2140,6 +2175,7 @@ $Skins = [ordered]@{
             'Tetra'                = 'Tetra se ha ido. Le mandé una foto de mi pizza. Me dejó en visto. Grosero.'
             'Kennyoung'            = 'Se fue Kenny. Tocó la guitarra cerca de mi pizza. No la tocó a ella. Vive.'
             'Enfosi'               = '¡Se han ido los Glaggles! ¡Ninguno ha tocado mi pizza! ¡BIEN!'
+            'Gran'                 = '¡SE HA IDO EL DOCTOR! ¡NO HA TOCADO MI PIZZA! ...¿O SÍ? *La revisa.*'
         }
         Yo = @('¡Ese soy yo! El lobo más guapo de todo Paint.', 'Elígeme. Pero trae pizza. Para ti no, para mí.')
         Opina = @{
@@ -2162,6 +2198,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('Tetra come fideos instantáneos. Respeto, pero la pizza es mejor.', 'Tetra tiene el No molestar puesto. Yo tengo el No tocar mi pizza puesto. Siempre.')
             'Kennyoung'            = @('¡Kenny! ¡Hazme una canción pop-punk sobre mi pizza! ¡Que se llame NO LA TOQUES!', 'Kenny rompe guitarras. Yo rompo cosas cuando tocan mi pizza. Nos entendemos.')
             'Enfosi'               = @('Los Glaggles defienden una estatua. Yo defiendo una pizza. MUCHO más importante.', '¡Un Gembo me tiró una bola explosiva a la pizza! ¡ERA UN ENPHOSIAN! ¡LO SABÍA!')
+            'Gran'                 = @('¡Gran quería ponerle Fury Mix a mi pizza! ¡NADIE TOCA MI PIZZA! ¡NI LA CIENCIA!', 'Me dijo que mi instinto animal es "correcto". Gracias. Ahora vete de mi pizzería.')
         }
         Frases = @(
             '¡Abierto! Y no he tocado nada. Bueno, un trozo de pizza. Era mío.'
@@ -2270,6 +2307,7 @@ $Skins = [ordered]@{
             'Tetra'                = 'Se fue Tetra. Es de YonKaGor, como SeaDrive. Le escribí. Me dejó en visto. Típico de su casa.'
             'Kevin'                = 'Se fue Kevin. Le toqué la pizza sin querer. Me persiguió con una motosierra. Buen ritmo, eso sí.'
             'Enfosi'               = 'Se acabaron las oleadas. Les hice una canción a los Glaggles. Explotaron. De alegría, creo.'
+            'Gran'                 = 'Se ha ido Gran. Le toqué una canción y la apuntó como "síntoma".'
         }
         Yo = @('¡Ese soy yo! Bueno, mi personaje. Es más guapo que yo. Y toca mejor.', 'Elígeme. Prometo no romper ninguna guitarra. ...hoy.')
         Opina = @{
@@ -2292,6 +2330,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('Tetra es de YonKaGor. Como SeaDrive. Todos los de su casa contestan tarde.', 'Tetra escucha pop de 2020. Yo hacía pop-punk en 2020. Somos de la misma época.')
             'Kevin'                = @('Kevin tiene una canción sobre su pizza. Muy pop-punk, la verdad. Corta y gritona.', 'Le pedí a Kevin un trozo de pizza. No sé qué pasó después. Me desperté lejos.')
             'Enfosi'               = @('El Giggler tiene una guitarra que aturde a los Enphosians. Necesito esa guitarra.', 'La música de las oleadas está muy bien. "Enphosed", de raleigh. Me la apunto.')
+            'Gran'                 = @('Gran escucha la canción del ascensor de Regretevator. "¿Seguro que es farmacéutico?" ...pues no, no lo es.', 'Dice que con garras tocaría mejor la guitarra. Igual tiene razón. No pienso comprobarlo.')
         }
         Frases = @(
             'Abierto. Como un primer acorde: fuerte y sin pensarlo mucho.'
@@ -2383,6 +2422,7 @@ $Skins = [ordered]@{
             'Tetra'                = 'Tetra se ha ido. Estaba en No molestar. Los Enphosians también ignoran a la gente.'
             'Kevin'                = 'Kevin se ha ido. Defendía su pizza como si fuera la estatua.'
             'Kennyoung'            = 'Kennyoung se ha ido. Su guitarra explota igual que una Gembo Ball.'
+            'Gran'                 = 'El doctor verde se ha ido. Y la estatua sigue siendo de oro, no de pelo.'
         }
         Yo = @('¡Esa es Enfosi! Elígela y defiende la estatua.', 'Elige Enfosi. Siete oleadas, tres jefes y un Ojo que no quieres conocer.')
         Opina = @{
@@ -2405,6 +2445,7 @@ $Skins = [ordered]@{
             'Tetra'                = @('Tetra lleva gorra. El Gazo también. Pero el Gazo es azul.', 'Tetra no contesta mensajes. Los Enphosians tampoco hablan. Solo se ríen.')
             'Kevin'                = @('Kevin defiende su pizza. Nosotros defendemos una estatua. Mismo esfuerzo.', 'No toques la pizza de Kevin. No le pegues a un Glaggle inocente. Reglas parecidas.')
             'Kennyoung'            = @('Kennyoung toca la guitarra. El Giggler también tiene una: la Giggle Guitar aturde a los Enphosians.', 'La guitarra de Kennyoung explota. La Gembo Ball también. Por algún motivo.')
+            'Gran'                 = @('Gran no se disfraza. Te dice a la cara que te va a cambiar. Al menos es sincero.', '¡Le dio la vacuna a un Glaggle! ¡Ahora tiene orejas de gato y sigue sonriendo!')
         }
         Frases = @(
             '¡Abierto! Un Glaggle viene de camino. ¿Será de verdad?'
@@ -2450,6 +2491,115 @@ $Skins = [ordered]@{
             'Wikipedia'     = @('Wikipedia abierta. Para Enfosi, mejor su propia wiki: enfosi.miraheze.org.')
         }
     }
+    # ================================================================ Gran (ivycomb, ANTIHUMAN)
+    # Datos de la wiki de ivycomb (wiki.ivy.cm). Imagen y bucles: los vídeos de su personaje en ANTIHUMAN
+    'Gran' = @{
+        Estilo = 'gran'; Titulo = 'GRAN'; Sub = 'antihuman inc.  ·  ivycomb'; Alto = 320
+        Fondo = (C 8 10 9); Borde = (C 32 208 44); Acento = (C 32 208 44)
+        TituloColor = (C 32 208 44); SubColor = (C 200 255 205)
+        BtnFondo = (C 10 14 11); BtnTexto = (C 200 255 205); BtnTextoHover = (C 8 10 9); BtnBorde = (C 32 208 44); BtnBordeAncho = 2
+        BtnHover = (C 32 208 44); BtnPress = (C 255 255 255); BarraBtnTexto = (C 200 255 205)
+        StatusColor = (C 200 255 205); Fuente = 'Bahnschrift'; FuenteTitulo = 'Arial Black'; Opacidad = 1.0; Velocidad = 1
+        Ancho = 760; Mezclar = $true; Gif = 'skins\gran\tapada.gif'; FondoImg = 'skins\gran\remolino.jpg'; IntroImg = 'skins\gran\intro.gif'
+        # en el panel se le ve la cara; como invitado (Gif) se le ve tapada
+        Actores = @(
+            @{ Id = 'G'; Gif = 'skins\gran\gran.gif'; Rect = @(414, 62, 334, 204); Llenar = $true
+               Extra = @{ tapar = 'skins\gran\tapar.gif'; tapada = 'skins\gran\tapada.gif' } }
+        )
+        Sonidos = @{ cancion = @('skins\gran\cancion.mp3') }
+        Burbuja = @(424, 278, 322, 34); BurFondo = $null; InvFondo = (C 10 14 11); BurTexto = (C 200 255 205); BurFuente = 'Bahnschrift'
+        Hola = @(
+            'Bienvenido a Antihuman Inc. Firme aquí. Y aquí. Y aquí también.'
+            'Otro humano. Qué... frágil. No se preocupe, eso tiene arreglo.'
+            'Central Tower, planta de investigación. Siéntese. No le dolerá. Mucho.'
+            'Ah. Ha venido usted solo. Perfecto. Los voluntarios son los mejores sujetos.'
+        )
+        AlVenirDe = @{
+            'c00lgui'              = 'El programa rojo se ha ido. Un código sin cuerpo. No hay nada que transformar ahí.'
+            'SeaDrive'             = 'La gata de los auriculares se ha ido. Ya era casi perfecta. Casi.'
+            'Static Miku'          = 'La tele se ha apagado. Una lástima. No sé inyectar a una pantalla.'
+            'Guillotina'           = 'Se ha ido la gata gigante. Se comió dos jeringuillas. Las anoto como pérdidas.'
+            'Angela'               = 'La IA de L Corp se ha ido. Ellos contienen anomalías. Yo las fabrico.'
+            'Mikaela'              = 'La francotiradora se ha ido. Le ofrecí la vacuna. Me apuntó a la cabeza.'
+            'Zodiac'               = 'El vaquero se ha ido. Ya es un gato. No hay mucho que mejorar.'
+            'Velvet'               = 'La araña se ha ido. Ocho patas. Interesante. Muy interesante.'
+            'Dune'                 = 'La criatura del agua se ha ido. Un buen resultado... de alguien que no soy yo.'
+            'Cordero y Cabra'      = 'El culto se ha ido. También tienen fe. Pero adoran a la especie equivocada.'
+            'Pyrophina y Zaratana' = 'Las kaijus se han ido. Demasiado grandes para mi laboratorio.'
+            'Averi'                = 'La zorra se ha ido. Me ofreció un sándwich. Rechacé. Firmar el contrato no.'
+            'Sebastian Solace'     = 'El tendero se ha ido. Vende pilas. Yo vendo una vida mejor.'
+            'Pursuer'              = 'El cazador se ha ido. Persigue presas. Yo las mejoro.'
+            'Kasane Teto'          = 'La chica de las coletas se ha ido. Humana. Por ahora.'
+            'Token'                = 'Token se ha ido. Ruidoso. Pero su forma tiene potencial.'
+            'Tetra'                = 'Tetra se ha ido. Un gato tranquilo. Así deberían ser todos.'
+            'Kevin'                = 'Kevin se ha ido. Defendía su pizza. Yo defiendo el futuro de la especie.'
+            'Kennyoung'            = 'El músico se ha ido. Hacía ruido en mi planta. Lo he anotado.'
+            'Enfosi'               = 'Se acabaron los Glaggles. Disfraces de piel. Qué primitivo.'
+        }
+        Yo = @('Esa es mi ficha. Elíjala. Es lo más sensato que hará hoy.', 'Gran. Antihuman Inc. Recuerde el nombre. Lo verá en su contrato.')
+        Opina = @{
+            'c00lgui'              = @('c00lgui no tiene cuerpo. No hay ADN que reescribir. Inútil.', 'Un hacker. Cree que controla los sistemas. El sistema soy yo.')
+            'SeaDrive'             = @('SeaDrive ya tiene orejas y cola. Medio camino hecho.', 'Siempre cansada. Con la dosis correcta, no volvería a estarlo.')
+            'Static Miku'          = @('Una tele que canta. No es humana. Tampoco es lo que yo busco.', 'Demasiada estática. Demasiado ruido. Poca biología.')
+            'Guillotina'           = @('Una gata gigante y hambrienta. La naturaleza a veces acierta sin ayuda.', 'Se come lo que se le pone delante. Mantenerla lejos del laboratorio.')
+            'Angela'               = @('Angela cuida de su instalación. Yo de la mía. Nos entenderíamos.', 'Una IA no se puede transformar. Pero sí se le puede ofrecer un cuerpo.')
+            'Mikaela'              = @('Mikaela dispara antes de leer el contrato. Mala paciente.', 'Buenos reflejos. Con garras, serían mejores.')
+            'Zodiac'               = @('Un gato armado. Inestable. Me recuerda al sujeto 1.', 'Dispara a todo lo que se mueve. Mis sujetos no deberían moverse durante el proceso.')
+            'Velvet'               = @('Velvet es la prueba de que la evolución puede ser elegante.', 'Una araña paciente. Respeto la paciencia. La necesito en mi trabajo.')
+            'Dune'                 = @('Dune vive en el agua. Branquias, escamas... interesante combinación.', 'Habla poco y come mucho. Un sujeto fácil de mantener.')
+            'Cordero y Cabra'      = @('Un culto. Fe. Yo también tengo fe: en la especie superior.', 'La Cabra grita. Los humanos también gritan durante el proceso. Luego se les pasa.')
+            'Pyrophina y Zaratana' = @('Kaijus. Demasiado grandes. Mi vacuna no está pensada para edificios.', 'Destruyen ciudades. Yo las reconstruyo. Con habitantes mejores.')
+            'Averi'                = @('Averi es amable. La amabilidad no sobrevive a la Roots.', 'Una zorra sana y feliz. ¿Ve? Funciona. Los furries son superiores.')
+            'Sebastian Solace'     = @('Sebastian dice que es su único amigo. Yo no ofrezco amistad. Ofrezco una vacuna.', 'Un tendero bajo el agua. También firmaría mi contrato. Si se lo leyera rápido.')
+            'Pursuer'              = @('Pursuer caza humanos. Qué desperdicio. Yo los transformo.', 'Un depredador. Útil para recoger sujetos que no vienen solos.')
+            'Kasane Teto'          = @('Teto sigue siendo humana. Eso se puede arreglar.', 'Baila sin parar. Durante el proceso, conviene que no baile.')
+            'Token'                = @('Token es blanco, con orejas grandes. Buena base genética.', 'Demasiado ruido. Mi laboratorio necesita silencio. El mío.')
+            'Tetra'                = @('Tetra es un gato tranquilo. La especie superior, en su forma más calmada.', 'No contesta mensajes. Mis sujetos tampoco contestan. Están ocupados cambiando.')
+            'Kevin'                = @('Kevin es un lobo que protege su pizza. Instinto animal. Correcto.', 'Le ofrecí la vacuna. Me ofreció un mordisco. Lo apunté como "agresivo".')
+            'Kennyoung'            = @('Kennyoung es humano. Por ahora toca la guitarra. Con garras tocaría mejor.', 'Mucho ruido. Le daría una dosis doble.')
+            'Enfosi'               = @('Enfosi va de disfraces y sonrisas falsas. Yo no disfrazo nada. Yo transformo.', 'Los Glaggles explotan al llegar. Mis sujetos no explotan. Casi nunca.')
+        }
+        Frases = @(
+            'Abierto. Un sujeto más para el estudio.'
+            'Hecho. Firme el consentimiento cuando pueda.'
+            'Listo. Anoto la dosis.'
+            'Abierto. Sus constantes son... aceptables.'
+        )
+        Idle = @(
+            '*Revisa una jeringuilla con líquido verde. La gira despacio.*'
+            'Antihuman Inc. Dedicados a la investigación viral antihumana desde 21XX.'
+            'The Roots. Líneas negras que suben desde la muñeca hasta el cerebro. Un 96 % de mortalidad. Mi vacuna es la única salida.'
+            'El sujeto 1 fue un fracaso. Rayó "IM SORRY" en el cristal. Lo anoté.'
+            'Morale fue un éxito relativo. "Relativo" es mejor que "muerto".'
+            'Mi doble, Moka, ha venido a husmear. Patético.'
+            'El cielo de Golden City es amarillo. Lo contrario de la contaminación. Lo prefiero así.'
+            'El consejo tiene siete miembros. Uno por color. El mío es el verde.'
+            'Fury Mix: ADN de animales de la Tierra para que el cuerpo no sufra el cambio. Tanto.'
+            '¿Se encuentra bien? Le noto... demasiado humano.'
+            '*Teclea un informe sin mirarle.* Siga. No me molesta. Todavía.'
+            'Me llamo como el mazagran. Un café helado. Frío. Como debe ser.'
+        )
+        Clic = @('No me toque. Está contaminando la muestra.', 'Siéntese. Esto solo pica un poco.', '¿Ha leído el contrato? No importa. Ya lo ha firmado.', 'Su pulso se acelera. Normal. El cuerpo sabe lo que viene.')
+        PorApp = @{
+            'YouTube'       = @('YouTube. Busque "ANTIHUMAN". Aprenderá algo sobre su futuro.')
+            'Word'          = @('Redacte el consentimiento. Letra pequeña, por favor.')
+            'Excel'         = @('Una hoja de datos. Anote: sujetos, dosis, resultado. En ese orden.')
+            'PowerPoint'    = @('Diapositiva 1: el problema, los humanos. Diapositiva 2: la solución, yo.')
+            'Outlook'       = @('Correo. Si es del consejo, contésteles que todo va según lo previsto.')
+            'OneNote'       = @('Apunte los síntomas. Fase uno: líneas negras en la muñeca.')
+            'Access'        = @('Una base de datos. Ideal para los registros de los sujetos.')
+            'Publisher'     = @('Un folleto. "Antihuman Inc.: el futuro tiene cola".')
+            'Teams'         = @('Reunión. Que nadie toque las muestras de la mesa.')
+            'OneDrive'      = @('Archivos en la nube. Igual que nuestros resultados: confidenciales.')
+            'Office Web'    = @('La red. Hay mucha gente ahí fuera. Todavía humana.')
+            'Bloc de notas' = @('Una hoja en blanco. Como un sujeto antes de la dosis.')
+            'Calculadora'   = @('Calcule la dosis. Un error de un decimal y tendremos otro sujeto 1.')
+            'Explorador'    = @('Carpetas. Busque la de "sujetos". No abra la de "fallidos".')
+            'CMD'           = @('Consola. Escriba sus órdenes. Yo escribo las del laboratorio.')
+            'GitHub'        = @('Código. Instrucciones para una máquina. El ADN es lo mismo, pero mejor.')
+            'Wikipedia'     = @('Busque "virología". Es mi oficio.')
+        }
+    }
 }
 
 # ================= GRUPOS DEL MENÚ SKINS =================
@@ -2466,6 +2616,7 @@ $GruposSkins = [ordered]@{
         'Static Miku' = 'Flavor Foley'
         'Kasane Teto' = 'Jamie Paige'
         'Kevin'       = 'Nyanwolf'
+        'Gran'        = 'ivycomb'
     }
     'Roblox' = [ordered]@{
         'c00lgui'          = 'c00lkidd'
@@ -3045,6 +3196,32 @@ function Fondo-Escena($k, $W, $H) {
             $lg = Cargar-Img $k.Logo; if ($lg) { $g.DrawImage($lg, 420, 200, 70, 54); $lg.Dispose() }
             $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 90 20 0 40))), 578, 266, 122, 12)
         }
+        'gran' {
+            # el remolino de pintura de su intro, oscurecido, con el laboratorio de Antihuman Inc. encima
+            $g.Clear((C 8 10 9))
+            Imagen-Cubrir $g $k.FondoImg 0 0 $W $H 0.5 0.5
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 150 4 8 6))), 0, 0, $W, $H)
+            # panel oscuro con borde verde detrás de los botones
+            $pan = Ruta-Redonda 8 60 394 ($H - 66) 6
+            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 225 8 12 10))), $pan)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 32 208 44), 2)), $pan); $pan.Dispose()
+            # monitor del laboratorio donde sale Gran
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 120 0 0 0))), 414, 66, 340, 208)
+            $g.FillRectangle([System.Drawing.Brushes]::Black, 408, 56, 346, 216)
+            # barra de arriba negra con franjas rosas (como el fondo de su cara tapada) y la línea verde
+            $g.FillRectangle([System.Drawing.Brushes]::Black, 0, 0, $W, 52)
+            $rosa = New-Object System.Drawing.SolidBrush((ARGB 70 255 70 170))
+            for ($x = -60; $x -lt $W; $x += 36) { $g.FillPolygon($rosa, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$x, 52)), (New-Object System.Drawing.PointF([float]($x + 14), 52)), (New-Object System.Drawing.PointF([float]($x + 66), 0)), (New-Object System.Drawing.PointF([float]($x + 52), 0)))) }
+            $rosa.Dispose()
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 32 208 44))), 0, 49, $W, 3)
+            # logo: una G verde en un hexágono, el color de Gran en el consejo de Golden City
+            $hx = 330; $hy = 26; $hr = 19
+            $pts = [System.Drawing.PointF[]]@(0..5 | ForEach-Object { $an = [Math]::PI / 3 * $_ + [Math]::PI / 6; New-Object System.Drawing.PointF([float]($hx + $hr * [Math]::Cos($an)), [float]($hy + $hr * [Math]::Sin($an))) })
+            $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 10 14 11))), $pts)
+            $g.DrawPolygon((New-Object System.Drawing.Pen((C 32 208 44), 2.5)), $pts)
+            $tw = Ancho-Texto 'G' 'Arial Black' 18
+            Texto-Contorno $g 'G' 'Arial Black' 18 ($hx - $tw / 2 - 1) ($hy - 13) (C 32 208 44) 3
+        }
         'enfosi' {
             # un mapa del juego (Blibble's Field) de fondo, con la interfaz de Roblox
             $g.Clear((C 120 170 230))
@@ -3215,6 +3392,13 @@ function Pintar-Burbuja($g, $k) {
             $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 215 34 14 64))), $r)
             $g.DrawPath((New-Object System.Drawing.Pen((ARGB 90 255 92 190), 5)), $r)
             $g.DrawPath((New-Object System.Drawing.Pen((C 90 230 250), 1.6)), $r); $r.Dispose()
+        }
+        'gran' {
+            # pantalla oscura de laboratorio con borde verde
+            $r = Ruta-Redonda $x $y $w $h 6
+            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 230 8 12 10))), $r)
+            $g.DrawPath((New-Object System.Drawing.Pen((ARGB 80 32 208 44), 5)), $r)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 32 208 44), 1.6)), $r); $r.Dispose()
         }
         'enfosi' {
             # bocadillo blanco del chat de Roblox, con piquito hacia la estatua
@@ -4579,6 +4763,75 @@ function Gif-Frame($img, $info, $ms) {
     [void]$img.SelectActiveFrame((New-Object System.Drawing.Imaging.FrameDimension($img.FrameDimensionsList[0])), $i)
 }
 
+# ================= GRAN: ANTIHUMAN INC. =================
+# Su canción ("Are You Sure He's a Pharmacist?") suena de fondo mientras la skin está puesta (si el sonido está activado).
+# Cada app que abres es un sujeto de prueba que recibe una dosis de Fury Mix: unas veces sale un furry nuevo y otras falla.
+# Haz clic en Gran y se tapa la cara, como en el vídeo. Como invitado en las discusiones sale siempre con la cara tapada.
+$script:gr = $null; $script:grMusica = $null
+function Gran-Reset { if (-not $script:gr) { $script:gr = @{ Sujetos = 0; Exitos = 0; Tapa = 0; Fx = 0; FxCol = (C 32 208 44) } } }
+function Gran-Volumen { return [Math]::Max(0.0, [Math]::Min(1.0, 0.7 * $script:aj.Volumen / 100.0)) }
+function Gran-Musica-On($desdeCero) {
+    if (-not $script:aj.Sonido) { return }
+    if ($script:grMusica -and -not $desdeCero) { return }
+    Gran-Musica-Off
+    try {
+        $mp = New-Object System.Windows.Media.MediaPlayer
+        $mp.Open([Uri](Ruta 'skins\gran\cancion.mp3')); $mp.Volume = (Gran-Volumen); $mp.Play()
+        $script:grMusica = $mp
+    } catch { $script:grMusica = $null }
+}
+function Gran-Musica-Off {
+    if ($script:grMusica) { try { $script:grMusica.Stop(); $script:grMusica.Close() } catch {}; $script:grMusica = $null }
+}
+# se tapa la cara (con la transición del vídeo) durante unos milisegundos
+function Gran-Tapar($ms) {
+    $a = $script:actores['G']; if (-not $a -or -not $script:gr) { return }
+    if ($a.Base -ne 'tapada') { $a.Base = 'tapada'; Actor-Pose 'G' 'tapar' 360 }
+    $script:gr.Tapa = [Environment]::TickCount + $ms
+}
+function Gran-Clic {
+    Gran-Tapar 5000
+    Decir (Azar $script:skin.Clic)
+}
+# una app abierta = un sujeto de prueba
+function Gran-Dosis($linea) {
+    $e = $script:gr; if (-not $e) { Decir $linea; return }
+    $e.Sujetos++
+    if ($Rnd.Next(100) -lt 62) {
+        $e.Exitos++; $e.Fx = 10; $e.FxCol = (C 32 208 44)
+        Flotante '+1 FURRY' 160 262 (C 32 208 44) 20 'Bahnschrift'
+    } else {
+        $e.Fx = 10; $e.FxCol = (C 200 30 60)
+        Flotante 'FALLIDO' 160 262 (C 230 50 70) 20 'Bahnschrift'
+    }
+    if ($e.Sujetos % 10 -eq 0) {
+        $pc = [int](100 * $e.Exitos / $e.Sujetos)
+        Gran-Tapar 6000
+        Decir-Fijo "Informe para el consejo: $($e.Sujetos) sujetos, $pc % de éxito. $(if ($pc -ge 60) { 'Aceptable. La especie superior avanza.' } else { 'Insuficiente. Subiré la dosis.' })" 'abiertos'
+    } else { Decir $linea }
+    $form.Invalidate()
+}
+function Gran-Tick {
+    $e = $script:gr; if (-not $e) { return }
+    # la canción: se repite al acabar, sigue el volumen y se calla si quitas el sonido
+    if (-not $script:aj.Sonido) { Gran-Musica-Off }
+    elseif (-not $script:grMusica) { Gran-Musica-On $false }
+    else {
+        try {
+            $mp = $script:grMusica
+            if ([Math]::Abs($mp.Volume - (Gran-Volumen)) -gt 0.01) { $mp.Volume = (Gran-Volumen) }
+            if ($mp.NaturalDuration.HasTimeSpan -and $mp.Position -ge ($mp.NaturalDuration.TimeSpan - [TimeSpan]::FromMilliseconds(120))) { $mp.Position = [TimeSpan]::Zero; $mp.Play() }
+        } catch {}
+    }
+    # vuelve a destaparse
+    if ($e.Tapa -gt 0 -and [Environment]::TickCount -ge $e.Tapa) {
+        $e.Tapa = 0; $a = $script:actores['G']
+        if ($a) { $a.Base = 'main'; Actor-Pose 'G' 'main' 0 }
+        $e.Fx = 6; $e.FxCol = (C 32 208 44)
+    }
+    if ($e.Fx -gt 0) { $e.Fx--; Invalidar-Escena }
+}
+
 # ================= KENNYOUNG: SU CANAL DE YOUTUBE =================
 # Cada app que abres son visitas y likes. Cada 8 apps, concierto con la banda.
 # Haz clic en él y toca un acorde: el amplificador sube; si llega al máximo, la guitarra EXPLOTA.
@@ -4940,6 +5193,7 @@ $ambTimer.Add_Tick({
     if ($k.Estilo -eq 'pop') { Tetra-Tick }
     if ($k.Estilo -eq 'pizza') { Kevin-Tick }
     if ($k.Estilo -eq 'punk') { Ky-Tick }
+    if ($k.Estilo -eq 'gran') { Gran-Tick }
 })
 
 # ================= DISCUSIONES ENTRE ASISTENTES =================
@@ -5055,6 +5309,16 @@ $Discusiones = @(
     , @(@('Static Miku', '¡Kenny! ¡Bzzt! ¡Quiero ser tu cantante!'), @('Kennyoung', '¿Sabes cantar pop-punk?'), @('Static Miku', '¡AAAAAH! ¡ASÍ! ¿VALE?'), @('Kennyoung', '...vale. Estás contratada. Es exactamente así.'))
     , @(@('Pursuer', '*Escucha la guitarra desde el bosque.*'), @('Kennyoung', 'Hey. ¿Quieres tocar? Tengo una armónica de sobra.'), @('Pursuer', '...*Toca una nota.*'), @('Kennyoung', 'Eso ha sonado muy triste. Me encanta. Ya tenemos canción.'))
     , @(@('c00lgui', 'hackeando kevin.png...'), @('Kevin', '¡Eh! ¡Ese es MI Paint!'), @('c00lgui', 'borrando pizza.bmp...'), @('Kevin', '¡¡NO TOQUES MI PIZZA!! *Le muerde el cable del teclado.*'), @('c00lgui', '...ok ok. acceso denegado. por miedo.'))
+    , @(@('Gran', 'SeaDrive. Orejas, cola, cansancio crónico. Es usted casi un sujeto ideal.'), @('SeaDrive', '¿Casi?'), @('Gran', 'Le falta firmar.'), @('SeaDrive', 'No pienso firmar nada que no sea mi baja.'))
+    , @(@('Gran', 'c00lgui. Intente hackear mi laboratorio otra vez.'), @('c00lgui', 'ya estoy dentro. tu contraseña es "furry123".'), @('Gran', 'Era un señuelo. Acaba de descargarse la vacuna.'), @('c00lgui', '...error. error. ¿por qué me pica la carcasa?'))
+    , @(@('Angela', 'Doctor Gran, su empresa crea anomalías sin licencia.'), @('Gran', 'Ustedes las encierran. Yo les doy una vida mejor.'), @('Angela', 'Eso no figura en ningún protocolo.'), @('Gran', 'Todavía.'))
+    , @(@('Gran', 'Kasane Teto. Sigue siendo humana. ¿Por qué?'), @('Kasane Teto', '¡Porque me gusta! ¡Tengo coletas! ¡Son como orejas!'), @('Gran', 'No son orejas.'), @('Kasane Teto', '¡Son orejas de taladro!'), @('Gran', '...lo anoto como "caso perdido".'))
+    , @(@('Averi', '¡Hola, doctor! ¿Quiere un sándwich?'), @('Gran', 'No. ¿Quiere ser mi sujeto número tres?'), @('Averi', '¿Eso tiene sándwich?'), @('Gran', 'Tiene contrato.'), @('Averi', '...me quedo con el sándwich.'))
+    , @(@('Kevin', '¡ALEJA ESA JERINGUILLA DE MI PIZZA!'), @('Gran', 'No quiero su pizza. Quiero su ADN.'), @('Kevin', '¡¿Y EL ADN ESTÁ EN LA PIZZA?!'), @('Gran', 'Ahora sí. Se le ha caído pelo encima.'), @('Kevin', '¡NOOOOO!'))
+    , @(@('Gran', 'Kennyoung. Esa canción del ascensor... ¿la ha tocado usted?'), @('Kennyoung', '¿"Are You Sure He''s a Pharmacist"? No, esa es de ivycomb.'), @('Gran', 'Ah. Pensé que era sobre mí.'), @('Kennyoung', '...lo es. Por eso no la toco.'))
+    , @(@('Guillotina', '*Olfatea la bata de Gran.*'), @('Gran', 'Quieta. Es usted una anomalía muy interesante.'), @('Guillotina', '*Se come la jeringuilla.*'), @('Gran', '...dosis administrada. De una forma poco ortodoxa.'))
+    , @(@('Gran', 'Tetra. Gato. Tranquilo. Es usted lo que quiero para todos.'), @('Tetra', 'Gracias. ...¿puedo seguir en el sofá?'), @('Gran', 'Toda la especie superior debería estar en el sofá.'), @('Tetra', 'Por fin alguien que lo entiende.'))
+    , @(@('Pursuer', '*Huele a Gran desde el bosque. No huele a presa.*'), @('Gran', 'No soy humano. No me interesa usted. Tráigame humanos.'), @('Pursuer', '...¿y qué gano yo?'), @('Gran', 'Que lleguen con cola. Son más fáciles de atrapar.'))
 )
 
 $script:discutiendo = $false; $script:dLineas = $null; $script:dIdx = 0; $script:dImg = $null; $script:dInvitadoHabla = $false
@@ -5146,6 +5410,7 @@ function Abrir-Invitado($nombre) {
         'pop' { Sonido-De $nombre 'ping' }
         'pizza' { Sonido-De $nombre 'nam' }
         'punk' { Sonido-De $nombre 'acorde' }
+        'gran' { }   # llega en silencio: su único sonido es su canción
         'pressure' { Sonido-De $nombre 'rejilla' }
         'dod' { Sonido-De $nombre 'acecho' }
         'hacker' { try { if ($script:aj.Sonido) { [System.Media.SystemSounds]::Hand.Play() } } catch {} }
@@ -5177,6 +5442,7 @@ function Pintar-Invitado($g) {
         'zorro' { $pu = New-Object System.Drawing.SolidBrush((C 250 222 190)); for ($y = 40; $y -lt $H; $y += 18) { for ($x = (($y / 18) % 2) * 9 + 4; $x -lt $W; $x += 18) { $g.FillEllipse($pu, $x, $y, 5, 5) } }; $cab = (C 230 128 56) }
         'femta' { $rn = New-Object System.Random 5; for ($i = 0; $i -lt 30; $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB $rn.Next(30, 90) 230 20 40))), 0, $rn.Next(30, $H), $W, $rn.Next(1, 3)) }; $cab = (C 0 0 0) }
         'pop' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 40 14 80), (C 150 40 120), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $p = New-Object System.Drawing.Pen((ARGB 30 0 0 0), 1); for ($y = 30; $y -lt $H; $y += 3) { $g.DrawLine($p, 0, $y, $W, $y) }; $cab = (C 40 12 70) }
+        'gran' { $rosa = New-Object System.Drawing.SolidBrush((ARGB 60 255 70 170)); for ($x = -$H; $x -lt $W; $x += 30) { $g.FillPolygon($rosa, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$x, $H)), (New-Object System.Drawing.PointF([float]($x + 12), $H)), (New-Object System.Drawing.PointF([float]($x + 12 + $H), 30)), (New-Object System.Drawing.PointF([float]($x + $H), 30)))) }; $rosa.Dispose(); $cab = (C 0 0 0) }
         'enfosi' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 120 180 240), (C 200 230 255), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $cab = (C 252 200 55) }
         'teto' { $ray = New-Object System.Drawing.Pen((C 252 232 236), 8); for ($x = -$H; $x -lt $W; $x += 26) { $g.DrawLine($ray, $x, 32, ($x + $H), ($H + 32)) }; $ray.Dispose(); $cab = (C 214 40 64) }
         'pizza' { $roja = New-Object System.Drawing.SolidBrush((ARGB 90 220 40 40)); for ($x = 0; $x -lt $W; $x += 28) { $g.FillRectangle($roja, $x, 30, 14, $H) }; for ($y = 30; $y -lt $H; $y += 28) { $g.FillRectangle($roja, 0, $y, $W, 14) }; $roja.Dispose(); $cab = (C 70 200 40) }
@@ -5213,6 +5479,7 @@ function Pintar-Invitado($g) {
             'zorro' { for ($i = 0; $i -lt 3; $i++) { Dibujar-Corazon $g (50 + $i * 60) (150 - (14 - $fx) * 8) 10 ([Math]::Min(255, $fx * 18)) } }
             'femta' { for ($i = 0; $i -lt 4; $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush(@((C 230 20 40), (C 255 255 255), (C 40 230 255))[$Rnd.Next(3)])), $Rnd.Next(-40, $W), $Rnd.Next(0, $H), $Rnd.Next(40, 200), $Rnd.Next(2, 6)) } }
             'pop' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 90, 230, 250))), 0, [int]((14 - $fx) * 15), $W, 10) }
+            'gran' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 32, 208, 44))), 0, 0, $W, $H) }
             'enfosi' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 255, 214, 60))), 0, 0, $W, $H) }
             'teto' { for ($i = 0; $i -lt 3; $i++) { Texto-Contorno $g '♪' 'Segoe UI Symbol' 20 (40 + $i * 60) (130 - (14 - $fx) * 7) (@((C 214 40 64), (C 246 170 30), (C 255 255 255))[$i]) 3 ([Math]::Min(255, $fx * 18)) } }
             'pizza' { for ($i = 0; $i -lt 4; $i++) { Dibujar-Trozo $g (30 + $i * 52) (40 + (14 - $fx) * 9 + ($i % 2) * 14) 20 ($fx * 25 + $i * 70) } }
@@ -5430,6 +5697,10 @@ $idleTimer.Add_Tick({
                 foreach ($i in 0..3) { Flotante (Azar @('♪', '♫')) (480 + $i * 34) (80 + $Rnd.Next(60)) (@((C 214 40 64), (C 246 170 30), (C 255 255 255), (C 214 40 64))[$i]) 22 'Segoe UI Symbol' }
                 Decir (Azar @('♪ La la la~ ♪ *Canta sola en medio del escritorio.*', '♪ Lu lu lu~ ♪ Me la acabo de inventar. ¡Ya se me ha olvidado!', '♪ Na na na~ ♪ *Baila y canta a la vez. Casi se cae.*', '♪ Du du du~ ♪ ¿Te gusta? ¡Es mi nuevo single!'))
             }
+            else { Decir (Azar $k.Idle) }
+        }
+        'gran' {
+            if ($r -lt 55) { Gran-Tapar 6000; Decir (Azar $k.Idle) }
             else { Decir (Azar $k.Idle) }
         }
         'punk' {
@@ -5749,9 +6020,28 @@ function Intro-Overlay($total, $pintar, $alTick, $final) {
         $_.Graphics.ScaleTransform($script:K, $script:K)
         & $script:iPintar $_.Graphics ([int]($this.Width / $script:K)) ([int]($this.Height / $script:K)) $script:iPaso
     })
+    # botón SALTAR abajo a la derecha (en todas las intros)
+    $sk = New-Object System.Windows.Forms.Button
+    $sk.Text = 'SALTAR  ▶▶'; $sk.FlatStyle = 'Flat'; $sk.Font = Fnt('Segoe UI', 9, [System.Drawing.FontStyle]::Bold)
+    $sk.ForeColor = [System.Drawing.Color]::White; $sk.BackColor = (C 18 18 22); $sk.Cursor = 'Hand'
+    $sk.FlatAppearance.BorderColor = [System.Drawing.Color]::White; $sk.FlatAppearance.BorderSize = [Math]::Max(1, [int](1.5 * $script:K))
+    $sk.FlatAppearance.MouseOverBackColor = (C 70 70 84); $sk.FlatAppearance.MouseDownBackColor = (C 120 120 140)
+    $sk.Size = New-Object System.Drawing.Size([int](100 * $script:K), [int](28 * $script:K))
+    $sk.Location = New-Object System.Drawing.Point(($ov.Width - $sk.Width - [int](12 * $script:K)), ($ov.Height - $sk.Height - [int](12 * $script:K)))
+    $sk.Anchor = 'Bottom, Right'
+    $sk.Add_Click({ Saltar-Intro })
+    $ov.Controls.Add($sk)
     $form.Controls.Add($ov); $ov.BringToFront()
     $script:iOv = $ov; $script:iPaso = 0; $script:iTotal = $total; $script:iFinal = $final
     $iTimer.Start()
+}
+# salta la intro que esté sonando: corta sus sonidos y va directo al final
+function Saltar-Intro {
+    if (-not $script:iOv) { return }
+    $script:bSaltar = $true; $script:grSaltar = $true
+    foreach ($r in @($script:reproductores)) { try { $r.Stop() } catch {} }
+    $script:pzMusica = $null
+    if ($script:iPaso -lt $script:iTotal - 1) { $script:iPaso = $script:iTotal - 1 }
 }
 
 # --- "GUILLOTINA IS COMING FOR YOU!": el callejón a toda velocidad con la radio WMEW 99.9, ella bajo la farola,
@@ -6288,6 +6578,40 @@ function Transicion-Pop($final) {
         if ($p -gt 68) { $ov.Top -= [int]($ov.Height / 5) }
     }
     Intro-Overlay 74 $pintar $alTick $final
+}
+# --- Gran: la intro de su personaje en el vídeo de ANTIHUMAN (rayas grises, remolino de pintura, su cara y el busto
+#     con la jeringuilla), tal cual, con su canción. Va por tiempo, no por fotogramas. Un clic la salta. ---
+function Transicion-Gran($final) {
+    $script:grIntro = Cargar-Img $script:skin.IntroImg
+    $script:grIntroInfo = if ($script:grIntro) { Gif-Info $script:grIntro } else { @{ N = 1; Del = @(100) } }
+    $script:grIntroMs = 0; foreach ($d in $script:grIntroInfo.Del) { $script:grIntroMs += $d }
+    $script:grT0 = 0; $script:grSaltar = $false
+    $script:iRecursos = @($script:grIntro)
+    $pintar = {
+        param($g, $W, $H, $p)
+        $g.Clear([System.Drawing.Color]::Black)
+        $img = $script:grIntro; if (-not $img) { return }
+        $ms = if ($script:grT0 -gt 0) { [Environment]::TickCount - $script:grT0 } else { 0 }
+        Gif-Frame $img $script:grIntroInfo ([Math]::Min($ms, $script:grIntroMs - 1))
+        # el vídeo entero, sin recortar (bandas negras a los lados)
+        $s = [Math]::Min($W / $img.Width, $H / $img.Height); $vw = $img.Width * $s; $vh = $img.Height * $s
+        $g.InterpolationMode = 'HighQualityBilinear'
+        $g.DrawImage($img, [float](($W - $vw) / 2), [float](($H - $vh) / 2), [float]$vw, [float]$vh)
+        # se funde a negro al final
+        $resta = $script:grIntroMs - $ms
+        if ($resta -lt 400) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ([int](255 * [Math]::Max(0.0, [Math]::Min(1.0, 1 - $resta / 400.0)))) 0 0 0))), 0, 0, $W, $H) }
+    }
+    $alTick = {
+        param($ov, $p)
+        if ($p -eq 1) { $script:grT0 = [Environment]::TickCount; Gran-Musica-On $true }
+        $ms = [Environment]::TickCount - $script:grT0
+        if ($script:grSaltar -or $ms -ge $script:grIntroMs) {
+            if ($script:iPaso -lt $script:iTotal - 1) { $script:iPaso = $script:iTotal - 1 }
+        }
+    }
+    Intro-Overlay 2000 $pintar $alTick $final
+    $script:iOv.Add_MouseDown({ $script:grSaltar = $true })
+    $script:iOv.Cursor = 'Hand'
 }
 # --- Enfosi: la portada del juego, "conoce a tus Glaggles", uno se revela, el Ojo de Enphoso y la primera oleada ---
 function Transicion-Enfosi($final) {
@@ -6937,6 +7261,7 @@ function Transicion-Punk($final) {
             'pizza' { Decir '*Algo se ha roto. Kevin le da un mordisco al error.* Arreglado. Sabía a queso azul. PUAJ.' }
             'enfosi' { Decir 'Algo se ha roto. ¿Habrá sido un Enphosian? *Lo mira con desconfianza.*' }
             'punk' { Decir 'Algo se ha roto. No era la guitarra, por una vez. *Toca un acorde para arreglarlo.*' }
+            'gran' { Decir 'Algo se ha roto. Un fallo del protocolo. Lo anoto y seguimos.' }
             default { Decir 'Algo se ha roto. No he sido yo. Creo.' }
         }
     } catch {}
@@ -7099,6 +7424,15 @@ function Pintar-Boton($g, $b) {
             $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((ARGB 120 255 92 190))), (New-Object System.Drawing.RectangleF([float](1.5 * $Z), [float](1 * $Z), $W, $H)), $fmt)
             $g.DrawString($b.Text, $b.Font, [System.Drawing.Brushes]::White, $rect, $fmt)
         }
+        'gran' {
+            # botón de laboratorio: oscuro con borde verde; al pasar el ratón se llena de verde
+            $g.SmoothingMode = 'AntiAlias'
+            $g.Clear($(if ($enBarra) { (C 0 0 0) } else { (C 9 12 10) }))
+            $rr = Ruta-Redonda (1.5 * $Z) (1.5 * $Z) ($W - 4 * $Z) ($H - 4 * $Z) ([Math]::Min($H - 4 * $Z, 5 * $Z))
+            $g.FillPath((New-Object System.Drawing.SolidBrush($(if ($hover) { (C 32 208 44) } else { (C 14 22 16) }))), $rr)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 32 208 44), [float](1.6 * $Z))), $rr); $rr.Dispose()
+            $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush($(if ($hover) { (C 8 10 9) } else { (C 200 255 205) }))), $rect, $fmt)
+        }
         'enfosi' {
             $g.SmoothingMode = 'AntiAlias'
             $g.Clear($(if ($enBarra) { (C 252 200 55) } else { (C 34 38 54) }))
@@ -7237,6 +7571,7 @@ function Lanzar($item) {
                 } else { Kevin-Comer $linea }
             }
             'punk' { Ky-App $linea }
+            'gran' { Gran-Dosis $linea }
             'zorro' {
                 $script:antojo = [Math]::Min(100, $script:antojo + 5); $form.Invalidate()
                 if ($Rnd.Next(4) -eq 0) { Sonido 'ups'; Decir (Azar $k.Torpe) 'serio' } else { Decir $linea 'abiertos' }
@@ -7268,6 +7603,7 @@ function Lanzar($item) {
                 'teto' { Sonido 'oops'; Decir "¡No encuentro $($item.Nombre)! Te abro la web. ...¿qué estábamos buscando?" }
                 'pizza' { Decir "¡No tienes $($item.Nombre)! Te abro la web. Mientras carga, me como un trozo. *ÑAM.*" }
                 'punk' { Decir "No tienes $($item.Nombre). Te abro la web. Como cuando no tienes la guitarra y tocas con la de un amigo." }
+                'gran' { Decir "No tiene $($item.Nombre). Le abro la web. Anote el fallo en su expediente." }
                 default { Decir "$($item.Nombre) no está instalado. Te abro la web. De nada." }
             }
         } else {
@@ -7287,6 +7623,7 @@ function Lanzar($item) {
                 'teto' { Sonido 'uhoh'; Decir "¡$($item.Nombre) se ha ido volando! Como un pájaro. Igual vuelve." }
                 'pizza' { Actor-Pose 'V' 'sudor' 2000; Decir "¡No encuentro $($item.Nombre)! ...¿Alguien lo ha tocado? ¿Como a mi pizza? *Suda.*" }
                 'punk' { Ky-Video 'piensa' 2500; Decir "No encuentro $($item.Nombre). Como mis canciones sin terminar: igual algún día aparece." }
+                'gran' { Gran-Tapar 3000; Decir "$($item.Nombre) no está. Un sujeto que se escapa del estudio. No pasará dos veces." }
                 default { Decir "No encuentro $($item.Nombre). Igual nunca existió." }
             }
         }
@@ -7376,8 +7713,176 @@ function Efecto-Entrada($prev) {
         'pop' { Transicion-Pop $msg }
         'pizza' { Transicion-Pizza $msg }
         'punk' { Transicion-Punk $msg }
+        'gran' { Transicion-Gran $msg }
     }
 }
+
+# ================= GUÍA DEL PANDA =================
+# La primera vez que abres el panel, el panda rojo de JOSEPABLINI CORPORATION te da la bienvenida y te enseña lo básico.
+# Se vuelve a ver desde Ajustes → Guía del panda. Al terminarla (o saltarla) se apunta en ajustes.txt (Guia = si).
+# Cada paso es @('qué se ilumina', 'texto'). Lo que se puede iluminar: nada, botones, paginas, skins, personaje, ajustes, barra
+$PasosGuia = @(
+    , @('nada', '¡Hola! Bienvenido a c00lgui. Soy el panda rojo de JOSEPABLINI CORPORATION y te voy a enseñar lo básico del panel. Es muy rápido, ¡prometido!')
+    , @('botones', 'Estos botones abren tus cosas con un clic: YouTube, Word, Excel, el Bloc de notas... Si no tienes una app de Office instalada, te abro su versión web.')
+    , @('paginas', 'Con < y > cambias de página. En la página 2 están los enlaces a GitHub y a Wikipedia, y algunas cosas más.')
+    , @('skins', 'En Skins cambias de personaje. Cada uno tiene su estilo, sus frases, su intro y su minijuego. Van por grupos (YouTube, Roblox...) y el panel recuerda el último que elegiste.')
+    , @('personaje', 'Este es tu asistente. Hazle clic y te contesta (o pasa algo, según la skin). Con clic derecho llama a otro personaje y se ponen a discutir.')
+    , @('ajustes', 'En Ajustes quitas el sonido o las intros, cambias el tamaño y la opacidad... y con "Editar botones" pones tus propios botones en el orden que quieras.')
+    , @('barra', 'Para mover el panel, arrástralo desde el título de arriba. Con _ lo minimizas y con X lo cierras.')
+    , @('nada', 'Las intros tienen un botón SALTAR abajo a la derecha. Si quieres volver a verme, estoy en Ajustes → Guía del panda. ¡Eso es todo! Fear the Spaggety Code, Build the Larp.')
+)
+$script:guia = $null
+$GuiaNaranja = (C 232 110 40)
+function Buscar-Control($padre, $texto) {
+    foreach ($c in $padre.Controls) {
+        if (-not $c.Visible) { continue }
+        if ($c.Text -eq $texto) { return $c }
+        $h = Buscar-Control $c $texto; if ($h) { return $h }
+    }
+    return $null
+}
+function Rect-Control($c) {
+    $p = $form.PointToClient($c.PointToScreen([System.Drawing.Point]::Empty))
+    return (New-Object System.Drawing.Rectangle($p.X, $p.Y, $c.Width, $c.Height))
+}
+# lo que hay que iluminar, en píxeles de la ventana
+function Rect-Guia($que) {
+    $Z = $script:K; $cw = $form.ClientSize.Width; $ch = $form.ClientSize.Height
+    switch ($que) {
+        'botones' { if ($script:grid) { return (Rect-Control $script:grid) } }
+        'paginas' { $a = Buscar-Control $form '<'; $b = Buscar-Control $form '>'; if ($a -and $b) { return [System.Drawing.Rectangle]::Union((Rect-Control $a), (Rect-Control $b)) } }
+        'skins' { $c = Buscar-Control $form 'Skins'; if ($c) { return (Rect-Control $c) } }
+        'ajustes' { $c = Buscar-Control $form 'Ajustes'; if ($c) { return (Rect-Control $c) } }
+        'personaje' { return (New-Object System.Drawing.Rectangle([int](404 * $Z), [int](56 * $Z), [int]($cw - 410 * $Z), [int]($ch - 62 * $Z))) }
+        'barra' { return (New-Object System.Drawing.Rectangle(0, 0, $cw, [int](52 * $Z))) }
+    }
+    return [System.Drawing.Rectangle]::Empty
+}
+function Guia-Boton($texto, $accion, $fondo) {
+    $b = New-Object System.Windows.Forms.Button; $b.Text = $texto; $b.FlatStyle = 'Flat'; $b.Tag = $accion; $b.Cursor = 'Hand'
+    $b.Font = Fnt('Segoe UI', 8.5, [System.Drawing.FontStyle]::Bold); $b.ForeColor = [System.Drawing.Color]::White; $b.BackColor = $fondo
+    $b.FlatAppearance.BorderColor = [System.Drawing.Color]::White; $b.FlatAppearance.BorderSize = [Math]::Max(1, [int](1.5 * $script:K))
+    $b.FlatAppearance.MouseOverBackColor = (C 255 150 70)
+    $b.Size = New-Object System.Drawing.Size([int](112 * $script:K), [int](26 * $script:K))
+    $b.Add_Click({ & $this.Tag })
+    $script:guia.Ov.Controls.Add($b); return $b
+}
+function Abrir-Guia {
+    if ($script:guia -or (Ocupado) -or $form.WindowState -eq 'Minimized') { return }
+    Fin-Discusion $true
+    if ($script:modoSkins) { $script:modoSkins = $false; Mostrar-Pagina }
+    if ($script:vAj -and -not $script:vAj.IsDisposed) { $script:vAj.Close() }
+    $form.Refresh()
+    # foto del panel: se ve detrás, oscurecida, con la parte que explica iluminada
+    $foto = New-Object System.Drawing.Bitmap($form.Width, $form.Height)
+    $form.DrawToBitmap($foto, (New-Object System.Drawing.Rectangle(0, 0, $form.Width, $form.Height)))
+    $script:transicion = $true
+    $ov = New-Object System.Windows.Forms.Panel
+    $ov.Location = New-Object System.Drawing.Point(0, 0); $ov.Size = $form.ClientSize; $ov.BackColor = [System.Drawing.Color]::Black
+    Doble-Buffer $ov
+    $script:guia = @{ Paso = 0; Pos = 0; Foto = $foto; Panda = (Cargar-Img 'skins\guia\panda.png'); Fase = 0.0; Rect = [System.Drawing.Rectangle]::Empty; Izq = $false; Ov = $ov }
+    $ov.Add_Paint({ Pintar-Guia $_.Graphics })
+    $ov.Add_MouseDown({ Guia-Avanzar })
+    $script:guia.Sig = Guia-Boton 'Siguiente  ▶' { Guia-Avanzar } $GuiaNaranja
+    $script:guia.Atras = Guia-Boton '◀  Atrás' { if ($script:guia.Paso -gt 0) { Guia-Paso ($script:guia.Paso - 1) } } (C 60 50 48)
+    $script:guia.Saltar = Guia-Boton 'Saltar guía' { Cerrar-Guia } (C 40 36 36)
+    $form.Controls.Add($ov); $ov.BringToFront()
+    Guia-Paso 0
+    $guiaTimer.Start()
+}
+# coloca al panda, el bocadillo y los botones en el lado contrario a lo que se ilumina
+function Guia-Paso($n) {
+    $e = $script:guia; $e.Paso = $n; $e.Pos = 0
+    $e.Rect = Rect-Guia $PasosGuia[$n][0]
+    $cw = $form.ClientSize.Width
+    $e.Izq = (-not $e.Rect.IsEmpty) -and (($e.Rect.X + $e.Rect.Width / 2) -gt ($cw / 2))
+    $Z = $script:K; $W = $cw / $Z; $H = $form.ClientSize.Height / $Z
+    $x0 = if ($e.Izq) { 8 } else { $W - 352 }
+    # los botones, uno debajo de otro, en el lado de dentro (al lado del panda)
+    $bx = if ($e.Izq) { $x0 + 344 - 112 } else { $x0 }
+    $i = 0
+    foreach ($b in @($e.Sig, $e.Atras, $e.Saltar)) { $b.Location = New-Object System.Drawing.Point([int]($bx * $Z), [int](($H - 104 + $i * 32) * $Z)); $i++ }
+    $ultimo = ($n -ge $PasosGuia.Count - 1)
+    $e.Sig.Text = if ($ultimo) { '¡Entendido!' } else { 'Siguiente  ▶' }
+    $e.Atras.Visible = ($n -gt 0); $e.Saltar.Visible = -not $ultimo
+    $e.Ov.Invalidate()
+}
+function Guia-Avanzar {
+    $e = $script:guia; if (-not $e) { return }
+    $txt = $PasosGuia[$e.Paso][1]
+    if ($e.Pos -lt $txt.Length) { $e.Pos = $txt.Length; $e.Ov.Invalidate(); return }   # primero termina de escribir
+    if ($e.Paso -ge $PasosGuia.Count - 1) { Cerrar-Guia } else { Guia-Paso ($e.Paso + 1) }
+}
+function Cerrar-Guia {
+    $e = $script:guia; if (-not $e) { return }
+    $guiaTimer.Stop()
+    $form.Controls.Remove($e.Ov); $e.Ov.Dispose()
+    if ($e.Foto) { $e.Foto.Dispose() }; if ($e.Panda) { $e.Panda.Dispose() }
+    $script:guia = $null; $script:transicion = $false
+    $script:aj.Guia = $true; Guardar-Ajustes
+    $form.Invalidate()
+    Decir (Azar $script:skin.Hola) 'abiertos'
+}
+function Pintar-Guia($g) {
+    $e = $script:guia; if (-not $e) { return }
+    $g.SmoothingMode = 'AntiAlias'; $g.InterpolationMode = 'HighQualityBilinear'; $g.TextRenderingHint = 'AntiAlias'
+    $cw = $e.Ov.Width; $ch = $e.Ov.Height
+    $g.DrawImage($e.Foto, 0, 0, $e.Foto.Width, $e.Foto.Height)
+    # todo oscuro menos lo que se explica, que se marca con un borde naranja que late
+    $reg = New-Object System.Drawing.Region((New-Object System.Drawing.Rectangle(0, 0, $cw, $ch)))
+    if (-not $e.Rect.IsEmpty) { $hueco = [System.Drawing.Rectangle]::Inflate($e.Rect, [int](4 * $script:K), [int](4 * $script:K)); $reg.Exclude($hueco) }
+    $g.FillRegion((New-Object System.Drawing.SolidBrush((ARGB 175 0 0 0))), $reg); $reg.Dispose()
+    if (-not $e.Rect.IsEmpty) {
+        $al = [int](170 + 85 * [Math]::Sin($e.Fase * 1.6))
+        $pen = New-Object System.Drawing.Pen((ARGB $al 255 150 60), [float](3 * $script:K))
+        $g.DrawRectangle($pen, ($e.Rect.X - [int](4 * $script:K)), ($e.Rect.Y - [int](4 * $script:K)), ($e.Rect.Width + [int](8 * $script:K)), ($e.Rect.Height + [int](8 * $script:K))); $pen.Dispose()
+    }
+    # a partir de aquí, en las medidas del panel
+    $g.ScaleTransform($script:K, $script:K)
+    $W = $cw / $script:K; $H = $ch / $script:K
+    $x0 = if ($e.Izq) { 8 } else { $W - 352 }
+    # el panda asomando por abajo, moviéndose un poco
+    $ph = 170; $pw = 220; $px = 0; $py = $H - 160 + [Math]::Sin($e.Fase) * 3
+    if ($e.Panda) {
+        $pw = $e.Panda.Width * $ph / $e.Panda.Height
+        $px = if ($e.Izq) { $x0 } else { $x0 + 344 - $pw }
+        if ($e.Izq) { $g.DrawImage($e.Panda, [float]($px + $pw), [float]$py, [float](-$pw), [float]$ph) } else { $g.DrawImage($e.Panda, [float]$px, [float]$py, [float]$pw, [float]$ph) }
+    }
+    # bocadillo con el texto que se va escribiendo
+    $txt = $PasosGuia[$e.Paso][1]; $vis = $txt.Substring(0, [Math]::Min($txt.Length, $e.Pos))
+    $f = FntP('Segoe UI', 9.5, [System.Drawing.FontStyle]::Bold)
+    $alto = [Math]::Max(40, $g.MeasureString($txt, $f, 324).Height) + 30
+    $by = 60; $bw = 344
+    $tx = $px + $pw * 0.5; $bb = $by + $alto
+    $r = Ruta-Redonda $x0 $by $bw $alto 12
+    $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 90 0 0 0))), (Ruta-Redonda ($x0 + 3) ($by + 4) $bw $alto 12))
+    $g.FillPath([System.Drawing.Brushes]::White, $r)
+    $pico = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]($tx - 12), [float]($bb - 2))), (New-Object System.Drawing.PointF([float]($tx + 12), [float]($bb - 2))), (New-Object System.Drawing.PointF([float]$tx, [float]($bb + 14))))
+    $g.FillPolygon([System.Drawing.Brushes]::White, $pico)
+    $borde = New-Object System.Drawing.Pen($GuiaNaranja, 2.5); $borde.LineJoin = 'Round'
+    $g.DrawPath($borde, $r); $g.DrawLines($borde, $pico); $r.Dispose(); $borde.Dispose()
+    $g.FillRectangle([System.Drawing.Brushes]::White, [float]($tx - 11), [float]($bb - 4), 22, 4)
+    $g.DrawString("PANDA ROJO  ·  $($e.Paso + 1)/$($PasosGuia.Count)", (FntP('Segoe UI', 7.5, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($GuiaNaranja)), [float]($x0 + 10), [float]($by + 6))
+    $g.DrawString($vis, $f, (New-Object System.Drawing.SolidBrush((C 30 26 26))), (New-Object System.Drawing.RectangleF([float]($x0 + 10), [float]($by + 22), 324, [float]($alto - 24))))
+}
+$guiaTimer = New-Object System.Windows.Forms.Timer
+$guiaTimer.Interval = 30
+$guiaTimer.Add_Tick({
+    $e = $script:guia; if (-not $e) { $guiaTimer.Stop(); return }
+    $e.Fase += 0.12
+    $txt = $PasosGuia[$e.Paso][1]; if ($e.Pos -lt $txt.Length) { $e.Pos = [Math]::Min($txt.Length, $e.Pos + 2) }
+    $e.Ov.Invalidate()
+})
+# la primera vez: espera a que acaben el logo y la intro, y sale la guía
+$script:guiaCalma = 0
+$guiaInicio = New-Object System.Windows.Forms.Timer
+$guiaInicio.Interval = 250
+$guiaInicio.Add_Tick({
+    if ($script:aj.Guia) { $guiaInicio.Stop(); return }
+    if ((Ocupado) -or $script:discutiendo -or $form.WindowState -eq 'Minimized') { $script:guiaCalma = 0; return }
+    $script:guiaCalma++
+    if ($script:guiaCalma -ge 6) { $guiaInicio.Stop(); Abrir-Guia }
+})
 
 # ================= VENTANA DE AJUSTES =================
 function Opacidad-Base {
@@ -7440,6 +7945,9 @@ function Mostrar-Ajustes {
     $bEd = Ventana-Boton 'Editar botones...' 16 ($script:ajY + 6) 170 { Mostrar-Editor-Botones } (C 255 200 90)
     $bTu = Ventana-Boton 'Tutorial' 196 ($script:ajY + 6) 118 { Mostrar-Tutorial } (C 90 90 110)
     $bEd.ForeColor = (C 20 20 24); $f.Controls.AddRange(@($bEd, $bTu)); $script:ajY += 42
+    # la guía del panda rojo (la que sale la primera vez)
+    $bGu = Ventana-Boton 'Guía del panda' 16 ($script:ajY + 2) 298 { $script:vAj.Close(); Abrir-Guia } $GuiaNaranja
+    $bGu.ForeColor = [System.Drawing.Color]::White; $f.Controls.Add($bGu); $script:ajY += 38
     $cerrar = New-Object System.Windows.Forms.Button; $cerrar.Text = 'Cerrar'; $cerrar.FlatStyle = 'Flat'; $cerrar.BackColor = (C 60 60 74)
     $cerrar.Location = New-Object System.Drawing.Point(120, ($script:ajY + 6)); $cerrar.Size = New-Object System.Drawing.Size(90, 30)
     $cerrar.Add_Click({ $script:vAj.Close() }); $f.Controls.Add($cerrar)
@@ -7896,7 +8404,7 @@ $form.Add_Paint({
             $g.DrawRectangle((New-Object System.Drawing.Pen((C 0 255 0), 1)), 410, 216, 190, 10)
             $g.DrawString("HITMARKERS: $($script:hitsTotal)    DO THE DEW: $($script:dew)", (FntP('Arial Black', 8)), (New-Object System.Drawing.SolidBrush((C 191 239 255))), 16, 280)
         }
-        { $_ -in @('culto', 'kaiju', 'zorro', 'mew', 'oeste', 'pressure', 'dod', 'teto', 'femta', 'pop', 'pizza', 'punk', 'enfosi') } {
+        { $_ -in @('culto', 'kaiju', 'zorro', 'mew', 'oeste', 'pressure', 'dod', 'teto', 'femta', 'pop', 'pizza', 'punk', 'enfosi', 'gran') } {
             # skins nuevas: fondo real + personajes grandes + efectos + bocadillo propio
             $g.SmoothingMode = 'AntiAlias'
             # el fondo se prepara siempre con el tamaño fijo de la skin (no con el de la ventana a medio montar)
@@ -8109,6 +8617,24 @@ $form.Add_Paint({
                     $dnd = if ($script:popDND) { 'NO MOLESTAR: SÍ' } else { 'NO MOLESTAR: NO' }
                     Texto-Color $g $dnd 'Trebuchet MS' 13 168 286 $(if ($script:popDND) { (C 90 230 250) } else { (C 255 214 120) }) (C 30 10 50) 3
                     if ($script:popDND) { $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 90 230 250))), 330, 286, 16, 16); $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 30 14 52))), 335, 283, 15, 15) }
+                }
+                'gran' {
+                    $e = $script:gr
+                    # marco verde del monitor, líneas de pantalla y la etiqueta de la cámara del laboratorio
+                    $sl = New-Object System.Drawing.Pen((ARGB 26 0 0 0), 1); for ($y = 62; $y -lt 266; $y += 3) { $g.DrawLine($sl, 414, $y, 748, $y) }; $sl.Dispose()
+                    if ($e -and $e.Fx -gt 0) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ([int]($e.Fx * 9)) $e.FxCol.R $e.FxCol.G $e.FxCol.B))), 414, 62, 334, 204) }
+                    $g.DrawRectangle((New-Object System.Drawing.Pen((C 32 208 44), 2)), 413, 61, 336, 206)
+                    $osd = FntP('Consolas', 8, [System.Drawing.FontStyle]::Bold)
+                    if ([int]([Environment]::TickCount / 600) % 2 -eq 0) { $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 230 40 60))), 420, 68, 8, 8) }
+                    $g.DrawString('CAM 07 · CENTRAL TOWER', $osd, (New-Object System.Drawing.SolidBrush((C 200 255 205))), 431, 65)
+                    $g.DrawString('ANTIHUMAN INC.', $osd, (New-Object System.Drawing.SolidBrush((C 32 208 44))), 654, 252)
+                    # registro de sujetos de prueba
+                    if ($e) {
+                        $pc = if ($e.Sujetos -gt 0) { [int](100 * $e.Exitos / $e.Sujetos) } else { 0 }
+                        Texto-Color $g "SUJETOS: $($e.Sujetos)" 'Bahnschrift' 14 18 284 (C 200 255 205) (C 0 0 0) 3
+                        Texto-Color $g "FURRIES: $($e.Exitos)" 'Bahnschrift' 14 150 284 (C 32 208 44) (C 0 0 0) 3
+                        Texto-Color $g "ÉXITO: $pc %" 'Bahnschrift' 14 284 284 $(if ($pc -ge 60 -or $e.Sujetos -eq 0) { (C 200 255 205) } else { (C 255 110 130) }) (C 0 0 0) 3
+                    }
                 }
                 'enfosi' {
                     $e = $script:ef
@@ -8393,6 +8919,7 @@ function Clic-Actor($id) {
         'pop' { Tetra-Clic }
         'pizza' { Kevin-Clic }
         'punk' { Ky-Clic }
+        'gran' { Gran-Clic }
     }
 }
 $mDown = {
@@ -8449,6 +8976,7 @@ function Construir-UI {
     $script:pajaros.Clear(); $script:birdbrains = 0; $script:duelo = $null; $script:tkCd = 1
     # personajes dibujados y estado de las skins nuevas
     $actTimer.Stop(); $kRevTimer.Stop()
+    if ($k.Estilo -ne 'gran') { Gran-Musica-Off }
     Quitar-Actores
     if ($script:bmpEscena) { $script:bmpEscena.Dispose(); $script:bmpEscena = $null }
     $script:fe = 60; $script:seguidores = 0; $script:ritualFx = 0
@@ -8560,6 +9088,7 @@ function Construir-UI {
         # personajes grandes dibujados en el panel y bocadillo transparente encima del dibujo
         foreach ($def in $k.Actores) { Nuevo-Actor $def }
         if ($k.Estilo -eq 'enfosi') { Enfosi-Reset } else { $script:ef = $null }
+        if ($k.Estilo -eq 'gran') { Gran-Reset } else { $script:gr = $null }
         $status.BackColor = [System.Drawing.Color]::Transparent
         $status.ForeColor = $k.BurTexto
         $status.UseMnemonic = $false
@@ -8676,5 +9205,7 @@ $form.Add_Shown({
     Aplicar-Ajustes
     # primero el logo de JOSEPABLINI CORPORATION y luego la intro de la skin
     if ($script:aj.Intros) { Logo-Inicio } else { Efecto-Entrada $null }
+    # la primera vez que se abre el panel sale la guía del panda
+    if (-not $script:aj.Guia) { $script:guiaCalma = 0; $guiaInicio.Start() }
 })
 [void]$form.ShowDialog()

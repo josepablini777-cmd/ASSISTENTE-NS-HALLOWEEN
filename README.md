@@ -1,4 +1,4 @@
-# 🎃 c00lgui v6 – panel lanzador con skins de asistentes
+# 🎃 c00lgui v6.1 – panel lanzador con skins de asistentes
 
 Panel para Windows que abre YouTube, las apps de Office y otros programas con un clic.
 
@@ -20,6 +20,19 @@ Se acerca la noche más larga del año, y el panel no va a dormir. La próxima g
 🕸️ Apaga la luz. Abre el panel. Y no mires detrás de ti.
 
 ---
+
+## Notas del parche – v6.1
+
+**Skin nueva: Gran** (el personaje de ivycomb en *ANTIHUMAN*)
+- El doble malvado de Moka: virólogo y dueño de **Antihuman Inc.**, que quiere convertir a todo el mundo en furry porque cree que son la especie superior. Frío, clínico y obsesionado con su trabajo.
+- La intro y el bucle del panel son los de su personaje en los vídeos de *ANTIHUMAN*, y de fondo suena su canción **"Are You Sure He's a Pharmacist?"**.
+- Cada app que abres es un **sujeto de prueba** que recibe una dosis de Fury Mix: cuenta sujetos, furries y porcentaje de éxito, y cada 10 manda un informe al consejo de Golden City.
+- Haz clic en él y **se tapa la cara**, como en el vídeo. Cuando va de invitado a las discusiones sale siempre con la cara tapada.
+- Todas las skins opinan de él y hay 10 discusiones nuevas.
+
+**Guía del panda:** la primera vez que abres el panel, el panda rojo de JOSEPABLINI CORPORATION te da la bienvenida y te enseña lo básico (botones, páginas, skins, el asistente, Ajustes y cómo mover la ventana), iluminando cada parte. Se vuelve a ver en **Ajustes → Guía del panda**.
+
+**Botón SALTAR** abajo a la derecha en todas las intros (también en el logo de inicio).
 
 ## Notas del parche – v6
 
@@ -91,6 +104,7 @@ Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code,
 | **Kevin** | El lobo verde de *Don't Touch My Pizza* (Nyanwolf), viviendo dentro de un dibujo de Paint sobre un mantel de pizzería | Se abre Paint, un lápiz dibuja su pizza, "DON'T TOUCH MY PIZZA" palabra a palabra, fuego y su cartel con arcoíris, con la polka de fondo |
 | **Kennyoung** | El personaje del músico surcoreano de pop-punk, dentro del reproductor de su canal de YouTube, en un local de ensayo | Su canal carga, se le da al play y suena un riff pop-punk con cortes de sus videoclips y títulos de sus canciones |
 | **Enfosi** | El juego de Roblox de Tumore: la estatua de oro en Blibble's Field y los Glaggles que caminan hacia ella | Conoce a tus Glaggles: uno se revela como Enphosian, aparece el Ojo de Enphoso y empieza la oleada 1 |
+| **Gran** | El virólogo de Antihuman Inc. (ivycomb, *ANTIHUMAN*) en la cámara de su laboratorio de Central Tower, sobre su remolino de pintura | La de su personaje en el vídeo: rayas grises, el remolino rosa y cian, su cara y el busto con la jeringuilla, con su canción |
 
 Cada skin opina de las demás. Pasa el ratón por los botones del menú **Skins** para oír lo que piensa el asistente de cada una. De vez en cuando, además, **discuten entre ellos**: el otro personaje aparece en su propia ventanita pegada al panel, con su estilo y su bocadillo. Lo que dicen tiene efectos: los disparos suenan y hacen temblar las ventanas, las Smokebomb las vuelven transparentes y los mordiscos suenan. **Haz clic derecho sobre el personaje** para empezar una discusión cuando quieras.
 
@@ -130,6 +144,7 @@ No hace falta instalar nada: funciona con PowerShell, que ya viene con Windows 1
   - **Kevin:** cada app que abres es un trozo de pizza que se come; cuando se acaba, llega el repartidor con otra. **No toques su pizza**: a la primera saca un cuchillo y una pistola, a la segunda te avisa de que te va a morder y a la tercera saca la motosierra y todo arde. Si aparece **queso azul**, ese sí puedes quitarlo haciendo clic en la pizza (te lo agradecerá). Haz clic en él para que baile, cante con el micro o, con suerte, se suba a un unicornio.
   - **Kennyoung:** cada app que abres son visitas y likes para su canal, y cada 8 hay **concierto** con la banda. Haz clic en él para que toque un acorde: el **amplificador** sube y, si llega al máximo, la guitarra **explota**. El botón **SUSCRIBIRSE** del reproductor funciona (con campanita). La barra roja va pasando por sus canciones.
   - **Enfosi:** cada app trae un Glaggle a la estatua. Haz clic en él solo si es un Enphosian disfrazado (piel de otro color, símbolo falso, sin símbolo o sin cara). Si le pegas a un inocente es strike, y con tres viene el Ojo de Enphoso.
+  - **Gran:** cada app que abres es un sujeto de prueba que recibe Fury Mix: puede salir un furry nuevo o fallar. Cada 10 sujetos manda un informe al consejo. Haz clic en él y se tapa la cara. Mientras esté puesta la skin suena su canción (se quita con el sonido en **Ajustes**).
 
 ## Ajustes
 
@@ -195,5 +210,6 @@ Al principio de la sección `SKINS` de `c00lgui.ps1` hay una guía paso a paso c
 - **Kevin:** el lobo de la animación *Don't Touch My Pizza* de Nyanwolf, con la canción de Zombycare ([más información](https://knowyourmeme.com/memes/dont-touch-my-pizza)). GIFs de [Tenor](https://tenor.com/search/dont-touch-my-pizza-gifs). Música: "Pixel Peeker Polka - faster", de Kevin MacLeod ([incompetech.com](https://incompetech.com)), con licencia [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/). Efectos de sonido sintetizados para el panel.
 - **Kennyoung:** personaje del músico y animador [Kennyoung](https://youtube.com/@kennyoung). GIFs de sus videoclips en [Tenor](https://tenor.com/search/kennyoung-gifs) y foto de perfil de la [KennYon Wiki](https://kennyon.fandom.com/wiki/Kennyoung). El riff y los sonidos están sintetizados para el panel (no es su música).
 - **Enfosi:** juego de Roblox de **Tumore**. Imágenes, sonido del aviso de jefe (recreación) e información de la [wiki de Miraheze](https://enfosi.miraheze.org) y la [wiki de Fandom](https://enfosi-tumore.fandom.com). Los demás sonidos están sintetizados para el panel.
+- **Gran:** personaje de [ivycomb](https://www.youtube.com/@ivycomb) (arte y coguion de LovecutV, con Stephanafro), de *ANTIHUMAN*. Intro y animaciones sacadas de los vídeos de su personaje; historia y datos de la [wiki de ivycomb](https://wiki.ivy.cm). Música: "Are You Sure He's a Pharmacist?", de ivycomb (de *Regretevator* y *ANTIHUMAN Volume 1*).
 
 Proyecto de fans sin ánimo de lucro. Los personajes pertenecen a sus autores.
