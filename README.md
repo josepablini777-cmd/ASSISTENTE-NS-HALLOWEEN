@@ -1,4 +1,4 @@
-# 🎃 c00lgui v6.1 – panel lanzador con skins de asistentes
+# 🎃 c00lgui v6.2 – panel lanzador con skins de asistentes
 
 Panel para Windows que abre YouTube, las apps de Office y otros programas con un clic.
 
@@ -20,6 +20,20 @@ Se acerca la noche más larga del año, y el panel no va a dormir. La próxima g
 🕸️ Apaga la luz. Abre el panel. Y no mires detrás de ti.
 
 ---
+
+## Notas del parche – v6.2
+
+**⚠ Aviso de epilepsia y modo seguro**
+- Al abrir el panel sale siempre un aviso de epilepsia fotosensible, con un botón para activar el **modo seguro**.
+- **Modo seguro** (también en **Ajustes**): quita las intros, los temblores, el glitch, la estática de la tele y todos los destellos y flashes de las skins.
+- La primera vez que se abre el panel sale **SeaDrive**, la skin más tranquila.
+
+**Skin nueva: Nanachi** (*Made in Abyss*)
+- Vive en su escondite de la 4ª capa del Abismo, a 7.100 m, y pasa de casi todo... menos de **Mitty**, que está a su lado con el muñeco de pájaro que le cosió.
+- Cada app echa un ingrediente a la olla: con 5 sirve un **estofado del Abismo** (cada vez le sale un poco menos horrible).
+- Haz clic en Nanachi para acariciarle y llenar el medidor **MULLIDO**, o en Mitty (a ella sí le gusta).
+- Intro: un descenso por las capas del Abismo hasta la entrada de su escondite, con los hilos del campo de fuerza.
+- Grupo nuevo en el menú Skins: **Anime**. Todas las skins opinan de Nanachi y hay 12 discusiones nuevas.
 
 ## Notas del parche – v6.1
 
@@ -80,7 +94,7 @@ Se acerca la noche más larga del año, y el panel no va a dormir. La próxima g
 **Para quien quiera tocar el código**
 - Al principio de la sección `SKINS` de `c00lgui.ps1` hay una guía paso a paso para añadir skins nuevas.
 - Los grupos del menú Skins se cambian en la lista `$GruposSkins` y el texto del tutorial en `$TextoTutorial`.
-Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code, Build the Larp"). Tiene veinte skins, cada una con su propio estilo, animaciones y diálogos:
+Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code, Build the Larp"). Tiene veintidós skins, cada una con su propio estilo, animaciones y diálogos:
 
 | Skin | Estilo | Efecto al entrar |
 |---|---|---|
@@ -105,6 +119,7 @@ Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code,
 | **Kennyoung** | El personaje del músico surcoreano de pop-punk, dentro del reproductor de su canal de YouTube, en un local de ensayo | Su canal carga, se le da al play y suena un riff pop-punk con cortes de sus videoclips y títulos de sus canciones |
 | **Enfosi** | El juego de Roblox de Tumore: la estatua de oro en Blibble's Field y los Glaggles que caminan hacia ella | Conoce a tus Glaggles: uno se revela como Enphosian, aparece el Ojo de Enphoso y empieza la oleada 1 |
 | **Gran** | El virólogo de Antihuman Inc. (ivycomb, *ANTIHUMAN*) en la cámara de su laboratorio de Central Tower, sobre su remolino de pintura | La de su personaje en el vídeo: rayas grises, el remolino rosa y cian, su cara y el busto con la jeringuilla, con su canción |
+| **Nanachi** | El Hueco de *Made in Abyss* en su escondite de la 4ª capa, con Mitty a su lado, la olla del estofado y sus caras del anime en un dibujo de la pared | Descenso por las capas del Abismo hasta la entrada de su escondite, entre los hilos del campo de fuerza |
 
 Cada skin opina de las demás. Pasa el ratón por los botones del menú **Skins** para oír lo que piensa el asistente de cada una. De vez en cuando, además, **discuten entre ellos**: el otro personaje aparece en su propia ventanita pegada al panel, con su estilo y su bocadillo. Lo que dicen tiene efectos: los disparos suenan y hacen temblar las ventanas, las Smokebomb las vuelven transparentes y los mordiscos suenan. **Haz clic derecho sobre el personaje** para empezar una discusión cuando quieras.
 
@@ -145,10 +160,11 @@ No hace falta instalar nada: funciona con PowerShell, que ya viene con Windows 1
   - **Kennyoung:** cada app que abres son visitas y likes para su canal, y cada 8 hay **concierto** con la banda. Haz clic en él para que toque un acorde: el **amplificador** sube y, si llega al máximo, la guitarra **explota**. El botón **SUSCRIBIRSE** del reproductor funciona (con campanita). La barra roja va pasando por sus canciones.
   - **Enfosi:** cada app trae un Glaggle a la estatua. Haz clic en él solo si es un Enphosian disfrazado (piel de otro color, símbolo falso, sin símbolo o sin cara). Si le pegas a un inocente es strike, y con tres viene el Ojo de Enphoso.
   - **Gran:** cada app que abres es un sujeto de prueba que recibe Fury Mix: puede salir un furry nuevo o fallar. Cada 10 sujetos manda un informe al consejo. Haz clic en él y se tapa la cara. Mientras esté puesta la skin suena su canción (se quita con el sonido en **Ajustes**).
+  - **Nanachi:** cada app echa un ingrediente al estofado del Abismo; con 5 lo sirve. Haz clic en Nanachi para acariciarle (sube el medidor MULLIDO; si insistes mucho, se aparta) y en Mitty para que se ponga contenta.
 
 ## Ajustes
 
-El botón **Ajustes** abre una ventanita para: activar o quitar el sonido y su volumen, las discusiones con invitados, las intros, cuántas frases dicen solos, el tamaño del panel, la opacidad, tenerlo siempre encima, recordar dónde lo dejaste y abrirlo al encender el ordenador. Se guarda en `ajustes.txt`.
+El botón **Ajustes** abre una ventanita para: activar o quitar el sonido y su volumen, las discusiones con invitados, las intros, el **modo seguro para epilepsia** (sin destellos ni temblores), cuántas frases dicen solos, el tamaño del panel, la opacidad, tenerlo siempre encima, recordar dónde lo dejaste y abrirlo al encender el ordenador. Se guarda en `ajustes.txt`.
 
 **Textos largos:** si una frase no cabe en el bocadillo, al terminar de escribirse vuelve al principio y baja sola. También puedes moverla con la rueda del ratón.
 
@@ -211,5 +227,6 @@ Al principio de la sección `SKINS` de `c00lgui.ps1` hay una guía paso a paso c
 - **Kennyoung:** personaje del músico y animador [Kennyoung](https://youtube.com/@kennyoung). GIFs de sus videoclips en [Tenor](https://tenor.com/search/kennyoung-gifs) y foto de perfil de la [KennYon Wiki](https://kennyon.fandom.com/wiki/Kennyoung). El riff y los sonidos están sintetizados para el panel (no es su música).
 - **Enfosi:** juego de Roblox de **Tumore**. Imágenes, sonido del aviso de jefe (recreación) e información de la [wiki de Miraheze](https://enfosi.miraheze.org) y la [wiki de Fandom](https://enfosi-tumore.fandom.com). Los demás sonidos están sintetizados para el panel.
 - **Gran:** personaje de [ivycomb](https://www.youtube.com/@ivycomb) (arte y coguion de LovecutV, con Stephanafro), de *ANTIHUMAN*. Intro y animaciones sacadas de los vídeos de su personaje; historia y datos de la [wiki de ivycomb](https://wiki.ivy.cm). Música: "Are You Sure He's a Pharmacist?", de ivycomb (de *Regretevator* y *ANTIHUMAN Volume 1*).
+- **Nanachi y Mitty:** personajes de *Made in Abyss* (Akihito Tsukushi). Imágenes del anime, del escondite, de las capas del Abismo y del estofado de la [wiki de Made in Abyss](https://madeinabyss.fandom.com/wiki/Nanachi); caras animadas de GIFs de [Tenor](https://tenor.com/search/nanachi-gifs). Sonidos sintetizados para el panel.
 
 Proyecto de fans sin ánimo de lucro. Los personajes pertenecen a sus autores.

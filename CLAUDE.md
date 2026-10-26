@@ -36,6 +36,9 @@ c00lgui es un panel lanzador para Windows (abre YouTube, Office, programas…) c
 11. **Bocadillo:** `Decir` escribe según el tiempo (no se ralentiza aunque haya muchos efectos). Para frases que no se deben cortar (explosiones, modos especiales, finales de minijuego) usa `Decir-Fijo`: bloquea las demás frases hasta que se haya podido leer.
 12. **Ventanitas con fundido:** no dejes la `Opacity` de un formulario en 1.0 después de animarla; déjala en 0.99 (al pasar a 1.0 Windows deja de pintarla hasta que le haces clic).
 
+13. **Modo seguro (epilepsia):** `$script:aj.Epilepsia` quita intros, temblores (`Sacudir`), glitch, estática y destellos. Si añades un efecto que parpadee, haga flash o cambie de color de golpe, pon su variable a 0 en `Sin-Destellos` (se llama en cada fotograma). Los temblores nuevos deben usar `Sacudir` y las intros deben arrancar desde `Efecto-Entrada`, que ya respetan el modo seguro.
+14. **Arranque:** al abrir sale siempre el aviso de epilepsia (`Mostrar-Aviso`); al cerrarlo, `Arranque` pone el logo, la intro y la guía del panda. Sin `skin.txt` (la primera vez) la skin es **SeaDrive**, la más tranquila.
+
 ## Escalado (DPI)
 
 Todo se diseña a **tamaño base** y se escala una vez:
@@ -86,6 +89,8 @@ Para añadir una skin hay una lista paso a paso al principio de la sección SKIN
 No abras ventanas en medio de su pantalla (sus clics acaban dentro). Haz una copia de prueba:
 1. Guarda una copia de `skin.txt`, `ajustes.txt` y `botones.txt`; pon en `skin.txt` la skin a probar.
 2. Crea `_prueba.ps1` = `c00lgui.ps1` sin su última línea (`[void]$form.ShowDialog()`) + un trozo de prueba que:
+   - redefina `function Mostrar-Aviso { Arranque }` (si no, el **aviso de epilepsia** del arranque espera un clic),
+   - ponga `$script:aj.Guia = $true` (si no, en un PC donde nunca se ha abierto el panel sale la **guía del panda**, que espera un clic: la prueba parece colgada y no lo está),
    - quite el sonido (`$script:aj.Sonido = $false`) y mueva la ventana fuera de la pantalla (`$form.Location = (-5000, 100)`),
    - con un `Timer` vaya llamando a funciones (`Aplicar-Skin`, `Clic-Actor`, `Lanzar`, `Iniciar-Discusion`…),
    - saque capturas con `$form.DrawToBitmap(...)` (y `$script:iOv.DrawToBitmap` durante una intro),
