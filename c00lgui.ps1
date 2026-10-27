@@ -59,6 +59,7 @@ $script:aj = [ordered]@{
     Encima = $false; Tamano = [double]$Tamano; Opacidad = 100; Posicion = $true; Inicio = $false; X = ''; Y = ''
     Guia = $false   # si ya se ha visto la guía del panda
     Epilepsia = $false   # modo seguro: sin destellos, parpadeos, temblores ni intros (ver Sin-Destellos)
+    KnightVictorias = 0   # victorias en el minijuego del Roaring Knight
 }
 function Cargar-Ajustes {
     if (-not (Test-Path $ArchivoAjustes)) { return }
@@ -222,6 +223,7 @@ $Skins = [ordered]@{
             'Nanachi'                = '> nanachi.exe went back to the abyss. stew.dat still corrupted.'
             'Evil Scary'             = '> evil_scary.exe left the server. admin panel still missing. i checked.'
             'Soft Fuzzy Man'       = '> soft_fuzzy_man.exe disconnected. tried to ping him. packet went right through.'
+            'Roaring Knight'       = '> roaring_knight.exe left. it made a dark fountain in my recycle bin.'
         }
         Yo = @('> c00lgui: still the best. no debate.', '> that one is me. obviously.')
         Opina = @{
@@ -248,6 +250,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('> tried to hack nanachi. found only fur. 100% fluffy. 0% data.', '> nanachi''s stew crashed my antivirus. respect.')
             'Evil Scary'             = @('> tried to ban evil scary. it said "IT IS EVIL AND SCARY". ban failed.', '> evil scary is the only thing c00lkidd is afraid of. don''t tell him.')
             'Soft Fuzzy Man'       = @('> soft fuzzy man has no hitbox. no hitbox = no hack. respect.', '> he flirted with my firewall. it let him in.')
+            'Roaring Knight'       = @('> tried to hack the knight. got sliced. physically. through the screen.', '> the knight is the only admin i respect.')
         }
         Frases = @(
             '> payload delivered.'
@@ -332,6 +335,7 @@ $Skins = [ordered]@{
             'Nanachi'                = 'Se fue Nanachi. Nos hemos pasado la tarde sin hablar. Ha sido perfecto.'
             'Evil Scary'             = 'Se ha ido Evil Scary. Por fin dejo de oír ese botecito. Lo sigo oyendo en sueños.'
             'Soft Fuzzy Man'       = 'Se fue Soft Fuzzy Man. Me ha dejado la pantalla llena de niebla rosa. Muy bonito. Muy molesto.'
+            'Roaring Knight'       = 'Se ha ido el Knight. Me ha dejado una Fuente Oscura en el escritorio. No la pienso abrir.'
         }
         Yo = @('Esa skin soy yo. La mejor, obviamente.', 'Ah, sí. Yo. Elección correcta por una vez.')
         Opina = @{
@@ -358,6 +362,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('Nanachi es de las pocas que no me hace hablar. La aprecio. Bueno, le aprecio. Lo que sea.', 'Me hizo una infusión y dormí dos días. Lo mejor que me ha pasado.')
             'Evil Scary'             = @('Evil Scary no tiene ojos y aun así me mira. Odio eso. Lo odio mucho.', 'Le puse un pop-up de "cerrar". Lo atravesó. Pues vale.')
             'Soft Fuzzy Man'       = @('Soft Fuzzy Man me pidió café. Le di una taza. La atravesó. Qué desperdicio.', 'Es como un salvapantallas con sentimientos.')
+            'Roaring Knight'       = @('El Knight no habla. Solo ruge. Como yo los lunes.', 'Le puse un pop-up de "cerrar". Lo cortó por la mitad.')
         }
         Frases = @(
             'Ya está. No me des las gracias, no me pagan.'
@@ -457,6 +462,7 @@ $Skins = [ordered]@{
             'Nanachi'                = '¡Bzzt! ¡Nanachi se ha ido! ¡Tiene un pelo tan mullido que se me ha erizado la antena!'
             'Evil Scary'             = '¡Bzzt! ¡Evil Scary se ha ido! ¡Mi tele vuelve a enseñar dibujos y no sonrisas rojas!'
             'Soft Fuzzy Man'       = '¡Bzzt! ¡Se ha ido Soft Fuzzy Man! ¡Mi tele echa de menos su estática!'
+            'Roaring Knight'       = '¡Bzzt! ¡El Knight se ha ido! ¡Mi tele vuelve a ser de colores!'
         }
         Yo = @('¡Esa soy yo! ¡Hola, yo!', '¡Elígeme! ¡Elígeme! ¡Bzzt!')
         Opina = @{
@@ -483,6 +489,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('¡Nanachi es como un peluche que habla! ¡Bzzt! ¡Y dice cosas muy sabias!', '¡Probé su estofado! ¡Mi tele se puso en blanco y negro del susto!')
             'Evil Scary'             = @('¡Evil Scary sale en mi tele cuando está apagada! ¡Bzzt! ¡No me gusta nada!', '¡Le canté una canción para que se calmara! ¡Botó más rápido!')
             'Soft Fuzzy Man'       = @('¡Soft Fuzzy Man es borroso como yo! ¡Bzzt! ¡Somos familia!', '¡Cantamos su canción a dúo! ¡Él hacía los coros de niebla!')
+            'Roaring Knight'       = @('¡El Knight odia las teles! ¡Bzzt! ¡Pregúntale a Tenna!', '¡Cuando le hacen daño se pone en estática como yo! ¡Somos primos!')
         }
         Frases = @(
             '¡Listo! ¡Como en los dibujos de los sábados!'
@@ -597,6 +604,7 @@ $Skins = [ordered]@{
             'Nanachi'                = '*Huele a estofado. Nanachi se ha ido. La olla no. Se la come.*'
             'Evil Scary'             = '*Guillotina se relaja. La bola negra se ha ido. No se la ha podido comer.*'
             'Soft Fuzzy Man'       = '*Guillotina se relame. La nube rosa se ha ido. Sabía a algodón de azúcar. No llenaba nada.*'
+            'Roaring Knight'       = '*Guillotina se relame. El Knight se ha ido. Tenía demasiadas espadas para comérselo.*'
         }
         Yo = @('*Se mira a sí misma. Le gusta lo que ve.*', '*Ronronea. Sí, esa es ella.*')
         Opina = @{
@@ -623,6 +631,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('*Guillotina se comió el estofado de Nanachi. Entero. Es la única que lo ha disfrutado.*', '*Mira las orejas de Nanachi. Se relame. Nanachi le enseña un cucharón. Se aleja.*')
             'Evil Scary'             = @('*Guillotina intentó comerse a Evil Scary. Se le quedaron las manos fuera de la boca. Lo escupió.*', '*Por primera vez, Guillotina se esconde detrás de algo.*')
             'Soft Fuzzy Man'       = @('*Guillotina intentó comerse a Soft Fuzzy Man. Masticó aire. Se enfadó mucho.*', '*Guillotina le enseña los dientes. Él le guiña un ojo. Guillotina no sabe qué hacer.*')
+            'Roaring Knight'       = @('*Guillotina intentó morder la estela del Knight. Mordió sombras. Nada.*', '*El Knight le enseñó los dientes. Guillotina le enseñó más dientes. Empate.*')
         }
         Frases = @(
             '*ÑAM.*'
@@ -716,6 +725,7 @@ $Skins = [ordered]@{
             'Nanachi'                = 'Manager, Nanachi ha regresado a su escondite. Ha dejado un olor... agradable.'
             'Evil Scary'             = 'Manager, la entidad Evil Scary ha abandonado la instalación. Las paredes siguen... atravesadas.'
             'Soft Fuzzy Man'       = 'Manager, la entidad gaseosa ha abandonado la instalación. Los conductos de ventilación huelen a algodón de azúcar.'
+            'Roaring Knight'       = 'Manager, la entidad Roaring Knight ha abandonado la instalación. Ha dejado tres Fuentes Oscuras. Estoy contándolas.'
         }
         Yo = @('Esa soy yo, Manager. La opción más eficiente.', 'Una elección lógica, Manager.')
         Opina = @{
@@ -742,6 +752,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('Nanachi conoce la medicina mejor que nuestro equipo de bienestar. Inquietante.', 'Clasificación de Nanachi: no es una anomalía. Me lo ha dejado muy claro.')
             'Evil Scary'             = @('Evil Scary: clasificación imposible. Atraviesa la contención. No responde a nada.', 'He intentado razonar con Evil Scary. Me ha contestado "STALL, STALL".')
             'Soft Fuzzy Man'       = @('Soft Fuzzy Man: riesgo bajo. Insistencia alta. Me ha piropeado tres veces.', 'No hay celda para un gas que liga.')
+            'Roaring Knight'       = @('Roaring Knight: clasificación imposible. Crea mundos dentro de nuestras celdas.', 'Le pregunté qué quería. Rugió. Lo anoto como "respuesta".')
         }
         Frases = @(
             'Tarea asignada. Le recomiendo no perder el tiempo.'
@@ -833,6 +844,7 @@ $Skins = [ordered]@{
             'Nanachi'                = 'Nanachi se ha ido. Me curó el dedo del gatillo. GG.'
             'Evil Scary'             = 'Evil Scary se ha ido. 0 hitmarkers en toda la partida. Primera vez.'
             'Soft Fuzzy Man'       = 'Soft Fuzzy Man se ha ido. Le hice un noscope. La bala salió por el otro lado. 0 de daño. Me dio las gracias.'
+            'Roaring Knight'       = 'El Knight se ha ido. 0 hitmarkers. Le daba a las sombras de detrás. Nunca a él.'
         }
         Yo = @('Esa soy yo. La MVP. Obviamente.', '¿Mikaela? Elección de pro.')
         Opina = @{
@@ -859,6 +871,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('Nanachi ve cosas que nadie ve. Sería el mejor apoyo de cualquier equipo.', 'Probé su estofado. Primera vez que pierdo contra una comida.')
             'Evil Scary'             = @('Evil Scary no tiene hitbox. O sí, pero no sirve de nada. GG, supongo.', 'Le hice una Smokebomb. Me encontró en dos segundos. Ve a través de todo.')
             'Soft Fuzzy Man'       = @('Soft Fuzzy Man no tiene hitbox. Es un fallo del juego con sentimientos.', 'Mi Smokebomb y él se hicieron amigos. Ahora hay el doble de humo.')
+            'Roaring Knight'       = @('El Knight se teletransporta. Peor que cualquier tryhard.', 'Su espada mide más que mi francotirador. No me gusta.')
         }
         Frases = @(
             '¡Hitmarker!'
@@ -954,6 +967,7 @@ $Skins = [ordered]@{
             'Nanachi'                = 'El conejo del Abismo se fue. Me curó la mano. No le disparé. Es un detalle.'
             'Evil Scary'             = 'La bola negra se fue. Seis balas. Cero agujeros. Me voy a echar una siesta.'
             'Soft Fuzzy Man'       = 'La nube rosa se fue. Seis balas. Seis agujeros en el aire. Ni uno en él.'
+            'Roaring Knight'       = 'El caballero negro se fue. Seis balas. Seis sombras. Ni un agujero.'
         }
         Yo = @('*Se mira en el reflejo del revólver. Asiente.*', 'El mejor pistolero del desierto. Ese soy yo.')
         Opina = @{
@@ -980,6 +994,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('Ese conejo me dijo que si no te mueves te comen. Ahora no sé qué hacer con mi vida.', 'Nanachi me vendó la mano sin preguntar. Gente así no queda en el oeste.')
             'Evil Scary'             = @('¡No te muevas, bola! ...SE MUEVE. A SALTOS. ¡NO LO SOPORTO!', 'Es lo único del oeste que corre más que mis balas. Y no corre. Bota.')
             'Soft Fuzzy Man'       = @('¡No te muevas! ...¡NO SE MUEVE, FLOTA! ¡ES PEOR!', 'Me dio las gracias por dispararle. Este oeste está fatal.')
+            'Roaring Knight'       = @('¡No te muevas! ...SE MUEVE Y DEJA SOMBRAS. ¡A CUÁL DISPARO!', 'Ese no es del oeste. En el oeste se avisa antes de disparar. Él no avisa.')
         }
         Frases = @(
             '¡BANG!'
@@ -1071,6 +1086,7 @@ $Skins = [ordered]@{
             'Nanachi'                = 'Nanachi se ha ido, cielo. Tanto pelo mullido... y tanta desconfianza. Una pena.'
             'Evil Scary'             = 'Evil Scary se ha ido, cielo. Por primera vez, alguien me ha dado miedo a mí.'
             'Soft Fuzzy Man'       = 'Soft Fuzzy Man se ha ido, cielo. Por fin alguien que liga más que yo. Me ha ganado.'
+            'Roaring Knight'       = 'El Knight se ha ido, cielo. Le ofrecí cenar. Se rió. Nadie se ríe de Velvet.'
         }
         Yo = @('Esa soy yo, cielo. ¿Verdad que soy preciosa?', 'Elígeme a mí, cariño. Te trataré muy bien.')
         Opina = @{
@@ -1097,6 +1113,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('Nanachi huele a algodón de azúcar, cariño. Es muy injusto.', 'Me miró como si supiera lo que pienso. Igual lo sabía.')
             'Evil Scary'             = @('Esa bola sonríe más que yo, cariño. Y eso es mucho decir.', 'Le ofrecí cenar. Botó hacia mí. Cancelé la cena.')
             'Soft Fuzzy Man'       = @('Ese chico de niebla es todo palabras, cariño. Ni siquiera tiene manos para cogerte las tuyas.', 'Le tejí una telaraña. La atravesó guiñando un ojo. Qué descaro. Me encanta.')
+            'Roaring Knight'       = @('Alto, oscuro y con espada, cariño. Lástima que no hable.', 'Le tejí una telaraña. La cortó sin mirar. Qué descaro.')
         }
         Frases = @(
             'Listo, cielo. Tómate tu tiempo... yo esperaré.'
@@ -1182,6 +1199,7 @@ $Skins = [ordered]@{
             'Nanachi'                = 'CONEJO ESTOFADO IRSE. DUNE ECHAR DE MENOS COMIDA.'
             'Evil Scary'             = 'BOLA NEGRA IRSE. DUNE SALIR DEL AGUA. DESPACIO.'
             'Soft Fuzzy Man'       = 'NUBE ROSA IRSE. DUNE PODER RESPIRAR. OLER A ALGODÓN.'
+            'Roaring Knight'       = 'CABALLERO NEGRO IRSE. DUNE SALIR DEL AGUA.'
         }
         Yo = @('DUNE. ESE DUNE. DUNE GUAPO.', 'DUNE ELEGIR DUNE.')
         Opina = @{
@@ -1208,6 +1226,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('NANACHI HACER ESTOFADO. DUNE COMER TODO. NANACHI FELIZ. DUNE FELIZ.', 'CONEJO VER HILOS INVISIBLES. DUNE NO VER NADA. DUNE COMER.')
             'Evil Scary'             = @('BOLA NEGRA NO COMIDA. BOLA NEGRA COMER DUNE. DUNE NADAR.', 'DUNE CONTAR SALTOS. SEIS. LUEGO RUIDO AVIÓN. LUEGO CORRER.')
             'Soft Fuzzy Man'       = @('NUBE ROSA NO COMIDA. DUNE PROBAR. DUNE COMER AIRE.', 'NUBE ROSA DECIR COSAS BONITAS. DUNE NO ENTENDER. DUNE SONROJARSE.')
+            'Roaring Knight'       = @('CABALLERO NEGRO NO COMIDA. CABALLERO NEGRO TENER ESPADA.', 'DUNE VER FUENTE OSCURA. DUNE NO BEBER.')
         }
         Frases = @('ÑAM.', 'GRRGH. HECHO.', 'DUNE ABRIR. DUNE LISTO.', 'BOTÓN... APRETAR... BIEN.')
         Idle = @(
@@ -1296,6 +1315,7 @@ $Skins = [ordered]@{
             'Nanachi'                = 'Cabra: Se fue el conejo del Abismo. Rechazó ser obispo. Respeto.'
             'Evil Scary'             = 'Cabra: Se fue la bola negra. Le recé al Cordero para que se fuera. Funcionó. Creo.'
             'Soft Fuzzy Man'       = 'Cabra: Se fue el fantasma rosa. No quiso ser nuestro espíritu del culto. Dijo que era "un fantasma libre".'
+            'Roaring Knight'       = 'Cabra: Se fue el Knight. Hizo una Fuente en el templo. El Cordero quiere quedársela.'
         }
         Yo = @('Cabra: Sí, somos nosotros. Elección divina.', 'Cordero: *Asiente con solemnidad.* *Beee.*')
         Opina = @{
@@ -1322,6 +1342,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('Cabra: Nanachi ya ha sido "bendecido" una vez. No quiere otra. Lo entiendo.', 'Cordero: *Le ofrece una seta.* · Cabra: Nanachi dice que esa mata. Gracias, Nanachi.')
             'Evil Scary'             = @('Cabra: Evil Scary dice que era un rey. El Cordero también. No se llevan bien.', 'Cordero: *Se esconde debajo de la Cabra.* · Cabra: ¡AAAAAAH!')
             'Soft Fuzzy Man'       = @('Cabra: Soft Fuzzy Man ligó con el Cordero. El Cordero no sabe qué hacer. Yo tampoco.', 'Cordero: *Le ofrece una corona.* · Cabra: Se le cae a través de la cabeza.')
+            'Roaring Knight'       = @('Cabra: El Knight sale en una profecía. El Cordero también. No se llevan bien.', 'Cordero: *Le ofrece unirse al culto.* · Cabra: El Knight cortó el folleto.')
         }
         Frases = @(
             'Cabra: Hecho. Que no se diga que no hacemos milagros.'
@@ -1427,6 +1448,7 @@ $Skins = [ordered]@{
             'Nanachi'                = 'WMEW 99.9: Nanachi ha vuelto al Abismo. Ha dejado vendas para las dos kaijus.'
             'Evil Scary'             = 'WMEW 99.9: La amenaza de la ronda especial ha abandonado la ciudad. Se recomienda no salir hasta mañana.'
             'Soft Fuzzy Man'       = 'WMEW 99.9: Se disipa la niebla rosa sobre el P Mart. Visibilidad normal en el pueblo.'
+            'Roaring Knight'       = 'WMEW 99.9: El caballero oscuro ha abandonado el pueblo. Se recomienda no beber de fuentes negras.'
         }
         Yo = @('Pyrophina: ¡GRRRRRAAAARRRGH! (le gusta)', 'Zaratana: ¡GRRRR, GRRRRR! (a ella también)')
         Opina = @{
@@ -1453,6 +1475,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('WMEW 99.9: Nanachi ha curado a Zaratana. Zaratana le ha dado un mordisquito de agradecimiento.', 'Pyrophina: ¡AAARGH! *Calienta el estofado de Nanachi. Huele peor. Todos huyen.*')
             'Evil Scary'             = @('WMEW 99.9: Las dos kaijus han dejado de pelear para huir de una bola negra. Histórico.', 'Pyrophina: ¡AAARGH! *Le lanza fuego. No pasa nada. Pyrophina se va.*')
             'Soft Fuzzy Man'       = @('Pyrophina: ¡AAARGH! *Le echa fuego. Soft Fuzzy Man se evapora. Vuelve dos minutos después.*', 'WMEW 99.9: Zaratana se ha comido la niebla rosa. Está mareada.')
+            'Roaring Knight'       = @('WMEW 99.9: Pyrophina le lanzó fuego al Knight. Las sombras no arden. Pyrophina está ofendida.', 'Zaratana dice que los Titanes son más grandes que ella. No le gusta.')
         }
         Frases = @(
             'WMEW 99.9: ¡Lo han abierto a pisotones!'
@@ -1538,6 +1561,7 @@ $Skins = [ordered]@{
             'Nanachi'                = '¡Nanachi se ha ido! ¡Le di un abrazo de cinco segundos! ¡Récord!'
             'Evil Scary'             = '¡Evil Scary se ha ido! ¡Le di un abrazo! ¡Se quedó muy quieto! ¡Creo que le gustó!'
             'Soft Fuzzy Man'       = '¡Soft Fuzzy Man se ha ido! ¡Le abracé diez veces! ¡Le atravesé diez veces! ¡Mereció la pena!'
+            'Roaring Knight'       = '¡El Knight se ha ido! ¡Se llevó la mitad de mi sándwich! ¡Sabía que le gustaría!'
         }
         Yo = @('¡Esa soy yo! ¿Se me ve bien la cola? No contestes.', '¡Elígeme! Prometo no tropezar con los iconos.')
         Opina = @{
@@ -1564,6 +1588,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('¡Nanachi es lo más mullido del mundo! Me lo dijo con una cara... ¡creo que le gustó!', 'Le dije que su estofado "tiene personalidad". Me miró fatal. ¡Era un cumplido!')
             'Evil Scary'             = @('¡Evil Scary solo necesita un amigo! ...un amigo muy valiente.', '¡Le hice un sándwich! Lo atravesó. ¡Pero lo intentó!')
             'Soft Fuzzy Man'       = @('¡Soft Fuzzy Man es suave y esponjoso de verdad! ...bueno, eso dice él. ¡No se puede tocar!', '¡Le hice un sándwich! ¡Lo miró con mucho cariño! ¡Es un detalle!')
+            'Roaring Knight'       = @('¡El Knight solo necesita un amigo! ...y quizá dejar la espada.', '¡Le hice una tarjeta! ¡La cortó en dos! ¡Una mitad para cada uno!')
         }
         Frases = @(
             '¡Abierto! ...¿era ese el que querías? Sí, ¿verdad? Vale.'
@@ -1690,6 +1715,7 @@ $Skins = [ordered]@{
             'Nanachi'                = 'Nanachi se ha ido. Le compré tres antídotos. Los voy a revender al doble, amigo.'
             'Evil Scary'             = 'El de la sonrisa roja se ha ido. No compró nada. Solo botó encima del mostrador.'
             'Soft Fuzzy Man'       = 'Se fue la nube rosa. No compró nada. No podía coger nada. Aun así se probó tres sombreros.'
+            'Roaring Knight'       = 'El caballero se ha ido. Se llevó todas las linternas. No pagó. Amigo, nadie me hace eso.'
         }
         Yo = @('Ese soy yo. Tu único amigo.', '¡Elígeme! Tengo buenos precios. Más o menos.')
         Opina = @{
@@ -1716,6 +1742,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('Nanachi hace medicinas con setas. Mejores que mis botiquines. No se lo digas.', 'Su escondite está lleno de monstruos y nadie se queja. Como mi tienda.')
             'Evil Scary'             = @('Le vendí un Flash Beacon a un cliente para usarlo contra Evil Scary. No funcionó. No devuelvo el dinero.', 'Las entidades de Pressure le tienen miedo a Evil Scary, amigo. Y yo también.')
             'Soft Fuzzy Man'       = @('Le vendí un ambientador a Soft Fuzzy Man. Ahora huele a lavanda y a fantasma, amigo.', 'Las entidades de Pressure también atraviesan paredes. Pero ninguna te dice que tienes unos ojos preciosos.')
+            'Roaring Knight'       = @('El Knight crea Mundos Oscuros. Yo vendo linternas. Es el mejor cliente que no paga.', 'Pressure da miedo. Una Fuente Oscura en la tienda da más.')
         }
         Frases = @(
             'Hecho. Toma, investigación por las molestias.'
@@ -1802,6 +1829,7 @@ $Skins = [ordered]@{
             'Nanachi'                = 'Nanachi se fue. Su estofado no es carne fresca. No es nada.'
             'Evil Scary'             = 'La bola se ha ido. Por fin puedo cazar tranquilo.'
             'Soft Fuzzy Man'       = 'La nube se ha ido. Olía a lobo. Pero no había carne.'
+            'Roaring Knight'       = 'El caballero se ha ido. No huele a nada. Eso me pone nervioso.'
         }
         Yo = @('...yo.', '*Te mira fijamente sin parpadear.*')
         Opina = @{
@@ -1828,6 +1856,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('Nanachi caza mejor que yo. Y nadie le ve. Respeto.', 'Probé su estofado. Ahora entiendo el miedo.')
             'Evil Scary'             = @('Evil Scary caza a los cazadores. No me gusta ser la presa.', 'Tiene mi cara. Pero roja. No le pedí permiso.')
             'Soft Fuzzy Man'       = @('Soft Fuzzy Man era un lobo. Ahora es niebla. No quiero acabar así.', 'Me dijo "cariño". Le enseñé los dientes. Me guiñó un ojo. Me fui.')
+            'Roaring Knight'       = @('El Knight caza en todos los mundos. Yo solo en un bosque. Respeto.', 'Me miró. Por primera vez yo fui la presa.')
         }
         Frases = @('*Desgarra la ventana.* Abierta.', 'Otra presa.', '*Zarpazo.* Hecho.', '¡AHH, CARNE FRESCA!')
         Idle = @(
@@ -1935,6 +1964,7 @@ $Skins = [ordered]@{
             'Nanachi'                = '¡Nanachi se ha ido! ¡Su estofado me hizo olvidar mi nombre! ...¿cómo me llamaba?'
             'Evil Scary'             = '¡Evil Scary se ha ido! ¡Ya puedo dejar de correr! ...¿por qué corría?'
             'Soft Fuzzy Man'       = '¡Soft Fuzzy Man se ha ido! ...¿quién? ¡Ah, sí! ¡La nube que liga!'
+            'Roaring Knight'       = '¡El Knight se ha ido! ...¿quién era? ¡Ah, sí! ¡El alto que ruge!'
         }
         Yo = @('¡Esa soy yo! ¡Hiii~!', '¡Elígeme! Bailo, canto y me olvido de todo. ¡Es un pack!')
         Opina = @{
@@ -1961,6 +1991,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('¡Nanachi tiene orejas de conejo de verdad! ¡Yo tengo taladros! ¡Somos un dúo de pelo!', '¡Le pregunté si podía tocarle! Dijo "no". ¡Muy claro! ¡Me encanta!')
             'Evil Scary'             = @('¡Me olvidé de que Evil Scary existía! ¡Y entonces sonó la alarma! ¡AAAH!', '¡Le dije "hiii"! ¡Me contestó "STALL, STALL"! ¡Qué maleducado!')
             'Soft Fuzzy Man'       = @('¡Me olvidé de que Soft Fuzzy Man estaba aquí! ¡Él me lo recordó! ¡Cuatro veces!', '¡Le dije "hiii"! ¡Se puso rosa fuerte! ¡Qué mono!')
+            'Roaring Knight'       = @('¡Le dije "hiii"! ¡Me rugió! ¡Creo que es su forma de decir hola!', '¡Me olvidé de que existía! ¡Y entonces apareció detrás de mí! ¡AAAH!')
         }
         Frases = @(
             '¡Abierto! ...creo. ¡Sí, abierto!'
@@ -2049,6 +2080,7 @@ $Skins = [ordered]@{
             'Nanachi'                = 'Nanachi se ha ido. Me pidió que bajara el volumen. Por primera vez lo hice.'
             'Evil Scary'             = 'Evil Scary se ha ido. Me ha dejado la alarma metida en la cabeza. La he sampleado.'
             'Soft Fuzzy Man'       = 'Soft Fuzzy Man se ha ido. Le metí en un remix. Ahora es un pad ambiental.'
+            'Roaring Knight'       = 'El Knight se ha ido. Me dejó "Black Knife" en la cabeza. Ya tengo el remix.'
         }
         Yo = @('¡Esa ficha soy yo! Méteme en la máquina.', 'Elígeme. Prometo subir el volumen y no bajarlo nunca.')
         Opina = @{
@@ -2075,6 +2107,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('Nanachi dice que en el Abismo el ruido atrae monstruos. Ahora toco más bajo. Un poco.', 'Probé el estofado de Nanachi. Me crasheé. Literalmente.')
             'Evil Scary'             = @('Evil Scary suena a 60 BPM y luego a 300. Es el mejor drop que he oído.', 'Le hice un remix de la alarma. Botó al ritmo. Mala idea.')
             'Soft Fuzzy Man'       = @('Soft Fuzzy Man es puro ambiente. Yo soy puro ruido. Hacemos buen equipo.', 'Su canción va a 100 BPM. Le hice una a 200. Se mareó. Es gas.')
+            'Roaring Knight'       = @('El Knight ruge a 200 decibelios. Mi tipo de música.', 'Le hice un remix de su rugido. Le gustó. Creo. No me cortó.')
         }
         Frases = @(
             '¡T0K3N 1NS3RT3D! Abierto.'
@@ -2163,6 +2196,7 @@ $Skins = [ordered]@{
             'Nanachi'                = 'Nanachi se ha ido. No hablamos casi nada. Fue genial.'
             'Evil Scary'             = 'Evil Scary se ha ido. Estaba en No molestar. No sirvió de nada.'
             'Soft Fuzzy Man'       = 'Soft Fuzzy Man se ha ido. Me ha dejado veinte mensajes. Todos dicen "¿me ves?".'
+            'Roaring Knight'       = 'El Knight se ha ido. Estaba en No molestar. Lo ignoró.'
         }
         Yo = @('Ese botón soy yo. Elígeme. Sin prisa.', 'Elígeme y te pongo pop de 2020. Del bueno.')
         Opina = @{
@@ -2189,6 +2223,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('Nanachi tampoco contesta mensajes. Por fin alguien que me entiende.', 'Me ofreció estofado. Seguí con mis fideos. Me dijo que era lo más listo que había visto.')
             'Evil Scary'             = @('Evil Scary no respeta el No molestar. Nadie lo respeta, pero él menos.', 'Lo vi venir desde el sofá. Ni me levanté. ...vale, me levanté.')
             'Soft Fuzzy Man'       = @('Soft Fuzzy Man necesita que le hagan caso. Yo necesito que no me hagan caso. Equilibrio.', 'Le dejé en visto. Se puso transparente. Vale, le contesté.')
+            'Roaring Knight'       = @('El Knight secuestra gente. Yo no salgo de casa. Problema resuelto.', 'No contesta mensajes. Como yo. Pero da más miedo.')
         }
         Frases = @(
             'Hecho. Te lo abro como quien abre un chat viejo.'
@@ -2282,6 +2317,7 @@ $Skins = [ordered]@{
             'Nanachi'                = 'Se fue el conejo. Su estofado sabe peor que el queso azul. ¡Y no lo toqué! ...bueno, lo probé.'
             'Evil Scary'             = '¡Se fue Evil Scary! ¡Y no tocó mi pizza! ...me tocó a mí. Que es peor.'
             'Soft Fuzzy Man'       = '¡Se fue la nube! ¡Ha pasado a través de mi pizza! ¡Dice que no la ha tocado! ...técnicamente tiene razón.'
+            'Roaring Knight'       = '¡Se fue el Knight! ¡Me cortó la pizza! ¡En ocho trozos perfectos! ...no sé si enfadarme.'
         }
         Yo = @('¡Ese soy yo! El lobo más guapo de todo Paint.', 'Elígeme. Pero trae pizza. Para ti no, para mí.')
         Opina = @{
@@ -2308,6 +2344,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('Nanachi defiende su olla como yo mi pizza. Respeto. Pero su olla huele fatal.', 'Le ofrecí... nada. No toques mi pizza. Pero Nanachi mola.')
             'Evil Scary'             = @('¡Le saqué la motosierra! ¡Se le rompió! ¡A la motosierra!', 'Evil Scary no quiere mi pizza. Quiere a Kevin. Kevin soy yo. AAAAH.')
             'Soft Fuzzy Man'       = @('¡Soft Fuzzy Man no puede tocar mi pizza! ¡Es el amigo perfecto!', '¡Ahora mi pizza sabe a niebla rosa! ¡NO TOQUES MI PIZZA! ¡Ni de vapor!')
+            'Roaring Knight'       = @('¡El Knight no quiere mi pizza! ¡Solo la corta! ¡Es raro, pero lo acepto!', '¡Le saqué la motosierra! ¡Sacó la Black Knife! ¡Guardé la motosierra!')
         }
         Frases = @(
             '¡Abierto! Y no he tocado nada. Bueno, un trozo de pizza. Era mío.'
@@ -2420,6 +2457,7 @@ $Skins = [ordered]@{
             'Nanachi'                = 'Se fue Nanachi. Le toqué algo tranquilo para que se durmiera. Funcionó.'
             'Evil Scary'             = 'Se fue Evil Scary. La alarma del avión sonaba en Mi bemol. Ya tengo canción.'
             'Soft Fuzzy Man'       = 'Se fue Soft Fuzzy Man. Su canción es de Lemon Demon. Le toqué la línea de bajo. Se puso a bailar.'
+            'Roaring Knight'       = 'Se fue el Knight. Su canción de combate es increíble. No se lo digas, que ruge.'
         }
         Yo = @('¡Ese soy yo! Bueno, mi personaje. Es más guapo que yo. Y toca mejor.', 'Elígeme. Prometo no romper ninguna guitarra. ...hoy.')
         Opina = @{
@@ -2446,6 +2484,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('Nanachi tiene orejas grandes y cola. Casi somos familia. Casi.', 'Le hice una canción sobre su estofado. Se titula "Mejor no".')
             'Evil Scary'             = @('Evil Scary bota a 100 BPM. Luego a 200. Pop-punk puro.', 'Le toqué un acorde para calmarlo. El ampli explotó. Él siguió.')
             'Soft Fuzzy Man'       = @('Soft Fuzzy Man tiene una de las mejores canciones de Spirit Phone. No se lo digas, que ya se lo cree.', 'Le hice un acorde. Vibró entero. Literalmente.')
+            'Roaring Knight'       = @('"Black Knife" tiene un ritmo brutal. Lo estoy aprendiendo a la guitarra.', 'Le toqué un acorde. Rugió. Tomo eso como un aplauso.')
         }
         Frases = @(
             'Abierto. Como un primer acorde: fuerte y sin pensarlo mucho.'
@@ -2541,6 +2580,7 @@ $Skins = [ordered]@{
             'Nanachi'                = '¡Nanachi se ha ido! Distinguía a los Enphosians a la primera. ¡Qué ojo!'
             'Evil Scary'             = '¡Evil Scary se ha ido! ¡La estatua sigue en pie! ¡Por poco!'
             'Soft Fuzzy Man'       = '¡Soft Fuzzy Man se ha ido! ¡Por un momento pensé que era un Enphosian! ¡Solo era un ligón!'
+            'Roaring Knight'       = '¡El Knight se ha ido! ¡La estatua sigue en pie! ¡No se ha vuelto de piedra nadie más!'
         }
         Yo = @('¡Esa es Enfosi! Elígela y defiende la estatua.', 'Elige Enfosi. Siete oleadas, tres jefes y un Ojo que no quieres conocer.')
         Opina = @{
@@ -2567,6 +2607,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('Nanachi ve cosas que los demás no ven. ¡Sería el mejor defensor de la estatua!', 'Le enseñé un Glaggle y dijo: "ese no es lo que parece". ¡Y tenía razón!')
             'Evil Scary'             = @('¡Evil Scary no es un Glaggle ni un Enphosian! ¡Es mucho peor!', 'Ni los Enphosians se acercan a Evil Scary. Ellos sí saben lo que es.')
             'Soft Fuzzy Man'       = @('¡Soft Fuzzy Man defiende la estatua fatal! ¡Todo el mundo le atraviesa!', '¡Los Glaggles le siguen! ¡Creen que es algodón de azúcar!')
+            'Roaring Knight'       = @('¡El Knight convierte a la gente en estatuas! ¡Mi estatua no necesita compañía!', '¡Los Enphosians huyen del Knight! ¡Ellos sí que saben!')
         }
         Frases = @(
             '¡Abierto! Un Glaggle viene de camino. ¿Será de verdad?'
@@ -2659,6 +2700,7 @@ $Skins = [ordered]@{
             'Nanachi'                = 'El sujeto del Abismo se ha ido. Un resultado... interesante. No me dejó acercarme.'
             'Evil Scary'             = 'La entidad sin cuerpo se ha ido. La jeringuilla se quedó negra. Fascinante. Y preocupante.'
             'Soft Fuzzy Man'       = 'El sujeto gaseoso se ha ido. La jeringuilla sigue llena de niebla rosa. No sé qué hacer con ella.'
+            'Roaring Knight'       = 'El sujeto de sombra se ha ido. La astilla negra sigue en mi laboratorio. Hace ruido de televisión.'
         }
         Yo = @('Esa es mi ficha. Elíjala. Es lo más sensato que hará hoy.', 'Gran. Antihuman Inc. Recuerde el nombre. Lo verá en su contrato.')
         Opina = @{
@@ -2685,6 +2727,7 @@ $Skins = [ordered]@{
             'Nanachi'                = @('Nanachi es la prueba de que un cuerpo cambiado puede seguir siendo alguien. Lo anoto. A regañadientes.', 'Le pedí una muestra. Me tiró un cucharón. Lo anoto como "no colaborador".')
             'Evil Scary'             = @('Evil Scary no tiene ADN que transformar. Solo manos y una sonrisa. Lo anoto como "imposible".', 'Le ofrecí Fury Mix. Me ofreció un susto. Ganó él.')
             'Soft Fuzzy Man'       = @('Soft Fuzzy Man ya fue transformado. En algo que no sale en mi protocolo. Fascinante.', 'Le pedí una muestra. Me dijo "sírvete". Se escapó por la aguja.')
+            'Roaring Knight'       = @('El Knight no es un sujeto. Es un fenómeno. Lo anoto como "imposible".', 'Quise analizar su sangre. No tiene. Tiene ruido.')
         }
         Frases = @(
             'Abierto. Un sujeto más para el estudio.'
@@ -2779,6 +2822,7 @@ $Skins = [ordered]@{
             'Gran'                 = 'GRAN SE HA IDO. QUISO INYECTARLE FURY MIX. LA JERINGUILLA SE QUEDÓ NEGRA.'
             'Nanachi'              = 'NANACHI SE HA IDO. LO VIO VENIR DESDE LEJOS. NADIE MÁS PUEDE.'
             'Soft Fuzzy Man'       = 'LA NIEBLA ROSA SE HA IDO. EVIL SCARY LA ATRAVESÓ. ELLA LE ATRAVESÓ A ÉL. EMPATE.'
+            'Roaring Knight'       = 'EL CABALLERO NEGRO SE HA IDO. EVIL SCARY BOTÓ HACIA ÉL. VOLVIÓ EN DOS MITADES.'
         }
         Yo = @('ESE BOTÓN ES EVIL SCARY. ELEGIRLO NO LO HACE MENOS EVIL.', 'IT IS EVIL AND SCARY. *Te mira desde el botón.*')
         Opina = @{
@@ -2805,6 +2849,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('Gran transforma a la gente. EVIL SCARY TAMBIÉN. EN GENTE QUE CORRE.', 'Gran quiso una muestra. NO HAY NADA DENTRO. SOLO NEGRO.')
             'Nanachi'              = @('Nanachi ve el campo de fuerza. TAMBIÉN VE A EVIL SCARY. NO LE GUSTA LO QUE VE.', 'Nanachi pasa de todo. MENOS DE ESTO.')
             'Soft Fuzzy Man'       = @('SOFT FUZZY MAN NO TIENE SUPERFICIE. EVIL SCARY NO SABE CÓMO ASUSTARLO.', 'SOFT FUZZY MAN LE GUIÑÓ UN OJO. EVIL SCARY BOTÓ HACIA ATRÁS.')
+            'Roaring Knight'       = @('EL KNIGHT NO TIENE MIEDO DE EVIL SCARY. EVIL SCARY NO SABE QUÉ HACER CON ESO.', 'LOS DOS SON NEGROS Y SONRÍEN. SOLO UNO TIENE ESPADA.')
         }
         Frases = @(
             'ABIERTO. *Evil Scary ha oído el clic. Bota hacia ti.*'
@@ -2911,6 +2956,7 @@ $Skins = [ordered]@{
             'Gran'                 = 'Gran se ha ido. Me quiso sacar una muestra. Se llevó una jeringuilla llena de niebla.'
             'Nanachi'              = 'Nanachi se ha ido. Me miró y dijo "nnaa". Lo tomo como un sí.'
             'Evil Scary'           = 'Se ha ido la bola negra. Me atravesó y yo le atravesé. Quedamos en empate.'
+            'Roaring Knight'       = 'Se ha ido el Knight. Me cortó en dos. Me miró mientras lo hacía. Fue precioso.'
         }
         Yo = @('¿Ese botón soy yo? *Se acerca a mirarlo.* Salgo un poco borroso. Es mi estilo.', 'Me has elegido a mí. Por fin alguien me ve.')
         Opina = @{
@@ -2937,6 +2983,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('Gran quiere convertir a la gente. A mí no me puede convertir: ya me pasó algo peor.', 'Me sacó una muestra. Se le escapó por la jeringuilla.')
             'Nanachi'              = @('Nanachi es mullido. Yo soy mullido. Pero yo no se puede tocar.', 'Nanachi dice que en el Abismo hay niebla que mata. Yo no mato. Solo ligo.')
             'Evil Scary'           = @('Evil Scary atraviesa las paredes. Yo también. Pero yo con estilo.', 'Me vio a través de una pared. Le guiñé un ojo. No le gustó.')
+            'Roaring Knight'       = @('Alto, oscuro, misterioso. El Knight es como yo, pero con superficie.', 'Le guiñé un ojo. Me cortó. Lo cuento como un sí.')
         }
         Frases = @(
             'Abierto. Me has hecho caso. Me siento un poco más... sólido.'
@@ -3006,6 +3053,155 @@ $Skins = [ordered]@{
             'Wikipedia'     = @('Wikipedia. Busca "Lemon Demon". Luego "Spirit Phone". Canción nueve. Soy yo.')
         }
     }
+    # ================================================================ Roaring Knight (Deltarune)
+    # El antagonista de Deltarune: una silueta negra con borde blanco que saca Fuentes Oscuras del suelo y crea Mundos Oscuros.
+    # Si hay demasiadas Fuentes llega "the Roaring": los Darkners se vuelven piedra y salen Titanes. Jefe del capítulo 3 (Black Knife).
+    # No habla: ruge, ríe y corta. En el bocadillo salen los textos de combate de Deltarune ("* ...").
+    # Botón FIGHT (debajo de él): minijuego de combate (ver "ROARING KNIGHT: EL MINIJUEGO").
+    'Roaring Knight' = @{
+        Estilo = 'knight'; Titulo = 'ROARING KNIGHT'; Sub = '* deltarune  ·  black knife'; Alto = 320
+        Fondo = (C 0 0 0); Borde = (C 255 255 255); Acento = (C 255 160 64)
+        TituloColor = (C 255 255 255); SubColor = (C 190 150 230)
+        BtnFondo = (C 0 0 0); BtnTexto = (C 255 255 255); BtnTextoHover = (C 255 255 0); BtnBorde = (C 255 255 255); BtnBordeAncho = 2
+        BtnHover = (C 0 0 0); BtnPress = (C 255 160 64); BarraBtnTexto = (C 255 255 255)
+        StatusColor = (C 255 255 255); Fuente = 'Consolas'; FuenteTitulo = 'Consolas'; Opacidad = 1.0; Velocidad = 1
+        Ancho = 760; Mezclar = $true; Gif = 'skins\knight\quieto.gif'
+        # el Knight con su estela de sombras (sprites de combate del juego, pixel art: se dibuja sin suavizar)
+        Actores = @(
+            @{ Id = 'K'; Gif = 'skins\knight\knight.gif'; Rect = @(548, 62, 200, 172); Pixel = $true
+               Extra = @{ roar = 'skins\knight\roar.gif'; apunta = 'skins\knight\apunta.gif'; tajo = 'skins\knight\tajo.gif'; herido = 'skins\knight\herido.gif'; risa = 'skins\knight\risa.gif' } }
+        )
+        Sonidos = @{
+            rugido = @('skins\knight\rugido.wav'); tajo = @('skins\knight\tajo.wav'); aviso = @('skins\knight\aviso.wav'); golpe = @('skins\knight\golpe.wav')
+            roce = @('skins\knight\roce.wav'); estrella = @('skins\knight\estrella.wav'); explota = @('skins\knight\explota.wav'); victoria = @('skins\knight\victoria.wav')
+            encuentro = @('skins\knight\encuentro.wav')
+        }
+        Burbuja = @(424, 278, 322, 34); BurFondo = $null; InvFondo = (C 0 0 0); BurTexto = (C 255 255 255); BurFuente = 'Consolas'
+        Hola = @(
+            '* The Roaring Knight appeared. (Ha aparecido el Caballero Rugiente.)'
+            '* Notas algo flotando justo detrás de tu cabeza...'
+            '* El Knight cruza los brazos. Te mira desde arriba. No dice nada.'
+            '* Huele a tinta y a Fuente Oscura. * El Knight está aquí.'
+        )
+        AlVenirDe = @{
+            'c00lgui'              = '* El hacker se ha ido. * Intentó hackear al Knight. * El Knight cortó el cable.'
+            'SeaDrive'             = '* SeaDrive se ha ido. * En su nube había una Fuente Oscura. * Nadie sabe quién la puso.'
+            'Static Miku'          = '* La tele se ha apagado. * Al Knight no le gustan las teles. * Pregúntale a Tenna.'
+            'Guillotina'           = '* Guillotina se ha ido. * Intentó morder al Knight. * Se llevó un tajo en los bigotes.'
+            'Angela'               = '* Angela se ha ido. * Quiso contener al Knight. * El Knight hizo una Fuente en su celda.'
+            'Mikaela'              = '* La francotiradora se ha ido. * Sus balas atravesaban las sombras de la estela. * Nunca al Knight.'
+            'Zodiac'               = '* El vaquero se ha ido. * Le gritó "¡no te muevas!". * El Knight se teletransportó tres veces.'
+            'Velvet'               = '* Velvet se ha ido. * Le ofreció cenar al Knight. * El Knight se rió. Mucho.'
+            'Dune'                 = '* Dune se ha ido nadando. * Quiso comerse la estela del Knight. * Sabía a nada.'
+            'Cordero y Cabra'      = '* El culto se ha ido. * Tenían una profecía. * El Knight sale en todas las profecías.'
+            'Pyrophina y Zaratana' = '* Las kaijus se han ido. * El Knight ha visto cosas más grandes. * Se llaman Titanes.'
+            'Averi'                = '* Averi se ha ido. * Le dejó un sándwich al Knight. * Sigue ahí. Cortado en diagonal.'
+            'Sebastian Solace'     = '* El tendero se ha ido. * El Knight se llevó una linterna. * No la pagó.'
+            'Pursuer'              = '* Pursuer se ha ido. * Dos cazadores en el mismo panel. * Solo uno tiene espada.'
+            'Kasane Teto'          = '* Teto se ha ido. * Se olvidó del Knight. * El Knight no se olvida de nadie.'
+            'Token'                = '* Token se ha ido. * Mucho ruido. * El Knight ruge más fuerte.'
+            'Tetra'                = '* Tetra se ha ido. * Estaba en No molestar. * El Knight no lee los estados.'
+            'Kevin'                = '* Kevin se ha ido con su pizza. * La pizza está cortada en ocho trozos perfectos. * Kevin no la cortó.'
+            'Kennyoung'            = '* El músico se ha ido. * Tocó algo parecido a "Black Knife". * El Knight asintió.'
+            'Enfosi'               = '* Se ha ido lo de la estatua. * Las estatuas le recuerdan a algo. * A los Darkners de piedra.'
+            'Gran'                 = '* Gran se ha ido. * Quiso una muestra del Knight. * Solo consiguió ruido de televisión.'
+            'Nanachi'              = '* Nanachi se ha ido. * Dijo "ese no sigue ninguna regla". * El Knight se rió.'
+            'Evil Scary'           = '* La bola negra se ha ido. * Botó hacia el Knight. * Volvió en dos mitades. Siguió botando.'
+            'Soft Fuzzy Man'       = '* La niebla rosa se ha ido. * Ligó con el Knight. * El Knight le cortó en dos. La niebla se juntó otra vez.'
+        }
+        Yo = @('* Ese botón es... el Knight. * El Knight lo mira. Sonríe con los dientes.', '* Lo has elegido. * Nadie elige al Knight. El Knight te elige a ti.')
+        Opina = @{
+            'c00lgui'              = @('* c00lgui hackea servidores. * El Knight crea mundos enteros.', '* c00lkidd quiso un panel de admin para el Knight. * El Knight ya es el admin de los Mundos Oscuros.')
+            'SeaDrive'             = @('* SeaDrive siempre tiene sueño. * En la oscuridad eterna podrá dormir siempre.', '* SeaDrive le abrió un pop-up. * El Knight lo cortó.')
+            'Static Miku'          = @('* Una tele que canta. * Al Knight le recuerda a alguien. * Ese alguien perdió los brazos.', '* Su estática se parece al cuerpo del Knight cuando está herido.')
+            'Guillotina'           = @('* Guillotina se lo come todo. * Menos las espadas. Esas las escupe.', '* Dos sonrisas llenas de dientes. * La del Knight cambia de forma.')
+            'Angela'               = @('* Angela clasifica anomalías. * El Knight no cabe en ninguna clase.', '* La Corporación L tiene muchas celdas. * El Knight tiene muchas Fuentes.')
+            'Mikaela'              = @('* Mikaela no falla un tiro. * El Knight es una sombra. * Las sombras no tienen hitbox.', '* Su Smokebomb se mezcló con la oscuridad. * Nadie notó la diferencia.')
+            'Zodiac'               = @('* Zodiac dispara a lo que se mueve. * El Knight se mueve dejando sombras. * Zodiac disparó a todas.', '* Seis balas. Seis sombras. Cero Knights.')
+            'Velvet'               = @('* Velvet liga con todos. * El Knight se rió en su cara.', '* Velvet teje telarañas. * La Black Knife las corta como si nada.')
+            'Dune'                 = @('* Dune quiso comerse al Knight. * DUNE NO COMER ESPADAS.', '* Dune nada en el agua. * En los Mundos Oscuros el agua es de tinta.')
+            'Cordero y Cabra'      = @('* El Cordero tiene un culto. * El Knight tiene una profecía entera.', '* La Cabra le gritó. * El Knight rugió. * La Cabra se calló.')
+            'Pyrophina y Zaratana' = @('* Dos kaijus peleando. * Un Titán se las comería a las dos.', '* Pyrophina le echó fuego. * Las sombras no arden.')
+            'Averi'                = @('* Averi le ofreció un abrazo al Knight. * El Knight se quedó quieto. * Mucho rato.', '* Averi dice que el Knight solo necesita un amigo. * Kris no está tan seguro.')
+            'Sebastian Solace'     = @('* Sebastian vende de todo. * El Knight solo quiere Fuentes. * No están a la venta.', '* Le vendió un Flash Beacon. * La luz no le hizo nada. * Es luz de Mundo Claro.')
+            'Pursuer'              = @('* Pursuer caza en el bosque. * El Knight caza en todos los mundos.', '* Pursuer olió al Knight. * Huele a nada. Eso le asusta.')
+            'Kasane Teto'          = @('* Teto dice "hiii". * El Knight ruge. * Teto dice "hiii" otra vez, más bajito.', '* Teto se olvida de todo. * El Knight se acuerda de todo. * Sobre todo de Kris.')
+            'Token'                = @('* Token hace breakcore. * "Black Knife" también suena muy fuerte.', '* Token cayó por una tragaperras. * Kris cayó por un agujero en la Sala Oscura.')
+            'Tetra'                = @('* Tetra no contesta. * El Knight tampoco. * Se entienden.', '* Tetra se queda en el sofá. * El Knight secuestra a gente del sofá. * Cuidado, Tetra.')
+            'Kevin'                = @('* Kevin defiende su pizza. * El Knight se la cortó en ocho. * Perfectos.', '* Kevin le enseñó la motosierra. * El Knight le enseñó la Black Knife.')
+            'Kennyoung'            = @('* Kennyoung toca pop-punk. * La música del Knight se llama "Black Knife". * Suena más fuerte.', '* Le compuso una canción al Knight. * Le salió en tono de jefe final.')
+            'Enfosi'               = @('* Defender una estatua... * En el Roaring todo el mundo acaba siendo estatua.', '* Los Enphosians se disfrazan. * El Knight no se quita el casco ni en la imaginación de Kris.')
+            'Gran'                 = @('* Gran transforma gente. * El Knight transforma salas enteras en Mundos Oscuros.', '* Gran le pidió una muestra. * Le dio una astilla negra. * Gran no ha vuelto a ser el mismo.')
+            'Nanachi'              = @('* Nanachi ve el campo de fuerza. * Alrededor del Knight está todo roto.', '* Nanachi pasa de todo. * Del Knight no. * Del Knight nadie pasa.')
+            'Evil Scary'           = @('* Evil Scary bota hacia todos. * Hacia el Knight bota más despacio.', '* Los dos son negros, con manos y dientes. * Solo uno tiene una espada.')
+            'Soft Fuzzy Man'       = @('* Soft Fuzzy Man quiere sentir que existe. * El Knight hace que los mundos existan.', '* Le guiñó un ojo al Knight. * El Knight cortó la niebla. * Se volvió a juntar.')
+        }
+        Frases = @(
+            '* Abierto. * El Knight saca una Fuente Oscura del suelo. * La sombra crece un poco.'
+            '* Hecho. * Una Fuente más. * Notas algo flotando detrás de tu cabeza.'
+            '* Abierto. * El Knight mira la Fuente. * Luego te mira a ti.'
+            '* Listo. * La sala se oscurece un poco. * Solo un poco.'
+        )
+        Idle = @(
+            '* El Knight saca Fuentes Oscuras del suelo. * Cada Fuente crea un Mundo Oscuro.'
+            '* Si hay demasiadas Fuentes llega the Roaring. * Los Darkners se vuelven piedra. * Los Lightners, a la oscuridad eterna.'
+            '* King lo llamaba "mi KNIGHT". * Seam lo llamó "un caballero extraño".'
+            '* Le prometió a Tenna todos los espectadores que quisiera. * Tenna acabó sin brazos.'
+            '* Se llevó a Undyne por la Gran Puerta. * Nadie sabe por qué.'
+            '* En el capítulo 4 hizo una Fuente delante de Susie. * De ella salió un Titán.'
+            '* Susie se rió de él. * Fue mala idea.'
+            '* En vez de tumbar a Kris, le puso la espada en el hombro. * Como si lo nombrara caballero.'
+            '* Su espada se llama Black Knife. * De ella saltó una astilla. * Las astillas negras aparecen por todas partes.'
+            '* Su casco cambia de forma. * A veces es un visor. A veces, una boca. A veces, un ojo.'
+            '* Deja una estela de sombras detrás. * Hasta cuando está quieto.'
+            '* ACT: HoldBreath. * Contienes la respiración. * El tiempo va más lento. * El Knight no.'
+            '* Pulsa FIGHT para luchar contra él. * Mueve el ALMA con las flechas. * Esquiva las espadas.'
+        )
+        # clic en el Knight: CHECK y ACT
+        Clic = @(
+            '* Kris analizó al enemigo. * Pero Kris no pudo averiguar nada.'
+            '* Kris señala a lo lejos. * No ha pasado nada.'
+            '* Contienes la respiración. * El Knight te mira. * Tú pierdes primero.'
+            '* Intentas perdonar al Knight. * Su nombre no se ha puesto amarillo.'
+            '* Le pides al Knight que se vaya. * El Knight cruza los brazos.'
+        )
+        # cuando la barra ROARING se llena
+        Roaring = @(
+            '* EL KNIGHT RUGE. * Una luz roja lo llena todo. * De la Fuente sale un TITÁN.'
+            '* ROAAAAAR. * Las paredes tiemblan. * Un Darkner se ha vuelto de piedra.'
+            '* The Roaring se acerca. * Demasiadas Fuentes. * El Knight ruge de... ¿alegría? ¿Rabia? Nadie lo sabe.'
+        )
+        # resultado del minijuego
+        Gana = @(
+            '* ¡Has aguantado! * El Knight cruza los brazos... y se va volando.'
+            '* ¡VICTORIA! * Bueno. Más o menos. * El Knight se ríe y desaparece entre sombras.'
+            '* Has sobrevivido a la Black Knife. * Susie estaría orgullosa. * Y Ralsei, preocupado.'
+        )
+        Pierde = @(
+            '* Kris quedó DOWN. * El Knight se ríe.'
+            '* No has podido. * El Knight te pone la espada en el hombro... y se va.'
+            '* GAME OVER. * Bueno, no. * Kris se levanta. Siempre se levanta.'
+        )
+        PorApp = @{
+            'YouTube'       = @('* YouTube. * Busca "Black Knife". * Ponlo muy alto.')
+            'Word'          = @('* Word. * Escribe la profecía. * El Knight sale en todas.')
+            'Excel'         = @('* Excel. * Columna A: Fuentes. Columna B: Titanes. * La B crece sola.')
+            'PowerPoint'    = @('* PowerPoint. * Diapositiva 1: the Roaring. * No hay diapositiva 2.')
+            'Outlook'       = @('* Correo nuevo. * Remitente: desconocido. * Asunto: "Fuente".')
+            'OneNote'       = @('* Apunta todo lo que sabes del Knight. * Nada. * Exacto.')
+            'Access'        = @('* Una base de datos. * Mete a todos los que ha secuestrado. * Toriel casi, Undyne, Asgore...')
+            'Publisher'     = @('* Un cartel. * "SE BUSCA: caballero alto, negro, con prisa".')
+            'Teams'         = @('* Videollamada. * Detrás de ti, en la cámara, hay una silueta. * No mires.')
+            'OneDrive'      = @('* La nube. * Las nubes también tienen sombra.')
+            'Office Web'    = @('* Internet abierto. * Un Mundo Oscuro más. * Como el de Queen.')
+            'Bloc de notas' = @('* Hoja en blanco. * Fondo blanco. Letras negras. * Como el Knight, pero al revés.')
+            'Calculadora'   = @('* Su HP es 7300. * Se muestra como ???. * Haz la cuenta.')
+            'Explorador'    = @('* Carpetas. * Busca una que no estaba ayer. * Esa es la Fuente.')
+            'CMD'           = @('* Pantalla negra. * Te sientes como en casa del Knight.')
+            'GitHub'        = @('* GitHub. * El código también tiene Mundos Oscuros. * Se llaman bugs.')
+            'Wikipedia'     = @('* Wikipedia. * Busca "Deltarune". * No busques spoilers.')
+        }
+    }
     # ================================================================ Nanachi (Made in Abyss)
     # Narehate de la 4ª capa del Abismo: ve el campo de fuerza, cura, dibuja y cocina fatal.
     # Personalidad: pasa de casi todo (seco, sin ganas, "me da igual")... menos de Mitty, su mejor amiga, que está a su lado.
@@ -3068,6 +3264,7 @@ $Skins = [ordered]@{
             'Gran'                 = '*Se le eriza el pelo.* Se ha ido Gran. Bien. Que no vuelva. Los que experimentan con niños no son bienvenidos aquí.'
             'Evil Scary'           = 'Nnaa. Se ha ido la bola negra. ...menos mal. Mitty, ya puedes dejar de temblar.'
             'Soft Fuzzy Man'       = 'Se fue la nube rosa. Nnaa. Ya puedo respirar sin oler a algodón de azúcar.'
+            'Roaring Knight'       = 'Se fue el caballero negro. Nnaa. Mitty, ya puedes salir.'
         }
         Yo = @(
             'Ese botón soy yo. Elígeme o no. Me da igual. ...Mitty se alegraría, eso sí.'
@@ -3097,6 +3294,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('Gran convierte a la gente en otra cosa con jeringuillas. Yo sé lo que se siente al otro lado. No es un "éxito".', '*Se le eriza el pelo.* No quiero hablar de Gran. De verdad que no.')
             'Evil Scary'           = @('Veo el campo de fuerza. Evil Scary no sale en él. No sigue ninguna regla. Nnaa.', 'Paso de todo. De Evil Scary, no. Ese no.')
             'Soft Fuzzy Man'       = @('Soft Fuzzy Man no tiene campo de fuerza. Solo niebla. Y muchas ganas de hablar.', 'Me llamó "cosa mullida". Le tiré el cucharón. Le atravesó. Nnaa.')
+            'Roaring Knight'       = @('El Knight rompe el campo de fuerza a su alrededor. Nunca había visto eso.', 'Paso de todo. Del Knight, no. Ese no sigue ninguna regla.')
         }
         Frases = @(
             'Abierto. Ya está. No me des las gracias, me da igual.'
@@ -3205,6 +3403,7 @@ $GruposSkins = [ordered]@{
         'Dune'                 = 'Gunsaw'
         'Angela'               = 'Lobotomy Corp.'
         'Cordero y Cabra'      = 'Cult of the Lamb'
+        'Roaring Knight'       = 'Deltarune'
     }
     'Halloween' = [ordered]@{
         'Evil Scary' = 'Die of Death'
@@ -3815,6 +4014,22 @@ function Fondo-Escena($k, $W, $H) {
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 170 20 30))), 0, 52, $W, 3)
             $ti = Cargar-Img $k.TituloImg; if ($ti) { $g.DrawImage($ti, 10, 4, 104, 46); $ti.Dispose() }
         }
+        'knight' {
+            # fondo de combate de Deltarune: negro con la cuadrícula morada
+            $g.Clear([System.Drawing.Color]::Black)
+            $p1 = New-Object System.Drawing.Pen((C 52 18 82), 1); $p2 = New-Object System.Drawing.Pen((C 26 8 42), 1)
+            for ($x = 0; $x -lt $W; $x += 32) { $g.DrawLine($p1, $x, 54, $x, $H); $g.DrawLine($p2, ($x + 16), 54, ($x + 16), $H) }
+            for ($y = 54; $y -lt $H; $y += 32) { $g.DrawLine($p1, 0, $y, $W, $y); $g.DrawLine($p2, 0, ($y + 16), $W, ($y + 16)) }
+            # caja de los botones: negra con borde blanco, como los cuadros de texto del juego
+            $g.FillRectangle([System.Drawing.Brushes]::Black, 8, 60, 394, ($H - 66))
+            $g.DrawRectangle((New-Object System.Drawing.Pen([System.Drawing.Color]::White, 3)), 8, 60, 394, ($H - 66))
+            # barra de arriba negra con una línea blanca
+            $g.FillRectangle([System.Drawing.Brushes]::Black, 0, 0, $W, 52)
+            $g.FillRectangle([System.Drawing.Brushes]::White, 0, 51, $W, 2)
+            # una Fuente Oscura al fondo, detrás del Knight
+            $fu = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(640, 56, 40, ($H - 56))), [System.Drawing.Color]::FromArgb(0, 0, 0, 0), (ARGB 70 120 60 200), 90)
+            $g.FillRectangle($fu, 640, 56, 40, ($H - 56)); $fu.Dispose()
+        }
         'niebla' {
             # la colina de noche con la casita del vídeo, la luna y los pinos
             $g.Clear((C 40 16 70))
@@ -4031,6 +4246,12 @@ function Pintar-Burbuja($g, $k) {
             $r = Ruta-Redonda $x $y $w $h 4
             $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 225 22 10 12))), $r)
             $g.DrawPath((New-Object System.Drawing.Pen((C 170 20 30), 2)), $r); $r.Dispose()
+        }
+        'knight' {
+            # cuadro de texto de Deltarune: negro con doble borde blanco
+            $g.FillRectangle([System.Drawing.Brushes]::Black, [float]$x, [float]$y, [float]$w, [float]$h)
+            $g.DrawRectangle((New-Object System.Drawing.Pen([System.Drawing.Color]::White, 2)), [float]$x, [float]$y, [float]$w, [float]$h)
+            $g.DrawRectangle((New-Object System.Drawing.Pen((C 120 120 120), 1)), [float]($x + 3), [float]($y + 3), [float]($w - 6), [float]($h - 6))
         }
         'niebla' {
             # bocadillo morado con borde rosa neón que brilla un poco
@@ -4544,7 +4765,7 @@ function Nuevo-Actor($def) {
         }
     }
     $script:actores[$def.Id] = @{ Id = $def.Id; Imgs = $imgs; Info = $info; Pose = 'main'; Frame = 0; Acc = 0; Hasta = 0; Rect = $def.Rect
-        Visible = $true; Alfa = 1.0; Flash = 0; Temblor = 0; OX = 0; OY = 0; Llenar = [bool]$def.Llenar; Base = 'main'; Tiras = $tiras; Respira = [bool]$def.Respira; Baila = [bool]$def.Baila; Dash = 0 }
+        Visible = $true; Alfa = 1.0; Flash = 0; Temblor = 0; OX = 0; OY = 0; Llenar = [bool]$def.Llenar; Base = 'main'; Tiras = $tiras; Respira = [bool]$def.Respira; Baila = [bool]$def.Baila; Dash = 0; Pixel = [bool]$def.Pixel }
     $script:actorIds += $def.Id
 }
 function Quitar-Actores {
@@ -4628,8 +4849,12 @@ function Pintar-Actor($g, $a) {
 }
 function Pintar-Actores($g) {
     $modo = $g.InterpolationMode; $g.InterpolationMode = 'HighQualityBilinear'
-    foreach ($a in @($script:actores.Values)) { Pintar-Actor $g $a }
-    $g.InterpolationMode = $modo
+    # los personajes de pixel art (Pixel = $true) se dibujan sin suavizar, nítidos
+    foreach ($a in @($script:actores.Values)) {
+        if ($a.Pixel) { $g.InterpolationMode = 'NearestNeighbor'; $g.PixelOffsetMode = 'Half' } else { $g.InterpolationMode = 'HighQualityBilinear'; $g.PixelOffsetMode = 'Default' }
+        Pintar-Actor $g $a
+    }
+    $g.InterpolationMode = $modo; $g.PixelOffsetMode = 'Default'
 }
 function Pintar-Flotantes($g) {
     foreach ($f in $script:flotantes) {
@@ -5924,6 +6149,7 @@ function Sin-Destellos {
     if ($script:gr) { $script:gr.Fx = 0 }
     if ($script:nn) { $script:nn.Fx = 0 }
     if ($script:es) { $script:es.Fx = 0 }
+    if ($script:kn) { $script:kn.Fx = 0 }
     foreach ($a in @($script:actores.Values)) { $a.Flash = 0; $a.Temblor = 0 }
 }
 $ambTimer.Add_Tick({
@@ -5964,6 +6190,7 @@ $ambTimer.Add_Tick({
     if ($k.Estilo -eq 'abismo') { Nn-Tick }
     if ($k.Estilo -eq 'evil') { Es-Tick }
     if ($k.Estilo -eq 'niebla') { Sf-Tick }
+    if ($k.Estilo -eq 'knight') { Kn-Tick }
 })
 
 # ================= EVIL SCARY (Die of Death): LA RONDA ESPECIAL =================
@@ -6135,6 +6362,308 @@ function Pintar-Niebla($g, $x0, $W, $H, $fuerza) {
     }
 }
 
+# ================= ROARING KNIGHT (Deltarune): FUENTES OSCURAS Y THE ROARING =================
+# Cada app que abres es una Fuente Oscura que el Knight saca del suelo: la barra ROARING sube.
+# Al llenarse, el Knight ruge (luz roja) y sale un Titán. Clic en el Knight: CHECK / ACT. Botón FIGHT: el minijuego.
+$KnTiempos = @{ SubePorApp = 14 }
+$script:kn = $null
+function Kn-Reset { if (-not $script:kn) { $script:kn = @{ Fuentes = 0; Roaring = 0.0; Titanes = 0; Fx = 0 } } }
+function Kn-App($linea) {
+    Kn-Reset; $e = $script:kn; $k = $script:skin
+    $e.Fuentes++; $e.Roaring = [Math]::Min(100.0, $e.Roaring + $KnTiempos.SubePorApp)
+    if ($e.Roaring -ge 100) {
+        $e.Roaring = 0.0; $e.Titanes++; $e.Fx = 34
+        Sonido 'rugido'; Actor-Pose 'K' 'roar' 1700; Sacudir $form 10
+        Decir-Fijo (Azar $k.Roaring)
+    } else {
+        Sonido 'tajo'; Actor-Pose 'K' 'apunta' 900; Decir $linea
+    }
+    $form.Invalidate()
+}
+function Kn-Clic {
+    Kn-Reset; $k = $script:skin
+    Sonido 'roce'; Actor-Pose 'K' 'risa' 1500
+    Decir (Azar $k.Clic)
+}
+function Kn-Tick { Kn-Reset; if ($script:kn.Fx -gt 0) { $script:kn.Fx--; $form.Invalidate() } }
+# el botón FIGHT, dibujado debajo del Knight (como el menú de combate de Deltarune)
+function Kn-Fight-Rect { return @(612, 240, 96, 26) }
+function Kn-Fight-En-Raton {
+    if (-not $script:skin -or $script:skin.Estilo -ne 'knight') { return $false }
+    $pt = $form.PointToClient([System.Windows.Forms.Cursor]::Position); $x = $pt.X / $script:K; $y = $pt.Y / $script:K; $r = Kn-Fight-Rect
+    return ($x -ge $r[0] -and $x -le ($r[0] + $r[2]) -and $y -ge $r[1] -and $y -le ($r[1] + $r[3]))
+}
+# caja negra con borde blanco (los cuadros de texto de Deltarune)
+function Kn-Caja($g, $x, $y, $w, $h) {
+    $g.FillRectangle([System.Drawing.Brushes]::Black, [float]$x, [float]$y, [float]$w, [float]$h)
+    $g.DrawRectangle((New-Object System.Drawing.Pen([System.Drawing.Color]::White, 2)), [float]$x, [float]$y, [float]$w, [float]$h)
+}
+# el ALMA: el corazón rojo de Deltarune
+function Kn-Corazon($g, $x, $y, $s, $col) {
+    $p = New-Object System.Drawing.Drawing2D.GraphicsPath
+    $p.AddBezier([float]$x, [float]($y + $s * 0.9), [float]($x - $s * 1.2), [float]($y + $s * 0.1), [float]($x - $s * 0.9), [float]($y - $s * 0.9), [float]$x, [float]($y - $s * 0.35))
+    $p.AddBezier([float]$x, [float]($y - $s * 0.35), [float]($x + $s * 0.9), [float]($y - $s * 0.9), [float]($x + $s * 1.2), [float]($y + $s * 0.1), [float]$x, [float]($y + $s * 0.9))
+    $g.FillPath((New-Object System.Drawing.SolidBrush($col)), $p); $p.Dispose()
+}
+
+# ================= ROARING KNIGHT: EL MINIJUEGO (un combate de Deltarune) =================
+# Botón FIGHT. Mueves el ALMA (corazón rojo) dentro de la caja verde: flechas o WASD (Mayús o X = despacio)
+# o arrastrando con el ratón. ESC o HUIR = salir. Tienes 160 HP; cada golpe quita 40. Rozar los ataques sube el TP.
+# Ataques del capítulo 3: espadas que te persiguen y cortan, estrellas que explotan y espadas rápidas al final.
+# Momentos (ms desde que empieza) y valores: cámbialos aquí para hacerlo más fácil o más difícil.
+$KgTiempos = @{ Espadas1 = 1800; Estrellas = 11000; Explota = 13800; Espadas2 = 17200; Fin = 23000; Dano = 40; HP = 160; Vel = 140 }
+$KgCaja = @{ X = 222; Y = 84; W = 156; H = 156 }
+$script:kg = $null; $script:kgOv = $null
+function Kg-Teclas {
+    if (-not ('C00l.Teclas' -as [type])) {
+        try { Add-Type -Namespace C00l -Name Teclas -MemberDefinition '[System.Runtime.InteropServices.DllImport("user32.dll")] public static extern short GetAsyncKeyState(int vKey);' } catch {}
+    }
+}
+function Kg-Tecla($vk) { try { return (([C00l.Teclas]::GetAsyncKeyState($vk) -band 0x8000) -ne 0) } catch { return $false } }
+function Kg-Espada($nace, $sigue) {
+    [void]$script:kg.Espadas.Add(@{ Nace = $nace; Sigue = $sigue; Ang = $Rnd.Next(8) * [Math]::PI / 4; Estado = 'espera'; PX = 0.0; PY = 0.0 })
+}
+function Kn-Combate {
+    if (Ocupado) { return }
+    Kg-Teclas
+    $script:transicion = $true
+    $KT = $KgTiempos
+    $script:kg = @{ T0 = [Environment]::TickCount; Ultimo = [Environment]::TickCount; X = [double]($KgCaja.X + $KgCaja.W / 2); Y = [double]($KgCaja.Y + $KgCaja.H / 2)
+        HP = $KT.HP; TP = 0.0; Inv = 0; UltRoce = 0; Sacude = 0; Fin = $null; FinT = 0; Raton = $false; RX = 0.0; RY = 0.0
+        Espadas = New-Object System.Collections.ArrayList; Estrellas = New-Object System.Collections.ArrayList; Trozos = New-Object System.Collections.ArrayList
+        EstrellasHechas = $false; Explotadas = $false }
+    # primera tanda: 8 espadas, cada vez más rápidas; última tanda: 10 espadas muy rápidas que se solapan
+    $t = $KT.Espadas1; foreach ($s in @(1000, 940, 880, 820, 760, 700, 640, 580)) { Kg-Espada $t $s; $t += $s + 260 }
+    $t = $KT.Espadas2; foreach ($s in @(560, 540, 520, 500, 480, 460, 440, 420, 400, 380)) { Kg-Espada $t $s; $t += [int]($s * 0.62) }
+    $script:kgImgs = @{}; $script:kgInfo = @{}
+    foreach ($n in @('knight', 'roar', 'apunta', 'risa')) { $im = Cargar-Img "skins\knight\$n.gif"; if ($im) { $script:kgImgs[$n] = $im; $script:kgInfo[$n] = Gif-Info $im } }
+    $script:kgImgs['brazos'] = Cargar-Img 'skins\knight\brazos.png'; $script:kgInfo['brazos'] = @{ N = 1; Del = @(100) }
+    $ov = New-Object System.Windows.Forms.Panel
+    $ov.Location = New-Object System.Drawing.Point(0, 0); $ov.Size = $form.ClientSize; $ov.BackColor = [System.Drawing.Color]::Black
+    Doble-Buffer $ov
+    $ov.Add_Paint({ $_.Graphics.ScaleTransform($script:K, $script:K); Kg-Pintar $_.Graphics ([int]($this.Width / $script:K)) ([int]($this.Height / $script:K)) })
+    $ov.Add_MouseDown({ if ($script:kg.Fin) { Kg-Salir } else { $script:kg.Raton = $true; $script:kg.RX = $_.X / $script:K; $script:kg.RY = $_.Y / $script:K } })
+    $ov.Add_MouseMove({ if ($script:kg -and $script:kg.Raton) { $script:kg.RX = $_.X / $script:K; $script:kg.RY = $_.Y / $script:K } })
+    $ov.Add_MouseUp({ if ($script:kg) { $script:kg.Raton = $false } })
+    # botón HUIR (como huir de un combate)
+    $hu = New-Object System.Windows.Forms.Button
+    $hu.Text = 'HUIR'; $hu.FlatStyle = 'Flat'; $hu.Font = Fnt('Consolas', 9, [System.Drawing.FontStyle]::Bold)
+    $hu.ForeColor = [System.Drawing.Color]::White; $hu.BackColor = [System.Drawing.Color]::Black; $hu.Cursor = 'Hand'
+    $hu.FlatAppearance.BorderColor = [System.Drawing.Color]::White; $hu.FlatAppearance.MouseOverBackColor = (C 60 40 0)
+    $hu.Size = New-Object System.Drawing.Size([int](70 * $script:K), [int](24 * $script:K))
+    $hu.Location = New-Object System.Drawing.Point(($ov.Width - $hu.Width - [int](12 * $script:K)), ($ov.Height - $hu.Height - [int](10 * $script:K)))
+    $hu.Add_Click({ Kg-Salir })
+    $ov.Controls.Add($hu)
+    $form.Controls.Add($ov); $ov.BringToFront(); $ov.Focus() | Out-Null
+    $script:kgOv = $ov
+    Sonido 'encuentro'; Sonido 'rugido'
+    $kgTimer.Start()
+}
+function Kg-Dano {
+    $e = $script:kg; $ahora = [Environment]::TickCount
+    if ($ahora -lt $e.Inv -or $e.Fin) { return }
+    $e.HP = [Math]::Max(0, $e.HP - $KgTiempos.Dano); $e.Inv = $ahora + 1000
+    Sonido 'golpe'; if (-not $script:aj.Epilepsia) { $e.Sacude = 8 }
+    if ($e.HP -le 0) { $e.Fin = 'derrota'; $e.FinT = $ahora }
+}
+function Kg-Roce {
+    $e = $script:kg; $ahora = [Environment]::TickCount
+    if ($ahora -lt $e.Inv) { return }
+    $e.TP = [Math]::Min(100.0, $e.TP + 1.5)
+    if ($ahora - $e.UltRoce -gt 220) { $e.UltRoce = $ahora; Sonido 'roce' }
+}
+function Kg-Tick {
+    $e = $script:kg; if (-not $e) { return }
+    $ahora = [Environment]::TickCount; $t = $ahora - $e.T0; $dt = [Math]::Min(60, $ahora - $e.Ultimo) / 1000.0; $e.Ultimo = $ahora
+    if ($e.Sacude -gt 0) { $e.Sacude-- }
+    if ($e.Fin) { if ($ahora - $e.FinT -gt 3600) { Kg-Salir }; return }
+    $KT = $KgTiempos; $c = $KgCaja
+    # --- mover el ALMA: teclado (solo si el panel está activo) o ratón arrastrando ---
+    $vx = 0; $vy = 0; $despacio = $false
+    if ([System.Windows.Forms.Form]::ActiveForm -eq $form) {
+        if ((Kg-Tecla 0x25) -or (Kg-Tecla 0x41)) { $vx-- }
+        if ((Kg-Tecla 0x27) -or (Kg-Tecla 0x44)) { $vx++ }
+        if ((Kg-Tecla 0x26) -or (Kg-Tecla 0x57)) { $vy-- }
+        if ((Kg-Tecla 0x28) -or (Kg-Tecla 0x53)) { $vy++ }
+        $despacio = (Kg-Tecla 0x10) -or (Kg-Tecla 0x58)
+        if (Kg-Tecla 0x1B) { Kg-Salir; return }
+    }
+    $vel = $KT.Vel * $(if ($despacio) { 0.5 } else { 1.0 })
+    if ($vx -ne 0 -or $vy -ne 0) {
+        $n = [Math]::Sqrt($vx * $vx + $vy * $vy); $e.X += $vx / $n * $vel * $dt; $e.Y += $vy / $n * $vel * $dt
+    } elseif ($e.Raton) {
+        $dx = $e.RX - $e.X; $dy = $e.RY - $e.Y; $d = [Math]::Sqrt($dx * $dx + $dy * $dy)
+        if ($d -gt 1) { $paso = [Math]::Min($d, $vel * 1.3 * $dt); $e.X += $dx / $d * $paso; $e.Y += $dy / $d * $paso }
+    }
+    $e.X = [Math]::Max($c.X + 8, [Math]::Min($c.X + $c.W - 8, $e.X)); $e.Y = [Math]::Max($c.Y + 8, [Math]::Min($c.Y + $c.H - 8, $e.Y))
+    # --- espadas que te persiguen: siguen al alma, se ponen rojas, se quedan quietas y cortan en línea recta ---
+    foreach ($s in $e.Espadas) {
+        if ($t -lt $s.Nace -or $s.Estado -eq 'fin') { continue }
+        $f = $t - $s.Nace
+        if ($f -lt $s.Sigue) { $s.Estado = 'sigue'; $s.PX = $e.X + [Math]::Cos($s.Ang) * 58; $s.PY = $e.Y + [Math]::Sin($s.Ang) * 58 }
+        elseif ($f -lt $s.Sigue + 220) { if ($s.Estado -ne 'rojo') { $s.Estado = 'rojo'; Sonido 'aviso' } }
+        elseif ($f -lt $s.Sigue + 400) {
+            if ($s.Estado -ne 'tajo') { $s.Estado = 'tajo'; Sonido 'tajo' }
+            $dl = [Math]::Abs(($e.X - $s.PX) * [Math]::Sin($s.Ang) - ($e.Y - $s.PY) * [Math]::Cos($s.Ang))
+            if ($dl -lt 6) { Kg-Dano } elseif ($dl -lt 20) { Kg-Roce }
+        } else { $s.Estado = 'fin' }
+    }
+    # --- estrellas: salen del dedo del Knight, crecen, se paran, se ponen rojas y explotan en 6 trozos ---
+    if ($t -ge $KT.Estrellas -and -not $e.EstrellasHechas) {
+        $e.EstrellasHechas = $true; Sonido 'estrella'
+        for ($i = 0; $i -lt 7; $i++) {
+            $ox = 486; $oy = 118; $tx = $c.X + 14 + $Rnd.Next($c.W - 28); $ty = $c.Y + 14 + $Rnd.Next($c.H - 28)
+            [void]$e.Estrellas.Add(@{ X = [double]$ox; Y = [double]$oy; VX = ($tx - $ox) / 2.3; VY = ($ty - $oy) / 2.3; R = 3.0; Retraso = $i * 160 })
+        }
+    }
+    if ($e.EstrellasHechas -and -not $e.Explotadas) {
+        foreach ($st in $e.Estrellas) {
+            if ($t - $KT.Estrellas -lt $st.Retraso) { continue }
+            if ($t -lt $KT.Explota - 800) { $st.X += $st.VX * $dt; $st.Y += $st.VY * $dt; $st.R = [Math]::Min(10.0, $st.R + 4 * $dt) }
+            else { $st.X -= $st.VX * 0.25 * $dt; $st.Y -= $st.VY * 0.25 * $dt }
+            $d = [Math]::Sqrt(($e.X - $st.X) * ($e.X - $st.X) + ($e.Y - $st.Y) * ($e.Y - $st.Y))
+            if ($d -lt 4) { Kg-Dano } elseif ($d -lt 16) { Kg-Roce }
+        }
+        if ($t -ge $KT.Explota) {
+            $e.Explotadas = $true; Sonido 'explota'
+            foreach ($st in $e.Estrellas) { $gir = $Rnd.NextDouble(); for ($k = 0; $k -lt 6; $k++) { $a = ($k + $gir) * [Math]::PI / 3; [void]$e.Trozos.Add(@{ X = $st.X; Y = $st.Y; VX = [Math]::Cos($a) * 46; VY = [Math]::Sin($a) * 46; Vida = 1600 }) } }
+            $e.Estrellas.Clear()
+        }
+    }
+    for ($i = $e.Trozos.Count - 1; $i -ge 0; $i--) {
+        $tr = $e.Trozos[$i]; $tr.X += $tr.VX * $dt; $tr.Y += $tr.VY * $dt; $tr.Vida -= $dt * 1000
+        if ($tr.Vida -le 0) { $e.Trozos.RemoveAt($i); continue }
+        $d = [Math]::Sqrt(($e.X - $tr.X) * ($e.X - $tr.X) + ($e.Y - $tr.Y) * ($e.Y - $tr.Y))
+        if ($d -lt 5) { Kg-Dano } elseif ($d -lt 15) { Kg-Roce }
+    }
+    # --- aguantar hasta el final = victoria ---
+    if ($t -ge $KT.Fin -and $e.HP -gt 0) {
+        $e.Fin = 'victoria'; $e.FinT = $ahora; Sonido 'victoria'
+        $script:aj.KnightVictorias = [int]$script:aj.KnightVictorias + 1; Guardar-Ajustes
+    }
+}
+function Kg-Pintar($g, $W, $H) {
+    $e = $script:kg; if (-not $e) { return }
+    $KT = $KgTiempos; $c = $KgCaja; $ahora = [Environment]::TickCount; $t = $ahora - $e.T0
+    $g.Clear([System.Drawing.Color]::Black)
+    $ox = 0; $oy = 0; if ($e.Sacude -gt 0) { $ox = $Rnd.Next(-3, 4); $oy = $Rnd.Next(-3, 4) }
+    $g.TranslateTransform($ox, $oy)
+    # cuadrícula morada del fondo de combate
+    $pg = New-Object System.Drawing.Pen((C 38 12 60), 1); $desp = ($t / 60) % 30
+    for ($x = - 30 + $desp; $x -lt $W; $x += 30) { $g.DrawLine($pg, [float]$x, 0, [float]$x, $H) }
+    for ($y = - 30 + $desp; $y -lt $H; $y += 30) { $g.DrawLine($pg, 0, [float]$y, $W, [float]$y) }
+    # el Knight (pixel art, sin suavizar), con la pose según el momento
+    $pose = if ($e.Fin -eq 'victoria') { 'brazos' } elseif ($e.Fin -eq 'derrota') { 'risa' } elseif ($t -lt $KT.Espadas1) { 'roar' } elseif ($t -ge $KT.Estrellas - 300 -and $t -lt $KT.Explota + 600) { 'apunta' } else { 'knight' }
+    $img = $script:kgImgs[$pose]
+    if ($img) {
+        Gif-Frame $img $script:kgInfo[$pose] $t
+        $g.InterpolationMode = 'NearestNeighbor'; $g.PixelOffsetMode = 'Half'
+        $s = 1.5; $iw = $img.Width * $s; $ih = $img.Height * $s
+        $g.DrawImage($img, [float](600 - $iw / 2), [float](168 - $ih / 2), [float]$iw, [float]$ih)
+        $g.InterpolationMode = 'HighQualityBilinear'; $g.PixelOffsetMode = 'Default'
+    }
+    $g.SmoothingMode = 'AntiAlias'
+    # la caja verde del combate
+    $g.FillRectangle([System.Drawing.Brushes]::Black, $c.X, $c.Y, $c.W, $c.H)
+    $g.DrawRectangle((New-Object System.Drawing.Pen((C 0 200 0), 3)), $c.X, $c.Y, $c.W, $c.H)
+    # espadas
+    $blanco = New-Object System.Drawing.Pen([System.Drawing.Color]::White, 1.5); $rojoP = New-Object System.Drawing.Pen((C 255 40 40), 1.5)
+    foreach ($s in $e.Espadas) {
+        if ($s.Estado -in @('sigue', 'rojo')) {
+            $dx = - [Math]::Cos($s.Ang); $dy = - [Math]::Sin($s.Ang); $nx = - $dy; $ny = $dx
+            $pts = [System.Drawing.PointF[]]@(
+                (New-Object System.Drawing.PointF([float]($s.PX + $dx * 17), [float]($s.PY + $dy * 17))),
+                (New-Object System.Drawing.PointF([float]($s.PX + $nx * 3.5), [float]($s.PY + $ny * 3.5))),
+                (New-Object System.Drawing.PointF([float]($s.PX - $dx * 12), [float]($s.PY - $dy * 12))),
+                (New-Object System.Drawing.PointF([float]($s.PX - $nx * 3.5), [float]($s.PY - $ny * 3.5))))
+            $rojo = $s.Estado -eq 'rojo'
+            $g.FillPolygon($(if ($rojo) { (New-Object System.Drawing.SolidBrush((C 120 0 0))) } else { [System.Drawing.Brushes]::Black }), $pts)
+            $g.DrawPolygon($(if ($rojo) { $rojoP } else { $blanco }), $pts)
+            # la guarda de la espada
+            $gx = $s.PX - $dx * 8; $gy = $s.PY - $dy * 8
+            $g.DrawLine($(if ($rojo) { $rojoP } else { $blanco }), [float]($gx + $nx * 7), [float]($gy + $ny * 7), [float]($gx - $nx * 7), [float]($gy - $ny * 7))
+        } elseif ($s.Estado -eq 'tajo') {
+            $q = [Math]::Max(0.0, 1 - ($t - $s.Nace - $s.Sigue - 220) / 180.0)
+            $g.SetClip((New-Object System.Drawing.RectangleF([float]$c.X, [float]$c.Y, [float]$c.W, [float]$c.H)))
+            $pt = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb([int](255 * $q), 255, 255, 255), [float](2 + 9 * $q))
+            $cx = [Math]::Cos($s.Ang); $cy = [Math]::Sin($s.Ang)
+            $g.DrawLine($pt, [float]($s.PX - $cx * 400), [float]($s.PY - $cy * 400), [float]($s.PX + $cx * 400), [float]($s.PY + $cy * 400))
+            $g.ResetClip(); $pt.Dispose()
+        }
+    }
+    # estrellas de seis puntas y sus trozos
+    $rojas = $t -ge $KT.Explota - 800
+    foreach ($st in $e.Estrellas) {
+        if ($t - $KT.Estrellas -lt $st.Retraso) { continue }
+        $pts = New-Object 'System.Drawing.PointF[]' 12
+        for ($k = 0; $k -lt 12; $k++) { $r = if ($k % 2 -eq 0) { $st.R } else { $st.R * 0.5 }; $a = $k * [Math]::PI / 6 + $t / 400.0; $pts[$k] = New-Object System.Drawing.PointF([float]($st.X + [Math]::Cos($a) * $r), [float]($st.Y + [Math]::Sin($a) * $r)) }
+        $g.FillPolygon([System.Drawing.Brushes]::Black, $pts); $g.DrawPolygon($(if ($rojas) { $rojoP } else { $blanco }), $pts)
+        $g.FillEllipse([System.Drawing.Brushes]::White, [float]($st.X - 1.5), [float]($st.Y - 1.5), 3, 3)
+    }
+    foreach ($tr in $e.Trozos) {
+        $al = [int][Math]::Min(255, $tr.Vida / 4)
+        $g.FillEllipse((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb($al, 255, 255, 255))), [float]($tr.X - 3), [float]($tr.Y - 3), 6, 6)
+    }
+    # el ALMA (parpadea un poco tras recibir un golpe; en modo seguro solo se aclara)
+    $inv = $ahora -lt $e.Inv
+    if (-not $e.Fin -or $e.Fin -eq 'victoria') {
+        if ($inv -and $script:aj.Epilepsia) { Kn-Corazon $g $e.X $e.Y 7 ([System.Drawing.Color]::FromArgb(140, 255, 0, 0)) }
+        elseif (-not $inv -or ([int]($ahora / 90) % 2 -eq 0)) { Kn-Corazon $g $e.X $e.Y 7 ([System.Drawing.Color]::Red) }
+    }
+    $g.ResetTransform(); $g.ScaleTransform($script:K, $script:K)
+    # TP a la izquierda (sube rozando los ataques)
+    $g.DrawString('TP', (FntP('Consolas', 11, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 30, 66)
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 60 20 0))), 36, 90, 16, 160)
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 160 64))), 36, [float](90 + 160 * (1 - $e.TP / 100.0)), 16, [float](160 * $e.TP / 100.0))
+    $g.DrawRectangle([System.Drawing.Pens]::White, 36, 90, 16, 160)
+    $g.DrawString("$([int]$e.TP)%", (FntP('Consolas', 9, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 255 160 64))), 28, 254)
+    # la vida de Kris abajo
+    Kn-Caja $g 150 266 300 40
+    $g.DrawString('KRIS', (FntP('Consolas', 12, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 0 200 255))), 160, 276)
+    $g.DrawString('HP', (FntP('Consolas', 9, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 226, 280)
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 120 0 0))), 250, 282, 110, 10)
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 0 200 255))), 250, 282, [float](110 * [Math]::Min(1.0, $e.HP / $KT.HP)), 10)
+    $g.DrawString("$($e.HP)/$($KT.HP)", (FntP('Consolas', 10, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 368, 278)
+    # texto del combate arriba
+    $txt = '* Tu vista se estrecha. ...El mundo gira a tu alrededor.'
+    if ($e.Fin -eq 'victoria') { $txt = '* ¡Has aguantado! * El Knight cruza los brazos... y se va volando.' }
+    elseif ($e.Fin -eq 'derrota') { $txt = '* Kris quedó DOWN. * El Knight se ríe.' }
+    elseif ($t -lt $KT.Espadas1) { $txt = '* The Roaring Knight appeared.' }
+    elseif ($t -lt $KT.Estrellas) { $txt = '* Notas algo flotando justo detrás de tu cabeza...' }
+    elseif ($t -lt $KT.Espadas2) { $txt = '* Te mareas. Ves estrellas doradas...' }
+    Kn-Caja $g 12 10 ($W - 24) 50
+    $g.DrawString($txt, (FntP('Consolas', 11, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, (New-Object System.Drawing.RectangleF(22, 16, [float]($W - 44), 42)))
+    # resultado
+    if ($e.Fin) {
+        $gana = $e.Fin -eq 'victoria'
+        $big = if ($gana) { 'VICTORIA' } else { 'DOWN' }
+        $tw = Ancho-Texto $big 'Consolas' 34
+        Texto-Color $g $big 'Consolas' 34 ($W / 2 - $tw / 2 - 40) 112 $(if ($gana) { (C 255 255 0) } else { (C 255 40 40) }) (C 0 0 0) 6
+        $g.DrawString("victorias contra el Knight: $($script:aj.KnightVictorias)", (FntP('Consolas', 10, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 170, 168)
+        $g.DrawString('(clic para salir)', (FntP('Consolas', 9)), (New-Object System.Drawing.SolidBrush((C 180 180 180))), 236, 188)
+    } else {
+        $g.DrawString('flechas / WASD · Mayús = despacio · o arrastra con el ratón · ESC', (FntP('Consolas', 7.5)), (New-Object System.Drawing.SolidBrush((C 150 150 150))), 150, 246)
+    }
+}
+function Kg-Salir {
+    $kgTimer.Stop()
+    if ($script:kgOv) { $form.Controls.Remove($script:kgOv); $script:kgOv.Dispose(); $script:kgOv = $null }
+    foreach ($im in @($script:kgImgs.Values)) { if ($im) { $im.Dispose() } }
+    $script:kgImgs = @{}
+    $script:transicion = $false
+    $e = $script:kg; $k = $script:skin; $script:kg = $null
+    if ($e -and $e.Fin -eq 'victoria') { Actor-Pose 'K' 'risa' 2500; Decir (Azar $k.Gana) }
+    elseif ($e -and $e.Fin -eq 'derrota') { Actor-Pose 'K' 'risa' 2500; Decir (Azar $k.Pierde) }
+    else { Decir '* Has huido del combate. * El Knight ni se ha movido.' }
+    $form.Invalidate()
+}
+$kgTimer = New-Object System.Windows.Forms.Timer
+$kgTimer.Interval = 20
+$kgTimer.Add_Tick({
+    try { if ($script:kg) { Kg-Tick; if ($script:kgOv) { $script:kgOv.Invalidate() } } }
+    catch { Add-Content "$env:TEMP\c00lgui_errores.txt" ("KNIGHT: " + $_ + " @ " + $_.InvocationInfo.ScriptLineNumber); Kg-Salir }
+})
+
 # ================= DISCUSIONES ENTRE ASISTENTES =================
 # cada discusión es una lista de [quién, qué dice]. Solo salen las de la skin activa.
 $Discusiones = @(
@@ -6293,6 +6822,16 @@ $Discusiones = @(
     , @(@('Zodiac', '¡NO TE MUEVAS!'), @('Soft Fuzzy Man', 'No me muevo. Floto.'), @('Zodiac', '*BANG* *BANG* ...¡LAS BALAS LE ATRAVIESAN!'), @('Soft Fuzzy Man', 'Me has disparado. Me has visto. Gracias, vaquero.'))
     , @(@('Static Miku', '¡Bzzt! ¡Eres borroso como mi tele!'), @('Soft Fuzzy Man', 'Somos de la misma familia: tú haces "fsssh" y yo hago "fsssh".'), @('Static Miku', '¡Vamos a cantar juntos! ¡Bzzt!'), @('Soft Fuzzy Man', '"Lo que necesitas es un hombre suave y esponjoso..." *Bzzt.* Qué buen dúo.'))
     , @(@('Nanachi', '...nnaa. Huele a algodón de azúcar.'), @('Soft Fuzzy Man', 'Soy yo. Hola, cosa mullida.'), @('Nanachi', 'En el Abismo hay niebla que mata. ¿Tú matas?'), @('Soft Fuzzy Man', 'Yo solo ligo.'), @('Nanachi', '...eso es peor. Nnaa.'))
+    # --- Roaring Knight (Deltarune) ---
+    , @(@('Evil Scary', '*Bota hacia el Knight.*'), @('Roaring Knight', '* El Knight cruza los brazos.'), @('Evil Scary', 'IT IS EVIL AND SCARY.'), @('Roaring Knight', '* El Knight lo parte en dos con la Black Knife. * Las dos mitades siguen botando.'), @('Evil Scary', '*Bota. Bota.* ...STALL. STALL.'))
+    , @(@('Soft Fuzzy Man', 'Hola, alto, oscuro y misterioso. Como a mí me gustan.'), @('Roaring Knight', '* El Knight lo corta en diagonal.'), @('Soft Fuzzy Man', '*Se vuelve a juntar.* ...me has visto. Me has VISTO.'), @('Roaring Knight', '* El Knight se ríe.'))
+    , @(@('Angela', 'Entidad hostil. Procediendo a su contención.'), @('Roaring Knight', '* El Knight saca una Fuente Oscura del suelo de la celda.'), @('Angela', 'Manager... la celda ahora es un mundo entero.'), @('Roaring Knight', '* El Knight ruge.'))
+    , @(@('Kevin', '¡EH! ¡NO TOQUES MI PIZZA!'), @('Roaring Knight', '* El Knight levanta la espada.'), @('Kevin', '...'), @('Roaring Knight', '* La pizza queda en ocho trozos perfectos.'), @('Kevin', '...vale. Eso me ahorra trabajo. ¡PERO NO LA TOQUES!'))
+    , @(@('Zodiac', '¡NO TE MUEVAS!'), @('Roaring Knight', '* El Knight se teletransporta. * Deja una estela de sombras.'), @('Zodiac', '*BANG* *BANG* *BANG* ...¡HAY SEIS KNIGHTS!'), @('Roaring Knight', '* Solo hay uno. * Detrás de ti.'))
+    , @(@('Averi', '¡Hola! ¿Quieres un sándwich de pollo?'), @('Roaring Knight', '* El Knight lo mira. * Lo corta en diagonal. * Se queda con la mitad.'), @('Averi', '¡Comparte! ¡Sabía que eras bueno en el fondo!'), @('Roaring Knight', '* El Knight se va volando. * Muy rápido.'))
+    , @(@('Nanachi', '...nnaa. Ese no sigue ninguna regla.'), @('Roaring Knight', '* El Knight mira a Mitty.'), @('Nanachi', 'Ni se te ocurra. *Se pone delante.*'), @('Roaring Knight', '* El Knight se ríe. * Pero se va.'))
+    , @(@('Sebastian Solace', 'Bienvenido, amigo. ¿Qué te pongo?'), @('Roaring Knight', '* El Knight coge todas las linternas. * Y una Fuente de regalo.'), @('Sebastian Solace', '...eso son 400 monedas.'), @('Roaring Knight', '* El Knight ya no está.'))
+    , @(@('Gran', 'Un sujeto hecho de sombra. Una muestra, por favor.'), @('Roaring Knight', '* El Knight le da una astilla negra.'), @('Gran', '*La mira al microscopio.* ...es ruido. Ruido de televisión.'), @('Roaring Knight', '* El Knight ruge de risa.'))
 )
 
 $script:discutiendo = $false; $script:dLineas = $null; $script:dIdx = 0; $script:dImg = $null; $script:dInvitadoHabla = $false
@@ -6389,6 +6928,7 @@ function Abrir-Invitado($nombre) {
         'abismo' { Sonido-De $nombre 'brillo' }
         'evil' { Sonido-De $nombre 'medio' }
         'niebla' { Sonido-De $nombre 'brillo' }
+        'knight' { Sonido-De $nombre 'encuentro' }
         'pressure' { Sonido-De $nombre 'rejilla' }
         'dod' { Sonido-De $nombre 'acecho' }
         'hacker' { try { if ($script:aj.Sonido) { [System.Media.SystemSounds]::Hand.Play() } } catch {} }
@@ -6422,6 +6962,7 @@ function Pintar-Invitado($g) {
         'pop' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 40 14 80), (C 150 40 120), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $p = New-Object System.Drawing.Pen((ARGB 30 0 0 0), 1); for ($y = 30; $y -lt $H; $y += 3) { $g.DrawLine($p, 0, $y, $W, $y) }; $cab = (C 40 12 70) }
         'gran' { $rosa = New-Object System.Drawing.SolidBrush((ARGB 60 255 70 170)); for ($x = -$H; $x -lt $W; $x += 30) { $g.FillPolygon($rosa, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$x, $H)), (New-Object System.Drawing.PointF([float]($x + 12), $H)), (New-Object System.Drawing.PointF([float]($x + 12 + $H), 30)), (New-Object System.Drawing.PointF([float]($x + $H), 30)))) }; $rosa.Dispose(); $cab = (C 0 0 0) }
         'evil' { $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 30 6 10))), 0, 30, $W, ($H - 30)); $cab = (C 0 0 0) }
+        'knight' { $g.FillRectangle([System.Drawing.Brushes]::Black, 0, 30, $W, ($H - 30)); $pg = New-Object System.Drawing.Pen((C 52 18 82), 1); for ($x = 0; $x -lt $W; $x += 24) { $g.DrawLine($pg, $x, 30, $x, $H) }; for ($y = 30; $y -lt $H; $y += 24) { $g.DrawLine($pg, 0, $y, $W, $y) }; $pg.Dispose(); $cab = (C 0 0 0) }
         'niebla' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 74 28 124), (C 30 10 56), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $br.Dispose(); $cab = (C 90 30 140) }
         'abismo' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 40 70 44), (C 18 34 22), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $br.Dispose(); $cab = (C 78 56 40) }
         'enfosi' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 120 180 240), (C 200 230 255), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $cab = (C 252 200 55) }
@@ -6462,6 +7003,7 @@ function Pintar-Invitado($g) {
             'pop' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 90, 230, 250))), 0, [int]((14 - $fx) * 15), $W, 10) }
             'gran' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 32, 208, 44))), 0, 0, $W, $H) }
             'evil' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 150, 0, 10))), 0, 0, $W, $H) }
+            'knight' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(170, $fx * 12), 200, 0, 20))), 0, 0, $W, $H) }
             'niebla' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(180, $fx * 12), 255, 186, 244))), 0, 0, $W, $H) }
             'abismo' { $p = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb([Math]::Min(220, $fx * 16), 210, 255, 220), 2); for ($i = 0; $i -lt 6; $i++) { $xx = 20 + $i * 36; $g.DrawLine($p, $xx, ($H - (14 - $fx) * 14), ($xx + 6), ($H - (14 - $fx) * 14 - 40)) }; $p.Dispose() }
             'enfosi' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 255, 214, 60))), 0, 0, $W, $H) }
@@ -6509,6 +7051,7 @@ function Efectos-Linea($quien, $txt) {
     if ($txt -match 'STALL') { Sonido-De 'Evil Scary' 'stall' }
     elseif ($txt -match 'EVIL AND SCARY') { Sonido-De 'Evil Scary' 'susto' }
     if ($txt -match 'FSSS|niebla rosa') { Sonido-De 'Soft Fuzzy Man' 'puff' }
+    if ($txt -match 'RUGE|ROAAA') { Sonido-De 'Roaring Knight' 'rugido' } elseif ($txt -match 'Black Knife') { Sonido-De 'Roaring Knight' 'tajo' }
     $esInv = $quien -ne $script:skinNombre
     $f = if ($esInv) { $script:inv } else { $form }
     if ($txt -match 'BANG') { Sonido-De 'Zodiac' 'bang'; Sacudir $form 10; Sacudir $script:inv 10; if ($esInv) { $script:invFx = 8 } }
@@ -6696,6 +7239,11 @@ $idleTimer.Add_Tick({
         'evil' {
             if ($r -lt 40) { Decir (Azar $k.Idle) }
             elseif ($r -lt 55) { Es-Reset; Es-Rebote 3.0; Decir '*Bota sin avisar.* ...el sonido ha sido más agudo esta vez.' }
+            else { Decir (Azar $k.Idle) }
+        }
+        'knight' {
+            if ($r -lt 30) { Actor-Pose 'K' 'risa' 2500; Decir (Azar $k.Idle) }
+            elseif ($r -lt 42) { Actor-Pose 'K' 'tajo' 800; Sonido 'tajo'; Decir '* El Knight corta el aire. * Solo para que lo oigas.' }
             else { Decir (Azar $k.Idle) }
         }
         'niebla' {
@@ -8373,6 +8921,58 @@ function Transicion-Fuzzy($final) {
     Intro-Overlay 400 $pintar $alTick $final
 }
 
+# --- Roaring Knight: entrada de combate de Deltarune ("* The Roaring Knight appeared."), el Knight levanta la espada y ruge ---
+# Va sincronizada con el reloj. Momentos (en milisegundos):
+$KnIntro = @{ Texto = 500; Rugido = 3000; Fin = 4700 }
+function Transicion-Knight($final) {
+    $script:kiEnt = Cargar-Img 'skins\knight\entrada.gif'; $script:kiRoar = Cargar-Img 'skins\knight\roar.gif'
+    $script:kiInfo = @{ e = (Gif-Info $script:kiEnt); r = (Gif-Info $script:kiRoar) }
+    $script:iRecursos = @($script:kiEnt, $script:kiRoar); $script:kiT0 = 0; $script:kiHechos = @{}
+    $pintar = {
+        param($g, $W, $H, $p)
+        $T = $KnIntro
+        $ms = if ($script:kiT0 -gt 0) { [Environment]::TickCount - $script:kiT0 } else { 0 }
+        $g.Clear([System.Drawing.Color]::Black)
+        $pg = New-Object System.Drawing.Pen((C 52 18 82), 1); $desp = ($ms / 50) % 32
+        for ($x = - 32 + $desp; $x -lt $W; $x += 32) { $g.DrawLine($pg, [float]$x, 0, [float]$x, $H) }
+        for ($y = - 32 + $desp; $y -lt $H; $y += 32) { $g.DrawLine($pg, 0, [float]$y, $W, [float]$y) }
+        $rug = $ms -ge $T.Rugido
+        if ($rug) {
+            # el rugido: rayos de luz roja
+            $q = [Math]::Max(0.0, 1 - ($ms - $T.Rugido) / 1500.0)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](150 * $q), 200, 0, 20))), 0, 0, $W, $H)
+            $pr = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb([int](230 * $q), 255, 70, 70), 5)
+            for ($i = 0; $i -lt 14; $i++) { $a = $i * [Math]::PI / 7 + $ms / 600.0; $g.DrawLine($pr, [float]($W * 0.62), 120, [float]($W * 0.62 + [Math]::Cos($a) * 700), [float](120 + [Math]::Sin($a) * 700)) }
+            $pr.Dispose()
+        }
+        $img = if ($rug) { $script:kiRoar } else { $script:kiEnt }; $inf = if ($rug) { $script:kiInfo.r } else { $script:kiInfo.e }
+        if ($img) {
+            # la entrada se ve una vez (no en bucle); el rugido sí se repite
+            $mm = if ($rug) { $ms } else { $tot = 0; foreach ($d in $inf.Del) { $tot += $d }; [Math]::Min($ms, $tot - 1) }
+            Gif-Frame $img $inf $mm
+            $g.InterpolationMode = 'NearestNeighbor'; $g.PixelOffsetMode = 'Half'
+            $s = if ($rug) { 1.5 } else { 0.95 }; $iw = $img.Width * $s; $ih = $img.Height * $s
+            $g.DrawImage($img, [float]($W * 0.62 - $iw / 2), [float](($H - 90) - $ih), [float]$iw, [float]$ih)
+            $g.InterpolationMode = 'HighQualityBilinear'; $g.PixelOffsetMode = 'Default'
+        }
+        # cuadro de texto de abajo, letra a letra
+        $txt = '* The Roaring Knight appeared.'
+        $n = [Math]::Max(0, [Math]::Min($txt.Length, [int](($ms - $T.Texto) / 45)))
+        $g.FillRectangle([System.Drawing.Brushes]::Black, 30, ($H - 82), ($W - 60), 66)
+        $g.DrawRectangle((New-Object System.Drawing.Pen([System.Drawing.Color]::White, 3)), 30, ($H - 82), ($W - 60), 66)
+        $g.DrawString($txt.Substring(0, $n), (FntP('Consolas', 18, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 50, ($H - 66))
+        if ($ms -gt $T.Fin - 500) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int][Math]::Min(255, ($ms - $T.Fin + 500) / 2), 0, 0, 0))), 0, 0, $W, $H) }
+    }
+    $alTick = {
+        param($ov, $p)
+        if ($p -eq 1) { $script:kiT0 = [Environment]::TickCount; Sonido 'encuentro' }
+        $ms = [Environment]::TickCount - $script:kiT0
+        if ($ms -ge $KnIntro.Rugido -and -not $script:kiHechos.r) { $script:kiHechos.r = $true; Sonido 'rugido' }
+        if ($ms -gt $KnIntro.Fin -and $script:iPaso -lt $script:iTotal - 1) { $script:iPaso = $script:iTotal - 1 }
+    }
+    Intro-Overlay 400 $pintar $alTick $final
+}
+
 # --- Nanachi: descenso al Abismo capa a capa, la entrada del escondite y Nanachi entre los hilos del campo de fuerza ---
 # Va sincronizada con el reloj. Momentos (en milisegundos):
 $NnIntro = @{ Caliz = 0; Capa4 = 2600; Entrada = 4700; Nanachi = 5600; Nombre = 6400; Fin = 8800 }
@@ -8467,6 +9067,7 @@ function Transicion-Nanachi($final) {
             'abismo' { Decir 'Algo se ha roto. Nnaa. Le pongo una venda y listo.' }
             'evil' { Decir 'ALGO SE HA ROTO. *Evil Scary bota encima del error. El error desaparece. Tú casi también.*' }
             'niebla' { Decir 'Algo se ha roto. Yo no he sido: no puedo tocar nada. *Se pone transparente por si acaso.*' }
+            'knight' { Decir '* Algo se ha roto. * El Knight lo ha cortado. * O igual ya venía roto.' }
             default { Decir 'Algo se ha roto. No he sido yo. Creo.' }
         }
     } catch {}
@@ -8647,6 +9248,14 @@ function Pintar-Boton($g, $b) {
             $g.DrawPath((New-Object System.Drawing.Pen((C 170 20 30), [float](1.6 * $Z))), $rr); $rr.Dispose()
             $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((C 236 220 220))), $rect, $fmt)
         }
+        'knight' {
+            # botón negro con borde blanco; al pasar el ratón, amarillo (como una opción elegida en Deltarune)
+            $g.SmoothingMode = 'None'
+            $g.Clear([System.Drawing.Color]::Black)
+            $col = if ($hover) { (C 255 255 0) } else { [System.Drawing.Color]::White }
+            $g.DrawRectangle((New-Object System.Drawing.Pen($col, [float](2 * $Z))), [float](2 * $Z), [float](2 * $Z), [float]($W - 5 * $Z), [float]($H - 5 * $Z))
+            $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush($col)), $rect, $fmt)
+        }
         'niebla' {
             # botón morado con borde rosa neón; al pasar el ratón, rosa como él
             $g.SmoothingMode = 'AntiAlias'
@@ -8807,6 +9416,7 @@ function Lanzar($item) {
             'abismo' { Nn-App $linea }
             'evil' { Es-App $linea }
             'niebla' { Sf-App $linea }
+            'knight' { Kn-App $linea }
             'zorro' {
                 $script:antojo = [Math]::Min(100, $script:antojo + 5); $form.Invalidate()
                 if ($Rnd.Next(4) -eq 0) { Sonido 'ups'; Decir (Azar $k.Torpe) 'serio' } else { Decir $linea 'abiertos' }
@@ -8842,6 +9452,7 @@ function Lanzar($item) {
                 'abismo' { Decir "No tienes $($item.Nombre). Te abro la web. Es como mandar un globo de correo: llega igual, pero más tarde." }
                 'evil' { Decir "$($item.Nombre.ToUpper()) NO ESTÁ INSTALADO. ABRIENDO LA WEB. *Evil Scary te mira cargarla. No parpadea. No tiene ojos.*" }
                 'niebla' { Decir "No tienes $($item.Nombre). Te abro la web. Internet es como yo: está en todas partes y no se puede tocar." }
+                'knight' { Decir "* No tienes $($item.Nombre). * Te abro la web. * La sombra de la Fuente llega igual." }
                 default { Decir "$($item.Nombre) no está instalado. Te abro la web. De nada." }
             }
         } else {
@@ -8865,6 +9476,7 @@ function Lanzar($item) {
                 'abismo' { Nn-Cara 'nnaa' 2000; Decir "No encuentro $($item.Nombre). Se habrá caído al Abismo. Lo que cae ahí no vuelve." }
                 'evil' { Es-Reset; Es-Rebote 3.0; Decir "NO SE ENCUENTRA $($item.Nombre.ToUpper()). *Se lo ha comido. O lo ha atravesado. Da igual.*" }
                 'niebla' { Actor-Pose 'F' 'cara' 1500; Decir "No encuentro $($item.Nombre). Se habrá vuelto niebla. Me pasa a mí también." }
+                'knight' { Actor-Pose 'K' 'risa' 1500; Decir "* $($item.Nombre) no está. * El Knight se lo ha llevado por la Gran Puerta. * Como a Undyne." }
                 default { Decir "No encuentro $($item.Nombre). Igual nunca existió." }
             }
         }
@@ -8958,6 +9570,7 @@ function Efecto-Entrada($prev) {
         'abismo' { Transicion-Nanachi $msg }
         'evil' { Transicion-Evil $msg }
         'niebla' { Transicion-Fuzzy $msg }
+        'knight' { Transicion-Knight $msg }
     }
 }
 
@@ -9649,7 +10262,7 @@ $form.Add_Paint({
             $g.DrawRectangle((New-Object System.Drawing.Pen((C 0 255 0), 1)), 410, 216, 190, 10)
             $g.DrawString("HITMARKERS: $($script:hitsTotal)    DO THE DEW: $($script:dew)", (FntP('Arial Black', 8)), (New-Object System.Drawing.SolidBrush((C 191 239 255))), 16, 280)
         }
-        { $_ -in @('culto', 'kaiju', 'zorro', 'mew', 'oeste', 'pressure', 'dod', 'teto', 'femta', 'pop', 'pizza', 'punk', 'enfosi', 'gran', 'abismo', 'evil', 'niebla') } {
+        { $_ -in @('culto', 'kaiju', 'zorro', 'mew', 'oeste', 'pressure', 'dod', 'teto', 'femta', 'pop', 'pizza', 'punk', 'enfosi', 'gran', 'abismo', 'evil', 'niebla', 'knight') } {
             # skins nuevas: fondo real + personajes grandes + efectos + bocadillo propio
             $g.SmoothingMode = 'AntiAlias'
             # el fondo se prepara siempre con el tamaño fijo de la skin (no con el de la ventana a medio montar)
@@ -9919,6 +10532,35 @@ $form.Add_Paint({
                     Yt-Pastilla $g 190 280 88 24 $osc $fase $cl 8
                     Yt-Pastilla $g 282 280 116 24 $osc "😱 $(if ($e) { $e.Sustos } else { 0 })   🛡 $(if ($e) { $e.Bloqueos } else { 0 })" $cl 8.5
                     if ($e -and $e.Gigante) { Texto-Color $g 'GIGANTE' 'Arial Black' 11 690 64 (C 255 210 40) (C 0 0 0) 4 }
+                }
+                'knight' {
+                    $e = $script:kn
+                    # el rugido: luz roja que sale del Knight (en modo seguro Sin-Destellos lo apaga)
+                    if ($e -and $e.Fx -gt 0) {
+                        $q = [Math]::Min(1.0, $e.Fx / 20.0)
+                        $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](110 * $q), 200, 0, 20))), 404, 56, ($W - 404), ($H - 56))
+                        $pr = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb([int](200 * $q), 255, 60, 60), 3)
+                        for ($i = 0; $i -lt 10; $i++) { $a = $i * [Math]::PI / 5 + $e.Fx / 10.0; $g.DrawLine($pr, 648, 140, [float](648 + [Math]::Cos($a) * 260), [float](140 + [Math]::Sin($a) * 260)) }
+                        $pr.Dispose()
+                    }
+                    # botón FIGHT
+                    $r = Kn-Fight-Rect; $sobre = Kn-Fight-En-Raton
+                    $colF = if ($sobre) { (C 255 255 0) } else { (C 255 160 64) }
+                    $g.FillRectangle([System.Drawing.Brushes]::Black, $r[0], $r[1], $r[2], $r[3])
+                    $g.DrawRectangle((New-Object System.Drawing.Pen($colF, 2)), $r[0], $r[1], $r[2], $r[3])
+                    if ($sobre) { Kn-Corazon $g ($r[0] + 13) ($r[1] + 13) 6 ([System.Drawing.Color]::Red) }
+                    else { $g.DrawString('⚔', (FntP('Segoe UI Symbol', 11, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($colF)), ($r[0] + 4), ($r[1] + 2)) }
+                    $g.DrawString('FIGHT', (FntP('Consolas', 13, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($colF)), ($r[0] + 28), ($r[1] + 3))
+                    # abajo: Fuentes, barra ROARING, Titanes y victorias en el minijuego
+                    Kn-Caja $g 16 280 382 24
+                    $fb = FntP('Consolas', 8, [System.Drawing.FontStyle]::Bold); $bl = [System.Drawing.Brushes]::White
+                    $g.DrawString("FUENTES $(if ($e) { $e.Fuentes } else { 0 })", $fb, $bl, 22, 286)
+                    $g.DrawString('ROARING', $fb, (New-Object System.Drawing.SolidBrush((C 255 80 80))), 110, 286)
+                    $rv = if ($e) { $e.Roaring } else { 0 }
+                    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 60 0 0))), 162, 288, 80, 9)
+                    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 220 30 30))), 162, 288, [float](80 * $rv / 100.0), 9)
+                    $g.DrawString("TITANES $(if ($e) { $e.Titanes } else { 0 })", $fb, $bl, 250, 286)
+                    $g.DrawString("WIN $($script:aj.KnightVictorias)", $fb, (New-Object System.Drawing.SolidBrush((C 255 255 0))), 336, 286)
                 }
                 'niebla' {
                     $e = $script:sf
@@ -10267,6 +10909,7 @@ function Clic-Actor($id) {
         'abismo' { if ($id -eq 'M') { Nn-Mitty } else { Nn-Clic } }
         'evil' { Es-Clic }
         'niebla' { if ($id -eq 'G') { Sf-Gato } else { Sf-Clic } }
+        'knight' { Kn-Clic }
     }
 }
 $mDown = {
@@ -10274,6 +10917,8 @@ $mDown = {
     if ($script:skin.Estilo -eq 'pizza' -and $_.Button -eq 'Left' -and (Pizza-En-Raton)) { Pizza-Tocar; return }
     # Kennyoung: botón de suscribirse del reproductor
     if ($script:skin.Estilo -eq 'punk' -and $_.Button -eq 'Left' -and (Sub-En-Raton)) { Ky-Suscribir; return }
+    # Roaring Knight: botón FIGHT (el minijuego)
+    if ($script:skin.Estilo -eq 'knight' -and $_.Button -eq 'Left' -and (Kn-Fight-En-Raton)) { Kn-Combate; return }
     $id = Actor-En-Raton
     if ($id) { if ($_.Button -eq 'Right') { Iniciar-Discusion } else { Clic-Actor $id }; return }
     $script:drag = $true; $script:p0 = [System.Windows.Forms.Cursor]::Position; $script:f0 = $form.Location
@@ -10285,7 +10930,7 @@ $mDown = {
     }
 }
 $mMove = {
-    if ($script:actores.Count -gt 0 -and -not $script:drag) { $form.Cursor = $(if ((Actor-En-Raton) -or ($script:skin.Estilo -eq 'pizza' -and (Pizza-En-Raton)) -or ($script:skin.Estilo -eq 'punk' -and (Sub-En-Raton))) { [System.Windows.Forms.Cursors]::Hand } else { [System.Windows.Forms.Cursors]::Default }) }
+    if ($script:actores.Count -gt 0 -and -not $script:drag) { $form.Cursor = $(if ((Actor-En-Raton) -or ($script:skin.Estilo -eq 'pizza' -and (Pizza-En-Raton)) -or ($script:skin.Estilo -eq 'punk' -and (Sub-En-Raton)) -or (Kn-Fight-En-Raton)) { [System.Windows.Forms.Cursors]::Hand } else { [System.Windows.Forms.Cursors]::Default }) }
     if ($script:drag -and -not $script:glitching) {
         $p = [System.Windows.Forms.Cursor]::Position
         $form.Location = New-Object System.Drawing.Point(($script:f0.X + $p.X - $script:p0.X), ($script:f0.Y + $p.Y - $script:p0.Y))
@@ -10442,6 +11087,7 @@ function Construir-UI {
         if ($k.Estilo -eq 'evil') { Es-Reset } else { $script:es = $null; if ($script:esSusto) { $script:esSusto.Dispose(); $script:esSusto = $null } }
         # Soft Fuzzy Man: guarda su existencia y sus contadores mientras sea la skin activa
         if ($k.Estilo -eq 'niebla') { Sf-Reset } else { $script:sf = $null }
+        if ($k.Estilo -eq 'knight') { Kn-Reset } else { $script:kn = $null }
         $status.BackColor = [System.Drawing.Color]::Transparent
         $status.ForeColor = $k.BurTexto
         $status.UseMnemonic = $false

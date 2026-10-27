@@ -16,6 +16,20 @@ Tres invitados de miedo para la noche más larga del año:
 | 🧸 | **Soft Fuzzy Man** | Lemon Demon · Aimkid | ✅ Hecho |
 | 🔪 | **Dr. Loomis** | *Halloween* | ⏳ Próximamente |
 
+## Notas del parche – v7 Halloween (avance 3)
+
+**Skin nueva: Roaring Knight** (*Deltarune*, en el grupo **Videojuegos**)
+- El antagonista de Deltarune, con sus sprites de combate en pixel art y su estela de sombras. No habla: en el bocadillo salen los textos de combate del juego (*"\* The Roaring Knight appeared."*).
+- **Intro:** la entrada al combate. El texto sale letra a letra, el Knight levanta la espada y **ruge**.
+- **Cada app es una Fuente Oscura:** sube la barra **ROARING**; al llenarse, el Knight ruge con luz roja y sale un **Titán**.
+- **Clic en el Knight:** CHECK y ACT (*"Kris analizó al enemigo... Pero Kris no pudo averiguar nada."*).
+- **⚔ FIGHT – minijuego:** un combate de Deltarune. Mueves el **ALMA** (el corazón rojo) por la caja verde con las **flechas o WASD** (Mayús = despacio) o arrastrando con el ratón, y esquivas sus ataques del capítulo 3:
+  - **Espadas que te persiguen**, se ponen rojas y cortan la caja en línea recta.
+  - **Estrellas** que salen de su dedo y explotan en trozos.
+  - **Espadas rápidas** al final.
+  - Tienes 160 HP y cada golpe quita 40. **Rozar** los ataques sube el **TP**. Tus victorias se guardan (**WIN**).
+- Todas las skins opinan de él y hay 9 discusiones nuevas.
+
 ## Notas del parche – v7 Halloween (avance 2)
 
 **Skin nueva: Soft Fuzzy Man** (la canción de Lemon Demon, con la animación de Aimkid)
@@ -113,7 +127,7 @@ Tres invitados de miedo para la noche más larga del año:
 **Para quien quiera tocar el código**
 - Al principio de la sección `SKINS` de `c00lgui.ps1` hay una guía paso a paso para añadir skins nuevas.
 - Los grupos del menú Skins se cambian en la lista `$GruposSkins` y el texto del tutorial en `$TextoTutorial`.
-Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code, Build the Larp"). Tiene veinticuatro skins, cada una con su propio estilo, animaciones y diálogos:
+Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code, Build the Larp"). Tiene veinticinco skins, cada una con su propio estilo, animaciones y diálogos:
 
 | Skin | Estilo | Efecto al entrar |
 |---|---|---|
@@ -140,7 +154,8 @@ Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code,
 | **Gran** | El virólogo de Antihuman Inc. (ivycomb, *ANTIHUMAN*) en la cámara de su laboratorio de Central Tower, sobre su remolino de pintura | La de su personaje en el vídeo: rayas grises, el remolino rosa y cian, su cara y el busto con la jeringuilla, con su canción |
 | **Nanachi** | El Hueco de *Made in Abyss* en su escondite de la 4ª capa, con Mitty a su lado, la olla del estofado y sus caras del anime en un dibujo de la pared | Descenso por las capas del Abismo hasta la entrada de su escondite, entre los hilos del campo de fuerza |
 | **Evil Scary** 🎃 | La amenaza de la ronda especial de *Die of Death*: una bola negra con manos que bota hacia ti en la baseplate de noche con niebla roja | La pantalla de SPECIAL ROUND!, "IT IS EVIL AND SCARY" y la bola botando hacia la cámara hasta el susto |
-| **Soft Fuzzy Man** 🎃 | El lobo-fantasma rosa de la canción de Lemon Demon (animación de Aimkid), bailando en la colina de noche con Orange Cat dando vueltas a su lado | Los 11 primeros segundos de la animación; la cámara entra en la espiral rosa y el panel sale de la niebla |
+| **Soft Fuzzy Man** 🎃 | El lobo-fantasma rosa de la canción de Lemon Demon (animación de Aimkid), bailando en la colina de noche con Orange Cat dando vueltas a su lado | El principio de la animación hasta que la espiral rosa llena la pantalla; el panel sale de la niebla |
+| **Roaring Knight** | El antagonista de *Deltarune* en pixel art, sobre el fondo de combate morado; botón **FIGHT** con un minijuego de esquivar sus ataques | "\* The Roaring Knight appeared.", levanta la espada y ruge |
 
 Cada skin opina de las demás. Pasa el ratón por los botones del menú **Skins** para oír lo que piensa el asistente de cada una. De vez en cuando, además, **discuten entre ellos**: el otro personaje aparece en su propia ventanita pegada al panel, con su estilo y su bocadillo. Lo que dicen tiene efectos: los disparos suenan y hacen temblar las ventanas, las Smokebomb las vuelven transparentes y los mordiscos suenan. **Haz clic derecho sobre el personaje** para empezar una discusión cuando quieras.
 

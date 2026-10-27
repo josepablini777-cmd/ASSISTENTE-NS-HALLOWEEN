@@ -115,3 +115,13 @@ PowerShell no basta para recortar fondos o editar imágenes. Lo que ha funcionad
 - Evil Scary usa Estilo `evil`: estado en `$script:es`, funciones `Es-Reset, Es-Rebote, Es-Susto, Es-App, Es-Clic, Es-Tick`, tiempos en `$EsTiempos`, intro `Transicion-Evil` con tiempos en `$EsIntro`.
 - Soft Fuzzy Man usa Estilo `niebla`: estado en `$script:sf`, funciones `Sf-Reset, Sf-Existir, Sf-Niebla, Sf-Espesor, Sf-App, Sf-Clic, Sf-Gato, Sf-Tick, Pintar-Niebla`, tiempos en `$SfTiempos`. Actores 'F' (él) y 'G' (Orange Cat).
 - Intro de vídeo (`Transicion-Fuzzy`, tiempos en `$SfIntro`): los fotogramas son JPG sueltos en `skins\softfuzzy\intro` (campos `IntroCarpeta`, `IntroFotos`, `IntroFps` de la ficha) y se carga solo el que toca según el reloj; el audio es `intro.mp3`. Para hacer otra intro igual: sacar fotogramas y audio del vídeo con ffmpeg y copiar ese patrón.
+
+## Roaring Knight (Deltarune) y su minijuego
+
+- Estilo `knight`: estado en `$script:kn` (`Kn-Reset, Kn-App, Kn-Clic, Kn-Tick`), botón FIGHT dibujado (`Kn-Fight-Rect`, `Kn-Fight-En-Raton`, enganchado en `$mDown` y `$mMove`), intro `Transicion-Knight` (`$KnIntro`).
+- Actores de pixel art: poner `Pixel = $true` en el actor y se dibuja sin suavizar (`Pintar-Actores`).
+- Minijuego: `Kn-Combate` crea un Panel encima del formulario (no usa Intro-Overlay) con su propio timer `$kgTimer` (20 ms). Estado en `$script:kg`; lógica en `Kg-Tick`, dibujo en `Kg-Pintar`, salida en `Kg-Salir`. Tiempos y dificultad en `$KgTiempos`, caja en `$KgCaja`.
+- Teclado: se lee con `GetAsyncKeyState` (tipo `C00l.Teclas`, se compila la primera vez con `Kg-Teclas`) y solo si el panel es la ventana activa; las flechas no llegan a KeyDown porque los botones se las quedan.
+- Las victorias se guardan en `ajustes.txt` (`KnightVictorias`).
+- OJO: en PowerShell `$T` y `$t` son la misma variable; en el minijuego los tiempos van en `$KT`.
+- Prueba: el script de prueba se pausa mientras `$script:transicion` es true; para el minijuego, usar `if ($script:transicion -and -not $script:kg)` y fotografiar `$script:kgOv` directamente.
