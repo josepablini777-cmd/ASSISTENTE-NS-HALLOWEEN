@@ -2864,7 +2864,7 @@ $Skins = [ordered]@{
         BtnHover = (C 255 160 245); BtnPress = (C 150 240 255); BarraBtnTexto = (C 255 225 250)
         StatusColor = (C 255 225 250); Fuente = 'Segoe UI'; FuenteTitulo = 'Segoe Print'; Opacidad = 1.0; Velocidad = 1
         Ancho = 760; Mezclar = $true; Gif = 'skins\softfuzzy\fuzzy.png'; FondoImg = 'skins\softfuzzy\fondo.jpg'
-        IntroCarpeta = 'skins\softfuzzy\intro'; IntroFotos = 198; IntroFps = 18
+        IntroCarpeta = 'skins\softfuzzy\intro'; IntroFotos = 220; IntroFps = 18
         # Soft Fuzzy Man (recortado del vídeo): baila de cuerpo entero en el cielo; al hacerle clic, su sonrisa grande;
         # al abrir apps, la carcajada con el anillo de humo (estas dos de busto, desvaneciéndose por abajo como un fantasma).
         # Orange Cat da vueltas por el aire a su lado.
@@ -8330,10 +8330,10 @@ function Transicion-Evil($final) {
     Intro-Overlay 400 $pintar $alTick $final
 }
 
-# --- Soft Fuzzy Man: los 11 primeros segundos de la animación de Aimkid (con su audio) y, de transición,
-#     la cámara se mete en la espiral rosa y la niebla lo tapa todo; el panel sale de la niebla ---
+# --- Soft Fuzzy Man: el principio de la animación de Aimkid (con su audio) hasta que la espiral rosa llena la pantalla
+#     (12,2 s, justo antes del cambio de escena); de ahí la niebla rosa lo tapa todo y el panel sale de la niebla ---
 # Los fotogramas están en skins\softfuzzy\intro (001.jpg, 002.jpg...), a 18 por segundo. Momentos (en milisegundos):
-$SfIntro = @{ Niebla = 10300; Fin = 12300 }
+$SfIntro = @{ Niebla = 12000; Fin = 13600 }
 function Transicion-Fuzzy($final) {
     $script:fiImg = $null; $script:fiIdx = -1; $script:fiT0 = 0; $script:iRecursos = @()
     Sf-Reset
