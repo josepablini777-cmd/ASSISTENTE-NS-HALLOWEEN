@@ -108,3 +108,8 @@ PowerShell no basta para recortar fondos o editar imágenes. Lo que ha funcionad
 - Las wikis de **Miraheze** (p. ej. `enfosi.miraheze.org`) no abren con curl ni PowerShell en Windows 10 (error de TLS). Usa Edge sin ventana: `msedge --headless=new --dump-dom "https://<wiki>/w/api.php?action=query&list=allimages&ailimit=500&format=json"`. Las imágenes (`static.wikitide.net`) sí se bajan con curl.
 - Las portadas de Bandcamp se bajan en grande cambiando `_2.jpg` por `_10.jpg` (`f4.bcbits.com/img/a<id>_10.jpg`).
 - Cuidado: en una lista `[ordered]@{ 1 = ...; 2 = ... }` el índice `[1]` es la **posición**, no la clave. Para listas numeradas usa un array normal.
+
+## Actualización de Halloween
+
+- Los avances de Halloween van en la rama local `halloween` y se suben al repo privado https://github.com/josepablini777-cmd/ASSISTENTE-NS-HALLOWEEN (remoto `halloween`, rama `main`): `git push halloween halloween:main`.
+- Evil Scary usa Estilo `evil`: estado en `$script:es`, funciones `Es-Reset, Es-Rebote, Es-Susto, Es-App, Es-Clic, Es-Tick`, tiempos en `$EsTiempos`, intro `Transicion-Evil` con tiempos en `$EsIntro`.

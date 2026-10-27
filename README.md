@@ -1,23 +1,32 @@
-# 🎃 c00lgui v6.2 – panel lanzador con skins de asistentes
+# 🎃 c00lgui v7 HALLOWEEN (en desarrollo) – panel lanzador con skins de asistentes
 
 Panel para Windows que abre YouTube, las apps de Office y otros programas con un clic.
 
 ---
 
-## 🎃🕯️ PRÓXIMAMENTE: ACTUALIZACIÓN DE HALLOWEEN 🕯️🎃
+## 🎃🕯️ ACTUALIZACIÓN DE HALLOWEEN (en desarrollo) 🕯️🎃
 
 > *Algo se mueve entre las calabazas...*
 
-Se acerca la noche más larga del año, y el panel no va a dormir. La próxima gran actualización llega con **tres invitados de miedo**:
+Tres invitados de miedo para la noche más larga del año:
 
-| | Personaje | De dónde viene |
-|---|---|---|
-| 🧸 | **Soft Fuzzy Man** | AIMKID |
-| 💀 | **Evil Scary** | *Die of Death* |
-| 🔪 | **Dr. Loomis** | *Halloween* |
+| | Personaje | De dónde viene | Estado |
+|---|---|---|---|
+| 💀 | **Evil Scary** | *Die of Death* | ✅ Hecho |
+| 🧸 | **Soft Fuzzy Man** | AIMKID | ⏳ Próximamente |
+| 🔪 | **Dr. Loomis** | *Halloween* | ⏳ Próximamente |
 
-🦇 Intros nuevas, sustos nuevos y discusiones nuevas entre ellos y el resto de skins.
-🕸️ Apaga la luz. Abre el panel. Y no mires detrás de ti.
+## Notas del parche – v7 Halloween (avance 1)
+
+**Skin nueva: Evil Scary** (la ronda especial de *Die of Death*)
+- **Intro:** la pantalla de la ronda especial del juego: *"SPECIAL ROUND! ??? What will it be?"*, una ruleta de modos y la revelación **EVIL SCARY**. Después, *"IT IS EVIL AND SCARY"* y la bola negra botando hacia la cámara hasta el susto.
+- **Se acerca a saltitos** desde el horizonte y se hace más grande cuanto más cerca está. Cada 6 rebotes suena la alarma **STALL, STALL** y hace una **carga** de 8 saltos rápidos. Si llega hasta ti, te da un **susto** y vuelve a empezar.
+- **Clic en él:** PUNCH, lo alejas un poco. **Clic durante la alarma o la carga:** lo bloqueas y ganas el logro **LUCID NIGHTMARE**.
+- Cada app que abres hace ruido y le hace botar hacia ti. A veces sale **gigante**.
+- Abajo: barra de distancia, rebotes, sustos y bloqueos.
+- No habla: en el bocadillo salen los mensajes de la partida, en mayúsculas, como en el juego.
+- Grupo nuevo en el menú Skins: **Halloween**. Todas las skins opinan de Evil Scary y hay 10 discusiones nuevas.
+- En **modo seguro** no sale el susto y la alarma no parpadea.
 
 ---
 
@@ -94,7 +103,7 @@ Se acerca la noche más larga del año, y el panel no va a dormir. La próxima g
 **Para quien quiera tocar el código**
 - Al principio de la sección `SKINS` de `c00lgui.ps1` hay una guía paso a paso para añadir skins nuevas.
 - Los grupos del menú Skins se cambian en la lista `$GruposSkins` y el texto del tutorial en `$TextoTutorial`.
-Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code, Build the Larp"). Tiene veintidós skins, cada una con su propio estilo, animaciones y diálogos:
+Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code, Build the Larp"). Tiene veintitrés skins, cada una con su propio estilo, animaciones y diálogos:
 
 | Skin | Estilo | Efecto al entrar |
 |---|---|---|
@@ -120,6 +129,7 @@ Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code,
 | **Enfosi** | El juego de Roblox de Tumore: la estatua de oro en Blibble's Field y los Glaggles que caminan hacia ella | Conoce a tus Glaggles: uno se revela como Enphosian, aparece el Ojo de Enphoso y empieza la oleada 1 |
 | **Gran** | El virólogo de Antihuman Inc. (ivycomb, *ANTIHUMAN*) en la cámara de su laboratorio de Central Tower, sobre su remolino de pintura | La de su personaje en el vídeo: rayas grises, el remolino rosa y cian, su cara y el busto con la jeringuilla, con su canción |
 | **Nanachi** | El Hueco de *Made in Abyss* en su escondite de la 4ª capa, con Mitty a su lado, la olla del estofado y sus caras del anime en un dibujo de la pared | Descenso por las capas del Abismo hasta la entrada de su escondite, entre los hilos del campo de fuerza |
+| **Evil Scary** 🎃 | La amenaza de la ronda especial de *Die of Death*: una bola negra con manos que bota hacia ti en la baseplate de noche con niebla roja | La pantalla de SPECIAL ROUND!, "IT IS EVIL AND SCARY" y la bola botando hacia la cámara hasta el susto |
 
 Cada skin opina de las demás. Pasa el ratón por los botones del menú **Skins** para oír lo que piensa el asistente de cada una. De vez en cuando, además, **discuten entre ellos**: el otro personaje aparece en su propia ventanita pegada al panel, con su estilo y su bocadillo. Lo que dicen tiene efectos: los disparos suenan y hacen temblar las ventanas, las Smokebomb las vuelven transparentes y los mordiscos suenan. **Haz clic derecho sobre el personaje** para empezar una discusión cuando quieras.
 
