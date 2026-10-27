@@ -13,8 +13,18 @@ Tres invitados de miedo para la noche más larga del año:
 | | Personaje | De dónde viene | Estado |
 |---|---|---|---|
 | 💀 | **Evil Scary** | *Die of Death* | ✅ Hecho |
-| 🧸 | **Soft Fuzzy Man** | AIMKID | ⏳ Próximamente |
+| 🧸 | **Soft Fuzzy Man** | Lemon Demon · Aimkid | ✅ Hecho |
 | 🔪 | **Dr. Loomis** | *Halloween* | ⏳ Próximamente |
+
+## Notas del parche – v7 Halloween (avance 2)
+
+**Skin nueva: Soft Fuzzy Man** (la canción de Lemon Demon, con la animación de Aimkid)
+- Según la wiki de Aimkid, es el **fantasma de Dipshit**, el lobo de *My Trains*, reencarnado en un lobo-fantasma rosa de neón. Sale con **Orange Cat**, que se asusta porque no sabe que es él.
+- **Intro:** los 11 primeros segundos de la animación, con su audio. De transición, la cámara se mete en la espiral rosa, la niebla lo tapa todo y el panel aparece cuando se despeja.
+- **EXISTENCIA** (*"I need to feel like I exist"*): si nadie le hace caso, la barra baja y él se va volviendo transparente hasta casi desaparecer. Cada app que abres le hace caso y lo vuelve más sólido.
+- **Clic en él:** tu mano lo atraviesa (*FSSSH~*). **Clic en Orange Cat:** se asusta, da vueltas por el aire y salen corazones.
+- **Cada 6 apps:** *"step into the mist"*, la niebla rosa lo llena todo.
+- Baila como en la ventana del vídeo, sobre la colina de noche con la casita. Todas las skins opinan de él y hay 10 discusiones nuevas.
 
 ## Notas del parche – v7 Halloween (avance 1)
 
@@ -103,7 +113,7 @@ Tres invitados de miedo para la noche más larga del año:
 **Para quien quiera tocar el código**
 - Al principio de la sección `SKINS` de `c00lgui.ps1` hay una guía paso a paso para añadir skins nuevas.
 - Los grupos del menú Skins se cambian en la lista `$GruposSkins` y el texto del tutorial en `$TextoTutorial`.
-Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code, Build the Larp"). Tiene veintitrés skins, cada una con su propio estilo, animaciones y diálogos:
+Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code, Build the Larp"). Tiene veinticuatro skins, cada una con su propio estilo, animaciones y diálogos:
 
 | Skin | Estilo | Efecto al entrar |
 |---|---|---|
@@ -130,6 +140,7 @@ Al abrirlo sale el logo de **JOSEPABLINI CORPORATION** ("Fear the Spaggety Code,
 | **Gran** | El virólogo de Antihuman Inc. (ivycomb, *ANTIHUMAN*) en la cámara de su laboratorio de Central Tower, sobre su remolino de pintura | La de su personaje en el vídeo: rayas grises, el remolino rosa y cian, su cara y el busto con la jeringuilla, con su canción |
 | **Nanachi** | El Hueco de *Made in Abyss* en su escondite de la 4ª capa, con Mitty a su lado, la olla del estofado y sus caras del anime en un dibujo de la pared | Descenso por las capas del Abismo hasta la entrada de su escondite, entre los hilos del campo de fuerza |
 | **Evil Scary** 🎃 | La amenaza de la ronda especial de *Die of Death*: una bola negra con manos que bota hacia ti en la baseplate de noche con niebla roja | La pantalla de SPECIAL ROUND!, "IT IS EVIL AND SCARY" y la bola botando hacia la cámara hasta el susto |
+| **Soft Fuzzy Man** 🎃 | El lobo-fantasma rosa de la canción de Lemon Demon (animación de Aimkid), bailando en la colina de noche con Orange Cat dando vueltas a su lado | Los 11 primeros segundos de la animación; la cámara entra en la espiral rosa y el panel sale de la niebla |
 
 Cada skin opina de las demás. Pasa el ratón por los botones del menú **Skins** para oír lo que piensa el asistente de cada una. De vez en cuando, además, **discuten entre ellos**: el otro personaje aparece en su propia ventanita pegada al panel, con su estilo y su bocadillo. Lo que dicen tiene efectos: los disparos suenan y hacen temblar las ventanas, las Smokebomb las vuelven transparentes y los mordiscos suenan. **Haz clic derecho sobre el personaje** para empezar una discusión cuando quieras.
 

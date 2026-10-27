@@ -113,3 +113,5 @@ PowerShell no basta para recortar fondos o editar imágenes. Lo que ha funcionad
 
 - Los avances de Halloween van en la rama local `halloween` y se suben al repo privado https://github.com/josepablini777-cmd/ASSISTENTE-NS-HALLOWEEN (remoto `halloween`, rama `main`): `git push halloween halloween:main`.
 - Evil Scary usa Estilo `evil`: estado en `$script:es`, funciones `Es-Reset, Es-Rebote, Es-Susto, Es-App, Es-Clic, Es-Tick`, tiempos en `$EsTiempos`, intro `Transicion-Evil` con tiempos en `$EsIntro`.
+- Soft Fuzzy Man usa Estilo `niebla`: estado en `$script:sf`, funciones `Sf-Reset, Sf-Existir, Sf-Niebla, Sf-Espesor, Sf-App, Sf-Clic, Sf-Gato, Sf-Tick, Pintar-Niebla`, tiempos en `$SfTiempos`. Actores 'F' (él) y 'G' (Orange Cat).
+- Intro de vídeo (`Transicion-Fuzzy`, tiempos en `$SfIntro`): los fotogramas son JPG sueltos en `skins\softfuzzy\intro` (campos `IntroCarpeta`, `IntroFotos`, `IntroFps` de la ficha) y se carga solo el que toca según el reloj; el audio es `intro.mp3`. Para hacer otra intro igual: sacar fotogramas y audio del vídeo con ffmpeg y copiar ese patrón.

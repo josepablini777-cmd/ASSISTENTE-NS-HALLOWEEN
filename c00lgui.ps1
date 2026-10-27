@@ -221,6 +221,7 @@ $Skins = [ordered]@{
             'Gran'                 = '> gran.exe closed. me ofreció una vacuna. soy un programa. no tengo brazo.'
             'Nanachi'                = '> nanachi.exe went back to the abyss. stew.dat still corrupted.'
             'Evil Scary'             = '> evil_scary.exe left the server. admin panel still missing. i checked.'
+            'Soft Fuzzy Man'       = '> soft_fuzzy_man.exe disconnected. tried to ping him. packet went right through.'
         }
         Yo = @('> c00lgui: still the best. no debate.', '> that one is me. obviously.')
         Opina = @{
@@ -246,6 +247,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('> intenté hackear antihuman inc. el firewall tiene colmillos.', '> gran quiere convertir a todos en furries. a mí no puede. soy código. ez.')
             'Nanachi'                = @('> tried to hack nanachi. found only fur. 100% fluffy. 0% data.', '> nanachi''s stew crashed my antivirus. respect.')
             'Evil Scary'             = @('> tried to ban evil scary. it said "IT IS EVIL AND SCARY". ban failed.', '> evil scary is the only thing c00lkidd is afraid of. don''t tell him.')
+            'Soft Fuzzy Man'       = @('> soft fuzzy man has no hitbox. no hitbox = no hack. respect.', '> he flirted with my firewall. it let him in.')
         }
         Frases = @(
             '> payload delivered.'
@@ -329,6 +331,7 @@ $Skins = [ordered]@{
             'Gran'                 = 'Se ha ido el dragón de la jeringuilla. Por fin puedo dormir sin firmar nada.'
             'Nanachi'                = 'Se fue Nanachi. Nos hemos pasado la tarde sin hablar. Ha sido perfecto.'
             'Evil Scary'             = 'Se ha ido Evil Scary. Por fin dejo de oír ese botecito. Lo sigo oyendo en sueños.'
+            'Soft Fuzzy Man'       = 'Se fue Soft Fuzzy Man. Me ha dejado la pantalla llena de niebla rosa. Muy bonito. Muy molesto.'
         }
         Yo = @('Esa skin soy yo. La mejor, obviamente.', 'Ah, sí. Yo. Elección correcta por una vez.')
         Opina = @{
@@ -354,6 +357,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('Gran me miró las orejas y dijo "medio camino hecho". No pienso preguntar.', 'Me ofreció un contrato de cuarenta páginas. Lo firmé sin leerlo. Era para que me dejara en paz. ...¿verdad?')
             'Nanachi'                = @('Nanachi es de las pocas que no me hace hablar. La aprecio. Bueno, le aprecio. Lo que sea.', 'Me hizo una infusión y dormí dos días. Lo mejor que me ha pasado.')
             'Evil Scary'             = @('Evil Scary no tiene ojos y aun así me mira. Odio eso. Lo odio mucho.', 'Le puse un pop-up de "cerrar". Lo atravesó. Pues vale.')
+            'Soft Fuzzy Man'       = @('Soft Fuzzy Man me pidió café. Le di una taza. La atravesó. Qué desperdicio.', 'Es como un salvapantallas con sentimientos.')
         }
         Frases = @(
             'Ya está. No me des las gracias, no me pagan.'
@@ -452,6 +456,7 @@ $Skins = [ordered]@{
             'Gran'                 = '¡Bzzt! ¡Se ha ido el señor de la bata! ¡Me quería poner una vacuna en la antena!'
             'Nanachi'                = '¡Bzzt! ¡Nanachi se ha ido! ¡Tiene un pelo tan mullido que se me ha erizado la antena!'
             'Evil Scary'             = '¡Bzzt! ¡Evil Scary se ha ido! ¡Mi tele vuelve a enseñar dibujos y no sonrisas rojas!'
+            'Soft Fuzzy Man'       = '¡Bzzt! ¡Se ha ido Soft Fuzzy Man! ¡Mi tele echa de menos su estática!'
         }
         Yo = @('¡Esa soy yo! ¡Hola, yo!', '¡Elígeme! ¡Elígeme! ¡Bzzt!')
         Opina = @{
@@ -477,6 +482,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('¡Gran nunca sonríe! ¡Le hice dibujos y los guardó en una carpeta que pone "MUESTRAS"!', '¡Bzzt! ¡Dice que soy una tele y que no le sirvo! ¡Qué grosero!')
             'Nanachi'                = @('¡Nanachi es como un peluche que habla! ¡Bzzt! ¡Y dice cosas muy sabias!', '¡Probé su estofado! ¡Mi tele se puso en blanco y negro del susto!')
             'Evil Scary'             = @('¡Evil Scary sale en mi tele cuando está apagada! ¡Bzzt! ¡No me gusta nada!', '¡Le canté una canción para que se calmara! ¡Botó más rápido!')
+            'Soft Fuzzy Man'       = @('¡Soft Fuzzy Man es borroso como yo! ¡Bzzt! ¡Somos familia!', '¡Cantamos su canción a dúo! ¡Él hacía los coros de niebla!')
         }
         Frases = @(
             '¡Listo! ¡Como en los dibujos de los sábados!'
@@ -590,6 +596,7 @@ $Skins = [ordered]@{
             'Gran'                 = '*Se ha ido el dragón verde. Guillotina se ha comido su jeringuilla. Ahora tiene orejas nuevas. Ya tenía.*'
             'Nanachi'                = '*Huele a estofado. Nanachi se ha ido. La olla no. Se la come.*'
             'Evil Scary'             = '*Guillotina se relaja. La bola negra se ha ido. No se la ha podido comer.*'
+            'Soft Fuzzy Man'       = '*Guillotina se relame. La nube rosa se ha ido. Sabía a algodón de azúcar. No llenaba nada.*'
         }
         Yo = @('*Se mira a sí misma. Le gusta lo que ve.*', '*Ronronea. Sí, esa es ella.*')
         Opina = @{
@@ -615,6 +622,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('*Olfatea a Gran. Huele a hospital. No le gusta.*', '*Gran le ofrece la vacuna. Guillotina se come la vacuna, el brazo y la bata. Gran lo anota.*')
             'Nanachi'                = @('*Guillotina se comió el estofado de Nanachi. Entero. Es la única que lo ha disfrutado.*', '*Mira las orejas de Nanachi. Se relame. Nanachi le enseña un cucharón. Se aleja.*')
             'Evil Scary'             = @('*Guillotina intentó comerse a Evil Scary. Se le quedaron las manos fuera de la boca. Lo escupió.*', '*Por primera vez, Guillotina se esconde detrás de algo.*')
+            'Soft Fuzzy Man'       = @('*Guillotina intentó comerse a Soft Fuzzy Man. Masticó aire. Se enfadó mucho.*', '*Guillotina le enseña los dientes. Él le guiña un ojo. Guillotina no sabe qué hacer.*')
         }
         Frases = @(
             '*ÑAM.*'
@@ -707,6 +715,7 @@ $Skins = [ordered]@{
             'Gran'                 = 'Manager, el doctor de Antihuman Inc. ha abandonado la instalación. Ha dejado contratos sin firmar en recepción.'
             'Nanachi'                = 'Manager, Nanachi ha regresado a su escondite. Ha dejado un olor... agradable.'
             'Evil Scary'             = 'Manager, la entidad Evil Scary ha abandonado la instalación. Las paredes siguen... atravesadas.'
+            'Soft Fuzzy Man'       = 'Manager, la entidad gaseosa ha abandonado la instalación. Los conductos de ventilación huelen a algodón de azúcar.'
         }
         Yo = @('Esa soy yo, Manager. La opción más eficiente.', 'Una elección lógica, Manager.')
         Opina = @{
@@ -732,6 +741,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('Gran crea anomalías a propósito. En L Corp eso se llama "infracción grave".', 'Me ha pedido muestras de nuestras Abnormalities. He denegado la solicitud. Tres veces.')
             'Nanachi'                = @('Nanachi conoce la medicina mejor que nuestro equipo de bienestar. Inquietante.', 'Clasificación de Nanachi: no es una anomalía. Me lo ha dejado muy claro.')
             'Evil Scary'             = @('Evil Scary: clasificación imposible. Atraviesa la contención. No responde a nada.', 'He intentado razonar con Evil Scary. Me ha contestado "STALL, STALL".')
+            'Soft Fuzzy Man'       = @('Soft Fuzzy Man: riesgo bajo. Insistencia alta. Me ha piropeado tres veces.', 'No hay celda para un gas que liga.')
         }
         Frases = @(
             'Tarea asignada. Le recomiendo no perder el tiempo.'
@@ -822,6 +832,7 @@ $Skins = [ordered]@{
             'Gran'                 = 'Se ha ido el de la jeringuilla. Le tenía en la mira todo el rato.'
             'Nanachi'                = 'Nanachi se ha ido. Me curó el dedo del gatillo. GG.'
             'Evil Scary'             = 'Evil Scary se ha ido. 0 hitmarkers en toda la partida. Primera vez.'
+            'Soft Fuzzy Man'       = 'Soft Fuzzy Man se ha ido. Le hice un noscope. La bala salió por el otro lado. 0 de daño. Me dio las gracias.'
         }
         Yo = @('Esa soy yo. La MVP. Obviamente.', '¿Mikaela? Elección de pro.')
         Opina = @{
@@ -847,6 +858,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('Gran me quería dar la vacuna. Le dije que mi única vacuna es un headshot.', 'Si me convierte en furry, ¿me sube la puntería? ...no lo pregunto en serio.')
             'Nanachi'                = @('Nanachi ve cosas que nadie ve. Sería el mejor apoyo de cualquier equipo.', 'Probé su estofado. Primera vez que pierdo contra una comida.')
             'Evil Scary'             = @('Evil Scary no tiene hitbox. O sí, pero no sirve de nada. GG, supongo.', 'Le hice una Smokebomb. Me encontró en dos segundos. Ve a través de todo.')
+            'Soft Fuzzy Man'       = @('Soft Fuzzy Man no tiene hitbox. Es un fallo del juego con sentimientos.', 'Mi Smokebomb y él se hicieron amigos. Ahora hay el doble de humo.')
         }
         Frases = @(
             '¡Hitmarker!'
@@ -941,6 +953,7 @@ $Skins = [ordered]@{
             'Gran'                 = '¡Se ha ido el de la bata verde! Que no vuelva con esa aguja.'
             'Nanachi'                = 'El conejo del Abismo se fue. Me curó la mano. No le disparé. Es un detalle.'
             'Evil Scary'             = 'La bola negra se fue. Seis balas. Cero agujeros. Me voy a echar una siesta.'
+            'Soft Fuzzy Man'       = 'La nube rosa se fue. Seis balas. Seis agujeros en el aire. Ni uno en él.'
         }
         Yo = @('*Se mira en el reflejo del revólver. Asiente.*', 'El mejor pistolero del desierto. Ese soy yo.')
         Opina = @{
@@ -966,6 +979,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('¡Ese doctor me apuntó con una jeringuilla! ¡NO TE MUEVAS! ...me movió él a mí.', 'Dice que ya soy un gato y que no hay nada que mejorar. Me lo tomo como un cumplido.')
             'Nanachi'                = @('Ese conejo me dijo que si no te mueves te comen. Ahora no sé qué hacer con mi vida.', 'Nanachi me vendó la mano sin preguntar. Gente así no queda en el oeste.')
             'Evil Scary'             = @('¡No te muevas, bola! ...SE MUEVE. A SALTOS. ¡NO LO SOPORTO!', 'Es lo único del oeste que corre más que mis balas. Y no corre. Bota.')
+            'Soft Fuzzy Man'       = @('¡No te muevas! ...¡NO SE MUEVE, FLOTA! ¡ES PEOR!', 'Me dio las gracias por dispararle. Este oeste está fatal.')
         }
         Frases = @(
             '¡BANG!'
@@ -1056,6 +1070,7 @@ $Skins = [ordered]@{
             'Gran'                 = 'El doctor se ha ido, cariño. Qué hombre tan frío... me encanta.'
             'Nanachi'                = 'Nanachi se ha ido, cielo. Tanto pelo mullido... y tanta desconfianza. Una pena.'
             'Evil Scary'             = 'Evil Scary se ha ido, cielo. Por primera vez, alguien me ha dado miedo a mí.'
+            'Soft Fuzzy Man'       = 'Soft Fuzzy Man se ha ido, cielo. Por fin alguien que liga más que yo. Me ha ganado.'
         }
         Yo = @('Esa soy yo, cielo. ¿Verdad que soy preciosa?', 'Elígeme a mí, cariño. Te trataré muy bien.')
         Opina = @{
@@ -1081,6 +1096,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('Gran admira mis ocho patas. Es el primer hombre que me mira con interés científico, cielo.', 'Le invité a mi telaraña. Me pidió una muestra de seda. Qué romántico.')
             'Nanachi'                = @('Nanachi huele a algodón de azúcar, cariño. Es muy injusto.', 'Me miró como si supiera lo que pienso. Igual lo sabía.')
             'Evil Scary'             = @('Esa bola sonríe más que yo, cariño. Y eso es mucho decir.', 'Le ofrecí cenar. Botó hacia mí. Cancelé la cena.')
+            'Soft Fuzzy Man'       = @('Ese chico de niebla es todo palabras, cariño. Ni siquiera tiene manos para cogerte las tuyas.', 'Le tejí una telaraña. La atravesó guiñando un ojo. Qué descaro. Me encanta.')
         }
         Frases = @(
             'Listo, cielo. Tómate tu tiempo... yo esperaré.'
@@ -1165,6 +1181,7 @@ $Skins = [ordered]@{
             'Gran'                 = 'DOCTOR VERDE IRSE. DUNE CONTENTO. AGUJA MALA.'
             'Nanachi'                = 'CONEJO ESTOFADO IRSE. DUNE ECHAR DE MENOS COMIDA.'
             'Evil Scary'             = 'BOLA NEGRA IRSE. DUNE SALIR DEL AGUA. DESPACIO.'
+            'Soft Fuzzy Man'       = 'NUBE ROSA IRSE. DUNE PODER RESPIRAR. OLER A ALGODÓN.'
         }
         Yo = @('DUNE. ESE DUNE. DUNE GUAPO.', 'DUNE ELEGIR DUNE.')
         Opina = @{
@@ -1190,6 +1207,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('DOCTOR QUERER DUNE EN TANQUE. DUNE YA VIVIR EN AGUA. DOCTOR TONTO.', 'DUNE MORDER JERINGUILLA. SABER A MENTA. DUNE QUERER MÁS.')
             'Nanachi'                = @('NANACHI HACER ESTOFADO. DUNE COMER TODO. NANACHI FELIZ. DUNE FELIZ.', 'CONEJO VER HILOS INVISIBLES. DUNE NO VER NADA. DUNE COMER.')
             'Evil Scary'             = @('BOLA NEGRA NO COMIDA. BOLA NEGRA COMER DUNE. DUNE NADAR.', 'DUNE CONTAR SALTOS. SEIS. LUEGO RUIDO AVIÓN. LUEGO CORRER.')
+            'Soft Fuzzy Man'       = @('NUBE ROSA NO COMIDA. DUNE PROBAR. DUNE COMER AIRE.', 'NUBE ROSA DECIR COSAS BONITAS. DUNE NO ENTENDER. DUNE SONROJARSE.')
         }
         Frases = @('ÑAM.', 'GRRGH. HECHO.', 'DUNE ABRIR. DUNE LISTO.', 'BOTÓN... APRETAR... BIEN.')
         Idle = @(
@@ -1277,6 +1295,7 @@ $Skins = [ordered]@{
             'Gran'                 = 'Cabra: Se ha ido el doctor verde. Decía que tenía fe. En la especie equivocada.'
             'Nanachi'                = 'Cabra: Se fue el conejo del Abismo. Rechazó ser obispo. Respeto.'
             'Evil Scary'             = 'Cabra: Se fue la bola negra. Le recé al Cordero para que se fuera. Funcionó. Creo.'
+            'Soft Fuzzy Man'       = 'Cabra: Se fue el fantasma rosa. No quiso ser nuestro espíritu del culto. Dijo que era "un fantasma libre".'
         }
         Yo = @('Cabra: Sí, somos nosotros. Elección divina.', 'Cordero: *Asiente con solemnidad.* *Beee.*')
         Opina = @{
@@ -1302,6 +1321,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('Cabra: Ese Gran quiere convertir a todos en animales. El Cordero ya lo es. Llega tarde.', 'Cordero: *Mira la jeringuilla verde con mucho interés.* · Cabra: No.')
             'Nanachi'                = @('Cabra: Nanachi ya ha sido "bendecido" una vez. No quiere otra. Lo entiendo.', 'Cordero: *Le ofrece una seta.* · Cabra: Nanachi dice que esa mata. Gracias, Nanachi.')
             'Evil Scary'             = @('Cabra: Evil Scary dice que era un rey. El Cordero también. No se llevan bien.', 'Cordero: *Se esconde debajo de la Cabra.* · Cabra: ¡AAAAAAH!')
+            'Soft Fuzzy Man'       = @('Cabra: Soft Fuzzy Man ligó con el Cordero. El Cordero no sabe qué hacer. Yo tampoco.', 'Cordero: *Le ofrece una corona.* · Cabra: Se le cae a través de la cabeza.')
         }
         Frases = @(
             'Cabra: Hecho. Que no se diga que no hacemos milagros.'
@@ -1406,6 +1426,7 @@ $Skins = [ordered]@{
             'Gran'                 = 'WMEW 99.9: El dueño de Antihuman Inc. ha abandonado la zona. Se recomienda no aceptar vacunas de desconocidos.'
             'Nanachi'                = 'WMEW 99.9: Nanachi ha vuelto al Abismo. Ha dejado vendas para las dos kaijus.'
             'Evil Scary'             = 'WMEW 99.9: La amenaza de la ronda especial ha abandonado la ciudad. Se recomienda no salir hasta mañana.'
+            'Soft Fuzzy Man'       = 'WMEW 99.9: Se disipa la niebla rosa sobre el P Mart. Visibilidad normal en el pueblo.'
         }
         Yo = @('Pyrophina: ¡GRRRRRAAAARRRGH! (le gusta)', 'Zaratana: ¡GRRRR, GRRRRR! (a ella también)')
         Opina = @{
@@ -1431,6 +1452,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('WMEW 99.9: Gran dice que nuestras kaijus son demasiado grandes para su laboratorio. Las kaijus lo han tomado como un reto.', 'Zaratana: *Mira a Gran.* · Pyrophina: ¡AAARGH! *Le quema la bata.*')
             'Nanachi'                = @('WMEW 99.9: Nanachi ha curado a Zaratana. Zaratana le ha dado un mordisquito de agradecimiento.', 'Pyrophina: ¡AAARGH! *Calienta el estofado de Nanachi. Huele peor. Todos huyen.*')
             'Evil Scary'             = @('WMEW 99.9: Las dos kaijus han dejado de pelear para huir de una bola negra. Histórico.', 'Pyrophina: ¡AAARGH! *Le lanza fuego. No pasa nada. Pyrophina se va.*')
+            'Soft Fuzzy Man'       = @('Pyrophina: ¡AAARGH! *Le echa fuego. Soft Fuzzy Man se evapora. Vuelve dos minutos después.*', 'WMEW 99.9: Zaratana se ha comido la niebla rosa. Está mareada.')
         }
         Frases = @(
             'WMEW 99.9: ¡Lo han abierto a pisotones!'
@@ -1515,6 +1537,7 @@ $Skins = [ordered]@{
             'Gran'                 = '¡El doctor se ha ido! Le di un sándwich y lo metió en una bolsa que ponía "MUESTRA 47".'
             'Nanachi'                = '¡Nanachi se ha ido! ¡Le di un abrazo de cinco segundos! ¡Récord!'
             'Evil Scary'             = '¡Evil Scary se ha ido! ¡Le di un abrazo! ¡Se quedó muy quieto! ¡Creo que le gustó!'
+            'Soft Fuzzy Man'       = '¡Soft Fuzzy Man se ha ido! ¡Le abracé diez veces! ¡Le atravesé diez veces! ¡Mereció la pena!'
         }
         Yo = @('¡Esa soy yo! ¿Se me ve bien la cola? No contestes.', '¡Elígeme! Prometo no tropezar con los iconos.')
         Opina = @{
@@ -1540,6 +1563,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('¡Gran dice que soy la prueba de que los furries son mejores! ...¿eso es bueno? Suena raro.', '¡Le pregunté si quería ser mi amigo y me dio un contrato! ¡No lo he firmado! ...creo.')
             'Nanachi'                = @('¡Nanachi es lo más mullido del mundo! Me lo dijo con una cara... ¡creo que le gustó!', 'Le dije que su estofado "tiene personalidad". Me miró fatal. ¡Era un cumplido!')
             'Evil Scary'             = @('¡Evil Scary solo necesita un amigo! ...un amigo muy valiente.', '¡Le hice un sándwich! Lo atravesó. ¡Pero lo intentó!')
+            'Soft Fuzzy Man'       = @('¡Soft Fuzzy Man es suave y esponjoso de verdad! ...bueno, eso dice él. ¡No se puede tocar!', '¡Le hice un sándwich! ¡Lo miró con mucho cariño! ¡Es un detalle!')
         }
         Frases = @(
             '¡Abierto! ...¿era ese el que querías? Sí, ¿verdad? Vale.'
@@ -1665,6 +1689,7 @@ $Skins = [ordered]@{
             'Gran'                 = 'Se ha ido el doctor, amigo. Quería venderle pilas. Él quería venderme una cola.'
             'Nanachi'                = 'Nanachi se ha ido. Le compré tres antídotos. Los voy a revender al doble, amigo.'
             'Evil Scary'             = 'El de la sonrisa roja se ha ido. No compró nada. Solo botó encima del mostrador.'
+            'Soft Fuzzy Man'       = 'Se fue la nube rosa. No compró nada. No podía coger nada. Aun así se probó tres sombreros.'
         }
         Yo = @('Ese soy yo. Tu único amigo.', '¡Elígeme! Tengo buenos precios. Más o menos.')
         Opina = @{
@@ -1690,6 +1715,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('Gran me ofreció un trato. Yo soy el que hace los tratos aquí, amigo.', 'Su vacuna no tiene garantía ni devolución. Yo no la vendería.')
             'Nanachi'                = @('Nanachi hace medicinas con setas. Mejores que mis botiquines. No se lo digas.', 'Su escondite está lleno de monstruos y nadie se queja. Como mi tienda.')
             'Evil Scary'             = @('Le vendí un Flash Beacon a un cliente para usarlo contra Evil Scary. No funcionó. No devuelvo el dinero.', 'Las entidades de Pressure le tienen miedo a Evil Scary, amigo. Y yo también.')
+            'Soft Fuzzy Man'       = @('Le vendí un ambientador a Soft Fuzzy Man. Ahora huele a lavanda y a fantasma, amigo.', 'Las entidades de Pressure también atraviesan paredes. Pero ninguna te dice que tienes unos ojos preciosos.')
         }
         Frases = @(
             'Hecho. Toma, investigación por las molestias.'
@@ -1775,6 +1801,7 @@ $Skins = [ordered]@{
             'Gran'                 = 'Se ha ido el doctor. No corría. Qué aburrido.'
             'Nanachi'                = 'Nanachi se fue. Su estofado no es carne fresca. No es nada.'
             'Evil Scary'             = 'La bola se ha ido. Por fin puedo cazar tranquilo.'
+            'Soft Fuzzy Man'       = 'La nube se ha ido. Olía a lobo. Pero no había carne.'
         }
         Yo = @('...yo.', '*Te mira fijamente sin parpadear.*')
         Opina = @{
@@ -1800,6 +1827,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('Gran transforma a sus presas. Yo prefiero cazarlas tal como son.', 'Él usa jeringuillas. Yo uso los dientes. Cada uno tiene su método.')
             'Nanachi'                = @('Nanachi caza mejor que yo. Y nadie le ve. Respeto.', 'Probé su estofado. Ahora entiendo el miedo.')
             'Evil Scary'             = @('Evil Scary caza a los cazadores. No me gusta ser la presa.', 'Tiene mi cara. Pero roja. No le pedí permiso.')
+            'Soft Fuzzy Man'       = @('Soft Fuzzy Man era un lobo. Ahora es niebla. No quiero acabar así.', 'Me dijo "cariño". Le enseñé los dientes. Me guiñó un ojo. Me fui.')
         }
         Frases = @('*Desgarra la ventana.* Abierta.', 'Otra presa.', '*Zarpazo.* Hecho.', '¡AHH, CARNE FRESCA!')
         Idle = @(
@@ -1906,6 +1934,7 @@ $Skins = [ordered]@{
             'Gran'                 = '¡Se ha ido el doctor serio! ¡No me reí ni una vez con él! ¡Ni él conmigo!'
             'Nanachi'                = '¡Nanachi se ha ido! ¡Su estofado me hizo olvidar mi nombre! ...¿cómo me llamaba?'
             'Evil Scary'             = '¡Evil Scary se ha ido! ¡Ya puedo dejar de correr! ...¿por qué corría?'
+            'Soft Fuzzy Man'       = '¡Soft Fuzzy Man se ha ido! ...¿quién? ¡Ah, sí! ¡La nube que liga!'
         }
         Yo = @('¡Esa soy yo! ¡Hiii~!', '¡Elígeme! Bailo, canto y me olvido de todo. ¡Es un pack!')
         Opina = @{
@@ -1931,6 +1960,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('¡Gran dice que sigo siendo humana! ¡Pues claro! ...¿por qué lo dice así?', '¡Le canté una canción y apuntó mi "frecuencia vocal"! ¡Qué fan tan raro!')
             'Nanachi'                = @('¡Nanachi tiene orejas de conejo de verdad! ¡Yo tengo taladros! ¡Somos un dúo de pelo!', '¡Le pregunté si podía tocarle! Dijo "no". ¡Muy claro! ¡Me encanta!')
             'Evil Scary'             = @('¡Me olvidé de que Evil Scary existía! ¡Y entonces sonó la alarma! ¡AAAH!', '¡Le dije "hiii"! ¡Me contestó "STALL, STALL"! ¡Qué maleducado!')
+            'Soft Fuzzy Man'       = @('¡Me olvidé de que Soft Fuzzy Man estaba aquí! ¡Él me lo recordó! ¡Cuatro veces!', '¡Le dije "hiii"! ¡Se puso rosa fuerte! ¡Qué mono!')
         }
         Frases = @(
             '¡Abierto! ...creo. ¡Sí, abierto!'
@@ -2018,6 +2048,7 @@ $Skins = [ordered]@{
             'Gran'                 = 'EL DOCTOR SE HA IDO. ME QUERÍA PINCHAR. YA ESTOY PINCHADO DE RUIDO.'
             'Nanachi'                = 'Nanachi se ha ido. Me pidió que bajara el volumen. Por primera vez lo hice.'
             'Evil Scary'             = 'Evil Scary se ha ido. Me ha dejado la alarma metida en la cabeza. La he sampleado.'
+            'Soft Fuzzy Man'       = 'Soft Fuzzy Man se ha ido. Le metí en un remix. Ahora es un pad ambiental.'
         }
         Yo = @('¡Esa ficha soy yo! Méteme en la máquina.', 'Elígeme. Prometo subir el volumen y no bajarlo nunca.')
         Opina = @{
@@ -2043,6 +2074,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('Gran dice que tengo "buena base genética". GRACIAS. CREO.', 'Su laboratorio es demasiado silencioso. LE PUSE BREAKCORE. NO LE GUSTÓ.')
             'Nanachi'                = @('Nanachi dice que en el Abismo el ruido atrae monstruos. Ahora toco más bajo. Un poco.', 'Probé el estofado de Nanachi. Me crasheé. Literalmente.')
             'Evil Scary'             = @('Evil Scary suena a 60 BPM y luego a 300. Es el mejor drop que he oído.', 'Le hice un remix de la alarma. Botó al ritmo. Mala idea.')
+            'Soft Fuzzy Man'       = @('Soft Fuzzy Man es puro ambiente. Yo soy puro ruido. Hacemos buen equipo.', 'Su canción va a 100 BPM. Le hice una a 200. Se mareó. Es gas.')
         }
         Frases = @(
             '¡T0K3N 1NS3RT3D! Abierto.'
@@ -2130,6 +2162,7 @@ $Skins = [ordered]@{
             'Gran'                 = 'Se ha ido Gran. Me miraba como si fuera un experimento.'
             'Nanachi'                = 'Nanachi se ha ido. No hablamos casi nada. Fue genial.'
             'Evil Scary'             = 'Evil Scary se ha ido. Estaba en No molestar. No sirvió de nada.'
+            'Soft Fuzzy Man'       = 'Soft Fuzzy Man se ha ido. Me ha dejado veinte mensajes. Todos dicen "¿me ves?".'
         }
         Yo = @('Ese botón soy yo. Elígeme. Sin prisa.', 'Elígeme y te pongo pop de 2020. Del bueno.')
         Opina = @{
@@ -2155,6 +2188,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('Gran dice que soy la especie superior. Yo solo quiero dormir en el sofá.', 'Me mandó un mensaje. "Su cita para la vacuna es mañana". Lo he dejado en visto.')
             'Nanachi'                = @('Nanachi tampoco contesta mensajes. Por fin alguien que me entiende.', 'Me ofreció estofado. Seguí con mis fideos. Me dijo que era lo más listo que había visto.')
             'Evil Scary'             = @('Evil Scary no respeta el No molestar. Nadie lo respeta, pero él menos.', 'Lo vi venir desde el sofá. Ni me levanté. ...vale, me levanté.')
+            'Soft Fuzzy Man'       = @('Soft Fuzzy Man necesita que le hagan caso. Yo necesito que no me hagan caso. Equilibrio.', 'Le dejé en visto. Se puso transparente. Vale, le contesté.')
         }
         Frases = @(
             'Hecho. Te lo abro como quien abre un chat viejo.'
@@ -2247,6 +2281,7 @@ $Skins = [ordered]@{
             'Gran'                 = '¡SE HA IDO EL DOCTOR! ¡NO HA TOCADO MI PIZZA! ...¿O SÍ? *La revisa.*'
             'Nanachi'                = 'Se fue el conejo. Su estofado sabe peor que el queso azul. ¡Y no lo toqué! ...bueno, lo probé.'
             'Evil Scary'             = '¡Se fue Evil Scary! ¡Y no tocó mi pizza! ...me tocó a mí. Que es peor.'
+            'Soft Fuzzy Man'       = '¡Se fue la nube! ¡Ha pasado a través de mi pizza! ¡Dice que no la ha tocado! ...técnicamente tiene razón.'
         }
         Yo = @('¡Ese soy yo! El lobo más guapo de todo Paint.', 'Elígeme. Pero trae pizza. Para ti no, para mí.')
         Opina = @{
@@ -2272,6 +2307,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('¡Gran quería ponerle Fury Mix a mi pizza! ¡NADIE TOCA MI PIZZA! ¡NI LA CIENCIA!', 'Me dijo que mi instinto animal es "correcto". Gracias. Ahora vete de mi pizzería.')
             'Nanachi'                = @('Nanachi defiende su olla como yo mi pizza. Respeto. Pero su olla huele fatal.', 'Le ofrecí... nada. No toques mi pizza. Pero Nanachi mola.')
             'Evil Scary'             = @('¡Le saqué la motosierra! ¡Se le rompió! ¡A la motosierra!', 'Evil Scary no quiere mi pizza. Quiere a Kevin. Kevin soy yo. AAAAH.')
+            'Soft Fuzzy Man'       = @('¡Soft Fuzzy Man no puede tocar mi pizza! ¡Es el amigo perfecto!', '¡Ahora mi pizza sabe a niebla rosa! ¡NO TOQUES MI PIZZA! ¡Ni de vapor!')
         }
         Frases = @(
             '¡Abierto! Y no he tocado nada. Bueno, un trozo de pizza. Era mío.'
@@ -2383,6 +2419,7 @@ $Skins = [ordered]@{
             'Gran'                 = 'Se ha ido Gran. Le toqué una canción y la apuntó como "síntoma".'
             'Nanachi'                = 'Se fue Nanachi. Le toqué algo tranquilo para que se durmiera. Funcionó.'
             'Evil Scary'             = 'Se fue Evil Scary. La alarma del avión sonaba en Mi bemol. Ya tengo canción.'
+            'Soft Fuzzy Man'       = 'Se fue Soft Fuzzy Man. Su canción es de Lemon Demon. Le toqué la línea de bajo. Se puso a bailar.'
         }
         Yo = @('¡Ese soy yo! Bueno, mi personaje. Es más guapo que yo. Y toca mejor.', 'Elígeme. Prometo no romper ninguna guitarra. ...hoy.')
         Opina = @{
@@ -2408,6 +2445,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('Gran escucha la canción del ascensor de Regretevator. "¿Seguro que es farmacéutico?" ...pues no, no lo es.', 'Dice que con garras tocaría mejor la guitarra. Igual tiene razón. No pienso comprobarlo.')
             'Nanachi'                = @('Nanachi tiene orejas grandes y cola. Casi somos familia. Casi.', 'Le hice una canción sobre su estofado. Se titula "Mejor no".')
             'Evil Scary'             = @('Evil Scary bota a 100 BPM. Luego a 200. Pop-punk puro.', 'Le toqué un acorde para calmarlo. El ampli explotó. Él siguió.')
+            'Soft Fuzzy Man'       = @('Soft Fuzzy Man tiene una de las mejores canciones de Spirit Phone. No se lo digas, que ya se lo cree.', 'Le hice un acorde. Vibró entero. Literalmente.')
         }
         Frases = @(
             'Abierto. Como un primer acorde: fuerte y sin pensarlo mucho.'
@@ -2502,6 +2540,7 @@ $Skins = [ordered]@{
             'Gran'                 = 'El doctor verde se ha ido. Y la estatua sigue siendo de oro, no de pelo.'
             'Nanachi'                = '¡Nanachi se ha ido! Distinguía a los Enphosians a la primera. ¡Qué ojo!'
             'Evil Scary'             = '¡Evil Scary se ha ido! ¡La estatua sigue en pie! ¡Por poco!'
+            'Soft Fuzzy Man'       = '¡Soft Fuzzy Man se ha ido! ¡Por un momento pensé que era un Enphosian! ¡Solo era un ligón!'
         }
         Yo = @('¡Esa es Enfosi! Elígela y defiende la estatua.', 'Elige Enfosi. Siete oleadas, tres jefes y un Ojo que no quieres conocer.')
         Opina = @{
@@ -2527,6 +2566,7 @@ $Skins = [ordered]@{
             'Gran'                 = @('Gran no se disfraza. Te dice a la cara que te va a cambiar. Al menos es sincero.', '¡Le dio la vacuna a un Glaggle! ¡Ahora tiene orejas de gato y sigue sonriendo!')
             'Nanachi'                = @('Nanachi ve cosas que los demás no ven. ¡Sería el mejor defensor de la estatua!', 'Le enseñé un Glaggle y dijo: "ese no es lo que parece". ¡Y tenía razón!')
             'Evil Scary'             = @('¡Evil Scary no es un Glaggle ni un Enphosian! ¡Es mucho peor!', 'Ni los Enphosians se acercan a Evil Scary. Ellos sí saben lo que es.')
+            'Soft Fuzzy Man'       = @('¡Soft Fuzzy Man defiende la estatua fatal! ¡Todo el mundo le atraviesa!', '¡Los Glaggles le siguen! ¡Creen que es algodón de azúcar!')
         }
         Frases = @(
             '¡Abierto! Un Glaggle viene de camino. ¿Será de verdad?'
@@ -2618,6 +2658,7 @@ $Skins = [ordered]@{
             'Enfosi'               = 'Se acabaron los Glaggles. Disfraces de piel. Qué primitivo.'
             'Nanachi'                = 'El sujeto del Abismo se ha ido. Un resultado... interesante. No me dejó acercarme.'
             'Evil Scary'             = 'La entidad sin cuerpo se ha ido. La jeringuilla se quedó negra. Fascinante. Y preocupante.'
+            'Soft Fuzzy Man'       = 'El sujeto gaseoso se ha ido. La jeringuilla sigue llena de niebla rosa. No sé qué hacer con ella.'
         }
         Yo = @('Esa es mi ficha. Elíjala. Es lo más sensato que hará hoy.', 'Gran. Antihuman Inc. Recuerde el nombre. Lo verá en su contrato.')
         Opina = @{
@@ -2643,6 +2684,7 @@ $Skins = [ordered]@{
             'Enfosi'               = @('Enfosi va de disfraces y sonrisas falsas. Yo no disfrazo nada. Yo transformo.', 'Los Glaggles explotan al llegar. Mis sujetos no explotan. Casi nunca.')
             'Nanachi'                = @('Nanachi es la prueba de que un cuerpo cambiado puede seguir siendo alguien. Lo anoto. A regañadientes.', 'Le pedí una muestra. Me tiró un cucharón. Lo anoto como "no colaborador".')
             'Evil Scary'             = @('Evil Scary no tiene ADN que transformar. Solo manos y una sonrisa. Lo anoto como "imposible".', 'Le ofrecí Fury Mix. Me ofreció un susto. Ganó él.')
+            'Soft Fuzzy Man'       = @('Soft Fuzzy Man ya fue transformado. En algo que no sale en mi protocolo. Fascinante.', 'Le pedí una muestra. Me dijo "sírvete". Se escapó por la aguja.')
         }
         Frases = @(
             'Abierto. Un sujeto más para el estudio.'
@@ -2736,6 +2778,7 @@ $Skins = [ordered]@{
             'Enfosi'               = 'SE HA IDO LO DE LA ESTATUA. TODO EL QUE TOCA LA ESTATUA... SE ACABA.'
             'Gran'                 = 'GRAN SE HA IDO. QUISO INYECTARLE FURY MIX. LA JERINGUILLA SE QUEDÓ NEGRA.'
             'Nanachi'              = 'NANACHI SE HA IDO. LO VIO VENIR DESDE LEJOS. NADIE MÁS PUEDE.'
+            'Soft Fuzzy Man'       = 'LA NIEBLA ROSA SE HA IDO. EVIL SCARY LA ATRAVESÓ. ELLA LE ATRAVESÓ A ÉL. EMPATE.'
         }
         Yo = @('ESE BOTÓN ES EVIL SCARY. ELEGIRLO NO LO HACE MENOS EVIL.', 'IT IS EVIL AND SCARY. *Te mira desde el botón.*')
         Opina = @{
@@ -2761,6 +2804,7 @@ $Skins = [ordered]@{
             'Enfosi'               = @('En Enfosi hay Enphosians disfrazados. EVIL SCARY NO SE DISFRAZA. NO LE HACE FALTA.', 'Defender la estatua es fácil. HASTA QUE BOTA.')
             'Gran'                 = @('Gran transforma a la gente. EVIL SCARY TAMBIÉN. EN GENTE QUE CORRE.', 'Gran quiso una muestra. NO HAY NADA DENTRO. SOLO NEGRO.')
             'Nanachi'              = @('Nanachi ve el campo de fuerza. TAMBIÉN VE A EVIL SCARY. NO LE GUSTA LO QUE VE.', 'Nanachi pasa de todo. MENOS DE ESTO.')
+            'Soft Fuzzy Man'       = @('SOFT FUZZY MAN NO TIENE SUPERFICIE. EVIL SCARY NO SABE CÓMO ASUSTARLO.', 'SOFT FUZZY MAN LE GUIÑÓ UN OJO. EVIL SCARY BOTÓ HACIA ATRÁS.')
         }
         Frases = @(
             'ABIERTO. *Evil Scary ha oído el clic. Bota hacia ti.*'
@@ -2806,6 +2850,159 @@ $Skins = [ordered]@{
         Stall = @('⚠ STALL. STALL. *Se queda quieto. Algo va a pasar. CORRE.*', '⚠ *Suena la alarma de un avión.* STALL. STALL. ...haz clic en él para bloquearlo.', '⚠ STALL, STALL. *Las manos dejan de temblar. Eso es peor.*')
         Bloqueo = @('¡BLOQUEADO! Logro desbloqueado: LUCID NIGHTMARE. *Evil Scary vuelve al horizonte. Volverá.*', '¡BLOCK! *Rebota hacia atrás.* Logro: LUCID NIGHTMARE. Muy pocos lo consiguen.', '¡LO HAS PARADO! LUCID NIGHTMARE. ...no te relajes. IT IS STILL EVIL.')
         Atrapado = @('*TE HA ATRAPADO.* IT IS EVIL AND SCARY. -33% de vida. Vuelve a empezar desde lejos.', '*JUMPSCARE.* ...respira. Ya se ha ido. Bueno, está volviendo.', '*Una cara roja te llena la pantalla.* ESCAPE. ESCAPE. ESCAPE.')
+    }
+    # ================================================================ Soft Fuzzy Man (Lemon Demon · animación de Aimkid) · ACTUALIZACIÓN DE HALLOWEEN
+    # La canción es de Lemon Demon (Neil Cicierega, disco Spirit Phone, 2016) y la animación de Aimkid (2020).
+    # En la wiki de Aimkid: es el fantasma de Dipshit (el lobo de "My Trains"), reencarnado en un lobo-fantasma rosa de neón.
+    # Personalidad: un hombre-nube que cree que ser un misterio le hace atractivo; ligón, teatral... y en el fondo necesita sentir que existe.
+    # Sale con Orange Cat (que usa "elle/they": en sus frases se evita el masculino y el femenino), que se asusta porque no sabe que es él.
+    'Soft Fuzzy Man' = @{
+        Estilo = 'niebla'; Titulo = 'Soft Fuzzy Man'; Sub = 'lemon demon  ·  aimkid'; Alto = 320
+        Fondo = (C 40 16 70); Borde = (C 255 90 230); Acento = (C 255 150 240)
+        TituloColor = (C 255 160 245); SubColor = (C 150 240 255)
+        BtnFondo = (C 60 24 100); BtnTexto = (C 255 225 250); BtnTextoHover = (C 40 10 60); BtnBorde = (C 255 90 230); BtnBordeAncho = 2
+        BtnHover = (C 255 160 245); BtnPress = (C 150 240 255); BarraBtnTexto = (C 255 225 250)
+        StatusColor = (C 255 225 250); Fuente = 'Segoe UI'; FuenteTitulo = 'Segoe Print'; Opacidad = 1.0; Velocidad = 1
+        Ancho = 760; Mezclar = $true; Gif = 'skins\softfuzzy\fuzzy.png'; FondoImg = 'skins\softfuzzy\fondo.jpg'
+        IntroCarpeta = 'skins\softfuzzy\intro'; IntroFotos = 198; IntroFps = 18
+        # Soft Fuzzy Man bailando (recortado de su baile en la ventana del vídeo) y Orange Cat dando vueltas por el aire
+        Actores = @(
+            @{ Id = 'F'; Gif = 'skins\softfuzzy\fuzzy.png'; Rect = @(574, 64, 176, 210); Respira = $true
+               Tiras = @{ main = @{ Archivo = 'skins\softfuzzy\fuzzy_tira.png'; Frames = 12; Delay = 85; Orden = @(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1) }
+                         brazos = @{ Archivo = 'skins\softfuzzy\brazos_tira.png'; Frames = 11; Delay = 80 }
+                         cara = @{ Archivo = 'skins\softfuzzy\cara_tira.png'; Frames = 2; Delay = 70 } } }
+            @{ Id = 'G'; Gif = 'skins\softfuzzy\gato.png'; Rect = @(436, 120, 130, 92); Respira = $true
+               Tiras = @{ main = @{ Archivo = 'skins\softfuzzy\gato_tira.png'; Frames = 12; Delay = 110 } } }
+        )
+        Sonidos = @{
+            intro = @('skins\softfuzzy\intro.mp3'); puff = @('skins\softfuzzy\puff.wav'); viento = @('skins\softfuzzy\viento.wav')
+            brillo = @('skins\softfuzzy\brillo.wav'); boing = @('skins\softfuzzy\boing.wav')
+        }
+        Burbuja = @(424, 278, 322, 34); BurFondo = $null; InvFondo = (C 50 20 86); BurTexto = (C 255 230 252); BurFuente = 'Segoe UI'
+        Hola = @(
+            'Frío y ventoso. Oscuro y tormentoso. *Flota hacia ti.* Hola. No me ignores, por favor.'
+            '*Aparece entre la niebla.* Lo que tú necesitas es un hombre suave y esponjoso. Hola. Soy yo.'
+            '¿Me ves? ...¿me ves de verdad? Genial. Llevaba un rato aquí.'
+            'Un truco de la luz para quererte esta noche. *Se pone un poco transparente de los nervios.*'
+        )
+        AlVenirDe = @{
+            'c00lgui'              = 'Se ha ido el hacker. Intentó hackearme. No encontró nada sólido que hackear. Es mi encanto.'
+            'SeaDrive'             = 'SeaDrive se ha ido. Le pedí que me guardara en la nube. Dijo que yo ya soy una nube.'
+            'Static Miku'          = 'Se ha ido Miku. Su tele hace "fsssh" como yo. Teníamos química. Estática, pero química.'
+            'Guillotina'           = 'Guillotina se ha ido. Intentó comerme. Me atravesó la boca. Le dejé un sabor a algodón de azúcar.'
+            'Angela'               = 'Angela se ha ido. Quiso contenerme en una celda. Me salí por la rejilla. Como un buen gas.'
+            'Mikaela'              = 'Se fue la francotiradora. Me disparó. La bala me atravesó. Me sentí visto.'
+            'Zodiac'               = 'Se fue el vaquero. Me dijo "no te muevas". Yo no me muevo: me difumino.'
+            'Velvet'               = 'Velvet se ha ido. Me guiñó un ojo. Yo le guiñé tres. Tengo ojos de sobra.'
+            'Dune'                 = 'Dune se ha ido nadando. Intentó comerme. Dijo "NUBE NO COMIDA". Me dolió un poco.'
+            'Cordero y Cabra'      = 'Se fue el culto. Me querían de espíritu oficial. Yo solo quería que alguien me mirara.'
+            'Pyrophina y Zaratana' = 'Se fueron las kaijus. Pyrophina me echó fuego. Me evaporé un poquito. Ya estoy mejor.'
+            'Averi'                = 'Averi se ha ido. Me intentó abrazar. Me atravesó. Lo intentó otra vez. Qué bonito.'
+            'Sebastian Solace'     = 'Se fue el tendero. Me quiso vender un cuerpo. No tenía mi talla.'
+            'Pursuer'              = 'Pursuer se ha ido. Me olió y dijo "carne fresca". Lo siento, soy niebla del todo.'
+            'Kasane Teto'          = 'Teto se ha ido. Se olvidó de que yo estaba aquí. Me pasa mucho. Demasiado.'
+            'Token'                = 'Token se ha ido. Su música me dejó todo revuelto. Literalmente: soy gas.'
+            'Tetra'                = 'Se fue Tetra. Me dejó en visto. Como todo el mundo.'
+            'Kevin'                = 'Kevin se ha ido. Pasé a través de su pizza. No la toqué. Técnicamente.'
+            'Kennyoung'            = 'Kennyoung se ha ido. Me ha prometido una canción. Ya tengo una, pero gracias.'
+            'Enfosi'               = 'Se fue lo de la estatua. Me confundieron con un Enphosian. Yo no me disfrazo. Soy así de borroso.'
+            'Gran'                 = 'Gran se ha ido. Me quiso sacar una muestra. Se llevó una jeringuilla llena de niebla.'
+            'Nanachi'              = 'Nanachi se ha ido. Me miró y dijo "nnaa". Lo tomo como un sí.'
+            'Evil Scary'           = 'Se ha ido la bola negra. Me atravesó y yo le atravesé. Quedamos en empate.'
+        }
+        Yo = @('¿Ese botón soy yo? *Se acerca a mirarlo.* Salgo un poco borroso. Es mi estilo.', 'Me has elegido a mí. Por fin alguien me ve.')
+        Opina = @{
+            'c00lgui'              = @('c00lgui tiene un panel de hacker. Yo no tengo ni panel ni cuerpo. Empate.', 'Me quiso meter en un virus. Ya soy algo que se cuela por todas partes, gracias.')
+            'SeaDrive'             = @('SeaDrive siempre tiene sueño. Yo soy como un sueño. Encajamos.', 'Le pedí café. Me atravesó la taza. Me lo tomé en vapor.')
+            'Static Miku'          = @('Miku sale borrosa en su tele. Como yo en la vida.', 'Nos hicimos una foto juntos. Salió estática. Y niebla.')
+            'Guillotina'           = @('Guillotina se lo come todo. A mí me intentó sorber. No funcionó.', 'Tiene dientes enormes. Yo tengo dientes pequeños y mucha actitud.')
+            'Angela'               = @('Angela me clasificó como "gas inofensivo". ¿Inofensivo? Eso duele más que una celda.', 'Me encanta su voz. Es tan sólida.')
+            'Mikaela'              = @('Mikaela me disparó. Atravesé la bala. Fue romántico.', 'Su Smokebomb y yo nos llevamos bien. Somos de la misma familia.')
+            'Zodiac'               = @('Zodiac dispara a todo lo que se mueve. Yo no me muevo: floto.', 'Seis balas. Seis agujeros en el aire. Ninguno en mí.')
+            'Velvet'               = @('Velvet liga con todo el mundo. Yo también. Hay competencia.', 'Me tejió una telaraña. La atravesé. Sin querer. Bueno, queriendo.')
+            'Dune'                 = @('Dune dice que no soy comida. Es lo más bonito que me han dicho en semanas.', 'Dune nada. Yo floto. Somos casi lo mismo.')
+            'Cordero y Cabra'      = @('El Cordero quería que fuera su fantasma oficial. Yo soy un fantasma libre.', 'La Cabra grita cuando me ve. Me siento visto.')
+            'Pyrophina y Zaratana' = @('Pyrophina me echó fuego y me evaporé un poco. No me importa: vuelvo a condensarme.', 'Dos kaijus peleando y nadie me mira. Lo de siempre.')
+            'Averi'                = @('Averi me quiere abrazar. Yo no tengo brazos para abrazarla. Pero lo intentamos.', 'Me hizo un sándwich. Lo miré con mucho cariño.')
+            'Sebastian Solace'     = @('Sebastian me vendió un ambientador. Ahora huelo a fantasma con lavanda.', 'Sebastian no me cobra la entrada: no me ve entrar.')
+            'Pursuer'              = @('Pursuer y yo somos lobos. Él tiene carne. Yo tengo actitud.', 'Me olió. Puso cara rara. Huelo a niebla rosa. Es un perfume.')
+            'Kasane Teto'          = @('Teto se olvida de todo. También de mí. Tengo que presentarme cada vez.', '¡Me dijo "hiii"! A mí. A mí, que nadie me ve.')
+            'Token'                = @('Token es puro ruido. Yo soy puro ambiente. Hacemos buen dúo.', 'Me metió en un remix. Ahora soy un efecto de sonido.')
+            'Tetra'                = @('Tetra está en No molestar. Yo estoy en No me ves.', 'Le escribí. Visto. No contestó. Me encanta el misterio, pero no así.')
+            'Kevin'                = @('Kevin defiende su pizza. Yo la atravesé. ¡No la toqué! ...técnicamente.', 'Kevin dice que huelo raro. Es niebla. Con un toque de queso.')
+            'Kennyoung'            = @('Kennyoung hace pop-punk. A mí me canta Lemon Demon. Cada uno tiene su banda.', 'Me hizo un acorde. Vibré. Literalmente.')
+            'Enfosi'               = @('En Enfosi hay Enphosians disfrazados. A mí no me hace falta disfraz: ya soy raro.', 'Defendí la estatua. Todo el mundo me atravesaba. No sirvo de muro.')
+            'Gran'                 = @('Gran quiere convertir a la gente. A mí no me puede convertir: ya me pasó algo peor.', 'Me sacó una muestra. Se le escapó por la jeringuilla.')
+            'Nanachi'              = @('Nanachi es mullido. Yo soy mullido. Pero yo no se puede tocar.', 'Nanachi dice que en el Abismo hay niebla que mata. Yo no mato. Solo ligo.')
+            'Evil Scary'           = @('Evil Scary atraviesa las paredes. Yo también. Pero yo con estilo.', 'Me vio a través de una pared. Le guiñé un ojo. No le gustó.')
+        }
+        Frases = @(
+            'Abierto. Me has hecho caso. Me siento un poco más... sólido.'
+            'Hecho. *Se le ven un poco más los bordes.* Gracias por notarme.'
+            'Abierto. ¿Ves? Existo. Un poquito más que antes.'
+            'Listo. Lo he hecho yo. Bueno, el ratón. Pero yo estaba aquí.'
+        )
+        Idle = @(
+            '¿No me ves? ¿Por qué no me ves? Estoy por todas partes, frío y soñador.'
+            'No te pongas nervioso. No soy como esos chicos que tienen superficie.'
+            'Sé que suena raro, pero cuando te vuelves borroso, lo entiendes todo.'
+            '¿Quién se cuela en tus pensamientos? ¿Quién te hace ver puntitos? ¿Quién te despeina? Yo.'
+            'Aunque no tengo brazos para abrazarte, por dentro me quema una pasión humana.'
+            'Mi canción es de Lemon Demon, del disco Spirit Phone. Mi cuerpo, de Aimkid. Mi cuerpo de ahora, quiero decir.'
+            'Antes era un lobo. Se metieron con los trenes de otro. Bueno: ME metí. No preguntes.'
+            'Neil, el de Lemon Demon, llama así a su gato: Soft Fuzzy Man. Tengo un tocayo con bigotes.'
+            '*Se mira la cola.* Termina en punta. Como la de un lagarto. Es lo más sólido que tengo.'
+            'Orange Cat se asustó al verme. No sabe que soy yo. Algún día se lo diré. Cuando tenga cara de lo que era.'
+            'Una bocanada brillante de amor sin forma. Eso soy. Ponlo en mi currículum.'
+            'Si dejas de hacerme caso, me borro. No es una amenaza. Es literal. Mira mi barra de EXISTENCIA.'
+        )
+        # clic en él: tu mano lo atraviesa
+        Clic = @(
+            'Tu mano me atraviesa. *Fssshh.* ...me ha hecho cosquillas.'
+            'Enséñame las manos y pásalas a través de mí. Así. Exacto.'
+            '¡Eh! *Se recompone.* Vale, sí, no tengo superficie. Ya lo sabías.'
+            '*Se deshace en niebla y se vuelve a juntar.* ...¿lo has visto? Quería que lo vieras.'
+            'Me has tocado. Bueno, me has atravesado. Cuenta igual. Me siento visto.'
+        )
+        # clic en Orange Cat
+        Gato = @(
+            '*Orange Cat da un salto del susto.* ...no pasa nada. Soy yo. Bueno, más o menos yo.'
+            '*Orange Cat da vueltas por el aire.* Le encanta flotar. Es lo único que tenemos en común ahora mismo.'
+            '*Orange Cat se sonroja.* ...¿lo has visto? ¡Se ha sonrojado! Eso es por mí. Creo.'
+            'Orange Cat y yo salimos juntos. Desde antes de que me volviera... esto.'
+            '*Le flota una mano redonda.* Orange Cat no tiene brazos. Solo manos que flotan. Somos el uno para el otro.'
+        )
+        # cuando lleva mucho rato sin que nadie le haga caso (se vuelve casi invisible)
+        Invisible = @(
+            '¿Me ves? ¿Por qué no me ves? *Ya casi no se le ve.*'
+            'Hola... ¿hola? Sigo aquí. Más o menos. Abre algo, por favor. Necesito sentir que existo.'
+            '*Se está borrando.* No me ignores. Es lo único que te pido.'
+        )
+        # cada 6 apps: la niebla rosa lo llena todo
+        Niebla = @(
+            'Por favor, por favor... entra en la niebla. *El panel se llena de niebla rosa.*'
+            'Necesito sentir que existo. Así que... *FSSSSH.* Bienvenido a mi nube.'
+            'Una vez te vuelves borroso, lo entiendes. *Lo llena todo de niebla.*'
+        )
+        PorApp = @{
+            'YouTube'       = @('YouTube. Busca "Soft Fuzzy Man". Sale mi baile. El de la ventana.')
+            'Word'          = @('Escríbeme una carta de amor. No la podré coger, pero la leeré flotando.')
+            'Excel'         = @('Una tabla. Columna A: gente que me ve. Columna B: vacía.')
+            'PowerPoint'    = @('Diapositiva 1: soy suave. Diapositiva 2: soy esponjoso. Diapositiva 3: necesitas uno.')
+            'Outlook'       = @('Correo nuevo. Asunto: "¿me ves?". Nadie contesta.')
+            'OneNote'       = @('Apunta: "no ignorar al hombre de niebla". Gracias.')
+            'Access'        = @('Una base de datos. Métete tú. Yo no tengo datos: soy gas.')
+            'Publisher'     = @('Un cartel con mi cara. Ponle purpurina. Mucha.')
+            'Teams'         = @('Una videollamada. Yo salgo borroso. Échale la culpa a la conexión.')
+            'OneDrive'      = @('La nube. Mi casa. Pasa, pasa.')
+            'Office Web'    = @('Internet abierto. Ahí nadie sabe que eres una nube.')
+            'Bloc de notas' = @('Hoja en blanco. Como yo cuando nadie me mira.')
+            'Calculadora'   = @('Calcula cuánto peso. Cero. Exacto. Ligero como el amor.')
+            'Explorador'    = @('Carpetas. Me cuelo en todas. Es lo que hago.')
+            'CMD'           = @('Pantalla negra. Escribe "dir". Busca mi cuerpo. No está.')
+            'GitHub'        = @('GitHub. Ahí guardan las cosas que existen. Yo voy de visita.')
+            'Wikipedia'     = @('Wikipedia. Busca "Lemon Demon". Luego "Spirit Phone". Canción nueve. Soy yo.')
+        }
     }
     # ================================================================ Nanachi (Made in Abyss)
     # Narehate de la 4ª capa del Abismo: ve el campo de fuerza, cura, dibuja y cocina fatal.
@@ -2868,6 +3065,7 @@ $Skins = [ordered]@{
             'Enfosi'               = 'Se fue lo de la estatua. Cosas que parecen amigas y no lo son... eso lo conozco bien.'
             'Gran'                 = '*Se le eriza el pelo.* Se ha ido Gran. Bien. Que no vuelva. Los que experimentan con niños no son bienvenidos aquí.'
             'Evil Scary'           = 'Nnaa. Se ha ido la bola negra. ...menos mal. Mitty, ya puedes dejar de temblar.'
+            'Soft Fuzzy Man'       = 'Se fue la nube rosa. Nnaa. Ya puedo respirar sin oler a algodón de azúcar.'
         }
         Yo = @(
             'Ese botón soy yo. Elígeme o no. Me da igual. ...Mitty se alegraría, eso sí.'
@@ -2896,6 +3094,7 @@ $Skins = [ordered]@{
             'Enfosi'               = @('En Enfosi hay cosas que parecen buenas y no lo son. El Abismo es igual. Aprende a mirar bien.', 'Defender una estatua... yo defendí algo así una vez. Muchos años.')
             'Gran'                 = @('Gran convierte a la gente en otra cosa con jeringuillas. Yo sé lo que se siente al otro lado. No es un "éxito".', '*Se le eriza el pelo.* No quiero hablar de Gran. De verdad que no.')
             'Evil Scary'           = @('Veo el campo de fuerza. Evil Scary no sale en él. No sigue ninguna regla. Nnaa.', 'Paso de todo. De Evil Scary, no. Ese no.')
+            'Soft Fuzzy Man'       = @('Soft Fuzzy Man no tiene campo de fuerza. Solo niebla. Y muchas ganas de hablar.', 'Me llamó "cosa mullida". Le tiré el cucharón. Le atravesó. Nnaa.')
         }
         Frases = @(
             'Abierto. Ya está. No me des las gracias, me da igual.'
@@ -3007,6 +3206,7 @@ $GruposSkins = [ordered]@{
     }
     'Halloween' = [ordered]@{
         'Evil Scary' = 'Die of Death'
+        'Soft Fuzzy Man' = 'Lemon Demon · Aimkid'
     }
     'Anime' = [ordered]@{
         'Nanachi' = 'Made in Abyss'
@@ -3613,6 +3813,21 @@ function Fondo-Escena($k, $W, $H) {
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 170 20 30))), 0, 52, $W, 3)
             $ti = Cargar-Img $k.TituloImg; if ($ti) { $g.DrawImage($ti, 10, 4, 104, 46); $ti.Dispose() }
         }
+        'niebla' {
+            # la colina de noche con la casita del vídeo, la luna y los pinos
+            $g.Clear((C 40 16 70))
+            Imagen-Cubrir $g $k.FondoImg 0 0 $W $H 0.5 0.55
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 45 70 0 110))), 0, 0, $W, $H)
+            # panel morado translúcido con borde rosa detrás de los botones
+            $pan = Ruta-Redonda 8 60 394 ($H - 66) 12
+            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 175 46 18 80))), $pan)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 255 90 230), 2)), $pan); $pan.Dispose()
+            # barra de arriba morada con nubecitas rosas
+            Degradado $g 0 0 $W 52 (C 74 28 124) (C 40 14 72) 90
+            $nube = New-Object System.Drawing.SolidBrush((ARGB 60 255 180 240))
+            foreach ($nx in @(330, 470, 610, 700)) { $g.FillEllipse($nube, $nx, 14, 40, 20); $g.FillEllipse($nube, ($nx + 18), 6, 36, 26); $g.FillEllipse($nube, ($nx + 40), 16, 34, 18) }
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 90 230))), 0, 50, $W, 3)
+        }
         'abismo' {
             # su escondite de la 4ª capa (del anime), oscurecido a la izquierda para los botones
             $g.Clear((C 20 36 24))
@@ -3814,6 +4029,13 @@ function Pintar-Burbuja($g, $k) {
             $r = Ruta-Redonda $x $y $w $h 4
             $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 225 22 10 12))), $r)
             $g.DrawPath((New-Object System.Drawing.Pen((C 170 20 30), 2)), $r); $r.Dispose()
+        }
+        'niebla' {
+            # bocadillo morado con borde rosa neón que brilla un poco
+            $r = Ruta-Redonda $x $y $w $h ([Math]::Min(14, $h / 2))
+            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 225 60 24 100))), $r)
+            $g.DrawPath((New-Object System.Drawing.Pen((ARGB 70 255 90 230), 5)), $r)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 255 90 230), 1.6)), $r); $r.Dispose()
         }
         'abismo' {
             # nota de papel de explorador, con una esquina doblada
@@ -5739,6 +5961,7 @@ $ambTimer.Add_Tick({
     if ($k.Estilo -eq 'gran') { Gran-Tick }
     if ($k.Estilo -eq 'abismo') { Nn-Tick }
     if ($k.Estilo -eq 'evil') { Es-Tick }
+    if ($k.Estilo -eq 'niebla') { Sf-Tick }
 })
 
 # ================= EVIL SCARY (Die of Death): LA RONDA ESPECIAL =================
@@ -5830,6 +6053,83 @@ function Es-Tick {
         $a.Rect = @([int]($cx - $w / 2), [int]($suelo - $h), [int]$w, [int]$h)
     }
     $form.Invalidate()
+}
+
+# ================= SOFT FUZZY MAN (Lemon Demon · Aimkid): NECESITA SENTIR QUE EXISTE =================
+# "I need to feel like I exist": la barra EXISTENCIA baja sola si nadie le hace caso y él se va volviendo transparente.
+# Cada app que abres le hace caso (+12). Clic en él: tu mano le atraviesa. Clic en Orange Cat: se asusta y se sonroja.
+# Cada 6 apps: "step into the mist", la niebla rosa lo llena todo.
+# Tiempos (cámbialos aquí): cada cuántos ms pierde 1 de existencia
+$SfTiempos = @{ Olvido = 2500; CadaNiebla = 6 }
+$script:sf = $null
+function Sf-Reset {
+    if (-not $script:sf) {
+        $script:sf = @{ Existe = 80.0; Vis = 80.0; Apps = 0; Manos = 0; Gato = 0; NieblaHasta = 0; NieblaDur = 1; NieblaTope = 150; Avisado = $false
+            Prox = [Environment]::TickCount + $SfTiempos.Olvido }
+    }
+}
+function Sf-Existir($n) {
+    Sf-Reset; $e = $script:sf
+    $e.Existe = [Math]::Max(0.0, [Math]::Min(100.0, $e.Existe + $n))
+    if ($e.Existe -gt 30) { $e.Avisado = $false }
+}
+# niebla rosa que tapa el panel unos milisegundos y se va despejando; $tope = lo opaca que llega a ser (0-255)
+function Sf-Niebla($ms, $tope) { Sf-Reset; $script:sf.NieblaHasta = [Environment]::TickCount + $ms; $script:sf.NieblaDur = $ms; $script:sf.NieblaTope = $tope }
+# cuánta niebla espesa queda ahora (1 = toda, 0 = nada)
+function Sf-Espesor { $e = $script:sf; if (-not $e) { return 0.0 }; $q = ($e.NieblaHasta - [Environment]::TickCount) / [double]$e.NieblaDur; return [Math]::Max(0.0, [Math]::Min(1.0, $q / 0.6)) }
+function Sf-App($linea) {
+    Sf-Reset; $e = $script:sf; $k = $script:skin
+    $e.Apps++; Sf-Existir 12
+    if ($e.Apps % $SfTiempos.CadaNiebla -eq 0) {
+        Sf-Existir 100; Sf-Niebla 3500 150; Sonido 'viento'; Actor-Pose 'F' 'brazos' 2600
+        Decir-Fijo (Azar $k.Niebla)
+    } else {
+        Sonido 'brillo'; Actor-Pose 'F' 'brazos' 1800; Decir $linea
+    }
+    $form.Invalidate()
+}
+function Sf-Clic {
+    Sf-Reset; $e = $script:sf; $k = $script:skin
+    $e.Manos++; Sf-Existir 5; Sonido 'puff'; Actor-Pose 'F' 'cara' 900
+    Flotante 'FSSSH~' (600 + $Rnd.Next(-30, 30)) 90 (C 255 190 250) 20 'Segoe Print'
+    Decir (Azar $k.Clic); $form.Invalidate()
+}
+function Sf-Gato {
+    Sf-Reset; $e = $script:sf; $k = $script:skin
+    $e.Gato++; Sonido 'boing'
+    $a = $script:actores['G']; if ($a) { $a.Temblor = 10 }
+    Flotante '<3' (480 + $Rnd.Next(-20, 20)) 110 (C 255 120 200) 14
+    Decir (Azar $k.Gato); $form.Invalidate()
+}
+function Sf-Tick {
+    Sf-Reset; $e = $script:sf; $k = $script:skin; $ahora = [Environment]::TickCount
+    if ($ahora -ge $e.Prox) { $e.Prox = $ahora + $SfTiempos.Olvido; Sf-Existir -1 }
+    if ($e.Existe -lt 15 -and -not $e.Avisado) { $e.Avisado = $true; Decir (Azar $k.Invisible) }
+    # se ve más o menos según lo que existe, y flota de un lado a otro
+    $e.Vis += ($e.Existe - $e.Vis) * 0.1
+    $a = $script:actores['F']
+    if ($a) {
+        $a.Alfa = 0.18 + 0.82 * $e.Vis / 100.0
+        $a.Rect = @([int](574 + [Math]::Sin($ahora / 2300.0) * 18), [int](64 + [Math]::Sin($ahora / 1300.0) * 6), 176, 210)
+    }
+    $form.Invalidate()
+}
+# nubes de niebla rosa que pasan despacio (de $x0 hasta el borde derecho); $fuerza de 0 a 1 (o más, más espesa)
+function Pintar-Niebla($g, $x0, $W, $H, $fuerza) {
+    if ($fuerza -le 0.01) { return }
+    $t = [Environment]::TickCount / 1000.0
+    for ($i = 0; $i -lt 7; $i++) {
+        $r = 70 + ($i * 37) % 60
+        $span = $W - $x0 + 2 * $r
+        $x = $x0 - $r + (($i * 131 + $t * (8 + $i * 3)) % $span)
+        $y = 60 + ($i * 53) % [Math]::Max(1, $H - 90) + [Math]::Sin($t * 0.7 + $i) * 10
+        $p = New-Object System.Drawing.Drawing2D.GraphicsPath
+        $p.AddEllipse([float]($x - $r * 1.4), [float]($y - $r * 0.7), [float]($r * 2.8), [float]($r * 1.4))
+        $br = New-Object System.Drawing.Drawing2D.PathGradientBrush($p)
+        $br.CenterColor = [System.Drawing.Color]::FromArgb([int][Math]::Min(255, 150 * $fuerza), 255, 180, 240)
+        $br.SurroundColors = [System.Drawing.Color[]]@([System.Drawing.Color]::FromArgb(0, 255, 180, 240))
+        $g.FillPath($br, $p); $br.Dispose(); $p.Dispose()
+    }
 }
 
 # ================= DISCUSIONES ENTRE ASISTENTES =================
@@ -5979,6 +6279,17 @@ $Discusiones = @(
     , @(@('Angela', 'Entidad hostil detectada. Iniciando contención.'), @('Evil Scary', '*Atraviesa la pared de la celda.*'), @('Angela', '...Manager, necesitaremos paredes que no se puedan atravesar.'), @('Evil Scary', 'IT IS EVIL AND SCARY.'))
     , @(@('Token', '¡H3Y! ¿Breakcore?'), @('Evil Scary', 'STALL. STALL.'), @('Token', '*Mete la alarma en un remix a 200 BPM.*'), @('Evil Scary', '*Bota al ritmo. Más rápido.*'), @('Token', '...vale, esto ha sido mala idea.'))
     , @(@('Mikaela', 'Objetivo localizado. 360 noscope.'), @('Evil Scary', '*No le pasa nada.*'), @('Mikaela', '...¿lag? *Smokebomb.*'), @('Evil Scary', '*Lo ve a través del humo. Y de las paredes.*'))
+    # --- Soft Fuzzy Man (Lemon Demon · Aimkid) · Halloween ---
+    , @(@('Evil Scary', '*Bota hacia la niebla rosa.*'), @('Soft Fuzzy Man', 'Hola, guapo. ¿Vienes mucho por aquí?'), @('Evil Scary', 'IT IS EVIL AND SCARY.'), @('Soft Fuzzy Man', '*Evil Scary le atraviesa. Él atraviesa a Evil Scary.* ...esto es lo más cerca que he estado de alguien en meses.'))
+    , @(@('Averi', '¡Qué nube tan bonita! ¿Te puedo abrazar?'), @('Soft Fuzzy Man', 'Puedes intentarlo.'), @('Averi', '*Le abraza. Le atraviesa. Le vuelve a abrazar.* ¡Hueles a algodón de azúcar!'), @('Soft Fuzzy Man', '*Se pone rosa fuerte.* ...nadie había insistido tanto.'))
+    , @(@('Kevin', '¡EH! ¡Estás encima de mi pizza!'), @('Soft Fuzzy Man', 'Estoy DENTRO de tu pizza. No es lo mismo. No la toco.'), @('Kevin', '¡Pues ahora sabe a niebla!'), @('Soft Fuzzy Man', 'De nada. Es un sabor muy sofisticado.'))
+    , @(@('Pursuer', '*Huele el aire.* ...carne fresca.'), @('Soft Fuzzy Man', 'Lo siento, cariño. Aquí todo es niebla.'), @('Pursuer', '*Muerde. Muerde aire rosa.*'), @('Soft Fuzzy Man', 'Los dos somos lobos. Yo he evolucionado.'))
+    , @(@('Gran', 'Un sujeto sin cuerpo. Fascinante. Una muestra, por favor.'), @('Soft Fuzzy Man', 'Claro. Sírvete.'), @('Gran', '*La jeringuilla se llena de niebla rosa. Se le escapa por la aguja.*'), @('Soft Fuzzy Man', 'No me puedes convertir en nada. Ya me pasó algo peor.'))
+    , @(@('Angela', 'Entidad gaseosa detectada. Procediendo a su contención.'), @('Soft Fuzzy Man', '*Se cuela por la rejilla de ventilación.* ¿Decías algo?'), @('Angela', 'Manager, necesitamos celdas herméticas.'), @('Soft Fuzzy Man', 'Me encanta tu voz. Es tan... sólida.'))
+    , @(@('Velvet', 'Qué cosita tan brillante. ¿Cenas conmigo, cielo?'), @('Soft Fuzzy Man', 'No como. Pero me encantaría flotar a tu lado.'), @('Velvet', '*Le teje una telaraña. La atraviesa.* ...qué difícil eres.'), @('Soft Fuzzy Man', 'Es mi encanto. Soy un misterio.'))
+    , @(@('Zodiac', '¡NO TE MUEVAS!'), @('Soft Fuzzy Man', 'No me muevo. Floto.'), @('Zodiac', '*BANG* *BANG* ...¡LAS BALAS LE ATRAVIESAN!'), @('Soft Fuzzy Man', 'Me has disparado. Me has visto. Gracias, vaquero.'))
+    , @(@('Static Miku', '¡Bzzt! ¡Eres borroso como mi tele!'), @('Soft Fuzzy Man', 'Somos de la misma familia: tú haces "fsssh" y yo hago "fsssh".'), @('Static Miku', '¡Vamos a cantar juntos! ¡Bzzt!'), @('Soft Fuzzy Man', '"Lo que necesitas es un hombre suave y esponjoso..." *Bzzt.* Qué buen dúo.'))
+    , @(@('Nanachi', '...nnaa. Huele a algodón de azúcar.'), @('Soft Fuzzy Man', 'Soy yo. Hola, cosa mullida.'), @('Nanachi', 'En el Abismo hay niebla que mata. ¿Tú matas?'), @('Soft Fuzzy Man', 'Yo solo ligo.'), @('Nanachi', '...eso es peor. Nnaa.'))
 )
 
 $script:discutiendo = $false; $script:dLineas = $null; $script:dIdx = 0; $script:dImg = $null; $script:dInvitadoHabla = $false
@@ -6074,6 +6385,7 @@ function Abrir-Invitado($nombre) {
         'gran' { }   # llega en silencio: su único sonido es su canción
         'abismo' { Sonido-De $nombre 'brillo' }
         'evil' { Sonido-De $nombre 'medio' }
+        'niebla' { Sonido-De $nombre 'brillo' }
         'pressure' { Sonido-De $nombre 'rejilla' }
         'dod' { Sonido-De $nombre 'acecho' }
         'hacker' { try { if ($script:aj.Sonido) { [System.Media.SystemSounds]::Hand.Play() } } catch {} }
@@ -6107,6 +6419,7 @@ function Pintar-Invitado($g) {
         'pop' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 40 14 80), (C 150 40 120), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $p = New-Object System.Drawing.Pen((ARGB 30 0 0 0), 1); for ($y = 30; $y -lt $H; $y += 3) { $g.DrawLine($p, 0, $y, $W, $y) }; $cab = (C 40 12 70) }
         'gran' { $rosa = New-Object System.Drawing.SolidBrush((ARGB 60 255 70 170)); for ($x = -$H; $x -lt $W; $x += 30) { $g.FillPolygon($rosa, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$x, $H)), (New-Object System.Drawing.PointF([float]($x + 12), $H)), (New-Object System.Drawing.PointF([float]($x + 12 + $H), 30)), (New-Object System.Drawing.PointF([float]($x + $H), 30)))) }; $rosa.Dispose(); $cab = (C 0 0 0) }
         'evil' { $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 30 6 10))), 0, 30, $W, ($H - 30)); $cab = (C 0 0 0) }
+        'niebla' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 74 28 124), (C 30 10 56), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $br.Dispose(); $cab = (C 90 30 140) }
         'abismo' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 40 70 44), (C 18 34 22), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $br.Dispose(); $cab = (C 78 56 40) }
         'enfosi' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 120 180 240), (C 200 230 255), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $cab = (C 252 200 55) }
         'teto' { $ray = New-Object System.Drawing.Pen((C 252 232 236), 8); for ($x = -$H; $x -lt $W; $x += 26) { $g.DrawLine($ray, $x, 32, ($x + $H), ($H + 32)) }; $ray.Dispose(); $cab = (C 214 40 64) }
@@ -6146,6 +6459,7 @@ function Pintar-Invitado($g) {
             'pop' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 90, 230, 250))), 0, [int]((14 - $fx) * 15), $W, 10) }
             'gran' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 32, 208, 44))), 0, 0, $W, $H) }
             'evil' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 150, 0, 10))), 0, 0, $W, $H) }
+            'niebla' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(180, $fx * 12), 255, 186, 244))), 0, 0, $W, $H) }
             'abismo' { $p = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb([Math]::Min(220, $fx * 16), 210, 255, 220), 2); for ($i = 0; $i -lt 6; $i++) { $xx = 20 + $i * 36; $g.DrawLine($p, $xx, ($H - (14 - $fx) * 14), ($xx + 6), ($H - (14 - $fx) * 14 - 40)) }; $p.Dispose() }
             'enfosi' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 255, 214, 60))), 0, 0, $W, $H) }
             'teto' { for ($i = 0; $i -lt 3; $i++) { Texto-Contorno $g '♪' 'Segoe UI Symbol' 20 (40 + $i * 60) (130 - (14 - $fx) * 7) (@((C 214 40 64), (C 246 170 30), (C 255 255 255))[$i]) 3 ([Math]::Min(255, $fx * 18)) } }
@@ -6191,6 +6505,7 @@ function Efectos-Linea($quien, $txt) {
     if ($txt -match '[Ee]stofado') { Sonido-De 'Nanachi' 'burbujas' }
     if ($txt -match 'STALL') { Sonido-De 'Evil Scary' 'stall' }
     elseif ($txt -match 'EVIL AND SCARY') { Sonido-De 'Evil Scary' 'susto' }
+    if ($txt -match 'FSSS|niebla rosa') { Sonido-De 'Soft Fuzzy Man' 'puff' }
     $esInv = $quien -ne $script:skinNombre
     $f = if ($esInv) { $script:inv } else { $form }
     if ($txt -match 'BANG') { Sonido-De 'Zodiac' 'bang'; Sacudir $form 10; Sacudir $script:inv 10; if ($esInv) { $script:invFx = 8 } }
@@ -6378,6 +6693,11 @@ $idleTimer.Add_Tick({
         'evil' {
             if ($r -lt 40) { Decir (Azar $k.Idle) }
             elseif ($r -lt 55) { Es-Reset; Es-Rebote 3.0; Decir '*Bota sin avisar.* ...el sonido ha sido más agudo esta vez.' }
+            else { Decir (Azar $k.Idle) }
+        }
+        'niebla' {
+            if ($r -lt 30) { Actor-Pose 'F' 'brazos' 2200; Decir (Azar $k.Idle) }
+            elseif ($r -lt 42) { Sonido 'puff'; Sf-Niebla 1500 90; Decir '*Suelta una nubecita rosa.* Perdona. Es que me emociono.' }
             else { Decir (Azar $k.Idle) }
         }
         'abismo' {
@@ -8007,6 +8327,49 @@ function Transicion-Evil($final) {
     Intro-Overlay 400 $pintar $alTick $final
 }
 
+# --- Soft Fuzzy Man: los 11 primeros segundos de la animación de Aimkid (con su audio) y, de transición,
+#     la cámara se mete en la espiral rosa y la niebla lo tapa todo; el panel sale de la niebla ---
+# Los fotogramas están en skins\softfuzzy\intro (001.jpg, 002.jpg...), a 18 por segundo. Momentos (en milisegundos):
+$SfIntro = @{ Niebla = 10300; Fin = 12300 }
+function Transicion-Fuzzy($final) {
+    $script:fiImg = $null; $script:fiIdx = -1; $script:fiT0 = 0; $script:iRecursos = @()
+    Sf-Reset
+    $pintar = {
+        param($g, $W, $H, $p)
+        $g.InterpolationMode = 'HighQualityBilinear'; $g.SmoothingMode = 'AntiAlias'
+        $k = $script:skin; $T = $SfIntro
+        $ms = if ($script:fiT0 -gt 0) { [Environment]::TickCount - $script:fiT0 } else { 0 }
+        $g.Clear((C 82 31 135))
+        # el fotograma que toca según el reloj (se carga solo el que hace falta)
+        $idx = [Math]::Min($k.IntroFotos - 1, [int][Math]::Floor($ms * $k.IntroFps / 1000.0))
+        if ($idx -ne $script:fiIdx) {
+            $nueva = Cargar-Img ('{0}\{1:000}.jpg' -f $k.IntroCarpeta, ($idx + 1))
+            if ($nueva) { if ($script:fiImg) { $script:fiImg.Dispose() }; $script:fiImg = $nueva; $script:fiIdx = $idx; $script:iRecursos = @($nueva) }
+        }
+        if ($script:fiImg) {
+            # el vídeo entero a lo alto (con bandas moradas a los lados); al final, zoom hacia la espiral
+            $z = 1.0; if ($ms -gt $T.Niebla) { $z = 1.0 + [Math]::Pow(($ms - $T.Niebla) / ($T.Fin - $T.Niebla), 2) * 2.5 }
+            $ih = $H * $z; $iw = $ih * $script:fiImg.Width / $script:fiImg.Height
+            $g.DrawImage($script:fiImg, [float]($W / 2 - $iw / 2), [float]($H / 2 - $ih / 2), [float]$iw, [float]$ih)
+        }
+        if ($ms -gt $T.Niebla) {
+            # la niebla rosa lo tapa todo
+            $q = [Math]::Min(1.0, ($ms - $T.Niebla) / ($T.Fin - $T.Niebla - 200))
+            Pintar-Niebla $g 0 $W $H (1.6 * $q)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](255 * $q * $q), 255, 186, 244))), 0, 0, $W, $H)
+        }
+    }
+    $alTick = {
+        param($ov, $p)
+        if ($p -eq 1) { $script:fiT0 = [Environment]::TickCount; Sonido 'intro' }
+        $ms = [Environment]::TickCount - $script:fiT0
+        if ($ms -gt $SfIntro.Fin -and $script:iPaso -lt $script:iTotal - 1) { $script:iPaso = $script:iTotal - 1 }
+        # en el último paso (también si se salta) el panel queda tapado de niebla y se va despejando
+        if ($script:iPaso -ge $script:iTotal - 1) { Sf-Niebla 1800 255 }
+    }
+    Intro-Overlay 400 $pintar $alTick $final
+}
+
 # --- Nanachi: descenso al Abismo capa a capa, la entrada del escondite y Nanachi entre los hilos del campo de fuerza ---
 # Va sincronizada con el reloj. Momentos (en milisegundos):
 $NnIntro = @{ Caliz = 0; Capa4 = 2600; Entrada = 4700; Nanachi = 5600; Nombre = 6400; Fin = 8800 }
@@ -8100,6 +8463,7 @@ function Transicion-Nanachi($final) {
             'gran' { Decir 'Algo se ha roto. Un fallo del protocolo. Lo anoto y seguimos.' }
             'abismo' { Decir 'Algo se ha roto. Nnaa. Le pongo una venda y listo.' }
             'evil' { Decir 'ALGO SE HA ROTO. *Evil Scary bota encima del error. El error desaparece. Tú casi también.*' }
+            'niebla' { Decir 'Algo se ha roto. Yo no he sido: no puedo tocar nada. *Se pone transparente por si acaso.*' }
             default { Decir 'Algo se ha roto. No he sido yo. Creo.' }
         }
     } catch {}
@@ -8280,6 +8644,15 @@ function Pintar-Boton($g, $b) {
             $g.DrawPath((New-Object System.Drawing.Pen((C 170 20 30), [float](1.6 * $Z))), $rr); $rr.Dispose()
             $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((C 236 220 220))), $rect, $fmt)
         }
+        'niebla' {
+            # botón morado con borde rosa neón; al pasar el ratón, rosa como él
+            $g.SmoothingMode = 'AntiAlias'
+            $g.Clear($(if ($enBarra) { (C 58 22 98) } else { (C 46 18 80) }))
+            $rr = Ruta-Redonda (1.5 * $Z) (1.5 * $Z) ($W - 4 * $Z) ($H - 4 * $Z) ([Math]::Min($H - 4 * $Z, 9 * $Z))
+            $g.FillPath((New-Object System.Drawing.SolidBrush($(if ($hover) { (C 255 160 245) } else { (C 66 26 112) }))), $rr)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 255 90 230), [float](1.6 * $Z))), $rr); $rr.Dispose()
+            $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush($(if ($hover) { (C 40 10 60) } else { (C 255 225 250) }))), $rect, $fmt)
+        }
         'abismo' {
             # botón de pergamino con borde de cuero; al pasar el ratón, rosa como su ropa
             $g.SmoothingMode = 'AntiAlias'
@@ -8430,6 +8803,7 @@ function Lanzar($item) {
             'gran' { Gran-Dosis $linea }
             'abismo' { Nn-App $linea }
             'evil' { Es-App $linea }
+            'niebla' { Sf-App $linea }
             'zorro' {
                 $script:antojo = [Math]::Min(100, $script:antojo + 5); $form.Invalidate()
                 if ($Rnd.Next(4) -eq 0) { Sonido 'ups'; Decir (Azar $k.Torpe) 'serio' } else { Decir $linea 'abiertos' }
@@ -8464,6 +8838,7 @@ function Lanzar($item) {
                 'gran' { Decir "No tiene $($item.Nombre). Le abro la web. Anote el fallo en su expediente." }
                 'abismo' { Decir "No tienes $($item.Nombre). Te abro la web. Es como mandar un globo de correo: llega igual, pero más tarde." }
                 'evil' { Decir "$($item.Nombre.ToUpper()) NO ESTÁ INSTALADO. ABRIENDO LA WEB. *Evil Scary te mira cargarla. No parpadea. No tiene ojos.*" }
+                'niebla' { Decir "No tienes $($item.Nombre). Te abro la web. Internet es como yo: está en todas partes y no se puede tocar." }
                 default { Decir "$($item.Nombre) no está instalado. Te abro la web. De nada." }
             }
         } else {
@@ -8486,6 +8861,7 @@ function Lanzar($item) {
                 'gran' { Gran-Tapar 3000; Decir "$($item.Nombre) no está. Un sujeto que se escapa del estudio. No pasará dos veces." }
                 'abismo' { Nn-Cara 'nnaa' 2000; Decir "No encuentro $($item.Nombre). Se habrá caído al Abismo. Lo que cae ahí no vuelve." }
                 'evil' { Es-Reset; Es-Rebote 3.0; Decir "NO SE ENCUENTRA $($item.Nombre.ToUpper()). *Se lo ha comido. O lo ha atravesado. Da igual.*" }
+                'niebla' { Actor-Pose 'F' 'cara' 1500; Decir "No encuentro $($item.Nombre). Se habrá vuelto niebla. Me pasa a mí también." }
                 default { Decir "No encuentro $($item.Nombre). Igual nunca existió." }
             }
         }
@@ -8578,6 +8954,7 @@ function Efecto-Entrada($prev) {
         'gran' { Transicion-Gran $msg }
         'abismo' { Transicion-Nanachi $msg }
         'evil' { Transicion-Evil $msg }
+        'niebla' { Transicion-Fuzzy $msg }
     }
 }
 
@@ -9269,7 +9646,7 @@ $form.Add_Paint({
             $g.DrawRectangle((New-Object System.Drawing.Pen((C 0 255 0), 1)), 410, 216, 190, 10)
             $g.DrawString("HITMARKERS: $($script:hitsTotal)    DO THE DEW: $($script:dew)", (FntP('Arial Black', 8)), (New-Object System.Drawing.SolidBrush((C 191 239 255))), 16, 280)
         }
-        { $_ -in @('culto', 'kaiju', 'zorro', 'mew', 'oeste', 'pressure', 'dod', 'teto', 'femta', 'pop', 'pizza', 'punk', 'enfosi', 'gran', 'abismo', 'evil') } {
+        { $_ -in @('culto', 'kaiju', 'zorro', 'mew', 'oeste', 'pressure', 'dod', 'teto', 'femta', 'pop', 'pizza', 'punk', 'enfosi', 'gran', 'abismo', 'evil', 'niebla') } {
             # skins nuevas: fondo real + personajes grandes + efectos + bocadillo propio
             $g.SmoothingMode = 'AntiAlias'
             # el fondo se prepara siempre con el tamaño fijo de la skin (no con el de la ventana a medio montar)
@@ -9539,6 +9916,27 @@ $form.Add_Paint({
                     Yt-Pastilla $g 190 280 88 24 $osc $fase $cl 8
                     Yt-Pastilla $g 282 280 116 24 $osc "😱 $(if ($e) { $e.Sustos } else { 0 })   🛡 $(if ($e) { $e.Bloqueos } else { 0 })" $cl 8.5
                     if ($e -and $e.Gigante) { Texto-Color $g 'GIGANTE' 'Arial Black' 11 690 64 (C 255 210 40) (C 0 0 0) 4 }
+                }
+                'niebla' {
+                    $e = $script:sf
+                    # niebla de siempre, suave, por la escena
+                    Pintar-Niebla $g 404 $W $H 0.35
+                    # niebla espesa (cada 6 apps y al salir de la intro, que se va despejando)
+                    $q = Sf-Espesor
+                    if ($q -gt 0) {
+                        Pintar-Niebla $g 0 $W $H $q
+                        $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int]($e.NieblaTope * $q), 255, 186, 244))), 0, 0, $W, $H)
+                    }
+                    # abajo: la barra de EXISTENCIA, manos que le han atravesado y sustos/corazones de Orange Cat
+                    $osc = (ARGB 225 50 20 86); $cl = (C 255 225 250)
+                    Yt-Pastilla $g 16 280 196 24 $osc $null $null 8
+                    $g.DrawString('EXISTENCIA', (FntP('Segoe UI', 7.5, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($cl)), 24, 285)
+                    $ev = if ($e) { $e.Vis } else { 70 }
+                    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 30 10 50))), 100, 287, 104, 10)
+                    $colE = if ($ev -lt 20) { (C 150 120 160) } elseif ($ev -lt 50) { (C 230 140 220) } else { (C 255 120 240) }
+                    $g.FillRectangle((New-Object System.Drawing.SolidBrush($colE)), 100, 287, [float](104 * $ev / 100.0), 10)
+                    Yt-Pastilla $g 218 280 86 24 $osc "manos: $(if ($e) { $e.Manos } else { 0 })" $cl 8.5
+                    Yt-Pastilla $g 310 280 88 24 $osc "♥ cat: $(if ($e) { $e.Gato } else { 0 })" $cl 8.5
                 }
                 'abismo' {
                     $e = $script:nn
@@ -9865,6 +10263,7 @@ function Clic-Actor($id) {
         'gran' { Gran-Clic }
         'abismo' { if ($id -eq 'M') { Nn-Mitty } else { Nn-Clic } }
         'evil' { Es-Clic }
+        'niebla' { if ($id -eq 'G') { Sf-Gato } else { Sf-Clic } }
     }
 }
 $mDown = {
@@ -10038,6 +10437,8 @@ function Construir-UI {
         if ($k.Estilo -eq 'abismo') { Nn-Reset } else { Nn-Liberar; if ($script:nnOlla) { $script:nnOlla.Dispose(); $script:nnOlla = $null } }
         # Evil Scary: guarda su distancia y sus contadores; al irse se borra todo y se suelta la cara del susto
         if ($k.Estilo -eq 'evil') { Es-Reset } else { $script:es = $null; if ($script:esSusto) { $script:esSusto.Dispose(); $script:esSusto = $null } }
+        # Soft Fuzzy Man: guarda su existencia y sus contadores mientras sea la skin activa
+        if ($k.Estilo -eq 'niebla') { Sf-Reset } else { $script:sf = $null }
         $status.BackColor = [System.Drawing.Color]::Transparent
         $status.ForeColor = $k.BurTexto
         $status.UseMnemonic = $false
