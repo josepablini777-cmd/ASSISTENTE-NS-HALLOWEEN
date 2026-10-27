@@ -2865,12 +2865,14 @@ $Skins = [ordered]@{
         StatusColor = (C 255 225 250); Fuente = 'Segoe UI'; FuenteTitulo = 'Segoe Print'; Opacidad = 1.0; Velocidad = 1
         Ancho = 760; Mezclar = $true; Gif = 'skins\softfuzzy\fuzzy.png'; FondoImg = 'skins\softfuzzy\fondo.jpg'
         IntroCarpeta = 'skins\softfuzzy\intro'; IntroFotos = 198; IntroFps = 18
-        # Soft Fuzzy Man bailando (recortado de su baile en la ventana del vídeo) y Orange Cat dando vueltas por el aire
+        # Soft Fuzzy Man (recortado del vídeo): baila de cuerpo entero en el cielo; al hacerle clic, su sonrisa grande;
+        # al abrir apps, la carcajada con el anillo de humo (estas dos de busto, desvaneciéndose por abajo como un fantasma).
+        # Orange Cat da vueltas por el aire a su lado.
         Actores = @(
             @{ Id = 'F'; Gif = 'skins\softfuzzy\fuzzy.png'; Rect = @(574, 64, 176, 210); Respira = $true
-               Tiras = @{ main = @{ Archivo = 'skins\softfuzzy\fuzzy_tira.png'; Frames = 12; Delay = 85; Orden = @(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1) }
-                         brazos = @{ Archivo = 'skins\softfuzzy\brazos_tira.png'; Frames = 11; Delay = 80 }
-                         cara = @{ Archivo = 'skins\softfuzzy\cara_tira.png'; Frames = 2; Delay = 70 } } }
+               Tiras = @{ main = @{ Archivo = 'skins\softfuzzy\fuzzy_tira.png'; Frames = 15; Delay = 70; Orden = @(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1) }
+                         brazos = @{ Archivo = 'skins\softfuzzy\brazos_tira.png'; Frames = 10; Delay = 65 }
+                         cara = @{ Archivo = 'skins\softfuzzy\cara_tira.png'; Frames = 11; Delay = 60 } } }
             @{ Id = 'G'; Gif = 'skins\softfuzzy\gato.png'; Rect = @(436, 120, 130, 92); Respira = $true
                Tiras = @{ main = @{ Archivo = 'skins\softfuzzy\gato_tira.png'; Frames = 12; Delay = 110 } } }
         )
@@ -6090,7 +6092,7 @@ function Sf-App($linea) {
 }
 function Sf-Clic {
     Sf-Reset; $e = $script:sf; $k = $script:skin
-    $e.Manos++; Sf-Existir 5; Sonido 'puff'; Actor-Pose 'F' 'cara' 900
+    $e.Manos++; Sf-Existir 5; Sonido 'puff'; Actor-Pose 'F' 'cara' 1300
     Flotante 'FSSSH~' (600 + $Rnd.Next(-30, 30)) 90 (C 255 190 250) 20 'Segoe Print'
     Decir (Azar $k.Clic); $form.Invalidate()
 }
@@ -6110,7 +6112,8 @@ function Sf-Tick {
     $a = $script:actores['F']
     if ($a) {
         $a.Alfa = 0.18 + 0.82 * $e.Vis / 100.0
-        $a.Rect = @([int](574 + [Math]::Sin($ahora / 2300.0) * 18), [int](64 + [Math]::Sin($ahora / 1300.0) * 6), 176, 210)
+        if ($a.Pose -eq 'main') { $a.Rect = @([int](574 + [Math]::Sin($ahora / 2300.0) * 18), [int](64 + [Math]::Sin($ahora / 1300.0) * 6), 176, 210) }
+        else { $a.Rect = @(500, 44, 258, 236) }   # sonrisa y carcajada: de busto y más grandes
     }
     $form.Invalidate()
 }
