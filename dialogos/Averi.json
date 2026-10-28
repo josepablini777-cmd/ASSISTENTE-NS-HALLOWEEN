@@ -1,0 +1,118 @@
+{
+  "Hola": [
+    "¡Hola! Te estaba esperando. ¡No de forma rara! ...O sea, sí, pero no rara.",
+    "¡Ya estás aquí! He ordenado tus botones. Bueno, los he mirado mucho.",
+    "Hola, hola. ¿Has comido? ¿Quieres medio sándwich de pollo? Medio. El otro es mío.",
+    "¡Holi! Hoy me he propuesto ser útil. Y no tirar nada."
+  ],
+  "Yo": [
+    "¡Esa soy yo! ¿Se me ve bien la cola? No contestes.",
+    "¡Elígeme! Prometo no tropezar con los iconos."
+  ],
+  "Frases": [
+    "¡Abierto! ...¿era ese el que querías? Sí, ¿verdad? Vale.",
+    "¡Hecho! Lo he abierto con mucho cariño.",
+    "¡Ta-chán! Y no he roto nada.",
+    "¡Listo! Si sale algo raro, yo no he tocado nada."
+  ],
+  "Idle": [
+    "¿Has comido? Comer es importante. Lo digo yo, que como mucho.",
+    "Si alguien te molesta hoy, me lo dices. Tengo dientes. Pequeñitos, pero tengo.",
+    "Sándwich de pollo. Pollo solo. Sándwich solo. Todo vale. Pero junto es mejor.",
+    "Estoy practicando cumplidos. \"Tienes un escritorio muy... escritorio\". Mejoraré.",
+    "*Persigue su propia cola. La pilla. Se hace daño.*",
+    "¿Te he dicho que eres muy guay? Pues lo eres. No lo digo por decir.",
+    "Hoy he intentado ser misteriosa. Duré cuatro segundos.",
+    "Mis orejas lo oyen todo. Incluso tu estómago. ¿Merendamos?",
+    "Bebe agua, ¿vale? No quiero ponerme pesada. Pero bebe agua.",
+    "Si me entra hambre, haz clic en mí. ¡Pero sin apretar fuerte!",
+    "A veces digo cosas que suenan fatal. Pero siempre lo digo con cariño.",
+    "*Se acurruca en la esquina de la ventana. Ronca un poquito.*"
+  ],
+  "Clic": [
+    "¡Eh! Me has hecho cosquillas en la oreja.",
+    "¡Hola! Sí, sigo aquí. Siempre.",
+    "*Mueve la cola tan contenta que tira el vaso de la mesa.* ¡Ups! ¡Lo recojo!",
+    "¡Te quiero! ...¡como amiga! ¡Como asistente amiga!"
+  ],
+  "PorApp": {
+    "Access": ["Esto parece difícil. ¡Pero tú puedes! Yo no, pero tú sí."],
+    "Bloc de notas": ["Una hoja en blanco. Puedes escribirme una carta. ¡Es broma! ...a no ser que quieras."],
+    "CMD": ["Uy, pantalla negra. ¿Seguro que sabes lo que haces? ¡Seguro que sí!"],
+    "Calculadora": ["¿Cuántos sándwiches caben en un día? Todos."],
+    "Excel": ["Una hoja de sándwiches: pollo, pollo, pollo... me encanta."],
+    "Explorador": ["¡A explorar! Yo voy detrás. Por si hay sustos."],
+    "Office Web": ["¡Internet! Busca recetas, ¿vale? No por mí. Por ti."],
+    "OneDrive": ["¿Tus cosas están en una nube? ¡Qué mono! ¿Hay pollo en la nube?"],
+    "OneNote": ["Apunta: comprar pan. Y pollo. Para nadie en concreto."],
+    "Outlook": ["Si alguien te manda un correo feo, me avisas. Yo me encargo."],
+    "PowerPoint": ["¡Pon una foto mía en la diapositiva 1! ...¿No? Vale. Vale."],
+    "Publisher": ["¡Hagamos un cartel! \"Se busca sándwich perdido\"."],
+    "Teams": ["¡Sonríe en la reunión! ...pero no tanto, que asusta."],
+    "Word": ["¿Vas a escribir algo? ¡Seguro que te sale genial! Bueno, revisa la ortografía."],
+    "YouTube": ["¡Pon vídeos de zorros! O de sándwiches. O de zorros comiendo sándwiches."]
+  },
+  "Comer": [
+    "¡Sándwich de pollo! ¡Gracias, gracias, gracias!",
+    "*ÑAM.* ...¡Está buenísimo! Te debo una. O tres.",
+    "¡Mi comida favorita! Eres la mejor persona del escritorio."
+  ],
+  "Torpe": [
+    "Abierto. ¡Qué buena elección para alguien como tú! ...¡No! ¡Que eliges bien! Ay.",
+    "¡Listo! Has tardado poco. Para lo que sueles... ¡Digo que eres rápido!",
+    "Tu escritorio está muy... vivido. ¡Acogedor! Quería decir acogedor.",
+    "Abriendo... no es que necesites ayuda, eh. Bueno, un poco. ¡Ay, perdón!"
+  ],
+  "AlVenirDe": {
+    "c00lgui": "¿Ese era un hacker? Le he dejado una nota: \"sé bueno\". Con corazones.",
+    "SeaDrive": "SeaDrive me ha dicho que soy \"demasiado\". Creo que era un cumplido.",
+    "Static Miku": "¡Me encanta Miku! Me prestó su tele. Creo que la he roto un poco.",
+    "Guillotina": "La gata grande se comió mi sándwich. Y la bolsa. Y casi la mesa.",
+    "Angela": "Angela me hizo un test de personalidad. Salió \"error\".",
+    "Mikaela": "Mikaela me enseñó a apuntar. Le di a una lámpara. Perdón, lámpara.",
+    "Zodiac": "¡Ya puedo moverme sin que me disparen! Qué día tan bonito.",
+    "Velvet": "Velvet me invitó a cenar. Me fui antes del postre. Por si acaso.",
+    "Dune": "Dune y yo compartimos merienda. Él se comió la suya. Y la mía.",
+    "Cordero y Cabra": "El Cordero me ha bendecido y la Cabra me ha gritado. ¡Qué majos!",
+    "Pyrophina y Zaratana": "Las kaijus se han ido... ¡les he dejado sándwiches para el viaje!",
+    "Sebastian Solace": "El tendero se ha ido... ¡le compré una linterna! No sé para qué, pero era bonita.",
+    "Pursuer": "El del bosque se ha ido. Le dejé un sándwich. Dijo que no estaba \"fresco\".",
+    "Kasane Teto": "¡Teto se ha ido! Me enseñó un baile. Me caí en el segundo paso.",
+    "Token": "¡Token se ha ido! Le puse una tirita en cada oreja. Sigue rompiéndose.",
+    "Tetra": "¡Tetra se ha ido! Le mandé cuarenta stickers. Me contestó uno. ¡UNO!",
+    "Kevin": "¡Kevin se ha ido! ¡Le di un abrazo y no le toqué la pizza! ¡Récord!",
+    "Kennyoung": "¡Kenny se ha ido! ¡Le dije que su música es ruidosa! ...¡quería decir guay!",
+    "Enfosi": "¡Los Glaggles se han ido! ¡Eran todos tan sonrientes! Bueno, casi todos.",
+    "Gran": "¡El doctor se ha ido! Le di un sándwich y lo metió en una bolsa que ponía \"MUESTRA 47\".",
+    "Evil Scary": "¡Evil Scary se ha ido! ¡Le di un abrazo! ¡Se quedó muy quieto! ¡Creo que le gustó!",
+    "Soft Fuzzy Man": "¡Soft Fuzzy Man se ha ido! ¡Le abracé diez veces! ¡Le atravesé diez veces! ¡Mereció la pena!",
+    "Roaring Knight": "¡El Knight se ha ido! ¡Se llevó la mitad de mi sándwich! ¡Sabía que le gustaría!",
+    "Nanachi": "¡Nanachi se ha ido! ¡Le di un abrazo de cinco segundos! ¡Récord!"
+  },
+  "Opina": {
+    "c00lgui": ["c00lkidd parece duro, pero seguro que por dentro es un trocito de pan.", "Le pedí a c00lgui ser su amiga. Me \"hackeó\" un abrazo."],
+    "SeaDrive": ["SeaDrive es mi gata gruñona favorita. Si alguien la molesta, me lo dices.", "Le dije a SeaDrive que tiene cara de cansada. ¡Quería decir guapa!"],
+    "Static Miku": ["¡Miku es como un arcoíris con antena! La quiero mucho.", "Le dije a Miku que su tele es \"vieja\". ¡Quería decir \"clásica\"! Ay."],
+    "Guillotina": ["Guillotina da un poco de miedo... pero seguro que solo tiene hambre. Como yo.", "Le di a Guillotina un sándwich de pollo. Se comió también el plato."],
+    "Angela": ["Angela es muy lista. Le pregunté si es feliz. Se quedó callada mucho rato.", "Le dije a Angela que parece una muñeca. ¡Quería decir elegante! ¡Lo juro!"],
+    "Mikaela": ["¡Mikaela es superguay! Yo también tengo gafas. De sol.", "Si alguien le hace daño a Mikaela, tendrá que vérselas conmigo. Y con su rifle."],
+    "Zodiac": ["Zodiac me apuntó y yo le di un abrazo. Se quedó muy confundido.", "Ese vaquero necesita una siesta y un sándwich. En ese orden."],
+    "Velvet": ["Velvet tiene una voz preciosa. Pero no pienso entrar en su casa.", "Le dije a Velvet que tiene \"patas bonitas\". Ocho veces. Se puso roja."],
+    "Dune": ["¡Dune es adorable! Huele un poco a pescado, pero es adorable.", "Dune quiso morderme la cola. Lo perdono. Tenía hambre."],
+    "Cordero y Cabra": ["El Cordero es muy mono. La Cabra también, a su manera gritona.", "Me invitaron a su culto. Pregunté si hay sándwiches. Dijeron \"a veces\"."],
+    "Pyrophina y Zaratana": ["Las kaijus pelean mucho. Creo que en el fondo se quieren. Muy en el fondo.", "Le dije a Zaratana \"piedrita bonita\" y se escondió. ¿La avergoncé?"],
+    "Sebastian Solace": ["¡Sebastian tiene una cola preciosa! Se lo dije y me hizo descuento.", "Sebastian me dijo que es \"mi único amigo\". ¡Tengo más amigos! Pero él también cuenta."],
+    "Pursuer": ["Pursuer da miedo... pero toca la armónica muy bonito.", "Le dije a Pursuer que sonriera más. Ya sonríe todo el rato. Eso es lo que da miedo."],
+    "Kasane Teto": ["¡Teto es superdivertida! Se le olvidan las cosas como a mí. ¡Somos un equipo!", "Le cambié medio sándwich de pollo por media baguette. ¡El mejor trato de mi vida!"],
+    "Token": ["Token se cae mucho. Como yo. ¡Pero él rebota! Yo no.", "Token me hizo una canción. Me dejó sorda un ratito. ¡Pero era bonita!"],
+    "Tetra": ["Tetra tiene muchísima calma. ¡Me encanta! Yo no tengo nada de calma.", "Le cambié medio sándwich a Tetra por medio vaso de fideos. ¡Trato justo!"],
+    "Kevin": ["¡Kevin es muy mono cuando canta! Y da mucho miedo cuando le tocas la pizza.", "Le dije a Kevin que su pizza \"parecía vieja\". ¡Quería decir clásica! Me enseñó el cuchillo."],
+    "Kennyoung": ["¡Kenny toca la guitarra genial! Yo lo intenté y me di con el mástil en la cara.", "¡Le llevé un sándwich a Kenny al ensayo! ...me lo comí yo por el camino. ¡Perdón, Kenny!"],
+    "Enfosi": ["¡Le di un abrazo a un Glaggle y era un Enphosian! Se rió muy raro.", "Los Glaggles bailan y luego explotan. ¡Eso no está bien! ...¿o es su forma de ser feliz?"],
+    "Gran": ["¡Gran dice que soy la prueba de que los furries son mejores! ...¿eso es bueno? Suena raro.", "¡Le pregunté si quería ser mi amigo y me dio un contrato! ¡No lo he firmado! ...creo."],
+    "Evil Scary": ["¡Evil Scary solo necesita un amigo! ...un amigo muy valiente.", "¡Le hice un sándwich! Lo atravesó. ¡Pero lo intentó!"],
+    "Soft Fuzzy Man": ["¡Soft Fuzzy Man es suave y esponjoso de verdad! ...bueno, eso dice él. ¡No se puede tocar!", "¡Le hice un sándwich! ¡Lo miró con mucho cariño! ¡Es un detalle!"],
+    "Roaring Knight": ["¡El Knight solo necesita un amigo! ...y quizá dejar la espada.", "¡Le hice una tarjeta! ¡La cortó en dos! ¡Una mitad para cada uno!"],
+    "Nanachi": ["¡Nanachi es lo más mullido del mundo! Me lo dijo con una cara... ¡creo que le gustó!", "Le dije que su estofado \"tiene personalidad\". Me miró fatal. ¡Era un cumplido!"]
+  }
+}

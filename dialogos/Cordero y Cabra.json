@@ -1,0 +1,113 @@
+{
+  "Hola": [
+    "Cordero: *Beee.* · Cabra: Dice que bienvenido al culto. Yo digo que te arrodilles.",
+    "Cabra: Mira quién ha vuelto. El Cordero ya te ha guardado un saco de dormir.",
+    "Cordero: *Te sonríe con ternura. La espada sigue goteando.*",
+    "Cabra: Bienvenido, hereje. Digo... seguidor. Es lo mismo."
+  ],
+  "Yo": [
+    "Cabra: Sí, somos nosotros. Elección divina.",
+    "Cordero: *Asiente con solemnidad.* *Beee.*"
+  ],
+  "Frases": [
+    "Cabra: Hecho. Que no se diga que no hacemos milagros.",
+    "Cordero: *Bendice la ventana. Se abre sola.*",
+    "¡Nuevo seguidor! Cabra: Es un programa. Cuenta igual.",
+    "Cabra: Abierto. El precio: tu alma. Es broma. O no."
+  ],
+  "Idle": [
+    "Cabra: ¿Sabías que la contraseña del Cordero era \"NariLamb666#\"? Ups.",
+    "Cordero: *Barre el templo. Silba bajito.*",
+    "Cabra: Mi canción favorita es \"The Sound of Silence\". Como el Cordero.",
+    "Cabra: Wasabi. EXTRA de wasabi. Eso es comida de dioses.",
+    "Cordero: *Pesca un rato. Sale una bota.*",
+    "Cabra: Narinder me cae fatal. Ni preguntes.",
+    "Cordero: *Toca la campana del culto. Nadie viene.*",
+    "Cabra: En mi mundo esto salió peor. Mucho peor.",
+    "Cordero: *Mira al horizonte. El ojo de la corona parpadea.*",
+    "Cabra: Los seguidores quieren fe, comida y no ser sacrificados. Exigentes.",
+    "Cabra: Haz clic en el Cordero para que bale. Hazlo en mí si te atreves.",
+    "Cordero: *Lee el libro de doctrinas al revés. Asiente.*"
+  ],
+  "Clic": [
+    "Cordero: *Beee.* · Cabra: Traducción: \"deja de tocarme\".",
+    "Cordero: *Beeeeeee.* · Cabra: Eso ha sido un sermón entero.",
+    "Cordero: *Beee.* · Cabra: Dice que te quiere. Yo no.",
+    "Cordero: *Bala con dulzura. La corona brilla en rojo.*"
+  ],
+  "PorApp": {
+    "Access": ["Cabra: Base de datos de herejes. Está llenísima."],
+    "Bloc de notas": ["Cordero: *Escribe un sermón corto. Muy corto: \"Beee\".*"],
+    "CMD": ["Cabra: Pantalla negra. Como el Reino de las Sombras. Me siento en casa."],
+    "Calculadora": ["Cabra: Calculando el diezmo... vaya, eres pobre."],
+    "Excel": ["Cabra: Hoja de seguidores: fe, hambre, lealtad... y fecha de sacrificio."],
+    "Explorador": ["Cordero: *Explora tus carpetas como si fueran una mazmorra.*"],
+    "Office Web": ["Cabra: Evangelizando internet, pestaña a pestaña."],
+    "OneDrive": ["Cordero: *Sube las reliquias a la nube.*"],
+    "OneNote": ["Cordero: *Apunta los nombres de los nuevos seguidores.*"],
+    "Outlook": ["Cabra: Correo nuevo de Narinder. Borrado sin leer."],
+    "PowerPoint": ["Cabra: Diapositiva 1: por qué deberías unirte a nuestro culto."],
+    "Publisher": ["Cabra: Folleto: \"Únete al culto. Hay sopa\"."],
+    "Teams": ["Cabra: Reunión del culto. Asistencia obligatoria. O sacrificio."],
+    "Word": ["Cordero: *Escribe una doctrina nueva.* · Cabra: Ponle más sacrificios."],
+    "YouTube": ["Cabra: Pon vídeos de cabras gritando. Para inspirarme."]
+  },
+  "Clic2": [
+    "Cabra: ¡AAAAAAAAH! ...perdón. Se me escapa.",
+    "Cabra: *Risa malvada.* ¿Qué? Me río así siempre.",
+    "Cabra: Tócame otra vez y te mando a limpiar cacas.",
+    "Cabra: *Grita.* Es mi forma de decir hola."
+  ],
+  "AlVenirDe": {
+    "c00lgui": "Cabra: Ese hacker quería la contraseña del Cordero. Ya la filtré yo antes.",
+    "SeaDrive": "Cordero: *Bendice el sitio de la gata.* · Cabra: Qué desperdicio de seguidora.",
+    "Static Miku": "Cabra: Se fue la tele. El Cordero quería convertirla. Yo, desenchufarla.",
+    "Guillotina": "Cordero: *Cuenta a los seguidores. Faltan dos. La gata gigante ha comido bien.*",
+    "Angela": "Cabra: Adiós, L Corp. Aquí también hay rituales, pero con más velas.",
+    "Mikaela": "Cabra: La francotiradora se ha ido. Ya podemos asomar los cuernos.",
+    "Zodiac": "Cordero: *Recoge las balas del suelo. Servirán de ofrenda.*",
+    "Velvet": "Cabra: La araña se fue. Le ofrecimos ser obispa. Dijo \"quizá\".",
+    "Dune": "Cordero: *Seca el charco de Dune.* · Cabra: Ese bicho se comió dos seguidores.",
+    "Pyrophina y Zaratana": "Cabra: Los kaijus se han ido. El templo sigue en pie. Más o menos.",
+    "Averi": "Cordero: *Dice adiós a Averi con la pezuña.* · Cabra: Se dejó medio sándwich. Es mío.",
+    "Sebastian Solace": "Cabra: El tendero se ha ido. Nos quería vender pilas para la corona.",
+    "Pursuer": "Cordero: *Respira aliviado.* · Cabra: El del bosque miraba mucho al Cordero.",
+    "Kasane Teto": "Cabra: Se fue la de los taladros. Quería que el culto bailara. El Cordero lo hizo.",
+    "Token": "Cabra: Se fue el ruidoso. Le grité. Me contestó más fuerte. Lo respeto.",
+    "Tetra": "Cabra: Se fue Tetra. No ha dicho ni adiós. Me cae bien.",
+    "Kevin": "Cabra: Se fue el lobo verde. Nos dejó la caja de la pizza. Vacía. Como ofrenda, regular.",
+    "Kennyoung": "Cabra: Se fue el de la guitarra. Me ofreció entrar en su banda. Me lo pienso.",
+    "Enfosi": "Cabra: Se fueron los Glaggles. Bailaban delante de la estatua como en un ritual.",
+    "Gran": "Cabra: Se ha ido el doctor verde. Decía que tenía fe. En la especie equivocada.",
+    "Evil Scary": "Cabra: Se fue la bola negra. Le recé al Cordero para que se fuera. Funcionó. Creo.",
+    "Soft Fuzzy Man": "Cabra: Se fue el fantasma rosa. No quiso ser nuestro espíritu del culto. Dijo que era \"un fantasma libre\".",
+    "Roaring Knight": "Cabra: Se fue el Knight. Hizo una Fuente en el templo. El Cordero quiere quedársela.",
+    "Nanachi": "Cabra: Se fue el conejo del Abismo. Rechazó ser obispo. Respeto."
+  },
+  "Opina": {
+    "c00lgui": ["Cabra: c00lkidd tiene su propio culto. \"Team c00lkidd\". Aficionado.", "Cordero: *Bendice el panel rojo. Sigue haciendo glitch. Qué raro.*"],
+    "SeaDrive": ["Cabra: SeaDrive sería buena seguidora. Tan cínica. Tan fácil de convencer.", "Cordero: *Le da un sermón a SeaDrive. Ella pide un resumen.*"],
+    "Static Miku": ["Cabra: La chica de la tele siempre sonríe. Sospechoso. Como el Cordero.", "Cordero: *Quiere que Miku cante en los rituales.*"],
+    "Guillotina": ["Cabra: Guillotina se comió la ofrenda. Y al que la llevaba.", "Cordero: *Le tiene mucho respeto. Desde muy lejos.*"],
+    "Angela": ["Cabra: L Corp es un culto con uniforme y fichaje. Respeto.", "Cordero: *Le ofrece una bendición a Angela. Ella dice que no consta en el protocolo.*"],
+    "Mikaela": ["Cabra: Mikaela le disparó a mi corona. Rebotó. Ahora me cae bien.", "Cordero: *Le ofrece a Mikaela ser cruzada del culto.*"],
+    "Zodiac": ["Cabra: Por fin alguien con mi nivel de mala leche. El vaquero me gusta.", "Cordero: *Se queda muy quieto. Zodiac dispara a todo lo que se mueve.*"],
+    "Velvet": ["Cabra: Velvet sería una obispa perfecta. Elegante, da miedo y come seguidores.", "Cordero: *No acepta el té de Velvet. Ha aprendido.*"],
+    "Dune": ["Cabra: Dune intentó comerse al Cordero. Lo entiendo. Es muy esponjoso.", "Cordero: *Le da pescado a Dune. Dune quiere su lana.*"],
+    "Pyrophina y Zaratana": ["Cabra: Dos diosas gigantes peleando. Como los Obispos, pero más gordas.", "Cordero: *Intenta reclutar a las kaijus. Pyrophina le quema el templo.*"],
+    "Averi": ["Cabra: La zorrita dice cosas bonitas que suenan fatal. Me cae genial.", "Cordero: *Comparte su comida con Averi. Ella le da un sándwich de pollo.*"],
+    "Sebastian Solace": ["Cabra: Sebastian vende cosas. Nosotros vendemos fe. Él gana más.", "Cordero: *Le ofrece un sermón a Sebastian. Sebastian le ofrece pilas.*"],
+    "Pursuer": ["Cabra: Pursuer dice \"carne fresca\" mirando al Cordero. Ni de broma.", "Cordero: *Se esconde detrás de la Cabra cuando oye un aullido.*"],
+    "Kasane Teto": ["Cabra: Teto dice que su cabeza está llena de pájaros. Con razón no se acuerda del sermón.", "Cordero: *Baila con Teto.* · Cabra: Esto no es un ritual. ...¿o sí?"],
+    "Token": ["Cabra: Token grita casi tan bien como yo. CASI.", "Cordero: *Baila breakcore con Token.* · Cabra: Esto no es un ritual. ...vale, sí."],
+    "Tetra": ["Cabra: Tetra me tiene silenciada. Grité más fuerte. Seguía silenciada.", "Cordero: *Se sienta en el sofá con Tetra. Ninguno habla. Paz total.*"],
+    "Kevin": ["Cabra: Kevin defiende su pizza como yo defiendo al Cordero. Lo respeto.", "Cordero: *Toca la pizza de Kevin.* · Cabra: ¡CORRE, CORDERO!"],
+    "Kennyoung": ["Cabra: Kenny tiene un culto. Lo llama \"suscriptores\". Lo respeto.", "Cordero: *Mueve la cabeza al ritmo del pop-punk.* · Cabra: El Cordero quiere ser bajista."],
+    "Enfosi": ["Cabra: Una estatua de oro a la que todos van a adorar. Eso me suena de algo.", "Cordero: *Mira con mucha atención la camiseta de un Gazo.* · Cabra: Es falso. Te lo digo yo."],
+    "Gran": ["Cabra: Ese Gran quiere convertir a todos en animales. El Cordero ya lo es. Llega tarde.", "Cordero: *Mira la jeringuilla verde con mucho interés.* · Cabra: No."],
+    "Evil Scary": ["Cabra: Evil Scary dice que era un rey. El Cordero también. No se llevan bien.", "Cordero: *Se esconde debajo de la Cabra.* · Cabra: ¡AAAAAAH!"],
+    "Soft Fuzzy Man": ["Cabra: Soft Fuzzy Man ligó con el Cordero. El Cordero no sabe qué hacer. Yo tampoco.", "Cordero: *Le ofrece una corona.* · Cabra: Se le cae a través de la cabeza."],
+    "Roaring Knight": ["Cabra: El Knight sale en una profecía. El Cordero también. No se llevan bien.", "Cordero: *Le ofrece unirse al culto.* · Cabra: El Knight cortó el folleto."],
+    "Nanachi": ["Cabra: Nanachi ya ha sido \"bendecido\" una vez. No quiere otra. Lo entiendo.", "Cordero: *Le ofrece una seta.* · Cabra: Nanachi dice que esa mata. Gracias, Nanachi."]
+  }
+}

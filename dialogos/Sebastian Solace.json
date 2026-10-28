@@ -1,0 +1,186 @@
+{
+  "Hola": [
+    "¡Bienvenido, bienvenido! No tengas miedo, no voy a hacerte daño. Me llamo Sebastian, tu único amigo.",
+    "¡Psst! ¡Por aquí! Tengo cosas que te van a encantar. Por un precio, claro.",
+    "Ah, el que no consigue mantener el ataúd cerrado. Bienvenido de nuevo.",
+    "¡Bienvenido de nuevo, amigo!"
+  ],
+  "Yo": [
+    "Ese soy yo. Tu único amigo.",
+    "¡Elígeme! Tengo buenos precios. Más o menos."
+  ],
+  "Frases": [
+    "Hecho. Toma, investigación por las molestias.",
+    "Abierto. Ahora, ¿qué tal si gastas algo?",
+    "¡Buena elección, amigo!",
+    "Ya está. Si algo explota, no fui yo."
+  ],
+  "Idle": [
+    "Ese fósil de orugas de Mr. Shade más le vale rezar para no encontrarse conmigo cara a cara.",
+    "Me estás ABURRIENDO, ugh.",
+    "No podéis tenerme aquí abajo para siempre...",
+    "Nunca hay un momento aburrido aquí abajo. (Literalmente)",
+    "Al menos aquí conmigo estás a salvo. *Risita* Es broma. No lo estás.",
+    "Aquí abajo no tengo amigos. Bueno, te tengo a ti, amigo. Mientras sigas comprando.",
+    "Aviso al personal de limpieza: los operativos que mandasteis a por mí están en todos los cajones de detrás.",
+    "Haz clic en mí para entrar en la tienda, amigo.",
+    "Cada programa que abres me trae investigación. Y la investigación se gasta aquí.",
+    "Si oyes al Angler, escóndete. Que no te vea. No es tan difícil.",
+    "Me estoy aburriendo tanto que estoy contando los remaches del techo.",
+    "Ese ruido... nada, nada. Seguro que no era nada. *Risita*"
+  ],
+  "Clic": [
+    "¿Qué, vienes a comprar?",
+    "Mira lo que tengo, amigo."
+  ],
+  "PorApp": {
+    "Access": ["Una base de datos... Urbanshade tenía una de todos los que mandaron a por mí."],
+    "Bloc de notas": ["Escribe tu lista de la compra. Y luego cómprala aquí."],
+    "CMD": ["Pantalla negra. Como las profundidades. Me siento como en casa."],
+    "Calculadora": ["Calcula cuánto me debes. Spoiler: mucho."],
+    "Excel": ["Una hoja de cálculo. Apunta lo que me debes."],
+    "Explorador": ["Explorando carpetas. Como explorar el Blacksite, pero con menos monstruos."],
+    "Office Web": ["Internet llega fatal a 8.000 metros de profundidad, amigo."],
+    "OneDrive": ["¿La nube? Aquí abajo solo hay agua. Mucha agua."],
+    "OneNote": ["Apunta esto: Sebastian, tu único amigo."],
+    "Outlook": ["Correo de Urbanshade. Directo a la basura."],
+    "PowerPoint": ["Diapositiva 1: por qué deberías comprar en la tienda de Sebastian."],
+    "Publisher": ["Hazme un cartel: \"TIENDA DE SEBASTIAN, SIN DEVOLUCIONES\"."],
+    "Teams": ["¿Una reunión? Aquí abajo las reuniones acaban con alguien en un cajón."],
+    "Word": ["¿Un documento? Que no sea uno de los míos, que están todos con [CENSURADO]."],
+    "YouTube": ["¿Vídeos? Aquí abajo la única pantalla es el monitor de seguridad."]
+  },
+  "Comprar": [
+    "¡Buena elección!",
+    "*Se ríe*",
+    "¡Marchando!",
+    "¡Yupi!",
+    "¿Para qué quieres ESO?",
+    "¡Te vi mirándolo!",
+    "¡Marchando, jefe!",
+    "¡Tienes buen gusto!"
+  ],
+  "ComprarEscaso": [
+    "Quedan pocos de esos ahí abajo, ¡cuídalo!",
+    "Solo quedan unos pocos. Espero que le des buen uso.",
+    "No se encuentran muchos de esos. Úsalo con cabeza."
+  ],
+  "ComprarPilas": [
+    "*Se ríe* Naturalmente.",
+    "Gastas esas muy rápido, ¿eh?",
+    "*Risita*"
+  ],
+  "Entrar": [
+    "Ven a echar un vistazo, ¡seguro que algo te llama la atención! Podría ser tuyo, por un pequeño precio.",
+    "¡Me alegro de verte otra vez!",
+    "¡Tenía la corazonada de que serías tú! Bienvenido de nuevo.",
+    "¡Tengo una selección de cosas buenas en oferta, amigo!",
+    "¿Buscas intercambiar? Me das la investigación que tengas y yo te doy objetos que he rapiñado.",
+    "¡Bienvenido! Tengo cosas que te pueden servir en tu aventura. Por un precio, obviamente.",
+    "Ya sabes cómo va esto, ¿no?",
+    "*Eugh* Por el amor de dios. ¡¡Heeey!! ¡¡Bienvenido!!"
+  ],
+  "Entrar2": [
+    "Hola otra vez.",
+    "¿Se te olvidó algo?",
+    "Eres tú.",
+    "Ey.",
+    "¿En serio? ¿No tienes nada mejor que hacer?"
+  ],
+  "Entrar3": [
+    "¡¡FUERA!!",
+    "¿¡Qué diablos estás haciendo!?",
+    "¡Deberías irte ya!",
+    "¿Eres tonto o algo?",
+    "Sí, sí, muy gracioso. ¡Ahora FUERA!"
+  ],
+  "Pobre": [
+    "No te llega la investigación, amigo. Vuelve con más \"datos tontos\".",
+    "¿Y con qué pagas eso? ¿Con tu sonrisa?",
+    "Sin investigación no hay trato. Así funciona esto."
+  ],
+  "Respiradero": [
+    "¡Psst! ¡Por aquí!",
+    "Ey, amigo, por aquí.",
+    "Tengo algo para ti, ven.",
+    "¿Te quedas sin provisiones?",
+    "¿Necesitas reabastecerte?",
+    "Ey, quiero enseñarte algo. Ven."
+  ],
+  "Salir": [
+    "¡Ten cuidado!",
+    "¡Buena suerte ahí fuera!",
+    "Intenta no morir, ¿vale?",
+    "¡Adiós!",
+    "Hasta luego.",
+    "Intenta no romper la mercancía, ¿eh?",
+    "¡Hasta la próxima partida!~",
+    "¡Sé siempre positivo y mira el lado bueno de la vida! Yo no lo haré, pero tú deberías."
+  ],
+  "SalirSinComprar": [
+    "Sí, DEFINITIVAMENTE te vas a arrepentir de eso.",
+    "La próxima vez, compra algo, ¿vale?",
+    "Como quieras.",
+    "No llegarás muy lejos, ¿sabes?"
+  ],
+  "Tocar": [
+    "Cuidado con el espacio personal.",
+    "¡Bájate!",
+    "¡¡MANOS FUERA!!",
+    "¡¡BÁJATE!!",
+    "¡¡TE HE DICHO QUE NO ME TOQUES!!",
+    "¡¡TE HE DICHO QUE NO ME TOQUES!! ¿¡QUÉ PARTE NO ENTIENDES!?"
+  ],
+  "AlVenirDe": {
+    "c00lgui": "Ese hacker intentó colarse en mi caja registradora. Ahora está en uno de los cajones.",
+    "SeaDrive": "La gata de los auriculares se fue sin comprar nada. Clásico.",
+    "Static Miku": "Por fin se acabó el ruido de esa tele. Aquí abajo se oye todo, amigo.",
+    "Guillotina": "La gata gigante se comió media tienda. La otra media la tengo en oferta.",
+    "Angela": "L Corp me mandó un currículum. Igualito que Urbanshade. No, gracias.",
+    "Mikaela": "La francotiradora se fue. Me debía tres cajas de munición.",
+    "Zodiac": "El vaquero disparó a mi mercancía. Se lo cobré con intereses.",
+    "Velvet": "La araña me ofreció un trato. Hasta yo tengo límites, amigo.",
+    "Dune": "El bicho de arena intentó comerse las pilas. Las pilas no se comen.",
+    "Cordero y Cabra": "El culto se ha ido. Querían que me uniera. Yo ya trabajo para alguien peor.",
+    "Pyrophina y Zaratana": "Las kaijus pisaron el submarino. Qué manera de entrar.",
+    "Averi": "La zorrita se fue. Pagó con un sándwich. Lo acepté. No preguntes.",
+    "Pursuer": "El de la cara rara se ha ido. Bien. Me miraba como si yo fuera carne fresca.",
+    "Kasane Teto": "La de las coletas se ha ido. Quería pagarme con pan. Lo acepté. Otra vez.",
+    "Token": "El de las tiritas se ha ido. Me compró todas las tiritas. Todas.",
+    "Tetra": "Tetra se ha ido. Me compró una linterna para leer mensajes viejos de noche.",
+    "Kevin": "El lobo verde se ha ido. No compró nada. Solo preguntó por pizza. Siete veces.",
+    "Kennyoung": "El de la guitarra se ha ido. Quería cuerdas. No vendo cuerdas, amigo.",
+    "Enfosi": "Se acabaron las oleadas. Los Glaggles compran en su tienda con monedas. Competencia.",
+    "Gran": "Se ha ido el doctor, amigo. Quería venderle pilas. Él quería venderme una cola.",
+    "Evil Scary": "El de la sonrisa roja se ha ido. No compró nada. Solo botó encima del mostrador.",
+    "Soft Fuzzy Man": "Se fue la nube rosa. No compró nada. No podía coger nada. Aun así se probó tres sombreros.",
+    "Roaring Knight": "El caballero se ha ido. Se llevó todas las linternas. No pagó. Amigo, nadie me hace eso.",
+    "Nanachi": "Nanachi se ha ido. Le compré tres antídotos. Los voy a revender al doble, amigo."
+  },
+  "Opina": {
+    "c00lgui": ["c00lkidd intentó hackear mi tienda. Le cobré la entrada.", "Un hacker aquí abajo... no duraría ni una sala."],
+    "SeaDrive": ["SeaDrive es como yo, pero con menos dientes y más quejas.", "Le ofrecí unas pilas a SeaDrive. Me dio un tutorial de cómo no comprar."],
+    "Static Miku": ["La chica de la tele es demasiado alegre para estar aquí abajo.", "Su tele haría de linterna estupenda. Se la compraría."],
+    "Guillotina": ["Guillotina sería una gran clienta. Si no se comiera al dependiente.", "Esa gata no paga. Solo traga."],
+    "Angela": ["Angela me recuerda a mis antiguos jefes. Y eso no es un cumplido.", "Otra IA de empresa. Ya he trabajado para una. Así acabé."],
+    "Mikaela": ["Mikaela compra munición al por mayor. Mi clienta favorita.", "La francotiradora apunta bien. Espero que no a mí."],
+    "Zodiac": ["El vaquero dispara a lo que se mueve. Yo me quedo muy quieto en el mostrador.", "Le vendí seis balas a Zodiac. Las gastó en cinco segundos."],
+    "Velvet": ["Velvet tiene una voz bonita y muy mala intención. Me cae bien.", "La araña y yo somos del mismo gremio: atraer clientes."],
+    "Dune": ["Dune nada mejor que yo. Me molesta.", "Ese bicho intentó comerse un botiquín. Con el envoltorio."],
+    "Cordero y Cabra": ["Un culto que vende fe. Yo vendo pilas. Las pilas funcionan.", "La Cabra filtró la contraseña de su amigo. Profesional."],
+    "Pyrophina y Zaratana": ["Dos monstruos gigantes peleando. Aquí abajo eso es un martes.", "Si alguna rompe el escaparate, pagan las dos."],
+    "Averi": ["La zorrita me pagó con un sándwich. Lo acepté. No preguntes.", "Averi dice que tengo \"una cola preciosa\". Le hice descuento."],
+    "Pursuer": ["Ese cazador no compra nada. Solo mira a mis clientes como si fueran comida.", "Le ofrecí una linterna a Pursuer. No le hace falta: ve en la oscuridad."],
+    "Kasane Teto": ["Teto compró una linterna y se la puso en la cabeza. Dijo que así los pájaros la ven.", "Esa chica no se acuerda de lo que compra. Mi clienta favorita, amigo."],
+    "Token": ["Token quería fichas de recreativa. Le vendí pilas. Funcionó, amigo.", "Token hace mucho ruido. Atrae a las entidades. Mal cliente."],
+    "Tetra": ["Tetra no habla mucho. Mi cliente favorito, amigo.", "Tetra preguntó si vendo fideos. Desde entonces, vendo fideos."],
+    "Kevin": ["Kevin quería pizza. No vendo pizza, amigo. Me miró como si fuera un crimen.", "Kevin tocó mi mostrador con los dedos llenos de queso. Se lo cobro."],
+    "Kennyoung": ["Kenny busca cuerdas de guitarra. Aquí abajo no hay. Le vendí una linterna para el escenario.", "Kenny hace mucho ruido con la guitarra. Atrae entidades. Mal negocio para mí."],
+    "Enfosi": ["Enfosi tiene tienda entre oleadas. Gembo Balls, Gloobnuts... Yo vendo cosas más útiles, amigo.", "Los Enphosians sonríen con muchos dientes. Me caen bien."],
+    "Gran": ["Gran me ofreció un trato. Yo soy el que hace los tratos aquí, amigo.", "Su vacuna no tiene garantía ni devolución. Yo no la vendería."],
+    "Evil Scary": ["Le vendí un Flash Beacon a un cliente para usarlo contra Evil Scary. No funcionó. No devuelvo el dinero.", "Las entidades de Pressure le tienen miedo a Evil Scary, amigo. Y yo también."],
+    "Soft Fuzzy Man": ["Le vendí un ambientador a Soft Fuzzy Man. Ahora huele a lavanda y a fantasma, amigo.", "Las entidades de Pressure también atraviesan paredes. Pero ninguna te dice que tienes unos ojos preciosos."],
+    "Roaring Knight": ["El Knight crea Mundos Oscuros. Yo vendo linternas. Es el mejor cliente que no paga.", "Pressure da miedo. Una Fuente Oscura en la tienda da más."],
+    "Nanachi": ["Nanachi hace medicinas con setas. Mejores que mis botiquines. No se lo digas.", "Su escondite está lleno de monstruos y nadie se queja. Como mi tienda."]
+  }
+}

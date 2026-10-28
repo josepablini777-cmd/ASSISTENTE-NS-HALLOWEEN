@@ -16,6 +16,24 @@ Tres invitados de miedo para la noche más larga del año:
 | 🧸 | **Soft Fuzzy Man** | Lemon Demon · Aimkid | ✅ Hecho |
 | 🔪 | **Dr. Loomis** | *Halloween* | ⏳ Próximamente |
 
+## Notas del parche – v7 Halloween (avance 4)
+
+**✍️ Editor de diálogos** (doble clic en `editor_dialogos.vbs`)
+- Todos los diálogos han salido del código a la carpeta **`dialogos`**: un archivo por skin y `_charlas.json` con las charlas entre skins. El panel los lee al arrancar.
+- Editor aparte para verlos y cambiarlos por pestañas: **Ficha** (lore del personaje), **Frases**, **Apps**, **Otras skins** (lo que dice al venir de cada una y su opinión), **Charlas** (línea a línea, con su invitado) y **Mecánica**.
+- Avisos de lo que falta: opiniones sin escribir, skins con pocas charlas, frases demasiado largas.
+
+**📚 Lore de los personajes** (carpeta `lore`)
+- Una ficha por personaje (quién es, personalidad, cómo habla, qué nunca haría…) para que cada skin actúe según su personaje. `estado.md` marca qué skins están bien y cuáles hay que revisar.
+
+**🗃️ Skins archivadas**
+- Las skins archivadas no salen en el menú Skins ni en las charlas, pero conservan sus frases y opiniones. Se ponen desde **Ajustes > Skins archivadas**, donde también se pueden archivar o devolver al menú.
+- Archivadas: **Zodiac, Dune, Kevin, Tetra y Averi**.
+
+**🐱 Guillotina, rehecha**
+- Ahora **habla**: lista, manipuladora y obsesionada con devorar. Te trata como a su presa ("¿Te doy miedo, cariño?") y estalla en MAYÚSCULAS cuando se enfada.
+- Diálogos nuevos basados en su lore de *Mewgenics*: Butch, su canción, la radio WMEW 99.9 y su decapitación.
+
 ## Notas del parche – v7 Halloween (avance 3)
 
 **Skin nueva: Roaring Knight** (*Deltarune*, en el grupo **Videojuegos**)

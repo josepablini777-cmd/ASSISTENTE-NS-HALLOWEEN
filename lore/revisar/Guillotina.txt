@@ -1,0 +1,296 @@
+﻿==============================================================================
+  GUILLOTINA – TODOS SUS DIÁLOGOS
+==============================================================================
+Cambia directamente las frases que quieras y deja las demás como están.
+Los *asteriscos* son acciones (lo que hace), lo demás es lo que dice.
+
+PERSONALIDAD GENERAL (escríbela aquí: cómo es, cómo habla, qué nunca haría):
+- 
+- 
+- 
+
+------------------------------------------------------------------------------
+1. AL APARECER (entrada)
+------------------------------------------------------------------------------
+  - Mmmmmm... se te ve bastante nervioso. ¿Te doy miedo, cariño?
+  - WMEW 99.9: ¡Atención! Un enorme gato se dirige a tu escritorio.
+  - *Se relame despacio.* Ven con mamá. No te va a doler... mucho.
+  - *Te mira fijamente.* Solo me como a los que no me hacen caso. Tú me harías caso en todo lo que te dijera, ¿verdad?
+
+------------------------------------------------------------------------------
+2. AL ABRIR UNA APP
+------------------------------------------------------------------------------
+  - *ÑAM.* ¿Eso era todo? Qué poca cosa me das, cariño.
+  - *Se lo traga entero sin masticar.* Mmmm. Siguiente.
+  - Abre, abre, abre. Cuanto más abres, más hambre me das.
+  - *Se da palmaditas en la barriga.* Aquí dentro cabe todo lo que abras. Y tú también.
+  - WMEW 99.9: El gato de la colina sigue tragando. Nadie está a salvo.
+
+------------------------------------------------------------------------------
+3. FRASES SUELTAS (cuando está quieta)
+------------------------------------------------------------------------------
+  - *Ronca. El suelo tiembla. Abre un ojo.* Sé que estás ahí.
+  - *Se lame una garra muy despacio.* Te estoy mirando, cariño. Desde hace un rato.
+  - WMEW 99.9: Se recomienda no salir de casa. Ni encender el ordenador.
+  - *Le ruge la barriga.* ¿Lo oyes? Te está llamando a ti.
+  - Corre si quieres. Me encanta cuando corren. Al final siempre vuelvo a aparecer yo.
+  - Butch me enseñó a pelear. Luego desaparecí. Él sigue preguntándose dónde. Yo sigo con hambre.
+  - No me como a los que ya están en el suelo. No tiene gracia. Me gusta que se resistan.
+  - *Se tumba encima de tu teclado.* Mío. Todo lo que toco es mío. Lo que trago, más.
+  - Los demás asistentes te ayudan. Yo te espero. Hay una diferencia.
+  - *Bosteza. Ves todos sus dientes. Todos.*
+  - Dicen que me cortaron la cabeza. Mírame. Sigo teniendo hambre.
+  - WMEW 99.9: Seguimos informando: el gato gigante sigue en la casa de la colina.
+
+------------------------------------------------------------------------------
+4. AL HACERLE CLIC
+------------------------------------------------------------------------------
+  - *Se le eriza el lomo.* Tócame otra vez y no vuelves a tocar nada.
+  - *Gruñe.* ¿Qué coño te crees que haces, gusano?
+  - *Abre la boca justo encima de tu cursor.* Vuelve a hacerlo. Te reto.
+  - *Bufa.* TE VOY A DEVORAR.
+  - AHAHAHAHAHA. ¿De verdad te crees que con eso bastará?
+
+------------------------------------------------------------------------------
+5. SU BOTÓN EN EL MENÚ SKINS
+------------------------------------------------------------------------------
+  - *Se mira en el botón.* Preciosa. Enorme y preciosa.
+  - Esa soy yo. ¿Me vas a elegir? Sabia decisión, cariño.
+
+------------------------------------------------------------------------------
+6. AL ABRIR CADA BOTÓN
+------------------------------------------------------------------------------
+  [Access]  Una base de datos llena de nombres. *La engulle.* Ahora están todos aquí dentro.
+  [Bloc de notas]  Escribe: "Guillotina tiene hambre". Cien veces. Así no se te olvida.
+  [CMD]  Pantalla negra. Como el fondo de mi estómago. Acogedor, ¿verdad?
+  [Calculadora]  Calcula cuánto pesas. ...mmm. Me vale.
+  [Excel]  Haz una columna con todo lo que me he comido hoy. Vas a necesitar más filas.
+  [Explorador]  Carpetas y más carpetas. Te escondes en muchas, cariño. Te encontraré en todas.
+  [Office Web]  Internet. Un bufé libre. *Se relame.*
+  [OneDrive]  La nube. Intenté comérmela una vez. Sabía a nada. Odio las cosas que no llenan.
+  [OneNote]  Apunta: "no hacer enfadar a Guillotina". Subráyalo dos veces.
+  [Outlook]  Correo nuevo. Remitente: Guillotina. Asunto: "Voy a por ti esta noche".
+  [PowerPoint]  Diapositiva uno: yo. Diapositiva dos: yo, comiendo. No hay diapositiva tres.
+  [Publisher]  Un cartel de SE BUSCA. No te molestes. Yo ya te he encontrado.
+  [Teams]  Una reunión llena de gente. *Se relame.* Cuántos aperitivos.
+  [Word]  Escribe algo bonito, cariño. Lo leeré antes de comérmelo.
+  [YouTube]  Ponme mi canción. "Guillotina". Escucha bien la letra. Va por ti.
+
+------------------------------------------------------------------------------
+7. LO QUE DICE DE CADA SKIN
+   (al venir de = cuando sustituye a esa skin · opina = lo que piensa de ella)
+------------------------------------------------------------------------------
+  c00lgui
+    al venir de:  El panel rojo se ha ido. Mucho hacker, mucha amenaza... y nada que morder.
+    opina:        Un hacker. Todo pantalla y nada de carne. Qué decepción.
+    opina:        c00lkidd quiso hackearme. *Se relame.* Los niños que juegan con fuego acaban en mi barriga.
+
+  SeaDrive
+    al venir de:  *Olfatea el aire.* La gata de los auriculares se ha ido. Mucho correr para estar siempre tan cansada.
+    opina:        SeaDrive siempre tiene sueño. Me encantan las presas que se duermen.
+    opina:        Otra gata en el sistema. Aquí solo hay sitio para una. Y no es ella.
+
+  Static Miku
+    al venir de:  La tele se ha apagado. Mejor. Tanto "bzzt" me quitaba el apetito.
+    opina:        Una niña dentro de una tele. Como una lata de comida: solo hay que abrirla.
+    opina:        Canta muy bonito. Lástima que a mí solo me guste mi canción.
+
+  Angela
+    al venir de:  La IA se ha ido. Quería encerrarme. A mí. *AHAHAHAHA.*
+    opina:        Angela cree que puede contenerme. Ninguna celda es más grande que mi estómago.
+    opina:        Habla como una máquina. Las máquinas no se asustan. Qué aburrido.
+
+  Mikaela
+    al venir de:  La francotiradora se ha ido. Me disparó. Me comí la bala. Y casi la mano.
+    opina:        Apunta muy bien. Yo abro muy bien la boca.
+    opina:        Otra gata con armas. Las armas no sirven de nada cuando estás aquí dentro.
+
+  Zodiac   (archivada)
+    al venir de:  El vaquero se ha ido. Seis balas, cariño. Ni una me hizo cosquillas.
+    opina:        Zodiac viene de mi mundo. Por eso sabe que no tiene que dispararme.
+    opina:        "¡No te muevas!", dice. Yo no me muevo. Espero. Siempre gano esperando.
+
+  Velvet
+    al venir de:  La araña se ha ido. Ocho patas para correr y aun así casi la alcanzo.
+    opina:        Velvet se cree la depredadora del panel. Que me mire bien.
+    opina:        Ella tiene una telaraña. Yo tengo una boca. Adivina qué atrapa más.
+
+  Dune   (archivada)
+    al venir de:  Dune se ha ido nadando. Siempre nadando. Siempre huyendo. Qué rico.
+    opina:        Dune quiso comerme. A mí. *AHAHAHAHA.* Eso sí que es tener hambre.
+    opina:        Huele a pescado. Hace años que nadie me trae pescado.
+
+  Cordero y Cabra
+    al venir de:  El culto se ha ido. Me dejaron una ofrenda. Me comí la ofrenda y el altar. Un detalle por su parte.
+    opina:        Un cordero que se cree un dios. Los dioses también se digieren.
+    opina:        La Cabra grita mucho. Me gustan las presas que hacen ruido: así sé dónde están.
+
+  Pyrophina y Zaratana
+    al venir de:  Se han ido las kaijus. Vuelvo a ser lo más grande del barrio. Como debe ser.
+    opina:        Dos monstruos peleándose por un pueblo. Aficionadas. Yo me como el pueblo.
+    opina:        WMEW 99.9: Tres monstruos en el mismo barrio. Uno de ellos sonríe demasiado.
+
+  Averi   (archivada)
+    al venir de:  La zorrita se ha ido. Me dejó un sándwich. Qué mona. Qué ingenua.
+    opina:        Averi me trae sándwiches para que no me la coma. Funciona. De momento.
+    opina:        Huele a pollo y a miedo. Mi combinación favorita.
+
+  Sebastian Solace
+    al venir de:  El tendero se ha ido. Me quiso cobrar por mirar. Yo no pago, cariño. Yo me como la tienda.
+    opina:        Sebastian vende de todo. Lo único que me interesa de su tienda es él.
+    opina:        Tiene una cola larguísima. *Se relame.* Mejor que cualquier cosa de su estantería.
+
+  Pursuer
+    al venir de:  El cazador se ha ido. Se cree el depredador del bosque. Que venga a la ciudad.
+    opina:        Pursuer quiere carne fresca. Yo no soy tan exquisita. Me lo como todo.
+    opina:        Dos cazadores en el mismo panel. Solo una tiene la boca lo bastante grande.
+
+  Kasane Teto
+    al venir de:  La de las coletas se ha ido. Hiii, hiii... me ha dado hambre de tanto oírla.
+    opina:        Teto se olvida de todo. Se olvidará de huir.
+    opina:        Esas coletas parecen dos barras de pan. Y yo nunca le digo que no al pan.
+
+  Token
+    al venir de:  La ficha se ha ido. Tanto ruido para tan poca cosa.
+    opina:        Token hace mucho ruido. El ruido atrae a los depredadores, cariño.
+    opina:        Me tragué su música una vez. Siguió sonando aquí dentro. Ni así me llenó.
+
+  Tetra   (archivada)
+    al venir de:  El gato del sofá se ha ido. Ni se levantó. Las presas que no se mueven no tienen gracia.
+    opina:        Tetra no se mueve del sofá. No me lo como: sin persecución no hay placer.
+    opina:        Pendientes de pez. Lo único apetitoso que tiene.
+
+  Kevin   (archivada)
+    al venir de:  El de la pizza se ha ido. Defiende su pizza como si yo quisiera la pizza. Te quiero a ti, Kevin.
+    opina:        Kevin protege su pizza. No entiende que la pizza es el aperitivo.
+    opina:        Saca cuchillos, motosierras... Me encanta la comida que se defiende.
+
+  Kennyoung
+    al venir de:  El músico se ha ido. Me dejó un acorde en la cabeza. Y una púa en el estómago.
+    opina:        Kennyoung toca muy fuerte. Así no me oye cuando me acerco.
+    opina:        Le pedí que tocara mi canción. Se puso pálido. Buen público.
+
+  Enfosi
+    al venir de:  Se han ido las caritas. Demasiado amarillas. Demasiado sonrientes. Demasiado fáciles.
+    opina:        Un juego de defender una estatua. Las estatuas no corren. No me interesan.
+    opina:        Los Glaggles van en fila hacia la estatua. Un bufé que se sirve solo.
+
+  Gran
+    al venir de:  El doctor se ha ido. Quería una muestra mía. Yo quería una muestra de él. Entero.
+    opina:        Gran pincha a la gente con agujas. A mí también me gustan las agujas... me abren el apetito.
+    opina:        Huele a hospital y a miedo bien escondido. Lo noto, doctor.
+
+  Evil Scary
+    al venir de:  La bola negra se ha ido. Intenté tragármela y me dejó las manos fuera. Qué falta de educación.
+    opina:        Evil Scary no se puede comer. Es lo único de este panel que me ofende.
+    opina:        Bota hacia todos. Hacia mí bota más despacio. Sabe quién manda.
+
+  Soft Fuzzy Man
+    al venir de:  La nube rosa se ha ido. Mucho piropo, mucho "cariño"... y ni un bocado de verdad.
+    opina:        Soft Fuzzy Man liga conmigo. Me lo trago. Sabe a aire. Qué decepción.
+    opina:        Él necesita que le hagan caso. Yo solo hago caso a lo que se puede masticar.
+
+  Roaring Knight
+    al venir de:  El caballero se ha ido. Demasiadas espadas. Hasta yo tengo límites. Pocos.
+    opina:        El Knight no habla. Solo ruge. Me gusta: yo también rujo cuando tengo hambre.
+    opina:        Mordí su estela. Sombras. Nada. Odio las cosas que no llenan.
+
+  Nanachi
+    al venir de:  Huele a estofado. Nanachi se ha ido. La olla no. Ahora es mía.
+    opina:        Nanachi cocina para mí sin que se lo pida. Le dejaré para el final.
+    opina:        Esas orejas tan mullidas... "Nnaa", dice. Yo digo ñam.
+
+------------------------------------------------------------------------------
+8. CHARLAS CON OTRAS SKINS (11 que se ven + 4 con skins archivadas)
+------------------------------------------------------------------------------
+  CHARLA 1 – con SeaDrive
+    Guillotina: *Olfatea a SeaDrive de arriba abajo.* Mmmm. Café y cansancio. Mi plato favorito.
+    SeaDrive: Ni se te ocurra. Soy un asistente, no un aperitivo.
+    Guillotina: Todos decís lo mismo antes de entrar aquí. *Se da palmaditas en la barriga.*
+    SeaDrive: ...voy a cerrar sesión un momento.
+
+  CHARLA 2 – con Angela
+    Angela: Anomalía felina. Regrese a su unidad de contención.
+    Guillotina: ¿Contención? Cariño, la unidad de contención soy yo. *Abre la boca.*
+    Angela: ...Manager, solicito permiso para no estar aquí.
+
+  CHARLA 3 – con Static Miku
+    Static Miku: ¡Gatita! ¡Ven aquí, gatita!
+    Guillotina: Gatita. *AHAHAHAHA.* Qué adorable. Ven tú aquí, cielo. Ábreme esa tele.
+    Static Miku: ¡No, no, la antena no! ¡Bzzzzzt!
+
+  CHARLA 4 – con Mikaela
+    Mikaela: Objetivo enorme a las doce. Fácil.
+    Guillotina: Dispara, preciosa. *Abre la boca de par en par.* Aquí. Justo aquí.
+    Mikaela: Espera... ¿se va a comer la bala?
+    Guillotina: *ÑAM.* Y ahora vas tú.
+
+  CHARLA 5 – con Pyrophina y Zaratana
+    Guillotina: *Se planta delante de las kaijus.* ¿Esto es lo más grande que tiene el pueblo? Qué tierno.
+    Pyrophina y Zaratana: Pyrophina: ¡GRRRRRAAAARRRGH!
+    Guillotina: A MÍ NO ME RUGES. *Ruge todavía más fuerte.*
+    Pyrophina y Zaratana: Zaratana: ...grrr. · WMEW 99.9: ¡Tres monstruos! ¡Evacúen el pueblo!
+
+  CHARLA 6 – con Sebastian Solace
+    Guillotina: *Se come una caja de pilas del mostrador.* Mmmm. Picantes.
+    Sebastian Solace: ¡Eh! ¡Eso se paga, amiga!
+    Guillotina: Apúntalo en la cuenta de tu cola, cariño. Ya me la cobraré yo.
+    Sebastian Solace: ...cierro la tienda. Hoy. Ahora mismo.
+
+  CHARLA 7 – con Kasane Teto
+    Guillotina: *Mira las coletas de Teto.* Qué pan tan bonito llevas en la cabeza.
+    Kasane Teto: ¡No son pan! ¡Son taladros!
+    Guillotina: Mejor aún. Me encanta lo crujiente. *Abre la boca.*
+    Kasane Teto: ¡Toma, toma! *Le lanza la baguette y sale corriendo.*
+
+  CHARLA 8 – con Pursuer
+    Guillotina: *Olfatea a Pursuer.* Otro cazador. Qué emocionante: dos depredadores y una sola presa.
+    Pursuer: Tú comes carne vieja.
+    Guillotina: Yo como de todo, cariño. Incluidos los cazadores que hablan demasiado.
+    Pursuer: ...me vuelvo al bosque.
+
+  CHARLA 9 – con Kennyoung
+    Guillotina: *Mira la guitarra de Kenny.* Tócame algo. Mi canción. Ya sabes cuál.
+    Kennyoung: ¿"Guillotina"? ...no me la sé.
+    Guillotina: Pues apréndetela. Tienes hasta que me entre hambre. *Le ruge la barriga.*
+    Kennyoung: *Empieza a tocar muy rápido.* ¡Ya me la sé! ¡Ya me la sé!
+
+  CHARLA 10 – con Gran
+    Guillotina: *Olfatea la bata de Gran.* Huele a agujas. Me encantan las agujas.
+    Gran: Quieta. Es usted una anomalía muy interesante. Solo quiero una muestra.
+    Guillotina: Qué casualidad, doctor. Yo también quiero una muestra. De usted. Entero.
+    Gran: ...anoto: sujeto no colaborador. Y hambriento.
+
+  CHARLA 11 – con Nanachi
+    Guillotina: *Olfatea el estofado.* ¿Eso es para mí? Qué detalle.
+    Nanachi: Es estofado del Abismo. Nadie se lo come entero.
+    Guillotina: *Se lo traga. Con la olla. Se relame.* Yo no soy nadie, cariño.
+    Nanachi: ...vale. Retiro lo dicho. Nnaa.
+
+  CHARLA 12 – con Zodiac   (archivada: no sale)
+    Zodiac: ¡No te muevas, gata gorda!
+    Guillotina: ¿Gorda? Repítelo, vaquero. Despacio. *Abre la boca.*
+    Zodiac: *BANG*
+    Guillotina: *Se traga la bala.* Una menos. Te quedan cinco. Y luego, tú.
+    Zodiac: ...me voy a otro desierto.
+
+  CHARLA 13 – con Dune   (archivada: no sale)
+    Dune: GATA GORDA. ¿COMIDA?
+    Guillotina: Qué buena pregunta. *Le mira de arriba abajo.* Sí. Tú.
+    Dune: NO. DUNE NO COMIDA. DUNE IRSE.
+    Guillotina: Corre, pescadito. Corre. Me encanta cuando corren.
+
+  CHARLA 14 – con Averi   (archivada: no sale)
+    Averi: ¿Quieres un sándwich de pollo, gatita?
+    Guillotina: *Se lo traga. Y la bolsa.* Qué rico. ¿Y de segundo?
+    Averi: ...¿de segundo?
+    Guillotina: *Mira a Averi y se relame.*
+    Averi: ¡Voy a por más sándwiches! ¡Rapidísimo!
+
+  CHARLA 15 – con Kevin   (archivada: no sale)
+    Guillotina: *Mira la pizza de Kevin.* Qué pizza tan bonita. Lástima que no sea lo que quiero.
+    Kevin: ¡¡NO TOQUES MI PIZZA!! *Saca un cuchillo.*
+    Guillotina: Me encanta que la comida se defienda. *Se traga el cuchillo.*
+    Kevin: ...vale. Saco la motosierra.
+    Guillotina: AHAHAHAHA. Tráela. Tengo sitio para todo.
+

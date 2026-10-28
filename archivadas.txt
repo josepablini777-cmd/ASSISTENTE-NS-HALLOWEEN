@@ -1,0 +1,7 @@
+# Skins archivadas: no salen en el menú Skins ni en las charlas. Se ponen desde Ajustes > Skins archivadas.
+# Un nombre por línea (el nombre exacto de la skin).
+Zodiac
+Dune
+Kevin
+Tetra
+Averi

@@ -1,0 +1,119 @@
+{
+  "Hola": [
+    "¡Annyeong! Soy Kenny. Bueno, Kennyoung. Bueno, como quieras. Pilla una guitarra.",
+    "*Afina la guitarra.* Ah, hola. Estaba ensayando. O eso parece desde fuera.",
+    "Hey. Bienvenido al canal. Dale a suscribirse. ...es broma. Bueno, no del todo.",
+    "¡Hey! Hoy toca pop-punk. Mañana también. Siempre toca pop-punk."
+  ],
+  "Yo": [
+    "¡Ese soy yo! Bueno, mi personaje. Es más guapo que yo. Y toca mejor.",
+    "Elígeme. Prometo no romper ninguna guitarra. ...hoy."
+  ],
+  "Frases": [
+    "Abierto. Como un primer acorde: fuerte y sin pensarlo mucho.",
+    "*Rasguea.* ¡Listo!",
+    "Hecho. Una visita más al canal. Gracias.",
+    "Abierto. ¡Uno, dos, tres, cuatro!"
+  ],
+  "Idle": [
+    "*Afina la guitarra. Desafina la guitarra. La vuelve a afinar.*",
+    "Estoy componiendo. O mirando el techo. Desde fuera es igual.",
+    "Mi música está inspirada en Blink-182, Green Day y Simple Plan. Y en no dormir.",
+    "¿Sabías que tengo una banda? The Lazy Tails. Somos vagos. Está en el nombre.",
+    "*Se queda mirando la pantalla del portátil.* La gente de internet... qué gente.",
+    "Haz clic en mí y toco. Muchos clics seguidos y... bueno, ya verás. Trae extintor.",
+    "Si te gusta el vídeo, dale a like. Si no te gusta, dale a like igual.",
+    "*Toca un acorde muy bajito para no molestar. Molesta igual.*",
+    "Tengo más covers que canciones mías. Los covers son más fáciles de terminar.",
+    "¿Tú también escuchas música para no pensar? Yo la hago para lo mismo.",
+    "*Mira el atardecer desde el balcón.* Esto pide una canción. Mañana la escribo.",
+    "\"Annyeong\" es \"hola\" en coreano. Ya puedes saludarme bien."
+  ],
+  "Clic": [
+    "¿Eh? Ah, hola.",
+    "*Te saluda con la púa.*",
+    "¿Pedías una canción?",
+    "*Sigue tocando sin mirar.*"
+  ],
+  "PorApp": {
+    "Access": ["Una base de datos. Mete todos mis covers. Va a tardar."],
+    "Bloc de notas": ["Hoja en blanco. Perfecta para una letra. O para mirarla fijamente una hora."],
+    "CMD": ["Pantalla negra. Como mi sudadera. Y mi humor a las 8 de la mañana."],
+    "Calculadora": ["172 BPM. Velocidad perfecta para el pop-punk. Lo dicen las matemáticas."],
+    "Excel": ["Una tabla. Columna 1: acordes. Columna 2: los mismos acordes. El pop-punk es así."],
+    "Explorador": ["Busca la carpeta \"Canciones sin terminar\". Pesa más que todo lo demás."],
+    "GitHub": ["GitHub. Código. Como acordes, pero sin guitarra."],
+    "Office Web": ["Internet. People online. Mi canción favorita. Mía."],
+    "OneDrive": ["Guárdame las maquetas en la nube. Hay 47. Todas se llaman \"final_final_ahorasí\"."],
+    "OneNote": ["Apunta: ensayar. Lo apunto todos los días. No ensayo todos los días."],
+    "Outlook": ["¿Correo? Si es una colaboración, di que sí. Si es de trabajo, di que estoy de gira."],
+    "PowerPoint": ["Diapositiva 1: pop-punk. Diapositiva 2: más pop-punk. Fin del concierto."],
+    "Publisher": ["¡Un cartel para el concierto! Letras grandes, algo pintado a mano y una estrella."],
+    "Teams": ["Reunión. Pon la cámara. Yo me pongo la capucha."],
+    "Wikipedia": ["Wikipedia. Busca \"pop-punk\". Me sale a mí al lado. Más o menos."],
+    "Word": ["Escribe una letra. Algo sobre el verano. O sobre no tener ganas de nada. Las dos funcionan."],
+    "YouTube": ["YouTube. Busca \"kennyoung\". Es para un amigo. Que soy yo.", "YouTube. Tengo un canal ahí, ¿sabes? Igual te suena."]
+  },
+  "Concierto": [
+    "¡Esto ya es un concierto! *El público grita.* ¡GRACIAS! ¡SOIS LOS MEJORES! ...somos cuatro.",
+    "¡ENCORE! ¡ENCORE! *Toca otra vez la misma canción. Nadie se queja.*",
+    "*Sube al escenario con la banda.* ¡Uno, dos, tres, cuatro!"
+  ],
+  "Kaboom": [
+    "*Toca tan fuerte que la guitarra EXPLOTA.* ...vale. Era la guitarra buena.",
+    "¡KABOOM! *Queda solo el mástil.* Esto se llama \"pop-punk de verdad\".",
+    "*La guitarra explota.* ¡TODO EL MUNDO ESTÁ BIEN! ...¿todo el mundo está bien?"
+  ],
+  "AlVenirDe": {
+    "c00lgui": "El hacker se ha ido. Me ha cambiado la contraseña del canal por \"c00lkidd\". ...era mejor que la mía.",
+    "SeaDrive": "Se fue SeaDrive. YonKaGor me habla mucho de ella. Dice que es gruñona. Lo confirmo.",
+    "Static Miku": "Se apagó la tele de Miku. Le pedí un feat. Me dijo \"¡bzzt!\". Lo tomo como un sí.",
+    "Guillotina": "La gata gigante se ha ido. Se comió una púa. Y luego el amplificador.",
+    "Angela": "Se fue Angela. Me pidió que bajara el volumen. Lo subí. Los punks somos así.",
+    "Mikaela": "Se fue Mikaela. Le hizo un noscope a mi guitarra. Le dediqué un solo como venganza.",
+    "Zodiac": "El vaquero se fue. Me dijo \"no te muevas\". Estaba en pleno concierto, tío. Imposible.",
+    "Velvet": "Se fue Velvet. Tiene voz para un dueto. Pero me da miedo cenar con ella.",
+    "Dune": "Se fue Dune. \"DUNE GUSTAR GUITARRA\", me dijo. Gracias, Dune. Mejor crítica que he tenido.",
+    "Cordero y Cabra": "Se fue el culto. La Cabra grita mejor que muchos cantantes de punk que conozco.",
+    "Pyrophina y Zaratana": "Se fueron las kaijus. Pyrophina me quemó el setlist. Toqué de memoria.",
+    "Averi": "Se fue Averi. Me dijo que mi música es \"ruidosa\". Quería decir \"guay\". Creo.",
+    "Sebastian Solace": "Se fue el tendero. No vende cuerdas de guitarra. Tienda inútil para un músico.",
+    "Pursuer": "Se fue el del bosque. Le enseñé un acorde. Se fue corriendo. Igual era el acorde.",
+    "Kasane Teto": "Teto se ha ido. Hicimos un cover juntos. Ella cantaba, yo tocaba y nadie se sabía la letra.",
+    "Token": "Token se ha ido. Él hace breakcore, yo pop-punk. El volumen, igual de alto.",
+    "Tetra": "Se fue Tetra. Es de YonKaGor, como SeaDrive. Le escribí. Me dejó en visto. Típico de su casa.",
+    "Kevin": "Se fue Kevin. Le toqué la pizza sin querer. Me persiguió con una motosierra. Buen ritmo, eso sí.",
+    "Enfosi": "Se acabaron las oleadas. Les hice una canción a los Glaggles. Explotaron. De alegría, creo.",
+    "Gran": "Se ha ido Gran. Le toqué una canción y la apuntó como \"síntoma\".",
+    "Evil Scary": "Se fue Evil Scary. La alarma del avión sonaba en Mi bemol. Ya tengo canción.",
+    "Soft Fuzzy Man": "Se fue Soft Fuzzy Man. Su canción es de Lemon Demon. Le toqué la línea de bajo. Se puso a bailar.",
+    "Roaring Knight": "Se fue el Knight. Su canción de combate es increíble. No se lo digas, que ruge.",
+    "Nanachi": "Se fue Nanachi. Le toqué algo tranquilo para que se durmiera. Funcionó."
+  },
+  "Opina": {
+    "c00lgui": ["c00lgui escribe en minúsculas. Como mis letras cuando tengo prisa.", "c00lkidd me hackeó el canal y subió un vídeo de 10 horas de glitch. Tuvo más visitas que yo."],
+    "SeaDrive": ["SeaDrive es de YonKaGor. Nos conocemos de lejos. Muy de lejos. Ella prefiere así.", "SeaDrive tiene cara de cansada. Yo también. Somos un club."],
+    "Static Miku": ["Miku canta perfecto. Yo canto con ganas. No es lo mismo, pero vale.", "Le pedí a Miku que cantara pop-punk. Le salió precioso. Me dio rabia."],
+    "Guillotina": ["Guillotina se comió mi púa favorita. La echo de menos. A la púa.", "Si Guillotina viene a un concierto, que se quede atrás. Por la gente."],
+    "Angela": ["Angela dice que mi música es \"un riesgo para la productividad\". Gracias. Lo pondré en la camiseta.", "Angela me cronometró una canción. Dos minutos y medio. \"Eficiente\", dijo."],
+    "Mikaela": ["Mikaela juega como yo toco: rápido y sin pensar.", "Mikaela me pidió una canción para sus clips. Le hice una. Tiene hitmarkers de batería."],
+    "Zodiac": ["Zodiac le dispara a lo que se mueve. En mis conciertos se mueve todo el mundo. Mal plan.", "Zodiac me pidió una canción del oeste. Le hice pop-punk con armónica. No le gustó."],
+    "Velvet": ["Velvet tiene voz de cantante de los 2000. Le falta una banda. Y que no se coma a la banda.", "Velvet me invitó a cenar. Le dije que tenía ensayo. Tenía ensayo todos los días. Para siempre."],
+    "Dune": ["Dune habla como mis letras de 2016. Todo en mayúsculas.", "Le dejé tocar la batería a Dune. Se la comió."],
+    "Cordero y Cabra": ["La Cabra grita perfecto para un coro de punk. Le ofrecí unirse a The Lazy Tails.", "El Cordero no habla. Sería un bajista genial."],
+    "Pyrophina y Zaratana": ["Pyrophina y Zaratana peleándose suenan como un solo de batería.", "Le pedí a Pyrophina efectos de fuego para un concierto. Quemó el escenario. Muy punk."],
+    "Averi": ["Averi es muy maja. Me trajo un sándwich al ensayo. Se lo comió ella.", "Averi dice cosas raras sin querer. Como mis letras."],
+    "Sebastian Solace": ["Sebastian no vende cuerdas. Ni púas. Ni nada útil para mí.", "Sebastian me ofreció una linterna para el escenario. No es mala idea."],
+    "Pursuer": ["Pursuer toca la armónica. Podríamos hacer un tema. Si deja de perseguirme.", "Pursuer vino a un concierto. Dijo \"carne fresca\" mirando al público. Se cancelaron dos entradas."],
+    "Kasane Teto": ["Teto se olvida de las letras. Yo también. Por eso cantamos el estribillo cinco veces.", "Teto me dio media baguette. La usé de baqueta. Funcionó."],
+    "Token": ["Token hace breakcore. Yo pop-punk. Los dos rompemos altavoces.", "Token me remezcló una canción a 200 BPM. Ahora dura 40 segundos. Me gusta más."],
+    "Tetra": ["Tetra es de YonKaGor. Como SeaDrive. Todos los de su casa contestan tarde.", "Tetra escucha pop de 2020. Yo hacía pop-punk en 2020. Somos de la misma época."],
+    "Kevin": ["Kevin tiene una canción sobre su pizza. Muy pop-punk, la verdad. Corta y gritona.", "Le pedí a Kevin un trozo de pizza. No sé qué pasó después. Me desperté lejos."],
+    "Enfosi": ["El Giggler tiene una guitarra que aturde a los Enphosians. Necesito esa guitarra.", "La música de las oleadas está muy bien. \"Enphosed\", de raleigh. Me la apunto."],
+    "Gran": ["Gran escucha la canción del ascensor de Regretevator. \"¿Seguro que es farmacéutico?\" ...pues no, no lo es.", "Dice que con garras tocaría mejor la guitarra. Igual tiene razón. No pienso comprobarlo."],
+    "Evil Scary": ["Evil Scary bota a 100 BPM. Luego a 200. Pop-punk puro.", "Le toqué un acorde para calmarlo. El ampli explotó. Él siguió."],
+    "Soft Fuzzy Man": ["Soft Fuzzy Man tiene una de las mejores canciones de Spirit Phone. No se lo digas, que ya se lo cree.", "Le hice un acorde. Vibró entero. Literalmente."],
+    "Roaring Knight": ["\"Black Knife\" tiene un ritmo brutal. Lo estoy aprendiendo a la guitarra.", "Le toqué un acorde. Rugió. Tomo eso como un aplauso."],
+    "Nanachi": ["Nanachi tiene orejas grandes y cola. Casi somos familia. Casi.", "Le hice una canción sobre su estofado. Se titula \"Mejor no\"."]
+  }
+}

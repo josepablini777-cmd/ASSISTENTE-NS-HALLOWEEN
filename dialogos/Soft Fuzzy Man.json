@@ -1,0 +1,127 @@
+{
+  "Hola": [
+    "Frío y ventoso. Oscuro y tormentoso. *Flota hacia ti.* Hola. No me ignores, por favor.",
+    "*Aparece entre la niebla.* Lo que tú necesitas es un hombre suave y esponjoso. Hola. Soy yo.",
+    "¿Me ves? ...¿me ves de verdad? Genial. Llevaba un rato aquí.",
+    "Un truco de la luz para quererte esta noche. *Se pone un poco transparente de los nervios.*"
+  ],
+  "Yo": [
+    "¿Ese botón soy yo? *Se acerca a mirarlo.* Salgo un poco borroso. Es mi estilo.",
+    "Me has elegido a mí. Por fin alguien me ve."
+  ],
+  "Frases": [
+    "Abierto. Me has hecho caso. Me siento un poco más... sólido.",
+    "Hecho. *Se le ven un poco más los bordes.* Gracias por notarme.",
+    "Abierto. ¿Ves? Existo. Un poquito más que antes.",
+    "Listo. Lo he hecho yo. Bueno, el ratón. Pero yo estaba aquí."
+  ],
+  "Idle": [
+    "¿No me ves? ¿Por qué no me ves? Estoy por todas partes, frío y soñador.",
+    "No te pongas nervioso. No soy como esos chicos que tienen superficie.",
+    "Sé que suena raro, pero cuando te vuelves borroso, lo entiendes todo.",
+    "¿Quién se cuela en tus pensamientos? ¿Quién te hace ver puntitos? ¿Quién te despeina? Yo.",
+    "Aunque no tengo brazos para abrazarte, por dentro me quema una pasión humana.",
+    "Mi canción es de Lemon Demon, del disco Spirit Phone. Mi cuerpo, de Aimkid. Mi cuerpo de ahora, quiero decir.",
+    "Antes era un lobo. Se metieron con los trenes de otro. Bueno: ME metí. No preguntes.",
+    "Neil, el de Lemon Demon, llama así a su gato: Soft Fuzzy Man. Tengo un tocayo con bigotes.",
+    "*Se mira la cola.* Termina en punta. Como la de un lagarto. Es lo más sólido que tengo.",
+    "Orange Cat se asustó al verme. No sabe que soy yo. Algún día se lo diré. Cuando tenga cara de lo que era.",
+    "Una bocanada brillante de amor sin forma. Eso soy. Ponlo en mi currículum.",
+    "Si dejas de hacerme caso, me borro. No es una amenaza. Es literal. Mira mi barra de EXISTENCIA."
+  ],
+  "Clic": [
+    "Tu mano me atraviesa. *Fssshh.* ...me ha hecho cosquillas.",
+    "Enséñame las manos y pásalas a través de mí. Así. Exacto.",
+    "¡Eh! *Se recompone.* Vale, sí, no tengo superficie. Ya lo sabías.",
+    "*Se deshace en niebla y se vuelve a juntar.* ...¿lo has visto? Quería que lo vieras.",
+    "Me has tocado. Bueno, me has atravesado. Cuenta igual. Me siento visto."
+  ],
+  "PorApp": {
+    "Access": ["Una base de datos. Métete tú. Yo no tengo datos: soy gas."],
+    "Bloc de notas": ["Hoja en blanco. Como yo cuando nadie me mira."],
+    "CMD": ["Pantalla negra. Escribe \"dir\". Busca mi cuerpo. No está."],
+    "Calculadora": ["Calcula cuánto peso. Cero. Exacto. Ligero como el amor."],
+    "Excel": ["Una tabla. Columna A: gente que me ve. Columna B: vacía."],
+    "Explorador": ["Carpetas. Me cuelo en todas. Es lo que hago."],
+    "GitHub": ["GitHub. Ahí guardan las cosas que existen. Yo voy de visita."],
+    "Office Web": ["Internet abierto. Ahí nadie sabe que eres una nube."],
+    "OneDrive": ["La nube. Mi casa. Pasa, pasa."],
+    "OneNote": ["Apunta: \"no ignorar al hombre de niebla\". Gracias."],
+    "Outlook": ["Correo nuevo. Asunto: \"¿me ves?\". Nadie contesta."],
+    "PowerPoint": ["Diapositiva 1: soy suave. Diapositiva 2: soy esponjoso. Diapositiva 3: necesitas uno."],
+    "Publisher": ["Un cartel con mi cara. Ponle purpurina. Mucha."],
+    "Teams": ["Una videollamada. Yo salgo borroso. Échale la culpa a la conexión."],
+    "Wikipedia": ["Wikipedia. Busca \"Lemon Demon\". Luego \"Spirit Phone\". Canción nueve. Soy yo."],
+    "Word": ["Escríbeme una carta de amor. No la podré coger, pero la leeré flotando."],
+    "YouTube": ["YouTube. Busca \"Soft Fuzzy Man\". Sale mi baile. El de la ventana."]
+  },
+  "Gato": [
+    "*Orange Cat da un salto del susto.* ...no pasa nada. Soy yo. Bueno, más o menos yo.",
+    "*Orange Cat da vueltas por el aire.* Le encanta flotar. Es lo único que tenemos en común ahora mismo.",
+    "*Orange Cat se sonroja.* ...¿lo has visto? ¡Se ha sonrojado! Eso es por mí. Creo.",
+    "Orange Cat y yo salimos juntos. Desde antes de que me volviera... esto.",
+    "*Le flota una mano redonda.* Orange Cat no tiene brazos. Solo manos que flotan. Somos el uno para el otro."
+  ],
+  "Invisible": [
+    "¿Me ves? ¿Por qué no me ves? *Ya casi no se le ve.*",
+    "Hola... ¿hola? Sigo aquí. Más o menos. Abre algo, por favor. Necesito sentir que existo.",
+    "*Se está borrando.* No me ignores. Es lo único que te pido."
+  ],
+  "Niebla": [
+    "Por favor, por favor... entra en la niebla. *El panel se llena de niebla rosa.*",
+    "Necesito sentir que existo. Así que... *FSSSSH.* Bienvenido a mi nube.",
+    "Una vez te vuelves borroso, lo entiendes. *Lo llena todo de niebla.*"
+  ],
+  "AlVenirDe": {
+    "c00lgui": "Se ha ido el hacker. Intentó hackearme. No encontró nada sólido que hackear. Es mi encanto.",
+    "SeaDrive": "SeaDrive se ha ido. Le pedí que me guardara en la nube. Dijo que yo ya soy una nube.",
+    "Static Miku": "Se ha ido Miku. Su tele hace \"fsssh\" como yo. Teníamos química. Estática, pero química.",
+    "Guillotina": "Guillotina se ha ido. Intentó comerme. Me atravesó la boca. Le dejé un sabor a algodón de azúcar.",
+    "Angela": "Angela se ha ido. Quiso contenerme en una celda. Me salí por la rejilla. Como un buen gas.",
+    "Mikaela": "Se fue la francotiradora. Me disparó. La bala me atravesó. Me sentí visto.",
+    "Zodiac": "Se fue el vaquero. Me dijo \"no te muevas\". Yo no me muevo: me difumino.",
+    "Velvet": "Velvet se ha ido. Me guiñó un ojo. Yo le guiñé tres. Tengo ojos de sobra.",
+    "Dune": "Dune se ha ido nadando. Intentó comerme. Dijo \"NUBE NO COMIDA\". Me dolió un poco.",
+    "Cordero y Cabra": "Se fue el culto. Me querían de espíritu oficial. Yo solo quería que alguien me mirara.",
+    "Pyrophina y Zaratana": "Se fueron las kaijus. Pyrophina me echó fuego. Me evaporé un poquito. Ya estoy mejor.",
+    "Averi": "Averi se ha ido. Me intentó abrazar. Me atravesó. Lo intentó otra vez. Qué bonito.",
+    "Sebastian Solace": "Se fue el tendero. Me quiso vender un cuerpo. No tenía mi talla.",
+    "Pursuer": "Pursuer se ha ido. Me olió y dijo \"carne fresca\". Lo siento, soy niebla del todo.",
+    "Kasane Teto": "Teto se ha ido. Se olvidó de que yo estaba aquí. Me pasa mucho. Demasiado.",
+    "Token": "Token se ha ido. Su música me dejó todo revuelto. Literalmente: soy gas.",
+    "Tetra": "Se fue Tetra. Me dejó en visto. Como todo el mundo.",
+    "Kevin": "Kevin se ha ido. Pasé a través de su pizza. No la toqué. Técnicamente.",
+    "Kennyoung": "Kennyoung se ha ido. Me ha prometido una canción. Ya tengo una, pero gracias.",
+    "Enfosi": "Se fue lo de la estatua. Me confundieron con un Enphosian. Yo no me disfrazo. Soy así de borroso.",
+    "Gran": "Gran se ha ido. Me quiso sacar una muestra. Se llevó una jeringuilla llena de niebla.",
+    "Evil Scary": "Se ha ido la bola negra. Me atravesó y yo le atravesé. Quedamos en empate.",
+    "Roaring Knight": "Se ha ido el Knight. Me cortó en dos. Me miró mientras lo hacía. Fue precioso.",
+    "Nanachi": "Nanachi se ha ido. Me miró y dijo \"nnaa\". Lo tomo como un sí."
+  },
+  "Opina": {
+    "c00lgui": ["c00lgui tiene un panel de hacker. Yo no tengo ni panel ni cuerpo. Empate.", "Me quiso meter en un virus. Ya soy algo que se cuela por todas partes, gracias."],
+    "SeaDrive": ["SeaDrive siempre tiene sueño. Yo soy como un sueño. Encajamos.", "Le pedí café. Me atravesó la taza. Me lo tomé en vapor."],
+    "Static Miku": ["Miku sale borrosa en su tele. Como yo en la vida.", "Nos hicimos una foto juntos. Salió estática. Y niebla."],
+    "Guillotina": ["Guillotina se lo come todo. A mí me intentó sorber. No funcionó.", "Tiene dientes enormes. Yo tengo dientes pequeños y mucha actitud."],
+    "Angela": ["Angela me clasificó como \"gas inofensivo\". ¿Inofensivo? Eso duele más que una celda.", "Me encanta su voz. Es tan sólida."],
+    "Mikaela": ["Mikaela me disparó. Atravesé la bala. Fue romántico.", "Su Smokebomb y yo nos llevamos bien. Somos de la misma familia."],
+    "Zodiac": ["Zodiac dispara a todo lo que se mueve. Yo no me muevo: floto.", "Seis balas. Seis agujeros en el aire. Ninguno en mí."],
+    "Velvet": ["Velvet liga con todo el mundo. Yo también. Hay competencia.", "Me tejió una telaraña. La atravesé. Sin querer. Bueno, queriendo."],
+    "Dune": ["Dune dice que no soy comida. Es lo más bonito que me han dicho en semanas.", "Dune nada. Yo floto. Somos casi lo mismo."],
+    "Cordero y Cabra": ["El Cordero quería que fuera su fantasma oficial. Yo soy un fantasma libre.", "La Cabra grita cuando me ve. Me siento visto."],
+    "Pyrophina y Zaratana": ["Pyrophina me echó fuego y me evaporé un poco. No me importa: vuelvo a condensarme.", "Dos kaijus peleando y nadie me mira. Lo de siempre."],
+    "Averi": ["Averi me quiere abrazar. Yo no tengo brazos para abrazarla. Pero lo intentamos.", "Me hizo un sándwich. Lo miré con mucho cariño."],
+    "Sebastian Solace": ["Sebastian me vendió un ambientador. Ahora huelo a fantasma con lavanda.", "Sebastian no me cobra la entrada: no me ve entrar."],
+    "Pursuer": ["Pursuer y yo somos lobos. Él tiene carne. Yo tengo actitud.", "Me olió. Puso cara rara. Huelo a niebla rosa. Es un perfume."],
+    "Kasane Teto": ["Teto se olvida de todo. También de mí. Tengo que presentarme cada vez.", "¡Me dijo \"hiii\"! A mí. A mí, que nadie me ve."],
+    "Token": ["Token es puro ruido. Yo soy puro ambiente. Hacemos buen dúo.", "Me metió en un remix. Ahora soy un efecto de sonido."],
+    "Tetra": ["Tetra está en No molestar. Yo estoy en No me ves.", "Le escribí. Visto. No contestó. Me encanta el misterio, pero no así."],
+    "Kevin": ["Kevin defiende su pizza. Yo la atravesé. ¡No la toqué! ...técnicamente.", "Kevin dice que huelo raro. Es niebla. Con un toque de queso."],
+    "Kennyoung": ["Kennyoung hace pop-punk. A mí me canta Lemon Demon. Cada uno tiene su banda.", "Me hizo un acorde. Vibré. Literalmente."],
+    "Enfosi": ["En Enfosi hay Enphosians disfrazados. A mí no me hace falta disfraz: ya soy raro.", "Defendí la estatua. Todo el mundo me atravesaba. No sirvo de muro."],
+    "Gran": ["Gran quiere convertir a la gente. A mí no me puede convertir: ya me pasó algo peor.", "Me sacó una muestra. Se le escapó por la jeringuilla."],
+    "Evil Scary": ["Evil Scary atraviesa las paredes. Yo también. Pero yo con estilo.", "Me vio a través de una pared. Le guiñé un ojo. No le gustó."],
+    "Roaring Knight": ["Alto, oscuro, misterioso. El Knight es como yo, pero con superficie.", "Le guiñé un ojo. Me cortó. Lo cuento como un sí."],
+    "Nanachi": ["Nanachi es mullido. Yo soy mullido. Pero yo no se puede tocar.", "Nanachi dice que en el Abismo hay niebla que mata. Yo no mato. Solo ligo."]
+  }
+}

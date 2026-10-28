@@ -1,0 +1,123 @@
+{
+  "Hola": [
+    "SPECIAL ROUND! EVIL SCARY. Evil Scary will kill anyone in its path. Even the killers...",
+    "IT IS EVIL AND SCARY. *Bota una vez. Más cerca.*",
+    "*Una bola negra con manos te mira desde el horizonte.* ...no parpadea. No tiene párpados.",
+    "RONDA ESPECIAL. Hay algo en el mapa. Lo ves a través de las paredes. Él también te ve a ti."
+  ],
+  "Yo": [
+    "ESE BOTÓN ES EVIL SCARY. ELEGIRLO NO LO HACE MENOS EVIL.",
+    "IT IS EVIL AND SCARY. *Te mira desde el botón.*"
+  ],
+  "Frases": [
+    "ABIERTO. *Evil Scary ha oído el clic. Bota hacia ti.*",
+    "HECHO. EL RUIDO LO ATRAE. CUIDADO.",
+    "ABIERTO. *Una sonrisa roja se acerca un poco más.*",
+    "LISTO. IT IS EVIL AND SCARY."
+  ],
+  "Idle": [
+    "IT IS EVIL AND SCARY.",
+    "*Bota. Bota. Bota.* Cada vez suena más agudo. Eso significa que está más cerca.",
+    "TODOS LOS JUGADORES PUEDEN VERLO A TRAVÉS DE LAS PAREDES. ÉL TAMBIÉN TE VE A TI.",
+    "NO PUEDES DERROTAR AL MAL. (Salvo con el panel de admin. Y no lo tienes.)",
+    "Dicen que es el fantasma del Rey Tyranter. Y que la Familia Boulder lo echó de casa.",
+    "Cuenta los rebotes. Al sexto suena la alarma. Y entonces... corre.",
+    "Lo único que puede con él es John. Y solo en servidores privados.",
+    "*Cambia de cara. Ahora sonríe distinto. Sigue siendo malo.*",
+    "A veces aparece gigante. Del tamaño del puente de Teapot Paradise. Hoy no. Creo.",
+    "En Año Nuevo se fue de vacaciones y vino 26'Folk. Volvió. Siempre vuelve.",
+    "*Las manos tiemblan un poco. Siempre tiemblan.*",
+    "Haz clic en él para darle un puñetazo y alejarlo. Cuando cargue, haz clic para BLOQUEARLO."
+  ],
+  "Clic": [
+    "*PUNCH.* Retrocede un poco. No le has hecho nada.",
+    "*Le pegas. Te mira. Sonríe más.*",
+    "*PUNCH.* ...sigue sonriendo."
+  ],
+  "PorApp": {
+    "Access": ["Una base de datos. Mete a todos los que ha asustado. No cabe."],
+    "Bloc de notas": ["Hoja en blanco. Escribe \"STALL\". Ya sabes lo que viene."],
+    "CMD": ["Pantalla negra. Ves una sonrisa roja. No es tuya."],
+    "Calculadora": ["6 rebotes, alarma, 8 saltos rápidos. Haz la cuenta. Corre."],
+    "Excel": ["Una tabla: rebotes, distancia, sustos. Rellénala corriendo."],
+    "Explorador": ["Explora rápido. No te quedes quieto en una carpeta."],
+    "GitHub": ["GitHub. Busca el panel de admin. No está."],
+    "Office Web": ["Internet abierto. Evil Scary lo atraviesa como una pared."],
+    "OneDrive": ["Guarda tus cosas en la nube. A la nube también llega."],
+    "OneNote": ["Apunta: no ir a callejones sin salida. Evil Scary no deja acampar."],
+    "Outlook": ["Correo nuevo. Asunto: \"detrás de ti\"."],
+    "PowerPoint": ["Diapositiva 1: IT IS EVIL. Diapositiva 2: AND SCARY. Fin."],
+    "Publisher": ["Un cartel: \"SE BUSCA\". No sirve de nada. Él ya te ha encontrado."],
+    "Teams": ["Una videollamada. Fíjate en el fondo de la cámara. ¿Eso es una bola negra?"],
+    "Wikipedia": ["Wikipedia. Busca \"evil\". Busca \"scary\". Es él."],
+    "Word": ["Escribe tu testamento. Por si acaso."],
+    "YouTube": ["YouTube. Busca \"Evil Scary Die of Death\". Mira lo que te espera."]
+  },
+  "Atrapado": [
+    "*TE HA ATRAPADO.* IT IS EVIL AND SCARY. -33% de vida. Vuelve a empezar desde lejos.",
+    "*JUMPSCARE.* ...respira. Ya se ha ido. Bueno, está volviendo.",
+    "*Una cara roja te llena la pantalla.* ESCAPE. ESCAPE. ESCAPE."
+  ],
+  "Bloqueo": [
+    "¡BLOQUEADO! Logro desbloqueado: LUCID NIGHTMARE. *Evil Scary vuelve al horizonte. Volverá.*",
+    "¡BLOCK! *Rebota hacia atrás.* Logro: LUCID NIGHTMARE. Muy pocos lo consiguen.",
+    "¡LO HAS PARADO! LUCID NIGHTMARE. ...no te relajes. IT IS STILL EVIL."
+  ],
+  "Stall": [
+    "⚠ STALL. STALL. *Se queda quieto. Algo va a pasar. CORRE.*",
+    "⚠ *Suena la alarma de un avión.* STALL. STALL. ...haz clic en él para bloquearlo.",
+    "⚠ STALL, STALL. *Las manos dejan de temblar. Eso es peor.*"
+  ],
+  "AlVenirDe": {
+    "c00lgui": "EL HACKER SE HA IDO. EVIL SCARY NO SE PUEDE HACKEAR. SOLO CON EL PANEL DE ADMIN. Y NO LO TIENES.",
+    "SeaDrive": "*La gata de los auriculares se ha ido. Evil Scary bota hacia el sitio donde estaba. Huele a café.*",
+    "Static Miku": "LA TELE SE HA APAGADO. EN LA PANTALLA NEGRA SE VEÍA UNA SONRISA ROJA. NO ERA LA DE MIKU.",
+    "Guillotina": "SE HA IDO LA GATA GIGANTE. INTENTÓ COMERSE A EVIL SCARY. EVIL SCARY SIGUE AQUÍ.",
+    "Angela": "LA IA SE HA IDO. QUISO CONTENERLO. NO HAY CELDA PARA ALGO QUE ATRAVIESA LAS PAREDES.",
+    "Mikaela": "LA FRANCOTIRADORA SE HA IDO. LE DISPARÓ SEIS VECES. CERO DAÑO. IT IS EVIL.",
+    "Zodiac": "EL VAQUERO SE HA IDO. LE DIJO \"NO TE MUEVAS\". EVIL SCARY SE MOVIÓ. HACIA ÉL.",
+    "Velvet": "LA ARAÑA SE HA IDO. OCHO PATAS CORREN MÁS QUE DOS. POR POCO.",
+    "Dune": "DUNE SE HA IDO NADANDO. EVIL SCARY NO SABE NADAR. NO LE HACE FALTA.",
+    "Cordero y Cabra": "EL CULTO SE HA IDO. LE REZARON. NO FUNCIONÓ.",
+    "Pyrophina y Zaratana": "LAS KAIJUS SE HAN IDO. EVIL SCARY TAMBIÉN PUEDE SER GIGANTE. A VECES.",
+    "Averi": "LA ZORRITA SE HA IDO. LE DEJÓ UN SÁNDWICH. *Evil Scary lo atraviesa.*",
+    "Sebastian Solace": "EL TENDERO SE HA IDO. LE VENDIÓ UNA LINTERNA. LA LUZ NO LO DETIENE.",
+    "Pursuer": "PURSUER SE HA IDO. ES EL ÚNICO KILLER QUE SABE QUE TAMBIÉN ES SU PRESA.",
+    "Kasane Teto": "TETO SE HA IDO. SE OLVIDÓ DE QUE EVIL SCARY EXISTE. ÉL NO SE OLVIDA.",
+    "Token": "TOKEN SE HA IDO. MUCHO RUIDO. EL RUIDO ATRAE.",
+    "Tetra": "TETRA SE HA IDO. ESTABA EN NO MOLESTAR. A EVIL SCARY LE DA IGUAL.",
+    "Kevin": "KEVIN SE HA IDO CON SU PIZZA. EVIL SCARY NO COME. SOLO ASUSTA.",
+    "Kennyoung": "EL MÚSICO SE HA IDO. EL ÚLTIMO ACORDE SONÓ COMO LA ALARMA DE UN AVIÓN.",
+    "Enfosi": "SE HA IDO LO DE LA ESTATUA. TODO EL QUE TOCA LA ESTATUA... SE ACABA.",
+    "Gran": "GRAN SE HA IDO. QUISO INYECTARLE FURY MIX. LA JERINGUILLA SE QUEDÓ NEGRA.",
+    "Soft Fuzzy Man": "LA NIEBLA ROSA SE HA IDO. EVIL SCARY LA ATRAVESÓ. ELLA LE ATRAVESÓ A ÉL. EMPATE.",
+    "Roaring Knight": "EL CABALLERO NEGRO SE HA IDO. EVIL SCARY BOTÓ HACIA ÉL. VOLVIÓ EN DOS MITADES.",
+    "Nanachi": "NANACHI SE HA IDO. LO VIO VENIR DESDE LEJOS. NADIE MÁS PUEDE."
+  },
+  "Opina": {
+    "c00lgui": ["c00lgui hackea servidores. EVIL SCARY ES EL SERVIDOR.", "c00lkidd quería ponerlo en su equipo. *Evil Scary botó hacia él.* Ya no quiere."],
+    "SeaDrive": ["SeaDrive está siempre cansada. HUIR CANSA MÁS.", "SeaDrive lo bloqueó con un pop-up. *Lo atravesó.*"],
+    "Static Miku": ["Miku canta en una tele. EVIL SCARY APARECE EN LAS TELES APAGADAS.", "Su antena hizo BZZT. Evil Scary botó más cerca. LE GUSTA EL RUIDO."],
+    "Guillotina": ["Guillotina se lo come todo. EVIL SCARY NO SE PUEDE COMER.", "Una vez se miraron. GUILLOTINA PARPADEÓ PRIMERO."],
+    "Angela": ["Angela lo clasificó como ALEPH. EVIL SCARY NO TIENE CLASIFICACIÓN.", "L Corp no tiene celda para él. ATRAVIESA LAS PAREDES."],
+    "Mikaela": ["Mikaela le hizo un noscope. CERO DAÑO.", "Smokebomb. *Evil Scary la encontró igual. Ve a través de todo.*"],
+    "Zodiac": ["Zodiac dispara a lo que se mueve. EVIL SCARY SE MUEVE. A SALTOS.", "Seis balas. Cero efecto. IT IS EVIL."],
+    "Velvet": ["Velvet tiene una telaraña. EVIL SCARY TIENE MANOS. MÁS GRANDES.", "La araña sonríe. EVIL SCARY SONRÍE MÁS."],
+    "Dune": ["Dune quiso comérselo. DUNE COMER BOLA. BOLA NO SER COMIDA.", "Dune nada rápido. NO LO SUFICIENTE."],
+    "Cordero y Cabra": ["La Cabra le gritó. EVIL SCARY GRITA MÁS FUERTE.", "El Cordero tiene una corona. EVIL SCARY ERA UN REY. EL REY TYRANTER."],
+    "Pyrophina y Zaratana": ["Dos kaijus. EVIL SCARY A VECES SALE GIGANTE. DEL TAMAÑO DE UN PUENTE.", "Pyrophina le lanzó fuego. LAS SOMBRAS NO ARDEN."],
+    "Averi": ["Averi le dio un abrazo. *Evil Scary no sabe qué hacer con eso. Bota hacia atrás.*", "Averi dice que solo necesita un amigo. EVIL SCARY TIENE A JOHN. LE TIENE MIEDO."],
+    "Sebastian Solace": ["Sebastian vende un Flash Beacon. A EVIL SCARY NO LE CIEGA NADA.", "Sebastian le cobró la entrada a la tienda. EVIL SCARY NO PAGA."],
+    "Pursuer": ["Pursuer es el killer. EVIL SCARY ES EL PROBLEMA DEL KILLER.", "Tienen la misma cara. LA DE EVIL SCARY ES ROJA."],
+    "Kasane Teto": ["Teto dice \"hiii\". EVIL SCARY DICE...", "Teto se olvidó de él. ÉL SE ACUERDA DE TETO."],
+    "Token": ["Token suena a 200 BPM. LA ALARMA SUENA MÁS FUERTE.", "Token se cae y rebota. EVIL SCARY TAMBIÉN REBOTA. HACIA TI."],
+    "Tetra": ["Tetra está en No molestar. EVIL SCARY NO LEE LOS ESTADOS.", "Tetra no se mueve del sofá. ES EL MÁS FÁCIL DE ENCONTRAR."],
+    "Kevin": ["Kevin defiende su pizza. EVIL SCARY NO QUIERE LA PIZZA. QUIERE A KEVIN.", "Kevin le sacó la motosierra. SE LE ROMPIÓ LA MOTOSIERRA."],
+    "Kennyoung": ["Kennyoung toca la guitarra. EL AMPLI EXPLOTA. EVIL SCARY SIGUE.", "Le hizo una canción. SE LLAMA \"STALL, STALL\"."],
+    "Enfosi": ["En Enfosi hay Enphosians disfrazados. EVIL SCARY NO SE DISFRAZA. NO LE HACE FALTA.", "Defender la estatua es fácil. HASTA QUE BOTA."],
+    "Gran": ["Gran transforma a la gente. EVIL SCARY TAMBIÉN. EN GENTE QUE CORRE.", "Gran quiso una muestra. NO HAY NADA DENTRO. SOLO NEGRO."],
+    "Soft Fuzzy Man": ["SOFT FUZZY MAN NO TIENE SUPERFICIE. EVIL SCARY NO SABE CÓMO ASUSTARLO.", "SOFT FUZZY MAN LE GUIÑÓ UN OJO. EVIL SCARY BOTÓ HACIA ATRÁS."],
+    "Roaring Knight": ["EL KNIGHT NO TIENE MIEDO DE EVIL SCARY. EVIL SCARY NO SABE QUÉ HACER CON ESO.", "LOS DOS SON NEGROS Y SONRÍEN. SOLO UNO TIENE ESPADA."],
+    "Nanachi": ["Nanachi ve el campo de fuerza. TAMBIÉN VE A EVIL SCARY. NO LE GUSTA LO QUE VE.", "Nanachi pasa de todo. MENOS DE ESTO."]
+  }
+}

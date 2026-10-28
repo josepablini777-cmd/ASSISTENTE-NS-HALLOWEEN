@@ -1,0 +1,957 @@
+{
+  "charlas": [
+    [
+      ["c00lgui", "SeaDrive, tu contraseña del Wi-Fi ya es mía."],
+      ["SeaDrive", "Mi contraseña es \"deja de molestar\". Úsala."],
+      ["c00lgui", "...eso ha funcionado de verdad. wtf."],
+      ["SeaDrive", "Lo sé. Soy un asistente. Asisto."]
+    ],
+    [
+      ["Angela", "Programa no autorizado detectado. Identifíquese."],
+      ["c00lgui", "team c00lkidd. join today!"],
+      ["Angela", "Solicitud denegada. Iniciando contención."],
+      ["c00lgui", "ok ok, me voy. por ahora."]
+    ],
+    [
+      ["Static Miku", "¡SeaDrive! ¡Sonríe un poquito! ¡Bzzt!"],
+      ["SeaDrive", "No. Sonreír gasta batería."],
+      ["Static Miku", "¡Pues yo sonrío por los dos!"],
+      ["SeaDrive", "Genial. Ahora me duele la cabeza por los dos."]
+    ],
+    [
+      ["SeaDrive", "Oye, Angela. ¿Por qué lo llamas \"Manager\"?"],
+      ["Angela", "Porque es su cargo. ¿Cómo lo llama usted?"],
+      ["SeaDrive", "\"Eh, tú\". Es más cercano."],
+      ["Angela", "Y menos profesional. Anotado en su expediente."]
+    ],
+    [
+      ["Guillotina", "*Olfatea a SeaDrive de arriba abajo.* Mmmm. Café y cansancio. Mi plato favorito."],
+      ["SeaDrive", "Ni se te ocurra. Soy un asistente, no un aperitivo."],
+      ["Guillotina", "Todos decís lo mismo antes de entrar aquí. *Se da palmaditas en la barriga.*"],
+      ["SeaDrive", "...voy a cerrar sesión un momento."]
+    ],
+    [
+      ["Zodiac", "¡No te muevas, gata gorda!"],
+      ["Guillotina", "¿Gorda? Repítelo, vaquero. Despacio. *Abre la boca.*"],
+      ["Zodiac", "*BANG*"],
+      ["Guillotina", "*Se traga la bala.* Una menos. Te quedan cinco. Y luego, tú."],
+      ["Zodiac", "...me voy a otro desierto."]
+    ],
+    [
+      ["Mikaela", "Seis balas, vaquero. A mí con una me basta."],
+      ["Zodiac", "Los duelos se hacen cara a cara, francotiradora."],
+      ["Mikaela", "Por eso nunca ganas los duelos."],
+      ["Zodiac", "¡NO TE MUEVAS!"],
+      ["Mikaela", "*Smokebomb.* ¿Qué decías?"]
+    ],
+    [
+      ["c00lgui", "inyectando aimbot en mikaela.exe..."],
+      ["Mikaela", "No necesito aimbot. Tengo habilidad."],
+      ["c00lgui", "aimbot failed: target already too good."],
+      ["Mikaela", "GG EZ."]
+    ],
+    [
+      ["Static Miku", "¡Hola, señor vaquero! ¿Bailamos?"],
+      ["Zodiac", "¡NO TE MUEVAS!"],
+      ["Static Miku", "...¿ni un poquito?"],
+      ["Zodiac", "...bueno. Un pasito. Pero lento."]
+    ],
+    [
+      ["Static Miku", "¡Angela! ¡Tu programa de la tele es muy gris!"],
+      ["Angela", "No es un programa. Es una instalación de investigación."],
+      ["Static Miku", "¡Pues le faltan dibujos!"],
+      ["Angela", "...lo propondré en la próxima reunión."]
+    ],
+    [
+      ["Angela", "Anomalía felina. Regrese a su unidad de contención."],
+      ["Guillotina", "¿Contención? Cariño, la unidad de contención soy yo. *Abre la boca.*"],
+      ["Angela", "...Manager, solicito permiso para no estar aquí."]
+    ],
+    [
+      ["Angela", "Señorita Hawkeye, su puesto en L Corp sigue disponible."],
+      ["Mikaela", "¿Hay Terminators a los que disparar?"],
+      ["Angela", "Hay cosas peores que los Terminators."],
+      ["Mikaela", "...me lo pienso."]
+    ],
+    [
+      ["Static Miku", "¡Gatita! ¡Ven aquí, gatita!"],
+      ["Guillotina", "Gatita. *AHAHAHAHA.* Qué adorable. Ven tú aquí, cielo. Ábreme esa tele."],
+      ["Static Miku", "¡No, no, la antena no! ¡Bzzzzzt!"]
+    ],
+    [
+      ["Zodiac", "¡Esa gata de los auriculares se ha movido!"],
+      ["SeaDrive", "Estoy respirando. Es lo que hacemos los seres vivos."],
+      ["Zodiac", "Pues respira más quieta."],
+      ["SeaDrive", "Increíble. Ni en mi propio panel me dejan en paz."]
+    ],
+    [
+      ["Zodiac", "¡Ese panel rojo parpadea! ¡Se mueve!"],
+      ["c00lgui", "se llama glitch, vaquero."],
+      ["Zodiac", "*BANG*"],
+      ["c00lgui", "...vale, ese ha dolido."]
+    ],
+    [
+      ["Mikaela", "Objetivo enorme a las doce. Fácil."],
+      ["Guillotina", "Dispara, preciosa. *Abre la boca de par en par.* Aquí. Justo aquí."],
+      ["Mikaela", "Espera... ¿se va a comer la bala?"],
+      ["Guillotina", "*ÑAM.* Y ahora vas tú."]
+    ],
+    [
+      ["c00lgui", "hackeando la tele de Static Miku..."],
+      ["Static Miku", "¡Hola, señor hacker! ¿Quieres ver dibujos?"],
+      ["c00lgui", "...¿qué dibujos?"],
+      ["Static Miku", "¡Todos! ¡Siéntate!"],
+      ["c00lgui", "...vale. solo un episodio."]
+    ],
+    [
+      ["Velvet", "Dune, cariño, ¿otra vez comiendo sin jugar con la comida?"],
+      ["Dune", "COMIDA ES PARA COMER."],
+      ["Velvet", "Qué poco refinado eres, primo."],
+      ["Dune", "GRRGH. TÚ RARA."]
+    ],
+    [
+      ["Velvet", "SeaDrive, cielo, ¿vienes a mi telaraña a tomar el té?"],
+      ["SeaDrive", "No, gracias. Prefiero seguir vivo."],
+      ["Velvet", "Qué desconfiado... me rompes el corazón."],
+      ["SeaDrive", "Tienes ocho ojos y ninguno parece triste."]
+    ],
+    [
+      ["Zodiac", "¡No te muevas, araña!"],
+      ["Velvet", "Cariño, yo nunca me muevo... hasta que es tarde."],
+      ["Zodiac", "...eso no me ha gustado nada."],
+      ["Velvet", "Seis balas. Ocho patas. Haz cuentas, vaquero."]
+    ],
+    [
+      ["Dune", "GATA GORDA. ¿COMIDA?"],
+      ["Guillotina", "Qué buena pregunta. *Le mira de arriba abajo.* Sí. Tú."],
+      ["Dune", "NO. DUNE NO COMIDA. DUNE IRSE."],
+      ["Guillotina", "Corre, pescadito. Corre. Me encanta cuando corren."]
+    ],
+    [
+      ["Angela", "Espécimen acuático, vuelva a su tanque."],
+      ["Dune", "¿TANQUE TENER COMIDA?"],
+      ["Angela", "No."],
+      ["Dune", "ENTONCES NO."]
+    ],
+    [
+      ["Static Miku", "¡Hola, pececito! ¿Quieres ver dibujos?"],
+      ["Dune", "DIBUJOS... ¿SE COMEN?"],
+      ["Static Miku", "¡No! ¡Se miran!"],
+      ["Dune", "DUNE MIRAR. DUNE ABURRIR. DUNE COMER TELE."],
+      ["Static Miku", "¡Bzzzzt! ¡Mi antena!"]
+    ],
+    [
+      ["Mikaela", "Tengo tu cabeza en la mira, araña."],
+      ["Velvet", "Qué halago, cielo. Nadie me mira tan fijamente."],
+      ["Mikaela", "Eso... ha sido raro."],
+      ["Velvet", "Ven a verme de cerca. Te prometo que no muerdo."]
+    ],
+    [
+      ["c00lgui", "hackeando a Dune..."],
+      ["Dune", "¿QUÉ SER HACKEAR?"],
+      ["c00lgui", "error: no se encontró cerebro."],
+      ["Dune", "GRRGH. DUNE OFENDIDO."]
+    ],
+    [
+      ["Zodiac", "¡Ese bicho de arena se está moviendo!"],
+      ["Dune", "DUNE NADAR. NADAR ES MOVERSE."],
+      ["Zodiac", "*BANG*"],
+      ["Dune", "*Se traga la bala.* ÑAM. MÁS."],
+      ["Zodiac", "...este desierto está maldito."]
+    ],
+    [
+      ["Static Miku", "¡Velvet! ¡Qué voz tan bonita! ¿Cantamos juntas?"],
+      ["Velvet", "Claro, cielo... acércate un poquito más."],
+      ["Static Miku", "¡Bzzzzt! ¡Mi antena dice que no!"],
+      ["Velvet", "Lista, la niña. Muy lista."]
+    ],
+    [
+      ["SeaDrive", "Mikaela, ¿te importa dejar de apuntarme con el láser?"],
+      ["Mikaela", "Es por costumbre. No es personal."],
+      ["SeaDrive", "Tengo el punto rojo en la frente."],
+      ["Mikaela", "*Smokebomb.* Ya no lo tienes."]
+    ],
+    [
+      ["Angela", "Velvet, su solicitud de empleo ha sido rechazada. Otra vez."],
+      ["Velvet", "Qué pena, cielo. Me encantaba vuestra cafetería."],
+      ["Angela", "Desaparecieron tres empleados de la cafetería."],
+      ["Velvet", "...qué casualidad, ¿verdad?"]
+    ],
+    [
+      ["Velvet", "Cordero, cielo, ¿quieres venir a mi telaraña?"],
+      ["Cordero y Cabra", "Cordero: *Beee.* · Cabra: Dice que no. Y yo digo que lo que quieres es cenártelo."],
+      ["Velvet", "Qué cabra tan maleducada... y tan lista."],
+      ["Cordero y Cabra", "Cabra: Te ofrecemos ser obispa. Con seguro dental."],
+      ["Velvet", "Me lo pensaré, cariño."]
+    ],
+    [
+      ["Angela", "Detecto actividad de culto no registrada en la instalación."],
+      ["Cordero y Cabra", "Cabra: Lo vuestro también es un culto. Con fichaje."],
+      ["Angela", "...Anotado en su expediente."],
+      ["Cordero y Cabra", "Cordero: *Beee.* · Cabra: Dice que tu expediente le da igual."]
+    ],
+    [
+      ["Dune", "OVEJA ESPONJOSA. ¿SE COME?"],
+      ["Cordero y Cabra", "Cordero: *Retrocede.* · Cabra: Nadie se come al Cordero. Ese es MI trabajo."],
+      ["Dune", "CABRA RARA."],
+      ["Cordero y Cabra", "Cabra: *GRITA.* ¡AAAAAAAAH!"],
+      ["Dune", "GGRRGH. DUNE IRSE."]
+    ],
+    [
+      ["Zodiac", "¡No te muevas, cabra!"],
+      ["Cordero y Cabra", "Cabra: Si yo nunca me muevo... ¡AAAAAAAAH!"],
+      ["Zodiac", "*BANG*"],
+      ["Cordero y Cabra", "Cordero: *La bala rebota en la corona.* *Beee.*"],
+      ["Zodiac", "...me voy a otro desierto. Otra vez."]
+    ],
+    [
+      ["Guillotina", "*Se planta delante de las kaijus.* ¿Esto es lo más grande que tiene el pueblo? Qué tierno."],
+      ["Pyrophina y Zaratana", "Pyrophina: ¡GRRRRRAAAARRRGH!"],
+      ["Guillotina", "A MÍ NO ME RUGES. *Ruge todavía más fuerte.*"],
+      ["Pyrophina y Zaratana", "Zaratana: ...grrr. · WMEW 99.9: ¡Tres monstruos! ¡Evacúen el pueblo!"]
+    ],
+    [
+      ["Zodiac", "¡No os mováis, monstruos!"],
+      ["Pyrophina y Zaratana", "WMEW 99.9: Se mueven. Son kaijus."],
+      ["Zodiac", "*BANG* *BANG*"],
+      ["Pyrophina y Zaratana", "Pyrophina: ¡AAARGH! *Lanza a Zodiac contra Zaratana.*"],
+      ["Zodiac", "...me duele todo."]
+    ],
+    [
+      ["Mikaela", "Objetivo enorme a las doce. Dos, de hecho."],
+      ["Pyrophina y Zaratana", "Zaratana: *Se mete en el caparazón. La bala rebota.*"],
+      ["Mikaela", "Eso no cuenta. Ha sido lag."],
+      ["Pyrophina y Zaratana", "WMEW 99.9: Pyrophina le ha chamuscado las gafas a la francotiradora."],
+      ["Mikaela", "*Smokebomb.* Nos vemos."]
+    ],
+    [
+      ["Static Miku", "¡Hola, señoras dinosaurio! ¿Bailamos?"],
+      ["Pyrophina y Zaratana", "Pyrophina: ¡GRRRRRAAAARRRGH!"],
+      ["Static Miku", "¡Eso es un sí! ¡Un, dos, tres!"],
+      ["Pyrophina y Zaratana", "WMEW 99.9: Zaratana ha pisado la antena. Se acabó el baile."],
+      ["Static Miku", "¡Bzzzzzt! ¡Mi antena!"]
+    ],
+    [
+      ["Angela", "Anomalías de clase kaiju, diríjanse a contención."],
+      ["Pyrophina y Zaratana", "Pyrophina: ¡GRRRRRAAAARRRGH! · Zaratana: ¡GRRRR, GRRRRR!"],
+      ["Angela", "Manager, necesitaremos una unidad de contención... mucho más grande."]
+    ],
+    [
+      ["Cordero y Cabra", "Cabra: Oye, lagartija gigante. Únete al culto."],
+      ["Pyrophina y Zaratana", "Pyrophina: ¡AAARGH! *Quema el templo.*"],
+      ["Cordero y Cabra", "Cordero: *Mira el templo arder.* *Beee.*"],
+      ["Pyrophina y Zaratana", "Zaratana: Grrrr, burp. · WMEW 99.9: Zaratana se ha comido las ruinas."]
+    ],
+    [
+      ["Averi", "¡SeaDrive! ¡Hoy tienes cara de muy cansada!"],
+      ["SeaDrive", "...gracias. Supongo."],
+      ["Averi", "¡No! ¡Quería decir guapa! ¡Guapa de forma cansada!"],
+      ["SeaDrive", "Eso no existe. Pero vale. Te perdono."]
+    ],
+    [
+      ["Averi", "¿Quieres un sándwich de pollo, gatita?"],
+      ["Guillotina", "*Se lo traga. Y la bolsa.* Qué rico. ¿Y de segundo?"],
+      ["Averi", "...¿de segundo?"],
+      ["Guillotina", "*Mira a Averi y se relame.*"],
+      ["Averi", "¡Voy a por más sándwiches! ¡Rapidísimo!"]
+    ],
+    [
+      ["Zodiac", "¡No te muevas, zorra!"],
+      ["Averi", "*Le da un abrazo.*"],
+      ["Zodiac", "...¿qué haces?"],
+      ["Averi", "¡Pareces estresado! Toma, un sándwich."],
+      ["Zodiac", "...gracias. No se lo digas a nadie."]
+    ],
+    [
+      ["Velvet", "Zorrita, ¿vienes a cenar a mi telaraña?"],
+      ["Averi", "¡Claro! ¿Qué hay de cena?"],
+      ["Velvet", "Tú, cielo."],
+      ["Averi", "¡Ah! ¡Me acabo de acordar de que tengo que irme! ¡Adiós!"]
+    ],
+    [
+      ["Averi", "¡Zaratana! ¡Eres una piedrita muy bonita!"],
+      ["Pyrophina y Zaratana", "Zaratana: *Se mete en el caparazón. Le da vergüenza.*"],
+      ["Averi", "¡Pyrophina, tú también eres muy guapa!"],
+      ["Pyrophina y Zaratana", "Pyrophina: ¡GRRRRRAAAARRRGH! · WMEW 99.9: Le ha gustado. Creo."]
+    ],
+    [
+      ["Averi", "¡Hola, Cordero! ¡Qué lana tan suave!"],
+      ["Cordero y Cabra", "Cordero: *Beee.* · Cabra: Dice gracias. Yo digo: no toques la corona."],
+      ["Averi", "¿Puedo entrar en vuestro culto si traigo sándwiches?"],
+      ["Cordero y Cabra", "Cabra: ...Con eso ya eres obispa."]
+    ],
+    [
+      ["c00lgui", "hackeando a averi..."],
+      ["Averi", "¡Hola, c00lgui! ¿Quieres ser mi amigo?"],
+      ["c00lgui", "error: amistad no autorizada."],
+      ["Averi", "¡Te hago un sándwich y la autorizas!"],
+      ["c00lgui", "...ok. amistad.exe instalado."]
+    ],
+    [
+      ["Mikaela", "Averi, apunta a la lata. Respira. Dispara."],
+      ["Averi", "*Dispara.* ¡Le he dado!"],
+      ["Mikaela", "Le has dado a la lámpara. Otra vez."],
+      ["Averi", "¡Pero con mucha puntería!"]
+    ],
+    [
+      ["Pursuer", "*Huele la tienda.* ...carne fresca."],
+      ["Sebastian Solace", "Eh, eh, eh. Aquí no se come al dependiente, amigo."],
+      ["Pursuer", "...¿Y a los clientes?"],
+      ["Sebastian Solace", "Los clientes... hmm. Eso lo negociamos."]
+    ],
+    [
+      ["Zodiac", "¡No te muevas, pez!"],
+      ["Sebastian Solace", "Amigo, llevo tres horas sin moverme del mostrador."],
+      ["Zodiac", "...¿Vendes balas?"],
+      ["Sebastian Solace", "Seis balas, seis de investigación. Pagas primero."]
+    ],
+    [
+      ["c00lgui", "hackeando sebastian_shop.exe..."],
+      ["Sebastian Solace", "¡Ja! Mi caja registradora es analógica, amigo."],
+      ["c00lgui", "error: tienda demasiado vieja."],
+      ["Sebastian Solace", "Y aun así te cobro la visita."]
+    ],
+    [
+      ["Angela", "Detecto un comercio no autorizado en la instalación."],
+      ["Sebastian Solace", "Lo autorizo yo. Problema resuelto."],
+      ["Angela", "Así no funcionan las cosas, señor Solace."],
+      ["Sebastian Solace", "Aquí abajo, sí."]
+    ],
+    [
+      ["Averi", "¡Hola! ¿Tienes sándwiches de pollo?"],
+      ["Sebastian Solace", "Tengo pilas, linternas y botiquines."],
+      ["Averi", "...¿y las pilas saben a pollo?"],
+      ["Sebastian Solace", "Por el amor de dios. Toma una linterna. Gratis. Vete."]
+    ],
+    [
+      ["Cordero y Cabra", "Cabra: Oye, pez. ¿Cuánto por la tienda entera?"],
+      ["Sebastian Solace", "No está en venta. Como vuestra alma, supongo."],
+      ["Cordero y Cabra", "Cabra: Nuestra alma sí está en venta."],
+      ["Sebastian Solace", "...me gusta este cliente."]
+    ],
+    [
+      ["Guillotina", "*Se come una caja de pilas del mostrador.* Mmmm. Picantes."],
+      ["Sebastian Solace", "¡Eh! ¡Eso se paga, amiga!"],
+      ["Guillotina", "Apúntalo en la cuenta de tu cola, cariño. Ya me la cobraré yo."],
+      ["Sebastian Solace", "...cierro la tienda. Hoy. Ahora mismo."]
+    ],
+    [
+      ["Kasane Teto", "¡Hiii, Miku! ¿Cantamos?"],
+      ["Static Miku", "¡Teto! ¡Pero tú eras una broma del uno de abril!"],
+      ["Kasane Teto", "Sí. Y aquí sigo. La broma es muy larga."],
+      ["Static Miku", "¡Bzzt! ¡Vale! ¡Pero yo hago la voz principal!"]
+    ],
+    [
+      ["Kasane Teto", "¡Hiii! ¿Tienes pan francés?"],
+      ["Sebastian Solace", "Tengo pilas, linternas y botiquines."],
+      ["Kasane Teto", "...¿y una linterna con forma de baguette?"],
+      ["Sebastian Solace", "Por el amor de dios. Toma una linterna normal y vete."]
+    ],
+    [
+      ["Pursuer", "*Huele el aire.* ...carne fresca."],
+      ["Kasane Teto", "¡Hiii~!"],
+      ["Pursuer", "...¿hiii?"],
+      ["Kasane Teto", "¡Hiii! ¡Es lo que se dice para saludar!"],
+      ["Pursuer", "*Se va al bosque muy confundido.*"]
+    ],
+    [
+      ["Averi", "¡Teto! ¿Me enseñas tu baile?"],
+      ["Kasane Teto", "¡Claro! Primero, olvídate de todo."],
+      ["Averi", "...ya está. ¿Y ahora?"],
+      ["Kasane Teto", "¿Ahora qué? ...¡ay, se me ha olvidado a mí también!"]
+    ],
+    [
+      ["Guillotina", "*Mira las coletas de Teto.* Qué pan tan bonito llevas en la cabeza."],
+      ["Kasane Teto", "¡No son pan! ¡Son taladros!"],
+      ["Guillotina", "Mejor aún. Me encanta lo crujiente. *Abre la boca.*"],
+      ["Kasane Teto", "¡Toma, toma! *Le lanza la baguette y sale corriendo.*"]
+    ],
+    [
+      ["Mikaela", "Objetivo localizado. ...¿Dónde se ha metido?"],
+      ["Pursuer", "...te veo."],
+      ["Mikaela", "*Smokebomb.* Ahora yo tampoco te veo a ti."],
+      ["Pursuer", "*Huele el humo.* No me hace falta verte."]
+    ],
+    [
+      ["Static Miku", "¡Hola, señor de la armónica! ¿Tocamos juntos?"],
+      ["Pursuer", "*Toca una nota triste.*"],
+      ["Static Miku", "¡Qué bonito! ...¿por qué me miras así?"],
+      ["Pursuer", "...carne fresca."],
+      ["Static Miku", "¡BZZZZT! ¡Cambio de canal!"]
+    ],
+    [
+      ["Guillotina", "*Olfatea a Pursuer.* Otro cazador. Qué emocionante: dos depredadores y una sola presa."],
+      ["Pursuer", "Tú comes carne vieja."],
+      ["Guillotina", "Yo como de todo, cariño. Incluidos los cazadores que hablan demasiado."],
+      ["Pursuer", "...me vuelvo al bosque."]
+    ],
+    [
+      ["Pursuer", "*Mira fijamente al Cordero.* ...carne fresca."],
+      ["Cordero y Cabra", "Cordero: *Beee.* · Cabra: Ni se te ocurra, lobito."],
+      ["Pursuer", "*Desaparece entre los árboles.*"],
+      ["Cordero y Cabra", "Cabra: ...¿Dónde se ha ido? Cordero, ponte detrás de mí."]
+    ],
+    [
+      ["Velvet", "¿Te apetece cenar conmigo, cazador?"],
+      ["Pursuer", "¿Fresco?"],
+      ["Velvet", "Recién atrapado en mi telaraña, cielo."],
+      ["Pursuer", "...voy."]
+    ],
+    [
+      ["Dune", "COSA BOSQUE. ¿AMIGO?"],
+      ["Pursuer", "...no."],
+      ["Dune", "DUNE IRSE NADANDO. MUY RÁPIDO."]
+    ],
+    [
+      ["Token", "¡H3Y, TETRA! ¿Breakcore?"],
+      ["Tetra", "Estoy en No molestar."],
+      ["Token", "*Sube el volumen.*"],
+      ["Tetra", "*Se pone los cascos.* ...vale, esto suena bien."],
+      ["Token", "¡LO SABÍA!"]
+    ],
+    [
+      ["Tetra", "Hey, SeaDrive. Somos del mismo creador, ¿no?"],
+      ["SeaDrive", "Eso dicen. ¿Y?"],
+      ["Tetra", "Nada. Solo quería decirlo."],
+      ["SeaDrive", "Vale. ...esto ha sido agradable. No se lo digas a nadie."]
+    ],
+    [
+      ["Kasane Teto", "¡Hiii, Tetra!"],
+      ["Tetra", "Hey."],
+      ["Kasane Teto", "¡Me has contestado! ¡Somos mejores amigos!"],
+      ["Tetra", "...vale. Por qué no."]
+    ],
+    [
+      ["Token", "c00lgui, hackea el volumen. Que llegue al 11."],
+      ["c00lgui", "done. ahora va al 12."],
+      ["Token", "¡¡SÍ!!"],
+      ["c00lgui", "tus vecinos me odian. bien."]
+    ],
+    [
+      ["Pursuer", "Carne... ¿fresca?"],
+      ["Token", "Soy de plástico. Y estoy sonando a 200 BPM."],
+      ["Pursuer", "*Se tapa las orejas.* ...me voy."]
+    ],
+    [
+      ["Zodiac", "¡No te muevas!"],
+      ["Token", "*Vibra a 180 BPM.*"],
+      ["Zodiac", "¡HE DICHO QUE NO TE MUEVAS!"],
+      ["Token", "No puedo. Es el bajo."],
+      ["Zodiac", "*BANG* ...¿sigue sonando? Esto es brujería."]
+    ],
+    [
+      ["Mikaela", "Tetra, ¿una partida?"],
+      ["Tetra", "Vale. Pero algo tranquilo."],
+      ["Mikaela", "360 noscope."],
+      ["Tetra", "...vale, he perdido. Me hago unos fideos."]
+    ],
+    [
+      ["Averi", "¡Tetra! ¡Te he mandado cuarenta stickers!"],
+      ["Tetra", "Lo sé. Los he visto todos."],
+      ["Averi", "¿Y por qué no contestas?"],
+      ["Tetra", "*Le manda un sticker.*"],
+      ["Averi", "¡¡CONTESTÓ!!"]
+    ],
+    [
+      ["Enfosi", "Glaggle sospechoso a la vista: blanco, sin símbolo en la camiseta..."],
+      ["Token", "Soy Token. Una ficha. No un Glaggle."],
+      ["Enfosi", "...eso es justo lo que diría un Enphosian."],
+      ["Token", "*Sube el volumen.* ¿Te lo dice esto?"]
+    ],
+    [
+      ["Zodiac", "¡No te muevas, Glaggle!"],
+      ["Enfosi", "¡Cuidado! Ese era un Giggler inocente."],
+      ["Zodiac", "*BANG* ...¿cómo que inocente?"],
+      ["Enfosi", "Strike. Y viene el Ojo de Enphoso a por ti."],
+      ["Zodiac", "...me voy a otro desierto."]
+    ],
+    [
+      ["Averi", "¡Qué Glaggles tan monos! ¡Voy a abrazarlos a todos!"],
+      ["Enfosi", "Ese Cheerer lleva el regalo un poco raro..."],
+      ["Averi", "*Lo abraza.*"],
+      ["Enfosi", "*El regalo explota.* ...era un Enphosian."],
+      ["Averi", "¡Estoy bien! ¡Huelo a confeti!"]
+    ],
+    [
+      ["Enfosi", "Un Glaggle verde con un cartel. ¿Gloober de verdad?"],
+      ["Kevin", "¿Lleva pizza? ¡Si lleva pizza es MÍA!"],
+      ["Enfosi", "Lleva un Gloobnut. Es un donut."],
+      ["Kevin", "...vale. Puede pasar."]
+    ],
+    [
+      ["Mikaela", "Dame un objetivo. El que sea."],
+      ["Enfosi", "El Gazo de la izquierda. Fíjate: su símbolo es falso."],
+      ["Mikaela", "*Headshot.* ¡Hitmarker!"],
+      ["Enfosi", "¡Enphosian eliminado! Así se juega."]
+    ],
+    [
+      ["Zodiac", "¡No te muevas, bicho del bosque!"],
+      ["Pursuer", "*Se vuelve invisible.*"],
+      ["Zodiac", "¿¡Dónde está!? ¡NO TE MUEVAS, DONDE SEA QUE ESTÉS!"],
+      ["Pursuer", "*Detrás de él.* ...te veo."]
+    ],
+    [
+      ["Guillotina", "*Mira la pizza de Kevin.* Qué pizza tan bonita. Lástima que no sea lo que quiero."],
+      ["Kevin", "¡¡NO TOQUES MI PIZZA!! *Saca un cuchillo.*"],
+      ["Guillotina", "Me encanta que la comida se defienda. *Se traga el cuchillo.*"],
+      ["Kevin", "...vale. Saco la motosierra."],
+      ["Guillotina", "AHAHAHAHA. Tráela. Tengo sitio para todo."]
+    ],
+    [
+      ["Dune", "PIZZA. DUNE COMER PIZZA."],
+      ["Kevin", "DUNE NO COMER PIZZA. DUNE IRSE."],
+      ["Dune", "¿POR QUÉ TÚ HABLAR COMO DUNE?"],
+      ["Kevin", "PARA QUE ENTIENDAS. NO. TOQUES. MI. PIZZA."],
+      ["Dune", "GRRGH. DUNE ENTENDER. DUNE TRISTE."]
+    ],
+    [
+      ["Zodiac", "¡No te muevas, lobo verde!"],
+      ["Kevin", "No me muevo. Estoy comiendo. *ÑAM.*"],
+      ["Zodiac", "...¿me das un trozo?"],
+      ["Kevin", "¡¡DON'T TOUCH MY PIZZA!!"],
+      ["Zodiac", "*BANG* ...a la pizza no le ha pasado nada. Es inmortal."]
+    ],
+    [
+      ["Averi", "¡Kevin! ¡Te cambio medio sándwich de pollo por un trozo de pizza!"],
+      ["Kevin", "...¿medio? ¿Por qué medio?"],
+      ["Averi", "¡Porque la otra mitad ya me la he comido!"],
+      ["Kevin", "Trato. Pero no toques la pizza. Te lo doy yo con la mano."]
+    ],
+    [
+      ["Kevin", "¡Token! ¡Hazme un remix!"],
+      ["Token", "¿De qué?"],
+      ["Kevin", "¡DE \"NO TOQUES MI PIZZA\"!"],
+      ["Token", "*Sube el volumen a 200 BPM.* DON'T TOUCH MY PIZZA. DROP."],
+      ["Kevin", "*Baila como un loco.* ¡ESTO ES ARTE!"]
+    ],
+    [
+      ["Mikaela", "Objetivo verde con pizza. Fácil."],
+      ["Kevin", "Si le das a la pizza, te muerdo. Y no es broma."],
+      ["Mikaela", "*Dispara. Falla a propósito.* Era un aviso."],
+      ["Kevin", "*Se cubre la pizza con el cuerpo.* Era un aviso para TI."]
+    ],
+    [
+      ["Kevin", "¿Alguien ha visto mi mermelada?"],
+      ["Kasane Teto", "¡Me la he comido con baguette! ¡Estaba buenísima!"],
+      ["Kevin", "...NO TOQUES MI MERMELADA."],
+      ["Kasane Teto", "¡Pero si ya no está! ¡No se puede tocar lo que no existe!"],
+      ["Kevin", "*Saca la motosierra.* ¡HE DICHO QUE NO!"]
+    ],
+    [
+      ["Angela", "Kevin, la cafetería informa de que falta una pizza entera."],
+      ["Kevin", "No sé de qué me hablas. *Tiene queso en la cara.*"],
+      ["Angela", "Tiene queso en la cara."],
+      ["Kevin", "Es... crema facial. De pepperoni."]
+    ],
+    [
+      ["Kevin", "¡Pursuer! ¿Quieres pizza?"],
+      ["Pursuer", "...¿carne fresca?"],
+      ["Kevin", "Pepperoni. Es casi carne. Más o menos."],
+      ["Pursuer", "*La huele. Se va al bosque decepcionado.*"],
+      ["Kevin", "Más para mí. *ÑAM.*"]
+    ],
+    [
+      ["Sebastian Solace", "Amigo, ¿me vendes un trozo? Te pago en investigación."],
+      ["Kevin", "La pizza no se vende, no se toca y no se mira mucho rato."],
+      ["Sebastian Solace", "Te doy una linterna, unas pilas y un botiquín."],
+      ["Kevin", "...ni por todo el Hadal Blacksite. NO TOQUES MI PIZZA."]
+    ],
+    [
+      ["Velvet", "Kevin, cielo, ¿cenamos juntos?"],
+      ["Kevin", "¿Qué hay de cena?"],
+      ["Velvet", "Lo que caiga en mi telaraña, cariño."],
+      ["Kevin", "Yo traigo pizza. Mi pizza. Y no la toca nadie. Y me siento lejos de la telaraña."]
+    ],
+    [
+      ["Kennyoung", "Hey, Tetra. ¿Has escuchado mi última canción?"],
+      ["Tetra", "Me la pasaste hace dos semanas."],
+      ["Kennyoung", "¿Y?"],
+      ["Tetra", "La tengo en \"pendientes\". ...es broma. La he puesto doce veces."],
+      ["Kennyoung", "*Rasguea un acorde de felicidad.*"]
+    ],
+    [
+      ["SeaDrive", "Kenny, ¿podrías tocar más bajo?"],
+      ["Kennyoung", "Esto ES más bajo."],
+      ["SeaDrive", "Se oye desde la otra punta del escritorio."],
+      ["Kennyoung", "Es pop-punk. Si no se oye desde la otra punta, no cuenta."]
+    ],
+    [
+      ["Token", "¡KENNY! ¿Un dueto? Tú guitarra, yo 200 BPM."],
+      ["Kennyoung", "Vale. Uno, dos, tres, cuatro..."],
+      ["Token", "*Sube el volumen al máximo.*"],
+      ["Kennyoung", "*La guitarra EXPLOTA.* ...ha sido el mejor dueto de mi vida."]
+    ],
+    [
+      ["Kasane Teto", "¡Hiii, Kenny! ¿Hacemos un cover?"],
+      ["Kennyoung", "Vale. ¿Te sabes la letra?"],
+      ["Kasane Teto", "¡No! ¿Y tú?"],
+      ["Kennyoung", "Tampoco. Perfecto. Cantamos el estribillo cinco veces y ya."]
+    ],
+    [
+      ["Kevin", "¡Kenny! ¡Hazme una canción sobre mi pizza!"],
+      ["Kennyoung", "Vale. *Rasguea.* \"No toques su pizza~\""],
+      ["Kevin", "¡¡SÍ!! ¡ESO! ¡MÁS FUERTE!"],
+      ["Kennyoung", "*Toca más fuerte. El ampli EXPLOTA.*"],
+      ["Kevin", "...la pizza ha sobrevivido. Eres de los buenos."]
+    ],
+    [
+      ["Zodiac", "¡No te muevas, músico!"],
+      ["Kennyoung", "Estoy en pleno solo de guitarra, tío."],
+      ["Zodiac", "¡HE DICHO QUE NO TE MUEVAS!"],
+      ["Kennyoung", "*Sigue tocando.* ¿Sabes qué? Esto mola. Tú dispara al ritmo."],
+      ["Zodiac", "*BANG* *BANG* ...oye, esto suena bien."]
+    ],
+    [
+      ["Guillotina", "*Mira la guitarra de Kenny.* Tócame algo. Mi canción. Ya sabes cuál."],
+      ["Kennyoung", "¿\"Guillotina\"? ...no me la sé."],
+      ["Guillotina", "Pues apréndetela. Tienes hasta que me entre hambre. *Le ruge la barriga.*"],
+      ["Kennyoung", "*Empieza a tocar muy rápido.* ¡Ya me la sé! ¡Ya me la sé!"]
+    ],
+    [
+      ["Angela", "Kennyoung, los empleados se quejan del ruido."],
+      ["Kennyoung", "¿Del ruido o de la música?"],
+      ["Angela", "No he sabido diferenciarlos."],
+      ["Kennyoung", "Eso es pop-punk. Funciona."]
+    ],
+    [
+      ["c00lgui", "hackeando el canal de kennyoung..."],
+      ["Kennyoung", "Ah, hola. ¿Me subes el vídeo que tengo a medias? Me da pereza."],
+      ["c00lgui", "...¿quieres que te lo suba?"],
+      ["Kennyoung", "Sí. Y ponle una miniatura chula."],
+      ["c00lgui", "ok. esto no es hackear. esto es trabajar. me voy."]
+    ],
+    [
+      ["Static Miku", "¡Kenny! ¡Bzzt! ¡Quiero ser tu cantante!"],
+      ["Kennyoung", "¿Sabes cantar pop-punk?"],
+      ["Static Miku", "¡AAAAAH! ¡ASÍ! ¿VALE?"],
+      ["Kennyoung", "...vale. Estás contratada. Es exactamente así."]
+    ],
+    [
+      ["Pursuer", "*Escucha la guitarra desde el bosque.*"],
+      ["Kennyoung", "Hey. ¿Quieres tocar? Tengo una armónica de sobra."],
+      ["Pursuer", "...*Toca una nota.*"],
+      ["Kennyoung", "Eso ha sonado muy triste. Me encanta. Ya tenemos canción."]
+    ],
+    [
+      ["c00lgui", "hackeando kevin.png..."],
+      ["Kevin", "¡Eh! ¡Ese es MI Paint!"],
+      ["c00lgui", "borrando pizza.bmp..."],
+      ["Kevin", "¡¡NO TOQUES MI PIZZA!! *Le muerde el cable del teclado.*"],
+      ["c00lgui", "...ok ok. acceso denegado. por miedo."]
+    ],
+    [
+      ["Gran", "SeaDrive. Orejas, cola, cansancio crónico. Es usted casi un sujeto ideal."],
+      ["SeaDrive", "¿Casi?"],
+      ["Gran", "Le falta firmar."],
+      ["SeaDrive", "No pienso firmar nada que no sea mi baja."]
+    ],
+    [
+      ["Gran", "c00lgui. Intente hackear mi laboratorio otra vez."],
+      ["c00lgui", "ya estoy dentro. tu contraseña es \"furry123\"."],
+      ["Gran", "Era un señuelo. Acaba de descargarse la vacuna."],
+      ["c00lgui", "...error. error. ¿por qué me pica la carcasa?"]
+    ],
+    [
+      ["Angela", "Doctor Gran, su empresa crea anomalías sin licencia."],
+      ["Gran", "Ustedes las encierran. Yo les doy una vida mejor."],
+      ["Angela", "Eso no figura en ningún protocolo."],
+      ["Gran", "Todavía."]
+    ],
+    [
+      ["Gran", "Kasane Teto. Sigue siendo humana. ¿Por qué?"],
+      ["Kasane Teto", "¡Porque me gusta! ¡Tengo coletas! ¡Son como orejas!"],
+      ["Gran", "No son orejas."],
+      ["Kasane Teto", "¡Son orejas de taladro!"],
+      ["Gran", "...lo anoto como \"caso perdido\"."]
+    ],
+    [
+      ["Averi", "¡Hola, doctor! ¿Quiere un sándwich?"],
+      ["Gran", "No. ¿Quiere ser mi sujeto número tres?"],
+      ["Averi", "¿Eso tiene sándwich?"],
+      ["Gran", "Tiene contrato."],
+      ["Averi", "...me quedo con el sándwich."]
+    ],
+    [
+      ["Kevin", "¡ALEJA ESA JERINGUILLA DE MI PIZZA!"],
+      ["Gran", "No quiero su pizza. Quiero su ADN."],
+      ["Kevin", "¡¿Y EL ADN ESTÁ EN LA PIZZA?!"],
+      ["Gran", "Ahora sí. Se le ha caído pelo encima."],
+      ["Kevin", "¡NOOOOO!"]
+    ],
+    [
+      ["Gran", "Kennyoung. Esa canción del ascensor... ¿la ha tocado usted?"],
+      ["Kennyoung", "¿\"Are You Sure He's a Pharmacist\"? No, esa es de ivycomb."],
+      ["Gran", "Ah. Pensé que era sobre mí."],
+      ["Kennyoung", "...lo es. Por eso no la toco."]
+    ],
+    [
+      ["Guillotina", "*Olfatea la bata de Gran.* Huele a agujas. Me encantan las agujas."],
+      ["Gran", "Quieta. Es usted una anomalía muy interesante. Solo quiero una muestra."],
+      ["Guillotina", "Qué casualidad, doctor. Yo también quiero una muestra. De usted. Entero."],
+      ["Gran", "...anoto: sujeto no colaborador. Y hambriento."]
+    ],
+    [
+      ["Gran", "Tetra. Gato. Tranquilo. Es usted lo que quiero para todos."],
+      ["Tetra", "Gracias. ...¿puedo seguir en el sofá?"],
+      ["Gran", "Toda la especie superior debería estar en el sofá."],
+      ["Tetra", "Por fin alguien que lo entiende."]
+    ],
+    [
+      ["Pursuer", "*Huele a Gran desde el bosque. No huele a presa.*"],
+      ["Gran", "No soy humano. No me interesa usted. Tráigame humanos."],
+      ["Pursuer", "...¿y qué gano yo?"],
+      ["Gran", "Que lleguen con cola. Son más fáciles de atrapar."]
+    ],
+    [
+      ["Gran", "Un sujeto con orejas de conejo. Fascinante. ¿Quién te hizo esto?"],
+      ["Nanachi", "*Se le eriza el pelo.* Alguien como tú. No te acerques."],
+      ["Gran", "Solo quiero una muestra de sangre. Pequeñita."],
+      ["Nanachi", "Ya me sacaron bastante sangre una vez. ¡Nnaa! *Le tira el cucharón.*"]
+    ],
+    [
+      ["Angela", "Espécimen no catalogado. ¿Nivel de riesgo?"],
+      ["Nanachi", "Nnaa... no soy un espécimen. Soy Nanachi."],
+      ["Angela", "Anotado: \"Nanachi\". Nivel de riesgo: mullido."],
+      ["Nanachi", "...esa palabra otra vez. Te odio un poquito."]
+    ],
+    [
+      ["Dune", "DUNE OLER COMIDA. ¿QUÉ SER?"],
+      ["Nanachi", "Estofado del Abismo. Pez demonio, huevo y hierba pegajosa."],
+      ["Dune", "*Se lo come todo.* ÑAM. DUNE QUERER MÁS."],
+      ["Nanachi", "...es la primera vez que alguien repite. Nnaa~ Te quiero un poco."]
+    ],
+    [
+      ["Kevin", "¿Eso es estofado? ¿Me das? Yo te doy... nada. La pizza no se toca."],
+      ["Nanachi", "No pasa nada. Mi estofado tampoco te lo comerías."],
+      ["Kevin", "*Lo prueba.* ¡PUAJ! ¡Sabe peor que el queso azul!"],
+      ["Nanachi", "Lo sé. Es un don. Nnaa."]
+    ],
+    [
+      ["Averi", "¡Nanachi! ¡Qué pelo tan mullido! ¿Puedo tocarte?"],
+      ["Nanachi", "No."],
+      ["Averi", "*Le abraza igualmente.* ¡Hueles a algodón de azúcar!"],
+      ["Nanachi", "...Nnaa. Cinco segundos. Ni uno más."]
+    ],
+    [
+      ["Guillotina", "*Olfatea el estofado.* ¿Eso es para mí? Qué detalle."],
+      ["Nanachi", "Es estofado del Abismo. Nadie se lo come entero."],
+      ["Guillotina", "*Se lo traga. Con la olla. Se relame.* Yo no soy nadie, cariño."],
+      ["Nanachi", "...vale. Retiro lo dicho. Nnaa."]
+    ],
+    [
+      ["Pursuer", "*Huele el aire.* ...carne fresca."],
+      ["Nanachi", "Aquí no hay carne fresca. Hay estofado de hace tres días."],
+      ["Pursuer", "*Lo prueba.* ..."],
+      ["Nanachi", "*Pursuer se va al bosque muy despacio.* Ni los cazadores lo aguantan."]
+    ],
+    [
+      ["Sebastian Solace", "Amigo, ¿me vendes uno de esos antídotos tuyos?"],
+      ["Nanachi", "Están hechos con setas de la 4ª capa. ¿Qué me das?"],
+      ["Sebastian Solace", "Una linterna, unas pilas y un descuento."],
+      ["Nanachi", "Trato. En el Abismo una linterna vale más que el oro."]
+    ],
+    [
+      ["Kennyoung", "Hey, Nanachi. ¿Te molesta si toco algo?"],
+      ["Nanachi", "Si es bajito, no."],
+      ["Kennyoung", "*Toca un acorde muy suave.*"],
+      ["Nanachi", "*Cierra los ojos.* ...vale. Sigue. Solo un rato."]
+    ],
+    [
+      ["Zodiac", "¡No te muevas, conejo!"],
+      ["Nanachi", "No soy un conejo. Y en el Abismo, si no te mueves, te comen."],
+      ["Zodiac", "*BANG*"],
+      ["Nanachi", "*Le cura la quemadura del dedo.* Sujetaste el revólver al revés. Nnaa."]
+    ],
+    [
+      ["Kasane Teto", "¡Hiii, Nanachi! ¿Cambiamos baguette por estofado?"],
+      ["Nanachi", "Te vas a arrepentir."],
+      ["Kasane Teto", "*Lo prueba.* ...¡se me ha olvidado cómo se respira!"],
+      ["Nanachi", "Es normal. Bebe agua. Mucha."]
+    ],
+    [
+      ["Velvet", "Qué cosita tan mullida. ¿Cenas conmigo, cariño?"],
+      ["Nanachi", "Conozco esa sonrisa. La he visto en bichos de la 5ª capa."],
+      ["Velvet", "Qué desconfianza... me encanta."],
+      ["Nanachi", "Nnaa. Yo cocino. Tú no te acercas. Así cenamos todos."]
+    ],
+    [
+      ["Pursuer", "*Huele el aire.* ...carne fresca."],
+      ["Evil Scary", "*Bota una vez. Más cerca.*"],
+      ["Pursuer", "...no. Esa carne no. *Se vuelve invisible.*"],
+      ["Evil Scary", "IT IS EVIL AND SCARY. *Lo encuentra igual. Ve a través de todo.*"]
+    ],
+    [
+      ["Zodiac", "¡NO TE MUEVAS!"],
+      ["Evil Scary", "*Bota hacia él.*"],
+      ["Zodiac", "*BANG* *BANG* *BANG* ...¡no le hace nada!"],
+      ["Evil Scary", "STALL. STALL."],
+      ["Zodiac", "¡ME VOY A OTRO DESIERTO!"]
+    ],
+    [
+      ["Kevin", "¡EH! ¡NO TOQUES MI PIZZA!"],
+      ["Evil Scary", "*Bota. No mira la pizza. Mira a Kevin.*"],
+      ["Kevin", "...vale. Puedes quedártela. ¡QUÉDATELA!"],
+      ["Evil Scary", "*Sigue botando hacia Kevin. La pizza le da igual.*"]
+    ],
+    [
+      ["Dune", "BOLA NEGRA. ¿COMIDA?"],
+      ["Evil Scary", "*Sonríe más.*"],
+      ["Dune", "NO COMIDA. DUNE COMIDA. DUNE IRSE NADANDO."]
+    ],
+    [
+      ["Gran", "Un sujeto sin cuerpo. Solo manos y una sonrisa. Fascinante."],
+      ["Evil Scary", "*Bota hacia la jeringuilla.*"],
+      ["Gran", "Quieto. Solo es una muestra. *La jeringuilla se queda negra.*"],
+      ["Evil Scary", "IT IS EVIL AND SCARY."]
+    ],
+    [
+      ["Nanachi", "Nnaa. Paso de todo."],
+      ["Evil Scary", "*Bota hacia Nanachi.*"],
+      ["Nanachi", "...menos de esto. *Se levanta por primera vez en todo el día.*"],
+      ["Evil Scary", "STALL. STALL."],
+      ["Nanachi", "¡CORRE, MITTY! ...vale, Mitty no corre. Te llevo yo."]
+    ],
+    [
+      ["Averi", "¡Hola, bolita! ¿Quieres un abrazo?"],
+      ["Evil Scary", "*Se queda quieto. Nadie le había ofrecido un abrazo.*"],
+      ["Averi", "*Le abraza.*"],
+      ["Evil Scary", "*...bota hacia atrás. Muy confundido.*"]
+    ],
+    [
+      ["Angela", "Entidad hostil detectada. Iniciando contención."],
+      ["Evil Scary", "*Atraviesa la pared de la celda.*"],
+      ["Angela", "...Manager, necesitaremos paredes que no se puedan atravesar."],
+      ["Evil Scary", "IT IS EVIL AND SCARY."]
+    ],
+    [
+      ["Token", "¡H3Y! ¿Breakcore?"],
+      ["Evil Scary", "STALL. STALL."],
+      ["Token", "*Mete la alarma en un remix a 200 BPM.*"],
+      ["Evil Scary", "*Bota al ritmo. Más rápido.*"],
+      ["Token", "...vale, esto ha sido mala idea."]
+    ],
+    [
+      ["Mikaela", "Objetivo localizado. 360 noscope."],
+      ["Evil Scary", "*No le pasa nada.*"],
+      ["Mikaela", "...¿lag? *Smokebomb.*"],
+      ["Evil Scary", "*Lo ve a través del humo. Y de las paredes.*"]
+    ],
+    [
+      ["Evil Scary", "*Bota hacia la niebla rosa.*"],
+      ["Soft Fuzzy Man", "Hola, guapo. ¿Vienes mucho por aquí?"],
+      ["Evil Scary", "IT IS EVIL AND SCARY."],
+      ["Soft Fuzzy Man", "*Evil Scary le atraviesa. Él atraviesa a Evil Scary.* ...esto es lo más cerca que he estado de alguien en meses."]
+    ],
+    [
+      ["Averi", "¡Qué nube tan bonita! ¿Te puedo abrazar?"],
+      ["Soft Fuzzy Man", "Puedes intentarlo."],
+      ["Averi", "*Le abraza. Le atraviesa. Le vuelve a abrazar.* ¡Hueles a algodón de azúcar!"],
+      ["Soft Fuzzy Man", "*Se pone rosa fuerte.* ...nadie había insistido tanto."]
+    ],
+    [
+      ["Kevin", "¡EH! ¡Estás encima de mi pizza!"],
+      ["Soft Fuzzy Man", "Estoy DENTRO de tu pizza. No es lo mismo. No la toco."],
+      ["Kevin", "¡Pues ahora sabe a niebla!"],
+      ["Soft Fuzzy Man", "De nada. Es un sabor muy sofisticado."]
+    ],
+    [
+      ["Pursuer", "*Huele el aire.* ...carne fresca."],
+      ["Soft Fuzzy Man", "Lo siento, cariño. Aquí todo es niebla."],
+      ["Pursuer", "*Muerde. Muerde aire rosa.*"],
+      ["Soft Fuzzy Man", "Los dos somos lobos. Yo he evolucionado."]
+    ],
+    [
+      ["Gran", "Un sujeto sin cuerpo. Fascinante. Una muestra, por favor."],
+      ["Soft Fuzzy Man", "Claro. Sírvete."],
+      ["Gran", "*La jeringuilla se llena de niebla rosa. Se le escapa por la aguja.*"],
+      ["Soft Fuzzy Man", "No me puedes convertir en nada. Ya me pasó algo peor."]
+    ],
+    [
+      ["Angela", "Entidad gaseosa detectada. Procediendo a su contención."],
+      ["Soft Fuzzy Man", "*Se cuela por la rejilla de ventilación.* ¿Decías algo?"],
+      ["Angela", "Manager, necesitamos celdas herméticas."],
+      ["Soft Fuzzy Man", "Me encanta tu voz. Es tan... sólida."]
+    ],
+    [
+      ["Velvet", "Qué cosita tan brillante. ¿Cenas conmigo, cielo?"],
+      ["Soft Fuzzy Man", "No como. Pero me encantaría flotar a tu lado."],
+      ["Velvet", "*Le teje una telaraña. La atraviesa.* ...qué difícil eres."],
+      ["Soft Fuzzy Man", "Es mi encanto. Soy un misterio."]
+    ],
+    [
+      ["Zodiac", "¡NO TE MUEVAS!"],
+      ["Soft Fuzzy Man", "No me muevo. Floto."],
+      ["Zodiac", "*BANG* *BANG* ...¡LAS BALAS LE ATRAVIESAN!"],
+      ["Soft Fuzzy Man", "Me has disparado. Me has visto. Gracias, vaquero."]
+    ],
+    [
+      ["Static Miku", "¡Bzzt! ¡Eres borroso como mi tele!"],
+      ["Soft Fuzzy Man", "Somos de la misma familia: tú haces \"fsssh\" y yo hago \"fsssh\"."],
+      ["Static Miku", "¡Vamos a cantar juntos! ¡Bzzt!"],
+      ["Soft Fuzzy Man", "\"Lo que necesitas es un hombre suave y esponjoso...\" *Bzzt.* Qué buen dúo."]
+    ],
+    [
+      ["Nanachi", "...nnaa. Huele a algodón de azúcar."],
+      ["Soft Fuzzy Man", "Soy yo. Hola, cosa mullida."],
+      ["Nanachi", "En el Abismo hay niebla que mata. ¿Tú matas?"],
+      ["Soft Fuzzy Man", "Yo solo ligo."],
+      ["Nanachi", "...eso es peor. Nnaa."]
+    ],
+    [
+      ["Evil Scary", "*Bota hacia el Knight.*"],
+      ["Roaring Knight", "* El Knight cruza los brazos."],
+      ["Evil Scary", "IT IS EVIL AND SCARY."],
+      ["Roaring Knight", "* El Knight lo parte en dos con la Black Knife. * Las dos mitades siguen botando."],
+      ["Evil Scary", "*Bota. Bota.* ...STALL. STALL."]
+    ],
+    [
+      ["Soft Fuzzy Man", "Hola, alto, oscuro y misterioso. Como a mí me gustan."],
+      ["Roaring Knight", "* El Knight lo corta en diagonal."],
+      ["Soft Fuzzy Man", "*Se vuelve a juntar.* ...me has visto. Me has VISTO."],
+      ["Roaring Knight", "* El Knight se ríe."]
+    ],
+    [
+      ["Angela", "Entidad hostil. Procediendo a su contención."],
+      ["Roaring Knight", "* El Knight saca una Fuente Oscura del suelo de la celda."],
+      ["Angela", "Manager... la celda ahora es un mundo entero."],
+      ["Roaring Knight", "* El Knight ruge."]
+    ],
+    [
+      ["Kevin", "¡EH! ¡NO TOQUES MI PIZZA!"],
+      ["Roaring Knight", "* El Knight levanta la espada."],
+      ["Kevin", "..."],
+      ["Roaring Knight", "* La pizza queda en ocho trozos perfectos."],
+      ["Kevin", "...vale. Eso me ahorra trabajo. ¡PERO NO LA TOQUES!"]
+    ],
+    [
+      ["Zodiac", "¡NO TE MUEVAS!"],
+      ["Roaring Knight", "* El Knight se teletransporta. * Deja una estela de sombras."],
+      ["Zodiac", "*BANG* *BANG* *BANG* ...¡HAY SEIS KNIGHTS!"],
+      ["Roaring Knight", "* Solo hay uno. * Detrás de ti."]
+    ],
+    [
+      ["Averi", "¡Hola! ¿Quieres un sándwich de pollo?"],
+      ["Roaring Knight", "* El Knight lo mira. * Lo corta en diagonal. * Se queda con la mitad."],
+      ["Averi", "¡Comparte! ¡Sabía que eras bueno en el fondo!"],
+      ["Roaring Knight", "* El Knight se va volando. * Muy rápido."]
+    ],
+    [
+      ["Nanachi", "...nnaa. Ese no sigue ninguna regla."],
+      ["Roaring Knight", "* El Knight mira a Mitty."],
+      ["Nanachi", "Ni se te ocurra. *Se pone delante.*"],
+      ["Roaring Knight", "* El Knight se ríe. * Pero se va."]
+    ],
+    [
+      ["Sebastian Solace", "Bienvenido, amigo. ¿Qué te pongo?"],
+      ["Roaring Knight", "* El Knight coge todas las linternas. * Y una Fuente de regalo."],
+      ["Sebastian Solace", "...eso son 400 monedas."],
+      ["Roaring Knight", "* El Knight ya no está."]
+    ],
+    [
+      ["Gran", "Un sujeto hecho de sombra. Una muestra, por favor."],
+      ["Roaring Knight", "* El Knight le da una astilla negra."],
+      ["Gran", "*La mira al microscopio.* ...es ruido. Ruido de televisión."],
+      ["Roaring Knight", "* El Knight ruge de risa."]
+    ]
+  ]
+}

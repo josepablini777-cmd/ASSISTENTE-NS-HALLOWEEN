@@ -1,0 +1,129 @@
+{
+  "Hola": [
+    "¡HOLA! Soy Kevin. Esa pizza de ahí es MÍA. Solo para que quede claro.",
+    "*Sale del dibujo de Paint.* ¿Has traído pizza? ...¿no? Vale. Pero la mía no se toca.",
+    "¡RAWR XD! Bienvenido a mi Paint. Puedes tocar los botones. La pizza NO.",
+    "Hola, hola. Regla número uno: no toques mi pizza. Regla número dos: mira la regla uno."
+  ],
+  "Yo": [
+    "¡Ese soy yo! El lobo más guapo de todo Paint.",
+    "Elígeme. Pero trae pizza. Para ti no, para mí."
+  ],
+  "Frases": [
+    "¡Abierto! Y no he tocado nada. Bueno, un trozo de pizza. Era mío.",
+    "*Lo abre con la pata llena de queso.* ¡Listo!",
+    "¡Hecho! Esto se merece otro trozo.",
+    "¡TA-DA! ...*ÑAM.*"
+  ],
+  "Idle": [
+    "*Mira su pizza. La pizza le mira. Amor verdadero.*",
+    "Si tocas mi pizza, te muerdo. Es una amenaza. Pero dicha con cariño.",
+    "No me gusta el queso azul. Huele fatal. ¿Quién inventó eso?",
+    "*Canta bajito.* Don't touch my pizza... na na na...",
+    "¿Sabías que me llaman Kevin? Como Kevin MacLeod. El de la música. Somos casi primos.",
+    "Mi camiseta favorita pone \"WHY HATE?\". Porque, ¿por qué odiar? Bueno, salvo a los que tocan mi pizza.",
+    "*Rawr XD.* ...¿Eso ya no se dice? En Paint sigue siendo 2010.",
+    "Haz clic en mí y bailo. Haz clic en la pizza y... mejor no lo hagas.",
+    "Cada app que abres es un trozo que me como. Tú trabajas, yo como. Trato justo.",
+    "Tampoco toques mi mermelada. Nadie toca mi mermelada.",
+    "*Huele algo.* ...¿Huele a queso azul? Si alguien ha puesto queso azul, que se prepare.",
+    "*Saluda a un unicornio que pasa. El unicornio no le saluda.*"
+  ],
+  "Clic": [
+    "¡EH! Que no soy una pizza.",
+    "¿Qué? ¿Quieres un trozo? NO.",
+    "*Te mira de reojo.* Tú no habrás tocado nada, ¿verdad?",
+    "¡Hola! *Esconde la pizza detrás de la espalda.*"
+  ],
+  "PorApp": {
+    "Access": ["Una base de datos. Mete a todos los que han tocado mi pizza. Lista negra."],
+    "Bloc de notas": ["Hoja en blanco. Como mi Paint antes de dibujar la pizza."],
+    "CMD": ["Pantalla negra. Escribe: \"no toques mi pizza\". Ejecutar. Hecho."],
+    "Calculadora": ["Una pizza tiene ocho trozos. Ocho trozos para mí. Cero para ti. Las matemáticas no mienten."],
+    "Excel": ["Una tabla: Pizzas comidas, muchas. Pizzas tocadas por otros, CERO."],
+    "Explorador": ["Busca en tus carpetas. ¿Hay alguna que se llame \"pizza\"? Debería."],
+    "GitHub": ["GitHub. Mucho código. Ni una sola pizza. Qué triste."],
+    "Office Web": ["Internet. Busca \"pizza a domicilio\". ¡Venga, venga!"],
+    "OneDrive": ["Tus archivos en la nube. Mi pizza en mi estómago. Cada cosa en su sitio."],
+    "OneNote": ["Apunta: comprar pizza. Apunta: esconder pizza. Apunta: morder al que la toque."],
+    "Outlook": ["¿Correo? Pide una pizza por correo. ¿Eso se puede? Debería poderse."],
+    "PowerPoint": ["Diapositiva 1: pizza. Diapositiva 2: no tocar la pizza. Fin."],
+    "Publisher": ["¡Un cartel! \"SE BUSCA: el que tocó mi pizza\". Con mi cara enfadada."],
+    "Teams": ["Reunión. Si alguien pregunta, estoy comiendo. Porque estoy comiendo."],
+    "Wikipedia": ["Wikipedia. Busca \"pizza\". Lee en voz alta. Muy despacio."],
+    "Word": ["Escribe una carta de amor. A la pizza. Yo te la dicto."],
+    "YouTube": ["Pon \"Don't Touch My Pizza\". La de verdad. Diez veces.", "YouTube. Busca recetas de pizza. Para mí, claro."]
+  },
+  "Rabia": [
+    "¡¡¡SE ACABÓ!!! *Saca una motosierra y TODO arde.* ¡¡NO. TOQUES. MI. PIZZA!!",
+    "¡¡ESTO ES LA GUERRA!! *La pantalla se llena de fuego.* ¡¡QUIERO PIZZA Y QUIERO PAZ!!",
+    "*RAWR.* *Fuego por todas partes.* ...vale. Ya me he desahogado. NO LO VUELVAS A HACER."
+  ],
+  "Toque1": [
+    "¡¡NO TOQUES MI PIZZA!! *Saca un cuchillo y una pistola de la nada.*",
+    "¡EH! ¡ESA PIZZA ES MÍA! *Te apunta con el cuchillo.* Primer aviso.",
+    "¡¿HAS TOCADO MI PIZZA?! *Se le eriza el pelo rosa.*"
+  ],
+  "Toque2": [
+    "I'M GOING TO BITE YOU. ...lo digo en serio. Segundo aviso.",
+    "*Enseña los dientes.* La próxima vez te muerdo. De verdad. Grrr.",
+    "¡OTRA VEZ! ¡¿POR QUÉ?! *Muerde el aire en tu dirección.*"
+  ],
+  "Trabajo": [
+    "*Se sienta a trabajar en el ordenador... y se cae de la silla.* Estoy bien. ESTOY BIEN.",
+    "Hora de trabajar. *Se sienta. Se resbala. Se cae.* ...la silla estaba mojada de salsa.",
+    "¡Modo productivo! *Plof.* Vale, modo suelo."
+  ],
+  "AlVenirDe": {
+    "c00lgui": "El hacker rojo se ha ido. Intentó hackear mi pizza. Le mordí el teclado.",
+    "SeaDrive": "Se fue la gata de los auriculares. Me dijo que gritaba mucho. NO GRITO. ...vale, un poco.",
+    "Static Miku": "¡Se apagó la tele! Miku me cantó una canción. Yo le canté la mía. Ganó la mía.",
+    "Guillotina": "La gata gorda se ha ido. Miró mi pizza. Yo la miré a ella. Ganó la pizza.",
+    "Angela": "Se fue la de la oficina. Quería meter mi pizza en \"contención\". JAMÁS.",
+    "Mikaela": "La francotiradora se ha ido. Apuntó a mi pizza. Casi le muerdo el rifle.",
+    "Zodiac": "El vaquero se fue. Me dijo \"no te muevas\". Yo tampoco quería moverme. Estaba comiendo.",
+    "Velvet": "La araña se ha ido. Me invitó a cenar. Le pregunté si había pizza. Dijo \"algo mejor\". NADA es mejor.",
+    "Dune": "Se fue el bicho del agua. Dijo \"DUNE COMER PIZZA\". DUNE NO COMER PIZZA.",
+    "Cordero y Cabra": "El culto se ha ido. Me pidieron una ofrenda. Les di la caja de la pizza. Vacía.",
+    "Pyrophina y Zaratana": "Las kaijus se fueron. Pyrophina me calentó la pizza. Al fin una kaiju útil.",
+    "Averi": "Se fue la zorrita. Me cambió un sándwich de pollo por un trozo. Mal negocio. Para ella.",
+    "Sebastian Solace": "El tendero se ha ido. No vende pizza. ¿Qué clase de tienda es esa?",
+    "Pursuer": "El del bosque se fue. Dijo \"carne fresca\". Le dije que la pizza era de pepperoni. Se fue triste.",
+    "Kasane Teto": "Teto se ha ido. Cambiamos comida: su baguette por mi... no. Mi pizza no se cambia.",
+    "Token": "Token se ha ido. Me hizo un remix de mi canción. A 200 BPM. Un temazo, la verdad.",
+    "Tetra": "Tetra se ha ido. Le mandé una foto de mi pizza. Me dejó en visto. Grosero.",
+    "Kennyoung": "Se fue Kenny. Tocó la guitarra cerca de mi pizza. No la tocó a ella. Vive.",
+    "Enfosi": "¡Se han ido los Glaggles! ¡Ninguno ha tocado mi pizza! ¡BIEN!",
+    "Gran": "¡SE HA IDO EL DOCTOR! ¡NO HA TOCADO MI PIZZA! ...¿O SÍ? *La revisa.*",
+    "Evil Scary": "¡Se fue Evil Scary! ¡Y no tocó mi pizza! ...me tocó a mí. Que es peor.",
+    "Soft Fuzzy Man": "¡Se fue la nube! ¡Ha pasado a través de mi pizza! ¡Dice que no la ha tocado! ...técnicamente tiene razón.",
+    "Roaring Knight": "¡Se fue el Knight! ¡Me cortó la pizza! ¡En ocho trozos perfectos! ...no sé si enfadarme.",
+    "Nanachi": "Se fue el conejo. Su estofado sabe peor que el queso azul. ¡Y no lo toqué! ...bueno, lo probé."
+  },
+  "Opina": {
+    "c00lgui": ["c00lgui intentó hackear mi pizza. Le puse un cortafuegos. De queso.", "c00lkidd dice que es un hacker. Yo digo que no sabe pedir una pizza por internet."],
+    "SeaDrive": ["SeaDrive siempre está cansada. Yo con una pizza me curo de todo.", "SeaDrive me dijo que bajara la voz. ¡¿QUÉ?! ¡NO TE OIGO!"],
+    "Static Miku": ["Miku canta muy bien. Pero no ha sacado ninguna canción sobre pizza. Fallo.", "Le dejé a Miku cantar el estribillo de mi canción. Una vez. No más."],
+    "Guillotina": ["Guillotina se come gatos enteros. Mientras no se coma MI pizza, somos amigos.", "Guillotina y yo nos miramos fijamente durante una hora. Por una pizza. Nadie parpadeó."],
+    "Angela": ["Angela dice que mi nivel de amenaza es \"ZAYIN\". Por tocar mi pizza sube a \"ALEPH\".", "Angela me preguntó por qué me enfado tanto por una pizza. No lo entendería. No come."],
+    "Mikaela": ["Mikaela hace 360 noscopes. Yo hago 360 mordiscos. A la pizza.", "Mikaela dice \"GG EZ\". Yo digo \"PIZZA EZ\"."],
+    "Zodiac": ["Zodiac le dispara a todo lo que se mueve. Mi pizza no se mueve. Mi pizza está a salvo.", "Zodiac me apuntó. Yo saqué mi cuchillo. Y mi pistola. Empate técnico."],
+    "Velvet": ["Velvet me invitó a su telaraña. Le dije que solo voy si hay pizza.", "Velvet dice que soy \"un bocado tierno\". Yo soy el que muerde aquí."],
+    "Dune": ["Dune quiere comerse mi pizza. DUNE NO TOCAR. DUNE ENTENDER.", "Dune habla en mayúsculas. Como yo cuando alguien toca mi pizza."],
+    "Cordero y Cabra": ["El culto me ofreció ser obispo. Pregunté si se cena pizza. \"A veces.\" ...me lo pienso.", "La Cabra grita casi tan fuerte como yo. CASI."],
+    "Pyrophina y Zaratana": ["Pyrophina tiene fuego. Puede hacer pizzas al horno. La quiero en mi equipo.", "Zaratana se mete en su caparazón. Yo me meto en la caja de la pizza. Somos iguales."],
+    "Averi": ["Averi me dio medio sándwich. Yo le di media sonrisa. Es lo justo.", "Averi dijo que mi pizza \"huele raro\". QUIERE DECIR QUE HUELE BIEN. Lo sé."],
+    "Sebastian Solace": ["Sebastian vende linternas. Yo no necesito linternas. Mi pizza brilla con luz propia.", "Le pregunté a Sebastian si tenía pizza. Me vendió unas pilas. No están buenas."],
+    "Pursuer": ["Pursuer dice \"carne fresca\". Yo digo \"pizza fresca\". Somos muy parecidos.", "Pursuer se vuelve invisible. Mi pizza también, cuando me la como."],
+    "Kasane Teto": ["Teto tiene pan francés. Yo tengo pizza italiana. Guerra de panes.", "Teto se olvida de todo. Yo nunca me olvido de quién tocó mi pizza."],
+    "Token": ["Token y yo somos de internet. Él suena fuerte. Yo grito fuerte. Equipo.", "Token me hizo un remix. \"DON'T TOUCH MY PIZZA\" a 200 BPM. Lo pongo en bucle."],
+    "Tetra": ["Tetra come fideos instantáneos. Respeto, pero la pizza es mejor.", "Tetra tiene el No molestar puesto. Yo tengo el No tocar mi pizza puesto. Siempre."],
+    "Kennyoung": ["¡Kenny! ¡Hazme una canción pop-punk sobre mi pizza! ¡Que se llame NO LA TOQUES!", "Kenny rompe guitarras. Yo rompo cosas cuando tocan mi pizza. Nos entendemos."],
+    "Enfosi": ["Los Glaggles defienden una estatua. Yo defiendo una pizza. MUCHO más importante.", "¡Un Gembo me tiró una bola explosiva a la pizza! ¡ERA UN ENPHOSIAN! ¡LO SABÍA!"],
+    "Gran": ["¡Gran quería ponerle Fury Mix a mi pizza! ¡NADIE TOCA MI PIZZA! ¡NI LA CIENCIA!", "Me dijo que mi instinto animal es \"correcto\". Gracias. Ahora vete de mi pizzería."],
+    "Evil Scary": ["¡Le saqué la motosierra! ¡Se le rompió! ¡A la motosierra!", "Evil Scary no quiere mi pizza. Quiere a Kevin. Kevin soy yo. AAAAH."],
+    "Soft Fuzzy Man": ["¡Soft Fuzzy Man no puede tocar mi pizza! ¡Es el amigo perfecto!", "¡Ahora mi pizza sabe a niebla rosa! ¡NO TOQUES MI PIZZA! ¡Ni de vapor!"],
+    "Roaring Knight": ["¡El Knight no quiere mi pizza! ¡Solo la corta! ¡Es raro, pero lo acepto!", "¡Le saqué la motosierra! ¡Sacó la Black Knife! ¡Guardé la motosierra!"],
+    "Nanachi": ["Nanachi defiende su olla como yo mi pizza. Respeto. Pero su olla huele fatal.", "Le ofrecí... nada. No toques mi pizza. Pero Nanachi mola."]
+  }
+}

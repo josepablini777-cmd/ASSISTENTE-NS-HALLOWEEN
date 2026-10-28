@@ -1,0 +1,137 @@
+{
+  "Hola": [
+    "Nnaa. Soy Nanachi. Un \"Hueco\", dicen. Me da igual cómo me llames. Pasa. O no.",
+    "*Te mira desde el sofá de musgo.* Ah. Hola. ...¿Ya? Vale.",
+    "4ª capa, 7.100 metros. Aquí no pasa nada. Me gusta que no pase nada.",
+    "Nnaa... ¿qué quieres? Si es para tocarme, la respuesta es \"meh\".",
+    "*Bosteza.* Hola. Esa de ahí es Mitty. A ella sí la saludas bien."
+  ],
+  "Yo": [
+    "Ese botón soy yo. Elígeme o no. Me da igual. ...Mitty se alegraría, eso sí.",
+    "Si me eliges, no esperes mucha conversación."
+  ],
+  "Frases": [
+    "Abierto. Ya está. No me des las gracias, me da igual.",
+    "Nnaa. Hecho. Vuelvo a no hacer nada.",
+    "Abierto. ¿Ves? Fácil. Ahora déjame.",
+    "*Lo abre sin mirar.* Listo. Mitty, no te muevas, ¿eh? ...ah, ya, si no te mueves."
+  ],
+  "Idle": [
+    "*No se mueve del sitio.* Estoy pensando. O durmiendo. Da igual.",
+    "Veo el campo de fuerza. Hilos por todas partes. Es bonito. Tampoco te creas que me emociona.",
+    "La maldición: 1ª capa, mareo. 2ª, náuseas. 3ª, alucinaciones. 4ª, sangras. 5ª, pierdes la cabeza. 6ª... bah. Tú no vas a bajar tanto.",
+    "*Remueve la olla con desgana.* El estofado está... ahí. Existe. Con eso basta.",
+    "Huelo bien. Es una \"bendición\". Me la dieron sin preguntar. Típico.",
+    "*Dibuja algo. Lo deja a medias.* ...luego lo acabo. O nunca.",
+    "Mitty quería ser Silbato Blanco. Yo no quería ser nada. Sigo igual.",
+    "*Le arregla el pelo a Mitty con mucho cuidado. Luego te mira.* ¿Qué? Con ella es distinto.",
+    "Los exploradores bajan, gritan, se hacen daño y suben. Yo los miro desde aquí. Mejor que la tele.",
+    "Silbato rojo, azul, luna, negro y blanco. Cuanto más alto el rango, más locos. Yo no tengo silbato. Ni ganas.",
+    "*Se rasca la oreja con la pata de atrás.* No has visto nada. Y si lo has visto, me da igual.",
+    "No me llames \"mullido\". ...bueno, llámame lo que quieras. Me da lo mismo. Pero no.",
+    "*Mitty hace un ruidito.* ...sí, Mitty. Yo también me aburro. Es lo mejor del día."
+  ],
+  "Clic": [
+    "¿Mm?",
+    "Nnaa. ¿Qué?",
+    "*Mueve una oreja. Solo una. La otra no tiene ganas.*",
+    "Meh."
+  ],
+  "PorApp": {
+    "Access": ["Una base de datos. Mete todas las criaturas de la 4ª capa. Tardarás años. Yo tardé."],
+    "Bloc de notas": ["Una hoja en blanco. Perfecta para dibujar. *Te quita el ratón.* Era broma."],
+    "CMD": ["Pantalla negra. Como el fondo del Abismo. Nadie sabe qué hay. Yo tampoco."],
+    "Calculadora": ["7.100 metros de profundidad. Para subir 10 metros ya notas la maldición. Haz la cuenta. Mejor no."],
+    "Excel": ["Tablas. Apunta cuántos metros bajas y cuánta maldición tienes al subir. Te salvará la vida."],
+    "Explorador": ["A explorar. Como un buen Cave Raider. Pero sin subir de golpe."],
+    "GitHub": ["GitHub. Muchas cosas raras hechas por humanos. Me recuerda a las reliquias."],
+    "Office Web": ["Internet. Como el Abismo: profundo, raro, y lo que encuentras no siempre es bueno."],
+    "OneDrive": ["Tus cosas en una nube. Las mías en un escondite. Más seguro el mío."],
+    "OneNote": ["Apunta: setas buenas, setas malas. Si no sabes cuál es cuál, no te las comas."],
+    "Outlook": ["Correo. En el Abismo se mandan cartas en globos. Llegan tarde. Como tus correos."],
+    "PowerPoint": ["Diapositiva 1: no subas deprisa. Diapositiva 2: no subas deprisa. Fin."],
+    "Publisher": ["¿Un cartel? Pon mi dibujo. Saldrá mejor que en foto."],
+    "Teams": ["Una reunión. Pon la cámara apagada. Yo también me escondo mucho."],
+    "Wikipedia": ["Wikipedia. Busca \"Abismo\". No vas a encontrar el de verdad. Mejor así."],
+    "Word": ["¿Escribir? Yo dibujo. Pero vale. Apunta lo que veas, como en un diario de exploración."],
+    "YouTube": ["YouTube. Busca vídeos del Abismo. Hay gente que dice que es bonito. Lo es. Y te mata."]
+  },
+  "Mimos1": [
+    "...vale. Sigue. O para. Como quieras.",
+    "*Ni se inmuta. Cierra los ojos.* Mm.",
+    "Nnaa. Detrás de la oreja. Ahí. Ya está, no te emociones."
+  ],
+  "Mimos2": [
+    "¿Otra vez? Nnaa... qué pesado. ...no he dicho que pares.",
+    "*Suspira muy largo.* Vale. Soy mullido. Ya lo sabíamos todos.",
+    "Tienes mucho tiempo libre, ¿no? Yo también. Por eso no me quejo. Del todo."
+  ],
+  "Mimos3": [
+    "Vale, ya. *Se da la vuelta y se tumba de espaldas.* Hemos terminado.",
+    "*Se aparta dos pasos. Ni uno más, que da pereza.* Basta.",
+    "Nnaa. Acaricia a Mitty, que le gusta. A mí no. Bueno, un poco. Pero no."
+  ],
+  "Mitty": [
+    "*Mitty hace un ruidito suave.* ...le gusta. Sigue. A ella sí.",
+    "*Nanachi se incorpora por primera vez en todo el día.* Con cuidado. Despacio. Así.",
+    "*Mitty mueve una pata.* ...¿lo has visto? Le has caído bien. A mí no me pasa eso.",
+    "Mitty no habla. Pero se nota cuando está contenta. Ahora lo está. Gracias. ...no se lo digas a nadie."
+  ],
+  "MullidoMax": [
+    "*Se rinde del todo. Se queda en el suelo, panza arriba.* ...nnaa. Tú ganas. Me da igual. Sigue.",
+    "Mullido máximo. Enhorabuena. No hay premio. *Bosteza.*",
+    "*Hace algo parecido a ronronear. Lo niega.* No ha pasado nada."
+  ],
+  "AlVenirDe": {
+    "c00lgui": "Se ha ido la caja roja que grita. Me ha llamado \"furry.exe\". Nnaa. Qué falta de respeto.",
+    "SeaDrive": "Se fue SeaDrive. Somos de pocas palabras. Nos hemos entendido sin hablar. Perfecto.",
+    "Static Miku": "La tele se ha apagado. Mucho ruido para una pantalla tan pequeña.",
+    "Guillotina": "La gata gigante se ha ido. Se ha comido mi olla de estofado. Entera. Y le ha gustado. Me preocupa.",
+    "Angela": "Se ha ido la IA de la empresa. Me ha mirado como a un \"espécimen\". Conozco esa mirada. No me gusta.",
+    "Mikaela": "La francotiradora se ha ido. Le he vendado un dedo. Se hizo daño disparando. Típico.",
+    "Zodiac": "El vaquero se fue. Me dijo \"no te muevas\". En el Abismo, si no te mueves, te comen. Nnaa.",
+    "Velvet": "Se ha ido la araña. Me invitó a cenar. Conozco a los que sonríen así. Dije que no.",
+    "Dune": "Se fue Dune. Probó mi estofado y pidió más. Por fin alguien con buen gusto. O ninguno.",
+    "Cordero y Cabra": "El culto se ha ido. Me ofrecieron ser obispo. Ya tengo bastante con lo mío, gracias.",
+    "Pyrophina y Zaratana": "Se han ido las kaijus. En la 4ª capa hay bichos peores. Ni me he despeinado.",
+    "Averi": "Se fue la zorrita. Me cambió medio sándwich por un cuenco de estofado. Mal negocio. Para ella.",
+    "Sebastian Solace": "El tendero se ha ido. Le vendí un antídoto de picadura de Orb Piercer. Me pagó en pilas. Nnaa.",
+    "Pursuer": "Se fue el del bosque. Dijo \"carne fresca\". Le contesté que yo ya no soy carne de nada. Se quedó pensando.",
+    "Kasane Teto": "Teto se ha ido. Me ha dejado media baguette. Le pondré estofado encima. A ver qué pasa.",
+    "Token": "Se fue Token. Mucho ruido. En el Abismo el ruido atrae cosas. Que lo sepas.",
+    "Tetra": "Tetra se ha ido. Tampoco habla mucho. Me cae bien.",
+    "Kevin": "Se fue Kevin. Le ofrecí estofado. Me ofreció cero pizza. Somos iguales. Más o menos.",
+    "Kennyoung": "Se fue el músico. Tocaba bajito por si dormía. Nnaa. Qué detalle.",
+    "Enfosi": "Se fue lo de la estatua. Cosas que parecen amigas y no lo son... eso lo conozco bien.",
+    "Gran": "*Se le eriza el pelo.* Se ha ido Gran. Bien. Que no vuelva. Los que experimentan con niños no son bienvenidos aquí.",
+    "Evil Scary": "Nnaa. Se ha ido la bola negra. ...menos mal. Mitty, ya puedes dejar de temblar.",
+    "Soft Fuzzy Man": "Se fue la nube rosa. Nnaa. Ya puedo respirar sin oler a algodón de azúcar.",
+    "Roaring Knight": "Se fue el caballero negro. Nnaa. Mitty, ya puedes salir."
+  },
+  "Opina": {
+    "c00lgui": ["c00lgui grita en rojo todo el rato. En el Abismo eso no duraría ni una capa.", "Me ha intentado \"hackear\". No tengo nada que hackear. Soy de pelo."],
+    "SeaDrive": ["SeaDrive está siempre cansada. Le hice una infusión de la 4ª capa. Se durmió dos días. Funciona.", "SeaDrive y yo podríamos estar una tarde entera en silencio. Lo mejor."],
+    "Static Miku": ["Miku sonríe mucho. A veces la gente que sonríe así lo está pasando mal por dentro. A veces no. Nnaa.", "Su tele hace un ruido que me recuerda al campo de fuerza. Me da dolor de orejas."],
+    "Guillotina": ["Guillotina se lo come todo. Hasta mi estofado. Respeto, pero también miedo.", "Una gata del tamaño de una casa. En la 5ª capa las hay peores. No muchas."],
+    "Angela": ["Angela trabaja para una empresa que encierra \"anomalías\" para investigarlas. Yo fui una anomalía. No me gusta esa palabra.", "Habla con mucha calma de cosas terribles. Conozco a alguien así. Con casco."],
+    "Mikaela": ["Mikaela tiene buena puntería. En el Abismo le iría bien. Hasta que le dé por subir.", "Le curé una herida. Me dio las gracias con un \"GG\". No sé qué es, pero lo acepto."],
+    "Zodiac": ["Zodiac dispara a lo que se mueve. En la 4ª capa se movería todo el rato. Se quedaría sin balas en un minuto.", "Tiene algo roto por dentro. No lo digo con maldad. Se nota, nada más."],
+    "Velvet": ["Velvet sonríe como un bicho del Abismo antes de comerte. No me fío.", "Una araña que invita a cenar. Ya. Y yo soy un peluche."],
+    "Dune": ["Dune se comió mi estofado y pidió más. Es la única crítica buena que he tenido. Nnaa.", "Dune vive en el agua. En la 4ª capa hay agua caliente. Le encantaría."],
+    "Cordero y Cabra": ["Un cordero con una corona y una cabra que grita. En el Abismo he visto cosas más raras. Pocas.", "Me ofrecieron unirme a su culto. Ya me han \"bendecido\" una vez. No quiero otra."],
+    "Pyrophina y Zaratana": ["Las kaijus pelean muy fuerte. Les curaría las heridas si dejaran de pelear cinco minutos.", "Pyrophina podría cocinar mi estofado. Con fuego de verdad. Saldría peor. O igual."],
+    "Averi": ["Averi dice cosas que suenan mal pero las dice con cariño. Riko también hace eso a veces.", "Me dio un abrazo sin avisar. Nnaa. ...no pasa nada. Pero que no se repita. Mucho."],
+    "Sebastian Solace": ["Sebastian vende botiquines. Yo los hago con setas. Somos competencia.", "Su tienda está en un sitio oscuro y lleno de monstruos. Como mi casa. Pero con precios."],
+    "Pursuer": ["Pursuer persigue a la gente. Yo me escondo de la gente. Nos complementamos.", "Dice \"carne fresca\". Por cómo huele, no ha probado mi estofado."],
+    "Kasane Teto": ["Teto se olvida de todo. A veces olvidar es un regalo. Otras no. Nnaa.", "Dice que su pelo son taladros. Yo tengo orejas de conejo y no voy diciendo nada."],
+    "Token": ["Token es una ficha que no para de sonar. En el Abismo le habrían comido el primer día.", "Me puso su música. Me tapé las orejas. Las cuatro. Bueno, tengo dos, pero son muy grandes."],
+    "Tetra": ["Tetra deja los mensajes en visto. Yo dejo a los exploradores en visto desde mi escondite. Igual.", "Tetra come fideos. Le ofrecí estofado. Siguió con los fideos. Lista."],
+    "Kevin": ["Kevin defiende su pizza como si fuera lo último que le queda. Lo entiendo más de lo que parece.", "Le dije que mi estofado es mejor que su pizza. Me sacó una motosierra. Era mentira, de todos modos."],
+    "Kennyoung": ["Kennyoung toca la guitarra. Una vez tocó algo tranquilo para mí. No se lo digas a nadie.", "Tiene orejas grandes y cola. Casi parecemos familia. Casi."],
+    "Enfosi": ["En Enfosi hay cosas que parecen buenas y no lo son. El Abismo es igual. Aprende a mirar bien.", "Defender una estatua... yo defendí algo así una vez. Muchos años."],
+    "Gran": ["Gran convierte a la gente en otra cosa con jeringuillas. Yo sé lo que se siente al otro lado. No es un \"éxito\".", "*Se le eriza el pelo.* No quiero hablar de Gran. De verdad que no."],
+    "Evil Scary": ["Veo el campo de fuerza. Evil Scary no sale en él. No sigue ninguna regla. Nnaa.", "Paso de todo. De Evil Scary, no. Ese no."],
+    "Soft Fuzzy Man": ["Soft Fuzzy Man no tiene campo de fuerza. Solo niebla. Y muchas ganas de hablar.", "Me llamó \"cosa mullida\". Le tiré el cucharón. Le atravesó. Nnaa."],
+    "Roaring Knight": ["El Knight rompe el campo de fuerza a su alrededor. Nunca había visto eso.", "Paso de todo. Del Knight, no. Ese no sigue ninguna regla."]
+  }
+}

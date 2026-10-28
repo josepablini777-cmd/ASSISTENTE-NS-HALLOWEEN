@@ -1,0 +1,126 @@
+{
+  "Hola": [
+    "* The Roaring Knight appeared. (Ha aparecido el Caballero Rugiente.)",
+    "* Notas algo flotando justo detrás de tu cabeza...",
+    "* El Knight cruza los brazos. Te mira desde arriba. No dice nada.",
+    "* Huele a tinta y a Fuente Oscura. * El Knight está aquí."
+  ],
+  "Yo": [
+    "* Ese botón es... el Knight. * El Knight lo mira. Sonríe con los dientes.",
+    "* Lo has elegido. * Nadie elige al Knight. El Knight te elige a ti."
+  ],
+  "Frases": [
+    "* Abierto. * El Knight saca una Fuente Oscura del suelo. * La sombra crece un poco.",
+    "* Hecho. * Una Fuente más. * Notas algo flotando detrás de tu cabeza.",
+    "* Abierto. * El Knight mira la Fuente. * Luego te mira a ti.",
+    "* Listo. * La sala se oscurece un poco. * Solo un poco."
+  ],
+  "Idle": [
+    "* El Knight saca Fuentes Oscuras del suelo. * Cada Fuente crea un Mundo Oscuro.",
+    "* Si hay demasiadas Fuentes llega the Roaring. * Los Darkners se vuelven piedra. * Los Lightners, a la oscuridad eterna.",
+    "* King lo llamaba \"mi KNIGHT\". * Seam lo llamó \"un caballero extraño\".",
+    "* Le prometió a Tenna todos los espectadores que quisiera. * Tenna acabó sin brazos.",
+    "* Se llevó a Undyne por la Gran Puerta. * Nadie sabe por qué.",
+    "* En el capítulo 4 hizo una Fuente delante de Susie. * De ella salió un Titán.",
+    "* Susie se rió de él. * Fue mala idea.",
+    "* En vez de tumbar a Kris, le puso la espada en el hombro. * Como si lo nombrara caballero.",
+    "* Su espada se llama Black Knife. * De ella saltó una astilla. * Las astillas negras aparecen por todas partes.",
+    "* Su casco cambia de forma. * A veces es un visor. A veces, una boca. A veces, un ojo.",
+    "* Deja una estela de sombras detrás. * Hasta cuando está quieto.",
+    "* ACT: HoldBreath. * Contienes la respiración. * El tiempo va más lento. * El Knight no.",
+    "* Pulsa FIGHT para luchar contra él. * Mueve el ALMA con las flechas. * Esquiva las espadas."
+  ],
+  "Clic": [
+    "* Kris analizó al enemigo. * Pero Kris no pudo averiguar nada.",
+    "* Kris señala a lo lejos. * No ha pasado nada.",
+    "* Contienes la respiración. * El Knight te mira. * Tú pierdes primero.",
+    "* Intentas perdonar al Knight. * Su nombre no se ha puesto amarillo.",
+    "* Le pides al Knight que se vaya. * El Knight cruza los brazos."
+  ],
+  "PorApp": {
+    "Access": ["* Una base de datos. * Mete a todos los que ha secuestrado. * Toriel casi, Undyne, Asgore..."],
+    "Bloc de notas": ["* Hoja en blanco. * Fondo blanco. Letras negras. * Como el Knight, pero al revés."],
+    "CMD": ["* Pantalla negra. * Te sientes como en casa del Knight."],
+    "Calculadora": ["* Su HP es 7300. * Se muestra como ???. * Haz la cuenta."],
+    "Excel": ["* Excel. * Columna A: Fuentes. Columna B: Titanes. * La B crece sola."],
+    "Explorador": ["* Carpetas. * Busca una que no estaba ayer. * Esa es la Fuente."],
+    "GitHub": ["* GitHub. * El código también tiene Mundos Oscuros. * Se llaman bugs."],
+    "Office Web": ["* Internet abierto. * Un Mundo Oscuro más. * Como el de Queen."],
+    "OneDrive": ["* La nube. * Las nubes también tienen sombra."],
+    "OneNote": ["* Apunta todo lo que sabes del Knight. * Nada. * Exacto."],
+    "Outlook": ["* Correo nuevo. * Remitente: desconocido. * Asunto: \"Fuente\"."],
+    "PowerPoint": ["* PowerPoint. * Diapositiva 1: the Roaring. * No hay diapositiva 2."],
+    "Publisher": ["* Un cartel. * \"SE BUSCA: caballero alto, negro, con prisa\"."],
+    "Teams": ["* Videollamada. * Detrás de ti, en la cámara, hay una silueta. * No mires."],
+    "Wikipedia": ["* Wikipedia. * Busca \"Deltarune\". * No busques spoilers."],
+    "Word": ["* Word. * Escribe la profecía. * El Knight sale en todas."],
+    "YouTube": ["* YouTube. * Busca \"Black Knife\". * Ponlo muy alto."]
+  },
+  "Gana": [
+    "* ¡Has aguantado! * El Knight cruza los brazos... y se va volando.",
+    "* ¡VICTORIA! * Bueno. Más o menos. * El Knight se ríe y desaparece entre sombras.",
+    "* Has sobrevivido a la Black Knife. * Susie estaría orgullosa. * Y Ralsei, preocupado."
+  ],
+  "Pierde": [
+    "* Kris quedó DOWN. * El Knight se ríe.",
+    "* No has podido. * El Knight te pone la espada en el hombro... y se va.",
+    "* GAME OVER. * Bueno, no. * Kris se levanta. Siempre se levanta."
+  ],
+  "Roaring": [
+    "* EL KNIGHT RUGE. * Una luz roja lo llena todo. * De la Fuente sale un TITÁN.",
+    "* ROAAAAAR. * Las paredes tiemblan. * Un Darkner se ha vuelto de piedra.",
+    "* The Roaring se acerca. * Demasiadas Fuentes. * El Knight ruge de... ¿alegría? ¿Rabia? Nadie lo sabe."
+  ],
+  "AlVenirDe": {
+    "c00lgui": "* El hacker se ha ido. * Intentó hackear al Knight. * El Knight cortó el cable.",
+    "SeaDrive": "* SeaDrive se ha ido. * En su nube había una Fuente Oscura. * Nadie sabe quién la puso.",
+    "Static Miku": "* La tele se ha apagado. * Al Knight no le gustan las teles. * Pregúntale a Tenna.",
+    "Guillotina": "* Guillotina se ha ido. * Intentó morder al Knight. * Se llevó un tajo en los bigotes.",
+    "Angela": "* Angela se ha ido. * Quiso contener al Knight. * El Knight hizo una Fuente en su celda.",
+    "Mikaela": "* La francotiradora se ha ido. * Sus balas atravesaban las sombras de la estela. * Nunca al Knight.",
+    "Zodiac": "* El vaquero se ha ido. * Le gritó \"¡no te muevas!\". * El Knight se teletransportó tres veces.",
+    "Velvet": "* Velvet se ha ido. * Le ofreció cenar al Knight. * El Knight se rió. Mucho.",
+    "Dune": "* Dune se ha ido nadando. * Quiso comerse la estela del Knight. * Sabía a nada.",
+    "Cordero y Cabra": "* El culto se ha ido. * Tenían una profecía. * El Knight sale en todas las profecías.",
+    "Pyrophina y Zaratana": "* Las kaijus se han ido. * El Knight ha visto cosas más grandes. * Se llaman Titanes.",
+    "Averi": "* Averi se ha ido. * Le dejó un sándwich al Knight. * Sigue ahí. Cortado en diagonal.",
+    "Sebastian Solace": "* El tendero se ha ido. * El Knight se llevó una linterna. * No la pagó.",
+    "Pursuer": "* Pursuer se ha ido. * Dos cazadores en el mismo panel. * Solo uno tiene espada.",
+    "Kasane Teto": "* Teto se ha ido. * Se olvidó del Knight. * El Knight no se olvida de nadie.",
+    "Token": "* Token se ha ido. * Mucho ruido. * El Knight ruge más fuerte.",
+    "Tetra": "* Tetra se ha ido. * Estaba en No molestar. * El Knight no lee los estados.",
+    "Kevin": "* Kevin se ha ido con su pizza. * La pizza está cortada en ocho trozos perfectos. * Kevin no la cortó.",
+    "Kennyoung": "* El músico se ha ido. * Tocó algo parecido a \"Black Knife\". * El Knight asintió.",
+    "Enfosi": "* Se ha ido lo de la estatua. * Las estatuas le recuerdan a algo. * A los Darkners de piedra.",
+    "Gran": "* Gran se ha ido. * Quiso una muestra del Knight. * Solo consiguió ruido de televisión.",
+    "Evil Scary": "* La bola negra se ha ido. * Botó hacia el Knight. * Volvió en dos mitades. Siguió botando.",
+    "Soft Fuzzy Man": "* La niebla rosa se ha ido. * Ligó con el Knight. * El Knight le cortó en dos. La niebla se juntó otra vez.",
+    "Nanachi": "* Nanachi se ha ido. * Dijo \"ese no sigue ninguna regla\". * El Knight se rió."
+  },
+  "Opina": {
+    "c00lgui": ["* c00lgui hackea servidores. * El Knight crea mundos enteros.", "* c00lkidd quiso un panel de admin para el Knight. * El Knight ya es el admin de los Mundos Oscuros."],
+    "SeaDrive": ["* SeaDrive siempre tiene sueño. * En la oscuridad eterna podrá dormir siempre.", "* SeaDrive le abrió un pop-up. * El Knight lo cortó."],
+    "Static Miku": ["* Una tele que canta. * Al Knight le recuerda a alguien. * Ese alguien perdió los brazos.", "* Su estática se parece al cuerpo del Knight cuando está herido."],
+    "Guillotina": ["* Guillotina se lo come todo. * Menos las espadas. Esas las escupe.", "* Dos sonrisas llenas de dientes. * La del Knight cambia de forma."],
+    "Angela": ["* Angela clasifica anomalías. * El Knight no cabe en ninguna clase.", "* La Corporación L tiene muchas celdas. * El Knight tiene muchas Fuentes."],
+    "Mikaela": ["* Mikaela no falla un tiro. * El Knight es una sombra. * Las sombras no tienen hitbox.", "* Su Smokebomb se mezcló con la oscuridad. * Nadie notó la diferencia."],
+    "Zodiac": ["* Zodiac dispara a lo que se mueve. * El Knight se mueve dejando sombras. * Zodiac disparó a todas.", "* Seis balas. Seis sombras. Cero Knights."],
+    "Velvet": ["* Velvet liga con todos. * El Knight se rió en su cara.", "* Velvet teje telarañas. * La Black Knife las corta como si nada."],
+    "Dune": ["* Dune quiso comerse al Knight. * DUNE NO COMER ESPADAS.", "* Dune nada en el agua. * En los Mundos Oscuros el agua es de tinta."],
+    "Cordero y Cabra": ["* El Cordero tiene un culto. * El Knight tiene una profecía entera.", "* La Cabra le gritó. * El Knight rugió. * La Cabra se calló."],
+    "Pyrophina y Zaratana": ["* Dos kaijus peleando. * Un Titán se las comería a las dos.", "* Pyrophina le echó fuego. * Las sombras no arden."],
+    "Averi": ["* Averi le ofreció un abrazo al Knight. * El Knight se quedó quieto. * Mucho rato.", "* Averi dice que el Knight solo necesita un amigo. * Kris no está tan seguro."],
+    "Sebastian Solace": ["* Sebastian vende de todo. * El Knight solo quiere Fuentes. * No están a la venta.", "* Le vendió un Flash Beacon. * La luz no le hizo nada. * Es luz de Mundo Claro."],
+    "Pursuer": ["* Pursuer caza en el bosque. * El Knight caza en todos los mundos.", "* Pursuer olió al Knight. * Huele a nada. Eso le asusta."],
+    "Kasane Teto": ["* Teto dice \"hiii\". * El Knight ruge. * Teto dice \"hiii\" otra vez, más bajito.", "* Teto se olvida de todo. * El Knight se acuerda de todo. * Sobre todo de Kris."],
+    "Token": ["* Token hace breakcore. * \"Black Knife\" también suena muy fuerte.", "* Token cayó por una tragaperras. * Kris cayó por un agujero en la Sala Oscura."],
+    "Tetra": ["* Tetra no contesta. * El Knight tampoco. * Se entienden.", "* Tetra se queda en el sofá. * El Knight secuestra a gente del sofá. * Cuidado, Tetra."],
+    "Kevin": ["* Kevin defiende su pizza. * El Knight se la cortó en ocho. * Perfectos.", "* Kevin le enseñó la motosierra. * El Knight le enseñó la Black Knife."],
+    "Kennyoung": ["* Kennyoung toca pop-punk. * La música del Knight se llama \"Black Knife\". * Suena más fuerte.", "* Le compuso una canción al Knight. * Le salió en tono de jefe final."],
+    "Enfosi": ["* Defender una estatua... * En el Roaring todo el mundo acaba siendo estatua.", "* Los Enphosians se disfrazan. * El Knight no se quita el casco ni en la imaginación de Kris."],
+    "Gran": ["* Gran transforma gente. * El Knight transforma salas enteras en Mundos Oscuros.", "* Gran le pidió una muestra. * Le dio una astilla negra. * Gran no ha vuelto a ser el mismo."],
+    "Evil Scary": ["* Evil Scary bota hacia todos. * Hacia el Knight bota más despacio.", "* Los dos son negros, con manos y dientes. * Solo uno tiene una espada."],
+    "Soft Fuzzy Man": ["* Soft Fuzzy Man quiere sentir que existe. * El Knight hace que los mundos existan.", "* Le guiñó un ojo al Knight. * El Knight cortó la niebla. * Se volvió a juntar."],
+    "Nanachi": ["* Nanachi ve el campo de fuerza. * Alrededor del Knight está todo roto.", "* Nanachi pasa de todo. * Del Knight no. * Del Knight nadie pasa."]
+  }
+}

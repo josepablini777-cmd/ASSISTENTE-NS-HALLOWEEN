@@ -59,7 +59,7 @@ Todo se diseña a **tamaño base** y se escala una vez:
 | Secciones por personaje | la mecánica de cada skin (Guillotina, Mikaela, Zodiac… Kevin, Kennyoung) |
 | PERSONAJES DIBUJADOS | sistema de **actores**: `Nuevo-Actor`, `Actor-Pose`, `Pintar-Actores`, `$actTimer` (anima los GIF) |
 | ANIMACIÓN DE FONDO | `$ambTimer` (cada 50 ms): llama al "tick" de cada skin (`Kevin-Tick`, `Ky-Tick`…) |
-| DISCUSIONES | `$Discusiones`, ventanita del invitado (`Abrir-Invitado`, `Pintar-Invitado`), `Efectos-Linea` (sonidos/temblores según palabras), `$idleTimer` (frases sueltas) |
+| DISCUSIONES | `$Discusiones` (se carga de `dialogos\_charlas.json` con `Cargar-Dialogos`), ventanita del invitado (`Abrir-Invitado`, `Pintar-Invitado`), `Efectos-Linea` (sonidos/temblores según palabras), `$idleTimer` (frases sueltas) |
 | GLITCH / TRANSICIONES / INTROS | `Intro-Overlay` y una función `Transicion-*` por skin |
 | LÓGICA | `Nuevo-Boton`, `Pintar-Boton`, `Lanzar` (abrir una app), `Mostrar-Pagina` (botones o menú Skins), `Efecto-Entrada` |
 | AJUSTES / EDITOR DE BOTONES / TUTORIAL | ventanas de configuración |
@@ -72,10 +72,20 @@ Cada skin es una entrada de `$Skins` con, entre otros:
 - Colores (`Fondo`, `Borde`, `Btn*`…), `Ancho`/`Alto`, `Fuente`, `Burbuja` (rectángulo del bocadillo).
 - `Actores`: los personajes dibujados en el panel, con su `Gif` principal, `Rect` y `Extra` (más poses: `Actor-Pose 'Id' 'pose' ms`).
 - `Sonidos`: `clave = @('ruta.wav', ...)`; se reproducen con `Sonido 'clave'` (o `Sonido-De 'Skin' 'clave'`).
-- Frases: `Hola`, `Idle`, `Clic`, `Frases`, `PorApp` (por nombre de botón), `Opina` y `AlVenirDe` (una por **cada** otra skin), `Yo`.
-- Campos propios de su mecánica (por ejemplo `Canciones`, `Videos`, `Rabia`…).
+- Campos propios de su mecánica que no son frases (por ejemplo `Canciones`, `Videos`, `Ingredientes`…).
+- **Las frases NO están en el código**: van en `dialogos\<nombre de la skin>.json` (ver abajo).
 
-Para añadir una skin hay una lista paso a paso al principio de la sección SKINS. En resumen, el `Estilo` nuevo tiene que añadirse en: `Fondo-Escena`, `Pintar-Burbuja`, `Pintar-Boton`, la lista de estilos del `Paint` de `$form` y su `switch`, `Lanzar` (abrir app, web y error), `Clic-Actor`, `Efecto-Entrada`, `$idleTimer`, `$ambTimer`, `Abrir-Invitado` y `Pintar-Invitado`, y el manejador de errores (`add_ThreadException`). Después: su línea en `$GruposSkins`, su `Opina`/`AlVenirDe` en **todas** las demás skins (con un script es más seguro) y discusiones nuevas en `$Discusiones`.
+Para añadir una skin hay una lista paso a paso al principio de la sección SKINS. En resumen, el `Estilo` nuevo tiene que añadirse en: `Fondo-Escena`, `Pintar-Burbuja`, `Pintar-Boton`, la lista de estilos del `Paint` de `$form` y su `switch`, `Lanzar` (abrir app, web y error), `Clic-Actor`, `Efecto-Entrada`, `$idleTimer`, `$ambTimer`, `Abrir-Invitado` y `Pintar-Invitado`, y el manejador de errores (`add_ThreadException`). Después: su línea en `$GruposSkins`, su archivo `dialogos\<nombre>.json`, su `Opina`/`AlVenirDe` en el JSON de **todas** las demás skins y charlas nuevas en `dialogos\_charlas.json`.
+
+## Diálogos (carpeta `dialogos`)
+
+- Cada skin tiene `dialogos\<nombre exacto de la skin>.json` con sus frases: `Hola`, `Yo`, `Frases`, `Idle`, `Clic`, `PorApp` (por nombre de botón), `AlVenirDe` y `Opina` (una entrada por **cada** otra skin) y las frases de su mecánica (`Stall`, `Gato`, `Roaring`, `Mimos1`, `Toque1`…).
+- Las charlas entre skins están en `dialogos\_charlas.json` → `"charlas"`: cada charla es una lista de `["quién", "qué dice"]`. Una charla sale con las dos skins: cuando una es la activa, la otra viene de invitada.
+- `Cargar-Dialogos` (justo después de `$Discusiones`) los lee al arrancar y los mete en `$Skins[nombre]` y `$Discusiones`; `Json-A-Datos` hace que las listas sigan siendo listas aunque tengan una sola frase.
+- Los archivos son UTF-8. En los textos de una lista puede haber un solo texto o varios; en `Opina` cada valor es una lista.
+- **Skins archivadas**: `archivadas.txt` (un nombre por línea). No salen en el menú Skins (`Paginas-Skins`) ni en charlas, ni como skin activa ni como invitadas (`Iniciar-Discusion`); conservan sus frases y opiniones. Se ponen, devuelven o archivan desde Ajustes > "Skins archivadas" (`Mostrar-Archivadas`). Funciones: `Cargar-Archivadas`, `Guardar-Archivadas`, `Es-Archivada`. Sus charlas se quedan en `_charlas.json` por si vuelven. El editor de diálogos las pone en el grupo "Archivadas".
+- **Editor de diálogos**: `editor_dialogos.ps1` (se abre con `editor_dialogos.vbs`). Programa aparte: lee la lista de skins y grupos del código con el parser de PowerShell (sin ejecutarlo), el estado de `lore\estado.md` y la ficha de `lore\personajes\`. Pestañas: Ficha, Frases, Apps, Otras skins (AlVenirDe + Opina), Charlas, Mecánica (campos propios). Guarda en el mismo formato que los JSON (guardar sin cambios deja los archivos idénticos). El panel lee los cambios al volver a abrirse. Para probarlo: `-Prueba <script>` carga un script antes de abrir la ventana.
+- **Antes de escribir frases de una skin, leer su ficha en `lore\personajes\`** (y en una charla, las fichas de los dos). Estado de cada skin en `lore\estado.md`.
 
 ## Intros
 
