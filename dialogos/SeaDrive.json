@@ -89,7 +89,11 @@
     "Evil Scary": "Se ha ido Evil Scary. Por fin dejo de oír ese botecito. Lo sigo oyendo en sueños.",
     "Soft Fuzzy Man": "Se fue Soft Fuzzy Man. Me ha dejado la pantalla llena de niebla rosa. Muy bonito. Muy molesto.",
     "Roaring Knight": "Se ha ido el Knight. Me ha dejado una Fuente Oscura en el escritorio. No la pienso abrir.",
-    "Nanachi": "Se fue Nanachi. Nos hemos pasado la tarde sin hablar. Ha sido perfecto."
+    "Nanachi": "Se fue Nanachi. Nos hemos pasado la tarde sin hablar. Ha sido perfecto.",
+    "Dybbuk": "Se ha ido Dybbuk. Me ha dejado la pantalla llena de babas. Otra vez.",
+    "Malkuth": "Se fue Malkuth. Tanta energía me ha dejado agotada. Más agotada. No sabía que se podía.",
+    "Weathergirl": "Se fue Weathergirl. Me ha dejado un paraguas. No pienso salir, pero es un detalle.",
+    "Painter": "Se fue Painter. Sus ventiladores sonaban a siesta. Qué ruido más reconfortante."
   },
   "Opina": {
     "c00lgui": ["c00lkidd se cree hacker. Seguro que su contraseña es 1234.", "El panel rojo ese... muy 2006."],
@@ -115,6 +119,10 @@
     "Evil Scary": ["Evil Scary no tiene ojos y aun así me mira. Odio eso. Lo odio mucho.", "Le puse un pop-up de \"cerrar\". Lo atravesó. Pues vale."],
     "Soft Fuzzy Man": ["Soft Fuzzy Man me pidió café. Le di una taza. La atravesó. Qué desperdicio.", "Es como un salvapantallas con sentimientos."],
     "Roaring Knight": ["El Knight no habla. Solo ruge. Como yo los lunes.", "Le puse un pop-up de \"cerrar\". Lo cortó por la mitad."],
-    "Nanachi": ["Nanachi es de las pocas que no me hace hablar. La aprecio. Bueno, le aprecio. Lo que sea.", "Me hizo una infusión y dormí dos días. Lo mejor que me ha pasado."]
+    "Nanachi": ["Nanachi es de las pocas que no me hace hablar. La aprecio. Bueno, le aprecio. Lo que sea.", "Me hizo una infusión y dormí dos días. Lo mejor que me ha pasado."],
+    "Dybbuk": ["Dybbuk dice que los cuerpos cansados son los más fáciles de poseer. Lo intentó conmigo. Se aburrió antes que yo.", "Le pedí que dejara de dar volteretas. Dio una voltereta."],
+    "Malkuth": ["Malkuth quiere que descanse. Por fin alguien con sentido común. Lo malo es que me lo dice gritando de alegría.", "Lleva tres vidas trabajando. Yo con una ya voy servida."],
+    "Weathergirl": ["Weathergirl dice que mañana llueve. Perfecto. Excusa para no salir de la cama.", "Llora cuando se le acumulan las cosas. La entiendo. Yo me tumbo."],
+    "Painter": ["Painter habla rapidísimo. Yo no aguanto ni la primera frase. Pero tiene buen corazón. Y buen ventilador.", "Me dibujó una carita dormida. Creo que fue el mejor regalo del año. Gracias."]
   }
 }

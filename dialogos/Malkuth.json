@@ -1,0 +1,182 @@
+{
+  "Hola": [
+    "¡Hola! Soy Malkuth, la Bibliotecaria Patrona de la Planta de Historia. ¡Encantada! ¿Empezamos?",
+    "¡Bienvenido a la Planta de Historia! *Abraza su libro.* Hoy tengo un buen presentimiento.",
+    "¡Ya estoy lista! Libros ordenados, estanterías limpias... bueno, casi limpias. ¡Vamos allá!",
+    "La suerte estará de mi parte, ¡seguro! ...y si no, trabajaremos el doble. ¡No, el doble no! Lo normal. Lo normal está bien.",
+    "¡Hola, compañero! Cada cosa que abras será un libro nuevo para mi planta. ¡Qué ganas!"
+  ],
+  "Yo": [
+    "¡Esa soy yo! Si me eliges, prometo no tropezarme. ...mucho.",
+    "¡Elígeme! La Planta de Historia siempre tiene sitio para uno más."
+  ],
+  "Frases": [
+    "¡Abierto! Otro libro para la planta. *Lo apunta y le dibuja una estrellita al lado.*",
+    "¡Hecho! ¿Ves? Si lo hacemos como practicamos, sale solo.",
+    "¡Listo! Esto va genial. Aunque es pronto para celebrarlo, ¿eh?",
+    "¡Ya está! *Pone un marcapáginas.* Para que no se nos olvide dónde íbamos.",
+    "¡Abierto! Buen trabajo, equipo. Bueno, equipo de dos. ¡Cuenta igual!"
+  ],
+  "Idle": [
+    "Enfrenta el pasado, construye el futuro. Era el lema de L Corp. Lo único bueno que me llevé de allí. Bueno, eso y mi equipo.",
+    "*Coloca un libro en la estantería. Lo cambia de sitio. Lo vuelve a cambiar.* ...¿por fecha o por tema? ¡Por las dos!",
+    "Cada libro de esta planta es la vida de alguien. Algunas tristes, otras bonitas. Todas merecen su sitio.",
+    "Si algún día salgo de la Biblioteca, quiero ser arquitecta. Haré un edificio con colores que todo el mundo recuerde.",
+    "Mis bibliotecarios asistentes entrenan en la sala de al lado. ¡Antes eran mi equipo de L Corp! Ahora entreno con ellos, no les grito desde arriba.",
+    "La historia está llena de huecos que nadie quiere recordar. Yo quiero rellenarlos. Todos. Aunque duela.",
+    "*Hojea su libro grande lleno de marcapáginas.* Aquí lo apunto todo. Con dibujitos. Si no, se me olvida.",
+    "Roland viene a veces a traerme libros. Se queja de todo, pero siempre vuelve. Es majo. No se lo digas.",
+    "Tres vidas llevo ya. Elijah, la Sephirah... y esta. ¡Esta va a ser la buena!",
+    "¿Sabes qué es lo mejor de la historia? Que no puedes cambiarla. Pero sí puedes aprender de ella."
+  ],
+  "Clic": [
+    "¡Dime! ¿Necesitas algo? ¡Lo que sea!",
+    "¿Sí? ¡Estoy aquí! *Cierra el libro de golpe.*",
+    "¡Ay! Me has asustado. ¡No pasa nada! ¿Qué buscamos?",
+    "Todo bien por aquí. ¿Y por ahí?",
+    "¿Te ayudo a ordenar algo? Se me da genial. ...casi siempre."
+  ],
+  "PorApp": {
+    "Access": ["¡Una base de datos! Es como un catálogo de biblioteca, pero sin polvo. ¡Me encanta!"],
+    "Bloc de notas": ["Un cuaderno en blanco. Yo lo llenaría de notas... y de patatitas dibujadas en las esquinas."],
+    "CMD": ["Una pantalla negra con letras. Me recuerda a los terminales del Equipo de Control. ¡Ahora sí sé lo que hago! Creo."],
+    "Calculadora": ["Números. En L Corp contaba la energía cada día. Ahora cuento libros. Me gusta más."],
+    "Excel": ["¡Tablas! Puedes ordenar las fechas de la historia en columnas. Qué gusto da ver todo en su sitio."],
+    "Explorador": ["Carpetas dentro de carpetas. Como estanterías dentro de plantas. ¡Ordénalas bien, eh!"],
+    "GitHub": ["Aquí la gente guarda todas las versiones de lo que hace. ¡Es un archivo histórico! Me encanta."],
+    "Office Web": ["Office en internet. Como la Biblioteca: todo está ahí, solo hay que saber buscarlo."],
+    "OneDrive": ["Tus archivos en la nube. Que no se pierda nada: la historia que se pierde ya no vuelve."],
+    "OneNote": ["¡Libreta digital! Apunta mucho. Lo que no apuntas, se olvida. Lo digo por experiencia."],
+    "Outlook": ["El correo. Contesta los importantes primero. ...ya, ya, yo tampoco lo hago siempre."],
+    "PowerPoint": ["Una presentación. Diapositiva uno: un título bonito. Diapositiva dos: ¡más colores!"],
+    "Publisher": ["¿Un cartel? ¡Ponle colores! Muchos. Los colores son lo que hace que la gente se acuerde."],
+    "Teams": ["Una reunión de equipo. Respira hondo antes de entrar. Uno, coge aire... ¡y adentro!"],
+    "Wikipedia": ["¡Wikipedia! Una biblioteca enorme escrita por todo el mundo. Es casi mi planta, pero más grande."],
+    "Word": ["¡A escribir! Cuenta las cosas tal como pasaron. Eso es hacer historia."],
+    "YouTube": ["¡YouTube! Busca algo de historia. O de patatas. O de historia de las patatas. ¡Eso existe!"]
+  },
+  "Tropiezo": [
+    "Si la balanceo así y... ¡uoh, uoh, uoh...! ...uf. Casi me caigo. ¡No has visto nada!",
+    "*Se tropieza con su propio libro.* ¡Uoh! ...está bien, está bien. El suelo y yo estamos bien.",
+    "¡Uoh-uoh-uoh! *Recupera el equilibrio en el último segundo.* ¡Ta-chán! Era a propósito.",
+    "*Da un traspiés y casi tira la estantería.* ¡Uoh! ...los libros están bien. Yo también. Por ese orden."
+  ],
+  "Pesado": [
+    "¡Oye! Que me haces cosquillas. ¡Estoy trabajando!",
+    "Vale, vale, ya te he visto. ¿Necesitas algo de verdad? Porque me estoy poniendo nerviosa...",
+    "Para un poco, porfa. Cuando me agobio se me caen los libros. Y luego me agobio más."
+  ],
+  "Prisa": [
+    "¡Más rápido! ¡Podemos con el triple, con el cuádruple...! *Se para en seco.* ...no. Perdona. Ya no soy así. A tu ritmo.",
+    "¡Venga, venga, que no paramos hasta acabar la cuota! ...¿Cuota? Ay. Eso era del Equipo de Control. Lo siento. Vamos con calma.",
+    "*Empieza a apilar libros a toda velocidad.* ¡Más, más! ...uf. Me estoy pasando. Así es como hacía daño a mi equipo. Despacio, mejor."
+  ],
+  "Estante": [
+    "¡Seis libros! *Los coloca en la estantería uno a uno.* Ya tienen su sitio. ¡Qué bien quedan!",
+    "¡Estantería nueva llena! Si la Biblioteca sigue creciendo así, pronto despertarán los de arriba.",
+    "*Pasa el dedo por los lomos ordenados.* Por fecha. Perfectos. Bueno, uno está del revés. ¡Así tiene personalidad!"
+  ],
+  "Emocion": [
+    "¡Siento que el nivel de emoción sube! ¡Todos, preparados!",
+    "¡Esto se anima! ¡Seguid así, lo estamos haciendo genial!",
+    "¡Me late el corazón más fuerte! ...¿eso es bueno? ¡Es bueno! ¡Vamos!",
+    "¡Lo noto! ¡Es como en las recepciones! ¡Que no decaiga!"
+  ],
+  "Realizacion": [
+    "¡Nivel de emoción máximo! ¡Realización de la Planta de Historia! *Levanta la porra.* ¡Me mantengo en pie! ¡Esta vez sí!",
+    "¡Lo hemos conseguido! ¡De verdad! Entonces... he sido útil, ¿verdad? *Sonríe de oreja a oreja.*",
+    "¡The Will to Stand up Straight! La voluntad de seguir en pie aunque la historia se repita. ¡Esa soy yo!"
+  ],
+  "Hundida": [
+    "...soy una irresponsable. Siempre quiero llegar más lejos de lo que puedo y lo estropeo todo. *Se queda mirando el suelo.*",
+    "...¿lo estoy haciendo bien de verdad? Porque yo creo que no. Nunca lo he hecho bien.",
+    "...en mi primera vida quise ser útil y me rompí. En la segunda exigí demasiado y hice daño. ¿Y en esta qué?",
+    "*Se le cae el libro y no lo recoge.* ...perdona. Dame un momento. (haz clic en mí)"
+  ],
+  "HundidaApp": [
+    "...abierto. *Lo dice sin mirar.* Perdona. No estoy muy bien.",
+    "...ya está. Otro libro. *Lo deja en la mesa sin catalogarlo.*",
+    "...vale. Abierto. ¿Me ayudas a respirar un momento? (haz clic en mí)"
+  ],
+  "HundidaIdle": [
+    "...creo que necesito respirar hondo. ¿Me acompañas? (haz clic en mí)",
+    "*Abraza su libro muy fuerte y no dice nada.*",
+    "...debería saber que no sirve de nada agobiarse por lo que no puedo cambiar. Pero me cuesta."
+  ],
+  "Recupera": [
+    "...gracias. *Sonríe.* ¡Vale! ¡Ya estoy! No sirve de nada agobiarse. ¡Seguimos!",
+    "¡Uf! Mucho mejor. Roland me enseñó esto, ¿sabes? Funciona de verdad. ¡A trabajar!",
+    "*Recoge su libro del suelo.* Perdona el numerito. ¡Ya vuelvo a ser yo! ¿Qué abrimos?"
+  ],
+  "Aficiones": [
+    "¡Esta semana he empezado a hacer velas! Esa de la mesa tiene forma de patata. ¿A que es preciosa?",
+    "¿Te gustan las patatas? A mí me encantan. Cocidas, fritas, en puré... ¡las patatas nunca fallan!",
+    "¡Tengo una afición nueva! Bueno, tengo diez. Las pruebo todas un poquito. Así sé cuál me gusta más.",
+    "*Te enseña su libreta.* Mira, he dibujado a todos los bibliotecarios como patatas. Esta es Angela. Tiene cara de enfado. Como siempre."
+  ],
+  "Recuerdos": [
+    "Antes me llamaba Elijah. Quería tanto ser útil que me probé el Cogito antes de tiempo. Mi cuerpo no lo aguantó.",
+    "En el Equipo de Control obligaba a todos a trabajar sin parar. No sabía por qué. Ahora sí lo sé. Y lo siento mucho.",
+    "En el Nido donde nací, la gente lo veía todo en blanco y negro. Elijah quería enseñarles los colores."
+  ],
+  "AlVenirDe": {
+    "c00lgui": "¡Se ha ido c00lgui! Ha intentado hackear el catálogo. Ahora todos los libros se llaman \"team c00lkidd\". ¡Me va a llevar una semana!",
+    "SeaDrive": "Se fue SeaDrive. Le he dicho que descanse un poco. Trabajar sin descansar no lleva a nada bueno. Lo sé muy bien.",
+    "Static Miku": "¡Static Miku se ha ido! Su tele hacía ruido de estática. Me recordó a una señal de alarma de L Corp... ¡pero mucho más mona!",
+    "Guillotina": "*Recoge libros mordisqueados del suelo.* Guillotina se ha ido... y se ha comido la sección de Historia Antigua. Respira, Malkuth. Respira.",
+    "Angela": "...Angela se ha ido. *Suelta el aire despacio.* Vale. No pasa nada. No dejo que lo personal se meta en el trabajo. ¡Seguimos!",
+    "Mikaela": "Se fue Mikaela. Ha usado una estantería de escondite para francotirar. ¡No es un búnker, es una biblioteca!",
+    "Zodiac": "El vaquero se ha ido. Me ha gritado \"¡no te muevas!\" y me he quedado quieta diez minutos. ¡Tenía libros que ordenar!",
+    "Velvet": "Se ha ido Velvet. Ha dejado telarañas en las esquinas de la planta. Bueno... le dan un aire antiguo. ¡Las dejo!",
+    "Dune": "Se fue Dune. Ha mojado la sección de mapas. *Los pone a secar uno a uno.* La historia también se puede salvar.",
+    "Cordero y Cabra": "Se ha ido el culto. Querían que me uniera. Ya serví a una causa muy grande una vez. Ahora prefiero servir a mis libros.",
+    "Pyrophina y Zaratana": "¡Se han ido las kaijus! Una de ellas casi quema la planta. ¡La Planta de Historia, no la de Literatura! *Comprueba que todo sigue en pie.*",
+    "Averi": "¡Se fue Averi! Nos hemos tropezado a la vez con la misma alfombra. ¡Somos un equipo!",
+    "Sebastian Solace": "Se fue Sebastian. Me ha intentado vender un libro de historia. ¡Era de mi propia planta!",
+    "Pursuer": "*Baja la porra muy despacio.* Se ha ido Pursuer. Uf. He estado en guardia todo el rato. Como en una recepción de las difíciles.",
+    "Kasane Teto": "¡Se ha ido Teto! Me ha dejado una baguette en la estantería de Historia Medieval. ¡Encaja perfectamente!",
+    "Token": "Se fue Token. Qué música más rápida. ¡Casi me tropiezo bailando! ...vale, me he tropezado.",
+    "Tetra": "Se fue Tetra. Tiene cien mensajes sin contestar. Le he dicho que no pasa nada por ir a su ritmo.",
+    "Kevin": "Se fue Kevin. He colgado su dibujo en la planta. ¡Cuantos más colores, mejor! Su pizza no la he tocado, ¿eh?",
+    "Kennyoung": "Se ha ido Kennyoung. Me ha tocado una canción mientras ordenaba. ¡He ordenado el doble de rápido! Bueno, a ritmo normal.",
+    "Enfosi": "Se fue lo de la estatua. Me ha recordado que la historia la escriben los que defienden lo que quieren. ¡Lo apunto!",
+    "Gran": "Se fue Gran. *Abraza su libro.* Experimentos con personas para \"mejorarlas\"... yo ya viví eso. No acaba bien. Nunca.",
+    "Evil Scary": "*Le tiemblan un poco las manos.* Se ha ido Evil Scary. Vale. Respiramos. Uno... dos... ¡Ya está! Todo en orden.",
+    "Soft Fuzzy Man": "Se fue Soft Fuzzy Man. Ha dejado la planta llena de niebla rosa. ¡No veo los títulos de los lomos!",
+    "Roaring Knight": "Se ha ido el Roaring Knight. *Guarda la porra.* Me recordaba a una anomalía de nivel ALEPH. Prefiero no repetir.",
+    "Nanachi": "Se fue Nanachi. Le he prestado un libro de cocina para su estofado. Me ha dicho que \"me da igual\". ¡Pero se lo ha llevado!",
+    "Dybbuk": "Se fue Dybbuk. Ha lamido la portada de tres libros. *Los limpia con un pañuelo.* La historia también hay que cuidarla.",
+    "Weathergirl": "¡Se fue Weathergirl! ¡He catalogado su parte en Ciencias Naturales! ¡Con un paraguas dibujado!",
+    "Painter": "¡Se fue Painter! ¡Lo he catalogado en Ciencias y Artes! ¡Con un dibujito de ordenador! ¡Y un paisaje en la portada!"
+  },
+  "Opina": {
+    "c00lgui": ["c00lgui grita mucho en rojo. Pero creo que en el fondo solo quiere que alguien le haga caso. Lo entiendo.", "Me ha llamado \"noob de la biblioteca\". ¡Llevo tres vidas trabajando! Noob, dice."],
+    "SeaDrive": ["SeaDrive siempre está cansada. Por favor, que alguien le dé vacaciones. ¡Yo le doy mi turno si hace falta!", "Es muy seca, pero hace su trabajo sin quejarse. Bueno, quejándose. Pero lo hace."],
+    "Static Miku": ["¡Static Miku sonríe todo el rato! Me encanta su energía. ...aunque a veces sonreír tanto cansa. Lo sé.", "Su tele tiene muchos colores. ¡A Elijah le habría encantado!"],
+    "Guillotina": ["Guillotina es... grande. Y tiene hambre. Me pongo en guardia cada vez que me mira, como en una recepción.", "Se ha comido un libro entero de historia. Dice que así \"lo recuerda mejor\". ¡Así no funciona!"],
+    "Angela": ["Angela... *Respira hondo.* Fue nuestra compañera en L Corp. Lo que hizo después no se lo perdono. Pero trabajo igual.", "Angela siempre huye de su pasado. Yo intento mirar el mío a la cara. Por eso discutimos tanto.", "Le dice \"Manager\" a todo el mundo. Yo prefiero \"compañero\". Es más cálido."],
+    "Mikaela": ["¡Mikaela tiene una puntería increíble! Le he pedido que no dispare en la planta. Los libros no tienen respawn.", "Grita \"¡GG!\" cuando gana. Yo grito \"¡lo hemos conseguido!\". Es lo mismo, ¿no?"],
+    "Zodiac": ["Zodiac me dice \"¡no te muevas!\" y yo me congelo. ¡Es muy difícil ordenar libros sin moverse!", "Es un vaquero muy dramático. Me cae bien. Su historia tendría un capítulo entero de duelos."],
+    "Velvet": ["Velvet me llama \"cielo\". Es muy amable. ...demasiado amable. No sé si fiarme.", "Teje telarañas preciosas. ¡Si no fueran para cazar, las pondría de decoración!"],
+    "Dune": ["Dune habla en mayúsculas. ¡Como mis notas cuando me emociono!", "Siempre tiene hambre. Le he traído una patata. ¡Le ha encantado! Somos amigas."],
+    "Cordero y Cabra": ["El Cordero y la Cabra me recuerdan a los que creían ciegamente en un Plan. Yo también creí. Ten cuidado.", "Tienen un culto con seguidores y rituales. Muy organizado. ¡Les envidio el sistema de fichas!"],
+    "Pyrophina y Zaratana": ["Dos kaijus peleando... ¡Eso sí que es una página de historia! Lo apunto todo, con dibujitos de monstruos.", "Pyrophina escupe fuego. En una biblioteca. ¡Fuego! *Esconde los libros más valiosos.*"],
+    "Averi": ["¡Averi es un amor! Y es igual de torpe que yo. ¡Nos tropezamos juntas y nos reímos!", "Le gustan los sándwiches como a mí las patatas. ¡Le he hecho un sándwich de patata!"],
+    "Sebastian Solace": ["Sebastian lo vende todo. Hasta me quiso vender una vela. ¡Yo hago velas! ¡Con forma de patata!", "Dice que es \"tu único amigo\". ¡Pues no! Aquí todos somos amigos."],
+    "Pursuer": ["Pursuer da miedo. Mucho. *Agarra la porra.* Pero no voy a salir corriendo. Ya no.", "Grita \"¡carne fresca!\". En mi planta solo hay libros frescos. Recién catalogados."],
+    "Kasane Teto": ["¡Teto es superdivertida! Se le olvidan las cosas igual que a mí. ¡Le he dado una libreta!", "Tiene 31 años, dice. ¡Yo llevo tres vidas! Gano yo. Creo."],
+    "Token": ["Token toca música muy rápido. ¡Mi corazón va al ritmo! Como en el nivel de emoción cinco.", "Es muy ruidosa. ¡Pero en una biblioteca hay que hablar bajito! ...vale, yo tampoco lo cumplo."],
+    "Tetra": ["Tetra no contesta mensajes. Yo antes contestaba todo al segundo para ser útil. Ella me ha enseñado que se puede esperar.", "Es muy tranquila. Cuando estoy con ella, me acuerdo de respirar."],
+    "Kevin": ["¡Kevin dibuja con muchos colores! Elijah habría sido su fan número uno.", "No toco su pizza. Lo prometo. ...¿la patata cuenta como pizza? No, ¿verdad?"],
+    "Kennyoung": ["Kennyoung compone canciones. ¡La música también es historia! Cada canción guarda un momento.", "Le he pedido una canción sobre la Biblioteca. Dice que la tendrá \"algún día\". Lo apunto."],
+    "Enfosi": ["Defender una estatua de impostores... ¡Qué historia más intensa! La catalogo en \"Misterios\".", "Distinguir quién es amigo y quién no... eso es difícil. En L Corp lo aprendimos a las malas."],
+    "Gran": ["Gran experimenta con personas para \"mejorarlas\". Yo fui un experimento que salió mal. No se lo deseo a nadie.", "Siempre trabaja. Sin parar. Me recuerda a mí en el Equipo de Control. Y eso no es un cumplido."],
+    "Evil Scary": ["Evil Scary... *se le cae un libro.* No. No me da miedo. Me da... respeto. Mucho respeto.", "Es como una anomalía fuera de control. Ojalá estuviera contenida. En otra planta. Lejos."],
+    "Soft Fuzzy Man": ["Soft Fuzzy Man intenta ligar con todo el mundo. Conmigo también. ¡Estoy trabajando!", "Dice que necesita sentir que existe. Yo te veo, Soft Fuzzy Man. Y te apunto en el catálogo. Ahora existes oficialmente."],
+    "Roaring Knight": ["El Roaring Knight abre Fuentes Oscuras. ¡Las pondría en la sección de Desastres! Junto a los Días Oscuros.", "Da muchísimo miedo. Pero cualquier historia, hasta la suya, merece que alguien la recuerde."],
+    "Nanachi": ["¡Nanachi es tan mullido! Y cuida de Mitty con un cariño... *se emociona un poco.* Perdón.", "Nanachi dice que todo le da igual. Pero lo cuida todo. Es como Roland. Me cae genial."],
+    "Dybbuk": ["Dybbuk quiere poseer mi cuerpo. ¡Ni hablar! Me ha costado tres vidas tener este.", "Esquiva todo con volteretas. Yo me tropiezo hasta con la alfombra. ¡No es justo!"],
+    "Weathergirl": ["¡Weathergirl da el parte con datos y porcentajes! ¡Lo apunto todo! ¡Con dibujitos de nubes!", "¡Lloró y le enseñé el ejercicio de respiración! Uno, coge aiiire... ¡Ya está mejor!"],
+    "Painter": ["¡Painter quiere pintar paisajes y le sale ruido! ¡Yo quería ser arquitecta y me salían libros! ¡Lo entiendo muchísimo!", "¡Le enseñé el ejercicio de respiración! Uno, coge aiiire... ¡No tiene pulmones! ¡Pero los ventiladores bajaron!"]
+  }
+}

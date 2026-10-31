@@ -64,6 +64,91 @@
     "¡KABOOM! *Queda solo el mástil.* Esto se llama \"pop-punk de verdad\".",
     "*La guitarra explota.* ¡TODO EL MUNDO ESTÁ BIEN! ...¿todo el mundo está bien?"
   ],
+  "AmpAlto": [
+    "¡MÁS ALTO! *El amplificador empieza a echar humo.*",
+    "¡ESTO ES PUNK! *Los ojos le dan vueltas.* ...para ya, que explota.",
+    "*El ampli pita.* Eso es buena señal. Creo."
+  ],
+  "EntraAnimado": [
+    "*Sale a la calle con la guitarra.* Vale. Hoy me apetece tocar. Raro. Aprovechemos.",
+    "¡Atardecer y guitarra! Esto es lo mío. *Se cuelga la guitarra al hombro.* Haz clic y toco.",
+    "*Se estira bajo el sol.* Me siento bien. No sé por qué. No voy a preguntar."
+  ],
+  "EntraTranquilo": [
+    "*Se deja caer en el sillón.* Ahh. Un rato de nada. Lo mejor del día.",
+    "*Se abraza a un cojín.* Estoy bien. Tranquilo. Pensando en canciones que no voy a terminar.",
+    "*Se acurruca en el sillón con los ojos cerrados.* Si me necesitas, aquí estoy. Más o menos."
+  ],
+  "EntraSolo": [
+    "*Se tapa con la manta delante del portátil.* ...hace rato que no habla nadie conmigo.",
+    "*La luz del portátil es lo único encendido.* No pasa nada. Estoy acostumbrado.",
+    "*Se envuelve en la manta.* Hola. Sigo aquí. Por si alguien se lo preguntaba."
+  ],
+  "EntraCansado": [
+    "*Se abraza las rodillas.* Estoy... cansado. De todo un poco. No es grave.",
+    "No me queda energía ni para afinar. *Se queda mirando a la nada.* Dame un rato.",
+    "*Se encoge.* Necesito descansar. Si me dejas tranquilo un poco, vuelvo."
+  ],
+  "EntraAgobiado": [
+    "*Se pone el gorro hasta las cejas.* Demasiadas cosas a la vez. Necesito un respiro.",
+    "Vale, vale, para un segundo. *Agarra la guitarra como un escudo.* Me estoy agobiando.",
+    "*Mira a todas partes.* Me apetece desaparecer un rato. No tú. Yo."
+  ],
+  "IdleAnimado": [
+    "*Rasguea al aire mientras se pone el sol.* Esto pide un riff nuevo. Y una siesta luego.",
+    "¿Ves las palmeras? Las dibujé yo. Bueno, el que dibuja soy yo. Bueno, ya me entiendes.",
+    "Hoy todo suena a pop-punk. Hasta los pájaros. Bueno, los pájaros desafinan."
+  ],
+  "IdleTranquilo": [
+    "*Se medio duerme en el sillón.* ...no estaba durmiendo. Estaba componiendo con los ojos cerrados.",
+    "La guitarra está en el suelo. Ella también descansa. Nos lo hemos ganado.",
+    "*Mira por la ventana.* Qué luz más bonita. Me la apunto para un vídeo."
+  ],
+  "IdleSolo": [
+    "*Teclea algo en el portátil. Lo borra.* ...nada. No era nada.",
+    "La gente de internet es rara. Pero a veces es la única que contesta.",
+    "*Se encoge un poco más dentro de la manta.* Hazme caso un ratito, ¿vale?"
+  ],
+  "IdleCansado": [
+    "*Bosteza.* Si dejas de abrir cosas un rato, recargo. Prometido.",
+    "Estoy en modo ahorro de energía. Como el portátil. Pero sin cargador.",
+    "*Apoya la cabeza en las rodillas.* Ya se me pasará. Siempre se pasa."
+  ],
+  "IdleAgobiado": [
+    "*Respira hondo.* Uno, dos, tres, cuatro... eso es para empezar una canción, no para calmarse. Funciona igual.",
+    "Si me haces clic, me calmo un poco. Es como un abrazo pero por internet.",
+    "*Toca una nota muy baja, muy larga.* Esto me ayuda. Un poco."
+  ],
+  "ClicTranquilo": [
+    "*Abre un ojo.* ¿Hm? Hola. Estoy aquí. Sentado. Siendo un sillón con orejas.",
+    "*Te ofrece un cojín.* Siéntate. Hay sitio. Más o menos.",
+    "¿Quieres que toque algo? Dame un momento que encuentre las ganas."
+  ],
+  "ClicSolo": [
+    "*Asoma la cabeza de la manta.* ...ah. Hola. Gracias por venir.",
+    "*Sonríe un poco.* Me alegra que estés. En serio. No lo digo mucho.",
+    "*Te hace sitio en la manta.* Cabe uno más. Si no te importa que esté calentita de llorar. Es broma. Medio broma."
+  ],
+  "ClicCansado": [
+    "*Levanta la vista despacio.* Gracias por el ánimo. Me da un poquito de energía. Un poquito.",
+    "No me levanto todavía. Pero que estés aquí ayuda.",
+    "*Te mira con los ojos medio cerrados.* Cinco minutitos más..."
+  ],
+  "ClicAgobiado": [
+    "*Respira.* Vale. Vale. Ya. Un poco mejor.",
+    "*Se quita un poco el gorro.* Gracias. Se me pasa antes si alguien está cerca.",
+    "Perdona, me he puesto nervioso. Ya está. Casi."
+  ],
+  "AppAgobiado": [
+    "*Abre otra cosa más.* Ya está... *se tapa la cara con el gorro.* ¿Cuántas llevamos?",
+    "Abierto. Pero dame un respiro después, ¿vale?",
+    "Hecho. *Le tiembla un poco la mano.* Muchas cosas a la vez, ¿eh?"
+  ],
+  "AppCansado": [
+    "Abierto... *bosteza a la mitad.* Perdón.",
+    "*Lo abre sin levantar la cabeza de las rodillas.* Ya está. Con lo que me queda.",
+    "Hecho. Me ha costado más de lo normal. Estoy sin pilas."
+  ],
   "AlVenirDe": {
     "c00lgui": "El hacker se ha ido. Me ha cambiado la contraseña del canal por \"c00lkidd\". ...era mejor que la mía.",
     "SeaDrive": "Se fue SeaDrive. YonKaGor me habla mucho de ella. Dice que es gruñona. Lo confirmo.",
@@ -88,7 +173,11 @@
     "Evil Scary": "Se fue Evil Scary. La alarma del avión sonaba en Mi bemol. Ya tengo canción.",
     "Soft Fuzzy Man": "Se fue Soft Fuzzy Man. Su canción es de Lemon Demon. Le toqué la línea de bajo. Se puso a bailar.",
     "Roaring Knight": "Se fue el Knight. Su canción de combate es increíble. No se lo digas, que ruge.",
-    "Nanachi": "Se fue Nanachi. Le toqué algo tranquilo para que se durmiera. Funcionó."
+    "Nanachi": "Se fue Nanachi. Le toqué algo tranquilo para que se durmiera. Funcionó.",
+    "Dybbuk": "Se fue Dybbuk. Me dejó la guitarra afinada en modo cementerio. Ahora todo suena a Halloween.",
+    "Malkuth": "Se fue Malkuth. Le toqué algo mientras ordenaba libros. Dice que ordenó el doble. La canción se va a llamar \"Estantería\".",
+    "Weathergirl": "Se fue Weathergirl. Me dijo que mañana hay un atardecer bonito. Ya tengo canción.",
+    "Painter": "Se fue Painter. Tocó los ventiladores como si fueran percusión. Quedó genial. La canción se llama \"Hash\"."
   },
   "Opina": {
     "c00lgui": ["c00lgui escribe en minúsculas. Como mis letras cuando tengo prisa.", "c00lkidd me hackeó el canal y subió un vídeo de 10 horas de glitch. Tuvo más visitas que yo."],
@@ -114,6 +203,10 @@
     "Evil Scary": ["Evil Scary bota a 100 BPM. Luego a 200. Pop-punk puro.", "Le toqué un acorde para calmarlo. El ampli explotó. Él siguió."],
     "Soft Fuzzy Man": ["Soft Fuzzy Man tiene una de las mejores canciones de Spirit Phone. No se lo digas, que ya se lo cree.", "Le hice un acorde. Vibró entero. Literalmente."],
     "Roaring Knight": ["\"Black Knife\" tiene un ritmo brutal. Lo estoy aprendiendo a la guitarra.", "Le toqué un acorde. Rugió. Tomo eso como un aplauso."],
-    "Nanachi": ["Nanachi tiene orejas grandes y cola. Casi somos familia. Casi.", "Le hice una canción sobre su estofado. Se titula \"Mejor no\"."]
+    "Nanachi": ["Nanachi tiene orejas grandes y cola. Casi somos familia. Casi.", "Le hice una canción sobre su estofado. Se titula \"Mejor no\"."],
+    "Dybbuk": ["Dybbuk tiene más ritmo que mi batería. Esas volteretas van a tempo.", "Le pedí que hiciera de público. Me sacó la lengua toda la canción. El mejor fan que he tenido."],
+    "Malkuth": ["Malkuth tiene una banda sonora increíble. Ojalá mis canciones sonaran en una biblioteca.", "Se tropieza igual que yo con los cables del ampli. Somos de la misma escuela."],
+    "Weathergirl": ["Weathergirl tiene una canción preciosa. Ojalá alguna mía hiciera llorar así.", "Le toqué algo en el balcón mientras llovía. Dijo que sonaba a \"tarde nublada\". Me lo quedo como título."],
+    "Painter": ["Painter me dejó enchufar mi guitarra a su altavoz. Sonó brutal. Las torretas siguieron el ritmo.", "Le conté lo de mis canciones y me hizo una carita feliz. Con eso he tirado toda la semana."]
   }
 }

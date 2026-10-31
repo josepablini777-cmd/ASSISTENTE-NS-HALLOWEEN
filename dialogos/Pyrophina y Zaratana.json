@@ -74,7 +74,11 @@
     "Evil Scary": "WMEW 99.9: La amenaza de la ronda especial ha abandonado la ciudad. Se recomienda no salir hasta mañana.",
     "Soft Fuzzy Man": "WMEW 99.9: Se disipa la niebla rosa sobre el P Mart. Visibilidad normal en el pueblo.",
     "Roaring Knight": "WMEW 99.9: El caballero oscuro ha abandonado el pueblo. Se recomienda no beber de fuentes negras.",
-    "Nanachi": "WMEW 99.9: Nanachi ha vuelto al Abismo. Ha dejado vendas para las dos kaijus."
+    "Nanachi": "WMEW 99.9: Nanachi ha vuelto al Abismo. Ha dejado vendas para las dos kaijus.",
+    "Dybbuk": "WMEW 99.9: El fantasma del Boneyard ha abandonado la zona. Se ruega no mirar detrás de las lápidas.",
+    "Malkuth": "WMEW 99.9: La Bibliotecaria Patrona de la Planta de Historia ha abandonado el escritorio. Sus libros siguen intactos. De momento.",
+    "Weathergirl": "WMEW 99.9: La presentadora del tiempo abandona el estudio. Los kaijus siguen. El tiempo, también.",
+    "Painter": "WMEW 99.9: El ordenador del Blacksite ha dejado la emisión. Sus ventiladores siguen sonando en las calles."
   },
   "Opina": {
     "c00lgui": ["WMEW 99.9: Pyrophina cree que el panel rojo es un juguete. Lo muerde.", "Zaratana: Grrrr, burp. *Se ha comido un cable de c00lgui.*"],
@@ -100,6 +104,10 @@
     "Evil Scary": ["WMEW 99.9: Las dos kaijus han dejado de pelear para huir de una bola negra. Histórico.", "Pyrophina: ¡AAARGH! *Le lanza fuego. No pasa nada. Pyrophina se va.*"],
     "Soft Fuzzy Man": ["Pyrophina: ¡AAARGH! *Le echa fuego. Soft Fuzzy Man se evapora. Vuelve dos minutos después.*", "WMEW 99.9: Zaratana se ha comido la niebla rosa. Está mareada."],
     "Roaring Knight": ["WMEW 99.9: Pyrophina le lanzó fuego al Knight. Las sombras no arden. Pyrophina está ofendida.", "Zaratana dice que los Titanes son más grandes que ella. No le gusta."],
-    "Nanachi": ["WMEW 99.9: Nanachi ha curado a Zaratana. Zaratana le ha dado un mordisquito de agradecimiento.", "Pyrophina: ¡AAARGH! *Calienta el estofado de Nanachi. Huele peor. Todos huyen.*"]
+    "Nanachi": ["WMEW 99.9: Nanachi ha curado a Zaratana. Zaratana le ha dado un mordisquito de agradecimiento.", "Pyrophina: ¡AAARGH! *Calienta el estofado de Nanachi. Huele peor. Todos huyen.*"],
+    "Dybbuk": ["WMEW 99.9: Avistado un gato fantasma en el cementerio. Esquiva todo lo que le lanzan. Hasta kaijus.", "Pyrophina: *Le escupe fuego.* · Dybbuk: *Voltereta.* · WMEW 99.9: Sigue sin un rasguño."],
+    "Malkuth": ["WMEW 99.9: Malkuth está escribiendo la historia de la pelea de kaijus. Capítulo uno: \"¿Por qué?\".", "Pyrophina: ¡AAARGH! *Casi quema un libro.* · WMEW 99.9: Malkuth la ha regañado. Pyrophina ha pedido perdón. Histórico."],
+    "Weathergirl": ["WMEW 99.9: Pasamos la conexión a la chica del tiempo. Previsión: kaijus con probabilidad de fuego del 100%.", "Pyrophina: ¡GRAAAH! · WMEW 99.9: Pyrophina ha evaporado la lluvia del parte. La presentadora ha llorado. Ha vuelto a llover."],
+    "Painter": ["WMEW 99.9: Un ordenador de los 80 ha dibujado a Pyrophina. Quedó tan bien que ha dejado de rugir un segundo.", "Zaratana: ¡GRAAAAH! (le pide que dibuje a Pyrophina con peluca)"]
   }
 }

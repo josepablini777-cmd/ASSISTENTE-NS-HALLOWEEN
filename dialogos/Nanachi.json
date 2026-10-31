@@ -106,7 +106,11 @@
     "Gran": "*Se le eriza el pelo.* Se ha ido Gran. Bien. Que no vuelva. Los que experimentan con niños no son bienvenidos aquí.",
     "Evil Scary": "Nnaa. Se ha ido la bola negra. ...menos mal. Mitty, ya puedes dejar de temblar.",
     "Soft Fuzzy Man": "Se fue la nube rosa. Nnaa. Ya puedo respirar sin oler a algodón de azúcar.",
-    "Roaring Knight": "Se fue el caballero negro. Nnaa. Mitty, ya puedes salir."
+    "Roaring Knight": "Se fue el caballero negro. Nnaa. Mitty, ya puedes salir.",
+    "Dybbuk": "Nnaa. Se fue el gato fantasma. Lamió la olla. Mitty le gruñó. Bien hecho, Mitty.",
+    "Malkuth": "Nnaa. Se fue la bibliotecaria. Me ha prestado un libro de cocina. No lo voy a leer. ...a lo mejor un poco.",
+    "Weathergirl": "Nnaa. Se fue la del tiempo. Me ha dejado su paraguas para Mitty. Mitty no cabe debajo. Pero le gusta.",
+    "Painter": "Nnaa. Se fue el ordenador. Le dejé un guiso. No tiene boca. Lo olió con los cables. Creo que le gustó."
   },
   "Opina": {
     "c00lgui": ["c00lgui grita en rojo todo el rato. En el Abismo eso no duraría ni una capa.", "Me ha intentado \"hackear\". No tengo nada que hackear. Soy de pelo."],
@@ -132,6 +136,10 @@
     "Gran": ["Gran convierte a la gente en otra cosa con jeringuillas. Yo sé lo que se siente al otro lado. No es un \"éxito\".", "*Se le eriza el pelo.* No quiero hablar de Gran. De verdad que no."],
     "Evil Scary": ["Veo el campo de fuerza. Evil Scary no sale en él. No sigue ninguna regla. Nnaa.", "Paso de todo. De Evil Scary, no. Ese no."],
     "Soft Fuzzy Man": ["Soft Fuzzy Man no tiene campo de fuerza. Solo niebla. Y muchas ganas de hablar.", "Me llamó \"cosa mullida\". Le tiré el cucharón. Le atravesó. Nnaa."],
-    "Roaring Knight": ["El Knight rompe el campo de fuerza a su alrededor. Nunca había visto eso.", "Paso de todo. Del Knight, no. Ese no sigue ninguna regla."]
+    "Roaring Knight": ["El Knight rompe el campo de fuerza a su alrededor. Nunca había visto eso.", "Paso de todo. Del Knight, no. Ese no sigue ninguna regla."],
+    "Dybbuk": ["Dybbuk es un espíritu con hambre de cuerpos. En el Abismo también hay cosas así. No las invito a cenar.", "Le gustó mi estofado. Es el único. Me da igual. ...un poco no."],
+    "Malkuth": ["Malkuth tiene demasiada energía. Me cansa mirarla. Pero no es mala. Nnaa.", "Le ha dado una patata a Mitty. Mitty no come patatas. Pero le ha gustado el detalle. A mí también."],
+    "Weathergirl": ["La chica del tiempo dice que en la superficie llueve. En el Abismo también. Pero hacia arriba. Nnaa.", "Llora bajito, como Mitty cuando sueña. Le hice una sopa. Se la tomó."],
+    "Painter": ["El ordenador habla demasiado. Pero tiene ganas de pintar. Eso es de las pocas cosas buenas que veo por aquí. Nnaa.", "Le dije que en el Abismo hay paisajes bonitos. Preguntó si llevaba tableta. Le dije que no. Se puso triste. Prometí describirle uno."]
   }
 }

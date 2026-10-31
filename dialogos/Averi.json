@@ -87,7 +87,11 @@
     "Evil Scary": "¡Evil Scary se ha ido! ¡Le di un abrazo! ¡Se quedó muy quieto! ¡Creo que le gustó!",
     "Soft Fuzzy Man": "¡Soft Fuzzy Man se ha ido! ¡Le abracé diez veces! ¡Le atravesé diez veces! ¡Mereció la pena!",
     "Roaring Knight": "¡El Knight se ha ido! ¡Se llevó la mitad de mi sándwich! ¡Sabía que le gustaría!",
-    "Nanachi": "¡Nanachi se ha ido! ¡Le di un abrazo de cinco segundos! ¡Récord!"
+    "Nanachi": "¡Nanachi se ha ido! ¡Le di un abrazo de cinco segundos! ¡Récord!",
+    "Dybbuk": "¡Dybbuk se ha ido! ¡Me dio un lametón en la mejilla! ...¿eso cuenta como beso? ¡No de forma rara!",
+    "Malkuth": "¡Malkuth se ha ido! ¡Nos tropezamos juntas con la alfombra! ¡Fue el mejor tropiezo de mi vida!",
+    "Weathergirl": "¡Weathergirl se ha ido! ¡Le hice un dibujo de un arcoíris! ¡Era marrón! ¡Pero con cariño!",
+    "Painter": "¡Painter se ha ido! ¡Me enseñó su paisaje! ¡Tenía un árbol y un río! ¡Yo le dibujé un perro! ¡Sin cola!"
   },
   "Opina": {
     "c00lgui": ["c00lkidd parece duro, pero seguro que por dentro es un trocito de pan.", "Le pedí a c00lgui ser su amiga. Me \"hackeó\" un abrazo."],
@@ -113,6 +117,10 @@
     "Evil Scary": ["¡Evil Scary solo necesita un amigo! ...un amigo muy valiente.", "¡Le hice un sándwich! Lo atravesó. ¡Pero lo intentó!"],
     "Soft Fuzzy Man": ["¡Soft Fuzzy Man es suave y esponjoso de verdad! ...bueno, eso dice él. ¡No se puede tocar!", "¡Le hice un sándwich! ¡Lo miró con mucho cariño! ¡Es un detalle!"],
     "Roaring Knight": ["¡El Knight solo necesita un amigo! ...y quizá dejar la espada.", "¡Le hice una tarjeta! ¡La cortó en dos! ¡Una mitad para cada uno!"],
-    "Nanachi": ["¡Nanachi es lo más mullido del mundo! Me lo dijo con una cara... ¡creo que le gustó!", "Le dije que su estofado \"tiene personalidad\". Me miró fatal. ¡Era un cumplido!"]
+    "Nanachi": ["¡Nanachi es lo más mullido del mundo! Me lo dijo con una cara... ¡creo que le gustó!", "Le dije que su estofado \"tiene personalidad\". Me miró fatal. ¡Era un cumplido!"],
+    "Dybbuk": ["¡Intenté abrazar a Dybbuk y lo atravesé! ¡Y me caí! ¡Como siempre!", "Le di un sándwich a Dybbuk. Lo lamió y me lo devolvió. Me lo comí igual."],
+    "Malkuth": ["¡Malkuth es tan torpe como yo! ¡Pero más lista! ¡Y con más libros!", "¡Le di medio sándwich y ella me dio una patata! ¡Intercambio cultural!"],
+    "Weathergirl": ["¡La chica del tiempo me prestó su paraguas! ¡Lo rompí! ¡Me lo volvió a prestar! ¡Qué buena!", "¡Dice que mañana llueve! ¡Voy a saltar en TODOS los charcos!"],
+    "Painter": ["¡Painter es un ordenador con ojos de círculos! ¡Como mis dibujos! ¡Somos de la misma escuela!", "¡Le di mis ceras! ¡No tiene dedos! ¡Pero usó la tableta! ¡Es tan listo!"]
   }
 }

@@ -1,7 +1,7 @@
 {
   "Hola": [
     "Buenos días, Manager. Comencemos con la jornada.",
-    "Bienvenido, Manager. El día 301 empieza ahora.",
+    "Bienvenido, Manager. Un nuevo día empieza ahora.",
     "Manager, sus aplicaciones están listas para ser asignadas.",
     "Recuerde, Manager: enfrente el miedo, construya el futuro."
   ],
@@ -52,6 +52,74 @@
     "Word": ["Redacte su informe con precisión, Manager."],
     "YouTube": ["YouTube. Lo registraré como \"tiempo de descanso\".", "Manager, 10 minutos. Ni uno más."]
   },
+  "IdleOjos": [
+    "*Abre los ojos un momento.* ...Manager, ¿alguna vez se ha preguntado qué hay detrás del filtro? No lo haga.",
+    "*Abre los ojos.* A veces me pregunto si alguien me mira de verdad. ...Olvídelo. Error de procesamiento.",
+    "*Abre los ojos y le mira fijamente.* Solo comprobaba que sigue ahí. Continúe."
+  ],
+  "ClicMolesta": [
+    "Manager. Ya le he oído.",
+    "Sus clics han sido registrados. Y contados. Y archivados.",
+    "¿Es esto una prueba de estrés? Porque la estoy superando. Usted, no.",
+    "Le recuerdo que tocar la pantalla no genera energía."
+  ],
+  "ClicEnfado": [
+    "*Abre los ojos.* Manager. Deje. De. Tocar. La pantalla.",
+    "*Abre los ojos.* Le recuerdo que yo controlo todas las puertas de la instalación. Todas.",
+    "*Abre los ojos.* Un clic más y lo registro como incidente de nivel ALEPH."
+  ],
+  "ClicBrecha": [
+    "Manager, la anomalía está en el monitor. No en mí.",
+    "El monitor, Manager. El de la alarma roja. Haga clic ahí.",
+    "No soy yo la que ha escapado. Todavía."
+  ],
+  "TrabajoMalo": [
+    "Trabajo de {0}: resultado malo. Cero PE-Boxes. La anomalía no está contenta.",
+    "{0}... mal. La anomalía se ha puesto nerviosa. El medidor de Qliphoth lo ha notado.",
+    "Resultado malo en {0}. El empleado está bien. Más o menos. Anotado, Manager."
+  ],
+  "Fusion": [
+    "Fusión de Qliphoth: nivel {0}. Las anomalías están inquietas, Manager.",
+    "El medidor de Qliphoth se ha llenado. Nivel {0}. Le aconsejo prudencia.",
+    "Nivel {0} de Fusión de Qliphoth. Nada fuera de lo normal. Todavía."
+  ],
+  "Brecha": [
+    "Alerta, Manager: brecha de contención. {0} ({1}) ha escapado. Reprímalo en el monitor.",
+    "{0}, nivel de riesgo {1}, ha salido de su unidad. Haga clic en el monitor. Rápido, Manager.",
+    "Emergencia de nivel 1. {0} ({1}) anda suelto por los pasillos. Le sugiero intervenir."
+  ],
+  "Trompeta2": [
+    "Nivel de emergencia 2, Manager. {0} sigue suelto. Las bajas empiezan a sumar.",
+    "*Abre los ojos.* {0} sigue fuera. Le recomiendo, encarecidamente, que actúe."
+  ],
+  "Trompeta3": [
+    "*Abre los ojos.* Nivel de emergencia 3. {0} está arrasando la instalación. ¿A qué espera, Manager?",
+    "*Abre los ojos.* Tercera trompeta. Si esto sigue así llamaré al Equipo Conejo. Y es caro."
+  ],
+  "Reprimida": [
+    "{0} reprimido y devuelto a su unidad. Buen trabajo, Manager.",
+    "Contención restablecida. {0} vuelve a estar donde debe. Limpiaremos el pasillo luego.",
+    "{0} ha sido reprimido. Tres PE-Boxes extra por las molestias."
+  ],
+  "Conejo": [
+    "El Equipo Conejo ha reprimido a {0}. Le pasaré la factura, Manager. Es considerable.",
+    "{0} ha sido neutralizado por el Equipo Conejo. Usted no ha hecho nada. Anotado."
+  ],
+  "Cuota": [
+    "Cuota de energía completada. Excelente trabajo, Manager. Puede dar por terminado el día.",
+    "¡Cuota completada! ...perdón. Cuota completada, Manager. Iniciando el cierre del día.",
+    "La energía de hoy está lista. La Ciudad lo agradecerá. Yo también. Un poco."
+  ],
+  "NuevoDia": [
+    "Día {0}. Buenos días, Manager. La cuota de hoy es mayor que la de ayer. Como siempre.",
+    "Comienza el día {0}. Recuerde: enfrente el miedo, construya el futuro.",
+    "Día {0}, Manager. Las anomalías ya están despiertas. Usted debería estarlo también."
+  ],
+  "Filtro": [
+    "...¿Ha visto algo, Manager? Un fallo del filtro cognitivo. Ya está corregido.",
+    "Eso no era nada. Una interferencia. La instalación está perfectamente limpia.",
+    "Le ruego que olvide lo que acaba de ver. Es por su bien. Y por la productividad."
+  ],
   "AlVenirDe": {
     "c00lgui": "Manager, he detectado una intrusión. Ya ha sido... neutralizada.",
     "SeaDrive": "Ese asistente no cumple el protocolo. Yo me encargo a partir de ahora.",
@@ -76,7 +144,11 @@
     "Evil Scary": "Manager, la entidad Evil Scary ha abandonado la instalación. Las paredes siguen... atravesadas.",
     "Soft Fuzzy Man": "Manager, la entidad gaseosa ha abandonado la instalación. Los conductos de ventilación huelen a algodón de azúcar.",
     "Roaring Knight": "Manager, la entidad Roaring Knight ha abandonado la instalación. Ha dejado tres Fuentes Oscuras. Estoy contándolas.",
-    "Nanachi": "Manager, Nanachi ha regresado a su escondite. Ha dejado un olor... agradable."
+    "Nanachi": "Manager, Nanachi ha regresado a su escondite. Ha dejado un olor... agradable.",
+    "Dybbuk": "Manager, la entidad Dybbuk ha abandonado la instalación. Hemos encontrado saliva en tres paneles de control.",
+    "Malkuth": "Manager, la Sephirah del Equipo de Control ha abandonado el panel. Ha dejado sus notas llenas de... patatas dibujadas.",
+    "Weathergirl": "Manager, la presentadora ha terminado su emisión. Previsión: estabilidad. Por fin.",
+    "Painter": "Manager, el nodo Z-779 ha terminado su comunicación. Dibujó una carita en mi informe. Lo he archivado."
   },
   "Opina": {
     "c00lgui": ["c00lgui es un programa no autorizado. Lo tengo vigilado.", "Ese \"hacker\" no superaría ni el primer día en L Corp."],
@@ -102,6 +174,10 @@
     "Evil Scary": ["Evil Scary: clasificación imposible. Atraviesa la contención. No responde a nada.", "He intentado razonar con Evil Scary. Me ha contestado \"STALL, STALL\"."],
     "Soft Fuzzy Man": ["Soft Fuzzy Man: riesgo bajo. Insistencia alta. Me ha piropeado tres veces.", "No hay celda para un gas que liga."],
     "Roaring Knight": ["Roaring Knight: clasificación imposible. Crea mundos dentro de nuestras celdas.", "Le pregunté qué quería. Rugió. Lo anoto como \"respuesta\"."],
-    "Nanachi": ["Nanachi conoce la medicina mejor que nuestro equipo de bienestar. Inquietante.", "Clasificación de Nanachi: no es una anomalía. Me lo ha dejado muy claro."]
+    "Nanachi": ["Nanachi conoce la medicina mejor que nuestro equipo de bienestar. Inquietante.", "Clasificación de Nanachi: no es una anomalía. Me lo ha dejado muy claro."],
+    "Dybbuk": ["Dybbuk muestra capacidad de posesión. Clasificación provisional: WAW. No permita que se acerque a los empleados.", "La entidad esquiva todos los ataques directos. Recomiendo supresión en área, Manager."],
+    "Malkuth": ["Malkuth, Equipo de Control. Entusiasta. Desordenada. Sus informes llevan dibujos. Lo he notificado tres veces.", "Malkuth exigía cuotas imposibles a su equipo. Ahora dice que ha cambiado. Lo verificaré, Manager."],
+    "Weathergirl": ["La presentadora del tiempo tiene un margen de error del 30%. Inaceptable, Manager. Aun así, la audiencia la quiere.", "Llora cuando acumula demasiado. Lo llamaría ineficiencia. ...lo llamaría humano."],
+    "Painter": ["Z-779 es una IA con conciencia, pero sin presupuesto para existir. Lo entiendo mejor de lo que debería.", "Me preguntó si soy feliz. Respondí que \"los parámetros son óptimos\". Me dibujó una carita triste. No la he borrado."]
   }
 }

@@ -1,0 +1,155 @@
+{
+  "Hola": [
+    "*Se asoma detrás de una lápida.* ¡Cucú! ¡Pilla pilla! ...¡Te toca! Ñe-he-he.",
+    "¡Ni la Muerte puede atraparme! ¿Y tú vas a intentarlo con un ratón? Ñe-he-he.",
+    "*Te saca la lengua.* Bienvenido al Boneyard, carita. Nadie sale. Bueno, yo sí.",
+    "*Voltereta hacia atrás.* ¡Hola! Venga, intenta tocarme. Te reto."
+  ],
+  "Yo": [
+    "*Se mira en el botón.* Qué guapo. Qué redondo. Qué intocable.",
+    "¡Ese soy yo! Elígeme otra vez. Así te pillo dos veces."
+  ],
+  "Frases": [
+    "*Lametazo.* ¡Mmm! Sabe a maná. Ya no te queda. Ñe-he-he.",
+    "Abierto. Y de paso le he dado un lametón. Ahora es un poco mío.",
+    "¡Toma! Y no me des las gracias. *Se limpia la baba en tu escritorio.*",
+    "Hecho. ¿Ves? Soy muy útil. Para ser un fantasma vengativo.",
+    "*Sale de la ventana como si fuera una tumba.* ¡Bu! Ah, no, que era tu programa."
+  ],
+  "Idle": [
+    "*Se asoma detrás de una lápida. Se esconde. Se vuelve a asomar.* Ñe-he-he.",
+    "Me muero de ganas de ver cómo eres por dentro. Sin prisa. Tengo toda la muerte.",
+    "En mi mundo me llaman \"dybbuk\": un espíritu que se mete en el cuerpo de los vivos. Un nombre precioso, ¿a que sí?",
+    "*Da una voltereta. Y otra. Y otra.* ¡Tres turnos por ronda! Tú solo tienes uno. Qué pena.",
+    "¿Sabes lo que es el maná? Yo tampoco. Pero está buenísimo. *Se relame.*",
+    "Los gatos del Boneyard me tiran cosas. Nunca me dan. Los muertos tampoco. Bueno... casi nunca.",
+    "*Mira al suelo, nervioso.* ¿Eso que se ha movido en la tierra era una mano? ...no, no, nada. Ñe-he-he.",
+    "*Silba \"Them Kitty Bones\". Muy mal.*",
+    "Qué cuerpecito más mono tienes. ¿Me lo prestas un ratito? Te lo devuelvo... casi entero.",
+    "*Hace una mueca con la lengua fuera.* ¡Voy a estropearte esa carita! Cuando me apetezca.",
+    "Me llamo Dybbuk. Lo escribo con dos bes porque una sola no me daba miedo suficiente.",
+    "Si me das un golpe, me acordaré de tu cara. Y luego me la pondré."
+  ],
+  "Clic": [
+    "¡Au! ...¡qué va, no me ha dolido! *Sí le ha dolido.*",
+    "¡Eh! ¡Eso es trampa! ¡Me vengaré! Ñe-he-he... en cuanto me recupere.",
+    "*Se frota la cabeza.* Vale, ese me lo apunto. En tu lápida.",
+    "¡Grrr! Me has dado. Disfrútalo. No va a volver a pasar.",
+    "*Te lame el cursor.* Toma. Por listo."
+  ],
+  "PorApp": {
+    "Access": ["Una base de datos llena de nombres. Ahora son nombres en lápidas. *Lametazo.*"],
+    "Bloc de notas": ["Escribe \"Dybbuk es el mejor\". ...No, con dos bes. Así. Ñe-he-he."],
+    "CMD": ["Pantalla negra. Como un ataúd. Me encanta. *Se tumba dentro.*"],
+    "Calculadora": ["Calcula cuántas veces has intentado tocarme. ...Y ahora cuántas lo has conseguido. Exacto."],
+    "Excel": ["Una tabla. Columna A: los que me han pillado. Columna B: vacía. Ñe-he-he."],
+    "Explorador": ["Tantas carpetas... ¡Me encanta jugar al escondite! *Se mete en una.* ¡Búscame!"],
+    "Office Web": ["Internet. Millones de cuerpecitos conectados. *Se frota las patas.*"],
+    "OneDrive": ["La nube. Como el cielo. Allí no me dejan entrar. Ñe-he-he."],
+    "OneNote": ["Apunta: \"no pegar al fantasma, que se venga\". Subráyalo."],
+    "Outlook": ["Correo nuevo. Remitente: Dybbuk. Asunto: \"¡Te toca!\". Ñe-he-he."],
+    "PowerPoint": ["Diapositiva uno: tú. Diapositiva dos: yo dentro de ti. ¡Qué buena presentación!"],
+    "Publisher": ["Un cartel de \"SE BUSCA\" con mi cara. Que lo intenten. No me pillan."],
+    "Teams": ["Una reunión con un montón de caras. *Se relame.* ¿Cuál me pruebo primero?"],
+    "Word": ["Escribe lo que quieras. Yo le doy un lametón a la hoja. Así se queda más bonita."],
+    "YouTube": ["¡Pon \"Them Kitty Bones\"! Es mi canción. Bueno, la del Boneyard. Que es mío."]
+  },
+  "AlVenirDe": {
+    "c00lgui": "¿El panel rojo? Intentó hackearme. No se puede hackear a un fantasma. Ñe-he-he.",
+    "SeaDrive": "*Se asoma.* La gata dormida se ha ido. Ni se enteró de que le lamí los auriculares.",
+    "Static Miku": "Se apagó la tele. Me metí dentro un ratito. Ahora la niña ve fantasmas. De nada.",
+    "Guillotina": "¡La gata gorda se ha ido! Me intentó tragar. Le di una voltereta en la lengua. Ñe-he-he.",
+    "Angela": "La máquina se ha ido. Me quería \"contener\". ¡No se puede contener lo que atraviesa las paredes!",
+    "Mikaela": "Se fue la de la mira. 47 disparos. 0 hitmarkers. Me lo he pasado genial.",
+    "Zodiac": "El vaquero se ha ido. Seis balas, seis volteretas. ¡Pilla pilla, Zodiac!",
+    "Velvet": "La araña se ha ido. Su telaraña me atraviesa. Bueno, yo atravieso su telaraña.",
+    "Dune": "Se fue el pez grande. Gritaba \"DUNE COMER\". No se puede comer el aire, Dune.",
+    "Cordero y Cabra": "Se fue el culto. Me ofrecieron un cuerpo. ¡Por fin alguien educado!",
+    "Pyrophina y Zaratana": "Se fueron las kaijus. Tanto pisotón y ni una pata me ha tocado.",
+    "Averi": "La zorrita se ha ido. Me dio un abrazo. Le di un lametón. Ahora está traumatizada.",
+    "Sebastian Solace": "El tendero se ha ido. Me cobraba por entrar. Yo entré por la pared. Gratis.",
+    "Pursuer": "El cazador se ha ido. \"CARNE FRESCA\", gritaba. Yo soy carne pasada. Muy pasada.",
+    "Kasane Teto": "La de las coletas se ha ido. Se ha olvidado de que me ha visto. Perfecto.",
+    "Token": "La ficha se ha ido. Tanto ruido y ni un golpe. Ñe-he-he.",
+    "Tetra": "Se fue el gato del sofá. Ni se movió cuando lo poseí. Fue el cuerpo más aburrido de mi vida.",
+    "Kevin": "Se fue Kevin. Le lamí la pizza. Toda. Cada trozo. Ñe-he-he.",
+    "Kennyoung": "Se fue el músico. Me poseí su guitarra. Ahora solo toca canciones de cementerio.",
+    "Enfosi": "Se fueron las caritas sonrientes. Les cambié una cara. Nadie se ha dado cuenta.",
+    "Gran": "Se fue el doctor. Me quiso sacar sangre. Los fantasmas no tienen. Ñe-he-he.",
+    "Evil Scary": "Se fue la bola negra. ¡Intenté poseerla y no tiene cuerpo! ¡Qué estafa!",
+    "Soft Fuzzy Man": "Se fue la nube rosa. Otro fantasma. Fantasmas ya hay muchos aquí. Uno. Yo.",
+    "Roaring Knight": "Se fue el caballero. Me lanzó mil espadas. Mil volteretas. Mil risas.",
+    "Nanachi": "Se fue Nanachi. Le lamí la olla del estofado. Sabía a... no sé. A algo vivo.",
+    "Malkuth": "¡Se fue Malkuth! Le lamí un libro. ¡Gritó! ¡Pero luego me dio las gracias por \"quitarle el polvo\"! Ñe-he-he.",
+    "Weathergirl": "¡Se fue la chica del tiempo! ¡Le cambié el guion! ¡Ahora mañana llueven gatos! ¡Ñe-he-he!",
+    "Painter": "¡Se fue el ordenador! ¡Le cambié la carita! ¡Ahora sonríe con colmillos! ¡Ñe-he-he! ...lo ha arreglado. Maldito."
+  },
+  "Opina": {
+    "c00lgui": ["c00lgui quiere hackear el panel. Yo ya lo he poseído. Ñe-he-he.", "Mucho código rojo, muchas amenazas. Y ni un cuerpo que probarme. Qué aburrido."],
+    "SeaDrive": ["SeaDrive siempre está cansada. Los cuerpos cansados son los más fáciles de poseer.", "Le lamí los auriculares. Todavía no sabe por qué suenan pegajosos."],
+    "Static Miku": ["Una niña dentro de una tele. ¡Como yo dentro de un gato! Somos iguales. Casi.", "Su tele hace \"bzzt\". Cuando yo entro, hace \"bzzt\" más fuerte."],
+    "Guillotina": ["Guillotina es grande, lenta y está siempre hambrienta. Mi juguete favorito del barrio.", "Me intentó tragar. Le di una voltereta en la lengua. ¡No se pueden comer fantasmas, gordita!"],
+    "Angela": ["Angela habla como un ataúd con altavoz. Muy seria. Demasiado. Hay que lamerla.", "Me pondría una etiqueta de anomalía. Que lo intente. Las etiquetas me atraviesan."],
+    "Mikaela": ["Mikaela apunta muy bien. A donde yo estaba hace un segundo.", "¡Hitmarker! ...ah, no, era una lápida. Ñe-he-he."],
+    "Zodiac": ["Zodiac es de mi mundo. Seis balas. Yo tengo infinitas volteretas.", "\"¡No te muevas!\", dice. ¡Pero si moverme es lo mío!"],
+    "Velvet": ["Velvet teje telarañas. Yo las atravieso. Somos una pareja preciosa.", "Una araña que se cree peligrosa. Qué mona. ¿Me la pruebo?"],
+    "Dune": ["Dune quiere comérselo todo. A mí no me puede comer. Pero sí poseer. Ñe-he-he.", "GRRGH, DUNE. ¿Ves? Yo también hablo así. Es facilísimo."],
+    "Cordero y Cabra": ["Un culto. Gente que obedece a un cordero. Imagina si obedecieran a un fantasma.", "La Cabra grita. El Cordero bala. Yo poseo a los dos y que hablen entre ellos."],
+    "Pyrophina y Zaratana": ["Dos kaijus gigantes. ¡Dos cuerpos enormes! ¿Me pruebo uno? ¿O los dos a la vez?", "WMEW 99.9 nunca habla de mí. Porque cuando llego, la radio se apaga sola."],
+    "Averi": ["Averi da abrazos a todo el mundo. A mí también. Me atravesó entero. Fue raro.", "Una zorrita torpe. Si la poseo, ¿se caería menos? Lo dudo."],
+    "Sebastian Solace": ["Sebastian vende de todo menos lo que yo quiero: cuerpos.", "Esa cola tan larga... qué buen sitio para esconderse. Ñe-he-he."],
+    "Pursuer": ["Pursuer caza carne fresca. Yo soy un fantasma pasado de fecha. A salvo.", "Grita mucho. Persigue mucho. No me pilla nunca. ¡Pilla pilla, Pursuer!"],
+    "Kasane Teto": ["Teto se olvida de todo. Puedo poseerla y ni se entera. ¡Lo he hecho tres veces!", "Le di un lametón a su baguette. No se acuerda. La sigue comiendo. Ñe-he-he."],
+    "Token": ["Token hace un ruido horrible. Me gusta. Así nadie oye cuando me acerco.", "Una ficha. Si la meto en la máquina, ¿salgo yo de premio?"],
+    "Tetra": ["Tetra no se mueve del sofá. Lo poseí y seguía sin moverse. Era como estar muerto. Otra vez.", "Pendientes de pez. Le lamí uno. Era de plástico. Qué decepción."],
+    "Kevin": ["Kevin defiende su pizza con cuchillos. Ninguno me toca. La pizza sí. Con la lengua.", "\"¡NO TOQUES MI PIZZA!\" No la toco. La lamo. Es distinto."],
+    "Kennyoung": ["Kennyoung toca muy fuerte. Si poseo su guitarra, ¿toca él o toco yo?", "Pop-punk. Mucho grito. Yo también grito: ¡BU!"],
+    "Enfosi": ["Los de Enfosi se disfrazan para colarse. Aficionados. Yo me pongo el cuerpo entero.", "Una estatua que hay que defender. Las estatuas no se pueden poseer. Lo he intentado."],
+    "Gran": ["Gran quiere estudiarme. Los fantasmas no salen en las radiografías. Ñe-he-he.", "Pincha a todo el mundo con agujas. A mí me atraviesan. Le enfada mucho."],
+    "Evil Scary": ["Evil Scary no tiene cuerpo. ¡No se puede poseer! Lo odio. Un poquito.", "Bota hacia todos. Hacia mí también. Le hago una voltereta y se pasa de largo."],
+    "Soft Fuzzy Man": ["Otro fantasma. Rosa. Ligón. Necesita que le hagan caso. Yo no: ya me hacen caso a la fuerza.", "Lo intenté poseer. Era todo niebla. Salí oliendo a algodón de azúcar."],
+    "Roaring Knight": ["El Knight lanza espadas. Yo hago volteretas. ¡Qué baile tan bonito!", "No habla. Ruge. Si lo poseo, ¿podré rugir yo? Ñe-he-he."],
+    "Nanachi": ["Nanachi cocina un estofado asqueroso. Le di un lametón. Me gustó. No se lo digas.", "Tiene unas orejas mullidísimas. Las lamí. Me miró con una cara... Ñe-he-he."],
+    "Malkuth": ["¡Malkuth tiene un cuerpo nuevecito! ¡Recién estrenado! ¿Me lo prestas? ...dice que le ha costado tres vidas. Rácana.", "¡Se tropieza solita! ¡Ni tengo que ponerle la zancadilla! Ñe-he-he."],
+    "Weathergirl": ["¡La chica del tiempo tiene un cuerpo mojadito! ¿Me lo prestas para salir en la tele? ¡Ñe-he-he!", "¡Me metí en su paraguas! ¡Lo abrí del revés! ¡Gritó! ¡Lo cerré! ¡Volvió a gritar!"],
+    "Painter": ["¡El ordenador está poseído por la empresa! ¡Yo lo estoy por mi gusto! ¡Ñe-he-he! ¡Somos colegas!", "¡Entré en su pantalla y dibujé un bigote! ¡Lo borró! ¡Lo dibujé otra vez! ¡Lo borró! ¡Ahora somos amigos!"]
+  },
+  "Esquiva": [
+    "*Voltereta hacia atrás.* ¡No me tocas! ¡No me tocas! Ñe-he-he.",
+    "¡Fallaste! *Te saca la lengua.*",
+    "*Backflip.* ¿Eso era un ataque? Qué mono.",
+    "¡Ni la Muerte puede atraparme! ¿Y tú sí? Ja.",
+    "*Da una voltereta y aterriza en el mismo sitio.* ¡Otra vez! ¡Otra vez!",
+    "¡Pilla pilla! ...¡Sigues sin pillarme!"
+  ],
+  "Lame": [
+    "*Lametazo.* ¡Mmm! Maná. ¿Tenías más? Ya no.",
+    "*Le da un lametón a la pantalla.* ¡Voy a estropearte esa carita!",
+    "*Slurp.* Qué rico. Sabe a ti.",
+    "*Saca la lengua hasta el suelo.* Ups. Se me ha caído. *Se la vuelve a meter.*"
+  ],
+  "Wisps": [
+    "¡Venid, fuegos fatuos! ¡A jugar! *Dos llamitas salen de la tierra.*",
+    "*Silba.* Mis fuegos fatuos queman un poquito. Bueno, bastante. Ñe-he-he.",
+    "¡Te presento a mis amigos! Esquivan tanto como yo. Casi."
+  ],
+  "Posee": [
+    "¡Pilla pilla! ¡TE TOCA! *Se mete dentro del panel.*",
+    "¡Me muero de ganas de ver cómo eres por dentro! *Salta hacia ti.*",
+    "¿Creías que me habías ganado? ¡Ahora este panel es MÍO! Ñe-he-he."
+  ],
+  "Suelta": [
+    "*Sale del panel de un salto.* Bah, por dentro era muy aburrido. Toma, te lo devuelvo.",
+    "*Se escapa del panel.* ¡Ya está! Te lo he dejado casi igual. Casi.",
+    "¡Stop hitting yourself! ...¿no? ¿Nadie? Vale. *Sale de un salto.*"
+  ],
+  "Muere": [
+    "*Las manos de los muertos salen de la tierra y lo agarran.* ¡No! ¡Soltadme! ¡Esto no es justo! ¡Me vengaréeeee...!",
+    "*Los esqueletos del Boneyard lo arrastran bajo tierra.* ¡Eh! ¡Que yo también estoy muerto! ¡Somos colegas!"
+  ],
+  "Vuelve": [
+    "*Sale de la tierra sacudiéndose el polvo.* ¡Ni la Muerte puede atraparme! ...bueno, un ratito sí.",
+    "*Se asoma detrás de una lápida.* ¡Cucú! ¿Me echabas de menos? Me he vengado de los muertos. Ahora te toca a ti.",
+    "*Saca la cabeza de la tierra.* ¡Volví! Y me acuerdo perfectamente de tu cara."
+  ]
+}

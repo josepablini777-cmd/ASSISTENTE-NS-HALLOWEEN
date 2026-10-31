@@ -1,10 +1,10 @@
-# 🎃 c00lgui v7 HALLOWEEN (en desarrollo) – panel lanzador con skins de asistentes
+# 🎃 c00lgui v6.66 HALLOWEEN – panel lanzador con skins de asistentes
 
 Panel para Windows que abre YouTube, las apps de Office y otros programas con un clic.
 
 ---
 
-## 🎃🕯️ ACTUALIZACIÓN DE HALLOWEEN (en desarrollo) 🕯️🎃
+## 🎃🕯️ ACTUALIZACIÓN DE HALLOWEEN · v6.66 🕯️🎃
 
 > *Algo se mueve entre las calabazas...*
 
@@ -14,9 +14,61 @@ Tres invitados de miedo para la noche más larga del año:
 |---|---|---|---|
 | 💀 | **Evil Scary** | *Die of Death* | ✅ Hecho |
 | 🧸 | **Soft Fuzzy Man** | Lemon Demon · Aimkid | ✅ Hecho |
-| 🔪 | **Dr. Loomis** | *Halloween* | ⏳ Próximamente |
+| 👻 | **Dybbuk** | *Mewgenics* | ✅ Hecho |
 
-## Notas del parche – v7 Halloween (avance 4)
+## Notas del parche – v6.66 Halloween (avance 7)
+
+**Skin nueva: Weathergirl** (FLAVOR FOLEY ft. Eleanor Forte, en el grupo **YouTube**)
+- Presenta el **parte del tiempo de verdad** de donde estés (temperatura, cielo y mañana); sin internet se lo inventa y lo admite.
+- **Intro:** trozos del videoclip oficial con su canción, que sigue sonando de fondo.
+- Cada app es una "palabra sin decir": con 6 **llora** y llega la tormenta (AVISO ROJO). Tres clics la consuelan y salen **cielos vivos** con arcoíris. Si llueve, puedes **darle el paraguas**.
+
+**Skin nueva: Painter** (*Pressure*, Z-779, en el grupo **Roblox**)
+- Painter es **su propio programa de dibujo**, con aspecto de Paint clásico de Windows. Su cara (21 expresiones dibujadas a mano en Paint, con el aerosol) cambia con su humor, te mira y se duerme si le dejas solo.
+- **Intro:** arranca el ordenador, "ABRIENDO the_p.AI.nter.exe", y el lápiz le dibuja la sonrisa.
+- Dibuja garabatos de colores en el lienzo, trazo a trazo, y los borra con la goma. Habla con **voces del juego**, con subtítulos en español.
+- Cada app pinta un trozo de paisaje y lo calienta (OVERCLOCK); a 100° se pone a **minar** y lo pierde todo. Clic en él para enfriarlo.
+
+**Skin nueva: Malkuth** (*Library of Ruina*, en el grupo **Videojuegos**)
+- Cada app es un libro para su mesa; con los libros sube la **emoción**, cambia la música del juego y llega su **Realización**.
+- Si se agobia por las prisas, se hunde: un clic y hacéis juntas el ejercicio de **respiración**.
+
+**🎸 Kennyoung, rehecho**
+- Ya no es "su canal": es él, viviendo en **escenas de sus videoclips**. Su ánimo (energía, compañía, agobio) decide la escena y la canción: con ganas de tocar, tranquilo, solo, cansado o agobiado.
+- Tú le acompañas, le animas con clics o le dejas descansar. Con ganas de tocar, los clics suben el **AMPLI** hasta que la guitarra hace **¡KABOOM!**
+- **Intro nueva:** un tablero de pegatinas. Se enciende el flexo y, al ritmo de *Ready To Say*, sus escenas se pegan en la pared una a una hasta que se pega él con su nombre.
+
+**🕷️ Velvet, rehecha** (*Gunsaw*)
+- Su propia guarida: escupe telaraña, envuelve capullos, tiene hambre y te tiende un **abracito-trampa**.
+
+**💼 Angela, rehecha** (*Lobotomy Corporation*)
+- Cada día tiene una **cuota de energía** que se guarda entre sesiones; hay brechas de contención en el monitor, la música oficial cambia con el nivel de Qliphoth y tiene 11 caras del juego.
+
+**🐟 Tetra, arreglada**
+- Ahora vive en un **acuario** con bancos de tetras neón, y su intro es el principio del **videoclip oficial**.
+
+- Todas las skins opinan de las nuevas y hay charlas nuevas entre ellas.
+## Notas del parche – v6.66 Halloween (avance 6)
+
+**Skin nueva: Ellie Velázquez** (self insert de Ale, en el grupo nuevo **Amigos**)
+- Humana corrupta de 20 años que viaja por el multiverso, con su render de cuerpo entero sobre un portal y su selfie pegado como una polaroid.
+- **Intro:** un vídeo cutre de alarma. Sirena, luces rojas y **⚠ ALERTA ⚠ SELF INSERT DETECTADO**; ¡BUM!, sale el usuario de Ale en grande con un **círculo rojo** y una **flecha gigante** señalándolo (*"100% real, no fake"*), otro ¡BUM! con zoom (*"ALE, ¿ERES TÚ?"*), glitch y aparece Ellie.
+- **Barra GLITCH** (su rabia): sube si la pinchas y, poco a poco, si hay demasiado silencio (lo odia). Abrir apps la entretiene. Al 100 % entra en **MODO GLITCH**: todo rojo, píxeles corruptos y ella partida en colores; luego se sobrecalienta y **se le olvida todo**.
+- **Clic en las natillas:** se las come y se calma (también corta el modo glitch). El cuenco se rellena al rato.
+- De vez en cuando se **teletransporta** o se vuelve **invisible**.
+- Solo tiene sus propias frases: no tiene charlas con las demás skins y las demás no opinan de ella.
+
+## Notas del parche – v6.66 Halloween (avance 5)
+
+**Skin nueva: Dybbuk** (*Mewgenics*, en el grupo **Halloween**)
+- El jefe del **Boneyard**, el cementerio de *Mewgenics*: un gato-fantasma bromista que lo esquiva todo con volteretas, da lametazos y, cuando lo "matas", **posee** a quien tenga cerca. Con sus animaciones y sonidos del juego.
+- **Intro:** suena *"Them Kitty Bones"* (la canción del Boneyard). La cámara entra por la puerta del cementerio con el cartel **CAPÍTULO 3 · THE BONEYARD**, Dybbuk se asoma detrás de las lápidas (*"¡Cucú!"*), todo se queda a oscuras (*"Ni la Muerte puede atraparme..."*), sale su **presentación de jefe** y un **lametazo gigante** limpia la pantalla.
+- **Barra de vida de jefe** (85, la del juego), como la de Guillotina. **Clic en Dybbuk** para pegarle... si no te esquiva con un **Backflip**. Con menos de la mitad de vida pone su cara de poca vida.
+- Al llegar a 0 aguanta con 1 y **posee el panel** unos segundos (se tiñe de morado). El siguiente golpe lo mata: **los muertos del Boneyard lo arrastran bajo tierra**. Vuelve a los pocos segundos.
+- **Cada app:** a veces le da un lametazo y le chupa el maná (contador **MANÁ LAMIDO**). Cada 5 apps invoca **fuegos fatuos**.
+- Todas las skins opinan de él y hay 5 charlas nuevas (con Guillotina, Evil Scary, Soft Fuzzy Man, Kevin y SeaDrive). Ficha de lore en `lore\personajes\Dybbuk.md`.
+
+## Notas del parche – v6.66 Halloween (avance 4)
 
 **✍️ Editor de diálogos** (doble clic en `editor_dialogos.vbs`)
 - Todos los diálogos han salido del código a la carpeta **`dialogos`**: un archivo por skin y `_charlas.json` con las charlas entre skins. El panel los lee al arrancar.
@@ -34,7 +86,7 @@ Tres invitados de miedo para la noche más larga del año:
 - Ahora **habla**: lista, manipuladora y obsesionada con devorar. Te trata como a su presa ("¿Te doy miedo, cariño?") y estalla en MAYÚSCULAS cuando se enfada.
 - Diálogos nuevos basados en su lore de *Mewgenics*: Butch, su canción, la radio WMEW 99.9 y su decapitación.
 
-## Notas del parche – v7 Halloween (avance 3)
+## Notas del parche – v6.66 Halloween (avance 3)
 
 **Skin nueva: Roaring Knight** (*Deltarune*, en el grupo **Videojuegos**)
 - El antagonista de Deltarune, con sus sprites de combate en pixel art y su estela de sombras. No habla: en el bocadillo salen los textos de combate del juego (*"\* The Roaring Knight appeared."*).
@@ -48,7 +100,7 @@ Tres invitados de miedo para la noche más larga del año:
   - Tienes 160 HP y cada golpe quita 40. **Rozar** los ataques sube el **TP**. Tus victorias se guardan (**WIN**).
 - Todas las skins opinan de él y hay 9 discusiones nuevas.
 
-## Notas del parche – v7 Halloween (avance 2)
+## Notas del parche – v6.66 Halloween (avance 2)
 
 **Skin nueva: Soft Fuzzy Man** (la canción de Lemon Demon, con la animación de Aimkid)
 - Según la wiki de Aimkid, es el **fantasma de Dipshit**, el lobo de *My Trains*, reencarnado en un lobo-fantasma rosa de neón. Sale con **Orange Cat**, que se asusta porque no sabe que es él.
@@ -58,7 +110,7 @@ Tres invitados de miedo para la noche más larga del año:
 - **Cada 6 apps:** *"step into the mist"*, la niebla rosa lo llena todo.
 - Baila como en la ventana del vídeo, sobre la colina de noche con la casita. Todas las skins opinan de él y hay 10 discusiones nuevas.
 
-## Notas del parche – v7 Halloween (avance 1)
+## Notas del parche – v6.66 Halloween (avance 1)
 
 **Skin nueva: Evil Scary** (la ronda especial de *Die of Death*)
 - **Intro:** la pantalla de la ronda especial del juego: *"SPECIAL ROUND! ??? What will it be?"*, una ruleta de modos y la revelación **EVIL SCARY**. Después, *"IT IS EVIL AND SCARY"* y la bola negra botando hacia la cámara hasta el susto.

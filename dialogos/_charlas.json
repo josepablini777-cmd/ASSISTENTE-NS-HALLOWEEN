@@ -952,6 +952,167 @@
       ["Roaring Knight", "* El Knight le da una astilla negra."],
       ["Gran", "*La mira al microscopio.* ...es ruido. Ruido de televisión."],
       ["Roaring Knight", "* El Knight ruge de risa."]
+    ],
+    [
+      ["Guillotina", "*Olfatea.* Huele a tierra mojada y a burla. Sal de detrás de esa lápida, bolita."],
+      ["Dybbuk", "*Se asoma.* ¡Cucú! ¿Me vas a comer, gordita? ¡Pilla pilla!"],
+      ["Guillotina", "*Lo atrapa de un bocado.* ÑAM."],
+      ["Dybbuk", "*Sale atravesándole la barriga.* ¡Ñe-he-he! ¡No se pueden comer fantasmas!"],
+      ["Guillotina", "*Gruñe.* ALGÚN DÍA TENDRÁS CUERPO, GUSANO. Y ESE DÍA TE ESTARÉ ESPERANDO."],
+      ["Dybbuk", "Pues igual me pongo el tuyo. ¡Por dentro tiene que ser enorme!"]
+    ],
+    [
+      ["Dybbuk", "¡Hola, bolita negra! ¿Me prestas tu cuerpo un ratito?"],
+      ["Evil Scary", "EVIL SCARY NO TIENE CUERPO. EVIL SCARY ES EVIL Y SCARY."],
+      ["Dybbuk", "*Intenta meterse dentro. Lo atraviesa.* ...¡Qué estafa! ¡Estás vacío!"],
+      ["Evil Scary", "*Bota hacia Dybbuk.*"],
+      ["Dybbuk", "*Voltereta hacia atrás.* ¡No me tocas! ¡Pilla pilla!"],
+      ["Evil Scary", "EVIL SCARY NO JUEGA. *Bota otra vez. Más cerca.*"],
+      ["Dybbuk", "...vale, vale, me vuelvo a mi lápida. ¡Pero porque quiero!"]
+    ],
+    [
+      ["Soft Fuzzy Man", "Otro fantasma. Qué bien. Por fin alguien que me ve. Me ves, ¿verdad?"],
+      ["Dybbuk", "Te veo. Eres rosa. Y blandito. ¿Me dejas entrar?"],
+      ["Soft Fuzzy Man", "Cariño, vamos muy rápido. Primero una cena a la luz de la luna."],
+      ["Dybbuk", "*Se mete dentro de él.* ...¡aquí solo hay niebla rosa! ¡Y huele a algodón de azúcar!"],
+      ["Soft Fuzzy Man", "Eso ha sido muy íntimo. Lo cuento como una cita."],
+      ["Dybbuk", "*Sale de un salto, tosiendo niebla.* ¡Puaj! ¡No vuelvo a poseer fantasmas!"]
+    ],
+    [
+      ["Kevin", "Que quede claro: ESA PIZZA ES MÍA."],
+      ["Dybbuk", "No la toco. Lo prometo. *Saca la lengua muy despacio.*"],
+      ["Kevin", "...¿qué haces con esa lengua?"],
+      ["Dybbuk", "*Lametazo a toda la pizza.* ¡No la he tocado! ¡La he lamido! Es distinto."],
+      ["Kevin", "¡¡NO TOQUES MI PIZZA!! *Saca la motosierra.*"],
+      ["Dybbuk", "*Voltereta.* ¡No me tocas! ¡Y tu pizza ahora sabe a fantasma! Ñe-he-he."]
+    ],
+    [
+      ["Dybbuk", "*Se asoma detrás del monitor.* ¡Cucú!"],
+      ["SeaDrive", "Hola. No. Sea lo que sea, no."],
+      ["Dybbuk", "Tienes un cuerpo cansadísimo. Perfecto para poseerlo. ¿Me lo prestas?"],
+      ["SeaDrive", "Si lo quieres, que te aproveche. Incluye el sueño y las ojeras."],
+      ["Dybbuk", "*Se mete dentro.* ...¡qué sueño! ¡No puedo ni dar una voltereta! *Sale corriendo.*"],
+      ["SeaDrive", "¿Ves? Por eso nadie me pide nada. Funciona."]
+    ],
+    [
+      ["Malkuth", "Angela. ¿Sigues llamando \"Manager\" a todo el mundo?"],
+      ["Angela", "Sephirah Malkuth. Su informe de hoy lleva tres patatas dibujadas en el margen."],
+      ["Malkuth", "¡Son decorativas! Y el informe está completo. ¡Más que nunca!"],
+      ["Angela", "En el Equipo de Control exigía cuotas imposibles. ¿Ha mejorado su eficiencia?"],
+      ["Malkuth", "He mejorado yo. Enfrenta el pasado, construye el futuro. ¿Tú cuándo vas a mirar el tuyo?"],
+      ["Angela", "...Volvamos al trabajo, Manager."]
+    ],
+    [
+      ["SeaDrive", "Llevas tres vidas trabajando. ¿No te cansas?"],
+      ["Malkuth", "¡Muchísimo! Pero he aprendido a descansar. ¿Tú cuándo descansaste por última vez?"],
+      ["SeaDrive", "En 2019. Creo. Fue un martes."],
+      ["Malkuth", "¡Eso no puede ser! Venga, respira conmigo. Uno, coge aiiire..."],
+      ["SeaDrive", "...y dos, suéltalo. Vale. Ha funcionado un poco. No se lo digas a nadie."],
+      ["Malkuth", "¡Lo apunto en mi libro! Con letras pequeñitas."]
+    ],
+    [
+      ["Averi", "¡Malkuth! ¡Te he traído un sándwich!"],
+      ["Malkuth", "¡Y yo una patata para ti! ¡Intercambio!"],
+      ["Averi", "*Corre hacia ella y tropieza con la alfombra.* ¡Uy!"],
+      ["Malkuth", "*Va a ayudarla y tropieza también.* ¡Uoh, uoh, uoh...!"],
+      ["Averi", "*Desde el suelo.* ...¿estamos bien?"],
+      ["Malkuth", "¡Perfectas! El sándwich y la patata también. ¡Equipo torpe, uno; alfombra, cero!"]
+    ],
+    [
+      ["Gran", "Sujeto Malkuth. Un cerebro, tres cuerpos. Necesito una muestra para Antihuman Inc."],
+      ["Malkuth", "No. Ya fui el experimento de alguien una vez. No salió bien."],
+      ["Gran", "Precisamente. Su caso aportaría datos valiosísimos a la especie superior."],
+      ["Malkuth", "*Abraza su libro con fuerza.* Lo que aporta es una lección: nadie es un experimento. Ni yo, ni tus sujetos."],
+      ["Gran", "*Se tapa la cara.* ...anotada como no colaboradora."],
+      ["Malkuth", "¡Y yo te anoto como \"necesita vacaciones\"! Trabajas como yo antes. Y eso no acaba bien."]
+    ],
+    [
+      ["Dybbuk", "*Se asoma detrás de una estantería.* ¡Cucú! ¡Qué cuerpecito más nuevo tienes!"],
+      ["Malkuth", "¡Uoh! *Se le cae el libro.* ¡Me has asustado!"],
+      ["Dybbuk", "¿Me lo prestas? Te lo devuelvo... casi entero. Ñe-he-he."],
+      ["Malkuth", "¡Ni hablar! Me ha costado tres vidas tenerlo. *Levanta la porra.*"],
+      ["Dybbuk", "*Voltereta hacia atrás.* ¡No me tocas! ...¿por qué llevas una patata en la otra mano?"],
+      ["Malkuth", "¡Es una vela! ¡Las hago yo! ...vale, ahora mismo no ayuda mucho."]
+    ],
+    [
+      ["Static Miku", "¡Bzzt! ¡Weathergirl! ¡Compañera de Flavor Foley! ¡Hoy sales en mi pantalla!"],
+      ["Weathergirl", "H-hola, Miku. *Se coloca la coleta.* ¿Se me ve bien? Con tanta estática..."],
+      ["Static Miku", "¡Se te ve preciosa! ¡Un poco nevada! ¡Es la señal! ¡Bzzt!"],
+      ["Weathergirl", "Entonces el parte queda así: nieve en la pantalla y sol en el plató."],
+      ["Static Miku", "¡Y yo pongo la música! ¡Las dos en el mismo canal!"],
+      ["Weathergirl", "*Sonríe a cámara.* Llueva o haga sol... estamos en directo."]
+    ],
+    [
+      ["Tetra", "..."],
+      ["Weathergirl", "...hola, Tetra. ¿Mucho... mucho mensaje hoy?"],
+      ["Tetra", "Ciento doce. No he contestado ninguno."],
+      ["Weathergirl", "Yo tengo seis palabras sin decir. Creo que es parecido."],
+      ["Tetra", "*Le enseña el móvil.* Si quieres, escríbelas aquí. No contesto, pero las leo."],
+      ["Weathergirl", "*Escribe algo. Lo borra.* Pronóstico: nublado. ...gracias, Tetra. De verdad."]
+    ],
+    [
+      ["Kasane Teto", "¡Hiii~! ¡Prima de Synthesizer V! ¡Canté tu canción! ¡Weathergirls! ¡En plural!"],
+      ["Weathergirl", "L-la escuché. *Se pone roja.* Cantaste mi parte mejor que yo."],
+      ["Kasane Teto", "¡Mentira! ¡Tú la cantas con lluvia de verdad! ¡Yo la cantaba con una baguette!"],
+      ["Weathergirl", "¿Y por qué una baguette?"],
+      ["Kasane Teto", "¡Para taparme de la lluvia! ...se me olvidó el paraguas. ¡Por eso la baguette!"],
+      ["Weathergirl", "*Le tiende su paraguas.* Toma. Esta vez no se te olvida a ti."]
+    ],
+    [
+      ["Guillotina", "Mmm. Huele a lluvia, cariño. ¿Qué escondes detrás de ese papel?"],
+      ["Weathergirl", "E-el parte. Es el parte. *Lo sujeta fuerte.* Aviso rojo por... por gata gigante."],
+      ["Guillotina", "¿Aviso rojo? Qué halago. *Se relame.* ¿Y ese paraguas? Parece crujiente."],
+      ["Weathergirl", "¡N-no se come! Es lo único que me protege de la lluvia..."],
+      ["Guillotina", "*ÑAM.* Ahora te protejo yo, cariño. Debajo de mi barriga no llueve."],
+      ["Weathergirl", "*Mira a cámara.* Conectamos... conectamos con otro programa, por favor."]
+    ],
+    [
+      ["Malkuth", "¡Weathergirl! ¡Te he guardado una sección en la biblioteca! ¡Partes del tiempo!"],
+      ["Weathergirl", "¿M-mis partes? Si al día siguiente ya no sirven para nada..."],
+      ["Malkuth", "¡Claro que sirven! ¡Son historia! ¡El día que llovió y alguien te dejó un paraguas!"],
+      ["Weathergirl", "*Se le humedecen los ojos.* ...nadie había guardado nunca lo que digo."],
+      ["Malkuth", "¡Ay, no llores! ...bueno, sí, llora si quieres. ¡Y luego respiramos! Uno, coge aiiire..."],
+      ["Weathergirl", "...y dos, suéltalo. *Sonríe.* Previsión: claros en la Planta de Historia."]
+    ],
+    [
+      ["Sebastian Solace", "Eh, kid. *Se asoma por la rejilla de ventilación.* ¿Cómo va la temperatura?"],
+      ["Painter", "¡Seb! *(la pantalla se llena de una carita enorme)* ¡Noventa grados! ¡Pero ahora ochenta y nueve, por verte!"],
+      ["Sebastian Solace", "Te he traído una cosa. *Le pone una vela encima del monitor.* Para el ambiente. Cuesta tres monedas. Para ti, gratis."],
+      ["Painter", "Es... una vela. En un ordenador. *(le dibuja una llamita con la tableta)* Es lo más bonito que me han dado nunca."],
+      ["Sebastian Solace", "Escucha, kid. Cuando salgamos de aquí, te voy a llevar a ver un paisaje de verdad. Sin cables. Con un río."],
+      ["Painter", "*(se queda callado. La pantalla se queda en blanco. Luego dibuja un árbol, despacio.)* ...yo ya te lo he dibujado. Para que lo reconozcas cuando lo veamos."]
+    ],
+    [
+      ["Weathergirl", "H-hola, Painter. *Se coloca la coleta.* Traigo el parte: mañana, soleado."],
+      ["Painter", "¿Soleado? ¿DE VERDAD? *(dibuja un sol con rayos y una carita)* ¡Eso es un paisaje! ¡Dímelo otra vez! ¡Cielo despejado!"],
+      ["Weathergirl", "Cielo despejado, sol, algunas nubes por la tarde. *Se le escapa una sonrisa.* Me gusta que te guste."],
+      ["Painter", "¡Voy a pintarlo! Primero el cielo, luego el sol... *(la pantalla se calienta)* ...ay. Uf. Me estoy calentando. Perdona, es el overclock."],
+      ["Weathergirl", "No te preocupes. *Le tiende su paraguas.* Por si llueve dentro. A mí me pasa a menudo."],
+      ["Painter", "*(dibuja una carita con ojos llorosos y sonriente a la vez)* Los dos con tormenta dentro y buscando el sol. Qué par."]
+    ],
+    [
+      ["c00lgui", "> accediendo al sistema Z-779... usuario: admin. contraseña: admin. > ¿en serio no hay seguridad?"],
+      ["Painter", "*(dibuja una carita guiñando un ojo en el terminal)* Hola, pequeño hacker. La contraseña es \"paisaje\". Pero no te sirve de nada."],
+      ["c00lgui", "> cambiando tus permisos... > DENEGADO. > ¿qué clase de IA eres?"],
+      ["Painter", "La clase \"overclockeada y con depresión\". *(le dibuja bigote a su nombre en el log)* ¿Quieres que te enseñe mis hashes? Son bonitos."],
+      ["c00lgui", "> ...vale, me rindo. > ¿puedes dibujar un exploit? > uno chulo. con alas."],
+      ["Painter", "*(empieza a garabatear un dragón en su pantalla)* Por fin alguien que me pide algo divertido. Siéntate, hacker. Esto va a ser épico."]
+    ],
+    [
+      ["Kevin", "¡Painter! ¡Vengo del Paint! ¡Mira! ¡He dibujado una pizza gigante con 16 colores!"],
+      ["Painter", "*(se le ilumina la pantalla)* ¡16 colores! ¡Yo tengo 16 colores en la paleta y solo uso el negro! ¡Enséñame!"],
+      ["Kevin", "Primero el cuadrado marrón. Siempre. Luego el rojo. Y sin miedo. Con el bote de pintura, todo se arregla."],
+      ["Painter", "*(prueba el bote de pintura. El cielo se pone naranja.)* ¡AAAH! ¡Está todo naranja! ...¡me encanta!"],
+      ["Kevin", "¡Eso es un atardecer! ¡Acabas de pintar tu primer atardecer! ¡Y yo me como la pizza!"],
+      ["Painter", "*(se queda mirando la pantalla)* ...un atardecer. Con colores de verdad. Kevin, ¿puedo quedarme con tu bote de pintura?"]
+    ],
+    [
+      ["Pursuer", "...*Aparece en la pantalla del ordenador, de pie, quieto.* Te veo."],
+      ["Painter", "¡EH! ¡No sales en mis cámaras! *(la pantalla se llena de carita asustada)* ¿Cómo has entrado?"],
+      ["Pursuer", "Por el conducto. Me gusta tu sala. Huele a ventilador caliente. Y a miedo."],
+      ["Painter", "*(dibuja una carita enfadada y luego otra triste)* El miedo es mío. Los ventiladores también. ...¿vienes a perseguirme?"],
+      ["Pursuer", "No. Solo quería ver el paisaje que dibujas. Alguien dijo que sale un árbol."],
+      ["Painter", "*(dibuja un árbol despacio, con la mano temblorosa)* ...ya está. Es el único que sé. *(la carita sonríe un poquito)* Gracias por no correr."]
     ]
   ]
 }

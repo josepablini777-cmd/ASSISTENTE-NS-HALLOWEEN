@@ -78,7 +78,11 @@
     "Evil Scary": "La bola negra se ha ido. Intenté tragármela y me dejó las manos fuera. Qué falta de educación.",
     "Soft Fuzzy Man": "La nube rosa se ha ido. Mucho piropo, mucho \"cariño\"... y ni un bocado de verdad.",
     "Roaring Knight": "El caballero se ha ido. Demasiadas espadas. Hasta yo tengo límites. Pocos.",
-    "Nanachi": "Huele a estofado. Nanachi se ha ido. La olla no. Ahora es mía."
+    "Nanachi": "Huele a estofado. Nanachi se ha ido. La olla no. Ahora es mía.",
+    "Dybbuk": "*Olfatea el aire.* El fantasmita se ha ido. Tanta voltereta... y ni un bocado. Qué falta de respeto.",
+    "Malkuth": "Mmmm. La bibliotecaria se ha ido. Ha dejado sus libros. Saben a papel viejo y a nervios. Ñam.",
+    "Weathergirl": "Mmm. La chica del tiempo se ha ido. Me he comido su paraguas. Sabía a nube.",
+    "Painter": "Mmm. Se ha ido el ordenador. Me quedé con hambre de torreta. Qué crujiente es el metal, cariño."
   },
   "Opina": {
     "c00lgui": ["Un hacker. Todo pantalla y nada de carne. Qué decepción.", "c00lkidd quiso hackearme. *Se relame.* Los niños que juegan con fuego acaban en mi barriga."],
@@ -104,6 +108,10 @@
     "Evil Scary": ["Evil Scary no se puede comer. Es lo único de este panel que me ofende.", "Bota hacia todos. Hacia mí bota más despacio. Sabe quién manda."],
     "Soft Fuzzy Man": ["Soft Fuzzy Man liga conmigo. Me lo trago. Sabe a aire. Qué decepción.", "Él necesita que le hagan caso. Yo solo hago caso a lo que se puede masticar."],
     "Roaring Knight": ["El Knight no habla. Solo ruge. Me gusta: yo también rujo cuando tengo hambre.", "Mordí su estela. Sombras. Nada. Odio las cosas que no llenan."],
-    "Nanachi": ["Nanachi cocina para mí sin que se lo pida. Le dejaré para el final.", "Esas orejas tan mullidas... \"Nnaa\", dice. Yo digo ñam."]
+    "Nanachi": ["Nanachi cocina para mí sin que se lo pida. Le dejaré para el final.", "Esas orejas tan mullidas... \"Nnaa\", dice. Yo digo ñam."],
+    "Dybbuk": ["Dybbuk viene de mi mundo. Una bolita gris que no se puede masticar. Lo odio con todo mi estómago.", "Me lamió la cara y se escondió detrás de una lápida. *Gruñe.* Corre, gusano. Algún día tendrás cuerpo."],
+    "Malkuth": ["Malkuth me apunta con su porrita y tiembla. Qué mona. Será el postre.", "Huele a patata. Me encanta la patata, cariño."],
+    "Weathergirl": ["La chica del tiempo huele a lluvia. La lluvia no se come. Qué decepción, cariño.", "Me ha dado el pronóstico: \"chubascos de Guillotina\". Mmm. Me gusta."],
+    "Painter": ["Un ordenadorcito con carita dibujada. Qué mono. *(le brillan los ojos)* Me comería la torre entera.", "Me gusta cuando se pone nervioso y echa humo. Huele a hierro caliente, cariño."]
   }
 }

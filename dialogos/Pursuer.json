@@ -73,7 +73,11 @@
     "Evil Scary": "La bola se ha ido. Por fin puedo cazar tranquilo.",
     "Soft Fuzzy Man": "La nube se ha ido. Olía a lobo. Pero no había carne.",
     "Roaring Knight": "El caballero se ha ido. No huele a nada. Eso me pone nervioso.",
-    "Nanachi": "Nanachi se fue. Su estofado no es carne fresca. No es nada."
+    "Nanachi": "Nanachi se fue. Su estofado no es carne fresca. No es nada.",
+    "Dybbuk": "El fantasma se fue. No olía a nada. No se puede cazar lo que no huele.",
+    "Malkuth": "La bibliotecaria se fue. Me apuntó con un palo. Temblaba. Pero no corrió. Interesante.",
+    "Weathergirl": "Se fue. Dijo que mañana hay niebla. Bien.",
+    "Painter": "Se fue el ordenador. No me tuvo miedo. Me dibujó. Soy una cara con dientes. Le salió muy bien."
   },
   "Opina": {
     "c00lgui": ["*Huele a c00lkidd.* Carne de plástico.", "El hacker se esconde detrás de la pantalla. Lo encontraré."],
@@ -99,6 +103,10 @@
     "Evil Scary": ["Evil Scary caza a los cazadores. No me gusta ser la presa.", "Tiene mi cara. Pero roja. No le pedí permiso."],
     "Soft Fuzzy Man": ["Soft Fuzzy Man era un lobo. Ahora es niebla. No quiero acabar así.", "Me dijo \"cariño\". Le enseñé los dientes. Me guiñó un ojo. Me fui."],
     "Roaring Knight": ["El Knight caza en todos los mundos. Yo solo en un bosque. Respeto.", "Me miró. Por primera vez yo fui la presa."],
-    "Nanachi": ["Nanachi caza mejor que yo. Y nadie le ve. Respeto.", "Probé su estofado. Ahora entiendo el miedo."]
+    "Nanachi": ["Nanachi caza mejor que yo. Y nadie le ve. Respeto.", "Probé su estofado. Ahora entiendo el miedo."],
+    "Dybbuk": ["Dybbuk no es carne. Ni fresca ni vieja. Es aire burlón.", "Le lancé la espada. Dio una voltereta. Me sacó la lengua. LO CAZARÉ."],
+    "Malkuth": ["Malkuth no huye. La gente que no huye... me confunde.", "Huele a papel y a miedo. Sobre todo a papel."],
+    "Weathergirl": ["La chica de la lluvia. La lluvia borra las huellas. Me cae bien.", "No huye. Se esconde detrás del guion. Eso también es huir."],
+    "Painter": ["Un ordenador que no huye. Me confunde. Pero me cae bien.", "Me dibujó una cara con dientes. La miré mucho rato. Era yo. No me gustó. Pero me gustó."]
   }
 }

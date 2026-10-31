@@ -79,7 +79,11 @@
     "Evil Scary": "Evil Scary se ha ido. 0 hitmarkers en toda la partida. Primera vez.",
     "Soft Fuzzy Man": "Soft Fuzzy Man se ha ido. Le hice un noscope. La bala salió por el otro lado. 0 de daño. Me dio las gracias.",
     "Roaring Knight": "El Knight se ha ido. 0 hitmarkers. Le daba a las sombras de detrás. Nunca a él.",
-    "Nanachi": "Nanachi se ha ido. Me curó el dedo del gatillo. GG."
+    "Nanachi": "Nanachi se ha ido. Me curó el dedo del gatillo. GG.",
+    "Dybbuk": "Se fue Dybbuk. 0 hitmarkers. Otra vez. Necesito un descanso.",
+    "Malkuth": "Malkuth se ha ido. Se tropezó delante de mi mira. Casi le hago un no scope sin querer. GG. Casi.",
+    "Weathergirl": "Se fue Weathergirl. Me ha dicho que hoy hace buen tiempo para jugar. Siempre hace buen tiempo para jugar.",
+    "Painter": "Se fue Painter. Me dejó una torreta apuntando a la pared. Cortesía de la casa. GG."
   },
   "Opina": {
     "c00lgui": ["¿c00lkidd? Un script kiddie. Le haría headshot desde el otro lado del mapa.", "Su panel es rojo y negro. Clásico de 2006. Respeto."],
@@ -105,6 +109,10 @@
     "Evil Scary": ["Evil Scary no tiene hitbox. O sí, pero no sirve de nada. GG, supongo.", "Le hice una Smokebomb. Me encontró en dos segundos. Ve a través de todo."],
     "Soft Fuzzy Man": ["Soft Fuzzy Man no tiene hitbox. Es un fallo del juego con sentimientos.", "Mi Smokebomb y él se hicieron amigos. Ahora hay el doble de humo."],
     "Roaring Knight": ["El Knight se teletransporta. Peor que cualquier tryhard.", "Su espada mide más que mi francotirador. No me gusta."],
-    "Nanachi": ["Nanachi ve cosas que nadie ve. Sería el mejor apoyo de cualquier equipo.", "Probé su estofado. Primera vez que pierdo contra una comida."]
+    "Nanachi": ["Nanachi ve cosas que nadie ve. Sería el mejor apoyo de cualquier equipo.", "Probé su estofado. Primera vez que pierdo contra una comida."],
+    "Dybbuk": ["Dybbuk esquiva hasta los no scope. Eso es hacer trampas. Creo.", "Le di un headshot. Dio una voltereta. El headshot se lo llevó la lápida."],
+    "Malkuth": ["Malkuth anima al equipo como una capitana de verdad. La quiero de support.", "Va con una porra. Una porra. Respeto el estilo melee."],
+    "Weathergirl": ["Weathergirl me dice si va a llover antes de la partida. Info del mapa. La quiero en mi equipo.", "Lloró en directo y nadie le hizo clip. Respeto. Eso es ser buena gente."],
+    "Painter": ["Painter maneja las torretas. Yo manejo la mira. En un 1v1 de torretas ganó él. Qué humillación. Me encanta.", "Es la única IA que me trata de igual. Le dije \"GG\" y dibujó una carita feliz. Es mi mejor support."]
   }
 }

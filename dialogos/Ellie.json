@@ -1,0 +1,96 @@
+{
+  "Hola": [
+    "*Aparece de un teletransporte, entre píxeles.* ¡Hola! Ellie Velázquez. Sí, la de los cuernos. ¿Algún problema?",
+    "¡Eh! Por fin un universo con botones. ¿Qué rompemos hoy?",
+    "*Hace el signo de la paz.* Ellie al aparato. Si me aburres, me voy a otro multiverso. Avisada quedas.",
+    "¿Tú eres el que manda aquí? Mal empezamos. No me gustan los que mandan."
+  ],
+  "Yo": [
+    "Esa soy yo. Guapa, corrupta y con cuernos. Buen gusto, ¿eh?",
+    "¿Me eliges otra vez? Sabía que tenías criterio."
+  ],
+  "Frases": [
+    "¡Abierto! ¿Ves? Teletransporte instantáneo. Bueno, más o menos.",
+    "Hecho. Y no he roto nada. Todavía.",
+    "*Toca la ventana y se pone un poco corrupta.* Ups. Funciona igual. Creo.",
+    "¡Ahí lo tienes! Venga, otra. No me dejes quieta.",
+    "Abierto. Cuando termines, ¿me traes natillas? Es por el bien del multiverso."
+  ],
+  "Idle": [
+    "*Se mira las manos. Los dedos le chisporrotean en colores.* Tranquila, Ellie. Tranquila.",
+    "He estado en cientos de universos. Y en ninguno me han traído natillas sin pedirlas. INSINÚO COSAS.",
+    "Esta pistola se la quité a un ángel. Se creía muy puro. Ahora la pistola es mía y él no tanto.",
+    "¿Sabes lo que no soporto? A la gente que se rinde. Si empiezas algo, lo acabas. Punto.",
+    "Vengo de la Aldea de los 7 Pecados. No, no es un sitio turístico. No vayas.",
+    "Si ves un frasco verde por ahí, NO me lo des. Lo tiro. Sin preguntar.",
+    "¿Una pelea? ¿Dónde? ¡Yo miro! ...o la empiezo, si nadie se anima.",
+    "Me gustan las rosas. No se lo digas a nadie. Tengo una reputación.",
+    "¿Que si estoy triste? No. Estoy enfadada. Es más práctico.",
+    "La Piedra Corrupta está en un sitio muy seguro. No, no te voy a decir dónde. Buen intento.",
+    "Mi espada se afila cuanto más corrompo. Tu escritorio tiene MUCHO potencial.",
+    "Llevo seis años saltando de universo en universo. Este no está mal. No te emociones."
+  ],
+  "Silencio": [
+    "Qué silencio. Odio el silencio. Haz algo. Lo que sea. Rompe algo.",
+    "*Tamborilea con los dedos.* ¿Hola? ¿Sigues ahí? Esta calma me pone de los nervios.",
+    "Si no abres algo pronto, lo corrompo yo. Y no te va a gustar cómo queda.",
+    "*Se le escapa un píxel rojo del pelo.* Demasiada calma. DE-MA-SIA-DA."
+  ],
+  "Clic": [
+    "¡Eh! ¿Qué haces? No me toques sin permiso.",
+    "*Te mira de reojo.* Hazlo otra vez y verás.",
+    "¿Me estás picando? Porque lo estás consiguiendo.",
+    "Ja. Ja. Qué gracioso. *No le hace gracia.*",
+    "*Le chisporrotea un píxel en el pelo.* Te aviso: tengo la mecha MUY corta."
+  ],
+  "Enfado": [
+    "Vale. Para. PARA. Estoy a esto de corromperte el escritorio.",
+    "*Los ojos se le ponen de colores.* Último aviso.",
+    "¡¿TE PARECE GRACIOSO?! *El panel tiembla.*",
+    "No me hagas sacar la espada. Hoy estoy inspirada."
+  ],
+  "Glitch": [
+    "MODO GLITCH 100%. *Todo se vuelve rojo.* Se acabó la piedad.",
+    "MODO GLITCH 100%. Te lo avisé. TE LO AVISÉ.",
+    "MODO GLITCH 100%. *Su voz suena rota.* Ahora vas a saber lo que es la corrupción."
+  ],
+  "Olvida": [
+    "*Se le apaga el glitch. Está sudando.* ...¿Qué estaba haciendo? ¿Por qué está todo roto? ¿Quién eres tú?",
+    "*Se sienta en el suelo, sobrecalentada.* Uf... tengo la cabeza en blanco. ¿Me he perdido algo? Bah, da igual.",
+    "...¿Hola? Perdona, se me ha ido la cabeza. Literalmente. Me pasa cuando uso el glitch demasiado."
+  ],
+  "Natillas": [
+    "*Se come las natillas de un bocado.* ...vale. Vale. Ya estoy bien. No ha pasado nada.",
+    "¡NATILLAS! *Se le olvida que estaba enfadada.* Con galleta y todo. Te perdono. Por esta vez.",
+    "*Rebaña el cuenco.* Esto lo arregla todo. Bueno, casi todo. Esto y las rosas.",
+    "No me mires mientras como. ...¿Hay más? Pregunto por nada."
+  ],
+  "Teleport": [
+    "*Teletransporte.* ¡Aquí! ...no, mejor aquí.",
+    "*Desaparece entre píxeles y aparece al lado.* Me aburría ese sitio.",
+    "*Teletransporte.* ¿Te has asustado? Admite que te has asustado."
+  ],
+  "Invisible": [
+    "*Se vuelve invisible.* ...¿A que no me ves? Pues yo a ti sí.",
+    "*Desaparece poco a poco.* Invisibilidad. Soy increíble, lo sé."
+  ],
+  "PorApp": {
+    "Access": ["Una base de datos. Como el historial de crímenes de mis padres. Igual de largo."],
+    "Bloc de notas": ["Apunta: \"Ellie es la mejor\". Ahora subráyalo. Dos veces."],
+    "CMD": ["Pantalla negra y letras raras. Me encanta: parece que estoy hackeando el multiverso."],
+    "Calculadora": ["Calcula cuántos universos he visitado. ...No, la calculadora no llega."],
+    "Excel": ["Una tabla para organizar cosas. Yo organizo el caos. Es distinto."],
+    "Explorador": ["Carpetas y más carpetas. Si encuentras una piedra oscura ahí dentro, NO la toques. Es mía."],
+    "Office Web": ["Internet. Otro multiverso. Con más memes."],
+    "OneDrive": ["La nube. Por ahí arriba viven los que se creen \"puros\". Hipócritas."],
+    "OneNote": ["Apunta: comprar natillas. Y rosas. En ese orden."],
+    "Outlook": ["¿Correo? Si es de alguien que se cree tu jefe, bórralo sin abrirlo. Hazme caso."],
+    "PowerPoint": ["Una presentación. Diapositiva uno: yo. Diapositiva dos: también yo. Fin."],
+    "Publisher": ["Haz un cartel de SE BUSCA con mi cara. En la mitad de los universos ya hay uno."],
+    "Teams": ["¿Una reunión? Silencio, gente seria, alguien mandando... Sácame de aquí."],
+    "Word": ["Escribe algo. Si es aburrido, te lo corrompo un poquito. Para darle vida."],
+    "YouTube": ["¡Pon algo con peleas! O música que suene fuerte. Nada de vídeos relajantes, por favor."]
+  },
+  "AlVenirDe": {},
+  "Opina": {}
+}

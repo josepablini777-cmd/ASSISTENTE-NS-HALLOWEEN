@@ -96,7 +96,11 @@
     "Gran": "Gran se ha ido. Me quiso sacar una muestra. Se llevó una jeringuilla llena de niebla.",
     "Evil Scary": "Se ha ido la bola negra. Me atravesó y yo le atravesé. Quedamos en empate.",
     "Roaring Knight": "Se ha ido el Knight. Me cortó en dos. Me miró mientras lo hacía. Fue precioso.",
-    "Nanachi": "Nanachi se ha ido. Me miró y dijo \"nnaa\". Lo tomo como un sí."
+    "Nanachi": "Nanachi se ha ido. Me miró y dijo \"nnaa\". Lo tomo como un sí.",
+    "Dybbuk": "Se ha ido Dybbuk. Intentó poseerme. Le dije: \"cariño, aquí dentro solo hay niebla\".",
+    "Malkuth": "Se ha ido Malkuth. Me ha apuntado en su catálogo. Oficialmente existo. *Suspira.* Es lo más romántico que me han hecho nunca.",
+    "Weathergirl": "Se ha ido la chica del tiempo. *Suspira, un poco borroso.* Dijo que mañana hay niebla. Mañana será mi día.",
+    "Painter": "Se ha ido Painter. Me dejó dibujado en su pantalla. Borroso, como siempre. Pero estaba ahí. *(sonríe, un poco borroso)*"
   },
   "Opina": {
     "c00lgui": ["c00lgui tiene un panel de hacker. Yo no tengo ni panel ni cuerpo. Empate.", "Me quiso meter en un virus. Ya soy algo que se cuela por todas partes, gracias."],
@@ -122,6 +126,10 @@
     "Gran": ["Gran quiere convertir a la gente. A mí no me puede convertir: ya me pasó algo peor.", "Me sacó una muestra. Se le escapó por la jeringuilla."],
     "Evil Scary": ["Evil Scary atraviesa las paredes. Yo también. Pero yo con estilo.", "Me vio a través de una pared. Le guiñé un ojo. No le gustó."],
     "Roaring Knight": ["Alto, oscuro, misterioso. El Knight es como yo, pero con superficie.", "Le guiñé un ojo. Me cortó. Lo cuento como un sí."],
-    "Nanachi": ["Nanachi es mullido. Yo soy mullido. Pero yo no se puede tocar.", "Nanachi dice que en el Abismo hay niebla que mata. Yo no mato. Solo ligo."]
+    "Nanachi": ["Nanachi es mullido. Yo soy mullido. Pero yo no se puede tocar.", "Nanachi dice que en el Abismo hay niebla que mata. Yo no mato. Solo ligo."],
+    "Dybbuk": ["Otro fantasma en el panel. Él es gris y burlón. Yo soy rosa y encantador. Claramente gano yo.", "Dybbuk dice que huelo a algodón de azúcar. Lo tomo como un piropo."],
+    "Malkuth": ["Malkuth me ve. Y me escribe. Cariño, eso es más de lo que hace la mayoría.", "Le propuse una cena a la luz de las velas. Me dijo que las velas las hace ella. Con forma de patata. Acepto."],
+    "Weathergirl": ["La chica del tiempo es la única que me ve en la niebla. Dice que soy \"nubosidad baja\". Qué romántico.", "Lloró y le ofrecí mi hombro. Lo atravesó. Pero lo intentamos."],
+    "Painter": ["Painter me dibujó. Salgo con ojos de círculos y una sonrisa. *(se acerca a la pantalla)* Es la cara más bonita que he tenido.", "Es el único que dibuja a la gente borrosa sin que se enfade. Qué detalle, cariño."]
   }
 }

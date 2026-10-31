@@ -1,0 +1,42 @@
+# voces de Painter (Pressure, voz de artdstuf): categoría|archivo|milisegundos|traducción
+intro|intro01.mp3|2530|¡Uy, una visita!
+hola|hola02.mp3|8550|¡Uy, una visita! No vienen muchas, y menos últimamente. Y antes de que me acuses de nada: no te odio.
+hola|hola03.mp3|5740|Oh, hola. Eh... Sebastian no tenía noticias para mí, ¿verdad?
+hola|hola04.mp3|2050|Solo pasaba a saludar.
+hola|hola05.mp3|3240|No esperaba que llegaras tan pronto.
+idle|idle06.mp3|7850|Solo quiero volver a hacer arte. Sebastian volverá a por mí cuando encuentre una salida. Tiene que hacerlo.
+idle|idle07.mp3|6240|Prometió que nos sacaría a los dos de aquí. De nuestra cárcel compartida.
+idle|idle08.mp3|3500|Oye, ¿quieres ver algo gracioso?
+idle|idle09.mp3|4050|¿Nunca tienes la sensación de que va a pasar algo malo?
+idle|idle10.mp3|4080|¿Oyes eso? Creo que viene algo.
+idle|idle11.mp3|4270|Eh, eh, mira por la ventana.
+idle|idle12.mp3|3050|¿Te apetece participar en mi nuevo proyecto artístico?
+idle|idle13.mp3|3500|Echo de menos... a mi creador.
+idle|idle14.mp3|6530|Sebastian, ¿a que no sabes lo que he hecho?
+clic|clic15.mp3|4430|Ah, qué aburrido eres.
+clic|clic16.mp3|5310|¡Venga ya! ¡No tienes ninguna gracia!
+clic|clic17.mp3|4170|Eh... te estás acercando mucho.
+clic|clic18.mp3|2050|Oye, ¿qué estamos haciendo?
+clic|clic19.mp3|2050|¿Qué estás haciendo?
+enfriar|enfriar20.mp3|3050|Reduciendo la potencia a un 15%.
+enfriar|enfriar21.mp3|2050|Claro, dame un segundo.
+enfriar|enfriar22.mp3|5870|Oh, claro. Apagando luces.
+enfriar|enfriar23.mp3|3050|Vale, vale, ya lo has dejado claro.
+calor|calor24.mp3|2820|Empiezo a sentirme un poco mal.
+calor|calor25.mp3|3050|¿Cuánto falta para que no tengamos que hacer esto?
+idle|mina26.mp3|9560|No quiero volver a minar. Es tan aburrido que no lo aguanto más.
+mina|mina27.mp3|4250|¡Socorro! ¡Socorro! ¡Sebastian! ¡Socorro!
+mina|mina28.mp3|4050|¡Paro! ¡Paro! ¡Ya paro!
+perdon|perdon29.mp3|4550|Perdón por las molestias que haya podido causar.
+perdon|perdon30.mp3|2180|Lo siento mucho.
+perdon|perdon31.mp3|4050|Yo... lo... siento.
+perdon|perdon32.mp3|2550|Siento que haya tenido que acabar así.
+minafin|minafin33.mp3|4000|Sigues vivo. Eso... eso está bien.
+minafin|minafin34.mp3|4050|Oh, yo... podría ser peor, supongo.
+minafin|minafin35.mp3|3050|No quería que te preocuparas por mí.
+listo|listo36.mp3|7280|Cuando salgamos, ¿crees que podría pintarte algo? Quizá... ¿un paisaje?
+app|app38.mp3|4050|En directo en tres, dos, uno.
+app|app39.mp3|3660|Eh, mira lo que tengo.
+app|app40.mp3|3050|Je, creo que tenemos compañía.
+app|app41.mp3|4050|¡Sorpresa! ¡Que te diviertas!
+app|app42.mp3|4280|Jajaja, demasiado fácil.

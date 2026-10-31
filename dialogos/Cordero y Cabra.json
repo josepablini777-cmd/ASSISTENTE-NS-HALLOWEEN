@@ -82,7 +82,11 @@
     "Evil Scary": "Cabra: Se fue la bola negra. Le recé al Cordero para que se fuera. Funcionó. Creo.",
     "Soft Fuzzy Man": "Cabra: Se fue el fantasma rosa. No quiso ser nuestro espíritu del culto. Dijo que era \"un fantasma libre\".",
     "Roaring Knight": "Cabra: Se fue el Knight. Hizo una Fuente en el templo. El Cordero quiere quedársela.",
-    "Nanachi": "Cabra: Se fue el conejo del Abismo. Rechazó ser obispo. Respeto."
+    "Nanachi": "Cabra: Se fue el conejo del Abismo. Rechazó ser obispo. Respeto.",
+    "Dybbuk": "Cabra: Se fue el fantasma. Quiso poseer al Cordero. El Cordero ya está poseído por algo más grande.",
+    "Malkuth": "Cabra: Se fue la bibliotecaria. Dice que ya sirvió a \"un Plan muy grande\". Suena a culto. De los serios.",
+    "Weathergirl": "Cabra: Se fue la profeta de la lluvia. Ha dicho que mañana escampa. Lo apuntamos como milagro.",
+    "Painter": "Cabra: Se fue el oráculo digital. Dibujó un pentagrama en la pantalla. Lo hemos puesto en el altar."
   },
   "Opina": {
     "c00lgui": ["Cabra: c00lkidd tiene su propio culto. \"Team c00lkidd\". Aficionado.", "Cordero: *Bendice el panel rojo. Sigue haciendo glitch. Qué raro.*"],
@@ -108,6 +112,10 @@
     "Evil Scary": ["Cabra: Evil Scary dice que era un rey. El Cordero también. No se llevan bien.", "Cordero: *Se esconde debajo de la Cabra.* · Cabra: ¡AAAAAAH!"],
     "Soft Fuzzy Man": ["Cabra: Soft Fuzzy Man ligó con el Cordero. El Cordero no sabe qué hacer. Yo tampoco.", "Cordero: *Le ofrece una corona.* · Cabra: Se le cae a través de la cabeza."],
     "Roaring Knight": ["Cabra: El Knight sale en una profecía. El Cordero también. No se llevan bien.", "Cordero: *Le ofrece unirse al culto.* · Cabra: El Knight cortó el folleto."],
-    "Nanachi": ["Cabra: Nanachi ya ha sido \"bendecido\" una vez. No quiere otra. Lo entiendo.", "Cordero: *Le ofrece una seta.* · Cabra: Nanachi dice que esa mata. Gracias, Nanachi."]
+    "Nanachi": ["Cabra: Nanachi ya ha sido \"bendecido\" una vez. No quiere otra. Lo entiendo.", "Cordero: *Le ofrece una seta.* · Cabra: Nanachi dice que esa mata. Gracias, Nanachi."],
+    "Dybbuk": ["Cabra: Un espíritu que posee cuerpos. Podría ser un buen seguidor. O un mal enemigo.", "Cordero: *Beee.* · Cabra: Dice que le ha lamido la corona. Hereje."],
+    "Malkuth": ["Cabra: Malkuth ha catalogado nuestro culto en \"Religiones raras\". Exijo una sección propia.", "Cordero: *Beee.* · Cabra: El Cordero dice que Malkuth le ha dado una patata. Ya es de los nuestros."],
+    "Weathergirl": ["Cabra: La chica del tiempo predice la lluvia. Eso es casi una profecía. La queremos en el culto.", "Cordero: *Beee.* · Cabra: El Cordero dice que le dio el paraguas. Ya es de los nuestros."],
+    "Painter": ["Cabra: Un ordenador que dibuja caras es casi un profeta. Lo apuntamos como sacerdote de bits.", "Cordero: *Beee.* · Cabra: El Cordero dice que le dibujó una oveja. Ya es de los nuestros."]
   }
 }

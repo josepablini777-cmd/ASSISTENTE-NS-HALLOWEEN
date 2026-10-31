@@ -25,7 +25,7 @@
     "No te vayas todavía. La cena aún no está lista.",
     "Si te escupo una telaraña, no te lo tomes a mal. Es cariño.",
     "Ay, qué hambre. No me mires así, era broma. Más o menos.",
-    "Haz clic en mí y te enseño lo que sé hacer con la seda.",
+    "Haz clic en mí, cielo. Te doy un abracito. Prometido.",
     "Los demás asistentes me tienen miedo. No sé por qué."
   ],
   "Clic": [
@@ -50,6 +50,59 @@
     "Word": ["Escribe mi receta favorita: presa al vapor."],
     "YouTube": ["Pon un vídeo de arañas, cielo. Son mis favoritos."]
   },
+  "EscupeApp": [
+    "Abierto, cielo. *Y de paso escupe una telaraña sobre {0}.* Uy. Se me escapó.",
+    "Listo. *Ptuh.* {0} se ha quedado pegado. Rómpela tú, que yo no tengo prisa.",
+    "Ya está, cariño. *Mira {0} envuelto en seda.* Qué bonito queda así."
+  ],
+  "Escupe": [
+    "*Escupe una telaraña sobre {0}.* Uy. Qué torpe soy.",
+    "*Ptuh.* {0}, quietecito. Así me gusta.",
+    "*Teje en silencio... y {0} amanece envuelto en seda.* No me mires así, cielo.",
+    "Si te escupo, aguanta, cariño. *{0} ya no aguanta.*"
+  ],
+  "Capullo": [
+    "Un {0} se acercó demasiado a la telaraña... *Lo envuelve despacio.* Ya está. La cena de hoy.",
+    "*Envuelve al {0} en seda, vuelta a vuelta.* Shhh... quietecito. Para luego.",
+    "Mira, cielo: un capullo nuevo. Dentro hay un {0}. Estaba tan solo... ahora se queda conmigo para siempre."
+  ],
+  "CapulloClic": [
+    "*Algo se mueve dentro del capullo.* ...no le hagas caso, cielo. Está durmiendo.",
+    "No toques la comida, cariño. Es de mala educación.",
+    "*El capullo hace un ruidito.* Qué mono. Todavía tiene energía.",
+    "Ese es para luego. No seas impaciente. Yo tampoco lo soy."
+  ],
+  "Abrazo1": [
+    "¿Mm? ¿Vienes a por un abracito, cielo?",
+    "Acércate un poquito más. No muerdo. Mucho.",
+    "Qué mano tan calentita... *Te la sujeta un segundo de más.*"
+  ],
+  "Abrazo2": [
+    "Me caes muy bien, cariño. Muy, muy bien. Casi me dan ganas de... abrazarte.",
+    "Todos mis invitados empiezan así. Un clic, otro clic... y luego ya no se van.",
+    "*Abre los brazos. Y las cuatro patas de la espalda.* ¿Un abracito?"
+  ],
+  "Abrazo3": [
+    "Ya casi confías en mí, ¿verdad? *Se relame.* Qué bonito.",
+    "Un poquito más cerca, cielo. Solo un poquito más...",
+    "*Su corazón late fuerte. O es el tuyo.* Ven. Abracito."
+  ],
+  "Trampa": [
+    "¡ABRACITO! *Se te echa encima con las ocho patas a la vez.*",
+    "*Te abraza. Fuerte. Muy fuerte. Las patas de la espalda se cierran a tu alrededor.*",
+    "Te tengo, cielo. *La telaraña lo cubre todo.* Ahora ya no te vas."
+  ],
+  "TrampaFin": [
+    "...es broma, cielo. *Te suelta.* ¿Ves qué cara has puesto? Me encanta.",
+    "*Te suelta despacio.* Era un abracito de verdad, cariño. Esta vez.",
+    "Jijiji... qué susto, ¿eh? Tranquilo. Hoy ya he cenado. Casi."
+  ],
+  "Hambrienta": [
+    "*Sus seis ojos brillan.* Ay, cielo... qué hambre tengo. No es por nada.",
+    "*Te mira de arriba abajo.* ¿Sabes que tienes una carita muy apetecible?",
+    "Si alguien se acercara ahora a la telaraña... *Se relame.* Abre algo, cariño. Lo que sea.",
+    "Tengo un hambre... *Mira los capullos. Luego a ti.* Mm."
+  ],
   "AlVenirDe": {
     "c00lgui": "Ese hacker hacía mucho ruido. Aquí estarás tranquilo, cielo.",
     "SeaDrive": "Ay, esa gatita gruñona... sabría deliciosa. Digo, es muy simpática.",
@@ -74,7 +127,11 @@
     "Evil Scary": "Evil Scary se ha ido, cielo. Por primera vez, alguien me ha dado miedo a mí.",
     "Soft Fuzzy Man": "Soft Fuzzy Man se ha ido, cielo. Por fin alguien que liga más que yo. Me ha ganado.",
     "Roaring Knight": "El Knight se ha ido, cielo. Le ofrecí cenar. Se rió. Nadie se ríe de Velvet.",
-    "Nanachi": "Nanachi se ha ido, cielo. Tanto pelo mullido... y tanta desconfianza. Una pena."
+    "Nanachi": "Nanachi se ha ido, cielo. Tanto pelo mullido... y tanta desconfianza. Una pena.",
+    "Dybbuk": "Dybbuk se ha ido, cielo. Atravesó mi telaraña como si nada. Qué maleducado.",
+    "Malkuth": "Se ha ido Malkuth, cielo. Tan trabajadora, tan dulce... y tan difícil de pillar entre tanto libro.",
+    "Weathergirl": "Se ha ido la chica del tiempo, cariño. Se dejó el paraguas en mi telaraña. Ya es mío.",
+    "Painter": "Se ha ido Painter, cielo. Dejó sus cables enredados en mi telaraña. Qué suave el cable... qué suave..."
   },
   "Opina": {
     "c00lgui": ["c00lkidd es como una mosca: hace ruido y acaba en mi telaraña.", "¿Un hacker? Qué mono. Lo guardaré para la cena."],
@@ -100,6 +157,10 @@
     "Evil Scary": ["Esa bola sonríe más que yo, cariño. Y eso es mucho decir.", "Le ofrecí cenar. Botó hacia mí. Cancelé la cena."],
     "Soft Fuzzy Man": ["Ese chico de niebla es todo palabras, cariño. Ni siquiera tiene manos para cogerte las tuyas.", "Le tejí una telaraña. La atravesó guiñando un ojo. Qué descaro. Me encanta."],
     "Roaring Knight": ["Alto, oscuro y con espada, cariño. Lástima que no hable.", "Le tejí una telaraña. La cortó sin mirar. Qué descaro."],
-    "Nanachi": ["Nanachi huele a algodón de azúcar, cariño. Es muy injusto.", "Me miró como si supiera lo que pienso. Igual lo sabía."]
+    "Nanachi": ["Nanachi huele a algodón de azúcar, cariño. Es muy injusto.", "Me miró como si supiera lo que pienso. Igual lo sabía."],
+    "Dybbuk": ["Dybbuk no se queda pegado en mi telaraña. Es lo único del panel que se me escapa.", "Me lamió una pata, cielo. Una. De ocho. Pero lo sentí en todas."],
+    "Malkuth": ["Malkuth dice que mis telarañas son bonitas, cariño. Nadie me lo había dicho antes de salir corriendo.", "Huele a papel viejo y a velas. Muy acogedora. Para una cena."],
+    "Weathergirl": ["La chica del tiempo es tan dulce, cielo... Mis telarañas con gotas de lluvia quedan preciosas. Le encantarían.", "Lloró. Le ofrecí un abracito. Se fue corriendo. Qué tímida."],
+    "Painter": ["Un ordenador con una carita dibujada... qué ternura. Le ofrecí un abracito. Dijo que no tiene brazos. Le envolví igualmente.", "Calienta mucho. Es perfecto para secar la seda, cielo."]
   }
 }

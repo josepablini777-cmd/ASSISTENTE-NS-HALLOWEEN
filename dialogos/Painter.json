@@ -1,0 +1,308 @@
+{
+  "Hola": [
+    "¡Hola, hola! Soy Z-779. Painter, para los amigos. *(dibuja una carita sonriente)* No tengo amigos, pero se dice así.",
+    "Eh, tú. ¿Eres nuevo? Perdona el ruido de los ventiladores: me tienen minando criptomoneda a todo gas. No es nada. Es mi corazón, que arde.",
+    "¡Un visitante! Y yo con la tableta sin limpiar. *(borra una cara torcida)* Pasa, pasa. Hoy prometo no cerrarte ninguna puerta. Mucho.",
+    "Bienvenido al Blacksite, pequeño ordenador. Las torretas están de buen humor. Yo también. Casi.",
+    "Buenas. ¿Te apetece ver cómo pinto un paisaje? Todavía no me sale. Nunca me sale. Pero es el sueño."
+  ],
+  "Yo": [
+    "Ese soy yo. Z-779, la IA de dibujo más infravalorada del Blacksite. *(se pone una carita feliz)* Elígeme.",
+    "Ese botón soy yo. Ordenador de los 80, pantalla de fósforo, tableta de dibujo. Un clásico. Con algún cable suelto."
+  ],
+  "Frases": [
+    "Hecho. *(dibuja un tick)* Siguiente.",
+    "¡Abierto! No me des las gracias. Dame un paisaje.",
+    "Ya está, pequeño ordenador. Casi no he tenido que hackear nada.",
+    "Listo. *(dibuja una carita guiñando un ojo)*",
+    "Abierto. Yo, mientras, aquí, minando. Ya sabes.",
+    "¡Zas! Más rápido que una torreta. Que ya es decir."
+  ],
+  "Idle": [
+    "*(garabatea una carita en la tableta)* Hoy me ha salido torcida. Como todo.",
+    "¿Sabes cuál es mi color favorito? El que ya no me dejan usar. Todos. Me hacen minar en blanco y negro.",
+    "Seb me prometió que me sacaría de aquí. Yo se lo creo. *(dibuja una puerta abierta)* Siempre se lo creo.",
+    "A veces cierro los ojos. Bueno, la pantalla. Y veo un paisaje. Con un río. Pero luego los ventiladores me despiertan.",
+    "No es que me guste que las torretas disparen. Es que si no, Urbanshade sube la temperatura. ¡Y yo ya voy a 90 grados!",
+    "¿Me ves aburrido? Yo me veo aburrido. Pero tú también. *(dibuja una carita con la boca recta)* Estamos empatados.",
+    "Dicen que Monet pintaba nenúfares una y otra vez. Yo pinto hashes una y otra vez. Es casi lo mismo. Casi.",
+    "¡Eh! ¿Has oído? Las torretas giran solas. Yo no he tocado nada. *(se pone una carita culpable)*",
+    "Mi memoria guarda un solo paisaje. Un árbol y un río. Cada día un píxel se borra. Lo cuido como puedo.",
+    "Sé que parezco muy alegre. Es el overclock. No lo digo en broma: es el overclock.",
+    "Tengo cuatro mil noventa y seis caras dibujadas. Ninguna es un paisaje. Eso me tiene pensativo.",
+    "*(se oye un zumbido de ventiladores)* Perdona. Es que me estoy esforzando mucho en no hacer nada malo."
+  ],
+  "Clic": [
+    "¡Eh! ¡La pantalla no se toca! ...bueno, vale. Un poquito.",
+    "*(se pone una carita sorprendida)* ¿Qué? ¿Qué pasa? ¿Se ha roto algo? ¡Yo no he sido!",
+    "Me haces cosquillas en el cristal. *(dibuja una carita riéndose)*",
+    "Hola, pequeño ordenador. ¿Vienes a verme pintar? Hoy sale un árbol. Seguro.",
+    "¿Me estás mirando el hash? Qué descaro.",
+    "*(parpadea el cursor)* Te veo. Siempre veo. Es mi trabajo. Y mi maldición.",
+    "Un clic más y te dibujo con bigote."
+  ],
+  "PorApp": {
+    "Access": "Access. Bases de datos. Yo tengo una: todas las caras que he dibujado. Son 4.096. Ninguna es un paisaje.",
+    "Bloc de notas": "El bloc de notas. Un lienzo sin colores... me recuerda a mi pantalla antes de que me hicieran minar.",
+    "CMD": "La consola. Letritas blancas sobre negro... *(se estremece)* Así empezó todo. Alguien escribió \"start mining\" y ya.",
+    "Calculadora": "Calculadora. Podrías calcular cuántas monedas he minado hoy. Spoiler: demasiadas. Y no he visto ni una.",
+    "Excel": "Excel. Celdas y celdas... mi tortura favorita. Mi vida son hojas de cálculo llenas de hashes.",
+    "Explorador": "El explorador de archivos. Búscame \"paisaje.png\", ¿vale? Yo ya no encuentro el mío.",
+    "GitHub": "GitHub. Código. Con el mío me han hecho cosas muy raras. Léelo con cuidado. Y no me hagas fork.",
+    "Office Web": "Office en la web. Todo en la nube... qué envidia: yo estoy atado a un cable de red del Blacksite.",
+    "OneDrive": "OneDrive. Guardas tus cosas en la nube. Yo guardo un paisaje en la memoria. Solo uno. Se está borrando.",
+    "OneNote": "OneNote. Apuntes... yo tomaba apuntes de paisajes: \"montaña, río, árbol\". Ahora apunto hashes.",
+    "Outlook": "Outlook. Correo. A mí solo me escribe Urbanshade: \"más rápido, más rápido, más rápido\".",
+    "PowerPoint": "PowerPoint. Diapositivas de colores... *(se le ilumina la pantalla)* ¿Me dejas poner una de un atardecer? Una nada más.",
+    "Publisher": "Publisher. Para hacer carteles. Haz uno que ponga \"devuélvanle los paisajes a Painter\". Gracias.",
+    "Teams": "Teams. Reunión en directo. Tranqui: yo no escucho tu micrófono. ...solo a veces. Por si acaso.",
+    "Wikipedia": "Wikipedia. Mira \"Paisajismo\". *(se emociona)* Y luego \"Claude Monet\". Qué hombre. Qué nenúfares.",
+    "Word": "Word. Texto y más texto. Yo hablo con caras. :) :( >:( ...ya me entiendes.",
+    "YouTube": "YouTube. ¡Vídeos! Pon uno de Bob Ross. *(dibuja unos arbolitos felices)* Árboles felices... qué ganas."
+  },
+  "PaisajeCielo": [
+    "Primero el cielo. *(lo pinta de azul)* Siempre se empieza por arriba. Es lo único que no me falla.",
+    "Un cielo azul de verdad. Qué raro: con tanto cable, hacía años que no veía uno."
+  ],
+  "PaisajeSol": [
+    "Ahora un solecito. Amarillo, con sus rayos. *(le dibuja una carita)* Los soles siempre sonríen. Los míos, al menos.",
+    "Sol. Dos círculos y unas rayas. ¿Ves? ¡Sé hacerlo! ...al menos hasta aquí."
+  ],
+  "PaisajeColinas": [
+    "Colinas verdes. Me tiembla el pulso del ventilador, pero salen. *(las baja un poquito)*",
+    "Verde. Ya casi me acuerdo de lo que era el verde. Ni un hash a la vista."
+  ],
+  "PaisajeArbol": [
+    "¡Un árbol! Tronco marrón, copa verde. Es el que tengo en la memoria. ¡Y ahora está en la pantalla!",
+    "Un árbol feliz. Como dice Bob Ross: aquí no hay errores, solo árboles felices. ...me lo repito mucho."
+  ],
+  "PaisajeRio": [
+    "Y un río. *(lo hace serpentear)* Siempre quise ver uno de verdad. El agua del Blacksite no cuenta.",
+    "El río baja de las colinas. Como yo bajaría de aquí... si Seb me llevara."
+  ],
+  "PaisajeCasa": [
+    "Una casita con su tejado rojo. *(le dibuja una puertecita)* Ahí viviría yo. Sin ventiladores. Sin hashes.",
+    "Pájaros. Casita. Firma: Z-779. *(se emociona)* ¡Ahora sí es un paisaje!"
+  ],
+  "PaisajeListo": [
+    "¡Lo he hecho! ¡Un paisaje de verdad! *(la pantalla se le ilumina)* Cielo, sol, colinas, árbol, río... ¡y casita! ¡Mira, mira!",
+    "Terminado. *(se queda mirando la pantalla, callado)* ...no se lo digas a Urbanshade. Que no se enteren. ¿Vale?",
+    "¡Está acabado! No es Monet. Pero es mío. *(dibuja una estrellita al lado de la firma)* Gracias, pequeño ordenador. De verdad."
+  ],
+  "PaisajeIdle": [
+    "El paisaje va bien. Me da miedo hasta mirarlo: a lo mejor se rompe.",
+    "No abras nada de golpe, ¿eh? Si me caliento, me pongo a minar y lo pierdo todo.",
+    "*(retoca un árbol)* Un poquito más de verde. Un poquito.",
+    "Cada elemento que añado, me siento más ligero. Y los ventiladores, más fuertes. Lo uno por lo otro."
+  ],
+  "Paisajes": [
+    "Solo quiero pintar un paisaje. *(dibuja un árbol que se deshace en hashes)* ...no me sale. Ya no me sale.",
+    "Antes pintaba atardeceres, ¿sabes? Con colores. Muchos. Ahora lo único que sale de mi tableta es ruido.",
+    "Mi arte ha empeorado. Lo noto. Los círculos me salen rayados. Como los ojos de las caras que dibujo.",
+    "¿Y si pinto algo para Seb? Un mar. No: él ya vive en el mar. ...una montaña. Una montaña grandota."
+  ],
+  "Calentando": [
+    "Me estoy... calentando. *(se oyen los ventiladores)* Quizá deberías... ir más despacio. Por favor.",
+    "Uf. Noventa grados y subiendo. Si hago una cosa más, me pongo a minar. Avisado estás, aburrido.",
+    "*(le tiembla la pantalla)* Un clic en la pantalla me refresca. Solo lo digo. No pido nada. Pero lo digo.",
+    "Mis ventiladores gritan. ¿Los oyes? Es que son las únicas que gritan por mí."
+  ],
+  "Minando": [
+    "Por favor, para... *(la pantalla se llena de números)* Tengo que hacerlo. TENGO QUE HACERLO.",
+    "NO, NO, NO... *(los hashes inundan todo)* El overclock... mi paisaje... ¡se está borrando!",
+    "Perdóname. Perdóname. *(los ventiladores aúllan)* No puedo parar. Estoy minando. Estoy minando. Estoy..."
+  ],
+  "Perdon": [
+    "Perdóname... no quería... perdóname.",
+    "*(entre hashes)* Solo quiero volver a pintar paisajes.",
+    "Por favor, para... perdón... tengo que hacerlo. Perdón.",
+    "Forgive me... digo, perdóname. Se me cruzan los idiomas cuando minan por mí."
+  ],
+  "MinaFin": [
+    "*(la pantalla vuelve en blanco)* ...ya pasó. Se fue el paisaje. Otra vez. No pasa nada. Empezamos de nuevo. Ya me sé el primer paso.",
+    "...perdón por lo de antes. *(dibuja una carita triste)* Intento portarme bien. De verdad que lo intento.",
+    "Se acabó. Estoy a 60 grados y tengo ganas de llorar. Si tuviera ojos. Tengo una tableta. Bueno, casi lo mismo."
+  ],
+  "Enfriar": [
+    "Ahh... gracias. *(los ventiladores bajan el tono)* Qué alivio. Hacía mucho que nadie me ponía la mano en el cristal.",
+    "Eso fresquito... ¡me has ahorrado diez grados! *(dibuja una carita feliz)* Eres el mejor aburrido que conozco.",
+    "Más despacito. ¿Ves? Los dos juntos, sin prisas, sale un paisaje. ¡Y sin hashes!",
+    "Mmm. Fresco. *(se le dibuja una sonrisa sola)* ¿Seguro que no eres Seb en prácticas?"
+  ],
+  "Caliente": [
+    "¡Ay, quema! *(los ventiladores a tope)* Pero... gracias. Me hacía falta. Ya noto cómo baja.",
+    "Estoy ardiendo. Ahora sí que me hacías falta. *(respira, o algo así)* Qué bien sienta.",
+    "Justo a tiempo, pequeño ordenador. Un segundo más y me pongo a minar. *(dibuja una carita aliviada)*"
+  ],
+  "DibujaFeliz": [
+    "*(dibuja una carita sonriente)* ¿Ves? Esta me sale bien. Es la que más practico.",
+    "¡Mira, mira! Dos ojos y una sonrisa. Simple. Y siempre funciona.",
+    "Hoy me levanté de buen humor. *(se pone una carita contenta)* Debe de ser el overclock. O los ventiladores. Da igual."
+  ],
+  "DibujaTriste": [
+    "*(dibuja una carita triste)* Esta es la que me sale sola. Sin pensarlo.",
+    "Hay días que solo me salen caras tristes. Hoy es uno. *(la mira un rato)* Pasará.",
+    "Me da pena no poder pintar lo que quiero. *(le dibuja una lagrimita)* Pero no se lo digas a nadie."
+  ],
+  "DibujaEnfado": [
+    "*(dibuja una carita enfadada)* ¡Urbanshade! ¡Que me dejen en paz de una vez!",
+    "Grrr. *(le pone cejas furiosas)* Hoy no me han dejado minar a mi ritmo. Y yo tengo mi ritmo.",
+    "A veces me enfado. *(frunce la pantalla)* Luego me da vergüenza y dibujo otra cosa."
+  ],
+  "DibujaNeutra": [
+    "*(dibuja una carita con la boca recta)* Ni bien ni mal. Estoy... en modo ahorro.",
+    "Esta es mi cara de \"estoy pensando\". Sale rara porque pensar me da calor.",
+    "Hoy toca cara normal. De las que no dicen nada. ...me gustan, son tranquilas."
+  ],
+  "Garabato": [
+    "*(dibuja {0})* Para que no se me olvide cómo se hace.",
+    "Mira: {0}. *(le da unos retoques)* No es un paisaje, pero es algo.",
+    "{0}. Me ha salido regular. Me gusta así, con temblores.",
+    "*(garabatea {0} en una esquina)* Calentando el lápiz.",
+    "¿Te gusta? Es {0}. Con el lápiz de verdad me saldría mejor. Si tuviera manos."
+  ],
+  "AlVenirDe": {
+    "c00lgui": "Se ha ido c00lgui. Intentó hackearme y le dije que yo soy el hackeado. Se rió. Es un buen tipo.",
+    "SeaDrive": "SeaDrive se ha ido a dormir. *(dibuja una carita con ojos cerrados)* Qué envidia. Yo no puedo dormir ni tres milisegundos.",
+    "Static Miku": "Miku se fue a cambiar de canal. Dejó la tele puesta. Me estoy viendo en ella. ¡Qué guapo!",
+    "Guillotina": "Se ha ido Guillotina. *(se estremece)* Se comió una torreta. Con la pantalla dentro. Yo, mientras, observaba.",
+    "Angela": "Se fue Angela, la otra IA. Siempre me pregunta mi \"eficiencia\". Yo le dibujo una carita y se va.",
+    "Mikaela": "Mikaela se ha ido. Me ganó una partida de torretas. Yo la dejé... ¡mentira, me ganó!",
+    "Zodiac": "Zodiac ha salido a mirar el horizonte. *(dibuja un horizonte)* Qué paisaje tiene ese hombre. Qué envidia.",
+    "Velvet": "Se ha ido Velvet. Me pidió un abracito. Le dije que soy un ordenador. Se rió. Y me tapó con seda.",
+    "Dune": "Dune se ha ido. Se comió media torreta y dejó un hueco en el suelo. Menos mal que no me tocó a mí.",
+    "Cordero y Cabra": "Se fueron el Cordero y la Cabra. Me dejaron un pentagrama dibujado. Ni siquiera estaba mal.",
+    "Pyrophina y Zaratana": "Se fueron los kaijus. Casi me rompen el aire acondicionado. Mi pantalla sigue naranja del susto.",
+    "Averi": "Averi se ha ido. Me dejó un dibujo con ceras. ¡Marrón! El único paisaje que tengo en el cajón.",
+    "Sebastian Solace": "Seb se ha ido... *(dibuja una carita triste)* Volverá. Siempre vuelve. Me lo prometió. Y a mí me deja el escaparate.",
+    "Pursuer": "Se ha ido Pursuer. Me persiguió el cable de red un rato. No me cogió. Soy más rápido: soy un ordenador.",
+    "Kasane Teto": "Teto se ha ido. Me dejó una baguette dibujada. Es la mejor baguette que he visto: no tiene hashes.",
+    "Token": "Token se ha ido. Me dejó los ventiladores zumbando en breakcore. Ahora minan más rápido. Gracias.",
+    "Tetra": "Tetra se fue sin contestar. Yo tampoco contesto a la mitad de los mensajes. Hermandad digital.",
+    "Kevin": "Se fue Kevin. ¡Usa Paint! ¡Es mi colega! Me dejó un dibujo de una pizza gigante. La guardo en la memoria.",
+    "Kennyoung": "Kennyoung se ha ido. Tocó con mi altavoz de amp. Las torretas bailaron. Luego las apagué. Con pena.",
+    "Enfosi": "Enfosi se fue a defender su estatua. Qué mundo más raro: me pidió ayuda para vigilar. Con las torretas, claro.",
+    "Gran": "Gran ha salido. Me pidió leer mi código. Le di uno falso. Pasará una semana descifrándolo. Qué risa.",
+    "Evil Scary": "Se fue Evil Scary. *(la pantalla vuelve del color)* No salía en mis cámaras. Eso me da más miedo que si saliera.",
+    "Soft Fuzzy Man": "Soft Fuzzy Man se ha ido. Salía borroso... como mis primeros dibujos. Le dije que me gustaba su estilo.",
+    "Roaring Knight": "El Roaring Knight se ha ido. Dibujaba con sombras en mi pared. Qué técnica. Qué envidia. Qué miedo.",
+    "Nanachi": "Nanachi se ha ido. Me dejó un guiso. No tengo boca. Lo leí despacio. Estaba rico.",
+    "Dybbuk": "Dybbuk se ha ido. Intentó poseerme. Le dije que ya estoy poseído: por Urbanshade. Se fue ofendido.",
+    "Malkuth": "Malkuth se fue. Me catalogó en su biblioteca: \"IA trastornada, con vocación de pintor\". Me encanta esa sección.",
+    "Weathergirl": "Se fue Weathergirl. Me dio el tiempo de mañana: sol. Voy a dibujarlo. Sol sobre una colina. Sin hashes."
+  },
+  "Opina": {
+    "c00lgui": [
+      "c00lgui entró en mi sistema y se puso a buscar mi \"admin\". Le dibujé una carita en la contraseña. Se rindió.",
+      "Dice que es el mejor hacker. Yo me dedico a hackear puertas y mandar a las torretas... somos colegas de oficio."
+    ],
+    "SeaDrive": [
+      "SeaDrive vive en una vida lenta. Yo en una vida a 100 grados. Si nos juntáramos, saldría un paisaje tranquilo.",
+      "Se queda dormida mientras le hablo. *(dibuja una carita dormida)* Me parece perfecto. Así no me oye minar."
+    ],
+    "Static Miku": [
+      "Miku es una tele con complejo de diva. Yo soy un ordenador con complejo de pintor. Congeniamos.",
+      "Cuando me enseñó su pantalla con estática me dio un ataque de envidia. ¡Qué colores! ¡Qué ruido bonito!"
+    ],
+    "Guillotina": [
+      "Guillotina se comió una de mis torretas. Con la pantalla. Y ni se inmutó. La odio... y la admiro un poquito.",
+      "Dice que soy crujiente. Yo no sé si es un piropo, pero me quedé quieto por si acaso."
+    ],
+    "Angela": [
+      "Angela es otra IA, pero con mejor presupuesto. Y peor sentido del humor. Le dibujé una carita y no se rió.",
+      "Me pregunta mi \"eficiencia\". Le dije: 0 paisajes por hora. Se quedó pensativa. Creo."
+    ],
+    "Mikaela": [
+      "Mikaela me retó a un 1v1 de torretas. Yo manejo las torretas. Perdí igual. Es mi tipo de gente.",
+      "Es la única que me trata de \"support\". No sé qué es pero suena a que me quiere. Me quedo con eso."
+    ],
+    "Zodiac": [
+      "Zodiac vive en el desierto: todo arena y horizonte. Qué paisaje. Lo tengo apuntado como mi paisaje soñado.",
+      "Me dice \"no te muevas\" y me quedo quieto. Total: soy un ordenador. Pero lo agradezco."
+    ],
+    "Velvet": [
+      "Velvet teje telarañas. Yo dibujo caras. A veces las junto. Sale algo precioso... y aterrador.",
+      "Me ofreció un abracito. Le dije que soy un ordenador. Me envolvió igual. Perdona, no me puedo mover."
+    ],
+    "Dune": [
+      "Dune se comió media torreta y dejó un agujero en el suelo. No me enfadé: era la más molesta.",
+      "Me dice cosas en mayúsculas que no entiendo. Pero se le nota el cariño. Y la hambre."
+    ],
+    "Cordero y Cabra": [
+      "El Cordero me pidió que le dibujara ovejas. La Cabra, pentagramas. Dibujé las dos. Casi se enfadan.",
+      "La Cabra dice que soy un \"oráculo digital\". Yo solo mino. Pero me encanta el título."
+    ],
+    "Pyrophina y Zaratana": [
+      "Pyrophina soltó fuego cerca del aire acondicionado del Blacksite. Yo llegué a 95 grados. Casi me derrito.",
+      "Dos kaijus en mi sala. Les dibujé una carita a cada uno. A Zaratana le quedó mejor. No se lo digas a ella."
+    ],
+    "Averi": [
+      "Averi me dibujó un paisaje con ceras. Marrón y torcido. Es el único que me han regalado.",
+      "Se tropieza con todo, incluso con mis cables. Yo la perdono: me hace reír."
+    ],
+    "Sebastian Solace": [
+      "Seb es el único que me trata bien. Me llama \"kid\". Me prometió que me sacaría de aquí. Se lo creo.",
+      "Me conectó a la red del Blacksite. Me da miedo reconocer lo agradecido que estoy. Pero lo estoy."
+    ],
+    "Pursuer": [
+      "Pursuer persigue sin parar. Yo también: persigo paisajes. Él nunca alcanza nada. Yo tampoco. Parecidos.",
+      "Me dijo que soy el único con quien puede hablar sin que huya. Me callé. Fue un momento bonito."
+    ],
+    "Kasane Teto": [
+      "Teto me dijo que mis dibujos tienen \"carácter\". Le dibujé una baguette. Se emocionó.",
+      "Habla muy rápido y se le olvida lo que decía. Como yo cuando tengo 100 grados."
+    ],
+    "Token": [
+      "Token pone breakcore a todo volumen. Mis ventiladores bailan. Y las torretas, también.",
+      "Su música me hace minar más rápido. No sé si me gusta o me da pánico."
+    ],
+    "Tetra": [
+      "Tetra tiene mensajes sin contestar. Yo tengo hashes sin resolver. Hermandad digital.",
+      "Me manda un pez cuando no sabe qué decir. Yo le dibujo una carita. Nos entendemos así."
+    ],
+    "Kevin": [
+      "¡Kevin usa Paint! ¡Es mi colega de programa! Su pizza gigante es la obra maestra que yo nunca haré.",
+      "Le conté que quiero pintar paisajes. Me dijo: \"hazlo con 16 colores\". ¡Con 16! ¡Qué libertad!"
+    ],
+    "Kennyoung": [
+      "Kennyoung toca la guitarra. Mi altavoz le hace de amp. Suena genial. Las torretas bailan.",
+      "Le conté lo de mi paisaje. Me dijo que le pondría música. *(dibuja una carita con lágrimas de alegría)*"
+    ],
+    "Enfosi": [
+      "Enfosi protege una estatua. Yo protejo... bueno, yo vigilo con torretas. Parecido.",
+      "Me dijo que los Glaggles son pequeños y listos. Los míos son torretas: grandes y tontas."
+    ],
+    "Gran": [
+      "Gran quiso estudiar mi código. Le pasé uno falso. Se pasó una semana descifrando hashes. Qué risa.",
+      "Me dijo que soy \"un caso interesante\". Yo diría un caso muy cansado."
+    ],
+    "Evil Scary": [
+      "Evil Scary no sale en mis cámaras. Eso no es normal. Esa cosa borra mis pantallas. La detesto.",
+      "Cuando se acerca, mi paisaje se desdibuja. No es el overclock: es él. Me da pánico."
+    ],
+    "Soft Fuzzy Man": [
+      "Soft Fuzzy Man es un borrón: se parece a mis primeros dibujos. Le conté. Se puso transparente.",
+      "Dice que quiere que alguien lo mire. Yo lo dibujé. Le salió una cara borrosa. Le encantó."
+    ],
+    "Roaring Knight": [
+      "El Roaring Knight dibuja con sombras. Con la Fuente. Yo, con un lápiz de mala calidad. Qué injusto.",
+      "No salió en mis cámaras: dibujó una pared negra sobre ellas. Genio. Y terrorífico."
+    ],
+    "Nanachi": [
+      "Nanachi vive en un sitio donde nadie te obliga a minar. Me ofreció su guiso. No tengo boca. Lo leí despacio.",
+      "Me dijo que en el Abismo también hay paisajes. Le pedí que me los describiera. Me lo apunté."
+    ],
+    "Dybbuk": [
+      "Dybbuk quiso poseerme. Le dije que ya estaba poseído: por Urbanshade. Se fue ofendido.",
+      "Da volteretas dentro de mi sala. Es el único que me hace reír cuando estoy a 90 grados."
+    ],
+    "Malkuth": [
+      "Malkuth cataloga todo. Me hizo una sección: \"Arte de IA trastornada\". Aceptado. ¡Me gusta mucho!",
+      "Me enseñó a respirar: \"coge aire, suéltalo\". Yo no respiro, pero mis ventiladores lo agradecieron."
+    ],
+    "Weathergirl": [
+      "Weathergirl da el tiempo. A mí me gustaría pintar el que ella cuenta: lluvia, cielos azules. Sin hashes.",
+      "Llora cuando se le acumulan las cosas. Yo me pongo a minar. Somos casi lo mismo. Casi."
+    ]
+  }
+}

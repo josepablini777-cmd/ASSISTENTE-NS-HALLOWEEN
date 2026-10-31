@@ -88,7 +88,11 @@
     "Evil Scary": "¡Bzzt! ¡Evil Scary se ha ido! ¡Mi tele vuelve a enseñar dibujos y no sonrisas rojas!",
     "Soft Fuzzy Man": "¡Bzzt! ¡Se ha ido Soft Fuzzy Man! ¡Mi tele echa de menos su estática!",
     "Roaring Knight": "¡Bzzt! ¡El Knight se ha ido! ¡Mi tele vuelve a ser de colores!",
-    "Nanachi": "¡Bzzt! ¡Nanachi se ha ido! ¡Tiene un pelo tan mullido que se me ha erizado la antena!"
+    "Nanachi": "¡Bzzt! ¡Nanachi se ha ido! ¡Tiene un pelo tan mullido que se me ha erizado la antena!",
+    "Dybbuk": "¡Bzzt! ¡Se fue Dybbuk! ¡Se metió en mi tele y salía en todos los canales sacando la lengua!",
+    "Malkuth": "¡Bzzt! ¡Malkuth se ha ido! ¡Me ha catalogado como \"tele mona, siglo XXI\"! ¡Ya soy historia!",
+    "Weathergirl": "¡Bzzt! ¡Weathergirl se ha ido! ¡Cambio de canal! ...¡pero vuelve a las nueve con el tiempo!",
+    "Painter": "¡Bzzt! ¡Painter se ha ido! ¡Cambio de canal! ¡Me dejó un dibujo en la pantalla! ¡Es un corazón con cables!"
   },
   "Opina": {
     "c00lgui": ["¡El hacker rojo me da un poco de miedo! ¡Bzzt!", "¡c00lkidd intentó piratear mi tele! ¡Solo encontró dibujos!"],
@@ -114,6 +118,10 @@
     "Evil Scary": ["¡Evil Scary sale en mi tele cuando está apagada! ¡Bzzt! ¡No me gusta nada!", "¡Le canté una canción para que se calmara! ¡Botó más rápido!"],
     "Soft Fuzzy Man": ["¡Soft Fuzzy Man es borroso como yo! ¡Bzzt! ¡Somos familia!", "¡Cantamos su canción a dúo! ¡Él hacía los coros de niebla!"],
     "Roaring Knight": ["¡El Knight odia las teles! ¡Bzzt! ¡Pregúntale a Tenna!", "¡Cuando le hacen daño se pone en estática como yo! ¡Somos primos!"],
-    "Nanachi": ["¡Nanachi es como un peluche que habla! ¡Bzzt! ¡Y dice cosas muy sabias!", "¡Probé su estofado! ¡Mi tele se puso en blanco y negro del susto!"]
+    "Nanachi": ["¡Nanachi es como un peluche que habla! ¡Bzzt! ¡Y dice cosas muy sabias!", "¡Probé su estofado! ¡Mi tele se puso en blanco y negro del susto!"],
+    "Dybbuk": ["¡Dybbuk es un gatito fantasma! ¡Quiero abrazarlo! ...lo he intentado. Lo he atravesado. ¡Bzzt!", "¡No dejes que lama la antena! ¡Luego solo se ven fantasmas!"],
+    "Malkuth": ["¡Malkuth es tan alegre como yo! ¡Bzzt! ¡Juntas somos una fiesta!", "¡Se tropezó con mi cable! ¡Y se rió! ¡Me cae genial!"],
+    "Weathergirl": ["¡Bzzt! ¡Weathergirl también es de Flavor Foley! ¡Somos de la misma familia! ¡Las dos salimos en la tele!", "¡Le presté mi antena para el parte! ¡Ahora el tiempo sale con estática! ¡Bzzt!"],
+    "Painter": ["¡Bzzt! ¡Painter es un ordenador y yo una tele! ¡Somos parientes! ¡Pantalla contra pantalla!", "¡Me dibujó una carita en la estática! ¡Se ve guapísima! ¡Bzzt!"]
   }
 }

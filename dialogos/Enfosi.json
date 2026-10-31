@@ -80,7 +80,11 @@
     "Evil Scary": "¡Evil Scary se ha ido! ¡La estatua sigue en pie! ¡Por poco!",
     "Soft Fuzzy Man": "¡Soft Fuzzy Man se ha ido! ¡Por un momento pensé que era un Enphosian! ¡Solo era un ligón!",
     "Roaring Knight": "¡El Knight se ha ido! ¡La estatua sigue en pie! ¡No se ha vuelto de piedra nadie más!",
-    "Nanachi": "¡Nanachi se ha ido! Distinguía a los Enphosians a la primera. ¡Qué ojo!"
+    "Nanachi": "¡Nanachi se ha ido! Distinguía a los Enphosians a la primera. ¡Qué ojo!",
+    "Dybbuk": "¡Dybbuk se ha ido! Revisad la estatua... ¡Tiene babas! ¡Pero sigue en pie!",
+    "Malkuth": "¡Malkuth se ha ido! ¡Ha apuntado la historia de la estatua entera! ¡Hasta los Glaggles salen con nombre!",
+    "Weathergirl": "¡Weathergirl se ha ido! ¡Ha dicho que mañana despejado! ¡Día perfecto para defender la estatua!",
+    "Painter": "¡Painter se ha ido! ¡Le dibujé una estatua en su pantalla! ¡La dibujó tan bien que casi parecía viva!"
   },
   "Opina": {
     "c00lgui": ["c00lgui parpadea en rojo. En Enfosi, un color raro es una imperfección. Golpéalo.", "c00lgui no tiene cara. Le falta la cara. Eso es de manual: es un falso."],
@@ -106,6 +110,10 @@
     "Evil Scary": ["¡Evil Scary no es un Glaggle ni un Enphosian! ¡Es mucho peor!", "Ni los Enphosians se acercan a Evil Scary. Ellos sí saben lo que es."],
     "Soft Fuzzy Man": ["¡Soft Fuzzy Man defiende la estatua fatal! ¡Todo el mundo le atraviesa!", "¡Los Glaggles le siguen! ¡Creen que es algodón de azúcar!"],
     "Roaring Knight": ["¡El Knight convierte a la gente en estatuas! ¡Mi estatua no necesita compañía!", "¡Los Enphosians huyen del Knight! ¡Ellos sí que saben!"],
-    "Nanachi": ["Nanachi ve cosas que los demás no ven. ¡Sería el mejor defensor de la estatua!", "Le enseñé un Glaggle y dijo: \"ese no es lo que parece\". ¡Y tenía razón!"]
+    "Nanachi": ["Nanachi ve cosas que los demás no ven. ¡Sería el mejor defensor de la estatua!", "Le enseñé un Glaggle y dijo: \"ese no es lo que parece\". ¡Y tenía razón!"],
+    "Dybbuk": ["Dybbuk se mete dentro de los Glaggles. ¡Así no hay forma de saber quién es un disfraz!", "Un gato que lo esquiva todo. Si defendiera la estatua, sería invencible."],
+    "Malkuth": ["¡Malkuth se lo aprende todo! ¡Sería la mejor guía de la estatua!", "Le enseñé un Enphosian disfrazado. Lo catalogó como \"impostor, gracioso\". ¡Ja!"],
+    "Weathergirl": ["¡Weathergirl nos avisa cuando va a llover sobre la estatua! ¡Los Glaggles odian mojarse!", "¡Le enseñé un Enphosian disfrazado de nube! ¡Lo metió en el parte!"],
+    "Painter": ["¡Painter es de los pocos que ve los Glaggles sin asustarse! ¡Hace carita feliz y todo!", "¡Dice que quiere pintar paisajes! ¡Yo le dije: \"empieza por la estatua\"! ¡Se rió con los ventiladores!"]
   }
 }

@@ -75,7 +75,11 @@
     "Evil Scary": "La bola negra se fue. Seis balas. Cero agujeros. Me voy a echar una siesta.",
     "Soft Fuzzy Man": "La nube rosa se fue. Seis balas. Seis agujeros en el aire. Ni uno en él.",
     "Roaring Knight": "El caballero negro se fue. Seis balas. Seis sombras. Ni un agujero.",
-    "Nanachi": "El conejo del Abismo se fue. Me curó la mano. No le disparé. Es un detalle."
+    "Nanachi": "El conejo del Abismo se fue. Me curó la mano. No le disparé. Es un detalle.",
+    "Dybbuk": "El fantasma se fue. Seis balas, seis volteretas. Me voy a echar una siesta.",
+    "Malkuth": "La bibliotecaria se fue. Le dije \"no te muevas\" y no se movió en diez minutos. Por fin alguien que me hace caso.",
+    "Weathergirl": "Se fue la del tiempo. Dijo que mañana sopla viento. Me pondré el sombrero.",
+    "Painter": "Se fue el ordenador. Le conté mi paisaje: arena, horizonte y un caballo. Dibujó el caballo. Le quedó torcido y precioso."
   },
   "Opina": {
     "c00lgui": ["¿Un hacker? En mis tiempos los forajidos daban la cara.", "*Le dispara al panel rojo. Sigue funcionando. Qué raro.*"],
@@ -101,6 +105,10 @@
     "Evil Scary": ["¡No te muevas, bola! ...SE MUEVE. A SALTOS. ¡NO LO SOPORTO!", "Es lo único del oeste que corre más que mis balas. Y no corre. Bota."],
     "Soft Fuzzy Man": ["¡No te muevas! ...¡NO SE MUEVE, FLOTA! ¡ES PEOR!", "Me dio las gracias por dispararle. Este oeste está fatal."],
     "Roaring Knight": ["¡No te muevas! ...SE MUEVE Y DEJA SOMBRAS. ¡A CUÁL DISPARO!", "Ese no es del oeste. En el oeste se avisa antes de disparar. Él no avisa."],
-    "Nanachi": ["Ese conejo me dijo que si no te mueves te comen. Ahora no sé qué hacer con mi vida.", "Nanachi me vendó la mano sin preguntar. Gente así no queda en el oeste."]
+    "Nanachi": ["Ese conejo me dijo que si no te mueves te comen. Ahora no sé qué hacer con mi vida.", "Nanachi me vendó la mano sin preguntar. Gente así no queda en el oeste."],
+    "Dybbuk": ["Dybbuk es de mi mundo. Allí tampoco le daba nunca.", "\"¡No te muevas!\". Se movió. Siempre se mueve."],
+    "Malkuth": ["Malkuth me ha catalogado como \"vaquero, muy dramático\". ...no le falta razón.", "Se tropieza más que un potro recién nacido. Pero siempre se levanta. Eso es tener agallas."],
+    "Weathergirl": ["La chica del tiempo dice que viene tormenta. En el desierto eso es un milagro. Le debo una.", "Lloró. Yo también lloro. A solas. En el caballo."],
+    "Painter": ["Un ordenador que sueña con pintar paisajes. En el desierto eso es poesía pura. Nos entendemos.", "Le pedí que me dibujara un revólver. Me hizo una carita con sombrero. Ni tan mal."]
   }
 }

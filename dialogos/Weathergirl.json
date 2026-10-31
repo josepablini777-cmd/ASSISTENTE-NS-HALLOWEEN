@@ -1,0 +1,357 @@
+{
+  "Hola": [
+    "B-buenas. Bienvenidos al parte del tiempo. Soy Eleanor. *Mira a cámara.* ¿Se me oye?",
+    "Hola. *Se coloca la coleta.* Hoy... hoy toca el tiempo. Y tú. Bueno, el tiempo.",
+    "Conectamos en directo. Aquí Eleanor Forte con el parte. ¿No viste las noticias hoy?",
+    "Buenas tardes. Llueva o haga sol, el parte empieza ya.",
+    "*Ordena el guion.* Ya estoy. Ya estoy lista. Bienvenido al plató."
+  ],
+  "Yo": [
+    "Esa soy yo... *Se pone roja.* Salgo bien en la foto, ¿no?",
+    "Es mi ficha. Eleanor Forte, el tiempo. Elígeme... si quieres. Solo si quieres."
+  ],
+  "Frases": [
+    "Abierto. *Sonríe a cámara.* Siguiente noticia.",
+    "Hecho. Conectamos con tu escritorio... ya.",
+    "Listo. Sin nubes en el horizonte.",
+    "Ya está. Previsión: todo en orden.",
+    "Abierto. *Apunta en el guion.* Una cosa menos."
+  ],
+  "Idle": [
+    "*Repasa el guion en silencio.*",
+    "¿No viste las noticias hoy? Dijeron que tenía pinta de lluvia.",
+    "*Se coloca una coleta detrás de la oreja.* ¿Se nota que estoy nerviosa?",
+    "Me pregunto si alguien mira el parte entero. Hasta el final. Hasta cuando digo adiós.",
+    "Llueva o haga sol, aquí estaré. Es lo único del guion que me sé de memoria.",
+    "Cada año las tormentas llegan antes. Da miedo... pero confío en que el cielo se abrirá.",
+    "*Mira la veleta de un tejado.* Hoy el viento no se decide. Como yo.",
+    "Algún día diré todo lo que tengo que decir. Algún día.",
+    "Otro día nublado... *Sonríe un poco.* Pero tú estás aquí.",
+    "*Tararea bajito.* ...perdón. Eso no era parte del parte."
+  ],
+  "Clic": [
+    "¿M-me miras a mí? *Se coloca la coleta.* Ah... sí, claro, el parte.",
+    "*Da un respingo.* ¡Estamos en directo! ...¿verdad? ¿Seguimos en directo?",
+    "¿Por qué... por qué me miras así? *Baja la vista al guion.*",
+    "Hola. *Saluda a cámara con la mano pequeñita.* Perdón. Es la costumbre.",
+    "Dime. ¿Quieres saber el tiempo? Es lo único que sé decir sin trabarme.",
+    "*Se pone roja.* No me mires tan fijo... se me olvida el guion."
+  ],
+  "PorApp": {
+    "Access": "Access. Bases de datos... como las del servicio meteorológico. Miles de números. Qué tranquilidad.",
+    "Bloc de notas": "El bloc de notas. Aquí escribo los partes... y lo que no me atrevo a decir. Esas frases las borro.",
+    "CMD": "La consola. Letras blancas sobre negro... como una noche de tormenta. Me da un poco de respeto.",
+    "Calculadora": "La calculadora. Probabilidad de lluvia más probabilidad de sol... sale más de cien. Algo hago mal.",
+    "Excel": "Excel. Aquí hago las gráficas de temperaturas. *Señala una línea azul.* Esa línea que tiembla soy yo.",
+    "Explorador": "El explorador. Carpetas y carpetas... como nubes apiladas. Cuidado con la que pone \"pendiente\".",
+    "GitHub": "GitHub. Los programadores también tienen sus tormentas. Las llaman \"bugs\".",
+    "Office Web": "Office en la web. Todo en la nube. *Mira arriba.* Espero que sea una nube buena.",
+    "OneDrive": "OneDrive. Tus archivos en la nube. *Mira por la ventana.* Hoy hay muchas. Están a salvo.",
+    "OneNote": "OneNote. Apuntes y más apuntes... yo tengo un cuaderno lleno de partes que nunca leí en directo.",
+    "Outlook": "El correo. ¿Algún mensaje para mí? *Lo pregunta muy bajito.* ...vale. No pasa nada.",
+    "PowerPoint": "PowerPoint. Diapositivas... como mi mapa del tiempo. ¿Le pongo un solecito? Siempre queda bien.",
+    "Publisher": "Publisher. Para hacer carteles... ¿me haces uno que ponga \"mañana sol\"? Para creérmelo.",
+    "Teams": "Teams. Reunión en directo... *Se arregla el pelo.* Es como el parte, pero te pueden contestar.",
+    "Wikipedia": "Wikipedia. Busca \"cumulonimbo\". Es mi nube favorita. Da miedo y es preciosa.",
+    "Word": "Word. Aquí escribo el guion. *Baja la voz.* Hay frases tachadas. No las leas.",
+    "YouTube": "YouTube. ¿Me buscas a mí? Salgo con Flavor Foley... *Se pone roja.* No hace falta que lo mires."
+  },
+  "Pronostico": [
+    "Buenas. Conectamos con el parte del tiempo... Ahora mismo en {2}: {0}, {1} grados. *Mira a cámara.* ¿No viste las noticias hoy?",
+    "En {2} tenemos {0} y {1} grados. Es el tiempo de verdad, ¿eh? Lo he mirado por la ventana. Y en internet.",
+    "*Repasa el guion.* {2}: {0}. {1} grados. ...si sales, llévate algo de abrigo. No es parte del guion. Es que me preocupo.",
+    "Parte del tiempo en directo desde {2}: {0}, {1} grados. Llueva o haga sol, aquí sigo."
+  ],
+  "PronosticoInventado": [
+    "No me llega la señal del satélite... *Mira por la ventana.* Diría que {0}, unos {1} grados. Es un pronóstico a ojo. Perdón.",
+    "Sin conexión con la central. Me lo invento un poco: {0} y {1} grados. *Susurra.* No se lo digas a nadie.",
+    "Hoy el parte va de memoria: {0}, {1} grados. Si me equivoco... finge que no."
+  ],
+  "Manana": [
+    "Y para mañana: {0}, entre {1} y {2} grados. *Se coloca la coleta.* Mañana también estaré aquí.",
+    "Mañana se espera {0}. Mínimas de {1}, máximas de {2}. ...ojalá mañana me atreva a decir otra cosa.",
+    "Previsión para mañana: {0}, de {1} a {2} grados. Apúntatelo. O no. Ya te lo recuerdo yo."
+  ],
+  "AppTiempo": [
+    "Se abre {0}. Para {0} se esperan rachas de productividad del 80%. *Mira el guion.* Eso me lo he inventado.",
+    "Conectamos en directo con {0}. Allí... despejado. Buen día para trabajar.",
+    "{0} abierto. Aviso amarillo por exceso de pestañas. Precaución.",
+    "Última hora: {0} en pantalla. Probabilidad de que lo cierres en cinco minutos: alta.",
+    "*Señala el mapa.* Aquí tenemos {0}, avanzando desde el oeste. Llegará a tu escritorio en... ya ha llegado.",
+    "{0}. *Lo apunta.* Lo meto en el parte de esta noche. Sección: cosas que haces tú."
+  ],
+  "Callada": [
+    "Se abre {0}. Y-yo quería decirte que... *Baja la vista.* Que mañana hay claros. Eso. Era eso.",
+    "{0} abierto. *Abre la boca. La cierra.* ...chubascos dispersos. Eso iba a decir.",
+    "Abro {0}... *Te mira. Aparta la mirada.* Los telespectadores no tienen por qué saberlo todo, ¿verdad?",
+    "{0}. *Se le quiebra un poco la voz.* Es solo un parte. Es solo un parte."
+  ],
+  "Palabras": [
+    "Tengo cosas que decirte. Las tengo aquí. *Se toca el pecho.* Pero en el guion pone \"nublado\".",
+    "*Repasa el guion. Hay frases tachadas.* ...nada, nada. Errores de imprenta.",
+    "Todas las palabras que no dije... se quedaron en la acera. Con la lluvia.",
+    "Si las nubes se acumulan, al final llueve. Lo sé por el trabajo. Y por mí."
+  ],
+  "Sincera": [
+    "*Deja el guion.* ...me alegra que me mires. A veces siento que hablo sola a una cámara. Hoy no.",
+    "Llueva o haga sol, estoy a tu lado. *Se pone roja.* Eso no es un pronóstico. Es una promesa.",
+    "¿Sabes? Cuando me escuchas... se me despeja todo. Del todo. Cielo azul.",
+    "Y-yo... te tengo cariño. *Mira a cámara, nerviosa.* ¡Y mañana sol! Las dos cosas son verdad.",
+    "Me da miedo que las tormentas lleguen antes cada año. Pero contigo... contigo puedo soñar con días de sol."
+  ],
+  "Tormenta": [
+    "*Le tiembla la voz.* Perdón... perdón. Es que se me ha juntado todo. *Empieza a llover dentro del plató.*",
+    "Y para... para esta tarde... *Se le escapan las lágrimas.* Aviso rojo. Aviso rojo por mí.",
+    "No puedo... no puedo seguir leyendo. *Llora.* Todo lo que no dije... está cayendo ahora."
+  ],
+  "Consuelo": [
+    "*Solloza.* ...¿te quedas? ¿Aunque llueva?",
+    "Gracias... *Se seca los ojos con la manga.* Está bien llorar, ¿verdad? Como la lluvia con el polvo.",
+    "*Respira entrecortado.* Esperaré aquí... hasta que acabe la tormenta. Contigo.",
+    "Perdón por llorar en directo... *Te mira.* No, ¿sabes qué? No pido perdón."
+  ],
+  "CielosVivos": [
+    "*Levanta la vista.* Mira. *Se abre el cielo.* ...te dije que se abriría. Cielos vivos en toda la región.",
+    "*Sonríe con los ojos rojos.* Ya está. Ya llovió todo. Previsión: sol. Y es verdad.",
+    "Gracias por quedarte bajo la lluvia conmigo. *Sale el arcoíris.* Esto no lo pone el guion. Me da igual."
+  ],
+  "SeCalma": [
+    "*Se seca la cara.* Ya... ya pasa. Siempre pasa. Volvemos al parte.",
+    "Perdón. *Ordena el guion.* Nubes en retirada. Todavía quedan algunas. Aquí dentro.",
+    "*Respira hondo.* La tormenta se ha ido sola. Es lo que hacen. Pero no ha sido bonito."
+  ],
+  "SeNubla": [
+    "*El cielo vuelve a ser el de siempre.* Bueno... volvemos al tiempo de verdad. Pero lo he visto. El sol.",
+    "Se acaban los cielos vivos. *Sonríe.* No pasa nada. Ya sé que vuelven."
+  ],
+  "LloraApp": [
+    "*Llorando.* L-lo abro... lo abro... *sniff*. Aviso rojo todavía.",
+    "*Abre la app entre lágrimas.* No pasa nada. Sigo trabajando. *Sigue llorando.*",
+    "Ya está abierto. *Sniff.* ¿Me... me harías un favor? Mírame un momento."
+  ],
+  "LloraIdle": [
+    "*Llora bajito. La lluvia no para.*",
+    "*Se tapa la cara con la manga.* Lo siento... en un momento sigo.",
+    "Gota a gota... todo gris. *Sniff.*"
+  ],
+  "Paraguas": [
+    "¿P-para mí? *Coge el paraguas.* Se me había olvidado... Siempre se me olvida.",
+    "*Abre el paraguas.* Ahora llueve fuera y no dentro. Gracias.",
+    "Un paraguas. *Lo sujeta con las dos manos.* ¿Es demasiado tarde para que lleguen mis sentimientos? ...no, nada. Gracias."
+  ],
+  "SinParaguas": [
+    "Ay... se me olvidó el paraguas. *Mira al cielo.* Otra vez.",
+    "Dijeron que tenía pinta de lluvia. Y yo, sin paraguas. Como siempre.",
+    "*Se cubre con la chaqueta.* Si alguien tuviera un paraguas... es un decir."
+  ],
+  "VivosIdle": [
+    "Cielo azul. *Da una vuelta.* No sabía que lo echaba tanto de menos.",
+    "Previsión: sol el resto del día. Es la primera vez que lo digo y me lo creo.",
+    "Mira cómo brilla todo después de la lluvia. Hasta yo."
+  ],
+  "IdleSol": [
+    "Hoy hace sol. *Entorna los ojos.* Se me hace raro dar buenas noticias.",
+    "Cielo despejado. Es un buen día para decir cosas. ...para otros. Para otros."
+  ],
+  "IdleNubes": [
+    "Otro día nublado. *Mira por la ventana.* No pasa nada. Las nubes también son bonitas.",
+    "Nublado. Ni sol ni lluvia. Como cuando no sabes qué decir."
+  ],
+  "IdleLluvia": [
+    "Escucha la lluvia. *Cierra los ojos.* Gota a gota, todo gris.",
+    "Dijeron que tenía pinta de lluvia. Y llovió. A veces acierto.",
+    "Rain or shine... *Tararea.* Llueva o haga sol."
+  ],
+  "IdleTormenta": [
+    "*Suena un trueno.* ¡Ay! ...no pasa nada. No pasa nada. Es solo electricidad.",
+    "Hay tormenta de verdad ahí fuera. Quédate dentro, ¿vale? Aquí se está bien."
+  ],
+  "IdleNieve": [
+    "Nieva. *Saca la mano.* El cielo también puede ser suave.",
+    "Nieve. Todo blanco, todo en silencio. Como mi guion cuando me pongo nerviosa."
+  ],
+  "IdleNiebla": [
+    "Hay niebla. No se ve nada. Si alguien está ahí... hola.",
+    "Niebla espesa. Hoy el pronóstico es a tientas."
+  ],
+  "IdleNoche": [
+    "Ya es de noche. *Bosteza.* El parte de madrugada es el más solitario. Gracias por verlo.",
+    "Por la noche el cielo no se ve... pero sigue ahí. Te lo prometo."
+  ],
+  "Titulares": [
+    "PROBABILIDAD DE LLUVIA: 70%",
+    "LA PRESENTADORA PIDE QUE LLEVES PARAGUAS",
+    "CIELOS NUBOSOS CON CLAROS POR LA TARDE",
+    "SE BUSCA PARAGUAS PERDIDO EN EL PLATÓ",
+    "NUEVA CANCIÓN DE FLAVOR FOLEY EN LA RADIO",
+    "LAS TORMENTAS LLEGAN ANTES CADA AÑO"
+  ],
+  "TitularesTormenta": [
+    "SE SUSPENDE LA EMISIÓN NORMAL",
+    "LA PRESENTADORA NECESITA UN MOMENTO",
+    "SE RECOMIENDA QUEDARSE A SU LADO"
+  ],
+  "TitularesSol": [
+    "SE ABRE EL CIELO",
+    "ARCOÍRIS VISIBLE DESDE TODO EL PLATÓ",
+    "LA PRESENTADORA SONRÍE EN DIRECTO"
+  ],
+  "Letras": [
+    "drop by drop",
+    "with gray",
+    "rain or shine",
+    "I'm by your side",
+    "why won't you look my way?",
+    "another cloudy",
+    "all the words",
+    "I left unsaid",
+    "didn't you see the news today?",
+    "looked like rain",
+    "vivid skies",
+    "trust the sky",
+    "someday",
+    "me & you",
+    "the weather forecast's calling for"
+  ],
+  "AlVenirDe": {
+    "c00lgui": "Se ha ido c00lgui. *Mira el guion.* Han vuelto a salir las nubes de verdad. Menos mal.",
+    "SeaDrive": "SeaDrive se ha ido a dormir. *Baja la voz.* Para ella: cielos tranquilos y ni una alarma.",
+    "Static Miku": "Se ha ido Miku. *Ajusta la antena.* Ya no hay interferencias. Echo de menos las interferencias.",
+    "Guillotina": "Ha pasado la borrasca Guillotina. *Respira.* Daños: un paraguas. Y mis nervios.",
+    "Angela": "Se ha ido Angela. *Suelta el aire.* Hacía un frío en el plató...",
+    "Mikaela": "Se ha ido Mikaela. *Mira a cámara.* Para ella: cielos despejados y... ¿cómo era? ¿GG?",
+    "Zodiac": "Se ha ido Zodiac. Aviso: rachas de viento dramático en la zona.",
+    "Velvet": "Se ha ido Velvet. Aviso amarillo por... arañas. Mirad debajo del paraguas.",
+    "Dune": "Se ha ido Dune. *Mira el agujero del suelo.* Previsión: más agujeros.",
+    "Cordero y Cabra": "Se ha ido el culto. *Revisa el guion.* Aquí pone \"lluvia de sangre\". Eso no lo he escrito yo.",
+    "Pyrophina y Zaratana": "Se han ido los kaijus. Aviso rojo... retirado. Creo. *Mira por la ventana.*",
+    "Averi": "Se ha ido Averi. *Pisa un charco.* Ahora entiendo por qué le gustan.",
+    "Sebastian Solace": "Se ha ido Sebastian. *Revisa su paraguas.* ...ah. Era una bolsa.",
+    "Pursuer": "Se ha ido Pursuer. La niebla se levanta... *Mira detrás de ella.* Se levanta, ¿verdad?",
+    "Kasane Teto": "Se ha ido Teto. *Sonríe.* Previsión: lluvia de pan. Ha dejado migas por todo el plató.",
+    "Token": "Se ha ido Token. Aviso de ruido... levantado. Silencio total en la región.",
+    "Tetra": "Se ha ido Tetra. *Mira el móvil.* Me ha contestado. Con un emoji de pez. Me lo guardo.",
+    "Kevin": "Se ha ido Kevin. Previsión: lluvia de queso. ...no, perdón. Era una mancha en el guion.",
+    "Kennyoung": "Se ha ido Kennyoung. *Tararea.* Previsión: atardecer con guitarra.",
+    "Enfosi": "Se ha ido Enfosi. Previsión para la estatua: despejado. Lo prometo.",
+    "Gran": "Se ha ido Gran. Previsión: frío seco y clínico. Abríguense.",
+    "Evil Scary": "Se ha ido Evil Scary. *Revisa el radar.* El punto rojo ya no está. ...¿verdad?",
+    "Soft Fuzzy Man": "Se ha ido Soft Fuzzy Man. La niebla se levanta. *Lo mira con pena.* Vuelve pronto, ¿vale?",
+    "Roaring Knight": "Se ha ido el Knight. *Enciende todas las luces del plató.* Previsión: claros. Muchos claros. Por favor.",
+    "Nanachi": "Se ha ido Nanachi. *Se tapa con la chaqueta.* Previsión: niebla blandita y calor de sopa.",
+    "Dybbuk": "Se ha ido Dybbuk. *Abre el paraguas con cuidado.* ...vacío. Vale. Respira.",
+    "Malkuth": "Se ha ido Malkuth. *Coge aire. Lo suelta.* Previsión: ánimo alto en toda la región.",
+    "Painter": "Se fue Painter. Me dibujó un paisaje con lluvia y sol a la vez. Tenía hasta un arcoíris. Lo he guardado entre mis partes."
+  },
+  "Opina": {
+    "c00lgui": [
+      "c00lgui ha hackeado mi parte. Ahora pone \"100% de probabilidad de c00lgui\". Lo leí en directo... no sabía qué hacer.",
+      "Es como una tormenta eléctrica: mucho ruido, muchas luces... y luego se apaga solo."
+    ],
+    "SeaDrive": [
+      "SeaDrive está siempre cansada. Le di su pronóstico: \"descanso intenso toda la semana\". Le gustó.",
+      "Las dos venimos del agua... ella del mar y yo de la lluvia. Hacemos buen equipo. Creo."
+    ],
+    "Static Miku": [
+      "Static Miku y yo somos de la misma casa... de Flavor Foley. Ella es la tele y yo salgo dentro. Qué cosas.",
+      "Cuando Miku se pone con estática, mi parte se ve todo nevado. Aunque haga sol."
+    ],
+    "Guillotina": [
+      "Guillotina... aviso rojo. *Se esconde detrás del guion.* Se recomienda no salir de casa.",
+      "Se comió mi paraguas. Era mi favorito. ...bueno, era el único."
+    ],
+    "Angela": [
+      "Angela da los datos como yo: exactos, sin temblar. Pero a ella nunca se le escapa nada. Me da un poco de pena.",
+      "Me pidió el pronóstico con tres decimales. Se lo di. No sonrió."
+    ],
+    "Mikaela": [
+      "Mikaela me pregunta el tiempo antes de cada partida. Yo no sé si en el juego llueve... le digo que sí, por si acaso.",
+      "Dice que soy su \"support\". No sé qué es, pero suena bonito."
+    ],
+    "Zodiac": [
+      "Zodiac vive en el desierto. Allí nunca llueve. *Le da un paraguas igualmente.* Por si acaso.",
+      "Se queda mirando el horizonte como yo miro el cielo. Esperando algo."
+    ],
+    "Velvet": [
+      "Velvet dice que la lluvia hace sus telarañas más bonitas. *Tiembla.* Tiene razón. Y eso es lo que me asusta.",
+      "Me ofreció un abracito. Le dije que tenía que dar el parte. Era mentira."
+    ],
+    "Dune": [
+      "Dune sale cuando llueve. Es mi telespectador más fiel. ...y el más grande.",
+      "Le dije que mañana llovía y se puso tan contento que hizo un agujero en el plató."
+    ],
+    "Cordero y Cabra": [
+      "La Cabra dice que mis pronósticos son profecías. Solo son porcentajes... *Mira al cielo.* Bueno. A veces lo parecen.",
+      "El Cordero se puso debajo de mi paraguas sin decir nada. Fue muy bonito."
+    ],
+    "Pyrophina y Zaratana": [
+      "Conectamos con WMEW 99.9... *Se oye un rugido.* Devolvemos la conexión al plató. Rápido.",
+      "Pyrophina evapora las nubes y Zaratana hace temblar el suelo. Mi pronóstico ya no sirve de nada."
+    ],
+    "Averi": [
+      "Averi saltó en todos los charcos del plató. Todos. Luego me abrazó. Mojada. Pero fue un abrazo bonito.",
+      "Me rompió el paraguas... y me hizo un dibujo para pedirme perdón. Lo tengo en el camerino."
+    ],
+    "Sebastian Solace": [
+      "Sebastian sube el precio de los paraguas cada vez que digo \"lluvia\". *Baja la voz.* Ya no lo digo tan alto.",
+      "Me vendió un \"paraguas a prueba de tormentas\". Era una bolsa con un palo."
+    ],
+    "Pursuer": [
+      "Pursuer... aviso por niebla espesa. Y por algo dentro de la niebla. *Mira a cámara, asustada.*",
+      "Me dijo que la lluvia borra las huellas. No he vuelto a decir \"lluvia\" en voz alta."
+    ],
+    "Kasane Teto": [
+      "Teto canta con mi mismo programa. Pero ella lo dice todo en voz alta... ojalá yo pudiera.",
+      "Hizo una versión de mi canción. Se llamaba \"weathergirls\". En plural. Me hizo mucha ilusión."
+    ],
+    "Token": [
+      "Token dice que mi canción necesita más bajos. *Se tapa los oídos.* Mi canción necesita... calma.",
+      "Su música suena como una tormenta eléctrica. A veces me ayuda a llorar."
+    ],
+    "Tetra": [
+      "Tetra tiene cien mensajes sin contestar. Yo tengo cien cosas sin decir. Nos entendemos sin hablar.",
+      "Le dije que llueva o haga sol, estoy a su lado. Me contestó con un pez. Creo que es un sí."
+    ],
+    "Kevin": [
+      "Kevin me dibujó un arcoíris en Paint... con una pizza en medio. Lo he puesto en el mapa del tiempo.",
+      "Cuando llueve, tapa su pizza con el cuerpo. Es lo más tierno que he visto."
+    ],
+    "Kennyoung": [
+      "Kennyoung toca en el balcón cuando llueve. Es lo único que suena mejor que la lluvia.",
+      "Me dijo que mi canción le hizo llorar. Le di un pañuelo. Yo también lloré."
+    ],
+    "Enfosi": [
+      "Enfosi me pregunta si va a llover sobre su estatua. Le digo que no. Siempre. Para que esté tranquila.",
+      "Una nube de mi mapa resultó ser un Enphosian disfrazado. Lo dije en directo. Qué vergüenza."
+    ],
+    "Gran": [
+      "Gran me pidió una muestra de lágrima. *Se seca los ojos rápido.* No pienso llorar delante de ella.",
+      "Lo mide todo. Como yo con el tiempo. Pero ella nunca dice lo que siente. ...vale, yo tampoco."
+    ],
+    "Evil Scary": [
+      "Evil Scary sale en el radar del tiempo. No es una nube. *Tiembla.* No es una nube.",
+      "Aviso rojo. Aviso rojo. *Lee más rápido.* Se recomienda... no mirarle."
+    ],
+    "Soft Fuzzy Man": [
+      "Soft Fuzzy Man sale en mi mapa como \"niebla con sentimientos\". Es muy amable.",
+      "Me ofreció su hombro para llorar. Lo atravesé. Lo que contó fue el gesto."
+    ],
+    "Roaring Knight": [
+      "El Roaring Knight salió en el parte. El cielo se puso negro... y no era una nube.",
+      "Aviso extremo: oscuridad que ruge. *Le tiembla el guion.* Se recomienda quedarse en casa. Con la luz encendida."
+    ],
+    "Nanachi": [
+      "Nanachi me hizo sopa cuando estaba triste. No sé qué llevaba. Sabía a... lluvia del Abismo.",
+      "Me contó que en el Abismo llueve hacia arriba. No lo puedo pronosticar. Me da envidia."
+    ],
+    "Dybbuk": [
+      "Dybbuk me cambió el guion. Ahora pone \"lluvia de gatos\". Lo leí en directo.",
+      "Se metió dentro de mi paraguas. Ahora se abre solo. Y se ríe."
+    ],
+    "Malkuth": [
+      "Malkuth apunta mis pronósticos en su libro. Con dibujitos de nubes. Nunca nadie había guardado mis partes.",
+      "Me enseñó a respirar cuando lloraba. Uno, coge aire... dos, suéltalo. Funciona."
+    ],
+    "Painter": ["Painter quiere pintar paisajes... y yo quiero decir lo que siento. Los dos tenemos cosas por salir. Los dos nos entendemos.", "Me dibujó con el paraguas. Con la carita llorando y sonriendo a la vez. Es exactamente como me siento."]
+  }
+}

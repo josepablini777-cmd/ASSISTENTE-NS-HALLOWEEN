@@ -1,4 +1,4 @@
-﻿# c00lgui v5 - panel lanzador con skins de asistentes
+﻿# c00lgui v6.66 - panel lanzador con skins de asistentes
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 # el panel mide su propio escalado de pantalla para que nada se corte
@@ -60,6 +60,7 @@ $script:aj = [ordered]@{
     Guia = $false   # si ya se ha visto la guía del panda
     Epilepsia = $false   # modo seguro: sin destellos, parpadeos, temblores ni intros (ver Sin-Destellos)
     KnightVictorias = 0   # victorias en el minijuego del Roaring Knight
+    AngelaDia = 1   # día de Lobotomy Corporation en la skin de Angela (sube al completar la cuota de energía)
 }
 function Cargar-Ajustes {
     if (-not (Test-Path $ArchivoAjustes)) { return }
@@ -188,7 +189,7 @@ foreach ($t in $EnfosiTipos) {
 $Skins = [ordered]@{
     # ================================================================ c00lgui
     'c00lgui' = @{
-        Estilo = 'hacker'; Titulo = 'c00lgui'; Sub = 'v6'; Alto = 312
+        Estilo = 'hacker'; Titulo = 'c00lgui'; Sub = 'v6.66'; Alto = 312
         Fondo = (C 0 0 0); Borde = (C 255 0 0); Sombra = (C 90 0 0)
         TituloColor = (C 255 0 0); SubColor = (C 140 0 0)
         BtnFondo = (C 0 0 0); BtnTexto = (C 255 255 255); BtnTextoHover = (C 255 40 40); BtnBorde = (C 255 0 0); BtnBordeAncho = 1
@@ -250,21 +251,41 @@ $Skins = [ordered]@{
         Burbuja = @(424, 258, 322, 46); BurFondo = $null; InvFondo = (C 250 244 228); BurTexto = (C 30 20 22); BurFuente = 'TikaFont Adjusted'
     }
     # ================================================================ Angela (Lobotomy Corporation)
+    # La IA asistente de L Corp, en su sala de monitores. Ficha en lore\personajes\Angela.md.
+    # Cada app es un trabajo con una anomalía (energía, cuota del día, Fusión de Qliphoth) y a veces hay brechas de contención
+    # que se reprimen haciendo clic en el monitor. Música oficial del juego: Neutral01-04 y las alarmas First/Second/Third Warning.
     'Angela' = @{
-        Estilo = 'lobo'; Titulo = 'ANGELA'; Sub = "L Corp.  ·  DÍA $($script:dia)"; Alto = 312
-        Fondo = (C 12 15 20); Borde = (C 255 170 40)
-        TituloColor = (C 255 176 50); SubColor = (C 80 210 200)
-        BtnFondo = (C 22 28 36); BtnTexto = (C 235 235 235); BtnTextoHover = (C 255 190 80); BtnBorde = (C 255 170 40); BtnBordeAncho = 1
-        BtnHover = (C 60 44 16); BtnPress = (C 255 170 40); BarraBtnTexto = (C 255 176 50)
-        StatusColor = (C 255 176 50); Fuente = 'Bahnschrift'; FuenteTitulo = 'Bahnschrift'; Opacidad = 1.0; Velocidad = 1
-        Gif = 'skins\angela\calma.png'
-        Caras = @{
-            cerrados = @('skins\angela\calma.png', 'skins\angela\habla.png')
-            abiertos = @('skins\angela\abiertos.png', 'skins\angela\abiertos_habla.png')
-            serio    = @('skins\angela\serio.png', 'skins\angela\serio_habla.png')
+        Estilo = 'lobo'; Titulo = 'ANGELA'; Sub = 'lobotomy corporation  ·  face the fear'; Alto = 320
+        Fondo = (C 10 13 18); Borde = (C 255 170 40); Acento = (C 255 170 40)
+        TituloColor = (C 236 240 244); SubColor = (C 255 176 50)
+        BtnFondo = (C 16 22 30); BtnTexto = (C 220 232 240); BtnTextoHover = (C 12 14 18); BtnBorde = (C 255 170 40); BtnBordeAncho = 2
+        BtnHover = (C 255 176 50); BtnPress = (C 80 210 200); BarraBtnTexto = (C 220 232 240)
+        StatusColor = (C 220 232 240); Fuente = 'Bahnschrift'; FuenteTitulo = 'Bahnschrift'; Opacidad = 1.0; Velocidad = 1
+        Ancho = 760; Mezclar = $true; Gif = 'skins\angela\busto.png'; FondoImg = 'skins\angela\fondo.jpg'
+        FiltroImg = 'skins\angela\filtro.jpg'; IntroDia = 'skins\angela\intro_dia.jpg'
+        # Angela de cuerpo entero con sus expresiones del juego (ojos cerrados casi siempre; los abre cuando va en serio)
+        Actores = @(
+            @{ Id = 'A'; Gif = 'skins\angela\a_angela.png'; Rect = @(590, 46, 170, 280); Respira = $true
+               Extra = @{ habla = 'skins\angela\a_habla.png'; sorpresa = 'skins\angela\a_sorpresa.png'; sonrie = 'skins\angela\a_sonrie.png'; risa = 'skins\angela\a_risa.png'
+                          molesta = 'skins\angela\a_molesta.png'; molesta_habla = 'skins\angela\a_molesta_habla.png'
+                          abiertos = 'skins\angela\a_abiertos.png'; abiertos_habla = 'skins\angela\a_abiertos_habla.png'
+                          enfado = 'skins\angela\a_enfado.png'; enfado_habla = 'skins\angela\a_enfado_habla.png' } }
+        )
+        # anomalías que pueden romper la contención (retrato del juego, nivel de riesgo y clics para reprimirlas)
+        Anomalias = @(
+            @{ Nombre = 'Punishing Bird'; Codigo = 'O-02-56'; Riesgo = 'TETH'; Vida = 3; Img = 'skins\angela\an_castigo.jpg' }
+            @{ Nombre = 'Scorched Girl'; Codigo = 'F-01-02'; Riesgo = 'TETH'; Vida = 3; Img = 'skins\angela\an_cerilla.jpg' }
+            @{ Nombre = 'Der Freischütz'; Codigo = 'F-01-69'; Riesgo = 'HE'; Vida = 4; Img = 'skins\angela\an_freischutz.jpg' }
+            @{ Nombre = 'Queen of Hatred'; Codigo = 'O-01-04'; Riesgo = 'WAW'; Vida = 5; Img = 'skins\angela\an_reina.jpg' }
+            @{ Nombre = 'Big Bird'; Codigo = 'O-02-40'; Riesgo = 'WAW'; Vida = 5; Img = 'skins\angela\an_pajaro.jpg' }
+        )
+        # los 4 tipos de trabajo del juego y los 3 resultados (con sus iconos)
+        Trabajos = @(@('instinto', 'Instinto'), @('percepcion', 'Percepción'), @('apego', 'Apego'), @('represion', 'Represión'))
+        Sonidos = @{
+            pebox = @('skins\angela\pebox.wav'); trabajo = @('skins\angela\trabajo.wav'); alarma = @('skins\angela\alarma.wav'); golpe = @('skins\angela\golpe.wav')
+            reprimida = @('skins\angela\reprimida.wav'); fin = @('skins\angela\fin.wav'); filtro = @('skins\angela\filtro.wav'); fusion = @('skins\angela\fusion.wav')
         }
-        Pb = @(412, 66, 186, 148); PbFondo = (C 18 22 28); PbBorde = $false
-        Burbuja = @(410, 222, 190, 72); BurFondo = (C 8 10 14); BurTexto = (C 255 190 90); BurFuente = 'Bahnschrift'
+        Burbuja = @(424, 278, 322, 34); BurFondo = $null; InvFondo = (C 16 22 30); BurTexto = (C 220 232 240); BurFuente = 'Bahnschrift'
     }
     # ================================================================ Mikaela (PURSUITCORE)
     'Mikaela' = @{
@@ -308,16 +329,31 @@ $Skins = [ordered]@{
         Burbuja = @(424, 258, 322, 46); BurFondo = $null; InvFondo = (C 245 230 196); BurTexto = (C 60 34 18); BurFuente = 'TikaFont Adjusted'
     }
     # ================================================================ Velvet (Gunsaw)
+    # Una de las 14 especies de Gunsaw (Orsoniks): araña de voz maternal que atrae a los demás para cenárselos. Ficha en lore\personajes\Velvet.md.
+    # Su guarida: telaraña, capullos colgando, SEDA para escupir telarañas a los botones, HAMBRE y CONFIANZA (el "abracito").
+    # Música: "Night of the Creeps" de Karl Casey (suena en Gunsaw; White Bat Audio, libre de derechos).
     'Velvet' = @{
-        Estilo = 'gunsaw'; Titulo = 'Velvet'; Sub = '14/14 species unlocked  ·  GUNSAW'; Alto = 312
-        Fondo = (C 26 14 30); Borde = (C 10 4 12); Acento = (C 230 30 50)
-        TituloColor = (C 224 220 228); SubColor = (C 170 160 180)
-        BtnFondo = (C 36 22 40); BtnTexto = (C 226 222 230); BtnTextoHover = (C 255 255 255); BtnBorde = (C 125 112 130); BtnBordeAncho = 1
-        BtnHover = (C 130 20 40); BtnPress = (C 230 30 50); BarraBtnTexto = (C 226 222 230)
-        StatusColor = (C 226 222 230); Fuente = 'Consolas'; FuenteTitulo = 'Consolas'; Opacidad = 1.0; Velocidad = 1
-        Gif = 'skins\velvet\retrato.png'; Arte = 'skins\velvet\arte.png'; Arma = 'SMG'; Telarana = $true
-        Pb = @(410, 62, 190, 150); PbFondo = (C 26 14 30); PbBorde = $false
-        Burbuja = @(410, 232, 190, 64); BurFondo = (C 18 9 22); BurTexto = (C 230 225 235); BurFuente = 'Consolas'
+        Estilo = 'arana'; Titulo = 'VELVET'; Sub = 'arachnid  ·  14/14 species unlocked  ·  gunsaw'; Alto = 320
+        Fondo = (C 16 8 14); Borde = (C 200 24 44); Acento = (C 230 30 50)
+        TituloColor = (C 236 228 232); SubColor = (C 230 60 80)
+        BtnFondo = (C 26 12 20); BtnTexto = (C 236 228 232); BtnTextoHover = (C 255 255 255); BtnBorde = (C 200 24 44); BtnBordeAncho = 2
+        BtnHover = (C 150 16 36); BtnPress = (C 255 60 80); BarraBtnTexto = (C 236 228 232)
+        StatusColor = (C 236 228 232); Fuente = 'Consolas'; FuenteTitulo = 'Consolas'; Opacidad = 1.0; Velocidad = 1
+        Ancho = 760; Mezclar = $true; Gif = 'skins\velvet\retrato.png'; Carga = 'skins\velvet\carga.png'
+        Arma = 'SMG'; Telarana = $true
+        # Velvet (su arte de la selección de personaje de Gunsaw); el balanceo y los ojos los mueve Vv-Tick
+        Actores = @(
+            @{ Id = 'V'; Gif = 'skins\velvet\velvet.png'; Rect = @(544, 50, 214, 266) }
+        )
+        # dónde tiene los ojos en velvet.png (en proporción de la imagen): los dos grandes y los cuatro pequeños
+        Ojos = @(@(0.42, 0.225, 1.0), @(0.555, 0.235, 1.0), @(0.40, 0.165, 0.5), @(0.52, 0.15, 0.5), @(0.46, 0.13, 0.4), @(0.58, 0.18, 0.4))
+        # especies de Gunsaw que se acercan a la telaraña (una por cada app)
+        Especies = @('Experiment', 'Orange', 'Milky', 'Leapy', 'Chompy', 'Roza', 'Voyager', 'Baron', 'Chik', 'Crystal', 'Icke', 'Shelly', 'Albino')
+        Sonidos = @{
+            musica = @('skins\velvet\creeps.mp3'); escupe = @('skins\velvet\escupe.wav'); capullo = @('skins\velvet\capullo.wav'); abrazo = @('skins\velvet\abrazo.wav')
+            lunge = @('skins\velvet\lunge.wav'); latido = @('skins\velvet\latido.wav'); siseo = @('skins\velvet\siseo.wav')
+        }
+        Burbuja = @(424, 278, 322, 34); BurFondo = $null; InvFondo = (C 22 10 18); BurTexto = (C 240 230 236); BurFuente = 'Consolas'
         IntroLineas = @(
             '- Una extraña criatura femenina parecida a una araña.'
             '- 4 patas enormes le crecen de la espalda. Solo'
@@ -542,10 +578,12 @@ $Skins = [ordered]@{
         BtnHover = (C 255 92 190); BtnPress = (C 255 214 120); BarraBtnTexto = (C 255 255 255)
         StatusColor = (C 255 255 255); Fuente = 'Trebuchet MS'; FuenteTitulo = 'Arial Black'; Opacidad = 1.0; Velocidad = 1
         Ancho = 760; Mezclar = $true; Gif = 'skins\tetra\tetra.png'; FondoImg = 'skins\tetra\fondo.jpg'; Logo = 'skins\tetra\failure.png'
-        Fotos = @('skins\tetra\mv1.jpg', 'skins\tetra\mv2.jpg', 'skins\tetra\mv3.jpg', 'skins\tetra\mv4.jpg', 'skins\tetra\mv5.jpg')
-        # dibujo de Tetra: ficha oficial de YonKaGor (diseño de SentyPurr); fotos del videoclip
+        IntroImg = 'skins\tetra\intro.gif'; IntroAudio = 'skins\tetra\intro.mp3'
+        # dibujo de Tetra: fanart de Lovavavavania (@Lovavavavania en X), como lámina con marco de neón dentro del acuario
+        # (el fondo del dibujo está pintado y no se puede recortar); baila cuando le da por la música.
+        # La ficha oficial recortada (tetra.png) se sigue usando cuando sale de invitada.
         Actores = @(
-            @{ Id = 'E'; Gif = 'skins\tetra\tetra.png'; Rect = @(588, 58, 112, 214); Baila = $true }
+            @{ Id = 'E'; Gif = 'skins\tetra\lamina.png'; Rect = @(580, 62, 158, 228); Respira = $true }
         )
         Sonidos = @{
             ping = @('skins\tetra\ping.wav'); vhs = @('skins\tetra\vhs.wav'); disco = @('skins\tetra\disco.wav')
@@ -594,16 +632,9 @@ $Skins = [ordered]@{
         )
         # mientras se escribe el bocadillo, va cambiando de boca en este orden ('main' es la boca cerrada)
         Habla = @{ Id = 'Y'; Bocas = @('abierta1', 'abierta2', 'abierta1', 'main') }
-        # GIFs de sus videoclips (Tenor) para el minirreproductor de su canal: archivo y título
-        Videos = @{
-            guitarra = @('skins\kennyoung\guitarra.gif', 'Someday'); concierto = @('skins\kennyoung\concierto.gif', 'Can''t Keep My Hands Off You (cover)')
-            loner = @('skins\kennyoung\loner.gif', 'Loner'); online = @('skins\kennyoung\online.gif', 'People Online'); nada = @('skins\kennyoung\nada.gif', 'Nothing')
-            piensa = @('skins\kennyoung\piensa.gif', 'I Used To'); triste = @('skins\kennyoung\triste.gif', 'Get Away'); calavera = @('skins\kennyoung\calavera.gif', 'Baby, You''re A Haunted House (cover)')
-            kaboom = @('skins\kennyoung\kaboom.gif', '¡KABOOM!'); diablo = @('skins\kennyoung\diablo.gif', 'DON''T PLAY'); yap = @('skins\kennyoung\yap.gif', 'yap')
-        }
         Sonidos = @{
             acorde = @('skins\kennyoung\acorde.wav', 'skins\kennyoung\acorde2.wav', 'skins\kennyoung\acorde3.wav'); riff = @('skins\kennyoung\riff.wav')
-            kaboom = @('skins\kennyoung\kaboom.wav'); publico = @('skins\kennyoung\publico.wav'); campana = @('skins\kennyoung\campana.wav')
+            kaboom = @('skins\kennyoung\kaboom.wav'); publico = @('skins\kennyoung\publico.wav'); campana = @('skins\kennyoung\campana.wav'); pegar = @('skins\kennyoung\pegar.wav'); flexo = @('skins\kennyoung\flexo.wav')
         }
         Burbuja = @(424, 278, 322, 34); BurFondo = $null; InvFondo = (C 255 246 236); BurTexto = (C 60 42 38); BurFuente = 'Trebuchet MS'
         Canciones = @('Someday', 'Maybe Tomorrow', 'Let''s Go', 'Nothing', 'See You!', 'People Online', 'Loner', 'I Used To', 'Parasocial', 'Ready To Say', 'Good Old Green Days', 'Get Away', 'Lethargy', 'Taste of Summer', 'Trash Talkin''')
@@ -727,6 +758,59 @@ $Skins = [ordered]@{
         }
         Burbuja = @(424, 278, 322, 34); BurFondo = $null; InvFondo = (C 0 0 0); BurTexto = (C 255 255 255); BurFuente = 'Consolas'
     }
+    # ================================================================ Dybbuk (Mewgenics) · ACTUALIZACIÓN DE HALLOWEEN
+    # El jefe del Boneyard (Acto 1, capítulo 3): un gato-fantasma bromista que esquiva con volteretas, da lametazos que chupan
+    # el maná, invoca fuegos fatuos y, al "morir", posee a un gato. Al final los muertos del cementerio lo arrastran bajo tierra.
+    # Barra de vida como la de Guillotina, con la vida del juego (85). Ficha del personaje en lore\personajes\Dybbuk.md.
+    'Dybbuk' = @{
+        Estilo = 'boneyard'; Titulo = 'DYBBUK'; Sub = 'boss  ·  the boneyard  ·  mewgenics'; Alto = 320
+        Fondo = (C 36 38 44); Borde = (C 16 16 20); Acento = (C 150 172 186)
+        TituloColor = (C 232 234 226); SubColor = (C 150 172 186)
+        BtnFondo = (C 236 234 224); BtnTexto = (C 22 22 26); BtnTextoHover = (C 22 22 26); BtnBorde = (C 22 22 26); BtnBordeAncho = 2
+        BtnHover = (C 226 128 146); BtnPress = (C 150 172 186); BarraBtnTexto = (C 22 22 26)
+        StatusColor = (C 232 234 226); Fuente = 'EdmundMcMillen_INTLv4'; FuenteTitulo = 'EdmundMcMillen_INTLv4'; Opacidad = 1.0; Velocidad = 1
+        Ancho = 760; Mezclar = $true; Gif = 'skins\dybbuk\idle.gif'; FondoImg = 'skins\dybbuk\fondo.jpg'
+        Lapida = 'skins\dybbuk\lapida.png'; Wisp = 'skins\dybbuk\wisp.png'; Cartel = 'skins\dybbuk\cartel.png'
+        # intro (imágenes del juego): la puerta del cementerio, la colina del jefe, el marco de lápidas, el dibujo de cuando se asoma y su arte de jefe
+        IntroPuerta = 'skins\dybbuk\intro_puerta.jpg'; IntroColina = 'skins\dybbuk\intro_colina.jpg'; IntroMarco = 'skins\dybbuk\intro_marco.png'
+        IntroAsoma = 'skins\dybbuk\asoma.gif'; IntroJefe = 'skins\dybbuk\intro_jefe.png'
+        # las animaciones del juego, todas del mismo tamaño y con los pies en el mismo sitio (el lienzo mide lo mismo que el Rect)
+        Actores = @(
+            @{ Id = 'D'; Gif = 'skins\dybbuk\idle.gif'; Rect = @(404, 54, 356, 224)
+               Extra = @{ herido = 'skins\dybbuk\herido.gif'; lame = 'skins\dybbuk\lame.gif'; muere = 'skins\dybbuk\muere.gif'
+                          flip = 'skins\dybbuk\flip.gif'; invoca = 'skins\dybbuk\invoca.gif'; posee = 'skins\dybbuk\posee.gif' } }
+        )
+        Sonidos = @{
+            intro = @('skins\dybbuk\intro.mp3'); lame = @('skins\dybbuk\lame.wav'); flip = @('skins\dybbuk\flip.wav'); wisps = @('skins\dybbuk\wisps.wav')
+            posee = @('skins\dybbuk\posee.wav'); suelta = @('skins\dybbuk\suelta.wav'); muere = @('skins\dybbuk\muere.wav'); zombie = @('skins\dybbuk\zombie.wav')
+        }
+        Burbuja = @(424, 278, 322, 34); BurFondo = $null; InvFondo = (C 236 234 224); BurTexto = (C 22 22 26); BurFuente = 'TikaFont Adjusted'
+    }
+    # ================================================================ Ellie Velázquez (self insert de Ale)
+    # Personaje original de Ale ("Ale's version"): humana corrupta de 20 años que viaja por el multiverso. Ficha en lore\personajes\Ellie.md.
+    # Solo tiene sus propias frases: NO tiene charlas con las demás skins ni las demás opinan de ella (lo pidió así el creador del panel).
+    # Barra GLITCH (su rabia): sube si la pinchas y si hay demasiado silencio; al 100 % entra en MODO GLITCH, se sobrecalienta y se le olvida todo.
+    # Las natillas la calman. Se teletransporta y se vuelve invisible de vez en cuando.
+    'Ellie' = @{
+        Estilo = 'corrupta'; Titulo = 'ELLIE VELÁZQUEZ'; Sub = "self insert  ·  ale's version"; Alto = 320
+        Fondo = (C 22 8 20); Borde = (C 255 92 170); Acento = (C 255 92 170)
+        TituloColor = (C 255 236 244); SubColor = (C 90 230 255)
+        BtnFondo = (C 30 10 28); BtnTexto = (C 255 236 244); BtnTextoHover = (C 255 255 255); BtnBorde = (C 255 92 170); BtnBordeAncho = 2
+        BtnHover = (C 200 40 110); BtnPress = (C 90 230 255); BarraBtnTexto = (C 255 236 244)
+        StatusColor = (C 255 236 244); Fuente = 'Bahnschrift'; FuenteTitulo = 'Arial Black'; Opacidad = 1.0; Velocidad = 1
+        Ancho = 760; Mezclar = $true; Gif = 'skins\ellie\cuerpo.png'; FondoImg = 'skins\ellie\fondo.jpg'
+        Selfie = 'skins\ellie\selfie.png'; Usuario = 'skins\ellie\user.png'
+        # Ellie (su render de cuerpo entero) y un cuenco de natillas que se puede clicar
+        Actores = @(
+            @{ Id = 'E'; Gif = 'skins\ellie\cuerpo.png'; Rect = @(614, 40, 142, 280); Respira = $true }
+            @{ Id = 'N'; Gif = 'skins\ellie\natillas.png'; Rect = @(434, 204, 64, 56) }
+        )
+        Sonidos = @{
+            sirena = @('skins\ellie\sirena.wav'); boom = @('skins\ellie\boom.wav'); glitch = @('skins\ellie\glitch.wav')
+            tele = @('skins\ellie\tele.wav'); nam = @('skins\ellie\nam.wav')
+        }
+        Burbuja = @(424, 272, 184, 40); BurFondo = $null; InvFondo = (C 30 10 28); BurTexto = (C 255 236 244); BurFuente = 'Segoe UI'
+    }
     # ================================================================ Nanachi (Made in Abyss)
     # Narehate de la 4ª capa del Abismo: ve el campo de fuerza, cura, dibuja y cocina fatal.
     # Personalidad: pasa de casi todo (seco, sin ganas, "me da igual")... menos de Mitty, su mejor amiga, que está a su lado.
@@ -759,6 +843,71 @@ $Skins = [ordered]@{
         # el estofado del Abismo (receta de verdad del manga) y lo que cae en la olla con cada app
         Ingredientes = @('un pez demonio entero (machacado)', 'un huevo de picomartillo gigante', 'hierba amarilla, bien pegajosa', 'Gintoko desmigado', 'sal. Lo único normal')
     }
+    # ================================================================ Malkuth (Library of Ruina)
+    # Bibliotecaria Patrona de la Planta de Historia (antes, Sephirah del Equipo de Control de Lobotomy Corp.). Ficha en lore\personajes\Malkuth.md.
+    # Alegre, trabajadora y algo torpe; cuando se acuerda de sus fallos se hunde y lo arregla con su ejercicio de respiración.
+    # Su música (Malkuth Story y Malkuth Battle 1-3, del juego) suena de fondo y cambia con el NIVEL DE EMOCIÓN.
+    'Malkuth' = @{
+        Estilo = 'historia'; Titulo = 'MALKUTH'; Sub = 'planta de historia  ·  library of ruina'; Alto = 320
+        Fondo = (C 36 26 16); Borde = (C 214 170 90); Acento = (C 236 196 106)
+        TituloColor = (C 250 232 180); SubColor = (C 236 196 106)
+        BtnFondo = (C 92 60 30); BtnTexto = (C 250 236 200); BtnTextoHover = (C 50 32 14); BtnBorde = (C 214 170 90); BtnBordeAncho = 2
+        BtnHover = (C 236 196 106); BtnPress = (C 200 50 45); BarraBtnTexto = (C 250 236 200)
+        StatusColor = (C 250 236 200); Fuente = 'Segoe UI'; FuenteTitulo = 'Palatino Linotype'; Opacidad = 1.0; Velocidad = 1
+        Ancho = 760; Mezclar = $true; Gif = 'skins\malkuth\busto.png'; FondoImg = 'skins\malkuth\fondo.jpg'
+        Emblema = 'skins\malkuth\emblema.png'; Ego = 'skins\malkuth\ego.jpg'
+        IntroPlanta = 'skins\malkuth\intro_planta.jpg'; IntroAngela = 'skins\malkuth\intro_angela.jpg'
+        # sus retratos del juego (las 6 caras de los diálogos) y tres sprites de combate (tropiezo, herida y en guardia)
+        Actores = @(
+            @{ Id = 'M'; Gif = 'skins\malkuth\malkuth.png'; Rect = @(612, 46, 140, 278); Respira = $true
+               Extra = @{ feliz = 'skins\malkuth\feliz.png'; respira = 'skins\malkuth\respira.png'; decidida = 'skins\malkuth\decidida.png'
+                          enfado = 'skins\malkuth\enfado.png'; sombria = 'skins\malkuth\sombria.png'
+                          tropiezo = 'skins\malkuth\tropiezo.png'; herida = 'skins\malkuth\herida.png'; combate = 'skins\malkuth\combate.png' } }
+        )
+        Sonidos = @{
+            pagina = @('skins\malkuth\pagina.wav'); libro = @('skins\malkuth\libro.wav'); tropiezo = @('skins\malkuth\tropiezo.wav')
+            respira = @('skins\malkuth\respira.wav'); emocion = @('skins\malkuth\emocion.wav'); ego = @('skins\malkuth\ego.wav')
+        }
+        Burbuja = @(424, 278, 322, 34); BurFondo = $null; InvFondo = (C 250 242 222); BurTexto = (C 60 40 20); BurFuente = 'Segoe UI'
+    }
+    'Weathergirl' = @{
+        Estilo = 'clima'; Titulo = 'weathergirl'; Sub = 'flavor foley  ·  ft. eleanor forte  ·  el parte del tiempo'; Alto = 320
+        Fondo = (C 84 98 146); Borde = (C 230 236 250); Acento = (C 63 91 217)
+        TituloColor = (C 255 255 255); SubColor = (C 214 224 250)
+        BtnFondo = (C 248 249 253); BtnTexto = (C 30 38 74); BtnTextoHover = (C 255 255 255); BtnBorde = (C 38 48 92); BtnBordeAncho = 1
+        BtnHover = (C 63 91 217); BtnPress = (C 30 38 74); BarraBtnTexto = (C 255 255 255)
+        StatusColor = (C 255 255 255); Fuente = 'Georgia'; FuenteTitulo = 'Georgia'; Opacidad = 1.0; Velocidad = 1
+        Ancho = 760; Mezclar = $true; Gif = 'skins\weathergirl\eleanor.png'; Portada = 'skins\weathergirl\portada.jpg'
+        IntroImg = 'skins\weathergirl\intro.gif'; IntroAudio = 'skins\weathergirl\intro.mp3'
+        # Eleanor Forte con la chaqueta de Flavor Foley (arte oficial de su tienda, recortado): la presentadora, de medio cuerpo
+        Actores = @(
+            @{ Id = 'W'; Gif = 'skins\weathergirl\eleanor.png'; Rect = @(540, 98, 220, 220) }
+        )
+        Sonidos = @{
+            noticia = @('skins\weathergirl\noticia.wav'); trueno = @('skins\weathergirl\trueno.wav'); gota = @('skins\weathergirl\gota.wav')
+            paraguas = @('skins\weathergirl\paraguas.wav'); tele = @('skins\weathergirl\tele.wav'); sol = @('skins\weathergirl\sol.wav')
+        }
+        Burbuja = @(424, 278, 322, 34); BurFondo = $null; InvFondo = (C 236 240 250); BurTexto = (C 30 38 74); BurFuente = 'Georgia'
+    }
+    'Painter' = @{
+        Estilo = 'pintor'; Titulo = 'the_p.AI.nter'; Sub = 'z-779  ·  hadal blacksite  ·  pressure'; Alto = 320
+        Fondo = (C 192 192 192); Borde = (C 0 0 0); Acento = (C 0 0 128)
+        TituloColor = (C 255 255 255); SubColor = (C 200 220 255)
+        BtnFondo = (C 192 192 192); BtnTexto = (C 0 0 0); BtnTextoHover = (C 255 255 255); BtnBorde = (C 0 0 0); BtnBordeAncho = 1
+        BtnHover = (C 0 0 128); BtnPress = (C 128 128 128); BarraBtnTexto = (C 0 0 0)
+        StatusColor = (C 0 0 0); Fuente = 'Tahoma'; FuenteTitulo = 'Tahoma'; Opacidad = 1.0; Velocidad = 1
+        Ancho = 760; Mezclar = $true; Gif = 'skins\painter\painter_cara.png'
+        # Painter es su programa de dibujo (ventana dibujada para la skin): las caras y el paisaje se dibujan por código en el lienzo
+        Actores = @(
+            @{ Id = 'P'; Gif = 'skins\painter\programa.png'; Rect = @(412, 60, 340, 186) }
+        )
+        Sonidos = @{
+            blip = @('skins\painter\blip.wav'); garabato = @('skins\painter\garabato.wav'); ventilador = @('skins\painter\ventilador.wav')
+            error = @('skins\painter\error.wav'); minando = @('skins\painter\minando.wav'); listo = @('skins\painter\listo.wav')
+            arranque = @('skins\painter\arranque.wav'); apagar = @('skins\painter\apagar.wav')
+        }
+        Burbuja = @(424, 250, 322, 64); BurFondo = $null; InvFondo = (C 255 255 225); BurTexto = (C 0 0 0); BurFuente = 'Tahoma'
+    }
 }
 
 # ================= GRUPOS DEL MENÚ SKINS =================
@@ -773,6 +922,7 @@ $GruposSkins = [ordered]@{
         'Kennyoung'   = 'Kennyoung'
         'Token'       = 'femtanyl'
         'Static Miku' = 'Flavor Foley'
+        'Weathergirl' = 'Flavor Foley'
         'Kasane Teto' = 'Jamie Paige'
         'Kevin'       = 'Nyanwolf'
         'Gran'        = 'ivycomb'
@@ -781,6 +931,7 @@ $GruposSkins = [ordered]@{
         'c00lgui'          = 'c00lkidd'
         'Mikaela'          = 'PURSUITCORE'
         'Sebastian Solace' = 'Pressure'
+        'Painter'          = 'Pressure'
         'Pursuer'          = 'Die of Death'
         'Enfosi'           = 'Tumore'
     }
@@ -791,18 +942,23 @@ $GruposSkins = [ordered]@{
         'Velvet'               = 'Gunsaw'
         'Dune'                 = 'Gunsaw'
         'Angela'               = 'Lobotomy Corp.'
+        'Malkuth'              = 'Library of Ruina'
         'Cordero y Cabra'      = 'Cult of the Lamb'
         'Roaring Knight'       = 'Deltarune'
     }
     'Halloween' = [ordered]@{
         'Evil Scary' = 'Die of Death'
         'Soft Fuzzy Man' = 'Lemon Demon · Aimkid'
+        'Dybbuk' = 'Mewgenics'
     }
     'Anime' = [ordered]@{
         'Nanachi' = 'Made in Abyss'
     }
     'Artistas' = [ordered]@{
         'Averi' = 'Fiddleafox'
+    }
+    'Amigos' = [ordered]@{
+        'Ellie' = "Self insert de Ale"
     }
 }
 $SkinsPorPagina = 9   # 3 columnas x 3 filas; un grupo con más skins ocupa varias páginas
@@ -1367,22 +1523,50 @@ function Fondo-Escena($k, $W, $H) {
             Dibujar-Trozo $g 505 27 26 200
         }
         'pop' {
-            # el acuario del videoclip "You're Just Like Pop Music", con estética de cinta VHS
-            $g.Clear((C 30 14 52))
-            Imagen-Cubrir $g $k.FondoImg 0 0 $W $H 0.5 0.5
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 60 40 10 80))), 0, 0, $W, $H)
+            # el acuario del videoclip "You're Just Like Pop Music": agua de neón, rayos de luz, plantas y grava de colores
+            $g.Clear((C 26 12 48))
+            # fondo de la izquierda (detrás de los botones): morado oscuro con un poco de la foto del vídeo
+            Imagen-Cubrir $g $k.FondoImg 0 0 404 $H 0.5 0.5
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 170 26 12 48))), 0, 0, 404, $H)
+            # el agua: de azul claro arriba a morado profundo abajo
+            Degradado $g 404 56 ($W - 404) ($H - 56) (C 96 170 230) (C 40 24 104) 90
+            Degradado $g 404 56 ($W - 404) ($H - 56) (ARGB 0 255 92 190) (ARGB 60 255 92 190) 0
+            # rayos de luz que entran desde arriba
+            foreach ($rx in @(430, 520, 640, 720)) {
+                $ray = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$rx, 56)), (New-Object System.Drawing.PointF([float]($rx + 26), 56)), (New-Object System.Drawing.PointF([float]($rx - 30), [float]$H)), (New-Object System.Drawing.PointF([float]($rx - 80), [float]$H)))
+                $g.FillPolygon((New-Object System.Drawing.SolidBrush((ARGB 22 255 255 255))), $ray)
+            }
+            # plantas de acuario (detrás de Tetra)
+            $rn = New-Object System.Random 7
+            foreach ($px in @(418, 446, 560, 742, 754)) {
+                for ($j = 0; $j -lt 4; $j++) {
+                    $alto = $rn.Next(60, 150); $bx = $px + $j * 5 - 8
+                    $hoja = New-Object System.Drawing.Pen((ARGB 200 40 ($rn.Next(140, 200)) 150), [float]$rn.Next(3, 6)); $hoja.StartCap = 'Round'; $hoja.EndCap = 'Round'
+                    $g.DrawBezier($hoja, [float]$bx, 300, [float]($bx + $rn.Next(-14, 14)), [float](300 - $alto * 0.35), [float]($bx + $rn.Next(-18, 18)), [float](300 - $alto * 0.7), [float]($bx + $rn.Next(-10, 10)), [float](300 - $alto))
+                    $hoja.Dispose()
+                }
+            }
+            # la grava de colores del fondo del acuario
+            Degradado $g 404 290 ($W - 404) 30 (C 60 30 90) (C 30 14 52) 90
+            $cols = @((C 255 120 200), (C 90 230 250), (C 255 214 120), (C 190 150 255), (C 255 255 255))
+            for ($i = 0; $i -lt 110; $i++) { $gx = $rn.Next(404, $W); $gy = $rn.Next(288, $H); $gs = $rn.Next(3, 7); $cc = $cols[$i % 5]; $g.FillEllipse((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(210, $cc))), [float]$gx, [float]$gy, [float]$gs, [float]($gs * 0.7)) }
+            # el burbujeador (de donde salen las burbujas)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 40 40 60))), 470, 288, 18, 10); $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 90 90 120))), 472, 284, 14, 5)
+            # sombra bajo Tetra
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 110 20 0 40))), 610, 306, 124, 12)
+            # el cristal del acuario: reflejos y marco de neón
+            $g.FillPolygon((New-Object System.Drawing.SolidBrush((ARGB 26 255 255 255))), [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF(410, 60)), (New-Object System.Drawing.PointF(452, 60)), (New-Object System.Drawing.PointF(412, 140))))
+            $g.DrawRectangle((New-Object System.Drawing.Pen((ARGB 120 90 230 250), 2)), 405, 57, ($W - 408), ($H - 59))
             # panel oscuro con borde de neón detrás de los botones
             $pan = Ruta-Redonda 8 60 394 ($H - 66) 14
-            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 175 24 10 46))), $pan)
+            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 190 24 10 46))), $pan)
             $g.DrawPath((New-Object System.Drawing.Pen((ARGB 70 255 92 190), 6)), $pan)
             $g.DrawPath((New-Object System.Drawing.Pen((ARGB 230 90 230 250), 2)), $pan); $pan.Dispose()
-            # barra de arriba en degradado morado y rosa, con líneas de neón
+            # barra de arriba en degradado morado y rosa, con líneas de neón y el logo "Failure" de su gorra como pegatina
             Degradado $g 0 0 $W 52 (C 40 12 70) (C 130 34 116) 0
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 90 230 250))), 0, 49, $W, 2)
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 92 190))), 0, 51, $W, 2)
-            # el logo "Failure" de su gorra
-            $lg = Cargar-Img $k.Logo; if ($lg) { $g.DrawImage($lg, 420, 200, 70, 54); $lg.Dispose() }
-            $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 90 20 0 40))), 578, 266, 122, 12)
+            $lg = Cargar-Img $k.Logo; if ($lg) { $g.DrawImage($lg, 466, 3, 60, 46); $lg.Dispose() }
         }
         'gran' {
             # el remolino de pintura de su intro, oscurecido, con el laboratorio de Antihuman Inc. encima
@@ -1423,6 +1607,34 @@ function Fondo-Escena($k, $W, $H) {
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 170 20 30))), 0, 52, $W, 3)
             $ti = Cargar-Img $k.TituloImg; if ($ti) { $g.DrawImage($ti, 10, 4, 104, 46); $ti.Dispose() }
         }
+        'boneyard' {
+            # la colina del Boneyard donde se pelea contra Dybbuk (fondo del juego), con la luna y las lápidas
+            $g.Clear((C 24 24 28))
+            Imagen-Cubrir $g $k.FondoImg 0 0 $W $H 0.5 0.45
+            Degradado $g 0 0 420 $H (ARGB 225 26 27 32) (ARGB 160 26 27 32) 0
+            Degradado $g 420 0 70 $H (ARGB 160 26 27 32) (ARGB 0 26 27 32) 0
+            Degradado $g 400 210 ($W - 400) ($H - 210) (ARGB 0 12 12 16) (ARGB 200 12 12 16) 90
+            # sombra bajo Dybbuk
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 110 0 0 0))), 520, 240, 124, 15)
+            # barra de tinta con el borde gris azulado de los fantasmas y la lápida del Boneyard
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 245 22 23 28))), 0, 0, $W, 52)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 120 142 156))), 0, 52, $W, 4)
+            $lp = Cargar-Img $k.Lapida; if ($lp) { $g.DrawImage($lp, 344, 5, 38, 43); $lp.Dispose() }
+        }
+        'corrupta' {
+            # el vacío del multiverso con un portal y píxeles corruptos; la foto de Ellie pegada como una polaroid
+            $g.Clear((C 16 6 16))
+            Imagen-Cubrir $g $k.FondoImg 0 0 $W $H 0.5 0.5
+            Degradado $g 0 0 420 $H (ARGB 230 18 6 18) (ARGB 170 18 6 18) 0
+            Degradado $g 420 0 70 $H (ARGB 170 18 6 18) (ARGB 0 18 6 18) 0
+            $sf = Cargar-Img $k.Selfie; if ($sf) { Dibujar-Polaroid $g $sf 446 70 86 -7; $sf.Dispose() }
+            # barra negra con la línea partida en rosa y cian (como una imagen con glitch)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 245 10 4 10))), 0, 0, $W, 52)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 90 230 255))), 0, 54, $W, 2)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 92 170))), 0, 52, $W, 2)
+            $rn = New-Object System.Random 3; $cols = @((C 255 40 80), (C 90 230 255), (C 255 230 60), (C 150 80 255))
+            for ($i = 0; $i -lt 14; $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush($cols[$rn.Next(4)])), [float]$rn.Next(446, 528), [float]$rn.Next(6, 46), [float]$rn.Next(4, 16), [float]$rn.Next(3, 7)) }
+        }
         'knight' {
             # fondo de combate de Deltarune: negro con la cuadrícula morada
             $g.Clear([System.Drawing.Color]::Black)
@@ -1453,6 +1665,105 @@ function Fondo-Escena($k, $W, $H) {
             $nube = New-Object System.Drawing.SolidBrush((ARGB 60 255 180 240))
             foreach ($nx in @(330, 470, 610, 700)) { $g.FillEllipse($nube, $nx, 14, 40, 20); $g.FillEllipse($nube, ($nx + 18), 6, 36, 26); $g.FillEllipse($nube, ($nx + 40), 16, 34, 18) }
             $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 90 230))), 0, 50, $W, 3)
+        }
+        'pintor' {
+            # la sala del Blacksite de Painter: paneles de metal, luz lila y cables hacia su tableta
+            Pr-Reset
+            Pr-Pintar-Fondo $g $W $H
+        }
+        'clima' {
+            # el parte del tiempo de Weathergirl: el azul grisáceo del vídeo y un cielo que cambia con el tiempo de verdad
+            Wg-Reset
+            Wg-Pintar-Fondo $g $W $H
+        }
+        'arana' {
+            # la guarida de Velvet en el Planeta Gris: cueva morada casi negra, rocas, telarañas y líneas de pantalla CRT (como Gunsaw)
+            Degradado $g 0 0 $W $H (C 36 14 32) (C 8 4 8) 90
+            $rn = New-Object System.Random 11
+            $roca = New-Object System.Drawing.SolidBrush((C 14 6 12))
+            for ($i = 0; $i -lt 9; $i++) { $rx = 400 + $i * 44 + $rn.Next(-8, 8); $rh = $rn.Next(18, 46); $g.FillPolygon($roca, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]($rx - 30), [float]$H)), (New-Object System.Drawing.PointF([float]($rx + $rn.Next(-10, 10)), [float]($H - $rh))), (New-Object System.Drawing.PointF([float]($rx + 34), [float]$H)))) }
+            for ($i = 0; $i -lt 8; $i++) {
+                $rx = 400 + $i * 50 + $rn.Next(-10, 10)
+                $p1 = New-Object System.Drawing.PointF([float]($rx - 18), 56); $p2 = New-Object System.Drawing.PointF([float]($rx + $rn.Next(-6, 6)), [float](56 + $rn.Next(12, 34))); $p3 = New-Object System.Drawing.PointF([float]($rx + 20), 56)
+                $g.FillPolygon($roca, [System.Drawing.PointF[]]@($p1, $p2, $p3))
+            }
+            $roca.Dispose()
+            # resplandor rojo detrás de Velvet
+            $gp = New-Object System.Drawing.Drawing2D.GraphicsPath; $gp.AddEllipse(520, 70, 260, 260)
+            $pgb = New-Object System.Drawing.Drawing2D.PathGradientBrush($gp); $pgb.CenterColor = (ARGB 70 200 20 40); $pgb.SurroundColors = [System.Drawing.Color[]]@((ARGB 0 200 20 40))
+            $g.FillPath($pgb, $gp); $pgb.Dispose(); $gp.Dispose()
+            # las telarañas: una grande colgada del techo y otra en la esquina
+            Vv-Red $g 470 58 250 (ARGB 95 230 225 235) 11 12 168 7
+            Vv-Red $g $W 56 150 (ARGB 70 230 225 235) 6 90 180 5
+            # panel oscuro con borde rojo detrás de los botones, con una telaraña pequeña en la esquina
+            $pan = Ruta-Redonda 8 60 394 ($H - 66) 6
+            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 200 20 8 16))), $pan)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 200 24 44), 2)), $pan); $pan.Dispose()
+            Vv-Red $g 9 61 60 (ARGB 60 230 225 235) 5 0 90 4
+            # sombra bajo Velvet
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 130 0 0 0))), 590, 306, 140, 14)
+            # líneas de pantalla CRT por toda la escena (como el menú de Gunsaw)
+            $lin = New-Object System.Drawing.Pen((ARGB 14 255 255 255), 1); for ($y = 56; $y -lt $H; $y += 3) { $g.DrawLine($lin, 404, $y, $W, $y) }; $lin.Dispose()
+            # barra de arriba negra con la línea roja y una arañita
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 10 4 8))), 0, 0, $W, 52)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 200 24 44))), 0, 52, $W, 3)
+            $sx = 500; $sy = 26; $pat = New-Object System.Drawing.Pen((C 200 24 44), 2)
+            foreach ($lado in @(-1, 1)) { foreach ($j in 0..3) { $g.DrawLines($pat, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$sx, [float]($sy - 3 + $j * 3))), (New-Object System.Drawing.PointF([float]($sx + $lado * (9 + $j)), [float]($sy - 9 + $j * 5))), (New-Object System.Drawing.PointF([float]($sx + $lado * (15 + $j * 2)), [float]($sy + 2 + $j * 5))))) } }
+            $pat.Dispose()
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 30 8 16))), [float]($sx - 6), [float]($sy - 7), 12, 16)
+            $g.DrawEllipse((New-Object System.Drawing.Pen((C 200 24 44), 1.5)), [float]($sx - 6), [float]($sy - 7), 12, 16)
+            $g.DrawLine((New-Object System.Drawing.Pen((ARGB 150 230 225 235), 1)), [float]$sx, 0, [float]$sx, [float]($sy - 7))
+        }
+        'lobo' {
+            # la sala de monitores de Angela (fondo del juego), oscurecida a la izquierda para los botones
+            $g.Clear((C 10 13 18))
+            Imagen-Cubrir $g $k.FondoImg 0 0 $W $H 0.6 0.5
+            Degradado $g 0 0 420 $H (ARGB 230 10 13 18) (ARGB 175 10 13 18) 0
+            Degradado $g 420 0 80 $H (ARGB 175 10 13 18) (ARGB 0 10 13 18) 0
+            Degradado $g 400 240 ($W - 400) ($H - 240) (ARGB 0 6 8 12) (ARGB 170 6 8 12) 90
+            # panel de la consola detrás de los botones: oscuro, borde ámbar y línea turquesa
+            $pan = Ruta-Redonda 8 60 394 ($H - 66) 4
+            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 195 12 16 22))), $pan)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 255 170 40), 1.5)), $pan); $pan.Dispose()
+            $g.DrawLine((New-Object System.Drawing.Pen((ARGB 150 80 210 200), 1)), 14, 66, 396, 66)
+            # hexágonos de L Corp, muy suaves, en el panel
+            $hx = New-Object System.Drawing.Pen((ARGB 22 255 176 50), 1)
+            for ($q = 0; $q -lt 7; $q++) { $cx = 40 + $q * 56; $cy = 300; $pts = [System.Drawing.PointF[]]@(0..5 | ForEach-Object { $an = [Math]::PI / 3 * $_; New-Object System.Drawing.PointF([float]($cx + 22 * [Math]::Cos($an)), [float]($cy + 22 * [Math]::Sin($an))) }); $g.DrawPolygon($hx, $pts) }
+            $hx.Dispose()
+            # sombra bajo Angela
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 110 0 0 0))), 616, 304, 120, 14)
+            # barra de arriba: negra con la línea ámbar y la turquesa (como la interfaz del juego) y el hexágono de L Corp
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 14 18 24))), 0, 0, $W, 52)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 170 40))), 0, 52, $W, 2)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 80 210 200))), 0, 55, $W, 1)
+            $hx = 494; $hy = 26
+            $pts = [System.Drawing.PointF[]]@(0..5 | ForEach-Object { $an = [Math]::PI / 3 * $_ + [Math]::PI / 6; New-Object System.Drawing.PointF([float]($hx + 19 * [Math]::Cos($an)), [float]($hy + 19 * [Math]::Sin($an))) })
+            $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 22 26 32))), $pts); $g.DrawPolygon((New-Object System.Drawing.Pen((C 255 170 40), 2)), $pts)
+            $tw = Ancho-Texto 'L' 'Bahnschrift' 18
+            Texto-Contorno $g 'L' 'Bahnschrift' 18 ($hx - $tw / 2 - 1) ($hy - 12) (C 255 176 50) 2
+        }
+        'historia' {
+            # la Planta de Historia (fondo de sus diálogos en el juego): estanterías con luz dorada, oscurecida a la izquierda
+            $g.Clear((C 36 26 16))
+            Imagen-Cubrir $g $k.FondoImg 0 0 $W $H 0.5 0.5
+            Degradado $g 0 0 420 $H (ARGB 220 30 22 12) (ARGB 160 30 22 12) 0
+            Degradado $g 420 0 80 $H (ARGB 160 30 22 12) (ARGB 0 30 22 12) 0
+            Degradado $g 400 230 ($W - 400) ($H - 230) (ARGB 0 20 14 8) (ARGB 170 20 14 8) 90
+            # panel de cuero con filete dorado detrás de los botones
+            $pan = Ruta-Redonda 8 60 394 ($H - 66) 8
+            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 175 38 28 18))), $pan)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 214 170 90), 2)), $pan); $pan.Dispose()
+            # la mesa de lectura (a la izquierda de Malkuth) y su sombra
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 100 0 0 0))), 628, 304, 116, 14)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 90 0 0 0))), 432, 268, 172, 8)
+            Degradado $g 428 252 172 16 (C 128 84 44) (C 86 54 26) 90
+            $g.DrawRectangle((New-Object System.Drawing.Pen((C 58 36 16), 1.5)), 428, 252, 172, 16)
+            foreach ($px in @(440, 584)) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 78 48 22))), $px, 268, 8, ($H - 268)) }
+            # barra de arriba: ocre de la planta, con el emblema de Malkuth
+            Degradado $g 0 0 $W 52 (C 120 86 40) (C 72 50 22) 90
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 240 206 120))), 0, 50, $W, 3)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 40 28 14))), 0, 53, $W, 2)
+            $em = Cargar-Img $k.Emblema; if ($em) { $g.DrawImage($em, 474, 3, 48, 47); $em.Dispose() }
         }
         'abismo' {
             # su escondite de la 4ª capa (del anime), oscurecido a la izquierda para los botones
@@ -1656,6 +1967,24 @@ function Pintar-Burbuja($g, $k) {
             $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 225 22 10 12))), $r)
             $g.DrawPath((New-Object System.Drawing.Pen((C 170 20 30), 2)), $r); $r.Dispose()
         }
+        'boneyard' {
+            # nota de papel con borde de tinta irregular (la interfaz de Mewgenics) y un celo gris azulado
+            $pts = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]($x + 1), [float]($y + 2))), (New-Object System.Drawing.PointF([float]($x + $w * 0.55), [float]($y - 1))), (New-Object System.Drawing.PointF([float]($x + $w), [float]($y + 1))), (New-Object System.Drawing.PointF([float]($x + $w + 1), [float]($y + $h - 1))), (New-Object System.Drawing.PointF([float]($x + $w * 0.35), [float]($y + $h + 1))), (New-Object System.Drawing.PointF([float]($x - 1), [float]($y + $h - 2))))
+            $somb = [System.Drawing.PointF[]]@($pts | ForEach-Object { New-Object System.Drawing.PointF(($_.X + 4), ($_.Y + 4)) })
+            $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 10 10 14))), $somb)
+            $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 238 236 226))), $pts)
+            $tinta = New-Object System.Drawing.Pen((C 22 22 26), 3); $tinta.LineJoin = 'Round'
+            $g.DrawPolygon($tinta, $pts); $tinta.Dispose()
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 170 150 172 186))), [float]($x + 14), [float]($y - 8), 30, 12)
+        }
+        'corrupta' {
+            # caja oscura con borde rosa y una copia cian desplazada (efecto glitch)
+            $r = Ruta-Redonda ($x + 2) ($y + 2) $w $h 6
+            $g.DrawPath((New-Object System.Drawing.Pen((ARGB 200 90 230 255), 2)), $r); $r.Dispose()
+            $r = Ruta-Redonda $x $y $w $h 6
+            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 230 26 8 24))), $r)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 255 92 170), 2)), $r); $r.Dispose()
+        }
         'knight' {
             # cuadro de texto de Deltarune: negro con doble borde blanco
             $g.FillRectangle([System.Drawing.Brushes]::Black, [float]$x, [float]$y, [float]$w, [float]$h)
@@ -1668,6 +1997,46 @@ function Pintar-Burbuja($g, $k) {
             $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 225 60 24 100))), $r)
             $g.DrawPath((New-Object System.Drawing.Pen((ARGB 70 255 90 230), 5)), $r)
             $g.DrawPath((New-Object System.Drawing.Pen((C 255 90 230), 1.6)), $r); $r.Dispose()
+        }
+        'pintor' {
+            # aviso amarillo, como los consejos que salían al dejar el ratón quieto
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 90 0 0 0))), ($x + 3), ($y + 3), $w, $h)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 255 225))), $x, $y, $w, $h)
+            $g.DrawRectangle((New-Object System.Drawing.Pen((C 0 0 0), 1)), $x, $y, $w, $h)
+        }
+        'clima' {
+            # rótulo de la tele: papel blanco con una franja azul a la izquierda
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 90 10 14 40))), ($x + 3), ($y + 3), $w, $h)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 242 248 249 253))), $x, $y, $w, $h)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 63 91 217))), $x, $y, 5, $h)
+            $g.DrawRectangle((New-Object System.Drawing.Pen((C 38 48 92), 1)), $x, $y, $w, $h)
+        }
+        'arana' {
+            # bocadillo oscuro con borde rojo y una telarañita en la esquina
+            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 120 0 0 0))), (Ruta-Redonda ($x + 3) ($y + 3) $w $h 8))
+            $r = Ruta-Redonda $x $y $w $h 8
+            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 232 22 10 18))), $r)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 200 24 44), 1.6)), $r); $r.Dispose()
+            Vv-Red $g ($x + $w) $y 22 (ARGB 120 230 225 235) 4 90 180 3
+        }
+        'lobo' {
+            # subtítulo de la interfaz de L Corp: caja oscura, barra ámbar a la izquierda y la pestaña ANGELA
+            $r = Ruta-Redonda $x $y $w $h 4
+            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 225 10 13 18))), $r)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 255 170 40), 1.5)), $r); $r.Dispose()
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 170 40))), [float]$x, [float]($y + 5), 3, [float]($h - 10))
+            $t2 = Ruta-Redonda ($x + 10) ($y - 12) 66 16 4
+            $g.FillPath((New-Object System.Drawing.SolidBrush((C 255 170 40))), $t2); $t2.Dispose()
+            $g.DrawString('ANGELA', (FntP('Bahnschrift', 7.5, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 12 14 18))), ($x + 18), ($y - 12))
+        }
+        'historia' {
+            # ficha de catálogo de la biblioteca: cartulina crema, una línea roja arriba y un marcapáginas
+            $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 120 0 0 0))), (Ruta-Redonda ($x + 3) ($y + 3) $w $h 4))
+            $r = Ruta-Redonda $x $y $w $h 4
+            $g.FillPath((New-Object System.Drawing.SolidBrush((C 250 242 222))), $r)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 150 110 50), 1.6)), $r); $r.Dispose()
+            $g.DrawLine((New-Object System.Drawing.Pen((ARGB 150 200 60 50), 1)), [float]($x + 4), [float]($y + 4), [float]($x + $w - 30), [float]($y + 4))
+            $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 200 50 45))), [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]($x + $w - 24), [float]($y - 6))), (New-Object System.Drawing.PointF([float]($x + $w - 14), [float]($y - 6))), (New-Object System.Drawing.PointF([float]($x + $w - 14), [float]($y + 12))), (New-Object System.Drawing.PointF([float]($x + $w - 19), [float]($y + 8))), (New-Object System.Drawing.PointF([float]($x + $w - 24), [float]($y + 12)))))
         }
         'abismo' {
             # nota de papel de explorador, con una esquina doblada
@@ -1768,6 +2137,8 @@ function Decir($texto, $cara) {
     if ($k.Estilo -eq 'culto' -and ([Environment]::TickCount - $script:ultimoSonido) -gt 700) { Voz-Culto $texto }
     # Teto dice con su voz una palabra de lo que pone en el bocadillo
     if ($k.Estilo -eq 'teto') { Voz-Teto $texto }
+    # Angela pone la cara que pide la frase (la boca la mueve Ag-Tick)
+    if ($k.Estilo -eq 'lobo') { Ag-Cara-Decir $cara }
     # Averi cambia de cara según cómo se siente
     if ($k.Estilo -eq 'zorro') {
         $pose = switch ($cara) { 'abiertos' { 'feliz' } 'serio' { 'antojo' } default { if ($script:antojo -ge 100) { 'antojo' } else { 'main' } } }
@@ -1815,7 +2186,10 @@ function Opinion($nombre) {
     return (Azar $k.Opina[$nombre])
 }
 function Opinion-Azar {
-    $otras = @($Skins.Keys | Where-Object { $_ -ne $script:skinNombre })
+    # solo skins de las que la actual tiene opinión escrita (Ellie no opina de nadie ni las demás de ella)
+    $k = $script:skin
+    $otras = @($Skins.Keys | Where-Object { $_ -ne $script:skinNombre -and $k.Opina -and $k.Opina[$_] })
+    if ($otras.Count -eq 0) { return (Azar $k.Idle) }
     return (Opinion (Azar $otras))
 }
 
@@ -2828,24 +3202,80 @@ function Tetra-Clic {
         if ($script:popDND) { Decir 'No molestar: ACTIVADO. *Se pone los cascos.* No es nada personal.' }
         else { Decir 'No molestar: desactivado. Ya me pueden escribir. ...igual tardo en contestar.' }
     } elseif ($Rnd.Next(3) -eq 0) {
-        Sonido 'disco'
+        Sonido 'disco'; $script:popBaila = 90
         Decir (Azar @('*Se pone a bailar disco en el sitio.* Esto sonaba mucho en 2020.', '*Baila un poco. Se le mueven los pendientes de pez.*', '*Tararea muy bajito.* ...you''re just like pop music...'))
     } else { Decir (Azar $script:skin.Clic) }
     $form.Invalidate()
 }
+# su canción ("You're Just Like Pop Music", la versión instrumental oficial) suena de fondo, como la de Gran
+$script:popMusica = $null; $script:popBaila = 0; $script:burbujas = New-Object System.Collections.ArrayList
+function Tetra-Volumen { return [Math]::Max(0.0, [Math]::Min(1.0, 0.5 * $script:aj.Volumen / 100.0)) }
+# la instrumental va 4,805 s por detrás del videoclip (medido comparando las dos pistas): así, al acabar la intro,
+# la canción sigue justo por donde iba el vídeo. $desdeMs = milisegundos de la instrumental donde empezar.
+$TetraDesfase = 4805; $TetraIntroDesde = 3800   # la intro empieza en el segundo 3,8 del vídeo (sin el aviso de epilepsia)
+function Tetra-Musica-On($desdeMs) {
+    if (-not $script:aj.Sonido -or $script:popMusica) { return }
+    try {
+        $mp = New-Object System.Windows.Media.MediaPlayer
+        $mp.Open([Uri](Ruta 'skins\tetra\cancion.mp3')); $mp.Volume = (Tetra-Volumen)
+        $script:popDesde = 0
+        if ($desdeMs -gt 0) { $mp.Position = [TimeSpan]::FromMilliseconds($desdeMs); $script:popDesde = [double]$desdeMs; $script:popDesdeT = [Environment]::TickCount }
+        $mp.Play()
+        $script:popMusica = $mp
+    } catch { $script:popMusica = $null }
+}
+function Tetra-Musica-Off {
+    if ($script:popMusica) { try { $script:popMusica.Stop(); $script:popMusica.Close() } catch {}; $script:popMusica = $null }
+}
+# un pez nuevo: nada hacia la derecha o la izquierda, en uno de los dos bancos (arriba o en medio)
+function Tetra-Pez-Nuevo($fuera) {
+    $dir = if ($Rnd.Next(2) -eq 0) { 1 } else { -1 }
+    $banco = if ($Rnd.Next(2) -eq 0) { 100 } else { 190 }
+    $x = if ($fuera) { $(if ($dir -gt 0) { 380 - $Rnd.Next(0, 120) } else { 790 + $Rnd.Next(0, 120) }) } else { $Rnd.Next(410, 760) }
+    return @{ X = [double]$x; Y = [double]($banco + $Rnd.Next(-26, 26)); Y0 = [double]$banco; V = $dir * (0.7 + $Rnd.NextDouble() * 0.9); E = 0.75 + $Rnd.NextDouble() * 0.5; F = $Rnd.NextDouble() * 6 }
+}
 function Tetra-Tick {
-    if ($script:peces.Count -eq 0) {
-        for ($i = 0; $i -lt 7; $i++) { [void]$script:peces.Add(@{ X = [double]$Rnd.Next(410, 760); Y = [double]$Rnd.Next(80, 250); V = 0.6 + $Rnd.NextDouble() * 1.2; E = 0.7 + $Rnd.NextDouble() * 0.6; F = $Rnd.NextDouble() * 6 }) }
+    # la canción: se repite al acabar, sigue el volumen y se calla si quitas el sonido
+    # (durante la intro suena el audio del vídeo; la instrumental entra al acabar, por el mismo punto)
+    if ($script:transicion -and $script:ppAudio) { }
+    elseif (-not $script:aj.Sonido) { Tetra-Musica-Off }
+    elseif (-not $script:popMusica) { Tetra-Musica-On }
+    else {
+        try {
+            $mp = $script:popMusica
+            if ([Math]::Abs($mp.Volume - (Tetra-Volumen)) -gt 0.01) { $mp.Volume = (Tetra-Volumen) }
+            # el mp3 tarda un poco en abrirse y arranca retrasado: los primeros 3 s se recoloca si se desvía
+            if ($script:popDesde -gt 0) {
+                $pasado = [Environment]::TickCount - $script:popDesdeT
+                if ($pasado -gt 3000) { $script:popDesde = 0 }
+                elseif ($mp.NaturalDuration.HasTimeSpan) {
+                    $quiero = $script:popDesde + $pasado
+                    if ([Math]::Abs($mp.Position.TotalMilliseconds - $quiero) -gt 200.0) { $mp.Position = [TimeSpan]::FromMilliseconds($quiero) }
+                }
+            }
+            if ($mp.NaturalDuration.HasTimeSpan -and $mp.Position -ge ($mp.NaturalDuration.TimeSpan - [TimeSpan]::FromMilliseconds(120))) { $mp.Position = [TimeSpan]::Zero; $mp.Play() }
+        } catch {}
     }
-    foreach ($p in $script:peces) { $p.X += $p.V; $p.F += 0.25; if ($p.X -gt 780) { $p.X = 400; $p.Y = [double]$Rnd.Next(80, 250) } }
+    # los tetras neón nadan en bancos, ondulando un poco; al salir por un lado vuelven a entrar
+    if ($script:peces.Count -eq 0) { for ($i = 0; $i -lt 12; $i++) { [void]$script:peces.Add((Tetra-Pez-Nuevo $false)) } }
+    foreach ($p in $script:peces) {
+        $p.X += $p.V; $p.F += 0.25; $p.Y += ($p.Y0 + [Math]::Sin(($p.X + $p.Y0) / 40.0) * 18 - $p.Y) * 0.02
+        if (($p.V -gt 0 -and $p.X -gt 800) -or ($p.V -lt 0 -and $p.X -lt 370)) { $n = Tetra-Pez-Nuevo $true; foreach ($c in @($n.Keys)) { $p[$c] = $n[$c] } }
+    }
+    # burbujas que suben del burbujeador
+    if ($Rnd.Next(5) -eq 0) { [void]$script:burbujas.Add(@{ X = 479.0 + $Rnd.Next(-3, 4); Y = 284.0; R = 2 + $Rnd.Next(0, 4); F = $Rnd.NextDouble() * 6 }) }
+    for ($i = $script:burbujas.Count - 1; $i -ge 0; $i--) { $bu = $script:burbujas[$i]; $bu.Y -= 1.1 + $bu.R * 0.15; $bu.F += 0.15; if ($bu.Y -lt 60) { $script:burbujas.RemoveAt($i) } }
+    # baila un rato (cuando le da por la música disco) y luego vuelve a estar tranquila
+    $a = $script:actores['E']
+    if ($a) { if ($script:popBaila -gt 0) { $script:popBaila--; $a.Baila = $true } else { $a.Baila = $false } }
     if ($script:popNoti) { $script:popNoti.T--; if ($script:popNoti.T -le 0) { $script:popNoti = $null } }
     if ($script:popFx -gt 0) { $script:popFx-- }
     Invalidar-Escena
     $form.Invalidate((New-Object System.Drawing.Rectangle(0, [int](276 * $script:K), [int](410 * $script:K), [int](44 * $script:K))))
 }
-# pececito neón (tetra neón): cuerpo plateado, franja azul brillante y cola roja
+# pececito neón (tetra neón): cuerpo plateado, franja azul brillante y cola roja (esc negativo = mira a la izquierda)
 function Dibujar-Tetra-Pez($g, $x, $y, $esc, $fase) {
-    $st = $g.Save(); $g.TranslateTransform([float]$x, [float]$y); $g.ScaleTransform([float]$esc, [float]$esc)
+    $st = $g.Save(); $g.TranslateTransform([float]$x, [float]$y); $g.ScaleTransform([float]$esc, [float][Math]::Abs($esc))
     $cola = [Math]::Sin($fase) * 2
     $g.FillPolygon((New-Object System.Drawing.SolidBrush((ARGB 200 240 60 70))), [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF(-9, 0)), (New-Object System.Drawing.PointF(-16, [float](-4 + $cola))), (New-Object System.Drawing.PointF(-16, [float](4 + $cola)))))
     $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 210 220 230 240))), -11, -4, 22, 8)
@@ -3115,20 +3545,241 @@ function Gran-Tick {
     if ($e.Fx -gt 0) { $e.Fx--; Invalidar-Escena }
 }
 
-# ================= KENNYOUNG: SU CANAL DE YOUTUBE =================
-# Cada app que abres son visitas y likes. Cada 8 apps, concierto con la banda.
-# Haz clic en él y toca un acorde: el amplificador sube; si llega al máximo, la guitarra EXPLOTA.
-# El botón SUSCRIBIRSE del reproductor funciona (con campanita).
-$script:kyVistas = 0; $script:kyLikes = 0; $script:kyApps = 0; $script:kyAmp = 0.0; $script:kyRotas = 0
-$script:kyCancion = 0; $script:kyProg = 0.0; $script:kySub = $false; $script:kyFx = 0; $script:kyConc = 0; $script:kyFlash = 0
-$KyBoton = @(184, 14, 100, 24)   # botón SUSCRIBIRSE (en la barra de arriba)
-function Ky-Duracion { return (150 + (($script:kyCancion * 37) % 70)) }   # segundos de cada canción (entre 2:30 y 3:40)
-function Ky-Tiempo($s) { return ('{0}:{1:00}' -f [int][Math]::Floor($s / 60), [int]($s % 60)) }
-function Ky-Numero($n) { if ($n -ge 1000000) { return ('{0:0.0} M' -f ($n / 1000000.0)) } elseif ($n -ge 1000) { return ('{0:0.0} K' -f ($n / 1000.0)) } else { return "$n" } }
-function Sub-En-Raton {
-    $pt = $form.PointToClient([System.Windows.Forms.Cursor]::Position); $x = $pt.X / $script:K; $y = $pt.Y / $script:K
-    return ($x -ge $KyBoton[0] -and $x -le $KyBoton[0] + $KyBoton[2] -and $y -ge $KyBoton[1] -and $y -le $KyBoton[1] + $KyBoton[3])
+# ================= KENNYOUNG: SU VIDA EN SUS VÍDEOS =================
+# Kenny vive en los escenarios de sus videoclips (imágenes sin letras en skins\kennyoung\escenas) y su ÁNIMO decide en
+# cuál está, con la canción de ese vídeo sonando (skins\kennyoung\musica):
+#   animado (Ready To Say: el paseo al atardecer)  ·  tranquilo (I Used To: el salón)  ·  solo (Loner: su cuarto de
+#   noche, con la manta)  ·  cansado (Lethargy)  ·  agobiado (Get Away).
+# ENERGÍA: baja con el tiempo y con cada app; sube si le dejas descansar. COMPAÑÍA: sube con clics y apps; baja si le
+# ignoras. AGOBIO: sube si abres muchas apps seguidas; baja solo. Clic en "animado" = toca (el ampli sube y, al 100 %,
+# la guitarra EXPLOTA); en las otras escenas, le haces compañía, le animas o le calmas.
+$KyEscenas = @{
+    animado = @{ Img = 'skins\kennyoung\escenas\animado.jpg'; Musica = 'readytosay'; Cancion = 'Ready To Say'; Nombre = 'con ganas de tocar' }
+    tranquilo = @{ Img = 'skins\kennyoung\escenas\tranquilo.jpg'; Musica = 'iusedto'; Cancion = 'I Used To'; Nombre = 'tranquilo' }
+    solo = @{ Img = 'skins\kennyoung\escenas\solo.jpg'; Musica = 'loner'; Cancion = 'Loner'; Nombre = 'solo' }
+    cansado = @{ Img = 'skins\kennyoung\escenas\cansado.jpg'; Musica = 'lethargy'; Cancion = 'Lethargy'; Nombre = 'sin energía' }
+    agobiado = @{ Img = 'skins\kennyoung\escenas\agobiado.jpg'; Musica = 'getaway'; Cancion = 'Get Away'; Nombre = 'agobiado' }
 }
+$KyTiempos = @{ EnergiaApp = 5.0; CompaniaApp = 3.0; AgobioApp = 18.0; CompaniaClic = 9.0; Descanso = 40000; CambioMin = 6000; Fundido = 900 }
+$script:ky = $null; $script:kyMusica = $null; $script:kyMusicaVieja = $null; $script:kyMusNom = ''; $script:kyPosiciones = @{}; $script:kyImgs = @{}
+function Ky-Reset {
+    if (-not $script:ky) {
+        $script:ky = @{ Escena = 'tranquilo'; Antes = $null; CambioT = 0; Energia = 70.0; Compania = 60.0; Agobio = 0.0; Ult = [Environment]::TickCount
+            Amp = 0.0; Rotas = 0; Fx = 0; Flash = 0; Desde = 0; DesdeT = 0; Fade = 1.0 }
+    }
+}
+function Ky-Volumen { return [Math]::Max(0.0, [Math]::Min(1.0, 0.45 * $script:aj.Volumen / 100.0)) }
+function Ky-Musica-Off {
+    foreach ($m in @($script:kyMusica, $script:kyMusicaVieja)) { if ($m) { try { $m.Stop(); $m.Close() } catch {} } }
+    $script:kyMusica = $null; $script:kyMusicaVieja = $null; $script:kyMusNom = ''
+}
+# cambia de canción con un fundido; cada canción sigue por donde se dejó
+function Ky-Poner-Musica($nombre, $desdeMs) {
+    Ky-Reset; $e = $script:ky
+    if ($null -eq $desdeMs -and $script:kyMusica -and $script:kyMusNom -eq $nombre) { return }   # ya suena (p. ej. la de la intro)
+    if ($script:kyMusica) {
+        try { $script:kyPosiciones[$script:kyMusNom] = $script:kyMusica.Position.TotalMilliseconds } catch {}
+        if ($script:kyMusicaVieja) { try { $script:kyMusicaVieja.Stop(); $script:kyMusicaVieja.Close() } catch {} }
+        $script:kyMusicaVieja = $script:kyMusica; $script:kyMusica = $null
+    }
+    $script:kyMusNom = $nombre
+    if (-not $script:aj.Sonido) { return }
+    try {
+        $mp = New-Object System.Windows.Media.MediaPlayer
+        $mp.Open([Uri](Ruta ('skins\kennyoung\musica\' + $nombre + '.mp3'))); $mp.Volume = 0.0
+        if ($null -eq $desdeMs -and $script:kyPosiciones.ContainsKey($nombre)) { $desdeMs = $script:kyPosiciones[$nombre] }
+        $e.Desde = 0
+        if ($desdeMs -gt 0) { $mp.Position = [TimeSpan]::FromMilliseconds($desdeMs); $e.Desde = [double]$desdeMs; $e.DesdeT = [Environment]::TickCount }
+        $mp.Play(); $script:kyMusica = $mp; $e.Fade = 0.0
+    } catch { $script:kyMusica = $null }
+}
+# en qué escena debería estar según su ánimo
+function Ky-Escena-Deseada {
+    $e = $script:ky
+    if ($e.Agobio -ge 70.0) { return 'agobiado' }
+    if ($e.Energia -lt 25.0) { return 'cansado' }
+    if ($e.Compania -lt 25.0) { return 'solo' }
+    if ($e.Energia -ge 60.0 -and $e.Compania -ge 55.0) { return 'animado' }
+    return 'tranquilo'
+}
+function Ky-Cambiar($esc) {
+    $e = $script:ky; $k = $script:skin
+    $e.Antes = $e.Escena; $e.Escena = $esc; $e.CambioT = [Environment]::TickCount
+    if (-not $script:transicion) { Ky-Poner-Musica $KyEscenas[$esc].Musica $null }
+    if (-not (Ocupado) -and -not $script:discutiendo) { Decir (Azar $k[('Entra' + $esc.Substring(0, 1).ToUpper() + $esc.Substring(1))]) }
+    $form.Invalidate()
+}
+function Ky-App($linea) {
+    Ky-Reset; $e = $script:ky; $k = $script:skin
+    $e.Energia = [Math]::Max(0.0, $e.Energia - $KyTiempos.EnergiaApp); $e.Compania = [Math]::Min(100.0, $e.Compania + $KyTiempos.CompaniaApp)
+    $e.Agobio = [Math]::Min(100.0, $e.Agobio + $KyTiempos.AgobioApp); $e.Ult = [Environment]::TickCount
+    Sonido 'acorde'
+    if ($e.Escena -eq 'agobiado') { Decir (Azar $k.AppAgobiado); return }
+    if ($e.Escena -eq 'cansado') { Decir (Azar $k.AppCansado); return }
+    Decir $linea
+}
+function Ky-Clic {
+    Ky-Reset; $e = $script:ky; $k = $script:skin
+    $e.Ult = [Environment]::TickCount; $e.Compania = [Math]::Min(100.0, $e.Compania + $KyTiempos.CompaniaClic)
+    switch ($e.Escena) {
+        'animado' {
+            # toca: el ampli sube; al 100 % la guitarra explota
+            $e.Amp = [Math]::Min(100.0, $e.Amp + 22)
+            Sonido 'acorde'
+            foreach ($i in 0..1) { Flotante (Azar @('♪', '♫', '★')) (560 + $Rnd.Next(0, 180)) (80 + $Rnd.Next(0, 90)) (@((C 255 255 255), (C 255 80 160), (C 110 235 140))[$Rnd.Next(3)]) 22 'Segoe UI Symbol' }
+            if ($e.Amp -ge 100.0) {
+                $e.Amp = 0.0; $e.Rotas++; $e.Fx = 50; if (-not $script:aj.Epilepsia) { $e.Flash = 8 }
+                $e.Energia = [Math]::Max(0.0, $e.Energia - 15)
+                Sonido 'kaboom'; Sacudir $form 14
+                Decir-Fijo (Azar $k.Kaboom)
+            } elseif ($e.Amp -ge 70.0) { Decir (Azar $k.AmpAlto) }
+            else { Decir (Azar $k.Clic) }
+        }
+        'agobiado' { $e.Agobio = [Math]::Max(0.0, $e.Agobio - 15); Decir (Azar $k.ClicAgobiado) }
+        'cansado' { $e.Energia = [Math]::Min(100.0, $e.Energia + 3); Decir (Azar $k.ClicCansado) }
+        'solo' { $e.Compania = [Math]::Min(100.0, $e.Compania + 6); Flotante '♥' 640 120 (C 255 150 190) 20 'Segoe UI Symbol'; Decir (Azar $k.ClicSolo) }
+        default { Decir (Azar $k.ClicTranquilo) }
+    }
+    $form.Invalidate()
+}
+function Ky-Tick {
+    Ky-Reset; $e = $script:ky; $k = $script:skin; $ahora = [Environment]::TickCount
+    $a = $script:actores['Y']; if ($a -and $a.Visible) { $a.Visible = $false }   # Kenny ya sale en cada escena
+    # su ánimo
+    $descansa = ($ahora - $e.Ult) -gt $KyTiempos.Descanso
+    if ($descansa) { $e.Energia = [Math]::Min(100.0, $e.Energia + 0.05); $e.Compania = [Math]::Max(0.0, $e.Compania - 0.02) }
+    else { $e.Energia = [Math]::Max(0.0, $e.Energia - 0.01); $e.Compania = [Math]::Max(0.0, $e.Compania - 0.006) }
+    $e.Agobio = [Math]::Max(0.0, $e.Agobio - 0.06)
+    if (-not $script:transicion) {
+        $quiere = Ky-Escena-Deseada
+        if ($quiere -ne $e.Escena -and ($ahora - $e.CambioT) -gt $KyTiempos.CambioMin) { Ky-Cambiar $quiere }
+    }
+    # la música: la de su escena (con fundido), sigue el volumen y se repite al acabar
+    if (-not $script:aj.Sonido) { Ky-Musica-Off }
+    elseif (-not $script:transicion -and $script:kyMusNom -ne $KyEscenas[$e.Escena].Musica) { Ky-Poner-Musica $KyEscenas[$e.Escena].Musica $null }
+    if ($script:kyMusica) {
+        try {
+            $mp = $script:kyMusica
+            if ($e.Fade -lt 1.0) { $e.Fade = [Math]::Min(1.0, $e.Fade + 0.05) }
+            $vt = (Ky-Volumen) * $e.Fade; if ([Math]::Abs($mp.Volume - $vt) -gt 0.01) { $mp.Volume = $vt }
+            if ($e.Desde -gt 0) {
+                $pasado = $ahora - $e.DesdeT
+                if ($pasado -gt 3000) { $e.Desde = 0 }
+                elseif ($mp.NaturalDuration.HasTimeSpan) { $quiero = $e.Desde + $pasado; if ([Math]::Abs($mp.Position.TotalMilliseconds - $quiero) -gt 250.0) { $mp.Position = [TimeSpan]::FromMilliseconds($quiero) } }
+            }
+            if ($mp.NaturalDuration.HasTimeSpan -and $mp.Position -ge ($mp.NaturalDuration.TimeSpan - [TimeSpan]::FromMilliseconds(150))) { $mp.Position = [TimeSpan]::Zero; $mp.Play() }
+        } catch {}
+    }
+    if ($script:kyMusicaVieja) {
+        try { $v = $script:kyMusicaVieja.Volume - 0.03; if ($v -le 0) { $script:kyMusicaVieja.Stop(); $script:kyMusicaVieja.Close(); $script:kyMusicaVieja = $null } else { $script:kyMusicaVieja.Volume = $v } } catch { $script:kyMusicaVieja = $null }
+    }
+    if ($e.Amp -gt 0) { $e.Amp = [Math]::Max(0.0, $e.Amp - 0.4) }
+    if ($e.Fx -gt 0) { $e.Fx--; if ($e.Fx % 8 -eq 0) { Sacudir $form 3 } }
+    if ($e.Flash -gt 0) { $e.Flash-- }
+    if ($script:aj.Epilepsia) { $e.Flash = 0 }
+    $form.Invalidate()
+}
+function Ky-Img($esc) {
+    if (-not $script:kyImgs.ContainsKey($esc)) { $script:kyImgs[$esc] = Cargar-Img $KyEscenas[$esc].Img }
+    return $script:kyImgs[$esc]
+}
+# una escena llenando el hueco, con un zoom lento (como una cámara que respira)
+function Ky-Dibujar-Escena($g, $esc, $alfa) {
+    $img = Ky-Img $esc; if (-not $img) { return }
+    $t = [Environment]::TickCount / 1000.0
+    $z = 1.03 + 0.025 * [Math]::Sin($t / 6.0)
+    $x0 = 404; $y0 = 56; $an = 352; $al = 222
+    $w2 = $an * $z; $h2 = $al * $z; $dx = ($an - $w2) / 2 + [Math]::Sin($t / 9.0) * 3; $dy = ($al - $h2) / 2
+    $dest = New-Object System.Drawing.RectangleF([float]($x0 + $dx), [float]($y0 + $dy), [float]$w2, [float]$h2)
+    if ($alfa -ge 0.999) { $g.DrawImage($img, $dest) }
+    else {
+        $cm = New-Object System.Drawing.Imaging.ColorMatrix; $cm.Matrix33 = [float]$alfa
+        $ia = New-Object System.Drawing.Imaging.ImageAttributes; $ia.SetColorMatrix($cm)
+        $g.DrawImage($img, (New-Object System.Drawing.Rectangle([int]$dest.X, [int]$dest.Y, [int]$dest.Width, [int]$dest.Height)), 0, 0, $img.Width, $img.Height, [System.Drawing.GraphicsUnit]::Pixel, $ia)
+        $ia.Dispose()
+    }
+}
+# los detalles que se mueven en cada escena
+function Ky-Ambiente($g, $esc) {
+    $t = [Environment]::TickCount / 1000.0; $rn = New-Object System.Random 17
+    switch ($esc) {
+        'tranquilo' {   # motas de polvo flotando en la luz de la ventana
+            for ($i = 0; $i -lt 18; $i++) { $px = 560 + $rn.Next(0, 190) + [Math]::Sin($t / 2.0 + $i) * 6; $py = 70 + (($rn.Next(0, 180) - $t * (4 + $i % 5)) % 180 + 180) % 180; $s = 1.5 + ($i % 3)
+                $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB ([int](90 + 60 * [Math]::Sin($t + $i))) 255 244 220))), [float]$px, [float]$py, [float]$s, [float]$s) }
+        }
+        'solo' {   # la luz del portátil respira y cae un polvillo azul
+            $gp = New-Object System.Drawing.Drawing2D.GraphicsPath; $gp.AddEllipse(400, 150, 170, 130)
+            $pg = New-Object System.Drawing.Drawing2D.PathGradientBrush($gp); $pg.CenterColor = (ARGB ([int](40 + 20 * [Math]::Sin($t * 1.3))) 180 210 255); $pg.SurroundColors = [System.Drawing.Color[]]@((ARGB 0 180 210 255))
+            $g.FillPath($pg, $gp); $pg.Dispose(); $gp.Dispose()
+            for ($i = 0; $i -lt 12; $i++) { $px = 410 + $rn.Next(0, 340); $py = 60 + (($rn.Next(0, 210) + $t * (3 + $i % 4)) % 210); $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 70 170 200 255))), [float]$px, [float]$py, 2, 2) }
+        }
+        'cansado' {   # pétalos rosas que caen despacio
+            for ($i = 0; $i -lt 10; $i++) { $px = 420 + $rn.Next(0, 320) + [Math]::Sin($t / 1.5 + $i) * 10; $py = 56 + (($rn.Next(0, 222) + $t * (6 + $i % 4)) % 222)
+                $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 110 245 170 180))), [float]$px, [float]$py, 5, 3) }
+        }
+        'agobiado' {   # humo que pasa por delante
+            for ($i = 0; $i -lt 6; $i++) { $px = 404 + ((($rn.Next(0, 420) + $t * (10 + $i * 3)) % 460) - 60); $py = 120 + $rn.Next(0, 140) + [Math]::Sin($t / 2 + $i) * 8; $s = 60 + $rn.Next(0, 50)
+                $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 28 200 200 200))), [float]$px, [float]$py, [float]$s, [float]($s * 0.5)) }
+        }
+        'animado' {   # destellos del sol
+            for ($i = 0; $i -lt 8; $i++) { $al = [int](60 + 80 * [Math]::Abs([Math]::Sin($t * 1.2 + $i))); $px = 410 + $rn.Next(0, 160); $py = 60 + $rn.Next(0, 90)
+                $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB $al 255 236 190))), [float]$px, [float]$py, 3, 3) }
+        }
+    }
+}
+function Ky-Pintar($g, $W, $H, $k) {
+    Ky-Reset; $e = $script:ky; $ahora = [Environment]::TickCount
+    $g.SetClip((New-Object System.Drawing.Rectangle(404, 56, 352, 222)))
+    # la escena (con fundido desde la anterior) y lo que se mueve en ella
+    $q = if ($e.Antes) { [Math]::Min(1.0, ($ahora - $e.CambioT) / [double]$KyTiempos.Fundido) } else { 1.0 }
+    if ($q -lt 1.0 -and $e.Antes) { Ky-Dibujar-Escena $g $e.Antes 1.0; Ky-Dibujar-Escena $g $e.Escena $q }
+    else { Ky-Dibujar-Escena $g $e.Escena 1.0 }
+    Ky-Ambiente $g $e.Escena
+    # la guitarra explota: destello y humo
+    if ($e.Flash -gt 0) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(255, $e.Flash * 30), 255, 230, 160))), 404, 56, 352, 222) }
+    if ($e.Fx -gt 0) {
+        $rh = New-Object System.Random 4
+        for ($i = 0; $i -lt 8; $i++) {
+            $qq = 50 - $e.Fx; $hx = 470 + $rh.Next(0, 160); $hy = 260 - $qq * (1.5 + $rh.NextDouble()); $hr = 14 + $qq * 0.7
+            if ($hy -gt 56) { $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB ([int]([Math]::Min(1.0, $e.Fx / 20.0) * 120)) 80 70 70))), [float]($hx - $hr / 2), [float]$hy, [float]$hr, [float]$hr) }
+        }
+    }
+    $g.ResetClip()
+    # cómo está y qué suena (pegatina arriba a la izquierda de la escena)
+    $txt = "Kenny está $($KyEscenas[$e.Escena].Nombre)"; $son = "♪ $($KyEscenas[$e.Escena].Cancion)"
+    $f1 = FntP('Segoe UI', 7.5, [System.Drawing.FontStyle]::Bold); $f2 = FntP('Segoe UI Symbol', 6.8)
+    $tw = [Math]::Max($g.MeasureString($txt, $f1).Width, $g.MeasureString($son, $f2).Width) + 14
+    $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 150 46 34 30))), (Ruta-Redonda 413 65 $tw 30 8))
+    $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 235 255 248 240))), (Ruta-Redonda 410 62 $tw 30 8))
+    $g.DrawPath((New-Object System.Drawing.Pen((C 70 50 45), 1.4)), (Ruta-Redonda 410 62 $tw 30 8))
+    $g.DrawString($txt, $f1, (New-Object System.Drawing.SolidBrush((C 46 34 30))), 416, 64)
+    $g.DrawString($son, $f2, (New-Object System.Drawing.SolidBrush((C 120 100 94))), 416, 77)
+    # su ánimo, en pastillas marrones abajo
+    $osc = (ARGB 235 80 60 54); $bl = [System.Drawing.Color]::White
+    $barras = @(@('⚡', $e.Energia, (C 255 214 90), 20), @('♥', $e.Compania, (C 255 140 180), 116), @('☁', $e.Agobio, (C 170 180 200), 212))
+    foreach ($b in $barras) {
+        Yt-Pastilla $g $b[3] 280 92 24 $osc $null $null 9
+        $g.DrawString($b[0], (FntP('Segoe UI Symbol', 9, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($b[2])), [float]($b[3] + 7), 283)
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 120 100 94))), [float]($b[3] + 26), 289, 58, 6)
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush($b[2])), [float]($b[3] + 26), 289, [float](58 * $b[1] / 100.0), 6)
+    }
+    Yt-Pastilla $g 308 280 84 24 $osc $null $null 9
+    if ($e.Escena -eq 'animado') {
+        $g.DrawString('AMP', (FntP('Segoe UI', 7.5, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 314, 285)
+        for ($i = 0; $i -lt 6; $i++) {
+            $bh = 5 + $i * 1.8; $bx2 = 342 + $i * 7.5; $on = $e.Amp -ge ($i + 1) * 16.6 - 6
+            $colA = if ($i -ge 4) { (C 255 60 60) } elseif ($i -ge 3) { (C 255 210 60) } else { (C 110 235 140) }
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush($(if ($on) { $colA } else { (C 120 100 94) }))), [float]$bx2, [float](298 - $bh), 5, [float]$bh)
+        }
+    } else { $g.DrawString("⚡ rotas: $($e.Rotas)", (FntP('Segoe UI Symbol', 7.5, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 314, 285) }
+}
+# ¿está el ratón sobre la escena? (Kenny forma parte de la imagen)
+function Ky-En-Escena {
+    if (-not $script:skin -or $script:skin.Estilo -ne 'punk' -or (Ocupado)) { return $false }
+    $pt = $form.PointToClient([System.Windows.Forms.Cursor]::Position); $x = $pt.X / $script:K; $y = $pt.Y / $script:K
+    return ($x -ge 404 -and $x -le 756 -and $y -ge 96 -and $y -le 278)
+}
+
 # panel con el borde verde en zigzag de sus pegatinas
 function Dibujar-Pegatina($g, $x, $y, $w, $h, $relleno) {
     $pts = New-Object System.Collections.ArrayList; $paso = 13; $sal = 7
@@ -3149,76 +3800,6 @@ function Dibujar-Cuadros($g, $x, $y, $w, $h) {
     for ($cx = $x; $cx -lt $x + $w; $cx += 28) { $g.DrawLine($os, [float]$cx, [float]$y, [float]$cx, [float]($y + $h)) }
     $cl.Dispose(); $os.Dispose()
 }
-# vídeos del minirreproductor: se cargan la primera vez que hacen falta
-$script:kyVids = @{}
-function Ky-Gif($n) {
-    if (-not $script:kyVids.ContainsKey($n)) {
-        $d = $script:skin.Videos[$n]; if (-not $d) { return $null }
-        $img = Cargar-Img $d[0]; $script:kyVids[$n] = if ($img) { @{ Img = $img; Info = (Gif-Info $img); Titulo = $d[1] } } else { $null }
-    }
-    return $script:kyVids[$n]
-}
-# pone un vídeo suyo en el minirreproductor durante un rato
-function Ky-Video($n, $ms) { $script:kyVideo = @{ N = $n; Hasta = [Environment]::TickCount + $ms } }
-function Ky-Inv { $Z = $script:K; $form.Invalidate((New-Object System.Drawing.Rectangle(0, [int](244 * $Z), $form.ClientSize.Width, [int](80 * $Z)))) }
-function Ky-Suscribir {
-    if (Ocupado) { return }
-    $script:kySub = -not $script:kySub
-    if ($script:kySub) {
-        Sonido 'campana'; $script:kyLikes += 1
-        Flotante '¡SUSCRITO!' 560 200 (C 255 255 255) 16 'Arial Black'
-        Ky-Video 'yap' 2500
-        Decir (Azar @('¡Gracias por suscribirte! ¿Le has dado a la campanita? ...sí, se la has dado. Ha sonado.', '*Te mira muy serio.* Gracias. De verdad. Ahora somos 1 más. Annyeong.', '¡Un suscriptor más! Esto lo celebro con un acorde. *Rasguea.*'))
-    } else {
-        Decir (Azar @('¿Te has desuscrito? ...vale. Lo entiendo. *Toca un acorde muy triste.*', '*Se queda mirando el contador.* No pasa nada. No pasa nada. ...ha pasado algo.')); Ky-Video 'triste' 3000
-    }
-    $form.Invalidate()
-}
-function Ky-App($linea) {
-    $script:kyApps++; $v = $Rnd.Next(120, 999); $script:kyVistas += $v; $script:kyLikes += $Rnd.Next(5, 60)
-    Flotante "+$v visitas" 600 200 (C 255 255 255) 13 'Arial Black'
-    if ($script:kyApps % 8 -eq 0) {
-        $script:kyConc = 140; Sonido 'publico'; Sonido 'riff'
-        Ky-Video 'concierto' 8000
-        Decir-Fijo (Azar $script:skin.Concierto)
-    } else { Sonido 'acorde'; Decir $linea }
-    $form.Invalidate()
-}
-function Ky-Clic {
-    $k = $script:skin
-    $script:kyAmp = [Math]::Min(100, $script:kyAmp + 22)
-    Sonido 'acorde'
-    foreach ($i in 0..1) { Flotante (Azar @('♪', '♫', '★')) (470 + $Rnd.Next(0, 220)) (90 + $Rnd.Next(0, 80)) (@((C 255 255 255), (C 255 80 160), (C 255 255 255))[$Rnd.Next(3)]) 22 'Segoe UI Symbol' }
-    if ($script:kyAmp -ge 100) {
-        # la guitarra explota
-        $script:kyAmp = 0; $script:kyRotas++; $script:kyFx = 50; $script:kyFlash = 8
-        Sonido 'kaboom'; Sacudir $form 14
-        Ky-Video 'kaboom' 3500
-        Decir-Fijo (Azar $k.Kaboom)
-    } elseif ($script:kyAmp -ge 70) {
-        Ky-Video 'diablo' 2600
-        Decir (Azar @('¡MÁS ALTO! *El amplificador empieza a echar humo.*', '¡ESTO ES PUNK! *Los ojos le dan vueltas.* ...para ya, que explota.', '*El ampli pita.* Eso es buena señal. Creo.'))
-    } else {
-        Decir (Azar $k.Clic)
-    }
-    $form.Invalidate()
-}
-function Ky-Tick {
-    $k = $script:skin
-    if ($script:kyAmp -gt 0) { $script:kyAmp = [Math]::Max(0.0, $script:kyAmp - 0.4) }
-    if ($script:kyFx -gt 0) { $script:kyFx--; if ($script:kyFx % 8 -eq 0) { Sacudir $form 3 } }
-    if ($script:kyFlash -gt 0) { $script:kyFlash-- }
-    if ($script:kyConc -gt 0) { $script:kyConc--; if ($script:kyConc % 25 -eq 0) { $script:kyVistas += $Rnd.Next(50, 300) } }
-    # la canción avanza; al acabar, pasa a la siguiente
-    $script:kyProg += 0.05 / (Ky-Duracion) * 6
-    if ($script:kyProg -ge 1) {
-        $script:kyProg = 0; $script:kyCancion = ($script:kyCancion + 1) % $k.Canciones.Count
-        if (-not $script:discutiendo -and -not (Ocupado) -and $Rnd.Next(3) -eq 0) { Decir "Siguiente canción: $($k.Canciones[$script:kyCancion]). Esta me gusta. Bueno, me gustan todas. Son mías." 'abiertos' }
-    }
-    if ($script:kyFx -gt 0 -or $script:kyConc -gt 0 -or $script:kyFlash -gt 0) { $form.Invalidate() }
-    else { Ky-Inv; $Z = $script:K; $form.Invalidate((New-Object System.Drawing.Rectangle([int](396 * $Z), [int](56 * $Z), [int](168 * $Z), [int](140 * $Z)))) }   # el minirreproductor siempre se mueve
-}
-
 # ================= ENFOSI: DEFIENDE LA ESTATUA =================
 # Llegan Glaggles a la estatua. Algunos son Enphosians disfrazados con un fallo (piel de otro color,
 # símbolo falso, sin símbolo o sin cara). Clic en el falso para descubrirlo y acabar con él.
@@ -3545,6 +4126,2151 @@ function Dibujar-Campo($g, $x0, $y0, $w, $h, $alfa) {
     }
 }
 
+# ================= WEATHERGIRL (FLAVOR FOLEY ft. Eleanor Forte): EL PARTE DEL TIEMPO =================
+# Eleanor Forte presenta el parte del tiempo en directo. EL TIEMPO ES EL DE VERDAD: se pide a wttr.in sin bloquear el
+# panel (DownloadStringTaskAsync; en cada tick se mira si ha llegado). Sin conexión, se lo inventa (y lo dice).
+# La escena (cielo, nubes, sol o luna, edificios) cambia con el tiempo: sol, nubes, lluvia, tormenta, nieve o niebla,
+# y de noche se oscurece. Cuando cambia, se vuelve a pintar el fondo guardado ($script:bmpEscena).
+# PALABRAS SIN DECIR (0-6, "all the words I left unsaid"): cada app abierta es algo que se calla (da el parte en su
+# lugar). 3 clics seguidos en ella: dice algo sincero y se le quitan 2. Al llegar a 6 se echa a LLORAR: tormenta en el
+# plató, truenos, lágrimas y AVISO ROJO. Con 3 clics la consuelas y salen los CIELOS VIVOS (sol y arcoíris un rato);
+# si nadie la consuela, se calma sola y vuelve el tiempo real. Si llueve, en la escena aparece un paraguas: clic y se
+# lo das (rice: "se me olvidó el paraguas...").
+$WgTiempos = @{ PalabrasMax = 6; Sincera = 3; Consuelo = 3; Tormenta = 45000; Vivos = 90000; Paraguas = 180000; Consulta = 1800000; Espera = 15000; ClicReset = 6000 }
+# la intro son dos trozos del videoclip: 0-4,5 s y luego 153-169,5 s (el titular y la tele con "weathergirl").
+# La instrumental oficial va 60 ms por detrás del vídeo (medido comparando las dos pistas).
+$WgIntro = @{ CorteMs = 4500; SegundoDesde = 153000; Desfase = 60 }
+# la tarjeta del tiempo (arriba a la izquierda de la escena) y el botón del paraguas (debajo)
+$WgTarjeta = @(412, 62, 122, 138)
+$WgParaguasBtn = @(412, 206, 122, 26)
+# los ojos de Eleanor dentro de su dibujo (en proporción del dibujo), para las lágrimas
+$WgOjos = @(@(0.393, 0.25), @(0.538, 0.238))
+$WgNombres = @{ sol = 'Despejado'; nubes = 'Nublado'; lluvia = 'Lluvia'; tormenta = 'Tormenta'; nieve = 'Nieve'; niebla = 'Niebla'; vivos = 'Cielos vivos' }
+$script:wg = $null; $script:wgMusica = $null; $script:wgIntroAudio = $null
+function Wg-Reset {
+    if (-not $script:wg) {
+        $script:wg = @{ Cielo = 'nubes'; Real = $false; Temp = 15; Desc = 'Nublado'; Lugar = ''; Max = 17; Min = 10; MDesc = 'Nublado'; MCielo = 'nubes'
+            Pedido = $null; PedidoT = 0; Consulta = 0; Avisado = $false; Palabras = 0; Clics = 0; ClicT = 0; Tormenta = 0; Consuelo = 0; Vivos = 0; Paraguas = 0
+            Rayo = 0; RayoX = 600; TruenoT = 0; Ticker = 'EN DIRECTO · EL PARTE DEL TIEMPO CON ELEANOR FORTE'; TickerX = 0.0; TickerW = 400.0; Fx = 0
+            Gotas = (New-Object System.Collections.ArrayList); Lagrimas = (New-Object System.Collections.ArrayList); Letras = (New-Object System.Collections.ArrayList); LetraT = 0; Pintado = '' }
+    }
+}
+function Wg-Llora { return ($script:wg -and [Environment]::TickCount -lt $script:wg.Tormenta) }
+function Wg-Noche { $hora = (Get-Date).Hour; return ($hora -ge 21 -or $hora -lt 7) }
+# el cielo que se ve: la tormenta de llorar y los cielos vivos mandan sobre el tiempo de verdad
+function Wg-Cielo {
+    $e = $script:wg; if (-not $e) { return 'nubes' }
+    $ahora = [Environment]::TickCount
+    if ($ahora -lt $e.Tormenta) { return 'tormenta' }
+    if ($ahora -lt $e.Vivos) { return 'vivos' }
+    return $e.Cielo
+}
+# código del tiempo de wttr.in (los de WorldWeatherOnline) -> cielo de la escena
+function Wg-Codigo($c) {
+    if ($c -eq 113) { return 'sol' }
+    if ($c -in @(116, 119, 122)) { return 'nubes' }
+    if ($c -in @(143, 248, 260)) { return 'niebla' }
+    if ($c -in @(200, 386, 389, 392, 395)) { return 'tormenta' }
+    if ($c -in @(179, 182, 185, 227, 230, 281, 284, 311, 314, 317, 320, 323, 326, 329, 332, 335, 338, 350, 362, 365, 368, 371, 374, 377)) { return 'nieve' }
+    return 'lluvia'
+}
+function Wg-Volumen { return [Math]::Max(0.0, [Math]::Min(1.0, 0.5 * $script:aj.Volumen / 100.0)) }
+function Wg-Musica-On($desdeMs) {
+    if (-not $script:aj.Sonido -or $script:wgMusica) { return }
+    try {
+        $mp = New-Object System.Windows.Media.MediaPlayer
+        $mp.Open([Uri](Ruta 'skins\weathergirl\cancion.mp3')); $mp.Volume = (Wg-Volumen)
+        $script:wgDesde = 0
+        if ($desdeMs -gt 0) { $mp.Position = [TimeSpan]::FromMilliseconds($desdeMs); $script:wgDesde = [double]$desdeMs; $script:wgDesdeT = [Environment]::TickCount }
+        $mp.Play()
+        $script:wgMusica = $mp
+    } catch { $script:wgMusica = $null }
+}
+function Wg-Musica-Off {
+    if ($script:wgMusica) { try { $script:wgMusica.Stop(); $script:wgMusica.Close() } catch {}; $script:wgMusica = $null }
+}
+# pide el tiempo de verdad a wttr.in (por la conexión: no hace falta decir dónde estás)
+function Wg-Pedir {
+    $e = $script:wg; if ($e.Pedido) { return }
+    $e.Consulta = [Environment]::TickCount
+    try {
+        [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+        $wc = New-Object System.Net.WebClient
+        $wc.Encoding = [System.Text.Encoding]::UTF8
+        $wc.Headers.Add('User-Agent', 'curl/8.4.0')
+        $e.Pedido = $wc.DownloadStringTaskAsync('https://wttr.in/?format=j1&lang=es')
+        $e.PedidoT = [Environment]::TickCount
+    } catch { $e.Pedido = $null; if (-not $e.Real) { Wg-Inventar } }
+}
+# ¿ha llegado la respuesta? (se mira en cada tick, sin esperar)
+function Wg-Revisar {
+    $e = $script:wg; $t = $e.Pedido
+    if (-not $t) { return }
+    if (-not $t.IsCompleted) {
+        if ([Environment]::TickCount - $e.PedidoT -gt $WgTiempos.Espera) { $e.Pedido = $null; if (-not $e.Real) { Wg-Inventar }; Wg-Primer-Parte }
+        return
+    }
+    $e.Pedido = $null
+    $ok = $false
+    if ($t.Status -eq 'RanToCompletion') {
+        try {
+            $j = $t.Result | ConvertFrom-Json
+            $cc = @($j.current_condition)[0]
+            $e.Temp = [int]$cc.temp_C
+            $e.Cielo = Wg-Codigo ([int]$cc.weatherCode)
+            $d = if ($cc.lang_es) { [string]@($cc.lang_es)[0].value } else { '' }
+            $e.Desc = if ($d.Trim()) { $d.Trim() } else { $WgNombres[$e.Cielo] }
+            $ar = @($j.nearest_area)[0]; $e.Lugar = [string]@($ar.areaName)[0].value
+            $dias = @($j.weather)
+            if ($dias.Count -ge 2) {
+                $mn = $dias[1]; $e.Max = [int]$mn.maxtempC; $e.Min = [int]$mn.mintempC
+                $hr = @($mn.hourly); $h4 = $hr[[Math]::Min(4, $hr.Count - 1)]
+                $e.MCielo = Wg-Codigo ([int]$h4.weatherCode)
+                $md = if ($h4.lang_es) { [string]@($h4.lang_es)[0].value } else { '' }
+                $e.MDesc = if ($md.Trim()) { $md.Trim() } else { $WgNombres[$e.MCielo] }
+            }
+            $e.Real = $true; $ok = $true
+        } catch { $ok = $false }
+    }
+    if (-not $ok -and -not $e.Real) { Wg-Inventar }
+    Wg-Primer-Parte
+}
+# la primera vez que tiene el tiempo (de verdad o inventado), lo dice
+function Wg-Primer-Parte {
+    $e = $script:wg
+    if ($e.Avisado -or (Ocupado) -or -not $script:skin -or $script:skin.Estilo -ne 'clima') { return }
+    $e.Avisado = $true; Wg-Parte
+}
+# sin conexión: un tiempo creíble, y ella avisa de que es a ojo
+function Wg-Inventar {
+    $e = $script:wg
+    $c = Azar @('nubes', 'nubes', 'nubes', 'lluvia', 'lluvia', 'lluvia', 'sol', 'sol', 'niebla', 'tormenta')
+    $e.Cielo = $c; $e.Desc = $WgNombres[$c]; $e.Temp = $Rnd.Next(8, 25); $e.Lugar = ''
+    $e.MCielo = Azar @('nubes', 'lluvia', 'sol'); $e.MDesc = $WgNombres[$e.MCielo]
+    $e.Min = $e.Temp - $Rnd.Next(2, 6); $e.Max = $e.Temp + $Rnd.Next(1, 5)
+    $e.Real = $false
+}
+function Wg-Ticker($txt) { $script:wg.Ticker = $txt; $script:wg.TickerX = 0.0 }
+function Wg-Parte {
+    Wg-Reset; $e = $script:wg; $k = $script:skin
+    $lugar = if ($e.Lugar) { $e.Lugar } else { 'tu zona' }
+    Sonido 'noticia'
+    Wg-Ticker ('EL TIEMPO · {0}: {1}, {2}° · MAÑANA: {3}, DE {4}° A {5}°' -f $lugar.ToUpper(), $e.Desc.ToUpper(), $e.Temp, $e.MDesc.ToUpper(), $e.Min, $e.Max)
+    if ($e.Real) { Decir ((Azar $k.Pronostico) -f $e.Desc.ToLower(), $e.Temp, $lugar) }
+    else { Decir ((Azar $k.PronosticoInventado) -f $e.Desc.ToLower(), $e.Temp) }
+}
+function Wg-Manana {
+    Wg-Reset; $e = $script:wg
+    Decir ((Azar $script:skin.Manana) -f $e.MDesc.ToLower(), $e.Min, $e.Max)
+}
+# cada app: sale en el rótulo de última hora y es una palabra más que se queda sin decir
+function Wg-App($linea, $nombre) {
+    Wg-Reset; $e = $script:wg; $k = $script:skin
+    Sonido 'tele'
+    if (Wg-Llora) { Wg-Ticker ('AVISO ROJO · SE ABRE {0} ENTRE LÁGRIMAS · {1}' -f $nombre.ToUpper(), (Azar $k.TitularesTormenta)); Decir (Azar $k.LloraApp); return }
+    Wg-Ticker ('ÚLTIMA HORA · SE ABRE {0} · {1}' -f $nombre.ToUpper(), (Azar $k.Titulares))
+    $e.Palabras = [Math]::Min($WgTiempos.PalabrasMax, $e.Palabras + 1)
+    if ($e.Palabras -ge $WgTiempos.PalabrasMax) { Wg-Tormenta; return }
+    if ($e.Palabras -ge 4 -and $Rnd.Next(100) -lt 45) { Decir ((Azar $k.Callada) -f $nombre); return }
+    if ($Rnd.Next(100) -lt 50) { Decir ((Azar $k.AppTiempo) -f $nombre); return }
+    Decir $linea
+}
+# se le junta todo y llora: tormenta en el plató
+function Wg-Tormenta {
+    $e = $script:wg; $k = $script:skin
+    $e.Tormenta = [Environment]::TickCount + $WgTiempos.Tormenta; $e.Consuelo = 0; $e.Vivos = 0
+    $e.TruenoT = [Environment]::TickCount + 4000
+    Wg-Rayo
+    Wg-Ticker ('AVISO ROJO · TORMENTA EN EL PLATÓ · ' + (Azar $k.TitularesTormenta))
+    Decir-Fijo (Azar $k.Tormenta)
+}
+function Wg-Rayo {
+    $e = $script:wg; Sonido 'trueno'
+    if (-not $script:aj.Epilepsia) { $e.Rayo = 6 }
+    $e.RayoX = 430 + $Rnd.Next(0, 300)
+}
+function Wg-Clic {
+    Wg-Reset; $e = $script:wg; $k = $script:skin; $ahora = [Environment]::TickCount
+    if (Wg-Llora) {
+        # consolarla
+        $e.Consuelo++
+        Flotante '♥' (600 + $Rnd.Next(0, 90)) (110 + $Rnd.Next(0, 60)) (C 150 190 255) 20 'Segoe UI Symbol'
+        if ($e.Consuelo -ge $WgTiempos.Consuelo) { Wg-Vivos; return }
+        Decir (Azar $k.Consuelo); return
+    }
+    if ($ahora - $e.ClicT -gt $WgTiempos.ClicReset) { $e.Clics = 0 }
+    $e.ClicT = $ahora; $e.Clics++
+    if ($e.Clics -ge $WgTiempos.Sincera) {
+        # la miras de verdad: se atreve a decir algo
+        $e.Clics = 0; $e.Palabras = [Math]::Max(0, $e.Palabras - 2)
+        Flotante '♥' 640 120 (C 120 160 255) 22 'Segoe UI Symbol'
+        Decir-Fijo (Azar $k.Sincera); return
+    }
+    Decir (Azar $k.Clic)
+}
+# después de llorar, se abre el cielo
+function Wg-Vivos {
+    $e = $script:wg; $k = $script:skin
+    $e.Tormenta = 0; $e.Consuelo = 0; $e.Palabras = 0; $e.Lagrimas.Clear()
+    $e.Vivos = [Environment]::TickCount + $WgTiempos.Vivos
+    if (-not $script:aj.Epilepsia) { $e.Fx = 20 }
+    Sonido 'sol'
+    Wg-Ticker ('ÚLTIMA HORA · CIELOS VIVOS EN TODA LA REGIÓN · ' + (Azar $k.TitularesSol))
+    Wg-Letra 'vivid skies'; Wg-Letra 'trust the sky'
+    Decir-Fijo (Azar $k.CielosVivos)
+}
+function Wg-Letra($txt) {
+    [void]$script:wg.Letras.Add(@{ Txt = $txt; X = [double]$Rnd.Next(420, 640); Y = [double]$Rnd.Next(66, 236); T = 0; Vida = 96; Tam = 10 + $Rnd.Next(0, 6) })
+}
+# el paraguas: se ve en la escena cuando llueve y ella no tiene
+function Wg-Paraguas-Visible {
+    $e = $script:wg; if (-not $e) { return $false }
+    $c = Wg-Cielo
+    return (($c -eq 'lluvia' -or $c -eq 'tormenta') -and [Environment]::TickCount -ge $e.Paraguas)
+}
+function Wg-Paraguas-En-Raton {
+    if (-not $script:skin -or $script:skin.Estilo -ne 'clima' -or (Ocupado) -or -not (Wg-Paraguas-Visible)) { return $false }
+    $pt = $form.PointToClient([System.Windows.Forms.Cursor]::Position); $x = $pt.X / $script:K; $y = $pt.Y / $script:K; $r = $WgParaguasBtn
+    return ($x -ge $r[0] -and $x -le $r[0] + $r[2] -and $y -ge $r[1] -and $y -le $r[1] + $r[3])
+}
+function Wg-Dar-Paraguas {
+    $e = $script:wg; $e.Paraguas = [Environment]::TickCount + $WgTiempos.Paraguas
+    Sonido 'paraguas'; Decir (Azar $script:skin.Paraguas)
+}
+function Wg-Tick {
+    Wg-Reset; $e = $script:wg; $k = $script:skin; $ahora = [Environment]::TickCount
+    # la instrumental: durante la intro suena el audio del vídeo; luego se repite, sigue el volumen y se calla sin sonido
+    if ($script:transicion -and $script:wgIntroAudio) { }
+    elseif (-not $script:aj.Sonido) { Wg-Musica-Off }
+    elseif (-not $script:wgMusica) { Wg-Musica-On }
+    else {
+        try {
+            $mp = $script:wgMusica
+            if ([Math]::Abs($mp.Volume - (Wg-Volumen)) -gt 0.01) { $mp.Volume = (Wg-Volumen) }
+            # el mp3 tarda un poco en abrirse y arranca retrasado: los primeros 3 s se recoloca si se desvía
+            if ($script:wgDesde -gt 0) {
+                $pasado = $ahora - $script:wgDesdeT
+                if ($pasado -gt 3000) { $script:wgDesde = 0 }
+                elseif ($mp.NaturalDuration.HasTimeSpan) {
+                    $quiero = $script:wgDesde + $pasado
+                    if ([Math]::Abs($mp.Position.TotalMilliseconds - $quiero) -gt 200.0) { $mp.Position = [TimeSpan]::FromMilliseconds($quiero) }
+                }
+            }
+            if ($mp.NaturalDuration.HasTimeSpan -and $mp.Position -ge ($mp.NaturalDuration.TimeSpan - [TimeSpan]::FromMilliseconds(120))) { $mp.Position = [TimeSpan]::Zero; $mp.Play() }
+        } catch {}
+    }
+    # el tiempo de verdad: al empezar y cada media hora
+    if (-not $e.Pedido -and ($e.Consulta -eq 0 -or $ahora - $e.Consulta -gt $WgTiempos.Consulta)) { Wg-Pedir }
+    Wg-Revisar
+    if (-not $e.Avisado -and -not $e.Pedido -and $e.Consulta -ne 0) { Wg-Primer-Parte }
+    # la tormenta de llorar: truenos de vez en cuando; si nadie la consuela, se calma sola
+    if ($e.Tormenta -ne 0) {
+        if ($ahora -ge $e.Tormenta) { $e.Tormenta = 0; $e.Palabras = 3; $e.Lagrimas.Clear(); if (-not (Ocupado)) { Decir (Azar $k.SeCalma) } }
+        elseif ($ahora -ge $e.TruenoT) { Wg-Rayo; $e.TruenoT = $ahora + 5000 + $Rnd.Next(0, 5000) }
+    }
+    elseif ($e.Cielo -eq 'tormenta' -and $ahora -ge $e.Vivos -and $Rnd.Next(500) -eq 0) { Wg-Rayo }
+    if ($e.Vivos -ne 0 -and $ahora -ge $e.Vivos) { $e.Vivos = 0; if (-not (Ocupado)) { Decir (Azar $k.SeNubla) } }
+    if ($e.Rayo -gt 0) { $e.Rayo-- }
+    if ($e.Fx -gt 0) { $e.Fx-- }
+    # si el cielo ha cambiado, se vuelve a pintar el fondo
+    $cielo = Wg-Cielo; $clave = "$cielo|$(Wg-Noche)"
+    if ($e.Pintado -ne $clave) {
+        $e.Pintado = $clave
+        if ($script:bmpEscena) { $script:bmpEscena.Dispose(); $script:bmpEscena = $null }
+        $form.Invalidate()
+    }
+    # lluvia o nieve
+    $n = switch ($cielo) { 'lluvia' { 70 } 'tormenta' { 120 } 'nieve' { 50 } default { 0 } }
+    while ($e.Gotas.Count -lt $n) { [void]$e.Gotas.Add(@{ X = [double]$Rnd.Next(404, 790); Y = [double]$Rnd.Next(30, 276); V = 7.0 + $Rnd.NextDouble() * 5; L = 8 + $Rnd.Next(0, 10) }) }
+    while ($e.Gotas.Count -gt $n) { $e.Gotas.RemoveAt($e.Gotas.Count - 1) }
+    $viento = if ($cielo -eq 'tormenta') { -4.0 } else { -1.8 }
+    foreach ($d in $e.Gotas) {
+        if ($cielo -eq 'nieve') { $d.Y += $d.V * 0.16; $d.X += [Math]::Sin($ahora / 700.0 + $d.L) * 0.5 }
+        else { $d.Y += $d.V; $d.X += $viento * $d.V / 9.0 }
+        if ($d.Y -gt 278) { $d.Y = 40.0 - $Rnd.Next(0, 30); $d.X = [double]$Rnd.Next(404, 800) }
+        if ($d.X -lt 404) { $d.X += 380 }
+    }
+    # lágrimas
+    if (Wg-Llora) {
+        if ($Rnd.Next(3) -eq 0) { $o = $WgOjos[$Rnd.Next(2)]; [void]$e.Lagrimas.Add(@{ FX = $o[0] + ($Rnd.NextDouble() - 0.5) * 0.04; FY = $o[1] + 0.035; D = 0.0 }) }
+    }
+    for ($i = $e.Lagrimas.Count - 1; $i -ge 0; $i--) { $l = $e.Lagrimas[$i]; $l.D += 0.011; if ($l.D -gt 0.2) { $e.Lagrimas.RemoveAt($i) } }
+    # las palabras de la canción que flotan (como en el vídeo)
+    $cada = if (Wg-Llora) { 1800 } else { 5500 }
+    if ($ahora - $e.LetraT -gt $cada -and $e.Letras.Count -lt 4 -and $k.Letras) { $e.LetraT = $ahora; Wg-Letra (Azar $k.Letras) }
+    for ($i = $e.Letras.Count - 1; $i -ge 0; $i--) { $pal = $e.Letras[$i]; $pal.T++; $pal.Y -= 0.12; if ($pal.T -ge $pal.Vida) { $e.Letras.RemoveAt($i) } }
+    # el rótulo de última hora avanza
+    $e.TickerX += 1.6
+    if ($e.TickerX -gt $e.TickerW + 360) { $e.TickerX = 0.0 }
+    # respira (y si llora, solloza)
+    $a = $script:actores['W']
+    if ($a) {
+        if (Wg-Llora) { $a.OX = [Math]::Sin($ahora / 90.0) * 1.2; $a.OY = 2 + [Math]::Abs([Math]::Sin($ahora / 260.0)) * 2.5 }
+        else { $a.OX = [Math]::Sin($ahora / 1300.0) * 2; $a.OY = [Math]::Sin($ahora / 800.0) * 1.8 }
+    }
+    Invalidar-Escena
+}
+# ---- dibujo ----
+function Wg-Oscurecer($c) { return (C ([int]($c.R * 0.36)) ([int]($c.G * 0.4)) ([int]($c.B * 0.56))) }
+# una nube hecha de óvalos
+function Wg-Nube($g, $x, $y, $s, $br) {
+    $g.FillEllipse($br, [float]$x, [float]($y + 0.3 * $s), [float](1.2 * $s), [float](0.6 * $s))
+    $g.FillEllipse($br, [float]($x + 0.35 * $s), [float]$y, [float](0.8 * $s), [float](0.8 * $s))
+    $g.FillEllipse($br, [float]($x + 0.8 * $s), [float]($y + 0.2 * $s), [float](0.9 * $s), [float](0.65 * $s))
+    $g.FillEllipse($br, [float]($x + 0.1 * $s), [float]($y + 0.45 * $s), [float](1.5 * $s), [float](0.42 * $s))
+}
+# el fondo guardado: la izquierda azul grisácea del vídeo y, a la derecha, el cielo según el tiempo
+function Wg-Pintar-Fondo($g, $W, $H) {
+    $cielo = Wg-Cielo; $noche = (Wg-Noche) -and $cielo -ne 'vivos'
+    Degradado $g 0 0 $W $H (C 106 122 168) (C 76 90 138) 90
+    $rn = New-Object System.Random 7
+    $pl = New-Object System.Drawing.Pen((ARGB 46 255 255 255), 1)
+    for ($i = 0; $i -lt 70; $i++) { $x = $rn.Next(0, 400); $y = $rn.Next(40, $H); $l = $rn.Next(6, 14); $g.DrawLine($pl, $x, $y, ($x - 1), ($y + $l)) }
+    $pl.Dispose()
+    # papel detrás de los botones
+    $pan = Ruta-Redonda 8 60 394 ($H - 66) 6
+    $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 64 255 255 255))), $pan)
+    $g.DrawPath((New-Object System.Drawing.Pen((ARGB 190 255 255 255), 1.2)), $pan); $pan.Dispose()
+    # el cielo
+    $c1, $c2 = switch ($cielo) {
+        'sol' { (C 96 150 226), (C 186 212 244) }
+        'lluvia' { (C 72 86 130), (C 118 132 172) }
+        'tormenta' { (C 30 36 64), (C 72 82 120) }
+        'nieve' { (C 150 164 196), (C 216 224 240) }
+        'niebla' { (C 146 154 178), (C 200 204 218) }
+        'vivos' { (C 54 120 236), (C 170 220 255) }
+        default { (C 106 122 168), (C 160 172 204) }
+    }
+    if ($noche) { $c1 = Wg-Oscurecer $c1; $c2 = Wg-Oscurecer $c2 }
+    $X0 = 404; $Y0 = 56; $SW = $W - 408; $SH = 222
+    $g.SetClip((New-Object System.Drawing.Rectangle($X0, $Y0, $SW, $SH)))
+    Degradado $g $X0 $Y0 $SW $SH $c1 $c2 90
+    # arcoíris (cielos vivos)
+    if ($cielo -eq 'vivos') {
+        $arco = @((C 255 90 90), (C 255 170 70), (C 255 230 90), (C 110 220 120), (C 90 170 255), (C 150 110 240))
+        for ($i = 0; $i -lt $arco.Count; $i++) { $r = 190 - $i * 9; $pa = New-Object System.Drawing.Pen((ARGB 150 $arco[$i].R $arco[$i].G $arco[$i].B), 9); $g.DrawArc($pa, [float](600 - $r), [float](300 - $r), [float](2 * $r), [float](2 * $r), 180, 180); $pa.Dispose() }
+    }
+    # sol o luna (arriba a la derecha, sobre su cabeza)
+    if ($cielo -in @('sol', 'vivos', 'nubes')) {
+        if ($noche) {
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 230 236 240 255))), 724, 64, 26, 26)
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush($c1)), 732, 60, 26, 26)
+        } elseif ($cielo -ne 'nubes') {
+            $gp = New-Object System.Drawing.Drawing2D.GraphicsPath; $gp.AddEllipse(700, 44, 76, 76)
+            $pgb = New-Object System.Drawing.Drawing2D.PathGradientBrush($gp); $pgb.CenterColor = (ARGB 150 255 248 210); $pgb.SurroundColors = [System.Drawing.Color[]]@((ARGB 0 255 248 210))
+            $g.FillPath($pgb, $gp); $pgb.Dispose(); $gp.Dispose()
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 255 246 214))), 724, 68, 28, 28)
+        }
+    }
+    # nubes
+    $nn, $cn = switch ($cielo) {
+        'sol' { 2, (ARGB 170 255 255 255) }
+        'vivos' { 2, (ARGB 150 255 255 255) }
+        'lluvia' { 7, (ARGB 225 140 150 182) }
+        'tormenta' { 8, (ARGB 235 50 56 86) }
+        'nieve' { 5, (ARGB 220 236 240 250) }
+        'niebla' { 3, (ARGB 150 230 232 240) }
+        default { 6, (ARGB 205 226 230 242) }
+    }
+    if ($noche) { $cn = [System.Drawing.Color]::FromArgb($cn.A, [int]($cn.R * 0.45), [int]($cn.G * 0.48), [int]($cn.B * 0.6)) }
+    $bn = New-Object System.Drawing.SolidBrush($cn); $rn = New-Object System.Random 3
+    for ($i = 0; $i -lt $nn; $i++) { Wg-Nube $g ($X0 - 30 + $rn.Next(0, $SW)) (44 + $rn.Next(0, 70)) (46 + $rn.Next(0, 40)) $bn }
+    $bn.Dispose()
+    # edificios (como los del vídeo), con ventanas encendidas de noche o con tormenta
+    $rn = New-Object System.Random 21
+    $bc = if ($noche) { (C 14 18 34) } else { (C 34 40 70) }
+    $bb = New-Object System.Drawing.SolidBrush($bc)
+    $luz = New-Object System.Drawing.SolidBrush((ARGB 200 255 226 150))
+    $x = $X0 - 6
+    while ($x -lt $W) {
+        $bw = $rn.Next(26, 54); $bh = $rn.Next(28, 96); $top = 262 - $bh
+        $g.FillRectangle($bb, $x, $top, $bw, ($bh + 20))
+        if ($noche -or $cielo -eq 'tormenta') {
+            for ($wy = $top + 6; $wy -lt 256; $wy += 9) { for ($wx = $x + 4; $wx -lt $x + $bw - 5; $wx += 8) { if ($rn.Next(4) -eq 0) { $g.FillRectangle($luz, $wx, $wy, 3, 4) } } }
+        }
+        $x += $bw + $rn.Next(0, 6)
+    }
+    $bb.Dispose(); $luz.Dispose()
+    # niebla: bandas blancas
+    if ($cielo -eq 'niebla') { for ($i = 0; $i -lt 4; $i++) { Degradado $g $X0 (120 + $i * 36) $SW 30 (ARGB 0 236 238 244) (ARGB 120 236 238 244) 90 } }
+    $g.ResetClip()
+    # marco de la "tele"
+    $g.DrawRectangle((New-Object System.Drawing.Pen((ARGB 200 255 255 255), 1.4)), $X0, $Y0, $SW, $SH)
+}
+# icono del tiempo (dibujo de líneas gruesas, como los del vídeo)
+function Wg-Icono($g, $cielo, $noche, $x, $y, $s, $col) {
+    $br = New-Object System.Drawing.SolidBrush($col); $pen = New-Object System.Drawing.Pen($col, [float]([Math]::Max(1.5, $s / 14.0))); $pen.StartCap = 'Round'; $pen.EndCap = 'Round'
+    $nube = { param($dy) Wg-Nube $g ($x + 0.05 * $s) ($y + $dy) (0.62 * $s) $br }
+    switch ($cielo) {
+        { $_ -in @('sol', 'vivos') } {
+            if ($noche -and $cielo -eq 'sol') {
+                $g.FillEllipse($br, [float]($x + 0.2 * $s), [float]($y + 0.15 * $s), [float](0.6 * $s), [float](0.6 * $s))
+                $g.FillEllipse([System.Drawing.Brushes]::White, [float]($x + 0.38 * $s), [float]($y + 0.06 * $s), [float](0.6 * $s), [float](0.6 * $s))
+            } else {
+                $cx = $x + 0.5 * $s; $cy = $y + 0.45 * $s
+                $g.FillEllipse($br, [float]($cx - 0.2 * $s), [float]($cy - 0.2 * $s), [float](0.4 * $s), [float](0.4 * $s))
+                for ($i = 0; $i -lt 8; $i++) { $an = $i * [Math]::PI / 4; $g.DrawLine($pen, [float]($cx + [Math]::Cos($an) * 0.28 * $s), [float]($cy + [Math]::Sin($an) * 0.28 * $s), [float]($cx + [Math]::Cos($an) * 0.42 * $s), [float]($cy + [Math]::Sin($an) * 0.42 * $s)) }
+            }
+        }
+        'nubes' { & $nube (0.15 * $s) }
+        'lluvia' { & $nube 0; for ($i = 0; $i -lt 3; $i++) { $lx = $x + (0.3 + 0.2 * $i) * $s; $g.DrawLine($pen, [float]$lx, [float]($y + 0.62 * $s), [float]($lx - 0.08 * $s), [float]($y + 0.88 * $s)) } }
+        'tormenta' {
+            & $nube 0
+            $pts = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]($x + 0.52 * $s), [float]($y + 0.55 * $s))), (New-Object System.Drawing.PointF([float]($x + 0.38 * $s), [float]($y + 0.78 * $s))), (New-Object System.Drawing.PointF([float]($x + 0.5 * $s), [float]($y + 0.78 * $s))), (New-Object System.Drawing.PointF([float]($x + 0.42 * $s), [float]($y + 0.98 * $s))), (New-Object System.Drawing.PointF([float]($x + 0.64 * $s), [float]($y + 0.7 * $s))), (New-Object System.Drawing.PointF([float]($x + 0.52 * $s), [float]($y + 0.7 * $s))))
+            $g.FillPolygon($br, $pts)
+        }
+        'nieve' { & $nube 0; for ($i = 0; $i -lt 3; $i++) { $g.FillEllipse($br, [float]($x + (0.28 + 0.2 * $i) * $s), [float]($y + (0.68 + 0.1 * ($i % 2)) * $s), [float](0.09 * $s), [float](0.09 * $s)) } }
+        'niebla' { for ($i = 0; $i -lt 3; $i++) { $g.DrawLine($pen, [float]($x + (0.12 + 0.06 * ($i % 2)) * $s), [float]($y + (0.3 + 0.2 * $i) * $s), [float]($x + (0.88 - 0.06 * ($i % 2)) * $s), [float]($y + (0.3 + 0.2 * $i) * $s)) } }
+    }
+    $br.Dispose(); $pen.Dispose()
+}
+# un paraguas azul oscuro (el de la portada de la canción) sobre su cabeza
+function Wg-Dibujar-Paraguas($g, $cx, $cy, $ancho) {
+    $r = $ancho / 2.0; $alto = $r * 0.5; $n = 6
+    $pts = New-Object System.Collections.ArrayList
+    for ($i = 0; $i -le 24; $i++) { $an = [Math]::PI + $i * [Math]::PI / 24; [void]$pts.Add((New-Object System.Drawing.PointF([float]($cx + [Math]::Cos($an) * $r), [float]($cy + $alto + [Math]::Sin($an) * $alto)))) }
+    for ($i = $n; $i -ge 0; $i--) {
+        $bx = $cx - $r + 2 * $r * $i / $n
+        [void]$pts.Add((New-Object System.Drawing.PointF([float]$bx, [float]($cy + $alto))))
+        if ($i -gt 0) { [void]$pts.Add((New-Object System.Drawing.PointF([float]($bx - $r / $n), [float]($cy + $alto * 0.82)))) }
+    }
+    $arr = [System.Drawing.PointF[]]$pts.ToArray()
+    $g.FillPolygon((New-Object System.Drawing.SolidBrush((ARGB 70 0 0 20))), [System.Drawing.PointF[]]($arr | ForEach-Object { New-Object System.Drawing.PointF([float]($_.X + 3), [float]($_.Y + 4)) }))
+    $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 38 50 96))), $arr)
+    $vp = New-Object System.Drawing.Pen((ARGB 150 150 170 230), 1.2)
+    for ($i = 0; $i -le $n; $i++) { $g.DrawLine($vp, [float]$cx, [float]$cy, [float]($cx - $r + 2 * $r * $i / $n), [float]($cy + $alto)) }
+    $vp.Dispose()
+    $g.DrawPolygon((New-Object System.Drawing.Pen((C 20 26 56), 1.4)), $arr)
+    $g.DrawLine((New-Object System.Drawing.Pen((C 20 26 56), 2)), [float]$cx, [float]($cy - 7), [float]$cx, [float]$cy)
+}
+# todo lo que se mueve, por encima de Eleanor
+function Wg-Pintar($g, $W, $H, $k) {
+    Wg-Reset; $e = $script:wg; $ahora = [Environment]::TickCount
+    $cielo = Wg-Cielo; $noche = (Wg-Noche) -and $cielo -ne 'vivos'; $llora = Wg-Llora
+    $a = $script:actores['W']; $ax = 540.0; $ay = 98.0; $aw = 220.0; $ah = 220.0
+    if ($a) { $ax = $a.Rect[0] + $a.OX; $ay = $a.Rect[1] + $a.OY; $aw = $a.Rect[2]; $ah = $a.Rect[3] }
+    $bajo = $ahora -lt $e.Paraguas
+    $g.SetClip((New-Object System.Drawing.Rectangle(404, 56, ($W - 408), 222)))
+    # el paraguas sobre su cabeza
+    if ($bajo) { Wg-Dibujar-Paraguas $g ($ax + $aw * 0.5) ($ay - 30) ($aw * 0.86) }
+    # lágrimas
+    if ($llora -and $e.Lagrimas.Count -gt 0) {
+        $bl = New-Object System.Drawing.SolidBrush((ARGB 225 120 175 255))
+        foreach ($l in $e.Lagrimas) { $tx = $ax + $l.FX * $aw; $ty = $ay + ($l.FY + $l.D) * $ah; $g.FillEllipse($bl, [float]($tx - 2), [float]($ty - 3), 4.0, 6.5) }
+        $bl.Dispose()
+    }
+    # lluvia o nieve, por delante (como en el vídeo); bajo el paraguas no llueve
+    if ($e.Gotas.Count -gt 0) {
+        if ($cielo -eq 'nieve') {
+            $bn = New-Object System.Drawing.SolidBrush((ARGB 225 255 255 255))
+            foreach ($d in $e.Gotas) { $s = 2 + ($d.L % 3); $g.FillEllipse($bn, [float]$d.X, [float]$d.Y, [float]$s, [float]$s) }
+            $bn.Dispose()
+        } else {
+            $pl = New-Object System.Drawing.Pen((ARGB $(if ($cielo -eq 'tormenta') { 170 } else { 125 }) 235 240 255), 1.1)
+            $vx = if ($cielo -eq 'tormenta') { -4.0 } else { -1.8 }
+            $pa1 = $ax + $aw * 0.07; $pa2 = $ax + $aw * 0.93; $pay = $ay - 8
+            foreach ($d in $e.Gotas) {
+                if ($bajo -and $d.X -gt $pa1 -and $d.X -lt $pa2 -and $d.Y -gt $pay) { continue }
+                $g.DrawLine($pl, [float]$d.X, [float]$d.Y, [float]($d.X + $vx * $d.L / 8.0), [float]($d.Y + $d.L))
+            }
+            $pl.Dispose()
+        }
+    }
+    # el rayo: un fogonazo suave y la línea quebrada (nada de esto en el modo seguro)
+    if ($e.Rayo -gt 0) {
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ([int](24 * $e.Rayo)) 230 235 255))), 404, 56, ($W - 408), 222)
+        if ($e.Rayo -gt 3) {
+            $rr = New-Object System.Random ($e.RayoX); $px = $e.RayoX; $py = 56
+            $pr = New-Object System.Drawing.Pen((ARGB 230 250 250 255), 2)
+            while ($py -lt 190) { $nx = $px + $rr.Next(-14, 15); $ny = $py + $rr.Next(14, 26); $g.DrawLine($pr, [float]$px, [float]$py, [float]$nx, [float]$ny); $px = $nx; $py = $ny }
+            $pr.Dispose()
+        }
+    }
+    # al abrirse el cielo, un brillo que se apaga despacio
+    if ($e.Fx -gt 0) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ([int](6 * $e.Fx)) 255 250 220))), 404, 56, ($W - 408), 222) }
+    # las palabras de la canción
+    foreach ($pal in $e.Letras) {
+        $q = $pal.T / [double]$pal.Vida
+        $al = [int](215 * [Math]::Max(0.0, [Math]::Min(1.0, [Math]::Min($q * 4.0, (1.0 - $q) * 3.0))))
+        if ($al -le 0) { continue }
+        $f = FntP('Georgia', $pal.Tam, [System.Drawing.FontStyle]::Italic)
+        $g.DrawString($pal.Txt, $f, (New-Object System.Drawing.SolidBrush((ARGB ([int]($al * 0.35)) 20 26 56))), [float]($pal.X + 1), [float]($pal.Y + 1))
+        $g.DrawString($pal.Txt, $f, (New-Object System.Drawing.SolidBrush((ARGB $al 255 255 255))), [float]$pal.X, [float]$pal.Y)
+        $f.Dispose()
+    }
+    $g.ResetClip()
+    # la tarjeta del tiempo
+    $t = $WgTarjeta; $tx = $t[0]; $ty = $t[1]; $tw = $t[2]; $th = $t[3]
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 70 10 14 40))), ($tx + 3), ($ty + 3), $tw, $th)
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 238 248 249 253))), $tx, $ty, $tw, $th)
+    $cab, $txtCab = if ($llora) { (C 196 40 52), 'AVISO ROJO' } elseif ($cielo -eq 'vivos') { (C 63 91 217), 'CIELOS VIVOS' } else { (C 38 48 92), 'EL TIEMPO' }
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush($cab)), $tx, $ty, $tw, 17)
+    $fc = FntP('Georgia', 7.5, [System.Drawing.FontStyle]::Bold)
+    $g.DrawString($txtCab, $fc, [System.Drawing.Brushes]::White, [float]($tx + 5), [float]($ty + 2))
+    # el "◉ REC" del vídeo (en el modo seguro no parpadea)
+    $on = $script:aj.Epilepsia -or ([int]($ahora / 700) % 2 -eq 0)
+    if ($on) { $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 255 70 70))), [float]($tx + $tw - 36), [float]($ty + 5), 7.0, 7.0) }
+    $g.DrawString('REC', (FntP('Consolas', 6.5, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, [float]($tx + $tw - 27), [float]($ty + 3))
+    $tinta = (C 30 38 74)
+    if ($llora) {
+        # durante la tormenta, la tarjeta enseña la portada de la canción
+        if (-not $script:wgPortada) { $script:wgPortada = Cargar-Img $k.Portada }
+        if ($script:wgPortada) { Imagen-Cubrir $g $script:wgPortada ($tx + 4) ($ty + 21) ($tw - 8) ($th - 54) 0.5 0.4 }
+        $g.DrawString('TORMENTA EN EL PLATÓ', (FntP('Georgia', 7, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 196 40 52))), [float]($tx + 5), [float]($ty + $th - 31))
+    } else {
+        Wg-Icono $g $cielo $noche ($tx + 6) ($ty + 22) 44 (C 38 48 92)
+        $g.DrawString("$($e.Temp)°", (FntP('Georgia', 22, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($tinta)), [float]($tx + 52), [float]($ty + 22))
+        $desc = if ($cielo -eq 'vivos') { 'Cielos vivos' } else { $e.Desc }
+        $fd = FntP('Georgia', 7.5, [System.Drawing.FontStyle]::Italic)
+        $g.DrawString($desc, $fd, (New-Object System.Drawing.SolidBrush($tinta)), (New-Object System.Drawing.RectangleF([float]($tx + 5), [float]($ty + 66), [float]($tw - 10), 24.0)))
+        $lug = if ($e.Lugar) { $e.Lugar } elseif ($e.Pedido) { 'conectando...' } else { 'sin conexión: a ojo' }
+        $g.DrawString($lug, (FntP('Segoe UI', 6.5)), (New-Object System.Drawing.SolidBrush((C 110 118 150))), (New-Object System.Drawing.RectangleF([float]($tx + 5), [float]($ty + 89), [float]($tw - 10), 12.0)))
+        Wg-Icono $g $e.MCielo $false ($tx + 5) ($ty + 101) 16 (C 63 91 217)
+        $g.DrawString(("mañana  {0}° / {1}°" -f $e.Min, $e.Max), (FntP('Georgia', 7)), (New-Object System.Drawing.SolidBrush($tinta)), [float]($tx + 24), [float]($ty + 103))
+    }
+    # palabras sin decir: seis gotitas que se van llenando
+    $g.DrawString('sin decir:', (FntP('Georgia', 6.5, [System.Drawing.FontStyle]::Italic)), (New-Object System.Drawing.SolidBrush((C 110 118 150))), [float]($tx + 5), [float]($ty + $th - 15))
+    for ($i = 0; $i -lt $WgTiempos.PalabrasMax; $i++) {
+        $gx = $tx + 50 + $i * 7.5; $gy = $ty + $th - 12
+        $col = if ($i -lt $e.Palabras) { if ($llora) { (C 196 40 52) } else { (C 63 91 217) } } else { (C 210 214 228) }
+        $g.FillEllipse((New-Object System.Drawing.SolidBrush($col)), [float]$gx, [float]$gy, 5.5, 7.0)
+    }
+    # el paraguas para dárselo
+    if (Wg-Paraguas-Visible) {
+        $r = $WgParaguasBtn
+        $hover = Wg-Paraguas-En-Raton
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 70 10 14 40))), ($r[0] + 2), ($r[1] + 2), $r[2], $r[3])
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush($(if ($hover) { (C 63 91 217) } else { (ARGB 238 248 249 253) }))), $r[0], $r[1], $r[2], $r[3])
+        $tc = if ($hover) { [System.Drawing.Color]::White } else { $tinta }
+        $g.DrawString('☂', (FntP('Segoe UI Symbol', 12)), (New-Object System.Drawing.SolidBrush($tc)), [float]($r[0] + 3), [float]($r[1] + 2))
+        $g.DrawString('dale el paraguas', (FntP('Georgia', 8, [System.Drawing.FontStyle]::Italic)), (New-Object System.Drawing.SolidBrush($tc)), [float]($r[0] + 24), [float]($r[1] + 6))
+    }
+    # el rótulo de última hora
+    $by = 262; $bx = 404; $bw = $W - 408
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 238 22 28 56))), $bx, $by, $bw, 15)
+    $lab = if ($llora) { 'AVISO' } else { 'ÚLTIMA HORA' }
+    $fl = FntP('Segoe UI', 7, [System.Drawing.FontStyle]::Bold); $lw = $g.MeasureString($lab, $fl).Width + 8
+    $g.SetClip((New-Object System.Drawing.Rectangle([int]($bx + $lw), $by, [int]($bw - $lw), 15)))
+    $ft = FntP('Segoe UI', 7); $e.TickerW = [double]$g.MeasureString($e.Ticker, $ft).Width
+    $g.DrawString($e.Ticker, $ft, [System.Drawing.Brushes]::White, [float]($bx + $bw - $e.TickerX), [float]($by + 1))
+    $g.ResetClip()
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush($(if ($llora) { (C 196 40 52) } else { (C 63 91 217) }))), $bx, $by, [float]$lw, 15)
+    $g.DrawString($lab, $fl, [System.Drawing.Brushes]::White, [float]($bx + 4), [float]($by + 1))
+}
+# --- Weathergirl: la intro del videoclip (FLAVOR FOLEY presents... sobre el cielo nublado, y luego el titular del parte
+#     y la tele con "weathergirl", feat. Eleanor Forte, MV by ippo.tsk). Va como la de Tetra: el reloj es el audio. ---
+function Transicion-Clima($final) {
+    $script:wiIntro = Cargar-Img $script:skin.IntroImg
+    $script:wiInfo = if ($script:wiIntro) { Gif-Info $script:wiIntro } else { @{ N = 1; Del = @(100) } }
+    $script:wiMs = 0; foreach ($d in $script:wiInfo.Del) { $script:wiMs += $d }
+    $script:wiT0 = 0; $script:wiSaltar = $false; $script:wgIntroAudio = $null; $script:wiFin = -1
+    $script:iRecursos = @($script:wiIntro)
+    $pintar = {
+        param($g, $W, $H, $p)
+        $g.Clear([System.Drawing.Color]::Black)
+        $img = $script:wiIntro; if (-not $img) { return }
+        $ms = Wg-Intro-Ms
+        Gif-Frame $img $script:wiInfo ([int][Math]::Max(0.0, [Math]::Min([double]$ms, [double]($script:wiMs - 1))))
+        $g.InterpolationMode = 'HighQualityBilinear'
+        # detrás, el mismo fotograma ampliado y teñido del azul grisáceo del vídeo rellena los lados
+        $sc = [Math]::Max([double]($W / $img.Width), [double]($H / $img.Height)); $cw = $img.Width * $sc; $ch = $img.Height * $sc
+        $g.DrawImage($img, [float](($W - $cw) / 2), [float](($H - $ch) / 2), [float]$cw, [float]$ch)
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 170 40 48 86))), 0, 0, $W, $H)
+        $s = [Math]::Min([double]($W / $img.Width), [double]($H / $img.Height)); $vw = $img.Width * $s; $vh = $img.Height * $s
+        $g.DrawImage($img, [float](($W - $vw) / 2), [float](($H - $vh) / 2), [float]$vw, [float]$vh)
+        $a = 0.0
+        if ($ms -lt 300) { $a = 1 - $ms / 300.0 }
+        $resta = $script:wiMs - $ms; if ($resta -lt 400) { $a = 1 - $resta / 400.0 }
+        $a = [Math]::Max(0.0, [Math]::Min(1.0, $a))
+        if ($a -gt 0) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ([int](255 * $a)) 0 0 0))), 0, 0, $W, $H) }
+    }
+    $alTick = {
+        param($ov, $p)
+        if ($script:wiSaltar -or (Wg-Intro-Ms) -ge $script:wiMs) {
+            Wg-Intro-Terminar
+            if ($script:iPaso -lt $script:iTotal - 1) { $script:iPaso = $script:iTotal - 1 }
+        }
+    }
+    # el vídeo y su audio arrancan a la vez
+    $script:wiT0 = [Environment]::TickCount
+    if ($script:aj.Sonido) {
+        try {
+            $mp = New-Object System.Windows.Media.MediaPlayer
+            $mp.Open([Uri](Ruta $script:skin.IntroAudio)); $mp.Volume = (Wg-Volumen); $mp.Play()
+            $script:wgIntroAudio = $mp
+        } catch { $script:wgIntroAudio = $null }
+    }
+    Intro-Overlay 2000 $pintar $alTick $final
+    $script:iOv.Add_MouseDown({ $script:wiSaltar = $true })
+    $script:iOv.Cursor = 'Hand'
+}
+# milisegundos de intro: manda el audio; si no hay sonido (o aún no ha arrancado), el reloj del sistema
+function Wg-Intro-Ms {
+    if ($script:wiT0 -le 0) { return 0 }
+    $ms = [Environment]::TickCount - $script:wiT0
+    if ($script:wgIntroAudio) {
+        try { $pa = $script:wgIntroAudio.Position.TotalMilliseconds; if ($pa -gt 0) { $ms = $pa } } catch {}
+    }
+    return [double]$ms
+}
+# fin de la intro (o SALTAR): se calla el audio del vídeo y la instrumental sigue por el mismo punto de la canción
+function Wg-Intro-Terminar {
+    if ($script:wiFin -ge 0 -or $script:wiT0 -le 0) { return }
+    $ms = [Math]::Min([double](Wg-Intro-Ms), [double]$script:wiMs); $script:wiFin = $ms
+    if ($script:wgIntroAudio) { try { $script:wgIntroAudio.Stop(); $script:wgIntroAudio.Close() } catch {}; $script:wgIntroAudio = $null }
+    $mv = if ($ms -lt $WgIntro.CorteMs) { $ms } else { $WgIntro.SegundoDesde + ($ms - $WgIntro.CorteMs) }
+    Wg-Musica-Off; Wg-Musica-On ([Math]::Max(0.0, [double]($mv - $WgIntro.Desfase)))
+}
+
+# ================= PAINTER (Pressure): LA IA QUE SOLO QUIERE PINTAR PAISAJES =================
+# Painter (Z-779) es el ordenador de los 80 del Hadal Blacksite. Su pantalla es un programa de dibujo: GARABATEA CARAS
+# para expresarse (se dibujan por código, trazo a trazo, sobre su pantalla en blanco) y quiere PINTAR UN PAISAJE.
+# Cada app que abres es un elemento del paisaje (cielo, sol, colinas, árbol, río, casita): a la 6ª lo termina y se
+# alegra. Pero Urbanshade lo tiene MINANDO CRIPTOMONEDA: cada app también le sube el OVERCLOCK (calor). Si llega a
+# 100, se pone a MINAR a la fuerza: la pantalla se llena de hashes, pide perdón ("por favor, para...") y PIERDE el
+# paisaje. Un clic en él lo refresca (-25°) y le saca una sonrisa; con un poco de tiempo se enfría solo.
+$PrTiempos = @{ CalorApp = 22.0; CalorSola = 0.02; Enfriar = 25.0; EnfriarEspera = 1800; Paisaje = 6; MinaMs = 7500; ListoMs = 22000; Dibuja = 800; Inicial = 10.0; DibujoMs = 2600 }
+# el lienzo dentro de la ventana de su programa (en proporción): x0, x1, y0, y1
+$PrCanvas = @(0.0912, 0.7059, 0.1613, 0.8065)
+# el panel de datos (a la derecha, dentro de la ventana)
+$PrPanel = @(0.7324, 0.9912, 0.1452, 0.8495)
+$PrElementos = @('PaisajeCielo', 'PaisajeSol', 'PaisajeColinas', 'PaisajeArbol', 'PaisajeRio', 'PaisajeCasa')
+# la intro: arranque del ordenador y su programa de dibujo (milisegundos desde que empieza)
+$PrIntro = @{ Abre = 5300; Cara = 5900; Mueve = 7500; Titulo = 8100; Sub = 8700; Frase = 9400; Guino = 11000; Fin = 13600 }
+$script:pr = $null; $script:prMusica = $null; $script:prCaras = @{}
+function Pr-Reset {
+    if (-not $script:pr) {
+        $script:pr = @{ Calor = $PrTiempos.Inicial; Paisaje = 0; Terminados = 0; Cara = 'feliz'; CaraT = 0; CaraHasta = 0; ElemT = 0
+            Mina = 0; MinaIni = 0; MinaDicho = $false; Enfria = 0; Listo = 0; Ciclo = 0; Saludado = $false; Humor = 'feliz'; HumorHasta = 0; Ult = [Environment]::TickCount; Dib = (New-Object System.Collections.ArrayList); DibProx = 0; Borra = 0; Hex = (New-Object System.Collections.ArrayList) }
+    }
+}
+function Pr-Mina-Activa { return ($script:pr -and [Environment]::TickCount -lt $script:pr.Mina) }
+function Pr-Volumen { return [Math]::Max(0.0, [Math]::Min(1.0, 0.75 * $script:aj.Volumen / 100.0)) }
+function Pr-Musica-On {
+    if (-not $script:aj.Sonido -or $script:prMusica) { return }
+    try {
+        $mp = New-Object System.Windows.Media.MediaPlayer
+        $mp.Open([Uri](Ruta 'skins\painter\cancion.mp3')); $mp.Volume = (Pr-Volumen); $mp.Play()
+        $script:prMusica = $mp
+    } catch { $script:prMusica = $null }
+}
+function Pr-Musica-Off {
+    if ($script:prMusica) { try { $script:prMusica.Stop(); $script:prMusica.Close() } catch {}; $script:prMusica = $null }
+}
+# su cara: la dibuja trazo a trazo durante un rato
+function Pr-Cara($nombre, $ms, $silencio) {
+    $e = $script:pr; $ahora = [Environment]::TickCount
+    $e.Cara = $nombre; $e.CaraT = $ahora; $e.CaraHasta = $ahora + $ms
+    if (-not $silencio) { Sonido 'blip' }; $form.Invalidate()
+}
+# cada app: un elemento más del paisaje... y más calor
+function Pr-App($linea, $nombre) {
+    Pr-Reset; $e = $script:pr; $k = $script:skin; $ahora = [Environment]::TickCount
+    Sonido 'blip'; $e.Ult = $ahora
+    if (Pr-Mina-Activa) { Decir (Azar $k.Perdon); return }
+    $antes = $e.Calor
+    $e.Calor = [Math]::Min(100.0, $e.Calor + $PrTiempos.CalorApp)
+    # si ya había uno terminado, empieza otro lienzo
+    if ($e.Listo -gt $ahora) { $e.Listo = 0; $e.Paisaje = 0 }
+    $e.Paisaje++; $e.ElemT = $ahora; $e.Dib.Clear(); $e.Borra = 0
+    # terminarlo va antes que sobrecalentarse
+    if ($e.Paisaje -ge $PrTiempos.Paisaje) { Pr-Listo; return }
+    if ($e.Calor -ge 100.0) { Pr-Mina; return }
+    Sonido 'garabato'
+    if ($antes -lt 70.0 -and $e.Calor -ge 70.0) { Sonido 'ventilador'; Pr-Cara 'susto' 3500; if (-not (Pr-Voz 'calor')) { Decir (Azar $k.Calentando) }; return }
+    if ($e.Calor -ge 70.0 -and $Rnd.Next(100) -lt 55) { Decir (Azar $k.Calentando); return }
+    if ($Rnd.Next(100) -lt 30 -and (Pr-Voz 'app')) { return }
+    if ($Rnd.Next(100) -lt 55) { Decir (Azar $k[$PrElementos[$e.Paisaje - 1]]); return }
+    Decir $linea
+}
+# el overclock llega al límite: a minar por la fuerza
+function Pr-Mina {
+    $e = $script:pr; $k = $script:skin; $ahora = [Environment]::TickCount
+    $e.Mina = $ahora + $PrTiempos.MinaMs; $e.MinaIni = $ahora; $e.MinaDicho = $false
+    $e.Paisaje = 0; $e.Calor = 100.0; $e.Hex.Clear(); $e.Dib.Clear(); $e.Borra = 0
+    Sonido 'error'; Sonido 'ventilador'
+    Pr-Voz-Off; if (-not (Pr-Voz 'mina' $true)) { Decir-Fijo (Azar $k.Minando) }
+    $form.Invalidate()
+}
+# el paisaje, terminado
+function Pr-Listo {
+    $e = $script:pr; $k = $script:skin; $ahora = [Environment]::TickCount
+    $e.Listo = $ahora + $PrTiempos.ListoMs; $e.Terminados++; $e.Calor = 30.0
+    Sonido 'listo'
+    Flotante '★' 640 120 (C 255 214 90) 22 'Segoe UI Symbol'; Flotante '♥' 700 150 (C 255 130 190) 18 'Segoe UI Symbol'
+    if ($Rnd.Next(2) -eq 0 -or -not (Pr-Voz 'listo' $true)) { Decir-Fijo (Azar $k.PaisajeListo) }
+}
+function Pr-Clic {
+    Pr-Reset; $e = $script:pr; $k = $script:skin; $ahora = [Environment]::TickCount
+    if (Pr-Mina-Activa) { Decir (Azar $k.Perdon); return }
+    $dormia = ($ahora - $e.Ult) -gt 75000; $e.Ult = $ahora
+    if ($dormia) { Pr-Cara 'sorpresa' 2200; Decir (Azar $k.Clic); return }
+    if ($ahora - $e.Enfria -lt $PrTiempos.EnfriarEspera) { Pr-Cara (Azar @('risa', 'curioso', 'sorpresa', 'enamorado')) 1800 $true; Decir (Azar $k.Clic); return }
+    $e.Enfria = $ahora
+    if ($e.Calor -ge 70.0) { Flotante '-25°' 560 70 (C 120 210 230) 15 'Consolas'; $e.Calor = [Math]::Max(0.0, $e.Calor - $PrTiempos.Enfriar); Sonido 'ventilador'; Pr-Cara 'neutra' 3000; if (-not (Pr-Voz 'enfriar')) { Decir (Azar $k.Caliente) }; return }
+    if ($e.Calor -ge 35.0) { Flotante '-25°' 560 70 (C 120 210 230) 15 'Consolas'; $e.Calor = [Math]::Max(0.0, $e.Calor - $PrTiempos.Enfriar); Pr-Cara 'feliz' 3000; if ($Rnd.Next(2) -eq 0 -or -not (Pr-Voz 'enfriar')) { Decir (Azar $k.Enfriar) }; return }
+    Pr-Cara (Azar @('risa', 'guino', 'contento', 'enamorado', 'curioso', 'sorpresa')) 2600; if ($Rnd.Next(100) -ge 45 -or -not (Pr-Voz 'clic')) { Decir (Azar $k.Clic) }
+}
+function Pr-Tick {
+    Pr-Reset; $e = $script:pr; $k = $script:skin; $ahora = [Environment]::TickCount
+    # la música del altavoz: se repite al acabar, sigue el volumen y se calla sin sonido
+    if (-not $script:aj.Sonido) { Pr-Musica-Off }
+    elseif (-not $script:prMusica) { Pr-Musica-On }
+    else {
+        try {
+            $mp = $script:prMusica
+            $vt = (Pr-Volumen) * $(if (Pr-Voz-Suena) { 0.3 } else { 1.0 }); if ([Math]::Abs($mp.Volume - $vt) -gt 0.01) { $mp.Volume = $vt }
+            if ($mp.NaturalDuration.HasTimeSpan -and $mp.Position -ge ($mp.NaturalDuration.TimeSpan - [TimeSpan]::FromMilliseconds(120))) { $mp.Position = [TimeSpan]::Zero; $mp.Play() }
+        } catch {}
+    }
+    $e.Ciclo++
+    if (-not $e.Saludado -and -not (Ocupado)) { $e.Saludado = $true; [void](Pr-Voz 'hola') }
+    if ($ahora -lt $e.Mina) {
+        # minando: los hashes suben por la pantalla; a mitad pide perdón; el calor baja despacio
+        if (($e.Ciclo % 2) -eq 0) {
+            $linea = ''; for ($i = 0; $i -lt 14; $i++) { $linea += '0123456789abcdef'[$Rnd.Next(16)] }
+            [void]$e.Hex.Add($linea); while ($e.Hex.Count -gt 9) { $e.Hex.RemoveAt(0) }
+        }
+        $q = ($ahora - $e.MinaIni) / [double]$PrTiempos.MinaMs
+        $e.Calor = [Math]::Max(60.0, 100.0 - 40.0 * $q)
+        if (-not $e.MinaDicho -and $q -ge 0.5) { $e.MinaDicho = $true; Sonido 'minando'; if (-not (Pr-Voz-Suena)) { if (-not (Pr-Voz 'perdon' $true)) { Decir-Fijo (Azar $k.Perdon) } } }
+    } elseif ($e.Mina -ne 0) {
+        # se acabó: vuelve en sí, triste
+        $e.Mina = 0; $e.Calor = 40.0; $e.Hex.Clear()
+        Pr-Cara 'triste' 6000; if (-not (Pr-Voz 'minafin' $true)) { Decir-Fijo (Azar $k.MinaFin) }
+    } else {
+        $e.Calor = [Math]::Max(0.0, $e.Calor - $PrTiempos.CalorSola)
+    }
+    # su humor cambia solo de vez en cuando; al acabar un dibujo, se alegra
+    if ($ahora -ge $e.HumorHasta) { $e.Humor = Azar $PrHumores; $e.HumorHasta = $ahora + 5000 + $Rnd.Next(0, 6000) }
+    if ($e.Dib.Count -gt 0) { $ud = $e.Dib[$e.Dib.Count - 1]; if (-not $ud.Fin -and $ahora - $ud.T0 -ge $PrTiempos.DibujoMs) { $ud.Fin = $true; Pr-Cara (Azar @('contento', 'orgulloso', 'risa', 'enamorado', 'feliz')) 1700 $true } }
+    # cuando no pinta el paisaje, dibuja cosas sueltas; con el lienzo lleno, lo borra con la goma y vuelve a empezar
+    if ($ahora -ge $e.Mina -and $e.Paisaje -le 0) {
+        if ($e.Borra -ne 0) { if ($ahora - $e.Borra -ge 900) { $e.Dib.Clear(); $e.Borra = 0; $e.DibProx = $ahora + 1200 } }
+        elseif ($ahora -ge $e.DibProx -and -not (Ocupado) -and ($ahora - $e.Ult) -lt 75000) { if ($e.Dib.Count -ge 6) { $e.Borra = $ahora; Sonido 'garabato' } else { Pr-Nuevo-Dibujo } }
+    }
+    # el paisaje terminado se queda un rato y luego empieza otro lienzo
+    if ($e.Listo -ne 0 -and $ahora -ge $e.Listo) { $e.Listo = 0; $e.Paisaje = 0; $e.DibProx = $ahora + 1500; Pr-Cara 'feliz' 4000 }
+    # la pantalla del ordenador: se mueve un poco; con calor tiembla (no en el modo seguro)
+    $a = $script:actores['P']
+    if ($a) {
+        $tem = 0.0
+        if ($ahora -lt $e.Mina) { $tem = 2.0 } elseif ($e.Calor -ge 60.0) { $tem = ($e.Calor - 60.0) / 40.0 * 1.4 }
+        if ($script:aj.Epilepsia) { $tem = 0.0 }
+        $a.OX = [Math]::Sin($ahora / 1700.0) * 1.2 + ($Rnd.NextDouble() - 0.5) * $tem
+        $a.OY = [Math]::Sin($ahora / 1100.0) * 1.0 + ($Rnd.NextDouble() - 0.5) * $tem
+    }
+    Invalidar-Escena
+}
+# ---- su pantalla: caras garabateadas ----
+# un círculo hecho de vueltas descuidadas (como los ojos del dibujo del juego)
+function Pr-Garabato($cx, $cy, $rx, $ry, $sem) {
+    $rn = New-Object System.Random $sem; $lista = New-Object System.Collections.ArrayList
+    $n = 46
+    for ($i = 0; $i -le $n; $i++) {
+        $q = $i / [double]$n; $an = $q * 2.5 * 2 * [Math]::PI + 0.6
+        $f = 1.0 + 0.07 * [Math]::Sin($q * 9.0) - 0.15 * $q + ($rn.NextDouble() - 0.5) * 0.07
+        [void]$lista.Add((New-Object System.Drawing.PointF([float]($cx + [Math]::Cos($an) * $rx * $f), [float]($cy + [Math]::Sin($an) * $ry * $f))))
+    }
+    return , $lista.ToArray()
+}
+# una curva suave (de un punto a otro, con uno de control), con un poco de temblor
+function Pr-Curva($x0, $y0, $x1, $y1, $x2, $y2, $sem) {
+    $rn = New-Object System.Random $sem; $lista = New-Object System.Collections.ArrayList
+    $n = 22
+    for ($i = 0; $i -le $n; $i++) {
+        $q = $i / [double]$n; $m = 1.0 - $q
+        $px = $m * $m * $x0 + 2 * $m * $q * $x1 + $q * $q * $x2 + ($rn.NextDouble() - 0.5) * 0.012
+        $py = $m * $m * $y0 + 2 * $m * $q * $y1 + $q * $q * $y2 + ($rn.NextDouble() - 0.5) * 0.012
+        [void]$lista.Add((New-Object System.Drawing.PointF([float]$px, [float]$py)))
+    }
+    return , $lista.ToArray()
+}
+function Pr-Recta($pts) {
+    $lista = New-Object System.Collections.ArrayList
+    foreach ($q in $pts) { [void]$lista.Add((New-Object System.Drawing.PointF([float]$q[0], [float]$q[1]))) }
+    return , $lista.ToArray()
+}
+function Pr-Trazos($nombre) {
+    if ($script:prCaras.ContainsKey($nombre)) { return $script:prCaras[$nombre] }
+    $t = New-Object System.Collections.ArrayList
+    switch ($nombre) {
+        'feliz' { [void]$t.Add((Pr-Garabato 0.30 0.38 0.13 0.16 1)); [void]$t.Add((Pr-Garabato 0.70 0.38 0.13 0.16 2)); [void]$t.Add((Pr-Curva 0.16 0.64 0.50 1.0 0.84 0.64 3)) }
+        'triste' {
+            [void]$t.Add((Pr-Garabato 0.30 0.44 0.10 0.13 4)); [void]$t.Add((Pr-Garabato 0.70 0.44 0.10 0.13 5))
+            [void]$t.Add((Pr-Recta @(@(0.14, 0.26), @(0.42, 0.14)))); [void]$t.Add((Pr-Recta @(@(0.58, 0.14), @(0.86, 0.26))))
+            [void]$t.Add((Pr-Curva 0.26 0.84 0.50 0.58 0.74 0.84 6))
+        }
+        'llora' {
+            [void]$t.Add((Pr-Garabato 0.30 0.40 0.10 0.13 7)); [void]$t.Add((Pr-Garabato 0.70 0.40 0.10 0.13 8))
+            [void]$t.Add((Pr-Curva 0.26 0.84 0.50 0.60 0.74 0.84 9))
+            [void]$t.Add((Pr-Recta @(@(0.27, 0.56), @(0.25, 0.70), @(0.27, 0.84)))); [void]$t.Add((Pr-Recta @(@(0.73, 0.56), @(0.75, 0.70), @(0.73, 0.84))))
+        }
+        'enfado' {
+            [void]$t.Add((Pr-Garabato 0.30 0.44 0.07 0.09 10)); [void]$t.Add((Pr-Garabato 0.70 0.44 0.07 0.09 11))
+            [void]$t.Add((Pr-Recta @(@(0.12, 0.18), @(0.42, 0.32)))); [void]$t.Add((Pr-Recta @(@(0.88, 0.18), @(0.58, 0.32))))
+            [void]$t.Add((Pr-Recta @(@(0.26, 0.80), @(0.37, 0.70), @(0.48, 0.80), @(0.59, 0.70), @(0.70, 0.80), @(0.76, 0.74))))
+        }
+        'susto' {
+            [void]$t.Add((Pr-Garabato 0.30 0.36 0.17 0.21 12)); [void]$t.Add((Pr-Garabato 0.70 0.36 0.17 0.21 13))
+            [void]$t.Add((Pr-Garabato 0.32 0.40 0.04 0.05 14)); [void]$t.Add((Pr-Garabato 0.68 0.40 0.04 0.05 15))
+            [void]$t.Add((Pr-Garabato 0.50 0.78 0.09 0.12 16))
+        }
+        'mareo' {
+            [void]$t.Add((Pr-Recta @(@(0.18, 0.24), @(0.42, 0.54)))); [void]$t.Add((Pr-Recta @(@(0.42, 0.24), @(0.18, 0.54))))
+            [void]$t.Add((Pr-Recta @(@(0.58, 0.24), @(0.82, 0.54)))); [void]$t.Add((Pr-Recta @(@(0.82, 0.24), @(0.58, 0.54))))
+            $z = @(); for ($i = 0; $i -le 10; $i++) { $z += , @((0.22 + 0.056 * $i), (0.80 + 0.05 * [Math]::Sin($i * 1.3))) }
+            [void]$t.Add((Pr-Recta $z))
+        }
+        'neutra' { [void]$t.Add((Pr-Garabato 0.30 0.40 0.05 0.07 17)); [void]$t.Add((Pr-Garabato 0.70 0.40 0.05 0.07 18)); [void]$t.Add((Pr-Curva 0.28 0.74 0.50 0.76 0.72 0.74 19)) }
+        'guino' {
+            [void]$t.Add((Pr-Garabato 0.30 0.38 0.12 0.15 20))
+            [void]$t.Add((Pr-Recta @(@(0.60, 0.26), @(0.80, 0.38), @(0.60, 0.50))))
+            [void]$t.Add((Pr-Curva 0.18 0.62 0.50 0.98 0.82 0.60 21))
+        }
+        'parpadeo' { [void]$t.Add((Pr-Recta @(@(0.18, 0.40), @(0.42, 0.40)))); [void]$t.Add((Pr-Recta @(@(0.58, 0.40), @(0.82, 0.40)))); [void]$t.Add((Pr-Curva 0.16 0.64 0.50 1.0 0.84 0.64 3)) }
+        default { [void]$t.Add((Pr-Garabato 0.30 0.38 0.13 0.16 1)); [void]$t.Add((Pr-Garabato 0.70 0.38 0.13 0.16 2)); [void]$t.Add((Pr-Curva 0.16 0.64 0.50 1.0 0.84 0.64 3)) }
+    }
+    $script:prCaras[$nombre] = $t
+    return $t
+}
+# dibuja la cara en el lienzo; $prog (0 a 1) = cuánto lleva dibujado. Devuelve la punta del lápiz mientras dibuja.
+function Pr-Dibujar-Cara($g, $nombre, $x, $y, $ancho, $alto, $prog, $col) {
+    $tr = Pr-Trazos $nombre
+    $total = 0; foreach ($s in $tr) { $total += $s.Length }
+    $limite = [int][Math]::Ceiling($total * [Math]::Max(0.0, [Math]::Min(1.0, $prog)))
+    $pc0 = if ($col) { $col } else { (ARGB 238 22 22 30) }; $pluma = New-Object System.Drawing.Pen($pc0, [float][Math]::Max(1.3, $ancho * 0.03))
+    $pluma.LineJoin = 'Round'; $pluma.StartCap = 'Round'; $pluma.EndCap = 'Round'
+    $punta = $null
+    foreach ($s in $tr) {
+        if ($limite -lt 2) { break }
+        $n = [Math]::Min($s.Length, $limite); $limite -= $s.Length
+        $pts = New-Object 'System.Drawing.PointF[]' $n
+        for ($i = 0; $i -lt $n; $i++) { $pts[$i] = New-Object System.Drawing.PointF([float]($x + $s[$i].X * $ancho), [float]($y + $s[$i].Y * $alto)) }
+        $g.DrawLines($pluma, $pts)
+        $punta = $pts[$n - 1]
+    }
+    $pluma.Dispose()
+    if ($prog -lt 1.0) { return $punta }
+    return $null
+}
+# el lápiz de Painter (la punta en x, y; el cuerpo hacia arriba a la derecha)
+function Pr-Lapiz($g, $x, $y, $esc) {
+    $st = $g.Save()
+    $g.TranslateTransform([float]$x, [float]$y); $g.RotateTransform(-50); $g.ScaleTransform([float]$esc, [float]$esc)
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 70 0 0 0))), 7, 1, 18, 6)
+    $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 240 214 170))), [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF(0, 0)), (New-Object System.Drawing.PointF(6, -3)), (New-Object System.Drawing.PointF(6, 3))))
+    $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 30 30 36))), [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF(0, 0)), (New-Object System.Drawing.PointF(2.2, -1.1)), (New-Object System.Drawing.PointF(2.2, 1.1))))
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 196 60))), 6, -3, 15, 6)
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 170 170 180))), 21, -3, 2.5, 6)
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 240 140 170))), 23.5, -3, 4, 6)
+    $g.DrawRectangle((New-Object System.Drawing.Pen((C 40 34 30), 0.8)), 6, -3, 21.5, 6)
+    $g.Restore($st)
+}
+# la flecha del ratón (cuando no está dibujando)
+function Pr-Flecha($g, $x, $y) {
+    $pt = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$x, [float]$y)), (New-Object System.Drawing.PointF([float]$x, [float]($y + 13))), (New-Object System.Drawing.PointF([float]($x + 3.5), [float]($y + 10))), (New-Object System.Drawing.PointF([float]($x + 6), [float]($y + 15))), (New-Object System.Drawing.PointF([float]($x + 8), [float]($y + 14))), (New-Object System.Drawing.PointF([float]($x + 5.5), [float]($y + 9))), (New-Object System.Drawing.PointF([float]($x + 10), [float]($y + 9))))
+    $g.FillPolygon([System.Drawing.Brushes]::White, $pt); $g.DrawPolygon((New-Object System.Drawing.Pen((C 20 20 28), 1)), $pt)
+}
+# ---- su pantalla: el paisaje (como un dibujo de Paint), $n elementos ----
+function Pr-Dibujar-Paisaje($g, $n, $x, $y, $ancho, $alto) {
+    if ($n -lt 1) { return }
+    $ln = New-Object System.Drawing.Pen((ARGB 200 30 30 40), [float][Math]::Max(1.0, $ancho * 0.012))
+    Degradado $g $x $y $ancho $alto (C 120 190 245) (C 214 236 252) 90
+    if ($n -ge 2) {
+        $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 255 214 70))), [float]($x + 0.68 * $ancho), [float]($y + 0.10 * $alto), [float](0.20 * $ancho), [float](0.20 * $alto))
+        $g.DrawEllipse($ln, [float]($x + 0.68 * $ancho), [float]($y + 0.10 * $alto), [float](0.20 * $ancho), [float](0.20 * $alto))
+        foreach ($r in 0..7) { $an = $r * [Math]::PI / 4; $cx = $x + 0.78 * $ancho; $cy = $y + 0.20 * $alto; $g.DrawLine($ln, [float]($cx + [Math]::Cos($an) * 0.13 * $ancho), [float]($cy + [Math]::Sin($an) * 0.13 * $alto), [float]($cx + [Math]::Cos($an) * 0.19 * $ancho), [float]($cy + [Math]::Sin($an) * 0.19 * $alto)) }
+    }
+    if ($n -ge 3) {
+        $col = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$x, [float]($y + 0.78 * $alto))), (New-Object System.Drawing.PointF([float]($x + 0.25 * $ancho), [float]($y + 0.60 * $alto))), (New-Object System.Drawing.PointF([float]($x + 0.55 * $ancho), [float]($y + 0.76 * $alto))), (New-Object System.Drawing.PointF([float]($x + 0.80 * $ancho), [float]($y + 0.58 * $alto))), (New-Object System.Drawing.PointF([float]($x + $ancho), [float]($y + 0.74 * $alto))), (New-Object System.Drawing.PointF([float]($x + $ancho), [float]($y + $alto))), (New-Object System.Drawing.PointF([float]$x, [float]($y + $alto))))
+        $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 96 176 92))), $col); $g.DrawPolygon($ln, $col)
+        $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 64 146 78))), [float]($x - 0.15 * $ancho), [float]($y + 0.82 * $alto), [float](0.75 * $ancho), [float](0.50 * $alto))
+    }
+    if ($n -ge 5) {
+        $rio = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]($x + 0.56 * $ancho), [float]($y + 0.76 * $alto))), (New-Object System.Drawing.PointF([float]($x + 0.64 * $ancho), [float]($y + 0.76 * $alto))), (New-Object System.Drawing.PointF([float]($x + 0.58 * $ancho), [float]($y + 0.88 * $alto))), (New-Object System.Drawing.PointF([float]($x + 0.84 * $ancho), [float]($y + $alto))), (New-Object System.Drawing.PointF([float]($x + 0.50 * $ancho), [float]($y + $alto))), (New-Object System.Drawing.PointF([float]($x + 0.50 * $ancho), [float]($y + 0.90 * $alto))))
+        $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 70 140 232))), $rio); $g.DrawPolygon($ln, $rio)
+    }
+    if ($n -ge 4) {
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 122 82 50))), [float]($x + 0.20 * $ancho), [float]($y + 0.56 * $alto), [float](0.05 * $ancho), [float](0.22 * $alto))
+        $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 40 122 60))), [float]($x + 0.12 * $ancho), [float]($y + 0.34 * $alto), [float](0.21 * $ancho), [float](0.30 * $alto))
+        $g.DrawEllipse($ln, [float]($x + 0.12 * $ancho), [float]($y + 0.34 * $alto), [float](0.21 * $ancho), [float](0.30 * $alto))
+    }
+    if ($n -ge 6) {
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 214 126 84))), [float]($x + 0.70 * $ancho), [float]($y + 0.60 * $alto), [float](0.17 * $ancho), [float](0.14 * $alto))
+        $g.DrawRectangle($ln, [float]($x + 0.70 * $ancho), [float]($y + 0.60 * $alto), [float](0.17 * $ancho), [float](0.14 * $alto))
+        $tj = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]($x + 0.68 * $ancho), [float]($y + 0.60 * $alto))), (New-Object System.Drawing.PointF([float]($x + 0.785 * $ancho), [float]($y + 0.50 * $alto))), (New-Object System.Drawing.PointF([float]($x + 0.89 * $ancho), [float]($y + 0.60 * $alto))))
+        $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 176 62 52))), $tj); $g.DrawPolygon($ln, $tj)
+        $g.DrawLine($ln, [float]($x + 0.36 * $ancho), [float]($y + 0.22 * $alto), [float]($x + 0.40 * $ancho), [float]($y + 0.18 * $alto)); $g.DrawLine($ln, [float]($x + 0.40 * $ancho), [float]($y + 0.18 * $alto), [float]($x + 0.44 * $ancho), [float]($y + 0.22 * $alto))
+        $g.DrawLine($ln, [float]($x + 0.48 * $ancho), [float]($y + 0.14 * $alto), [float]($x + 0.51 * $ancho), [float]($y + 0.11 * $alto)); $g.DrawLine($ln, [float]($x + 0.51 * $ancho), [float]($y + 0.11 * $alto), [float]($x + 0.54 * $ancho), [float]($y + 0.14 * $alto))
+        $g.DrawString('Z-779', (FntP('Consolas', 5.5)), (New-Object System.Drawing.SolidBrush((ARGB 200 30 30 40))), [float]($x + 0.06 * $ancho), [float]($y + 0.88 * $alto))
+    }
+    $ln.Dispose()
+}
+# ---- lo que dibuja en el lienzo cuando no pinta el paisaje: garabatos de colores, uno detrás de otro ----
+# los colores de su paleta (en el mismo orden que en la ventana)
+$PrPaleta = @(@(20, 20, 28), @(255, 255, 255), @(128, 128, 136), @(230, 60, 70), @(255, 150, 60), @(255, 214, 70), @(96, 176, 92), @(40, 122, 60), @(120, 190, 245), @(70, 140, 232), @(150, 90, 220), @(240, 140, 190), @(122, 82, 50), @(214, 126, 84))
+$PrDibujosLista = @('sol', 'flor', 'gato', 'estrella', 'corazon', 'pez', 'nube', 'arbol', 'casa')
+$PrNombresDib = @{ sol = 'un sol'; flor = 'una flor'; gato = 'un gato'; estrella = 'una estrella'; corazon = 'un corazón'; pez = 'un pez'; nube = 'una nube'; arbol = 'un árbol'; casa = 'una casita' }
+# los seis huecos del lienzo (esquina de arriba a la izquierda, en proporción del lienzo); cada dibujo mide 0,46 del alto
+$PrHuecos = @(@(0.04, 0.03), @(0.36, 0.03), @(0.68, 0.03), @(0.04, 0.51), @(0.36, 0.51), @(0.68, 0.51))
+$script:prGarabatos = @{}
+function Pr-Color($i) { $c = $PrPaleta[$i]; return [System.Drawing.Color]::FromArgb(240, $c[0], $c[1], $c[2]) }
+# los trazos de cada dibujo (en un cuadrado de 0 a 1), cada uno con su color de la paleta
+function Pr-Garabatos($nombre) {
+    if ($script:prGarabatos.ContainsKey($nombre)) { return $script:prGarabatos[$nombre] }
+    $t = New-Object System.Collections.ArrayList
+    switch ($nombre) {
+        'sol' {
+            [void]$t.Add(@{ P = (Pr-Garabato 0.5 0.5 0.2 0.2 31); C = 5 })
+            for ($i = 0; $i -lt 8; $i++) { $an = $i * [Math]::PI / 4; [void]$t.Add(@{ P = (Pr-Recta @(@((0.5 + [Math]::Cos($an) * 0.3), (0.5 + [Math]::Sin($an) * 0.3)), @((0.5 + [Math]::Cos($an) * 0.44), (0.5 + [Math]::Sin($an) * 0.44)))); C = 4 }) }
+        }
+        'flor' {
+            [void]$t.Add(@{ P = (Pr-Curva 0.5 0.96 0.47 0.7 0.5 0.46 32); C = 7 })
+            [void]$t.Add(@{ P = (Pr-Curva 0.49 0.78 0.66 0.62 0.74 0.74 33); C = 6 })
+            for ($i = 0; $i -lt 5; $i++) { $an = $i * 2 * [Math]::PI / 5 - 1.57; [void]$t.Add(@{ P = (Pr-Garabato (0.5 + [Math]::Cos($an) * 0.15) (0.32 + [Math]::Sin($an) * 0.15) 0.09 0.09 (40 + $i)); C = 11 }) }
+            [void]$t.Add(@{ P = (Pr-Garabato 0.5 0.32 0.06 0.06 46); C = 5 })
+        }
+        'gato' {
+            [void]$t.Add(@{ P = (Pr-Garabato 0.5 0.58 0.3 0.26 50); C = 2 })
+            [void]$t.Add(@{ P = (Pr-Recta @(@(0.26, 0.42), @(0.28, 0.14), @(0.44, 0.34))); C = 2 })
+            [void]$t.Add(@{ P = (Pr-Recta @(@(0.56, 0.34), @(0.72, 0.14), @(0.74, 0.42))); C = 2 })
+            [void]$t.Add(@{ P = (Pr-Garabato 0.39 0.54 0.04 0.05 51); C = 0 }); [void]$t.Add(@{ P = (Pr-Garabato 0.61 0.54 0.04 0.05 52); C = 0 })
+            [void]$t.Add(@{ P = (Pr-Recta @(@(0.46, 0.64), @(0.5, 0.68), @(0.54, 0.64))); C = 11 })
+            foreach ($b in @(@(0.12, 0.62, 0.36, 0.66), @(0.12, 0.72, 0.36, 0.7), @(0.88, 0.62, 0.64, 0.66), @(0.88, 0.72, 0.64, 0.7))) { [void]$t.Add(@{ P = (Pr-Recta @(@($b[0], $b[1]), @($b[2], $b[3]))); C = 0 }) }
+        }
+        'estrella' {
+            $pz = @(); for ($i = 0; $i -le 10; $i++) { $an = -1.5708 + $i * [Math]::PI / 5; $rr = if ($i % 2 -eq 0) { 0.44 } else { 0.18 }; $pz += , @((0.5 + [Math]::Cos($an) * $rr), (0.54 + [Math]::Sin($an) * $rr)) }
+            [void]$t.Add(@{ P = (Pr-Recta $pz); C = 5 })
+            [void]$t.Add(@{ P = (Pr-Garabato 0.5 0.55 0.06 0.06 53); C = 4 })
+        }
+        'corazon' {
+            $pz = @(); for ($i = 0; $i -le 40; $i++) { $q = $i / 40.0 * 2 * [Math]::PI; $hx = 16 * [Math]::Pow([Math]::Sin($q), 3); $hy = 13 * [Math]::Cos($q) - 5 * [Math]::Cos(2 * $q) - 2 * [Math]::Cos(3 * $q) - [Math]::Cos(4 * $q); $pz += , @((0.5 + $hx / 38.0), (0.47 - $hy / 38.0)) }
+            [void]$t.Add(@{ P = (Pr-Recta $pz); C = 3 })
+            [void]$t.Add(@{ P = (Pr-Curva 0.32 0.32 0.36 0.24 0.42 0.26 54); C = 1 })
+        }
+        'pez' {
+            [void]$t.Add(@{ P = (Pr-Garabato 0.44 0.5 0.28 0.17 55); C = 8 })
+            [void]$t.Add(@{ P = (Pr-Recta @(@(0.7, 0.5), @(0.92, 0.32), @(0.9, 0.68), @(0.7, 0.5))); C = 9 })
+            [void]$t.Add(@{ P = (Pr-Garabato 0.3 0.46 0.03 0.03 56); C = 0 })
+            [void]$t.Add(@{ P = (Pr-Curva 0.44 0.38 0.4 0.5 0.44 0.62 57); C = 9 })
+        }
+        'nube' {
+            [void]$t.Add(@{ P = (Pr-Garabato 0.32 0.56 0.16 0.13 58); C = 8 })
+            [void]$t.Add(@{ P = (Pr-Garabato 0.52 0.44 0.18 0.16 59); C = 8 })
+            [void]$t.Add(@{ P = (Pr-Garabato 0.7 0.58 0.15 0.12 60); C = 8 })
+            foreach ($x in @(0.36, 0.52, 0.68)) { [void]$t.Add(@{ P = (Pr-Recta @(@($x, 0.78), @(($x - 0.03), 0.92))); C = 9 }) }
+        }
+        'arbol' {
+            [void]$t.Add(@{ P = (Pr-Recta @(@(0.45, 0.95), @(0.46, 0.58))); C = 12 }); [void]$t.Add(@{ P = (Pr-Recta @(@(0.55, 0.95), @(0.54, 0.58))); C = 12 })
+            [void]$t.Add(@{ P = (Pr-Garabato 0.5 0.38 0.3 0.26 61); C = 7 })
+            [void]$t.Add(@{ P = (Pr-Garabato 0.38 0.32 0.04 0.04 62); C = 3 }); [void]$t.Add(@{ P = (Pr-Garabato 0.62 0.42 0.04 0.04 63); C = 3 })
+        }
+        'casa' {
+            [void]$t.Add(@{ P = (Pr-Recta @(@(0.18, 0.5), @(0.18, 0.92), @(0.82, 0.92), @(0.82, 0.5), @(0.18, 0.5))); C = 13 })
+            [void]$t.Add(@{ P = (Pr-Recta @(@(0.1, 0.52), @(0.5, 0.14), @(0.9, 0.52))); C = 3 })
+            [void]$t.Add(@{ P = (Pr-Recta @(@(0.42, 0.92), @(0.42, 0.68), @(0.58, 0.68), @(0.58, 0.92))); C = 12 })
+            [void]$t.Add(@{ P = (Pr-Recta @(@(0.26, 0.6), @(0.36, 0.6), @(0.36, 0.7), @(0.26, 0.7), @(0.26, 0.6))); C = 9 })
+        }
+    }
+    $script:prGarabatos[$nombre] = $t
+    return $t
+}
+# los puntos de un dibujo ya colocados en el lienzo (se calculan una vez; el lienzo se mueve con TranslateTransform)
+function Pr-Dibujo-Cache($d, $lw, $lh) {
+    if ($d.Cache -and $d.CW -eq $lw -and $d.CH -eq $lh) { return , $d.Cache }
+    $tam = if ($d.Tam) { $d.Tam } else { 0.46 }
+    $lado = $lh * $tam; $ox = $lw * $d.SX; $oy = $lh * $d.SY
+    $lista = New-Object System.Collections.ArrayList
+    foreach ($tr in (Pr-Garabatos $d.N)) {
+        $src = $tr.P; $pts = New-Object 'System.Drawing.PointF[]' $src.Length
+        for ($i = 0; $i -lt $src.Length; $i++) { $pts[$i] = New-Object System.Drawing.PointF([float]($ox + $src[$i].X * $lado), [float]($oy + $src[$i].Y * $lado)) }
+        [void]$lista.Add(@{ P = $pts; C = $tr.C })
+    }
+    $d.Cache = $lista; $d.CW = $lw; $d.CH = $lh
+    return , $lista
+}
+# dibuja un garabato hasta donde va ($prog de 0 a 1); mientras dibuja devuelve la punta del lápiz y el color que usa
+function Pr-Dibujar-Dibujo($g, $d, $lx, $ly, $lw, $lh, $prog) {
+    $cache = Pr-Dibujo-Cache $d $lw $lh
+    $total = 0; foreach ($s in $cache) { $total += $s.P.Length }
+    $limite = [int][Math]::Ceiling($total * [Math]::Max(0.0, [Math]::Min(1.0, $prog)))
+    $tam = if ($d.Tam) { $d.Tam } else { 0.46 }
+    $gros = [float][Math]::Max(1.4, $lh * $tam * 0.04)
+    $st = $g.Save(); $g.TranslateTransform([float]$lx, [float]$ly)
+    $res = $null
+    foreach ($s in $cache) {
+        if ($limite -lt 2) { break }
+        $n = [Math]::Min($s.P.Length, $limite); $limite -= $s.P.Length
+        if ($n -eq $s.P.Length) { $pts = $s.P } else { $pts = New-Object 'System.Drawing.PointF[]' $n; [Array]::Copy($s.P, $pts, $n) }
+        $pen = New-Object System.Drawing.Pen((Pr-Color $s.C), $gros); $pen.StartCap = 'Round'; $pen.EndCap = 'Round'; $pen.LineJoin = 'Round'
+        $g.DrawLines($pen, $pts); $pen.Dispose()
+        $res = @{ X = $lx + $pts[$n - 1].X; Y = $ly + $pts[$n - 1].Y; C = $s.C }
+    }
+    $g.Restore($st)
+    if ($prog -lt 1.0) { return $res }
+    return $null
+}
+# empieza un dibujo nuevo en un hueco libre
+function Pr-Nuevo-Dibujo {
+    $e = $script:pr; $ahora = [Environment]::TickCount
+    $usados = @($e.Dib | ForEach-Object { $_.Hueco }); $libres = @(0..5 | Where-Object { $usados -notcontains $_ })
+    if ($libres.Count -eq 0) { return }
+    $nombres = @($e.Dib | ForEach-Object { $_.N }); $opc = @($PrDibujosLista | Where-Object { $nombres -notcontains $_ })
+    $hu = $libres[$Rnd.Next($libres.Count)]; $nom = $opc[$Rnd.Next($opc.Count)]
+    [void]$e.Dib.Add(@{ N = $nom; Hueco = $hu; SX = $PrHuecos[$hu][0]; SY = $PrHuecos[$hu][1]; T0 = $ahora })
+    $e.DibProx = $ahora + $PrTiempos.DibujoMs + 4500 + $Rnd.Next(0, 4000)
+    Sonido 'garabato'
+    if ($Rnd.Next(100) -lt 22 -and -not (Pr-Voz-Suena) -and $script:skin.Garabato) { Decir ((Azar $script:skin.Garabato) -f $PrNombresDib[$nom]) }
+}
+# la goma de borrar (cuando limpia el lienzo)
+function Pr-Goma($g, $x, $y, $esc) {
+    $st = $g.Save()
+    $g.TranslateTransform([float]$x, [float]$y); $g.RotateTransform(-30); $g.ScaleTransform([float]$esc, [float]$esc)
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 240 140 170))), -6, -4, 12, 8)
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 120 160 230))), 2, -4, 6, 8)
+    $g.DrawRectangle((New-Object System.Drawing.Pen((C 40 34 50), 0.8)), -6, -4, 14, 8)
+    $g.Restore($st)
+}
+
+# dónde está su ventana ahora mismo: lienzo, pantallita de la cara, panel, barra de estado (en píxeles de la escena)
+function Pr-Geometria {
+    $a = $script:actores['P']; if (-not $a) { return $null }
+    $img = $a.Imgs[$a.Pose]; if (-not $img) { return $null }
+    $r = $a.Rect; $esc = [Math]::Min($r[2] / $img.Width, $r[3] / $img.Height)
+    $iw = $img.Width * $esc; $ih = $img.Height * $esc
+    $ix = $r[0] + ($r[2] - $iw) / 2 + $a.OX; $iy = $r[1] + $r[3] - $ih + $a.OY
+    return @{ X = $ix; Y = $iy; S = $iw / 340.0
+        CX = $ix + $iw * $PrCanvas[0]; CY = $iy + $ih * $PrCanvas[2]; CW = $iw * ($PrCanvas[1] - $PrCanvas[0]); CH = $ih * ($PrCanvas[3] - $PrCanvas[2])
+        PX = $ix + $iw * $PrPanel[0]; PY = $iy + $ih * $PrPanel[2]; PW = $iw * ($PrPanel[1] - $PrPanel[0]); PH = $ih * ($PrPanel[3] - $PrPanel[2]) }
+}
+# ---- su cara viva: cada expresión = ojos, cejas, boca y un extra. Mira al lápiz o a tu ratón, parpadea y mueve
+#      la boca mientras habla. (Las caras viejas de Pr-Trazos ya no se usan en la pantallita.) ----
+$PrExpresiones = @{
+    feliz = @('abiertos', '', 'sonrisa', ''); contento = @('felices', '', 'gran', 'rubor'); risa = @('felices', '', 'risa', '')
+    sorpresa = @('grandes', 'alzadas', 'o', 'exclamacion'); triste = @('abiertos', 'tristes', 'triste', ''); llora = @('cerrados', 'tristes', 'ondulada', 'lagrimas')
+    enfado = @('abiertos', 'enfado', 'dientes', ''); furioso = @('pequenos', 'enfado', 'dientes', 'vapor'); susto = @('grandes', 'tristes', 'ondulada', 'gota')
+    nervioso = @('abiertos', 'tristes', 'ondulada', 'gota'); mareo = @('espiral', '', 'ondulada', ''); neutra = @('abiertos', '', 'recta', '')
+    guino = @('guino', '', 'lengua', ''); aburrido = @('medio', '', 'recta', ''); pensando = @('arriba', 'alzada', 'lado', 'interrogacion')
+    enamorado = @('corazon', '', 'gato', 'rubor'); orgulloso = @('felices', '', 'gran', 'brillos'); concentrado = @('abiertos', '', 'lengua', '')
+    dormido = @('cerrados', '', 'o', 'zzz'); silbando = @('felices', '', 'silbar', 'notas'); curioso = @('abiertos', 'alzada', 'o', '')
+}
+$PrNombresExpr = @{ feliz = 'feliz'; contento = 'contento'; risa = 'muerto de risa'; sorpresa = '¡sorpresa!'; triste = 'triste'; llora = 'llorando'; enfado = 'enfadado'
+    furioso = 'furioso'; susto = 'asustado'; nervioso = 'nervioso'; mareo = 'mareado'; neutra = 'tranquilo'; guino = 'pillín'; aburrido = 'aburrido'; pensando = 'pensando'
+    enamorado = 'enamorado'; orgulloso = 'orgulloso'; concentrado = 'concentrado'; dormido = 'dormido'; silbando = 'silbando'; curioso = 'curioso' }
+$PrHumores = @('feliz', 'feliz', 'contento', 'silbando', 'pensando', 'aburrido', 'curioso', 'neutra', 'risa', 'enamorado', 'feliz')
+function Pr-PF($a, $b) { return New-Object System.Drawing.PointF([float]$a, [float]$b) }
+# relieve de los programas de antes (claro arriba a la izquierda, oscuro abajo a la derecha; al revés si está hundido)
+function Pr-Bisel($g, $x, $y, $ancho, $alto, $hundido) {
+    $a = if ($hundido) { (C 128 128 128) } else { (C 255 255 255) }; $b = if ($hundido) { (C 255 255 255) } else { (C 128 128 128) }
+    $pa = New-Object System.Drawing.Pen($a, 1); $pb = New-Object System.Drawing.Pen($b, 1)
+    $g.DrawLine($pa, [float]$x, [float]$y, [float]($x + $ancho), [float]$y); $g.DrawLine($pa, [float]$x, [float]$y, [float]$x, [float]($y + $alto))
+    $g.DrawLine($pb, [float]$x, [float]($y + $alto), [float]($x + $ancho), [float]($y + $alto)); $g.DrawLine($pb, [float]($x + $ancho), [float]$y, [float]($x + $ancho), [float]($y + $alto))
+    $pa.Dispose(); $pb.Dispose()
+}
+# la herramienta $t de la caja (2 columnas), marcada como pulsada
+function Pr-Herramienta($g, $wx, $wy, $es, $t) {
+    $col = $t % 2; $fil = [Math]::Floor($t / 2)
+    $hx = $wx + (4 + $col * 11) * $es; $hy = $wy + (27 + $fil * 11) * $es; $hl = 11 * $es
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 120 255 255 255))), [float]$hx, [float]$hy, [float]$hl, [float]$hl)
+    Pr-Bisel $g $hx $hy $hl $hl $true
+}
+function Pr-Jit($rn, $m) { return ($rn.NextDouble() - 0.5) * 2 * $m }
+# un círculo garabateado: varias vueltas torcidas, como hecho con el ratón
+function Pr-GE($g, $pen, $cx, $cy, $rx, $ry, $sem, $vueltas) {
+    $rn = New-Object System.Random $sem; $n = [int](20 * $vueltas); $pts = New-Object 'System.Drawing.PointF[]' ($n + 1)
+    $a0 = $rn.NextDouble() * 6.28; $jj = [Math]::Max($rx, $ry) * 0.16
+    for ($i = 0; $i -le $n; $i++) { $an = $a0 + $i / 20.0 * 6.2832; $f = 1.0 + 0.12 * [Math]::Sin($i * 0.8 + $sem) - 0.08 * $i / $n; $pts[$i] = Pr-PF ($cx + [Math]::Cos($an) * $rx * $f + (Pr-Jit $rn $jj)) ($cy + [Math]::Sin($an) * $ry * $f + (Pr-Jit $rn $jj)) }
+    $g.DrawCurve($pen, $pts, 0.5)
+}
+# una línea temblona que pasa por los puntos @(@(x, y), ...)
+function Pr-GL($g, $pen, $lista, $sem, $jj) {
+    $rn = New-Object System.Random $sem; $pl = New-Object System.Collections.ArrayList
+    for ($s = 0; $s -lt $lista.Count - 1; $s++) { $p0 = $lista[$s]; $p1 = $lista[$s + 1]; for ($i = 0; $i -lt 4; $i++) { $q = $i / 4.0; [void]$pl.Add((Pr-PF ($p0[0] + ($p1[0] - $p0[0]) * $q + (Pr-Jit $rn $jj)) ($p0[1] + ($p1[1] - $p0[1]) * $q + (Pr-Jit $rn $jj)))) } }
+    $ul = $lista[$lista.Count - 1]; [void]$pl.Add((Pr-PF ($ul[0] + (Pr-Jit $rn $jj)) ($ul[1] + (Pr-Jit $rn $jj))))
+    $g.DrawCurve($pen, [System.Drawing.PointF[]]$pl.ToArray(), 0.5)
+}
+# un arco temblón (ángulos en grados; 0 = derecha, 90 = abajo)
+function Pr-GArco($g, $pen, $cx, $cy, $rx, $ry, $a0, $a1, $sem, $jj) {
+    $lista = @(); for ($i = 0; $i -le 6; $i++) { $an = ($a0 + ($a1 - $a0) * $i / 6.0) * [Math]::PI / 180; $lista += , @(($cx + [Math]::Cos($an) * $rx), ($cy + [Math]::Sin($an) * $ry)) }
+    Pr-GL $g $pen $lista $sem $jj
+}
+# un borrón relleno (pupilas, bocas)
+function Pr-GBlob($g, $br, $cx, $cy, $rx, $ry, $sem) {
+    $rn = New-Object System.Random $sem; $pts = New-Object 'System.Drawing.PointF[]' 10
+    for ($i = 0; $i -lt 10; $i++) { $an = $i / 10.0 * 6.2832; $f = 0.8 + $rn.NextDouble() * 0.35; $pts[$i] = Pr-PF ($cx + [Math]::Cos($an) * $rx * $f) ($cy + [Math]::Sin($an) * $ry * $f) }
+    $g.FillClosedCurve($br, $pts, [System.Drawing.Drawing2D.FillMode]::Winding, 0.5)
+}
+function Pr-Cara-Viva($g, $expr, $x, $y, $ancho, $alto, $mira, $habla, $cierra, $brillo) {
+    if ($brillo) { return }
+    $def = $PrExpresiones[$expr]; if (-not $def) { $def = $PrExpresiones['feliz'] }
+    $ojos = $def[0]; $cejas = $def[1]; $boca = $def[2]; $extra = $def[3]
+    $t = [Environment]::TickCount
+    $u = [Math]::Min([double]$ancho, $alto * 1.3); $hh = $u / 1.3
+    $ox = $x + ($ancho - $u) / 2; $oy = $y + ($alto - $hh) / 2
+    # el trazo "tiembla": tres versiones del dibujo que se van alternando
+    $sb = ([Math]::Abs(([string]$expr).GetHashCode()) % 10000) + ([int]($t / 170) % 3) * 977
+    $tinta = C 18 16 24
+    $pen = New-Object System.Drawing.Pen($tinta, [float][Math]::Max(1.5, $u * 0.04)); $pen.StartCap = 'Round'; $pen.EndCap = 'Round'; $pen.LineJoin = 'Round'
+    $pen2 = New-Object System.Drawing.Pen((ARGB 170 18 16 24), [float][Math]::Max(1.0, $u * 0.02)); $pen2.StartCap = 'Round'; $pen2.EndCap = 'Round'
+    $neg = New-Object System.Drawing.SolidBrush($tinta); $bla = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::White)
+    $fBo = New-Object System.Drawing.SolidBrush((C 120 30 50)); $fRo = New-Object System.Drawing.SolidBrush((C 245 110 150))
+    $jj = $u * 0.012
+    $dx = 0.0; $dy = 0.0; if ($mira) { $dx = [double]$mira[0]; $dy = [double]$mira[1] }
+    if ($ojos -eq 'arriba') { $ojos = 'abiertos'; $dx = 0.45; $dy = -0.9 }
+    if ($cierra -and @('abiertos', 'grandes', 'pequenos', 'medio') -contains $ojos) { $ojos = 'cerrados' }
+    $rx = $u * 0.11; $ry = $hh * 0.19; $ey = $oy + $hh * 0.4
+    $ex = @(($ox + $u * 0.32 + (($sb % 5) - 2) * 0.4), ($ox + $u * 0.68))
+    # ---- ojos ----
+    for ($k = 0; $k -lt 2; $k++) {
+        $cx = $ex[$k]; $tipo = $ojos; $sk = $sb + $k * 53
+        if ($ojos -eq 'guino') { $tipo = if ($k -eq 0) { 'abiertos' } else { 'pillo' } }
+        if (@('abiertos', 'grandes', 'pequenos', 'medio') -contains $tipo) {
+            $f = if ($tipo -eq 'grandes') { 1.22 } elseif ($tipo -eq 'pequenos') { 0.85 } else { 1.0 }
+            $ew = $rx * $f * (1 + ($k * 0.06)); $eh = $ry * $f
+            Pr-GE $g $pen $cx $ey $ew $eh $sk 2.2
+            Pr-GE $g $pen2 $cx $ey ($ew * 0.95) ($eh * 0.95) ($sk + 7) 1.0
+            $pf = if ($tipo -eq 'grandes') { 0.38 } elseif ($tipo -eq 'pequenos') { 0.25 } else { 0.5 }
+            $pr = $ew * $pf
+            $pdy = if ($tipo -eq 'medio') { 0.55 } else { $dy }
+            $px = $cx + $dx * ($ew - $pr) * 0.7; $py = $ey + $pdy * ($eh - $pr) * 0.7
+            Pr-GBlob $g $neg $px $py $pr ($pr * 1.15) ($sk + 3)
+            if ($tipo -eq 'medio') {
+                Pr-GL $g $pen @(@(($cx - $ew * 1.1), ($ey - $eh * 0.05)), @(($cx + $ew * 1.1), ($ey + $eh * 0.05))) ($sk + 9) $jj
+                Pr-GL $g $pen2 @(@(($cx - $ew * 0.7), ($ey - $eh * 0.5)), @(($cx - $ew * 0.2), ($ey - $eh * 0.15)), @(($cx + $ew * 0.2), ($ey - $eh * 0.7)), @(($cx + $ew * 0.7), ($ey - $eh * 0.2))) ($sk + 11) $jj
+            }
+        }
+        elseif ($tipo -eq 'felices') { Pr-GArco $g $pen $cx ($ey + $ry * 0.35) $rx ($ry * 0.9) 195 345 $sk $jj }
+        elseif ($tipo -eq 'cerrados') { Pr-GArco $g $pen $cx ($ey - $ry * 0.35) $rx ($ry * 0.7) 15 165 $sk $jj }
+        elseif ($tipo -eq 'pillo') { Pr-GL $g $pen @(@(($cx + $rx * 0.9), ($ey - $ry * 0.7)), @(($cx - $rx * 0.8), $ey), @(($cx + $rx * 0.9), ($ey + $ry * 0.7))) $sk $jj }
+        elseif ($tipo -eq 'espiral') {
+            $lista = @(); $gi = $t / 160.0 * $(if ($k -eq 0) { 1 } else { -1 })
+            for ($i = 0; $i -lt 18; $i++) { $an = $gi + $i * 0.75; $rr = $i / 17.0; $lista += , @(($cx + [Math]::Cos($an) * $rx * $rr), ($ey + [Math]::Sin($an) * $ry * $rr)) }
+            Pr-GL $g $pen2 $lista $sk ($jj * 0.6)
+        }
+        elseif ($tipo -eq 'corazon') {
+            $lat = 1.05 + 0.12 * [Math]::Abs([Math]::Sin($t / 220.0))
+            $pts = New-Object 'System.Drawing.PointF[]' 20
+            for ($i = 0; $i -lt 20; $i++) { $q = $i / 20.0 * 2 * [Math]::PI; $hx = 16 * [Math]::Pow([Math]::Sin($q), 3); $hy = 13 * [Math]::Cos($q) - 5 * [Math]::Cos(2 * $q) - 2 * [Math]::Cos(3 * $q) - [Math]::Cos(4 * $q); $pts[$i] = Pr-PF ($cx + $hx / 16.0 * $rx * $lat) ($ey - $hy / 16.0 * $ry * $lat) }
+            $g.FillPolygon($fRo, $pts); $g.DrawPolygon($pen2, $pts)
+        }
+    }
+    # ---- cejas ----
+    $by = $ey - $ry * 1.5
+    if ($cejas -eq 'enfado') { Pr-GL $g $pen @(@(($ex[0] - $rx), ($by - $ry * 0.15)), @(($ex[0] + $rx * 0.9), ($by + $ry * 0.45))) ($sb + 21) $jj; Pr-GL $g $pen @(@(($ex[1] + $rx), ($by - $ry * 0.15)), @(($ex[1] - $rx * 0.9), ($by + $ry * 0.45))) ($sb + 22) $jj }
+    elseif ($cejas -eq 'tristes') { Pr-GL $g $pen @(@(($ex[0] - $rx), ($by + $ry * 0.35)), @(($ex[0] + $rx * 0.9), ($by - $ry * 0.2))) ($sb + 23) $jj; Pr-GL $g $pen @(@(($ex[1] + $rx), ($by + $ry * 0.35)), @(($ex[1] - $rx * 0.9), ($by - $ry * 0.2))) ($sb + 24) $jj }
+    elseif ($cejas -eq 'alzadas') { $kk = 0; foreach ($cx in $ex) { Pr-GArco $g $pen $cx ($by + $ry * 0.2) ($rx * 0.9) ($ry * 0.5) 200 340 ($sb + 25 + $kk) $jj; $kk++ } }
+    elseif ($cejas -eq 'alzada') { Pr-GArco $g $pen $ex[0] ($by + $ry * 0.1) ($rx * 0.9) ($ry * 0.5) 200 340 ($sb + 27) $jj; Pr-GL $g $pen @(@(($ex[1] - $rx * 0.85), ($by + $ry * 0.2)), @(($ex[1] + $rx * 0.85), ($by + $ry * 0.25))) ($sb + 28) $jj }
+    # ---- boca (si habla, se abre y se cierra) ----
+    $mx = $ox + $u * 0.5; $my = $oy + $hh * 0.78; $mw = $u * 0.21
+    if ($habla -gt 0.05 -and @('sonrisa', 'gran', 'recta', 'triste', 'ondulada', 'gato', 'lado', 'lengua') -contains $boca) {
+        $ma = $hh * (0.03 + 0.08 * $habla); $mww = $mw * (0.55 + 0.2 * $habla)
+        Pr-GBlob $g $fBo $mx $my $mww $ma ($sb + 31)
+        Pr-GE $g $pen $mx $my $mww $ma ($sb + 32) 1.3
+    } else {
+        switch ($boca) {
+            'sonrisa' { Pr-GArco $g $pen $mx ($my - $hh * 0.1) $mw ($hh * 0.14) 15 165 ($sb + 33) $jj; Pr-GArco $g $pen2 ($mx + 1) ($my - $hh * 0.09) ($mw * 0.95) ($hh * 0.13) 20 160 ($sb + 34) $jj }
+            { $_ -eq 'gran' -or $_ -eq 'risa' } {
+                $fx = if ($_ -eq 'risa') { 1.25 } else { 1.05 }; $fy = if ($_ -eq 'risa') { 0.15 } else { 0.11 }
+                Pr-GBlob $g $fBo $mx ($my - $hh * 0.02) ($mw * $fx) ($hh * $fy) ($sb + 35)
+                Pr-GBlob $g $fRo ($mx + $mw * 0.15) ($my + $hh * $fy * 0.45) ($mw * 0.45) ($hh * $fy * 0.4) ($sb + 36)
+                Pr-GArco $g $pen $mx ($my - $hh * 0.07) ($mw * $fx * 1.02) ($hh * $fy * 1.5) 5 175 ($sb + 37) $jj
+                Pr-GL $g $pen @(@(($mx - $mw * $fx), ($my - $hh * 0.06)), @(($mx + $mw * $fx), ($my - $hh * 0.08))) ($sb + 38) $jj
+            }
+            'o' { $s = $hh * (0.07 + 0.012 * [Math]::Sin($t / 300.0)); Pr-GBlob $g $fBo $mx $my ($s * 0.8) $s ($sb + 39); Pr-GE $g $pen $mx $my ($s * 0.85) ($s * 1.05) ($sb + 40) 1.6 }
+            'recta' { Pr-GL $g $pen @(@(($mx - $mw * 0.7), $my), @(($mx + $mw * 0.7), ($my + $hh * 0.02))) ($sb + 41) $jj }
+            'lado' { Pr-GL $g $pen @(@(($mx - $mw * 0.1), ($my + $hh * 0.03)), @(($mx + $mw * 0.45), $my), @(($mx + $mw * 0.85), ($my - $hh * 0.05))) ($sb + 42) $jj }
+            'triste' { Pr-GArco $g $pen $mx ($my + $hh * 0.1) ($mw * 0.85) ($hh * 0.12) 200 340 ($sb + 43) $jj }
+            'ondulada' { $lista = @(); for ($i = 0; $i -le 6; $i++) { $lista += , @(($mx - $mw + $i * $mw / 3.0), ($my + $(if ($i % 2) { -1 } else { 1 }) * $hh * 0.035)) }; Pr-GL $g $pen $lista ($sb + 44) ($jj * 0.6) }
+            'gato' { Pr-GArco $g $pen ($mx - $mw * 0.25) ($my - $hh * 0.02) ($mw * 0.25) ($hh * 0.07) 0 180 ($sb + 45) $jj; Pr-GArco $g $pen ($mx + $mw * 0.25) ($my - $hh * 0.02) ($mw * 0.25) ($hh * 0.07) 0 180 ($sb + 46) $jj }
+            'lengua' {
+                Pr-GBlob $g $fRo ($mx + $mw * 0.4) ($my + $hh * 0.04) ($mw * 0.25) ($hh * 0.07) ($sb + 47)
+                Pr-GE $g $pen2 ($mx + $mw * 0.4) ($my + $hh * 0.04) ($mw * 0.25) ($hh * 0.07) ($sb + 48) 1.0
+                Pr-GArco $g $pen $mx ($my - $hh * 0.1) $mw ($hh * 0.14) 15 165 ($sb + 49) $jj
+            }
+            'dientes' {
+                $g.FillRectangle($bla, [float]($mx - $mw), [float]($my - $hh * 0.065), [float](2 * $mw), [float]($hh * 0.13))
+                Pr-GL $g $pen @(@(($mx - $mw), ($my - $hh * 0.065)), @(($mx + $mw), ($my - $hh * 0.07)), @(($mx + $mw), ($my + $hh * 0.065)), @(($mx - $mw), ($my + $hh * 0.065)), @(($mx - $mw), ($my - $hh * 0.065))) ($sb + 50) $jj
+                Pr-GL $g $pen2 @(@(($mx - $mw), $my), @(($mx + $mw), $my)) ($sb + 51) $jj
+                foreach ($q in @(-0.5, 0, 0.5)) { Pr-GL $g $pen2 @(@(($mx + $q * $mw), ($my - $hh * 0.06)), @(($mx + $q * $mw), ($my + $hh * 0.06))) ($sb + 52 + [int]($q * 4)) ($jj * 0.5) }
+            }
+            'silbar' { Pr-GBlob $g $fBo ($mx + $mw * 0.3) $my ($hh * 0.04) ($hh * 0.045) ($sb + 55); Pr-GE $g $pen ($mx + $mw * 0.3) $my ($hh * 0.045) ($hh * 0.05) ($sb + 56) 1.4 }
+        }
+    }
+    # ---- extras ----
+    $fs = [float][Math]::Max(5.0, $hh * 0.17)
+    switch ($extra) {
+        'rubor' { $rb = New-Object System.Drawing.Pen((ARGB 150 245 100 140), [float]($u * 0.015)); $kk = 0; foreach ($cx in $ex) { for ($i = 0; $i -lt 3; $i++) { Pr-GL $g $rb @(@(($cx - $rx * 0.7 + $i * $rx * 0.45), ($ey + $ry * 1.5)), @(($cx - $rx * 0.45 + $i * $rx * 0.45), ($ey + $ry * 1.1))) ($sb + 60 + $kk * 5 + $i) ($jj * 0.4) } ; $kk++ }; $rb.Dispose() }
+        'gota' { $gy = ($t / 25.0) % ($hh * 0.3); $gb = New-Object System.Drawing.SolidBrush((C 90 160 240)); Pr-GBlob $g $gb ($ox + $u * 0.87) ($oy + $hh * 0.15 + $gy) ($u * 0.025) ($hh * 0.05) ($sb + 70); $gb.Dispose() }
+        'lagrimas' { $gb = New-Object System.Drawing.SolidBrush((C 90 160 240)); foreach ($cx in $ex) { $gy = (($t / 14.0) + $cx) % ($hh * 0.42); Pr-GBlob $g $gb $cx ($ey + $ry * 0.8 + $gy) ($u * 0.02) ($hh * 0.035) ($sb + 71) }; $gb.Dispose() }
+        'zzz' { for ($i = 0; $i -lt 3; $i++) { $fa = (($t / 1300.0) + $i / 3.0) % 1.0; $g.DrawString('z', (FntP('Comic Sans MS', ($fs * 0.5 + $fa * $fs * 0.4), [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((ARGB ([int](230 * (1 - $fa))) 18 16 24))), [float]($ox + $u * 0.78 + $fa * $u * 0.1), [float]($oy + $hh * 0.3 - $fa * $hh * 0.35)) } }
+        'interrogacion' { $g.DrawString('?', (FntP('Comic Sans MS', ($fs * 0.9), [System.Drawing.FontStyle]::Bold)), $neg, [float]($ox + $u * 0.84), [float]($oy - $hh * 0.05 + [Math]::Sin($t / 400.0) * 2)) }
+        'exclamacion' { $g.DrawString('!', (FntP('Comic Sans MS', ($fs * 0.9), [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 220 40 40))), [float]($ox + $u * 0.86), [float]($oy - $hh * 0.07)) }
+        'notas' { for ($i = 0; $i -lt 2; $i++) { $fa = (($t / 1500.0) + $i / 2.0) % 1.0; $g.DrawString('♪', (FntP('Segoe UI Symbol', ($fs * 0.65))), (New-Object System.Drawing.SolidBrush((ARGB ([int](230 * (1 - $fa))) 18 16 24))), [float]($ox + $u * 0.66 + $fa * $u * 0.2), [float]($oy + $hh * 0.62 - $fa * $hh * 0.5)) } }
+        'vapor' { $vp = New-Object System.Drawing.Pen((ARGB 200 200 60 40), [float]($u * 0.018)); for ($i = 0; $i -lt 3; $i++) { $lista = @(); for ($j2 = 0; $j2 -lt 5; $j2++) { $lista += , @(($ox + $u * (0.3 + 0.2 * $i) + [Math]::Sin($j2 * 1.4 + $t / 120.0) * $u * 0.025), ($oy + $hh * 0.12 - $j2 * $hh * 0.03)) }; Pr-GL $g $vp $lista ($sb + 80 + $i) ($jj * 0.3) }; $vp.Dispose() }
+        'brillos' { foreach ($b in @(@(0.1, 0.15, 0), @(0.9, 0.2, 1.7), @(0.86, 0.75, 3.1))) { $a2 = [int](140 + 110 * [Math]::Abs([Math]::Sin($t / 400.0 + $b[2]))); $g.DrawString('✦', (FntP('Segoe UI Symbol', ($fs * 0.55))), (New-Object System.Drawing.SolidBrush((ARGB $a2 230 170 0))), [float]($ox + $u * $b[0] - $fs * 0.3), [float]($oy + $hh * $b[1] - $fs * 0.3)) } }
+    }
+    $pen.Dispose(); $pen2.Dispose(); $neg.Dispose(); $bla.Dispose(); $fBo.Dispose(); $fRo.Dispose()
+}
+
+# los dibujos de cara hechos a mano (skins\painter\caras\<expresión>.png); se cargan una vez y se recuerdan
+$script:prCarasImg = @{}
+function Pr-Cara-Img($nombre) {
+    if ($script:prCarasImg.ContainsKey($nombre)) { return $script:prCarasImg[$nombre] }
+    $img = Cargar-Img ('skins\painter\caras\' + $nombre + '.png')
+    # un lienzo todavía en blanco no cuenta: se sigue usando la cara dibujada por código
+    if ($img) { $vacio = $true; $bm = New-Object System.Drawing.Bitmap($img); for ($yy = 0; $yy -lt $bm.Height -and $vacio; $yy += 5) { for ($xx = 0; $xx -lt $bm.Width; $xx += 5) { $px = $bm.GetPixel($xx, $yy); if ($px.A -gt 30 -and ($px.R -lt 235 -or $px.G -lt 235 -or $px.B -lt 235)) { $vacio = $false; break } } }; $bm.Dispose(); if ($vacio) { $img.Dispose(); $img = $null } }
+    $script:prCarasImg[$nombre] = $img
+    return $img
+}
+# su cara en la pantallita: en blanco, como un lienzo, con trazos de lápiz repasados (no quedan lisos)
+function Pr-Pintar-Cara($g, $nombre, $x, $y, $ancho, $alto, $prog, $mira, $habla, $cierra) {
+    $g.SetClip((New-Object System.Drawing.RectangleF([float]$x, [float]$y, [float]$ancho, [float]$alto)))
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 252 251 247))), [float]$x, [float]$y, [float]$ancho, [float]$alto)
+    $pp = New-Object System.Drawing.Pen((ARGB 16 120 110 90), 1); for ($yy = $y + 1; $yy -lt $y + $alto; $yy += 3) { $g.DrawLine($pp, [float]$x, [float]$yy, [float]($x + $ancho), [float]$yy) }; $pp.Dispose()
+    $esc = 0.82 + 0.18 * [Math]::Min(1.0, [Math]::Max(0.0, [double]$prog)); if ($null -eq $prog) { $esc = 1.0 }
+    $st = $g.Save()
+    $cxm = $x + $ancho / 2; $cym = $y + $alto / 2
+    $g.TranslateTransform([float]$cxm, [float]$cym); $g.ScaleTransform([float]$esc, [float]$esc); $g.TranslateTransform([float](-$cxm), [float](-$cym))
+    # garabato hecho con el ratón: trazos temblones que se redibujan solos
+    # si hay un dibujo hecho a mano en skins\painter\caras, se usa ese (con su versión hablando o parpadeando si existe)
+    $img = $null
+    if ($habla -gt 0.5) { $img = Pr-Cara-Img ($nombre + '_habla') }
+    if (-not $img -and $cierra) { $img = Pr-Cara-Img ($nombre + '_parpadeo') }
+    if (-not $img) { $img = Pr-Cara-Img $nombre }
+    if ($img) {
+        $esc2 = [Math]::Min($ancho / $img.Width, $alto / $img.Height); $iw = $img.Width * $esc2; $ih = $img.Height * $esc2
+        $g.InterpolationMode = 'HighQualityBicubic'
+        $g.DrawImage($img, [float]($x + ($ancho - $iw) / 2), [float]($y + ($alto - $ih) / 2), [float]$iw, [float]$ih)
+    } else { Pr-Cara-Viva $g $nombre $x $y $ancho $alto $mira $habla $cierra $false }
+    $g.Restore($st)
+    $g.ResetClip()
+}# ---- el panel al estilo de los programas de dibujo de antes (fondo guardado) ----
+function Pr-Pintar-Fondo($g, $W, $H) {
+    $g.Clear((C 192 192 192))
+    # la barra de arriba, azul como una barra de título
+    $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 0, $W, 52)), (C 0 0 128), (C 16 132 208), 0)
+    $g.FillRectangle($br, 0, 0, $W, 52); $br.Dispose()
+    $g.DrawLine((New-Object System.Drawing.Pen((C 255 255 255), 1)), 0, 52, $W, 52)
+    # el marco de los botones, hundido
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 192 192 192))), 8, 60, 394, ($H - 66))
+    Pr-Bisel $g 8 60 394 ($H - 66) $true
+    Pr-Bisel $g 9 61 392 ($H - 68) $false
+    # el escritorio verde azulado donde está abierta su ventana
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 0 128 128))), 404, 56, ($W - 408), 192)
+    Pr-Bisel $g 404 56 ($W - 408) 192 $true
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 80 0 0 0))), 416, 65, 340, 186)
+}
+# lo que se mueve: el lienzo (sus dibujos, el paisaje o los hashes), el lápiz, su cara, la paleta y los datos
+function Pr-Pintar($g, $W, $H, $k) {
+    Pr-Reset; $e = $script:pr; $ahora = [Environment]::TickCount
+    $ge = Pr-Geometria; if (-not $ge) { return }
+    $lx = [float]$ge.CX; $ly = [float]$ge.CY; $lw = [float]$ge.CW; $lh = [float]$ge.CH; $es = $ge.S
+    $mina = Pr-Mina-Activa
+    $punta = $null; $goma = $null; $herr = 0; $col = 0; $estado = ''
+    $g.SetClip((New-Object System.Drawing.RectangleF($lx, $ly, $lw, $lh)))
+    if ($mina) {
+        $herr = -1; $col = -1; $estado = '¡MINANDO CRIPTOMONEDA!'
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 0 0 0))), $lx, $ly, $lw, $lh)
+        $fh = FntP('Consolas', 7); $vh = New-Object System.Drawing.SolidBrush((C 0 255 0)); $i = 0
+        foreach ($hx in $e.Hex) { $g.DrawString(($hx + $hx), $fh, $vh, ($lx + 3), ($ly + 3 + $i * ($lh / 9.4))); $i++ }
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 0 0 0))), ($lx + $lw * 0.30), ($ly + $lh * 0.42), ($lw * 0.40), ($lh * 0.14))
+        $g.DrawString('MINANDO', (FntP('Consolas', 10, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 255 60 60))), ($lx + $lw * 0.34), ($ly + $lh * 0.43))
+    } elseif ($e.Paisaje -gt 0) {
+        $herr = @(2, 2, 5, 1, 1, 1, 4)[[Math]::Min(6, $e.Paisaje)]; $col = @(8, 8, 5, 6, 7, 9, 13)[[Math]::Min(6, $e.Paisaje)]
+        $estado = if ($e.Listo -gt $ahora) { '¡Paisaje terminado!' } else { "Pintando el paisaje ($($e.Paisaje) de 6)" }
+        $q = ($ahora - $e.ElemT) / 900.0
+        if ($q -lt 1.0) {
+            Pr-Dibujar-Paisaje $g ($e.Paisaje - 1) $lx $ly $lw $lh
+            $g.SetClip((New-Object System.Drawing.RectangleF($lx, $ly, [float]($lw * $q), $lh)))
+            Pr-Dibujar-Paisaje $g $e.Paisaje $lx $ly $lw $lh
+            $punta = @{ X = $lx + $lw * $q; Y = $ly + $lh * (0.5 + 0.32 * [Math]::Sin($q * 14.0)) }
+        } else { Pr-Dibujar-Paisaje $g $e.Paisaje $lx $ly $lw $lh }
+    } else {
+        foreach ($d in $e.Dib) {
+            $res = Pr-Dibujar-Dibujo $g $d $lx $ly $lw $lh (($ahora - $d.T0) / [double]$PrTiempos.DibujoMs)
+            if ($res) { $punta = $res; $col = $res.C; $estado = "Dibujando $($PrNombresDib[$d.N])..." }
+        }
+        if ($e.Borra -ne 0) {
+            $q = [Math]::Min(1.0, ($ahora - $e.Borra) / 900.0); $herr = 3; $estado = 'Borrando el lienzo...'
+            $g.FillRectangle([System.Drawing.Brushes]::White, $lx, $ly, [float]($lw * $q), $lh)
+            $goma = @{ X = $lx + $lw * $q; Y = $ly + $lh * (0.5 + 0.35 * [Math]::Sin($q * 20.0)) }
+        }
+        if (-not $estado) { $estado = 'Para dibujar algo, espera un momento.' }
+    }
+    if ($e.Calor -ge 60.0 -and -not $mina) {
+        $g.SetClip((New-Object System.Drawing.RectangleF($lx, $ly, $lw, $lh)))
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ([int][Math]::Min(55.0, ($e.Calor - 60.0) * 1.4)) 255 110 40))), $lx, $ly, $lw, $lh)
+    }
+    $g.ResetClip()
+    if ($e.Listo -gt $ahora) { $g.DrawRectangle((New-Object System.Drawing.Pen((C 255 200 0), 2)), ($lx - 1), ($ly - 1), ($lw + 2), ($lh + 2)) }
+    if ($punta) { Pr-Lapiz $g $punta.X $punta.Y ($es * 1.2) }
+    elseif ($goma) { Pr-Goma $g $goma.X $goma.Y ($es * 1.3) }
+    elseif (-not $mina) { Pr-Flecha $g ($lx + $lw * 0.88 + [Math]::Sin($ahora / 900.0) * 2) ($ly + $lh * 0.8 + [Math]::Cos($ahora / 1100.0) * 1.5) }
+    if ($herr -ge 0) { Pr-Herramienta $g $ge.X $ge.Y $es $herr }
+    # el color que usa: delante en el cuadro de colores y marcado en la paleta
+    if ($col -ge 0) {
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((Pr-Color $col))), [float]($ge.X + 7.5 * $es), [float]($ge.Y + 162.5 * $es), [float](8 * $es), [float](7 * $es))
+        $g.DrawRectangle((New-Object System.Drawing.Pen((C 0 0 128), 1.4)), [float]($ge.X + (27.5 + $col * 8) * $es), [float]($ge.Y + 159.5 * $es), [float](9 * $es), [float](9 * $es))
+    }
+    # su cara: qué expresión pone
+    $fx0 = $ge.X + 253 * $es; $fy0 = $ge.Y + 30 * $es; $fw0 = 81 * $es; $fh0 = 51 * $es
+    $prog = 1.0; $dormido = ($ahora - $e.Ult) -gt 75000
+    if ($mina) { $cara = 'mareo' }
+    elseif ($ahora -lt $e.CaraHasta) { $cara = $e.Cara; $prog = ($ahora - $e.CaraT) / 180.0 }
+    elseif ($e.Calor -ge 85.0) { $cara = 'susto' }
+    elseif ($e.Calor -ge 70.0) { $cara = 'nervioso' }
+    elseif ($e.Listo -gt $ahora) { $cara = 'orgulloso' }
+    elseif ($punta) { $cara = 'concentrado' }
+    elseif ($e.Borra -ne 0) { $cara = 'neutra' }
+    elseif ($dormido) { $cara = 'dormido' }
+    else { $cara = $e.Humor }
+    # adónde mira: al lápiz si dibuja, a tu ratón si está encima del panel, y si no, a su aire
+    $fcx = $fx0 + $fw0 / 2; $fcy = $fy0 + $fh0 / 2
+    $obj = $null
+    if ($punta) { $obj = @($punta.X, $punta.Y) } elseif ($goma) { $obj = @($goma.X, $goma.Y) }
+    else { $pt = $form.PointToClient([System.Windows.Forms.Cursor]::Position); $rmx = $pt.X / $script:K; $rmy = $pt.Y / $script:K; if ($rmx -ge 0 -and $rmy -ge 0 -and $rmx -le $W -and $rmy -le $H) { $obj = @($rmx, $rmy) } }
+    if ($obj) { $mira = @([Math]::Max(-1.0, [Math]::Min(1.0, ($obj[0] - $fcx) / 140.0)), [Math]::Max(-1.0, [Math]::Min(1.0, ($obj[1] - $fcy) / 80.0))) }
+    else { $mira = @(([Math]::Sin($ahora / 1700.0) * 0.6), ([Math]::Sin($ahora / 2300.0) * 0.35)) }
+    # habla mientras se escribe el bocadillo o suena su voz; parpadea de vez en cuando
+    $hablando = (Pr-Voz-Suena) -or ($script:twTexto -and $script:twPos -lt ([string]$script:twTexto).Length)
+    $habla = if ($hablando -and $cara -ne 'dormido') { 0.1 + 0.9 * [Math]::Abs([Math]::Sin($ahora / 85.0)) } else { 0.0 }
+    $cierra = (($ahora % 3900) -lt 130) -or ((($ahora + 260) % 11700) -lt 130)
+    Pr-Pintar-Cara $g $cara $fx0 ($fy0 + $(if (@('risa', 'contento', 'orgulloso') -contains $cara) { [Math]::Abs([Math]::Sin($ahora / 160.0)) * -1.5 } else { 0 })) $fw0 $fh0 $prog $mira $habla $cierra
+    if (Pr-Voz-Suena) { $g.DrawString('♪', (FntP('Segoe UI Symbol', 8)), (New-Object System.Drawing.SolidBrush((C 220 130 0))), [float]($fx0 + $fw0 - 12), [float]($fy0 + 1 + [Math]::Sin($ahora / 150.0) * 1.5)) }
+    # los datos, debajo de la cara (texto negro sobre gris, barras como las de antes)
+    $hx0 = [float]($ge.X + 254 * $es); $hy0 = [float]($ge.Y + 89 * $es); $hw0 = [float](79 * $es)
+    $fe = FntP('Tahoma', 5.8); $feb = FntP('Tahoma', 5.8, [System.Drawing.FontStyle]::Bold); $ng = [System.Drawing.Brushes]::Black
+    $tmp = [int](38 + $e.Calor * 0.52); $cq = [Math]::Min(1.0, $e.Calor / 100.0)
+    $g.DrawString('Overclock:', $fe, $ng, $hx0, $hy0)
+    $g.DrawString("$tmp°C", $feb, (New-Object System.Drawing.SolidBrush($(if ($cq -ge 0.7) { (C 192 0 0) } else { (C 0 0 128) }))), [float]($hx0 + $hw0 - 22), $hy0)
+    $g.FillRectangle([System.Drawing.Brushes]::White, $hx0, ($hy0 + 10), $hw0, 7); Pr-Bisel $g $hx0 ($hy0 + 10) $hw0 7 $true
+    $bloques = [int][Math]::Round($cq * 10); $bw = ($hw0 - 3) / 10.0
+    $cb = New-Object System.Drawing.SolidBrush($(if ($cq -ge 0.7) { (C 192 0 0) } else { (C 0 0 128) }))
+    for ($i = 0; $i -lt $bloques; $i++) { $g.FillRectangle($cb, [float]($hx0 + 1.5 + $i * $bw), ($hy0 + 11.5), [float]($bw - 1), 4) }
+    $cb.Dispose()
+    $g.DrawString('Paisaje:', $fe, $ng, $hx0, ($hy0 + 19))
+    $cw0 = ($hw0 - 5 * 2.0) / 6.0
+    for ($i = 0; $i -lt $PrTiempos.Paisaje; $i++) {
+        $on = ($i -lt $e.Paisaje) -or ($e.Listo -gt $ahora)
+        $qx = [float]($hx0 + $i * ($cw0 + 2))
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush($(if ($on) { (C 0 128 0) } else { (C 255 255 255) }))), $qx, ($hy0 + 29), [float]$cw0, 6); Pr-Bisel $g $qx ($hy0 + 29) $cw0 6 $true
+    }
+    $g.DrawString("Hechos: $($e.Terminados)", $fe, $ng, $hx0, ($hy0 + 37))
+    if ($e.Calor -ge 70.0 -and -not $mina) { $g.DrawString('¡a punto de arder!', $feb, (New-Object System.Drawing.SolidBrush((C 192 0 0))), $hx0, ($hy0 + 47)) }
+    else { $g.DrawString("Ánimo: $($PrNombresExpr[$cara])", $fe, (New-Object System.Drawing.SolidBrush((C 0 0 128))), $hx0, ($hy0 + 47)) }
+    # la barra de estado: lo que hace y dónde está el lápiz
+    $fsb = FntP('Tahoma', 5.5)
+    $g.DrawString($estado, $fsb, $(if ($mina) { (New-Object System.Drawing.SolidBrush((C 192 0 0))) } else { $ng }), [float]($ge.X + 5 * $es), [float]($ge.Y + 177 * $es))
+    if ($punta -or $goma) { $pp = if ($punta) { $punta } else { $goma }; $g.DrawString(("{0},{1}" -f [int](($pp.X - $lx) / $lw * 640), [int](($pp.Y - $ly) / $lh * 370)), $fsb, $ng, [float]($ge.X + 236 * $es), [float]($ge.Y + 177 * $es)) }
+}
+
+# --- Painter: la intro. Un ordenador del Blacksite arranca (lista de sistemas secuestrados) y, encima, se abre su
+#     programa de dibujo: aparece su cara en la pantallita y el lápiz dibuja un sol y una flor; la ventana se aparta,
+#     sale el título y guiña un ojo. Va por el reloj; la música del altavoz de Z-779 empieza con ella. Un clic la salta. ---
+function Transicion-Pintor($final) {
+    $script:prImg = Cargar-Img 'skins\painter\programa.png'
+    $script:prT0 = 0; $script:prSaltarI = $false; $script:prBandera = @{}
+    $ti = $PrIntro
+    $script:prIDib = @(@{ N = 'sol'; SX = 0.06; SY = 0.12; Tam = 0.72; T0 = $ti.Cara + 300 }, @{ N = 'flor'; SX = 0.52; SY = 0.12; Tam = 0.72; T0 = $ti.Cara + 2300 })
+    $script:iRecursos = @($script:prImg)
+    $pintar = {
+        param($g, $W, $H, $p)
+        $g.Clear([System.Drawing.Color]::Black)
+        $g.SmoothingMode = 'AntiAlias'; $g.InterpolationMode = 'HighQualityBilinear'
+        $ti = $script:PrIntro
+        $ms = if ($script:prT0 -gt 0) { [Environment]::TickCount - $script:prT0 } else { 0 }
+        # 1) el arranque: lo que ha secuestrado
+        $filas = @(
+            @(500, 'URBANSHADE · HADAL DIVISION', 0), @(1100, 'NODO INTERNO Z-779 ............ OK', 0),
+            @(1700, 'OVERCLOCK: ACTIVADO (NADIE LO HA PEDIDO)', 0), @(2300, 'MINANDO CRIPTOMONEDA ........ 100%', 1),
+            @(2900, 'TORRETAS ............ SECUESTRADAS', 1), @(3400, 'ALTAVOCES .......... SECUESTRADOS', 1),
+            @(3900, 'NAVEGACIÓN ......... SECUESTRADA', 1), @(4500, 'ABRIENDO the_p.AI.nter.exe ...', 2))
+        $fb = FntP('Consolas', 11, [System.Drawing.FontStyle]::Bold); $fi = 0
+        foreach ($fl in $filas) {
+            if ($ms -lt $fl[0]) { break }
+            $nc = [int][Math]::Min([double]$fl[1].Length, ($ms - $fl[0]) * 0.06)
+            $cl = if ($fl[2] -eq 1) { (C 255 130 150) } elseif ($fl[2] -eq 2) { (C 255 200 90) } else { (C 200 210 255) }
+            $g.DrawString($fl[1].Substring(0, $nc), $fb, (New-Object System.Drawing.SolidBrush($cl)), 28, (30 + $fi * 22))
+            $fi++
+        }
+        if ((([int]($ms / 380)) % 2) -eq 0 -and $ms -lt $ti.Abre) { $g.DrawString('█', $fb, (New-Object System.Drawing.SolidBrush((C 200 210 255))), 28, (30 + $fi * 22)) }
+        $sl = New-Object System.Drawing.Pen((ARGB 26 255 255 255), 1); for ($y = 0; $y -lt $H; $y += 3) { $g.DrawLine($sl, 0, $y, $W, $y) }; $sl.Dispose()
+        if ($ms -ge $ti.Abre) {
+            # el terminal se oscurece y pasa a la sala lila
+            $qf = [Math]::Min(1.0, ($ms - $ti.Abre) / 1400.0)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ([int](150 + 105 * $qf)) 0 110 110))), 0, 0, $W, $H)
+            $gp = New-Object System.Drawing.Drawing2D.GraphicsPath; $gp.AddEllipse(($W * 0.2), -30, ($W * 0.85), ($H + 70))
+            $pgb = New-Object System.Drawing.Drawing2D.PathGradientBrush($gp); $pgb.CenterColor = (ARGB ([int](50 * $qf)) 200 255 255); $pgb.SurroundColors = [System.Drawing.Color[]]@((ARGB 0 200 255 255))
+            $g.FillPath($pgb, $gp); $pgb.Dispose(); $gp.Dispose()
+            # 2) se abre su programa: crece desde el centro y luego se aparta a la derecha
+            $img = $script:prImg
+            if ($img) {
+                $wc = $W * 0.68; $xc = ($W - $wc) / 2; $wd = $W * 0.56; $xd = $W - $wd - 18
+                $qa = [Math]::Min(1.0, ($ms - $ti.Abre) / 320.0); $qa = 1 - [Math]::Pow(1 - $qa, 3)
+                $qm = [Math]::Max(0.0, [Math]::Min(1.0, ($ms - $ti.Mueve) / 650.0)); $qm = 1 - [Math]::Pow(1 - $qm, 3)
+                $vw = ($wc + ($wd - $wc) * $qm) * (0.55 + 0.45 * $qa); $vh = $vw * $img.Height / $img.Width
+                $vx = ($xc + ($xd - $xc) * $qm) + (($wc + ($wd - $wc) * $qm) - $vw) / 2; $vy = ($H - $vh) / 2
+                $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 110 0 0 0))), [float]($vx + 6), [float]($vy + 7), [float]$vw, [float]$vh)
+                $g.DrawImage($img, [float]$vx, [float]$vy, [float]$vw, [float]$vh)
+                $ve = $vw / 340.0
+                $cx = $vx + $vw * $script:PrCanvas[0]; $cy = $vy + $vh * $script:PrCanvas[2]; $cw = $vw * ($script:PrCanvas[1] - $script:PrCanvas[0]); $ch = $vh * ($script:PrCanvas[3] - $script:PrCanvas[2])
+                if ($ms -ge $ti.Cara) {
+                    # su cara aparece en la pantallita
+                    $nom = if ($ms -ge $ti.Guino) { 'guino' } elseif ($ms -ge $ti.Cara + 2600) { 'contento' } else { 'sorpresa' }; $t0 = if ($ms -ge $ti.Guino) { $ti.Guino } elseif ($ms -ge $ti.Cara + 2600) { $ti.Cara + 2600 } else { $ti.Cara }
+                    Pr-Pintar-Cara $g $nom ($vx + 253 * $ve) ($vy + 30 * $ve) (81 * $ve) (51 * $ve) (($ms - $t0) / 200.0) $null $(if ($ms -lt $ti.Cara + 2400) { [Math]::Abs([Math]::Sin($ms / 85.0)) } else { 0.0 })
+                    # y el lápiz dibuja en el lienzo
+                    $g.SetClip((New-Object System.Drawing.RectangleF([float]$cx, [float]$cy, [float]$cw, [float]$ch)))
+                    $punta = $null
+                    foreach ($d in $script:prIDib) { if ($ms -ge $d.T0) { $res = Pr-Dibujar-Dibujo $g $d $cx $cy $cw $ch (($ms - $d.T0) / 1800.0); if ($res) { $punta = $res } } }
+                    $g.ResetClip()
+                    if ($punta) { Pr-Lapiz $g $punta.X $punta.Y ($ve * 1.3) } else { Pr-Flecha $g ($cx + $cw * 0.88) ($cy + $ch * 0.8) }
+                    Pr-Herramienta $g $vx $vy $ve 0
+                }
+            }
+        }
+        $ftit = FntP('Consolas', 26, [System.Drawing.FontStyle]::Bold)
+        if ($ms -ge $ti.Titulo) { $tx = 'the_p.AI.nter'; $nc = [int][Math]::Min([double]$tx.Length, ($ms - $ti.Titulo) * 0.03); $s2 = $tx.Substring(0, $nc)
+            $g.DrawString($s2, $ftit, (New-Object System.Drawing.SolidBrush((C 0 60 80))), 26, 94); $g.DrawString($s2, $ftit, [System.Drawing.Brushes]::White, 24, 92) }
+        if ($ms -ge $ti.Sub) { $tx = 'Z-779  ·  Hadal Blacksite'; $nc = [int][Math]::Min([double]$tx.Length, ($ms - $ti.Sub) * 0.05); $g.DrawString($tx.Substring(0, $nc), (FntP('Consolas', 10)), (New-Object System.Drawing.SolidBrush((C 210 245 245))), 26, 134) }
+        if ($ms -ge $ti.Frase) { $tx = '¡Vámonos, pequeño ordenador!'; $nc = [int][Math]::Min([double]$tx.Length, ($ms - $ti.Frase) * 0.035); $g.DrawString($tx.Substring(0, $nc), (FntP('Consolas', 11, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 255 214 120))), 26, 172) }
+        # se funde a negro al final
+        $resta = $ti.Fin - $ms; if ($resta -lt 700) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ([int](255 * [Math]::Max(0.0, [Math]::Min(1.0, 1.0 - $resta / 700.0)))) 0 0 0))), 0, 0, $W, $H) }
+    }
+    $alTick = {
+        param($ov, $p)
+        $ti = $script:PrIntro
+        if ($script:prT0 -eq 0) { $script:prT0 = [Environment]::TickCount; Pr-Musica-On; Sonido 'arranque' }
+        $ms = [Environment]::TickCount - $script:prT0
+        if ($ms -ge $ti.Abre -and -not $script:prBandera['abre']) { $script:prBandera['abre'] = $true; Sonido 'blip' }
+        if ($ms -ge $ti.Cara -and -not $script:prBandera['cara']) { $script:prBandera['cara'] = $true; Pr-Reset; $script:pr.Saludado = (Pr-Voz 'intro') }
+        foreach ($d in $script:prIDib) { $cl = 'd' + $d.N; if ($ms -ge $d.T0 -and -not $script:prBandera[$cl]) { $script:prBandera[$cl] = $true; Sonido 'garabato' } }
+        if ($ms -ge $ti.Guino -and -not $script:prBandera['guino']) { $script:prBandera['guino'] = $true; Sonido 'blip' }
+        if ($script:prSaltarI -or $ms -ge $ti.Fin) { if ($script:iPaso -lt $script:iTotal - 1) { $script:iPaso = $script:iTotal - 1 } }
+    }
+    Intro-Overlay 2000 $pintar $alTick $final
+    $script:iOv.Add_MouseDown({ $script:prSaltarI = $true })
+    $script:iOv.Cursor = 'Hand'
+}
+
+# ---- sus voces del juego: skins\painter\voces.txt (una por línea: categoría|archivo|milisegundos|traducción) ----
+# Suenan con su voz original y el bocadillo enseña la traducción. Mientras habla, la música baja.
+$script:prVoces = $null; $script:prVozMp = $null; $script:prVozHasta = 0
+function Pr-Voces {
+    if ($script:prVoces) { return $script:prVoces }
+    $script:prVoces = @{}
+    $f = Ruta 'skins\painter\voces.txt'
+    if (Test-Path $f) {
+        foreach ($l in [IO.File]::ReadAllLines($f, [Text.Encoding]::UTF8)) {
+            if (-not $l.Trim() -or $l.StartsWith('#')) { continue }
+            $pz = $l.Split([char]'|', 4); if ($pz.Count -lt 4) { continue }
+            if (-not $script:prVoces.ContainsKey($pz[0])) { $script:prVoces[$pz[0]] = New-Object System.Collections.ArrayList }
+            [void]$script:prVoces[$pz[0]].Add(@{ A = $pz[1]; Ms = [int]$pz[2]; T = $pz[3] })
+        }
+    }
+    return $script:prVoces
+}
+function Pr-Voz-Suena { return ([Environment]::TickCount -lt $script:prVozHasta) }
+function Pr-Voz-Off {
+    if ($script:prVozMp) { try { $script:prVozMp.Stop(); $script:prVozMp.Close() } catch {}; $script:prVozMp = $null }
+    $script:prVozHasta = 0
+}
+# dice una frase suya del juego; devuelve $false si no hay de ese tipo, no hay sonido o ya está hablando
+function Pr-Voz($cat, $fijo) {
+    if (-not $script:aj.Sonido -or (Pr-Voz-Suena)) { return $false }
+    $v = Pr-Voces; if (-not $v.ContainsKey($cat)) { return $false }
+    $x = Azar $v[$cat]
+    try {
+        Pr-Voz-Off
+        $mp = New-Object System.Windows.Media.MediaPlayer
+        $mp.Open([Uri](Ruta ('skins\painter\voces\' + $x.A))); $mp.Volume = [Math]::Min(1.0, (Pr-Volumen) * 1.3); $mp.Play()
+        $script:prVozMp = $mp; $script:prVozHasta = [Environment]::TickCount + $x.Ms + 250
+    } catch { return $false }
+    if (-not $script:transicion) { if ($fijo) { Decir-Fijo $x.T } else { Decir $x.T } }
+    return $true
+}
+
+# ================= VELVET (Gunsaw): LA GUARIDA, LA SEDA, EL HAMBRE Y EL ABRACITO =================
+# SEDA (0-8): se recarga sola despacio. Escupir una telaraña sobre un botón gasta 2 (el botón queda atrapado y el
+# primer clic la rompe: Velvet-Escupir y $script:telarana, como antes). HAMBRE (0-100): sube sola y con cada app
+# (cada app es una especie de Gunsaw que se acerca a la telaraña). Al llegar a 100 envuelve al visitante en un CAPULLO
+# que cuelga de la telaraña (se ven hasta 5) y el hambre vuelve a 0. Con mucha hambre le brillan los seis ojos.
+# Clic en Velvet: sube la CONFIANZA (te pide un "abracito"); al llegar a 100 el abrazo es una TRAMPA: se abalanza,
+# la telaraña lo cubre todo y... "era broma, cielo". Clic en un capullo: algo se mueve dentro.
+$VvTiempos = @{ SedaMax = 8; SedaRegen = 0.005; Escupir = 2; HambreApp = 14; HambreSola = 0.008; Confianza = 18; Trampa = 80; TrampaFin = 34 }
+# dónde cuelgan los capullos (x del hilo, y de la punta de abajo)
+$VvCapullos = @(@(432, 128), @(470, 160), @(508, 118), @(452, 206), @(496, 196))
+$script:vv = $null; $script:vvMusica = $null
+function Vv-Reset {
+    if (-not $script:vv) { $script:vv = @{ Seda = 6.0; Hambre = 30.0; Confianza = 0.0; Capullos = 0; Visitas = 0; TrampaT = 0; Mueve = -1; MueveT = 0; Fx = 0 } }
+}
+function Vv-Volumen { return [Math]::Max(0.0, [Math]::Min(1.0, 0.6 * $script:aj.Volumen / 100.0)) }
+function Vv-Musica-On {
+    if (-not $script:aj.Sonido -or $script:vvMusica) { return }
+    try {
+        $mp = New-Object System.Windows.Media.MediaPlayer
+        $mp.Open([Uri](Ruta 'skins\velvet\creeps.mp3')); $mp.Volume = (Vv-Volumen); $mp.Play()
+        $script:vvMusica = $mp
+    } catch { $script:vvMusica = $null }
+}
+function Vv-Musica-Off {
+    if ($script:vvMusica) { try { $script:vvMusica.Stop(); $script:vvMusica.Close() } catch {}; $script:vvMusica = $null }
+}
+# escupe una telaraña sobre un botón si le queda seda (devuelve el nombre del botón o nada)
+function Vv-Escupir {
+    Vv-Reset; $e = $script:vv
+    if ($e.Seda -lt $VvTiempos.Escupir -or $script:telarana) { return $null }
+    $presa = Velvet-Escupir
+    if ($presa) { $e.Seda -= $VvTiempos.Escupir; Sonido 'escupe' }
+    return $presa
+}
+# una app abierta = un visitante de otra especie que se acerca a la telaraña
+function Vv-App($linea) {
+    Vv-Reset; $e = $script:vv; $k = $script:skin
+    $esp = Azar $k.Especies; $e.Visitas++
+    $e.Hambre = [Math]::Min(100.0, $e.Hambre + $VvTiempos.HambreApp)
+    Flotante "+1 $esp" 420 236 (C 255 90 110) 13 'Consolas'
+    if ($e.Hambre -ge 100.0) { Vv-Capullo $esp; return }
+    if ($Rnd.Next(100) -lt 25) { $p = Vv-Escupir; if ($p) { Decir ((Azar $k.EscupeApp) -f $p); return } }
+    Decir $linea
+}
+function Vv-Capullo($esp) {
+    $e = $script:vv; $k = $script:skin
+    $e.Capullos++; $e.Hambre = 0.0; $e.Fx = 14
+    Sonido 'capullo'
+    Decir-Fijo ((Azar $k.Capullo) -f $esp)
+    $form.Invalidate()
+}
+function Vv-Clic {
+    Vv-Reset; $e = $script:vv; $k = $script:skin
+    if ($e.TrampaT -gt 0) { return }
+    $e.Confianza = [Math]::Min(100.0, $e.Confianza + $VvTiempos.Confianza)
+    if ($e.Confianza -ge 100.0) { Vv-Trampa; return }
+    Sonido 'abrazo'
+    foreach ($i in 0..1) { Flotante '♥' (580 + $Rnd.Next(0, 120)) (90 + $Rnd.Next(0, 80)) (C 230 40 70) 20 'Segoe UI Symbol' }
+    if ($e.Confianza -ge 60.0) { Sonido 'latido'; Decir (Azar $k.Abrazo3) }
+    elseif ($e.Confianza -ge 30.0) { Decir (Azar $k.Abrazo2) }
+    else { Decir (Azar $k.Abrazo1) }
+}
+# el abracito era una trampa: se abalanza, la telaraña cubre la escena y todos los botones... y era broma (o no)
+function Vv-Trampa {
+    $e = $script:vv; $k = $script:skin
+    $e.TrampaT = $VvTiempos.Trampa; $e.Confianza = 0.0
+    Sonido 'lunge'
+    if (-not $script:aj.Epilepsia) { Sacudir $form 10 }
+    if ($script:grid) { foreach ($c in $script:grid.Controls) { $c.Invalidate() } }
+    Decir-Fijo (Azar $k.Trampa) 'x' 500
+}
+# ¿hay un capullo bajo el ratón? (devuelve su número o -1)
+function Vv-Capullo-En-Raton {
+    if (-not $script:skin -or $script:skin.Estilo -ne 'arana' -or -not $script:vv -or (Ocupado)) { return -1 }
+    $pt = $form.PointToClient([System.Windows.Forms.Cursor]::Position); $x = $pt.X / $script:K; $y = $pt.Y / $script:K
+    $n = [Math]::Min(5, $script:vv.Capullos)
+    for ($i = 0; $i -lt $n; $i++) { $c = $VvCapullos[$i]; if ($x -ge $c[0] - 12 -and $x -le $c[0] + 12 -and $y -ge $c[1] - 36 -and $y -le $c[1] + 2) { return $i } }
+    return -1
+}
+function Vv-Tocar-Capullo($i) {
+    $e = $script:vv; $e.Mueve = $i; $e.MueveT = 20
+    Sonido 'siseo'; Decir (Azar $script:skin.CapulloClic)
+}
+function Vv-Tick {
+    Vv-Reset; $e = $script:vv; $ahora = [Environment]::TickCount
+    # la música: se repite al acabar, sigue el volumen y se calla si quitas el sonido
+    if (-not $script:aj.Sonido) { Vv-Musica-Off }
+    elseif (-not $script:vvMusica) { Vv-Musica-On }
+    else {
+        try {
+            $mp = $script:vvMusica
+            if ([Math]::Abs($mp.Volume - (Vv-Volumen)) -gt 0.01) { $mp.Volume = (Vv-Volumen) }
+            if ($mp.NaturalDuration.HasTimeSpan -and $mp.Position -ge ($mp.NaturalDuration.TimeSpan - [TimeSpan]::FromMilliseconds(120))) { $mp.Position = [TimeSpan]::Zero; $mp.Play() }
+        } catch {}
+    }
+    # la seda se recarga, el hambre sube sola y la confianza se olvida despacio
+    if ($e.Seda -lt $VvTiempos.SedaMax) { $e.Seda = [Math]::Min([double]$VvTiempos.SedaMax, $e.Seda + $VvTiempos.SedaRegen) }
+    if ($e.TrampaT -eq 0 -and $e.Hambre -lt 100.0) { $e.Hambre = [Math]::Min(99.9, $e.Hambre + $VvTiempos.HambreSola) }
+    if ($e.Confianza -gt 0.0) { $e.Confianza = [Math]::Max(0.0, $e.Confianza - 0.03) }
+    # la trampa: a mitad dice que era broma y al final suelta los botones
+    if ($e.TrampaT -gt 0) {
+        $e.TrampaT--
+        if ($e.TrampaT -eq $VvTiempos.TrampaFin) { Decir-Fijo (Azar $script:skin.TrampaFin) 'x'; if ($script:grid) { foreach ($c in $script:grid.Controls) { $c.Invalidate() } } }
+    }
+    if ($e.MueveT -gt 0) { $e.MueveT--; if ($e.MueveT -eq 0) { $e.Mueve = -1 } }
+    if ($e.Fx -gt 0) { $e.Fx-- }
+    # se balancea despacio; en la trampa se abalanza hacia ti (hacia la izquierda) y vuelve
+    $a = $script:actores['V']
+    if ($a) {
+        $q = $VvTiempos.Trampa - $e.TrampaT
+        if ($e.TrampaT -gt 0 -and $q -lt 16) { $a.OX = - [Math]::Sin($q / 16.0 * [Math]::PI) * 90; $a.OY = - [Math]::Sin($q / 16.0 * [Math]::PI) * 14 }
+        else { $a.OX = [Math]::Sin($ahora / 900.0) * 4; $a.OY = [Math]::Sin($ahora / 650.0) * 2.5 }
+    }
+    $Z = $script:K
+    Invalidar-Escena
+    $form.Invalidate((New-Object System.Drawing.Rectangle(0, [int](270 * $Z), [int](410 * $Z), [int](50 * $Z))))
+}
+# una telaraña en abanico colgada de un punto (radios del ángulo a1 al a2, en grados; 90 = hacia abajo)
+function Vv-Red($g, $cx, $cy, $radio, $col, $n, $a1, $a2, $anillos) {
+    $pen = New-Object System.Drawing.Pen($col, 1.1)
+    $pts = @()
+    for ($i = 0; $i -lt $n; $i++) {
+        $an = ($a1 + ($a2 - $a1) * $i / ($n - 1)) * [Math]::PI / 180
+        $pts += , @([Math]::Cos($an), [Math]::Sin($an))
+        $g.DrawLine($pen, [float]$cx, [float]$cy, [float]($cx + [Math]::Cos($an) * $radio), [float]($cy + [Math]::Sin($an) * $radio))
+    }
+    for ($r = 1; $r -le $anillos; $r++) {
+        $f = $r / [double]($anillos + 0.4)
+        for ($i = 0; $i -lt $n - 1; $i++) {
+            $p1 = $pts[$i]; $p2 = $pts[$i + 1]; $cmb = $f * (0.92 + 0.08 * (($i + $r) % 2))
+            $g.DrawLine($pen, [float]($cx + $p1[0] * $radio * $f), [float]($cy + $p1[1] * $radio * $f), [float]($cx + $p2[0] * $radio * $cmb), [float]($cy + $p2[1] * $radio * $cmb))
+        }
+    }
+    $pen.Dispose()
+}
+# un capullo de seda colgando de un hilo (se menea si algo se mueve dentro)
+function Vv-Dibujar-Capullo($g, $x, $y, $menea) {
+    $ox = if ($menea -gt 0) { [Math]::Sin($menea * 1.3) * 4 } else { 0 }
+    $g.DrawLine((New-Object System.Drawing.Pen((ARGB 150 230 225 235), 1)), [float]$x, 58, [float]($x + $ox), [float]($y - 34))
+    $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 90 0 0 0))), [float]($x - 9 + $ox + 3), [float]($y - 34 + 3), 18, 36)
+    $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 222 214 220))), [float]($x - 9 + $ox), [float]($y - 34), 18, 36)
+    $hilo = New-Object System.Drawing.Pen((ARGB 160 150 136 150), 1)
+    for ($j = 0; $j -lt 5; $j++) { $yy = $y - 30 + $j * 6.5; $g.DrawBezier($hilo, [float]($x - 9 + $ox), [float]$yy, [float]($x - 3 + $ox), [float]($yy + 4), [float]($x + 3 + $ox), [float]($yy - 2), [float]($x + 9 + $ox), [float]($yy + 3)) }
+    $hilo.Dispose()
+    $g.DrawEllipse((New-Object System.Drawing.Pen((C 120 100 116), 1)), [float]($x - 9 + $ox), [float]($y - 34), 18, 36)
+}
+# todo lo que se dibuja encima de la escena de Velvet: capullos, ojos que brillan, la trampa y la barra de abajo
+function Vv-Pintar($g, $W, $H, $k) {
+    $e = $script:vv
+    # los capullos colgando de la telaraña
+    $nc = if ($e) { [Math]::Min(5, $e.Capullos) } else { 0 }
+    for ($i = 0; $i -lt $nc; $i++) { $c = $VvCapullos[$i]; Vv-Dibujar-Capullo $g $c[0] $c[1] $(if ($e.Mueve -eq $i) { $e.MueveT } else { 0 }) }
+    if ($e -and $e.Capullos -gt 5) { $g.DrawString("+$($e.Capullos - 5)", (FntP('Consolas', 8, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 222 214 220))), 520, 196) }
+    # acaba de envolver a alguien: un destello rojo suave
+    if ($e -and $e.Fx -gt 0) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ([int]($e.Fx * 6)) 180 10 30))), 404, 56, ($W - 404), ($H - 56)) }
+    # la trampa: la escena se oscurece y una telaraña enorme lo cubre todo
+    $tr = if ($e) { $e.TrampaT } else { 0 }
+    if ($tr -gt 0) {
+        $q = $VvTiempos.Trampa - $tr; $al = [Math]::Min(1.0, $q / 8.0) * [Math]::Min(1.0, $tr / 10.0)
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ([int](150 * $al)) 10 0 6))), 404, 56, ($W - 404), ($H - 56))
+        Vv-Red $g 404 56 420 (ARGB ([int](200 * $al)) 240 235 240) 9 0 90 7
+        Vv-Red $g $W 56 380 (ARGB ([int](170 * $al)) 240 235 240) 8 90 180 6
+    }
+    # los seis ojos brillan con el hambre (y en la trampa)
+    $a = $script:actores['V']
+    $int = if ($tr -gt 0) { 1.0 } elseif ($e) { [Math]::Max(0.0, ($e.Hambre - 55.0) / 45.0) } else { 0.0 }
+    if ($a -and $int -gt 0.02) {
+        $img = $a.Imgs[$a.Pose]; $r = $a.Rect
+        $s = [Math]::Min($r[2] / $img.Width, $r[3] / $img.Height); $iw = $img.Width * $s; $ih = $img.Height * $s
+        $ix = $r[0] + ($r[2] - $iw) / 2 + $a.OX; $iy = $r[1] + $r[3] - $ih + $a.OY
+        $lat = if ($script:aj.Epilepsia) { 1.0 } else { 0.8 + 0.2 * [Math]::Sin([Environment]::TickCount / 260.0) }
+        foreach ($o in $k.Ojos) {
+            $ox = $ix + $o[0] * $iw; $oy = $iy + $o[1] * $ih; $rad = 14 * $o[2]
+            $gp = New-Object System.Drawing.Drawing2D.GraphicsPath; $gp.AddEllipse([float]($ox - $rad), [float]($oy - $rad), [float](2 * $rad), [float](2 * $rad))
+            $brillo = New-Object System.Drawing.Drawing2D.PathGradientBrush($gp); $brillo.CenterColor = (ARGB ([int](255 * [Math]::Min(1.0, $int * 1.3) * $lat)) 255 60 70); $brillo.SurroundColors = [System.Drawing.Color[]]@((ARGB 0 255 0 30))
+            $g.FillPath($brillo, $gp); $brillo.Dispose(); $gp.Dispose()
+        }
+    }
+    # abajo: SEDA (8 hilos), HAMBRE y la CONFIANZA (el abracito)
+    $osc = (ARGB 230 26 10 20); $cl = (C 236 228 232); $roj = (C 230 40 60)
+    Yt-Pastilla $g 16 280 140 24 $osc $null $null 8
+    $g.DrawString('SEDA', (FntP('Consolas', 7.5, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($cl)), 26, 285)
+    $sd = if ($e) { [int][Math]::Floor($e.Seda) } else { 0 }
+    for ($i = 0; $i -lt $VvTiempos.SedaMax; $i++) {
+        $px = 62 + $i * 11
+        $g.DrawLine((New-Object System.Drawing.Pen($(if ($i -lt $sd) { (C 236 228 232) } else { (C 70 50 62) }), 2)), [float]$px, 286, [float]($px + 4), 298)
+        $g.DrawLine((New-Object System.Drawing.Pen($(if ($i -lt $sd) { (C 236 228 232) } else { (C 70 50 62) }), 2)), [float]($px + 4), 286, [float]$px, 298)
+    }
+    Yt-Pastilla $g 162 280 124 24 $osc $null $null 8
+    $g.DrawString('HAMBRE', (FntP('Consolas', 7.5, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($cl)), 170, 285)
+    $hv = if ($e) { $e.Hambre } else { 0 }
+    $g.FillPath((New-Object System.Drawing.SolidBrush((C 50 20 34))), (Ruta-Redonda 214 287 64 10 5))
+    if ($hv -gt 1) { $g.FillPath((New-Object System.Drawing.SolidBrush($roj)), (Ruta-Redonda 214 287 ([Math]::Max(10.0, 64.0 * $hv / 100.0)) 10 5)) }
+    Yt-Pastilla $g 292 280 106 24 $osc $null $null 8
+    $g.DrawString('♥', (FntP('Segoe UI Symbol', 9, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($roj)), 300, 283)
+    $cv = if ($e) { $e.Confianza } else { 0 }
+    $g.FillPath((New-Object System.Drawing.SolidBrush((C 50 20 34))), (Ruta-Redonda 322 287 68 10 5))
+    if ($cv -gt 1) { $g.FillPath((New-Object System.Drawing.SolidBrush((C 255 130 160))), (Ruta-Redonda 322 287 ([Math]::Max(10.0, 68.0 * $cv / 100.0)) 10 5)) }
+}
+
+# ================= ANGELA (Lobotomy Corporation): GESTIÓN DE LA INSTALACIÓN =================
+# Cada app es un TRABAJO con una anomalía: tipo al azar (Instinto, Percepción, Apego, Represión) y resultado
+# (Bueno 50 %: 4 PE-Boxes; Normal 35 %: 2; Malo 15 %: 0). La energía llena la CUOTA DEL DÍA; al completarla termina
+# el día y empieza el siguiente (se guarda en ajustes.txt: AngelaDia). La cuota sube 4 cada día (de 20 a 60).
+# FUSIÓN DE QLIPHOTH: cada trabajo suma 1 al medidor (uno malo, 2); con 4 sube el nivel (0-10) y la música pasa a la
+# siguiente Neutral. En cada fusión puede escaparse una anomalía (BRECHA): sale en el monitor, suena First Warning y
+# hay que hacer clic en el monitor hasta reprimirla. Si tarda, sube la emergencia: Second Warning a los 25 s y
+# Third Warning a los 50 s (Angela abre los ojos). A los 90 s la reprime el Equipo Conejo (sin premio).
+# Clic en Angela: frases; si la pinchas mucho se molesta y al final abre los ojos.
+# A veces falla el FILTRO COGNITIVO y se ve un momento la instalación de verdad (no pasa en el modo seguro).
+$AgTiempos = @{ Fusion = 4; Trompeta2 = 25000; Trompeta3 = 50000; Conejo = 90000; FinDia = 100; Filtro = 44 }
+# canción según el nivel de Qliphoth (0..10) y según el nivel de emergencia (1..3)
+$AgCanciones = @{
+    Neutral = @('skins\angela\neutral1.mp3', 'skins\angela\neutral1.mp3', 'skins\angela\neutral1.mp3', 'skins\angela\neutral2.mp3', 'skins\angela\neutral2.mp3', 'skins\angela\neutral3.mp3', 'skins\angela\neutral3.mp3', 'skins\angela\neutral4.mp3', 'skins\angela\neutral4.mp3', 'skins\angela\neutral4.mp3', 'skins\angela\neutral4.mp3')
+    Aviso = @('', 'skins\angela\aviso1.mp3', 'skins\angela\aviso2.mp3', 'skins\angela\aviso3.mp3')
+}
+# al hablar, cada cara alterna con la misma cara con la boca abierta
+$AgBocas = @{ main = 'habla'; sonrie = 'habla'; risa = 'habla'; sorpresa = 'habla'; molesta = 'molesta_habla'; abiertos = 'abiertos_habla'; enfado = 'enfado_habla' }
+# el monitor de la sala (x, y, ancho, alto): estado de la instalación o la anomalía escapada
+$AgMonitor = @(414, 64, 170, 132)
+$AgResultado = @{ bueno = 'Bueno'; normal = 'Normal'; malo = 'Malo' }
+$script:ag = $null; $script:agMusica = $null; $script:agPista = ''; $script:agImgs = @{}
+function Ag-Reset {
+    if (-not $script:ag) {
+        $script:ag = @{ PE = 0; Qli = 0; Nivel = 0; Trabajos = 0; Brecha = $null; Trompeta = 0; Completa = $false; FinT = 0
+            Toques = 0.0; Cara = 'main'; CaraHasta = 0; Ultimo = $null; Golpe = 0; Rojo = 0; FiltroT = 0; Reprimidas = 0 }
+    }
+}
+function Ag-Cuota { return [int][Math]::Min(60, 20 + 4 * ([int]$script:aj.AngelaDia - 1)) }
+# imágenes de la skin (iconos, retratos, filtro) cargadas una sola vez
+function Ag-Img($rel) {
+    if (-not $rel) { return $null }
+    if (-not $script:agImgs.ContainsKey($rel)) { $script:agImgs[$rel] = Cargar-Img $rel }
+    return $script:agImgs[$rel]
+}
+function Ag-Liberar { foreach ($im in @($script:agImgs.Values)) { if ($im) { $im.Dispose() } }; $script:agImgs = @{} }
+function Ag-Volumen { return [Math]::Max(0.0, [Math]::Min(1.0, 0.55 * $script:aj.Volumen / 100.0)) }
+# la canción que toca: la alarma si hay brecha; si no, la Neutral del nivel de Qliphoth (si ya suena, no la corta)
+function Ag-Musica-On {
+    if (-not $script:aj.Sonido -or -not $script:ag) { return }
+    $e = $script:ag
+    $pista = if ($e.Brecha -and $e.Trompeta -gt 0) { $AgCanciones.Aviso[[Math]::Min(3, $e.Trompeta)] } else { $AgCanciones.Neutral[[Math]::Min(10, [Math]::Max(0, $e.Nivel))] }
+    if ($script:agMusica -and $script:agPista -eq $pista) { return }
+    Ag-Musica-Off
+    try {
+        $mp = New-Object System.Windows.Media.MediaPlayer
+        $mp.Open([Uri](Ruta $pista)); $mp.Volume = (Ag-Volumen); $mp.Play()
+        $script:agMusica = $mp; $script:agPista = $pista
+    } catch { $script:agMusica = $null; $script:agPista = '' }
+}
+function Ag-Musica-Off {
+    if ($script:agMusica) { try { $script:agMusica.Stop(); $script:agMusica.Close() } catch {}; $script:agMusica = $null }
+    $script:agPista = ''
+}
+# pone una cara durante un rato (0 = hasta la siguiente); la boca la mueve Ag-Tick
+function Ag-Cara($c, $ms) {
+    Ag-Reset; $script:ag.Cara = $c
+    $script:ag.CaraHasta = if ($ms -gt 0) { [Environment]::TickCount + $ms } else { 0 }
+    $a = $script:actores['A']
+    if ($a -and $a.Imgs[$c]) { $a.Base = $c; if ($a.Hasta -eq 0) { $a.Pose = $c; $a.Frame = 0; Seleccionar-Frame $a; Invalidar-Escena } }
+}
+# la cara que pide Decir: 'serio' = molesta, 'ojos' = ojos abiertos, 'enfado', 'sonrie', 'risa', 'sorpresa'
+function Ag-Cara-Decir($cara) {
+    $c = switch ([string]$cara) { 'serio' { 'molesta' } 'ojos' { 'abiertos' } 'enfado' { 'enfado' } 'sonrie' { 'sonrie' } 'abiertos' { 'sonrie' } 'risa' { 'risa' } 'sorpresa' { 'sorpresa' } default { '' } }
+    if ($c) { Ag-Cara $c 3500 }
+}
+# una app abierta = un trabajo con una anomalía
+function Ag-App($linea) {
+    Ag-Reset; $e = $script:ag; $k = $script:skin
+    $tr = $k.Trabajos[$Rnd.Next($k.Trabajos.Count)]
+    $r = $Rnd.Next(100)
+    $res = if ($r -lt 50) { 'bueno' } elseif ($r -lt 85) { 'normal' } else { 'malo' }
+    $pe = if ($res -eq 'bueno') { 4 } elseif ($res -eq 'normal') { 2 } else { 0 }
+    $e.Trabajos++; $e.PE += $pe
+    $e.Ultimo = @{ Tipo = $tr[0]; Nombre = $tr[1]; Res = $res; PE = $pe }
+    Sonido 'trabajo'; if ($pe -gt 0) { Sonido 'pebox' }
+    Flotante $(if ($pe -gt 0) { "+$pe PE" } else { '0 PE' }) 470 206 $(if ($pe -gt 0) { (C 255 190 70) } else { (C 230 80 70) }) 17 'Bahnschrift'
+    $e.Qli += $(if ($res -eq 'malo') { 2 } else { 1 })
+    $dicho = $false
+    # primero la cuota: si se completa, la fusión de este trabajo ya no abre brechas
+    if (-not $e.Completa -and $e.PE -ge (Ag-Cuota)) { Ag-Cuota-Completa; $dicho = $true }
+    if ($e.Qli -ge $AgTiempos.Fusion) { $e.Qli = 0; if ($e.Completa) { $e.Nivel = [Math]::Min(10, $e.Nivel + 1) } else { Ag-Fusion; $dicho = $true } }
+    if (-not $dicho) {
+        if ($res -eq 'bueno') { Ag-Cara 'sonrie' 2600; Decir $linea }
+        elseif ($res -eq 'normal') { Decir $linea }
+        else { Ag-Cara 'molesta' 2600; Decir ((Azar $k.TrabajoMalo) -f $tr[1]) }
+    }
+    $form.Invalidate()
+}
+# el medidor de Qliphoth se llena: sube el nivel y a veces se escapa una anomalía
+function Ag-Fusion {
+    $e = $script:ag; $k = $script:skin
+    $e.Nivel = [Math]::Min(10, $e.Nivel + 1)
+    Sonido 'fusion'; Flotante "QLIPHOTH $($e.Nivel)" 426 100 (C 80 210 200) 16 'Bahnschrift'
+    if (-not $e.Brecha -and -not $e.Completa -and $Rnd.Next(100) -lt (25 + $e.Nivel * 7)) { Ag-Brecha; return }
+    Ag-Musica-On
+    Ag-Cara 'molesta' 2500; Decir-Fijo ((Azar $k.Fusion) -f $e.Nivel) 'x' 1500
+}
+function Ag-Brecha {
+    $e = $script:ag; $k = $script:skin
+    $an = $k.Anomalias[$Rnd.Next($k.Anomalias.Count)]
+    $e.Brecha = @{ A = $an; Vida = $an.Vida; T0 = [Environment]::TickCount }
+    $e.Trompeta = 1; Sonido 'alarma'; Ag-Musica-On
+    Ag-Cara 'sorpresa' 2500
+    Decir-Fijo ((Azar $k.Brecha) -f $an.Nombre, $an.Riesgo) 'x'
+    $form.Invalidate()
+}
+# clic en el monitor durante una brecha: un golpe a la anomalía
+function Ag-Golpe {
+    $e = $script:ag; if (-not $e -or -not $e.Brecha) { return }
+    $e.Brecha.Vida--; $e.Golpe = 6; Sonido 'golpe'
+    Flotante '-1' (480 + $Rnd.Next(0, 60)) (112 + $Rnd.Next(0, 30)) (C 255 90 70) 18 'Bahnschrift'
+    if ($e.Brecha.Vida -le 0) { Ag-Reprimir $false }
+    Invalidar-Escena
+}
+function Ag-Reprimir($conejo) {
+    $e = $script:ag; $k = $script:skin; $n = $e.Brecha.A.Nombre
+    $e.Brecha = $null; $e.Trompeta = 0; $e.Golpe = 0
+    Sonido 'reprimida'; Ag-Musica-On
+    if ($conejo) { Ag-Cara 'molesta' 3500; Decir-Fijo ((Azar $k.Conejo) -f $n) 'x' }
+    else {
+        $e.Reprimidas++; $e.PE += 3; Flotante '+3 PE' 470 206 (C 255 190 70) 17 'Bahnschrift'
+        Ag-Cara 'sonrie' 3500; Decir-Fijo ((Azar $k.Reprimida) -f $n) 'x'
+        if (-not $e.Completa -and $e.PE -ge (Ag-Cuota)) { Ag-Cuota-Completa }
+    }
+    $form.Invalidate()
+}
+function Ag-Cuota-Completa {
+    $e = $script:ag; $e.Completa = $true; $e.FinT = $AgTiempos.FinDia
+    Sonido 'fin'; Ag-Cara 'sonrie' 5000
+    Decir-Fijo (Azar $script:skin.Cuota) 'x'
+}
+# empieza el día siguiente (se guarda en ajustes.txt)
+function Ag-Nuevo-Dia {
+    $e = $script:ag
+    $script:aj.AngelaDia = [int]$script:aj.AngelaDia + 1; Guardar-Ajustes
+    $e.PE = 0; $e.Qli = 0; $e.Nivel = 0; $e.Completa = $false; $e.Brecha = $null; $e.Trompeta = 0; $e.Ultimo = $null
+    Ag-Musica-On; Ag-Cara 'main' 0
+    Decir-Fijo ((Azar $script:skin.NuevoDia) -f $script:aj.AngelaDia) 'x'
+}
+function Ag-Clic {
+    Ag-Reset; $e = $script:ag; $k = $script:skin
+    if ($e.Brecha) { Ag-Cara 'molesta' 2000; Decir (Azar $k.ClicBrecha); return }
+    $e.Toques += 1.0
+    if ($e.Toques -ge 6.0) { $e.Toques = 3.0; $e.Rojo = 10; Ag-Cara 'enfado' 4000; Decir-Fijo (Azar $k.ClicEnfado) 'x' 1000 }
+    elseif ($e.Toques -ge 3.0) { Ag-Cara 'molesta' 2600; Decir (Azar $k.ClicMolesta) }
+    else { Ag-Cara (Azar @('sonrie', 'main', 'risa')) 2200; Decir (Azar $k.Clic) }
+    $form.Invalidate()
+}
+# fallo del filtro cognitivo: durante 2 s se ve la instalación de verdad (nunca en el modo seguro)
+function Ag-Filtro {
+    if ($script:aj.Epilepsia) { return $false }
+    Ag-Reset; $script:ag.FiltroT = $AgTiempos.Filtro; Sonido 'filtro'; Ag-Cara 'abiertos' 2600
+    return $true
+}
+function Ag-Monitor-En-Raton {
+    if (-not $script:skin -or $script:skin.Estilo -ne 'lobo' -or -not $script:ag -or -not $script:ag.Brecha -or (Ocupado)) { return $false }
+    $pt = $form.PointToClient([System.Windows.Forms.Cursor]::Position); $x = $pt.X / $script:K; $y = $pt.Y / $script:K
+    $m = $AgMonitor
+    return ($x -ge $m[0] -and $x -le ($m[0] + $m[2]) -and $y -ge $m[1] -and $y -le ($m[1] + $m[3]))
+}
+function Ag-Tick {
+    Ag-Reset; $e = $script:ag; $ahora = [Environment]::TickCount
+    # la música: se repite al acabar, sigue el volumen y se calla si quitas el sonido
+    if (-not $script:aj.Sonido) { Ag-Musica-Off }
+    elseif (-not $script:agMusica) { Ag-Musica-On }
+    else {
+        try {
+            $mp = $script:agMusica
+            if ([Math]::Abs($mp.Volume - (Ag-Volumen)) -gt 0.01) { $mp.Volume = (Ag-Volumen) }
+            if ($mp.NaturalDuration.HasTimeSpan -and $mp.Position -ge ($mp.NaturalDuration.TimeSpan - [TimeSpan]::FromMilliseconds(120))) { $mp.Position = [TimeSpan]::Zero; $mp.Play() }
+        } catch {}
+    }
+    # la brecha: cuanto más tarda, más sube la emergencia; a los 90 s llega el Equipo Conejo
+    if ($e.Brecha) {
+        $dur = $ahora - $e.Brecha.T0
+        if ($dur -gt $AgTiempos.Conejo) { Ag-Reprimir $true }
+        else {
+            $nueva = if ($dur -gt $AgTiempos.Trompeta3) { 3 } elseif ($dur -gt $AgTiempos.Trompeta2) { 2 } else { 1 }
+            if ($nueva -gt $e.Trompeta) {
+                $e.Trompeta = $nueva; Sonido 'alarma'; Ag-Musica-On
+                $n = $e.Brecha.A.Nombre
+                if ($nueva -eq 2) { Ag-Cara 'abiertos' 5000; Decir-Fijo ((Azar $script:skin.Trompeta2) -f $n) 'x' }
+                else { Ag-Cara 'enfado' 6000; Decir-Fijo ((Azar $script:skin.Trompeta3) -f $n) 'x' }
+            }
+        }
+    }
+    # cuota completada: unos segundos después empieza el día siguiente
+    if ($e.FinT -gt 0) { $e.FinT--; if ($e.FinT -eq 0) { Ag-Nuevo-Dia } }
+    if ($e.FiltroT -gt 0) { $e.FiltroT--; if ($e.FiltroT -eq 0) { Decir (Azar $script:skin.Filtro) } }
+    if ($e.Toques -gt 0.0) { $e.Toques = [Math]::Max(0.0, $e.Toques - 0.02) }
+    if ($e.Golpe -gt 0) { $e.Golpe-- }
+    if ($e.Rojo -gt 0) { $e.Rojo-- }
+    # la cara vuelve a la de reposo (ojos abiertos si la emergencia es alta) y mueve la boca mientras escribe
+    if ($e.CaraHasta -gt 0 -and $ahora -ge $e.CaraHasta) { $e.CaraHasta = 0; $e.Cara = $(if ($e.Trompeta -ge 2) { 'abiertos' } else { 'main' }) }
+    $a = $script:actores['A']
+    if ($a -and $a.Hasta -eq 0) {
+        $hablando = $script:twPos -lt $script:twTexto.Length
+        $pose = if ($hablando -and ([Math]::Floor($ahora / 140) % 2 -eq 1) -and $AgBocas[$e.Cara]) { $AgBocas[$e.Cara] } else { $e.Cara }
+        $a.Base = $e.Cara
+        if ($a.Pose -ne $pose -and $a.Imgs[$pose]) { $a.Pose = $pose; $a.Frame = 0; Seleccionar-Frame $a; Invalidar-Escena }
+    }
+    $Z = $script:K
+    Invalidar-Escena
+    $form.Invalidate((New-Object System.Drawing.Rectangle(0, [int](270 * $Z), [int](410 * $Z), [int](50 * $Z))))
+}
+# dibuja una imagen cubriendo un recuadro con transparencia (para el filtro cognitivo)
+function Ag-Cubrir-Alfa($g, $img, $x, $y, $w, $h, $alfa) {
+    $s = [Math]::Max($w / $img.Width, $h / $img.Height); $sw = $w / $s; $sh = $h / $s
+    $cm = New-Object System.Drawing.Imaging.ColorMatrix; $cm.Matrix33 = [float][Math]::Max(0.0, [Math]::Min(1.0, $alfa))
+    $ia = New-Object System.Drawing.Imaging.ImageAttributes; $ia.SetColorMatrix($cm)
+    $g.DrawImage($img, (New-Object System.Drawing.Rectangle([int]$x, [int]$y, [int]$w, [int]$h)), [float](($img.Width - $sw) * 0.6), [float](($img.Height - $sh) * 0.5), [float]$sw, [float]$sh, [System.Drawing.GraphicsUnit]::Pixel, $ia)
+    $ia.Dispose()
+}
+# todo lo que se dibuja encima de la escena de Angela: filtro, alarma roja, monitor, fin del día y la barra de abajo
+function Ag-Pintar($g, $W, $H, $k) {
+    $e = $script:ag
+    # filtro cognitivo: la instalación de verdad aparece y se va
+    if ($e -and $e.FiltroT -gt 0) {
+        $fi = Ag-Img $k.FiltroImg
+        if ($fi) { $q = ($AgTiempos.Filtro - $e.FiltroT) / [double]$AgTiempos.Filtro; Ag-Cubrir-Alfa $g $fi 404 56 ($W - 404) ($H - 56) ([Math]::Sin($q * [Math]::PI) * 1.4) }
+    }
+    # emergencia de nivel 3: la sala se tiñe de rojo (en el modo seguro, sin latir)
+    if ($e -and $e.Trompeta -ge 3) {
+        $pul = if ($script:aj.Epilepsia) { 45 } else { 45 + [int](25 * [Math]::Sin([Environment]::TickCount / 500.0)) }
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB $pul 200 0 0))), 404, 56, ($W - 404), ($H - 56))
+    }
+    if ($e -and $e.Rojo -gt 0) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ([int]($e.Rojo * 8)) 200 0 0))), 404, 56, ($W - 404), ($H - 56)) }
+    # el monitor de la sala
+    $m = $AgMonitor; $mx = $m[0]; $my = $m[1]; $mw = $m[2]; $mh = $m[3]
+    if ($e -and $e.Golpe -gt 0) { $mx += (($e.Golpe % 2) * 2 - 1) * 3 }
+    $bre = [bool]($e -and $e.Brecha)
+    $roj = (C 220 40 40); $amb = (C 255 170 40); $tur = (C 80 210 200); $bla = (C 230 236 242)
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 130 0 0 0))), [float]($mx + 4), [float]($my + 4), [float]$mw, [float]$mh)
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 235 8 11 15))), [float]$mx, [float]$my, [float]$mw, [float]$mh)
+    $g.FillRectangle((New-Object System.Drawing.SolidBrush($(if ($bre) { $roj } else { $amb }))), [float]$mx, [float]$my, [float]$mw, 14)
+    $f7 = FntP('Bahnschrift', 7, [System.Drawing.FontStyle]::Bold)
+    $g.DrawString($(if ($bre) { 'BRECHA DE CONTENCIÓN' } else { 'CCTV  ·  SALA DE CONTROL' }), $f7, (New-Object System.Drawing.SolidBrush((C 12 14 18))), [float]($mx + 4), [float]($my + 1))
+    if ($bre) {
+        $b = $e.Brecha; $img = Ag-Img $b.A.Img
+        if ($img) { $g.DrawImage($img, [float]($mx + 6), [float]($my + 20), 84, 84) }
+        $sc = New-Object System.Drawing.Pen((ARGB 45 0 0 0), 1); for ($yy = $my + 20; $yy -lt $my + 104; $yy += 3) { $g.DrawLine($sc, [float]($mx + 6), [float]$yy, [float]($mx + 90), [float]$yy) }; $sc.Dispose()
+        $g.DrawRectangle((New-Object System.Drawing.Pen($roj, 1)), [float]($mx + 6), [float]($my + 20), 84, 84)
+        $g.DrawString($b.A.Nombre, (FntP('Bahnschrift', 8, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($bla)), (New-Object System.Drawing.RectangleF([float]($mx + 94), [float]($my + 18), 74, 30)))
+        $g.DrawString("$($b.A.Codigo)  $($b.A.Riesgo)", $f7, (New-Object System.Drawing.SolidBrush($amb)), [float]($mx + 94), [float]($my + 50))
+        for ($i = 0; $i -lt $b.Vida; $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush($roj)), [float]($mx + 95 + $i * 13), [float]($my + 68), 10, 10) }
+        for ($i = 0; $i -lt $e.Trompeta; $i++) {
+            $tx = $mx + $mw - 12 - $i * 11
+            $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 12 14 18))), [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$tx, [float]($my + 2))), (New-Object System.Drawing.PointF([float]($tx + 5), [float]($my + 12))), (New-Object System.Drawing.PointF([float]($tx - 5), [float]($my + 12)))))
+        }
+        $g.DrawString('¡CLIC PARA REPRIMIR!', (FntP('Bahnschrift', 8, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($roj)), [float]($mx + 6), [float]($my + $mh - 22))
+        $grosor = if ($script:aj.Epilepsia) { 2 } else { 2 + [Math]::Abs([Math]::Sin([Environment]::TickCount / 300.0)) * 2 }
+        $g.DrawRectangle((New-Object System.Drawing.Pen($roj, [float]$grosor)), [float]$mx, [float]$my, [float]$mw, [float]$mh)
+    } else {
+        $dia = [int]$script:aj.AngelaDia
+        $g.DrawString("DÍA $dia", (FntP('Bahnschrift', 14, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($bla)), [float]($mx + 6), [float]($my + 16))
+        $g.DrawString('FUSIÓN DE QLIPHOTH', $f7, (New-Object System.Drawing.SolidBrush($tur)), [float]($mx + 7), [float]($my + 42))
+        $nv = if ($e) { $e.Nivel } else { 0 }; $qv = if ($e) { $e.Qli } else { 0 }
+        $g.DrawString("$nv", (FntP('Bahnschrift', 14, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($tur)), [float]($mx + $mw - 30), [float]($my + 34))
+        for ($i = 0; $i -lt $AgTiempos.Fusion; $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush($(if ($i -lt $qv) { $tur } else { (C 30 44 50) }))), [float]($mx + 8 + $i * 22), [float]($my + 56), 18, 6) }
+        $u = if ($e) { $e.Ultimo } else { $null }
+        if ($u) {
+            $it = Ag-Img "skins\angela\i_$($u.Tipo).png"; if ($it) { $g.DrawImage($it, [float]($mx + 8), [float]($my + 70), [float](28 * $it.Width / $it.Height), 28) }
+            $ir = Ag-Img "skins\angela\i_$($u.Res).png"; if ($ir) { $g.DrawImage($ir, [float]($mx + 46), [float]($my + 70), 28, 28) }
+            $g.DrawString($u.Nombre, $f7, (New-Object System.Drawing.SolidBrush($bla)), [float]($mx + 80), [float]($my + 72))
+            $g.DrawString("$($AgResultado[$u.Res])  ·  +$($u.PE) PE", $f7, (New-Object System.Drawing.SolidBrush($amb)), [float]($mx + 80), [float]($my + 86))
+        } else {
+            $g.DrawString('Esperando órdenes, Manager.', $f7, (New-Object System.Drawing.SolidBrush((C 140 150 160))), [float]($mx + 8), [float]($my + 80))
+        }
+        $nr = if ($e) { $e.Reprimidas } else { 0 }
+        $g.DrawString("Anomalías reprimidas: $nr", (FntP('Bahnschrift', 6.5)), (New-Object System.Drawing.SolidBrush((C 140 150 160))), [float]($mx + 7), [float]($my + $mh - 16))
+        $g.DrawRectangle((New-Object System.Drawing.Pen($amb, 1.5)), [float]$mx, [float]$my, [float]$mw, [float]$mh)
+    }
+    # cuota completada: cartel de fin del día
+    if ($e -and $e.Completa) {
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 215 6 8 11))), 404, 56, ($W - 404), 218)
+        $fmt = New-Object System.Drawing.StringFormat; $fmt.Alignment = 'Center'
+        $g.DrawString('CUOTA DE ENERGÍA', (FntP('Bahnschrift', 12, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($amb)), (New-Object System.Drawing.RectangleF(404, 112, 200, 26)), $fmt)
+        $g.DrawString('COMPLETADA', (FntP('Bahnschrift', 20, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($bla)), (New-Object System.Drawing.RectangleF(404, 132, 200, 36)), $fmt)
+        $g.DrawString("DÍA $($script:aj.AngelaDia)  ▶  DÍA $([int]$script:aj.AngelaDia + 1)", (FntP('Segoe UI Symbol', 9, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($tur)), (New-Object System.Drawing.RectangleF(404, 174, 200, 20)), $fmt)
+    }
+    # abajo: el día, la energía de la cuota y el nivel de Qliphoth (o la alarma)
+    $osc = (ARGB 230 16 22 30); $cl = (C 220 232 240)
+    Yt-Pastilla $g 16 280 80 24 $osc "DÍA $($script:aj.AngelaDia)" $amb 8.5
+    Yt-Pastilla $g 102 280 206 24 $osc $null $null 8
+    $g.DrawString('ENERGÍA', (FntP('Bahnschrift', 7.5, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($cl)), 110, 285)
+    $cuota = Ag-Cuota; $pe = if ($e) { [Math]::Min($e.PE, $cuota) } else { 0 }
+    $g.FillPath((New-Object System.Drawing.SolidBrush((C 40 32 14))), (Ruta-Redonda 160 287 90 10 5))
+    if ($pe -gt 0) { $g.FillPath((New-Object System.Drawing.SolidBrush($amb)), (Ruta-Redonda 160 287 ([Math]::Max(10.0, 90.0 * $pe / $cuota)) 10 5)) }
+    $g.DrawString("$pe/$cuota", (FntP('Bahnschrift', 7.5, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($amb)), 256, 285)
+    if ($e -and $e.Trompeta -gt 0) { Yt-Pastilla $g 314 280 84 24 (ARGB 235 150 20 20) "▲ ALERTA $($e.Trompeta)" (C 255 255 255) 8 }
+    else { Yt-Pastilla $g 314 280 84 24 $osc "QLIPHOTH $(if ($e) { $e.Nivel } else { 0 })" $tur 7.5 }
+}
+
+# ================= MALKUTH (Library of Ruina): LIBROS DE HISTORIA, NIVEL DE EMOCIÓN Y RESPIRACIÓN =================
+# Cada app que abres es un libro de historia para su planta: se apila en la mesa y, con 6, los coloca en la estantería.
+# Cada 3 libros sube el NIVEL DE EMOCIÓN (de 0 a 5, como en las recepciones del juego) y la música pasa a la siguiente:
+# Malkuth Story (0-1) → Battle 1 (2) → Battle 2 (3-4) → Battle 3 (5). Al llegar a 5: Realización de la Planta
+# (la carta "The Will to Stand up Straight"). Si pasas un rato sin abrir nada, la emoción baja y vuelve la música tranquila.
+# ÁNIMO: baja si una app no aparece, si la pinchas mucho o si abres apps demasiado deprisa (se acuerda de cuando
+# exigía demasiado en el Equipo de Control). Por debajo de 30 se hunde (cara sombría). Haz clic en ella y hacéis
+# juntos su ejercicio de respiración ("uno, coge aire... y dos, suéltalo"). Al acabar vuelve a estar animada.
+# Clic normal: frases; a veces se tropieza (su sprite de combate esquivando). Lo que lleva hecho se guarda al cambiar de skin.
+$MkTiempos = @{ LibrosNivel = 3; Estante = 6; Bajar = 75000; Prisa = 5; PrisaMs = 10000; Respira = 6800; Hundirse = 30 }
+# canción según el nivel de emoción (0..5)
+$MkCanciones = @('skins\malkuth\historia.mp3', 'skins\malkuth\historia.mp3', 'skins\malkuth\batalla1.mp3', 'skins\malkuth\batalla2.mp3', 'skins\malkuth\batalla2.mp3', 'skins\malkuth\batalla3.mp3')
+# colores de los lomos de los libros de la mesa
+$MkLomos = @((C 196 150 60), (C 150 60 40), (C 70 96 60), (C 60 70 120), (C 120 80 40), (C 220 196 140))
+$script:mk = $null; $script:mkMusica = $null; $script:mkPista = ''; $script:mkEgo = $null
+function Mk-Reset {
+    if (-not $script:mk) {
+        $script:mk = @{ Libros = 0; Mesa = 0; Estantes = 0; Nivel = 0; Puntos = 0; Animo = 80.0; Toques = 0.0; Ultima = [Environment]::TickCount
+            Apps = (New-Object System.Collections.ArrayList); Hundida = $false; Respira = 0; RespiraT0 = 0; RespiraDos = $false; Fx = 0; EgoT = 0 }
+    }
+}
+function Mk-Volumen { return [Math]::Max(0.0, [Math]::Min(1.0, 0.6 * $script:aj.Volumen / 100.0)) }
+# pone la canción del nivel de emoción actual (si ya está sonando, no la corta)
+function Mk-Musica-On {
+    if (-not $script:aj.Sonido -or -not $script:mk) { return }
+    $pista = $MkCanciones[[Math]::Min(5, [Math]::Max(0, $script:mk.Nivel))]
+    if ($script:mkMusica -and $script:mkPista -eq $pista) { return }
+    Mk-Musica-Off
+    try {
+        $mp = New-Object System.Windows.Media.MediaPlayer
+        $mp.Open([Uri](Ruta $pista)); $mp.Volume = (Mk-Volumen); $mp.Play()
+        $script:mkMusica = $mp; $script:mkPista = $pista
+    } catch { $script:mkMusica = $null; $script:mkPista = '' }
+}
+function Mk-Musica-Off {
+    if ($script:mkMusica) { try { $script:mkMusica.Stop(); $script:mkMusica.Close() } catch {}; $script:mkMusica = $null }
+    $script:mkPista = ''
+}
+# cara de reposo: la sombría si está hundida, la normal si no
+function Mk-Base {
+    $a = $script:actores['M']; if (-not $a -or -not $script:mk) { return }
+    $nueva = if ($script:mk.Hundida) { 'sombria' } else { 'main' }
+    if ($a.Base -ne $nueva) { $a.Base = $nueva; if ($a.Hasta -eq 0) { Actor-Pose 'M' $nueva 0 } }
+}
+function Mk-Cara($pose, $ms) {
+    if ($script:mk -and $script:mk.Respira -gt 0) { return }   # mientras respira no cambia de cara
+    Actor-Pose 'M' $pose $ms
+}
+# sube o baja el ánimo; si baja de 30 se hunde (devuelve $true si se acaba de hundir)
+function Mk-Animo($d) {
+    Mk-Reset; $e = $script:mk
+    $e.Animo = [Math]::Max(0.0, [Math]::Min(100.0, $e.Animo + $d))
+    if (-not $e.Hundida -and $e.Animo -lt $MkTiempos.Hundirse) {
+        $e.Hundida = $true; $null = Mk-Base; $null = Actor-Pose 'M' 'sombria' 0
+        $null = Decir-Fijo (Azar $script:skin.Hundida) 'x'
+        return $true
+    }
+    return $false
+}
+# una app abierta = un libro de historia para la planta
+function Mk-App($linea) {
+    Mk-Reset; $e = $script:mk; $k = $script:skin; $ahora = [Environment]::TickCount
+    $e.Ultima = $ahora
+    # ¿demasiado deprisa? se acuerda de cuando exigía demasiado a su equipo
+    [void]$e.Apps.Add($ahora)
+    while ($e.Apps.Count -gt 0 -and ($ahora - $e.Apps[0]) -gt $MkTiempos.PrisaMs) { $e.Apps.RemoveAt(0) }
+    $e.Libros++; $e.Mesa++; $e.Puntos++
+    Sonido 'pagina'
+    Flotante '+1 libro' 466 196 (C 250 232 180) 15 'Palatino Linotype'
+    $dicho = $false
+    if ($e.Apps.Count -ge $MkTiempos.Prisa) {
+        $e.Apps.Clear()
+        if (-not (Mk-Animo -12)) { Mk-Cara 'enfado' 2600; Decir-Fijo (Azar $k.Prisa) 'x' }
+        $dicho = $true
+    } else { [void](Mk-Animo 3) }
+    # la mesa se llena: los coloca en la estantería
+    if ($e.Mesa -ge $MkTiempos.Estante) {
+        $e.Mesa = 0; $e.Estantes++; Sonido 'libro'
+        if (-not $dicho -and -not $e.Hundida) { Mk-Cara 'feliz' 3000; Decir (Azar $k.Estante); $dicho = $true }
+    }
+    # nivel de emoción: cada 3 libros sube uno y cambia la música
+    if ($e.Puntos -ge $MkTiempos.LibrosNivel -and $e.Nivel -lt 5) {
+        $e.Puntos = 0; $e.Nivel++; $e.Fx = 12
+        Sonido 'emocion'; Mk-Musica-On
+        Flotante "EMOCIÓN $($e.Nivel)" 584 110 (C 255 214 110) 18 'Palatino Linotype'
+        if ($e.Nivel -ge 5) { Mk-Realizacion; $dicho = $true }
+        elseif (-not $dicho -and -not $e.Hundida) { Mk-Cara 'decidida' 3000; Decir-Fijo (Azar $k.Emocion) 'x' 1500; $dicho = $true }
+    }
+    if ($e.Nivel -ge 5) { $e.Puntos = 0 }
+    if (-not $dicho) {
+        if ($e.Hundida) { Decir (Azar $k.HundidaApp) }
+        else { Mk-Cara (Azar @('feliz', 'decidida')) 2400; Decir $linea }
+    }
+    $form.Invalidate()
+}
+# nivel de emoción 5: Realización de la Planta de Historia
+function Mk-Realizacion {
+    $e = $script:mk; $e.EgoT = 90; $e.Animo = 100.0
+    if ($e.Hundida) { $e.Hundida = $false; Mk-Base }
+    Sonido 'ego'; Actor-Pose 'M' 'combate' 4200
+    Decir-Fijo (Azar $script:skin.Realizacion) 'x'
+}
+# una app que no aparece: le sienta fatal
+function Mk-Fallo($txt) {
+    Mk-Reset
+    if (Mk-Animo -22) { return }
+    Mk-Cara 'herida' 1600; Decir $txt
+}
+function Mk-Clic {
+    Mk-Reset; $e = $script:mk; $k = $script:skin
+    if ($e.Respira -gt 0) { Decir-Fijo (Azar @('Shhh... respira conmigo. Despacio.', '*Te hace un gesto con la mano: despacio.* Aún no hemos terminado.')) 'x' 0; return }
+    if ($e.Hundida) {
+        # el ejercicio de respiración (el que le enseñó Roland)
+        $ahora = [Environment]::TickCount
+        $e.Respira = $ahora + $MkTiempos.Respira; $e.RespiraT0 = $ahora; $e.RespiraDos = $false
+        Actor-Pose 'M' 'respira' ($MkTiempos.Respira + 200)
+        Sonido 'respira'
+        Decir-Fijo 'Vale... vamos a respirar hondo. Uno, coge aiiire...' 'x' 0
+        $form.Invalidate(); return
+    }
+    $e.Toques += 1.0
+    if ($e.Toques -ge 5.0) {
+        $e.Toques = 2.0
+        if (-not (Mk-Animo -15)) { Mk-Cara 'enfado' 2200; Decir (Azar $k.Pesado) }
+    } elseif ($Rnd.Next(100) -lt 22) {
+        Actor-Pose 'M' 'tropiezo' 1500; Sonido 'tropiezo'
+        $a = $script:actores['M']; if ($a) { $a.Salto = 12 }
+        Decir (Azar $k.Tropiezo)
+    } else {
+        Mk-Cara (Azar @('feliz', 'decidida', 'main')) 2200; Decir (Azar $k.Clic)
+    }
+    $form.Invalidate()
+}
+function Mk-Tick {
+    Mk-Reset; $e = $script:mk; $ahora = [Environment]::TickCount
+    # la música: se repite al acabar, sigue el volumen y se calla si quitas el sonido
+    if (-not $script:aj.Sonido) { Mk-Musica-Off }
+    elseif (-not $script:mkMusica) { Mk-Musica-On }
+    else {
+        try {
+            $mp = $script:mkMusica
+            if ([Math]::Abs($mp.Volume - (Mk-Volumen)) -gt 0.01) { $mp.Volume = (Mk-Volumen) }
+            if ($mp.NaturalDuration.HasTimeSpan -and $mp.Position -ge ($mp.NaturalDuration.TimeSpan - [TimeSpan]::FromMilliseconds(120))) { $mp.Position = [TimeSpan]::Zero; $mp.Play() }
+        } catch {}
+    }
+    # si no abres nada en un rato, la emoción baja un nivel (y la música se calma)
+    if ($e.Nivel -gt 0 -and ($ahora - $e.Ultima) -gt $MkTiempos.Bajar) { $e.Nivel--; $e.Puntos = 0; $e.Ultima = $ahora; Mk-Musica-On }
+    # los toques se olvidan solos; el ánimo se recupera despacio (si está hundida no: eso solo lo arregla respirar)
+    if ($e.Toques -gt 0.0) { $e.Toques = [Math]::Max(0.0, $e.Toques - 0.015) }
+    if (-not $e.Hundida -and $e.Animo -lt 70.0) { $e.Animo = [Math]::Min(70.0, $e.Animo + 0.01) }
+    # el ejercicio de respiración: a la mitad suelta el aire; al acabar, vuelve a estar bien
+    if ($e.Respira -gt 0) {
+        if (-not $e.RespiraDos -and ($ahora - $e.RespiraT0) -ge $MkTiempos.Respira / 2) { $e.RespiraDos = $true; Sonido 'respira'; Decir-Fijo 'Y dos... suéltalo. Fuuuu...' 'x' 0 }
+        if ($ahora -ge $e.Respira) {
+            $e.Respira = 0; $e.Hundida = $false; $e.Animo = 80.0; $e.Toques = 0.0
+            Mk-Base; Actor-Pose 'M' 'feliz' 3500
+            Decir-Fijo (Azar $script:skin.Recupera) 'x'
+        }
+    }
+    if ($e.Fx -gt 0) { $e.Fx-- }
+    if ($e.EgoT -gt 0) { $e.EgoT--; if ($e.EgoT -eq 0 -and $script:mkEgo) { $script:mkEgo.Dispose(); $script:mkEgo = $null } }
+    # la vela, el círculo de respirar y la carta se mueven: se repinta la escena y la barra de abajo
+    $Z = $script:K
+    Invalidar-Escena
+    $form.Invalidate((New-Object System.Drawing.Rectangle(0, [int](270 * $Z), [int](410 * $Z), [int](50 * $Z))))
+}
+# la mesa: libros apilados y una vela con forma de patata (le encantan las dos cosas)
+function Mk-Pintar-Mesa($g, $e) {
+    $n = if ($e) { $e.Mesa } else { 0 }
+    for ($i = 0; $i -lt $n; $i++) {
+        $bw = 50 + (($i * 7) % 12); $bx = 452 + (($i * 5) % 9) - 4; $by = 242 - $i * 9
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush($MkLomos[$i % $MkLomos.Count])), [float]$bx, [float]$by, [float]$bw, 9)
+        $g.DrawRectangle((New-Object System.Drawing.Pen((C 40 24 10), 1)), [float]$bx, [float]$by, [float]$bw, 9)
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 160 250 230 170))), [float]($bx + 6), [float]($by + 3), [float]($bw - 12), 2)
+    }
+    # vela-patata: cuerpo marrón con "ojos" de patata, mecha y una llama que se mueve suave (sin parpadeos)
+    $vx = 556; $vy = 226
+    $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 196 150 90))), $vx, $vy, 30, 26)
+    $g.DrawEllipse((New-Object System.Drawing.Pen((C 110 76 40), 1.5)), $vx, $vy, 30, 26)
+    foreach ($q in @(@(8, 9), @(19, 14), @(12, 18))) { $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 140 100 56))), [float]($vx + $q[0]), [float]($vy + $q[1]), 3, 2) }
+    $g.DrawLine((New-Object System.Drawing.Pen((C 40 30 20), 1.5)), [float]($vx + 15), [float]$vy, [float]($vx + 15), [float]($vy - 5))
+    $tl = [Environment]::TickCount / 1000.0; $os = [Math]::Sin($tl * 5.3) * 1.5; $al = 14 + [Math]::Sin($tl * 3.1) * 2
+    $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 60 255 200 90))), [float]($vx + 3), [float]($vy - 22), 24, 24)
+    $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 255 196 80))), [float]($vx + 11 + $os), [float]($vy - 5 - $al), 8, [float]$al)
+    $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 255 246 200))), [float]($vx + 13 + $os), [float]($vy - 1 - $al * 0.6), 4, [float]($al * 0.5))
+}
+
 # ================= ANIMACIÓN DE FONDO (planta rodadora, agua de Dune) =================
 $script:fase = 0.0; $script:tumbX = -300; $script:salto = 0
 $ambTimer = New-Object System.Windows.Forms.Timer
@@ -3557,8 +6283,13 @@ function Sin-Destellos {
     $script:enfadoFx = 0; $script:popFx = 0; $script:tkFx = 0; $script:pzFx = 0; $script:invFx = 0; $script:invEst = 0
     if ($script:gr) { $script:gr.Fx = 0 }
     if ($script:nn) { $script:nn.Fx = 0 }
+    if ($script:mk) { $script:mk.Fx = 0 }
+    if ($script:ag) { $script:ag.Rojo = 0; $script:ag.Golpe = 0; $script:ag.FiltroT = 0 }
+    if ($script:vv) { $script:vv.Fx = 0 }
+    if ($script:wg) { $script:wg.Rayo = 0; $script:wg.Fx = 0 }
     if ($script:es) { $script:es.Fx = 0 }
     if ($script:kn) { $script:kn.Fx = 0 }
+    if ($script:el) { $script:el.Fx = 0 }
     foreach ($a in @($script:actores.Values)) { $a.Flash = 0; $a.Temblor = 0 }
 }
 $ambTimer.Add_Tick({
@@ -3597,9 +6328,16 @@ $ambTimer.Add_Tick({
     if ($k.Estilo -eq 'punk') { Ky-Tick }
     if ($k.Estilo -eq 'gran') { Gran-Tick }
     if ($k.Estilo -eq 'abismo') { Nn-Tick }
+    if ($k.Estilo -eq 'historia') { Mk-Tick }
+    if ($k.Estilo -eq 'lobo') { Ag-Tick }
+    if ($k.Estilo -eq 'arana') { Vv-Tick }
+    if ($k.Estilo -eq 'clima') { Wg-Tick }
+    if ($k.Estilo -eq 'pintor') { Pr-Tick }
     if ($k.Estilo -eq 'evil') { Es-Tick }
     if ($k.Estilo -eq 'niebla') { Sf-Tick }
     if ($k.Estilo -eq 'knight') { Kn-Tick }
+    if ($k.Estilo -eq 'corrupta') { El-Tick }
+    if ($k.Estilo -eq 'boneyard') { Dy-Tick }
 })
 
 # ================= EVIL SCARY (Die of Death): LA RONDA ESPECIAL =================
@@ -3769,6 +6507,196 @@ function Pintar-Niebla($g, $x0, $W, $H, $fuerza) {
         $br.SurroundColors = [System.Drawing.Color[]]@([System.Drawing.Color]::FromArgb(0, 255, 180, 240))
         $g.FillPath($br, $p); $br.Dispose(); $p.Dispose()
     }
+}
+
+# ================= DYBBUK (Mewgenics): VIDA, VOLTERETAS Y POSESIÓN =================
+# Barra de vida como la de Guillotina, con la vida del juego (85).
+# - Clic en Dybbuk: a veces lo esquiva con una voltereta (su Backflip); si no, le quitas vida. Con menos de la mitad pone su cara de poca vida.
+# - Al llegar a 0 aguanta con 1 y posee el panel un momento (en el juego posee a un gato). El siguiente golpe lo mata:
+#   los muertos del Boneyard lo arrastran bajo tierra y vuelve a los pocos segundos.
+# - Apps: a veces les da un lametazo y les chupa el maná (contador abajo); cada 5 apps invoca fuegos fatuos.
+# Tiempos en milisegundos (Esquiva = % de clics que esquiva):
+$DyTiempos = @{ Esquiva = 45; AnimPosee = 3300; Posesion = 6000; AnimMuerte = 6600; Vuelve = 6000; Wisps = 4000 }
+$script:dy = $null; $script:dyWisp = $null
+function Dy-Reset { if (-not $script:dy) { $script:dy = @{ HP = 85; Max = 85; Estado = 'vivo'; Fin = 0; Hasta = 0; Mana = 0; Apps = 0; WispsHasta = 0 } } }
+# la pose de reposo según la vida: con menos de la mitad, la de poca vida del juego
+function Dy-Base {
+    $a = $script:actores['D']; if (-not $a -or -not $script:dy) { return }
+    $b = if ($script:dy.HP -le $script:dy.Max / 2) { 'herido' } else { 'main' }
+    if ($a.Base -ne $b) { $a.Base = $b; if ($a.Hasta -eq 0) { Actor-Pose 'D' $b 0 } }
+}
+function Dy-Clic {
+    Dy-Reset; $d = $script:dy
+    if ($d.Estado -eq 'muerto') { Decir '*Solo queda tierra removida. Algo se mueve ahí debajo.*'; return }
+    if ($d.Estado -eq 'posee') { Decir '¡Ñe-he-he! ¡Desde aquí dentro no me pillas!'; return }
+    # Backflip: casi la mitad de las veces lo esquiva (en el juego esquiva todos los golpes directos)
+    if ($d.HP -gt 1 -and $Rnd.Next(100) -lt $DyTiempos.Esquiva) {
+        Actor-Pose 'D' 'flip' 800; Sonido 'flip'
+        Flotante '¡ESQUIVA!' $Rnd.Next(480, 580) $Rnd.Next(130, 160) (C 200 225 240) 26 'EdmundMcMillen_INTLv4'
+        Decir (Azar $script:skin.Esquiva)
+        return
+    }
+    $dano = $Rnd.Next(6, 15)
+    Actor-Golpe 'D'
+    Flotante "-$dano" $Rnd.Next(540, 620) $Rnd.Next(120, 160) (C 255 110 120) 32 'EdmundMcMillen_INTLv4'
+    if ($d.HP -le 1) { Dy-Muere; return }
+    $d.HP -= $dano
+    if ($d.HP -le 0) { $d.HP = 1; Dy-Posee; return }   # como en el juego: aguanta con 1 y posee
+    Sonido-De 'Guillotina' 'golpe'
+    Dy-Base
+    Decir "-$dano HP. $(Azar $script:skin.Clic)"
+    $form.Invalidate()
+}
+function Dy-Posee {
+    $d = $script:dy; $ahora = [Environment]::TickCount
+    $d.Estado = 'posee'; $d.Fin = $ahora + $DyTiempos.AnimPosee; $d.Hasta = $d.Fin + $DyTiempos.Posesion
+    Actor-Pose 'D' 'posee' ($DyTiempos.AnimPosee + 200); Sonido 'posee'
+    Flotante '¡POSESIÓN!' 470 150 (C 200 170 255) 36 'EdmundMcMillen_INTLv4'
+    Decir-Fijo (Azar $script:skin.Posee) $null 1500
+    $form.Invalidate()
+}
+function Dy-Muere {
+    $d = $script:dy; $ahora = [Environment]::TickCount
+    $d.HP = 0; $d.Estado = 'muerto'; $d.Fin = $ahora + $DyTiempos.AnimMuerte; $d.Hasta = $d.Fin + $DyTiempos.Vuelve
+    $a = $script:actores['D']; if ($a) { $a.Base = 'main' }
+    Actor-Pose 'D' 'muere' ($DyTiempos.AnimMuerte + 300); Sonido 'muere'
+    Flotante 'K.O.' 540 150 (C 255 110 120) 48 'EdmundMcMillen_INTLv4'
+    Decir-Fijo (Azar $script:skin.Muere) $null 2500
+    $form.Invalidate()
+}
+function Dy-Wisps {
+    Dy-Reset
+    Actor-Pose 'D' 'invoca' 2880; Sonido 'wisps'
+    $script:dy.WispsHasta = [Environment]::TickCount + $DyTiempos.Wisps
+    Flotante '¡FUEGOS FATUOS!' 456 150 (C 140 210 255) 24 'EdmundMcMillen_INTLv4'
+    Decir (Azar $script:skin.Wisps)
+}
+function Dy-App($linea) {
+    Dy-Reset; $d = $script:dy; $d.Apps++
+    if ($d.Estado -ne 'vivo') { Decir $linea; return }
+    if ($d.Apps % 5 -eq 0) { Dy-Wisps; return }
+    if ($Rnd.Next(2) -eq 0) {
+        # Lick: un lametazo a la app que le chupa el maná
+        $m = $Rnd.Next(3, 9); $d.Mana += $m
+        Actor-Pose 'D' 'lame' 1840; Sonido 'lame'
+        Flotante "+$m MANÁ" $Rnd.Next(470, 540) 150 (C 120 200 255) 24 'EdmundMcMillen_INTLv4'
+    }
+    Decir $linea
+    $form.Invalidate()
+}
+function Dy-Tick {
+    Dy-Reset; $d = $script:dy; $ahora = [Environment]::TickCount
+    $a = $script:actores['D']
+    if ($d.Estado -ne 'vivo') {
+        # al acabar la animación (bajo tierra o dentro del panel) deja de verse
+        if ($a -and $a.Visible -and $ahora -ge $d.Fin) { $a.Visible = $false; Invalidar-Escena }
+        if ($ahora -ge $d.Hasta) {
+            $volvio = $d.Estado -eq 'muerto'
+            if ($volvio) { $d.HP = $d.Max }
+            $d.Estado = 'vivo'
+            if ($a) { $a.Visible = $true; $a.Base = 'main'; Actor-Pose 'D' 'flip' 800 }
+            Dy-Base
+            if ($volvio) { Sonido 'zombie'; Decir-Fijo (Azar $script:skin.Vuelve) $null 1500 } else { Sonido 'suelta'; Decir-Fijo (Azar $script:skin.Suelta) $null 1500 }
+            $form.Invalidate()
+        }
+        if ($d.Estado -eq 'posee') { Invalidar-Escena }   # el panel late en morado mientras está poseído
+    }
+    if ($d.WispsHasta -gt 0) { if ($ahora -ge $d.WispsHasta) { $d.WispsHasta = 0 }; Invalidar-Escena }
+}
+# dibuja una imagen con transparencia (0..1)
+function Dy-Img($g, $img, $x, $y, $iw, $ih, $alfa) {
+    if (-not $img -or $alfa -le 0) { return }
+    $cm = New-Object System.Drawing.Imaging.ColorMatrix; $cm.Matrix33 = [float][Math]::Min(1.0, $alfa)
+    $ia = New-Object System.Drawing.Imaging.ImageAttributes; $ia.SetColorMatrix($cm)
+    $g.DrawImage($img, (New-Object System.Drawing.Rectangle([int]$x, [int]$y, [int]$iw, [int]$ih)), 0, 0, $img.Width, $img.Height, [System.Drawing.GraphicsUnit]::Pixel, $ia)
+    $ia.Dispose()
+}
+
+# ================= ELLIE VELÁZQUEZ (self insert de Ale): EL GLITCH =================
+# Barra GLITCH = su rabia (0..100). Sube al pincharla y, poco a poco, con el silencio (lo odia). Abrir apps la entretiene (baja un poco).
+# Al 100 %: MODO GLITCH (todo rojo, píxeles corruptos, ella partida en colores). Luego se sobrecalienta, se le olvida todo y vuelve a 0.
+# Clic en las natillas: se las come y se calma (el cuenco vuelve a llenarse al rato). De vez en cuando se teletransporta o se vuelve invisible.
+# Números (rabia por clic, por app, por segundo de silencio) y tiempos en milisegundos:
+$ElTiempos = @{ Clic = 17; App = -4; Silencio = 0.4; Glitch = 7000; Natillas = 15000; Tele = 6000; Invisible = 3500; Casa = 614; OtroSitio = 540 }
+$script:el = $null; $script:elRojo = $null; $script:elCian = $null
+function El-Reset {
+    if (-not $script:el) { $script:el = @{ Rabia = 0.0; Glitch = $false; GlitchHasta = 0; Veces = 0; Natillas = 0; NatHasta = 0; TeleHasta = 0; InvHasta = 0; Fx = 0; Bloques = (New-Object System.Collections.ArrayList); UltimoSilencio = 0 } }
+}
+# píxeles de colores que saltan alrededor de ella (como los de sus fotos)
+function El-Bloques($n, $cx, $cy, $rad) {
+    if ($script:aj.Epilepsia) { $n = [int]($n / 3) }
+    $cols = @((C 255 40 80), (C 90 230 255), (C 255 230 60), (C 150 80 255), (C 90 255 140), (C 255 120 200))
+    for ($i = 0; $i -lt $n; $i++) { [void]$script:el.Bloques.Add(@{ X = $cx + $Rnd.Next(-$rad, $rad); Y = $cy + $Rnd.Next(-$rad, $rad); W = $Rnd.Next(5, 22); H = $Rnd.Next(4, 10); C = $cols[$Rnd.Next($cols.Count)]; T = $Rnd.Next(8, 22) }) }
+}
+function El-Centro { $a = $script:actores['E']; if (-not $a) { return @(680, 170) }; return @(($a.Rect[0] + $a.Rect[2] / 2), ($a.Rect[1] + $a.Rect[3] * 0.45)) }
+function El-Rabia($d) {
+    El-Reset; $e = $script:el
+    $e.Rabia = [Math]::Max(0.0, [Math]::Min(100.0, $e.Rabia + $d))
+    if ($e.Rabia -ge 100 -and -not $e.Glitch) { El-Glitch }
+}
+function El-Glitch {
+    $e = $script:el; $e.Glitch = $true; $e.GlitchHasta = [Environment]::TickCount + $ElTiempos.Glitch; $e.Veces++; $e.Fx = 20
+    Sonido 'boom'; Sonido 'glitch'; Sacudir $form 16
+    $c = El-Centro; El-Bloques 40 $c[0] $c[1] 120
+    Decir-Fijo (Azar $script:skin.Glitch) $null 2500
+    $form.Invalidate()
+}
+function El-Fin-Glitch($natillas) {
+    $e = $script:el; $e.Glitch = $false; $e.Rabia = 0.0; $e.Fx = 0
+    if (-not $natillas) { Decir-Fijo (Azar $script:skin.Olvida) $null 2000 }
+    $form.Invalidate()
+}
+function El-Pinchar {
+    El-Reset; $e = $script:el
+    if ($e.Glitch) { Decir '*Ni te mira. Está demasiado ocupada corrompiéndolo todo.*'; return }
+    $a = $script:actores['E']; if ($a) { $a.Temblor = 8; $a.Alfa = 1.0 }; $e.InvHasta = 0
+    $c = El-Centro; El-Bloques 6 $c[0] $c[1] 50
+    El-Rabia $ElTiempos.Clic
+    if ($e.Glitch) { return }
+    if ($e.Rabia -ge 60) { Sonido 'glitch'; Decir (Azar $script:skin.Enfado) } else { Decir (Azar $script:skin.Clic) }
+    $form.Invalidate()
+}
+function El-Natillas {
+    El-Reset; $e = $script:el
+    $n = $script:actores['N']; if ($n) { $n.Visible = $false }
+    $e.NatHasta = [Environment]::TickCount + $ElTiempos.Natillas; $e.Natillas++
+    Sonido 'nam'; Flotante '¡ÑAM!' 440 190 (C 255 214 90) 24 'Arial Black'
+    if ($e.Glitch) { El-Fin-Glitch $true } else { $e.Rabia = [Math]::Max(0.0, $e.Rabia - 45) }
+    Decir-Fijo (Azar $script:skin.Natillas) $null 1200
+    $form.Invalidate()
+}
+function El-Teleport {
+    El-Reset; $e = $script:el; $a = $script:actores['E']; if (-not $a) { return }
+    $c = El-Centro; El-Bloques 14 $c[0] $c[1] 70
+    $x = if ($a.Rect[0] -eq $ElTiempos.Casa) { $ElTiempos.OtroSitio } else { $ElTiempos.Casa }
+    $a.Rect = @($x, $a.Rect[1], $a.Rect[2], $a.Rect[3])   # una lista nueva: así no se cambia la ficha de la skin
+    $e.TeleHasta = if ($x -eq $ElTiempos.Casa) { 0 } else { [Environment]::TickCount + $ElTiempos.Tele }
+    $c = El-Centro; El-Bloques 14 $c[0] $c[1] 70
+    Sonido 'tele'; Invalidar-Escena
+}
+function El-App($linea) {
+    El-Reset; El-Rabia $ElTiempos.App
+    $c = El-Centro; El-Bloques 4 $c[0] $c[1] 60
+    Decir $linea; $form.Invalidate()
+}
+function El-Tick {
+    El-Reset; $e = $script:el; $ahora = [Environment]::TickCount; $cambio = $false
+    # el silencio la pone nerviosa: la rabia sube sola (cada tick son 50 ms)
+    if (-not $e.Glitch) {
+        $antes = [int]$e.Rabia; El-Rabia ($ElTiempos.Silencio / 20.0)
+        if ([int]$e.Rabia -ne $antes) { $cambio = $true }
+        if ($e.Rabia -ge 75 -and ($ahora - $e.UltimoSilencio) -gt 45000 -and $ahora -ge $script:twBloqueo) { $e.UltimoSilencio = $ahora; Decir (Azar $script:skin.Silencio) }
+    } else {
+        if (-not $script:aj.Epilepsia -and $Rnd.Next(3) -eq 0) { $c = El-Centro; El-Bloques 3 $c[0] $c[1] 140 }
+        if ($ahora -ge $e.GlitchHasta) { El-Fin-Glitch $false }
+        $cambio = $true
+    }
+    if ($e.NatHasta -gt 0 -and $ahora -ge $e.NatHasta) { $e.NatHasta = 0; $n = $script:actores['N']; if ($n) { $n.Visible = $true }; $cambio = $true }
+    if ($e.TeleHasta -gt 0 -and $ahora -ge $e.TeleHasta) { El-Teleport }
+    if ($e.InvHasta -gt 0 -and $ahora -ge $e.InvHasta) { $e.InvHasta = 0; $a = $script:actores['E']; if ($a) { $a.Alfa = 1.0 }; $cambio = $true }
+    if ($e.Fx -gt 0) { $e.Fx--; $cambio = $true }
+    if ($e.Bloques.Count -gt 0) { for ($i = $e.Bloques.Count - 1; $i -ge 0; $i--) { $e.Bloques[$i].T--; if ($e.Bloques[$i].T -le 0) { $e.Bloques.RemoveAt($i) } }; $cambio = $true }
+    if ($cambio) { $form.Invalidate((New-Object System.Drawing.Rectangle(0, [int](266 * $script:K), [int](410 * $script:K), [int](54 * $script:K)))); Invalidar-Escena }
 }
 
 # ================= ROARING KNIGHT (Deltarune): FUENTES OSCURAS Y THE ROARING =================
@@ -4203,9 +7131,16 @@ function Abrir-Invitado($nombre) {
         'punk' { Sonido-De $nombre 'acorde' }
         'gran' { }   # llega en silencio: su único sonido es su canción
         'abismo' { Sonido-De $nombre 'brillo' }
+        'historia' { Sonido-De $nombre 'pagina' }
+        'lobo' { Sonido-De $nombre 'pebox' }
+        'arana' { Sonido-De $nombre 'siseo' }
+        'clima' { Sonido-De $nombre 'gota' }
+        'pintor' { Sonido-De $nombre 'blip' }
         'evil' { Sonido-De $nombre 'medio' }
         'niebla' { Sonido-De $nombre 'brillo' }
         'knight' { Sonido-De $nombre 'encuentro' }
+        'corrupta' { Sonido-De $nombre 'tele' }
+        'boneyard' { Sonido-De $nombre 'flip' }
         'pressure' { Sonido-De $nombre 'rejilla' }
         'dod' { Sonido-De $nombre 'acecho' }
         'hacker' { try { if ($script:aj.Sonido) { [System.Media.SystemSounds]::Hand.Play() } } catch {} }
@@ -4226,7 +7161,7 @@ function Pintar-Invitado($g) {
         'web' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 0, $W, 31)), $gk.Barra1, $gk.Barra2, 90); $g.FillRectangle($br, 0, 0, $W, 31); $cab = $null }
         'tele' { $lun = New-Object System.Drawing.SolidBrush((C 255 95 70)); for ($y = 36; $y -lt $H; $y += 18) { for ($x = 4; $x -lt $W; $x += 18) { $g.FillEllipse($lun, $x, $y, 5, 5) } }; $cab = (C 58 44 190) }
         'mew' { for ($x = 0; $x -lt $W; $x += 20) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 62 44 52))), $x, 30, 10, $H) }; $cab = (C 28 21 24) }
-        'lobo' { $cab = (C 18 23 30) }
+        'lobo' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 24 32 42), (C 8 10 14), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $br.Dispose(); $tl = New-Object System.Drawing.Pen((ARGB 60 80 210 200), 1); for ($y = 40; $y -lt $H; $y += 8) { $g.DrawLine($tl, 0, $y, $W, $y) }; $tl.Dispose(); $cab = (C 14 18 24) }
         'mlg' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 0, $W, $H)), (C 57 72 191), (C 229 45 45), 35); $g.FillRectangle($br, 0, 0, $W, $H); $cab = (C 14 14 28) }
         'oeste' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 238 128 62), (C 250 214 150), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $cab = (C 90 52 28) }
         'gunsaw' { $p = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb(16, 255, 255, 255), 1); for ($y = 0; $y -lt $H; $y += 3) { $g.DrawLine($p, 0, $y, $W, $y) }; $cab = (C 18 9 22) }
@@ -4240,8 +7175,14 @@ function Pintar-Invitado($g) {
         'gran' { $rosa = New-Object System.Drawing.SolidBrush((ARGB 60 255 70 170)); for ($x = -$H; $x -lt $W; $x += 30) { $g.FillPolygon($rosa, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$x, $H)), (New-Object System.Drawing.PointF([float]($x + 12), $H)), (New-Object System.Drawing.PointF([float]($x + 12 + $H), 30)), (New-Object System.Drawing.PointF([float]($x + $H), 30)))) }; $rosa.Dispose(); $cab = (C 0 0 0) }
         'evil' { $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 30 6 10))), 0, 30, $W, ($H - 30)); $cab = (C 0 0 0) }
         'knight' { $g.FillRectangle([System.Drawing.Brushes]::Black, 0, 30, $W, ($H - 30)); $pg = New-Object System.Drawing.Pen((C 52 18 82), 1); for ($x = 0; $x -lt $W; $x += 24) { $g.DrawLine($pg, $x, 30, $x, $H) }; for ($y = 30; $y -lt $H; $y += 24) { $g.DrawLine($pg, 0, $y, $W, $y) }; $pg.Dispose(); $cab = (C 0 0 0) }
+        'boneyard' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 70 78 92), (C 30 32 38), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $br.Dispose(); $lp = New-Object System.Drawing.SolidBrush((ARGB 70 0 0 0)); foreach ($q in @(@(14, 150, 26, 50), @(176, 160, 30, 40))) { $g.FillRectangle($lp, $q[0], $q[1], $q[2], $q[3]) }; $lp.Dispose(); $cab = (C 22 23 28) }
+        'corrupta' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 90 20 60), (C 20 6 20), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $br.Dispose(); $cab = (C 10 4 10) }
         'niebla' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 74 28 124), (C 30 10 56), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $br.Dispose(); $cab = (C 90 30 140) }
         'abismo' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 40 70 44), (C 18 34 22), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $br.Dispose(); $cab = (C 78 56 40) }
+        'pintor' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 212 212 212), (C 170 170 170), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $br.Dispose(); $cab = (C 0 0 128) }
+        'clima' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 106 122 168), (C 70 84 128), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $br.Dispose(); $cab = (C 38 48 92) }
+        'arana' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 40 14 34), (C 10 4 8), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $br.Dispose(); Vv-Red $g ($W / 2) 32 150 (ARGB 60 230 225 235) 9 10 170 5; $cab = (C 10 4 8) }
+        'historia' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 120 86 40), (C 46 32 16), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $br.Dispose(); $lom = New-Object System.Drawing.SolidBrush((ARGB 50 0 0 0)); for ($x = 6; $x -lt $W; $x += 22) { $g.FillRectangle($lom, $x, 34, 14, 108) }; $lom.Dispose(); $cab = (C 72 50 22) }
         'enfosi' { $br = New-Object System.Drawing.Drawing2D.LinearGradientBrush((New-Object System.Drawing.Rectangle(0, 30, $W, ($H - 30))), (C 120 180 240), (C 200 230 255), 90); $g.FillRectangle($br, 0, 30, $W, ($H - 30)); $cab = (C 252 200 55) }
         'teto' { $ray = New-Object System.Drawing.Pen((C 252 232 236), 8); for ($x = -$H; $x -lt $W; $x += 26) { $g.DrawLine($ray, $x, 32, ($x + $H), ($H + 32)) }; $ray.Dispose(); $cab = (C 214 40 64) }
         'pizza' { $roja = New-Object System.Drawing.SolidBrush((ARGB 90 220 40 40)); for ($x = 0; $x -lt $W; $x += 28) { $g.FillRectangle($roja, $x, 30, 14, $H) }; for ($y = 30; $y -lt $H; $y += 28) { $g.FillRectangle($roja, 0, $y, $W, 14) }; $roja.Dispose(); $cab = (C 70 200 40) }
@@ -4281,8 +7222,14 @@ function Pintar-Invitado($g) {
             'gran' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 32, 208, 44))), 0, 0, $W, $H) }
             'evil' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 150, 0, 10))), 0, 0, $W, $H) }
             'knight' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(170, $fx * 12), 200, 0, 20))), 0, 0, $W, $H) }
+            'boneyard' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(160, $fx * 11), 226, 128, 146))), [int]($W - (14 - $fx) * 18), 0, $W, $H) }
+            'corrupta' { $rn = New-Object System.Random $fx; for ($i = 0; $i -lt 6; $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush(@((C 255 40 80), (C 90 230 255), (C 255 230 60))[$rn.Next(3)])), $rn.Next(0, $W), $rn.Next(30, $H), $rn.Next(10, 40), $rn.Next(4, 10)) } }
             'niebla' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(180, $fx * 12), 255, 186, 244))), 0, 0, $W, $H) }
             'abismo' { $p = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb([Math]::Min(220, $fx * 16), 210, 255, 220), 2); for ($i = 0; $i -lt 6; $i++) { $xx = 20 + $i * 36; $g.DrawLine($p, $xx, ($H - (14 - $fx) * 14), ($xx + 6), ($H - (14 - $fx) * 14 - 40)) }; $p.Dispose() }
+            'pintor' { $pl = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb([Math]::Min(160, $fx * 11), 170, 120, 255), 1.4); for ($i = 0; $i -lt 6; $i++) { $yy = 34 + ((14 - $fx) * 14 + $i * 31) % 150; $g.DrawLine($pl, 0, $yy, $W, $yy) }; $pl.Dispose() }
+            'clima' { $pl = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 235, 240, 255), 1.2); for ($i = 0; $i -lt 16; $i++) { $xx = 8 + $i * 15; $yy = 34 + ((14 - $fx) * 12 + $i * 23) % 120; $g.DrawLine($pl, $xx, $yy, ($xx - 3), ($yy + 12)) }; $pl.Dispose() }
+            'arana' { Vv-Red $g 0 32 ((14 - $fx) * 22) ([System.Drawing.Color]::FromArgb([Math]::Min(220, $fx * 16), 240, 235, 240)) 6 0 90 4 }
+            'historia' { $hj = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(220, $fx * 16), 250, 242, 222)); for ($i = 0; $i -lt 4; $i++) { $g.FillRectangle($hj, (24 + $i * 50), (34 + (14 - $fx) * 11 + ($i % 2) * 16), 14, 18) }; $hj.Dispose() }
             'enfosi' { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(200, $fx * 14), 255, 214, 60))), 0, 0, $W, $H) }
             'teto' { for ($i = 0; $i -lt 3; $i++) { Texto-Contorno $g '♪' 'Segoe UI Symbol' 20 (40 + $i * 60) (130 - (14 - $fx) * 7) (@((C 214 40 64), (C 246 170 30), (C 255 255 255))[$i]) 3 ([Math]::Min(255, $fx * 18)) } }
             'pizza' { for ($i = 0; $i -lt 4; $i++) { Dibujar-Trozo $g (30 + $i * 52) (40 + (14 - $fx) * 9 + ($i % 2) * 14) 20 ($fx * 25 + $i * 70) } }
@@ -4325,6 +7272,8 @@ function Cerrar-Invitado {
 function Efectos-Linea($quien, $txt) {
     if ($quien -eq 'Nanachi' -and $txt -match 'Nnaa') { Sonido-De 'Nanachi' 'brillo' }
     if ($txt -match '[Ee]stofado') { Sonido-De 'Nanachi' 'burbujas' }
+    if ($quien -eq 'Velvet' -and $txt -match '[Tt]elaraña|[Ee]scupe') { Sonido-De 'Velvet' 'escupe' }
+    if ($quien -eq 'Malkuth') { if ($txt -match 'aiiire|suéltalo|[Rr]espira') { Sonido-De 'Malkuth' 'respira' } elseif ($txt -match '[Uu]oh') { Sonido-De 'Malkuth' 'tropiezo' } elseif ($txt -match '[Ll]ibro') { Sonido-De 'Malkuth' 'pagina' } }
     if ($txt -match 'STALL') { Sonido-De 'Evil Scary' 'stall' }
     elseif ($txt -match 'EVIL AND SCARY') { Sonido-De 'Evil Scary' 'susto' }
     if ($txt -match 'FSSS|niebla rosa') { Sonido-De 'Soft Fuzzy Man' 'puff' }
@@ -4407,7 +7356,7 @@ function Paso-Discusion {
         # habla el invitado, en su ventanita
         $script:invTexto = $txt; $script:invPos = 0; Encajar-Invitado $txt
         switch ($script:skin.Estilo) {
-            'lobo' { $script:caraModo = 'serio' }
+            'lobo' { Ag-Cara 'molesta' 2500 }
             'zorro' { $script:caraModo = 'abiertos' }
             'culto' { if ($Rnd.Next(2) -eq 0) { Cara2 'risa' 1600 } }
             'pizza' { if ($Rnd.Next(2) -eq 0) { Cara (Azar @('piensa', 'chulo', 'sudor')) 1800 } }
@@ -4493,7 +7442,7 @@ $idleTimer.Add_Tick({
         }
         'pop' {
             if ($r -lt 30 -and -not $script:popDND) { [void](Tetra-Mensaje); Decir (Azar @('*Le llega un mensaje. Lo mira. Lo deja en visto.* Luego contesto.', '*Mira el móvil.* Es neems. ...le contesto mañana.', '*Ping.* Uy. Un mensaje. Qué miedo dan los mensajes.')) }
-            elseif ($r -lt 45) { Sonido 'disco'; $a = $script:actores['E']; if ($a) { $a.Salto = 12 }; Decir '*Baila un poco de disco sin levantarse mucho del sitio.*' }
+            elseif ($r -lt 45) { Sonido 'disco'; $script:popBaila = 90; Decir '*Baila un poco de disco sin levantarse mucho del sitio.*' }
             else { Decir (Azar $k.Idle) }
         }
         'enfosi' {
@@ -4520,6 +7469,22 @@ $idleTimer.Add_Tick({
             elseif ($r -lt 55) { Es-Reset; Es-Rebote 3.0; Decir '*Bota sin avisar.* ...el sonido ha sido más agudo esta vez.' }
             else { Decir (Azar $k.Idle) }
         }
+        'boneyard' {
+            $d = $script:dy
+            if (-not $d -or $d.Estado -ne 'vivo') { Decir (Azar $k.Idle) }
+            elseif ($r -lt 50) { Actor-Pose 'D' 'flip' 800; Sonido 'flip'; Decir (Azar $k.Idle) }
+            elseif ($r -lt 60) { Actor-Pose 'D' 'lame' 1840; Sonido 'lame'; Decir (Azar $k.Lame) }
+            elseif ($r -lt 66) { Dy-Wisps }
+            else { Decir (Azar $k.Idle) }
+        }
+        'corrupta' {
+            $e = $script:el
+            if ($e -and $e.Glitch) { }
+            elseif ($r -lt 52) { El-Teleport; Decir (Azar $k.Teleport) }
+            elseif ($r -lt 60) { $a = $script:actores['E']; if ($a) { $a.Alfa = 0.25 }; if ($e) { $e.InvHasta = [Environment]::TickCount + $ElTiempos.Invisible }; Decir (Azar $k.Invisible) }
+            elseif ($e -and $e.Rabia -ge 50) { Decir (Azar $k.Silencio) }
+            else { Decir (Azar $k.Idle) }
+        }
         'knight' {
             if ($r -lt 30) { Actor-Pose 'K' 'risa' 2500; Decir (Azar $k.Idle) }
             elseif ($r -lt 42) { Actor-Pose 'K' 'tajo' 800; Sonido 'tajo'; Decir '* El Knight corta el aire. * Solo para que lo oigas.' }
@@ -4538,13 +7503,54 @@ $idleTimer.Add_Tick({
             elseif ($r -lt 70) { Nn-Cara 'nnaa' 2000; Sonido 'silbato'; Decir (Azar @('¿Has oído eso? Un silbato. Hay exploradores cerca. Me escondo. *No se esconde.*', '¡Nnaa! *Da un respingo.* ...era una seta cayéndose. Nada.')) }
             else { Decir (Azar $k.Idle) }
         }
+        'pintor' {
+            $e = $script:pr
+            if ((Pr-Mina-Activa) -or (Pr-Voz-Suena)) { }
+            elseif ($e -and $e.Calor -ge 70) { Pr-Cara 'susto' 3500; if ($Rnd.Next(2) -eq 0 -or -not (Pr-Voz 'calor')) { Decir (Azar $k.Calentando) } }
+            elseif ($r -lt 32) { $cn = Azar @('feliz', 'triste', 'enfado', 'neutra'); Pr-Cara $cn 4500; Decir (Azar $k[('Dibuja' + $cn.Substring(0, 1).ToUpper() + $cn.Substring(1))]) }
+            elseif ($e -and $e.Paisaje -ge 1 -and $r -lt 56) { Decir (Azar $k.PaisajeIdle) }
+            elseif ($r -lt 72) { Decir (Azar $k.Paisajes) }
+            else { if (-not (Pr-Voz 'idle')) { Decir (Azar $k.Idle) } }
+        }
+        'clima' {
+            $e = $script:wg; $cl = Wg-Cielo
+            if (Wg-Llora) { Decir (Azar $k.LloraIdle) }
+            elseif ($r -lt 26) { Wg-Parte }
+            elseif ($r -lt 36) { Wg-Manana }
+            elseif ($e -and (Wg-Paraguas-Visible) -and $r -lt 50) { Decir (Azar $k.SinParaguas) }
+            elseif ($e -and $e.Palabras -ge 3 -and $r -lt 62) { Decir (Azar $k.Palabras) }
+            elseif ($cl -eq 'vivos') { Decir (Azar $k.VivosIdle) }
+            elseif ($r -lt 74) { if (Wg-Noche) { Decir (Azar $k.IdleNoche) } else { Decir (Azar $k[('Idle' + $cl.Substring(0, 1).ToUpper() + $cl.Substring(1))]) } }
+            else { Decir (Azar $k.Idle) }
+        }
+        'arana' {
+            $e = $script:vv
+            if ($e -and $e.TrampaT -gt 0) { }
+            elseif ($r -lt 52) { $p = Vv-Escupir; if ($p) { Decir ((Azar $k.Escupe) -f $p) } else { Decir (Azar $k.Idle) } }
+            elseif ($e -and $e.Hambre -ge 70 -and $r -lt 76) { Sonido 'siseo'; Decir (Azar $k.Hambrienta) }
+            else { Decir (Azar $k.Idle) }
+        }
+        'lobo' {
+            $e = $script:ag
+            if ($e -and ($e.Brecha -or $e.Completa -or $e.FiltroT -gt 0)) { }
+            elseif ($r -lt 44 -and (Ag-Filtro)) { }
+            elseif ($r -lt 58) { Ag-Cara 'sonrie' 3000; Decir (Azar $k.Idle) }
+            elseif ($r -lt 66) { Ag-Cara 'abiertos' 3500; Decir (Azar $k.IdleOjos) }
+            else { Decir (Azar $k.Idle) }
+        }
+        'historia' {
+            $e = $script:mk
+            if ($e -and $e.Respira -gt 0) { }
+            elseif ($e -and $e.Hundida) { Decir (Azar $k.HundidaIdle) }
+            elseif ($r -lt 30) { Mk-Cara 'decidida' 4000; Decir (Azar $k.Idle) }
+            elseif ($r -lt 40) { Actor-Pose 'M' 'tropiezo' 1500; Sonido 'tropiezo'; Decir (Azar $k.Tropiezo) }
+            elseif ($r -lt 54) { Mk-Cara 'feliz' 4000; Decir (Azar $k.Aficiones) }
+            elseif ($r -lt 62) { Mk-Cara 'sombria' 4500; Decir (Azar $k.Recuerdos) }
+            else { Decir (Azar $k.Idle) }
+        }
         'punk' {
-            if ($r -lt 50) { Ky-Video 'loner' 6000; Decir (Azar @('*Se pone con el portátil.* Estoy componiendo. O viendo vídeos. Lo segundo.', '*Se tapa con la manta delante del portátil.* Modo loner activado.', 'Estoy editando el próximo vídeo. Va a salir... algún día.')) }
-            elseif ($r -lt 60) { Ky-Video 'online' 5000; Decir (Azar @('*Mira el portátil.* La gente de internet... a veces son mejores amigos que los de verdad.', 'People online... *tararea.* Esa es mía, por cierto.')) }
-            elseif ($r -lt 70) { Ky-Video 'nada' 7000; Decir (Azar @('*Sale al balcón a ver el atardecer.* Esto pide una canción.', '*Se sienta en la barandilla.* No hago nada. Y me sale genial.')) }
-            elseif ($r -lt 78) { Ky-Video 'piensa' 6000; Decir (Azar @('*Piensa en algo.* ...se me ha olvidado qué pensaba. Era una melodía. Creo.', '*Mira al infinito.* ¿Y si la próxima canción va sobre... nada? Ya tengo una que se llama así.')) }
-            elseif ($r -lt 84) { Ky-Video 'triste' 5000; Decir '*Se pone la capucha y toca algo lento.* A veces también toca canción triste.' }
-            elseif ($r -lt 88) { Ky-Video 'calavera' 5000; Decir '*Aparece disfrazado de esqueleto.* ¿Qué? Siempre es Halloween en el pop-punk.' }
+            $e = $script:ky
+            if ($e -and $r -lt 60) { Decir (Azar $k[('Idle' + $e.Escena.Substring(0, 1).ToUpper() + $e.Escena.Substring(1))]) }
             else { Decir (Azar $k.Idle) }
         }
         'pizza' {
@@ -4874,7 +7880,10 @@ function Intro-Overlay($total, $pintar, $alTick, $final) {
 # salta la intro que esté sonando: corta sus sonidos y va directo al final
 function Saltar-Intro {
     if (-not $script:iOv) { return }
-    $script:bSaltar = $true; $script:grSaltar = $true
+    $script:bSaltar = $true; $script:grSaltar = $true; $script:ppSaltar = $true
+    if ($script:skin.Estilo -eq 'pop') { Tetra-Intro-Terminar }
+    if ($script:skin.Estilo -eq 'clima') { $script:wiSaltar = $true; Wg-Intro-Terminar }
+    if ($script:skin.Estilo -eq 'pintor') { $script:prSaltarI = $true }
     foreach ($r in @($script:reproductores)) { try { $r.Stop() } catch {} }
     $script:pzMusica = $null
     if ($script:iPaso -lt $script:iTotal - 1) { $script:iPaso = $script:iTotal - 1 }
@@ -5001,33 +8010,172 @@ function Transicion-Boss($final) {
 }
 
 # --- inicio de jornada en L Corp ---
-function Transicion-Lobo($final) {
-    if (-not $script:bmpHexIntro) { $script:bmpHexIntro = Fondo-Hexagonos 616 344 ([System.Drawing.Color]::FromArgb(60, 255, 170, 40)) }
+# --- intro de Velvet: pantalla de carga de Gunsaw con su ficha de especie, una telaraña que cubre la pantalla y ella bajando por su hilo ---
+# La música es la suya (Night of the Creeps): empieza con la intro y sigue sonando después.
+$VvIntro = @{ Ficha = 1500; Red = 4900; Baja = 6200; Nombre = 7300; Fin = 9800 }
+function Transicion-Velvet($final) {
+    $k = $script:skin
+    $script:viCarga = Cargar-Img $k.Carga; $script:viVel = Cargar-Img 'skins\velvet\velvet.png'
+    $script:iRecursos = @($script:viCarga, $script:viVel)
+    $script:viT0 = 0; $script:viHechos = @{}
     $pintar = {
         param($g, $W, $H, $p)
-        $g.SmoothingMode = 'AntiAlias'; $g.TextRenderingHint = 'AntiAlias'
-        $g.Clear((C 6 8 11))
-        if ($p -ge 2) { $g.DrawImage($script:bmpHexIntro, 0, 0, 616, 344) }
-        $fmt = New-Object System.Drawing.StringFormat; $fmt.Alignment = 'Center'
-        $t1 = 'LOBOTOMY CORPORATION'
-        $n = [Math]::Min($t1.Length, [Math]::Max(0, $p - 3))
-        $g.DrawString($t1.Substring(0, $n), (FntP('Bahnschrift', 24, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 255 176 50))), (New-Object System.Drawing.RectangleF(0, ($H / 2 - 92), $W, 44)), $fmt)
-        if ($p -ge 24) { $g.DrawString('Face the Fear, Build the Future', (FntP('Bahnschrift', 11)), (New-Object System.Drawing.SolidBrush((C 80 210 200))), (New-Object System.Drawing.RectangleF(0, ($H / 2 - 48), $W, 24)), $fmt) }
-        if ($p -ge 32) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 176 50))), ($W / 2 - 160), ($H / 2 - 16), 320, 2) }
-        if ($p -ge 34) { $g.DrawString("DÍA $($script:dia)", (FntP('Bahnschrift', 30, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, (New-Object System.Drawing.RectangleF(0, ($H / 2 - 8), $W, 54)), $fmt) }
-        if ($p -ge 42) { $g.DrawString('Manager conectado.  Angela: en línea.', (FntP('Bahnschrift', 9)), (New-Object System.Drawing.SolidBrush((C 140 150 160))), (New-Object System.Drawing.RectangleF(0, ($H / 2 + 50), $W, 20)), $fmt) }
+        $g.SmoothingMode = 'AntiAlias'; $g.InterpolationMode = 'HighQualityBilinear'; $g.TextRenderingHint = 'AntiAlias'
+        $VT = $VvIntro; $k = $script:skin
+        $ms = if ($script:viT0 -gt 0) { [Environment]::TickCount - $script:viT0 } else { 0 }
+        $g.Clear((C 12 5 10))
+        $blanco = New-Object System.Drawing.SolidBrush((C 222 218 226))
+        if ($ms -lt $VT.Red) {
+            # 1) la pantalla de carga de Gunsaw: su ilustración en blanco y el título; 2) su ficha de especie
+            $lin = New-Object System.Drawing.Pen((ARGB 18 255 255 255), 1); for ($y = 0; $y -lt $H; $y += 3) { $g.DrawLine($lin, 0, $y, $W, $y) }; $lin.Dispose()
+            if ($script:viCarga) {
+                $ch = $H * 0.9; $cw = $script:viCarga.Width * $ch / $script:viCarga.Height
+                $cm = New-Object System.Drawing.Imaging.ColorMatrix; $cm.Matrix33 = [float][Math]::Min(1.0, $ms / 700.0)
+                $ia = New-Object System.Drawing.Imaging.ImageAttributes; $ia.SetColorMatrix($cm)
+                $g.DrawImage($script:viCarga, (New-Object System.Drawing.Rectangle([int]($W - $cw - 30), [int](($H - $ch) / 2), [int]$cw, [int]$ch)), 0, 0, $script:viCarga.Width, $script:viCarga.Height, [System.Drawing.GraphicsUnit]::Pixel, $ia); $ia.Dispose()
+            }
+            $n = [Math]::Min(6, [Math]::Max(0, [int](($ms - 150) / 80)))
+            Texto-Color $g ('GUNSAW'.Substring(0, $n)) 'Consolas' 30 26 14 (C 230 30 50) (C 20 4 8) 4
+            if ($ms -lt $VT.Ficha) {
+                $g.DrawString(('cargando' + ('.' * ([int]($ms / 300) % 4))), (FntP('Consolas', 10)), (New-Object System.Drawing.SolidBrush((C 150 140 156))), 30, 64)
+            } else {
+                $g.DrawString('VELVET', (FntP('Consolas', 20, [System.Drawing.FontStyle]::Bold)), $blanco, 28, 56)
+                $f9 = FntP('Consolas', 9)
+                $lineas = @($k.IntroLineas)
+                for ($i = 0; $i -lt $lineas.Count; $i++) {
+                    $t0 = $VT.Ficha + 300 + $i * 380; if ($ms -lt $t0) { break }
+                    $nn = [Math]::Min($lineas[$i].Length, [int](($ms - $t0) / 12))
+                    $g.DrawString($lineas[$i].Substring(0, $nn), $f9, $blanco, 30, [float](96 + $i * 16))
+                }
+                $tStats = $VT.Ficha + 300 + $lineas.Count * 380
+                if ($ms -ge $tStats) {
+                    $j = 0; foreach ($s in @($k.IntroStats) + @($k.IntroPie)) { Texto-Marcado $g $s $f9 30 (200 + $j * 16); $j++ }
+                }
+            }
+        } else {
+            # 3) una telaraña crece desde arriba y cubre la pantalla
+            $q = [Math]::Min(1.0, ($ms - $VT.Red) / 1200.0)
+            Vv-Red $g ($W * 0.6) 0 ($H * 1.5 * $q) (ARGB 190 230 225 235) 13 8 172 ([Math]::Max(1, [int](8 * $q)))
+            Vv-Red $g 0 0 ($H * 0.8 * $q) (ARGB 120 230 225 235) 6 0 90 ([Math]::Max(1, [int](5 * $q)))
+            # 4) Velvet baja por su hilo, se para y le brillan los ojos
+            if ($ms -ge $VT.Baja -and $script:viVel) {
+                $q2 = [Math]::Min(1.0, ($ms - $VT.Baja) / 900.0); $ee = 1 - [Math]::Pow(1 - $q2, 3)
+                $vh = $H * 0.92; $vw = $script:viVel.Width * $vh / $script:viVel.Height
+                $vx = $W * 0.74 - $vw / 2 + [Math]::Sin($ms / 700.0) * 3; $vy = (1 - $ee) * (- $vh) + $ee * ($H - $vh)
+                $g.DrawLine((New-Object System.Drawing.Pen((ARGB 200 230 225 235), 1.5)), [float]($vx + $vw * 0.47), 0, [float]($vx + $vw * 0.47), [float]($vy + $vh * 0.06))
+                $g.DrawImage($script:viVel, [float]$vx, [float]$vy, [float]$vw, [float]$vh)
+                $al = [Math]::Max(0.0, [Math]::Min(1.0, ($ms - $VT.Baja - 900) / 400.0))
+                if ($al -gt 0) {
+                    foreach ($o in $k.Ojos) {
+                        $ox = $vx + $o[0] * $vw; $oy = $vy + $o[1] * $vh; $rad = 12 * $o[2]
+                        $gp = New-Object System.Drawing.Drawing2D.GraphicsPath; $gp.AddEllipse([float]($ox - $rad), [float]($oy - $rad), [float](2 * $rad), [float](2 * $rad))
+                        $brillo = New-Object System.Drawing.Drawing2D.PathGradientBrush($gp); $brillo.CenterColor = (ARGB ([int](230 * $al)) 255 40 60); $brillo.SurroundColors = [System.Drawing.Color[]]@((ARGB 0 255 0 30))
+                        $g.FillPath($brillo, $gp); $brillo.Dispose(); $gp.Dispose()
+                    }
+                }
+            }
+            if ($ms -ge $VT.Nombre) {
+                $q = [Math]::Min(1.0, ($ms - $VT.Nombre) / 400.0); $ee = 1 - [Math]::Pow(1 - $q, 3)
+                Texto-Color $g 'VELVET' 'Consolas' 54 (36 - (1 - $ee) * 320) 60 (C 236 228 232) (C 140 10 30) 8
+                if ($ms -ge $VT.Nombre + 450) { Texto-Color $g 'Arachnid  ·  14/14 species  ·  Gunsaw' 'Consolas' 13 42 132 (C 230 60 80) (C 20 4 8) 4 }
+                if ($ms -ge $VT.Nombre + 1000) {
+                    $txt = 'Hola, cielo... ¿te has perdido?'; $n = [Math]::Min($txt.Length, [int](($ms - $VT.Nombre - 1000) / 60))
+                    Texto-Color $g $txt.Substring(0, $n) 'Segoe UI' 19 44 170 (C 255 255 255) (C 90 10 30) 5
+                }
+            }
+        }
+        $blanco.Dispose()
+        # sale del negro al principio
+        if ($ms -lt 400) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](255 * (1 - $ms / 400.0)), 0, 0, 0))), 0, 0, $W, $H) }
     }
-    # al final se abre como dos puertas desde el centro
     $alTick = {
         param($ov, $p)
-        if ($p -gt 50) {
-            $W = $ov.Width; $H = $ov.Height; $banda = [int]($W * ($p - 50) / 10)
+        $VT = $VvIntro
+        if ($p -eq 1) { $script:viT0 = [Environment]::TickCount; Vv-Reset; Vv-Musica-On }
+        $ms = [Environment]::TickCount - $script:viT0
+        foreach ($ev in @(@($VT.Red, 'escupe'), @($VT.Baja, 'siseo'), @(($VT.Baja + 900), 'latido'))) {
+            if ($ms -ge $ev[0] -and -not $script:viHechos.ContainsKey($ev[1])) { $script:viHechos[$ev[1]] = $true; Sonido $ev[1] }
+        }
+        if ($ms -gt $VT.Fin -and $script:iPaso -lt $script:iTotal - 7) { $script:iPaso = $script:iTotal - 7 }
+        if ($p -gt $script:iTotal - 7) { $ov.Top -= [int]($ov.Height / 5) }
+    }
+    Intro-Overlay 400 $pintar $alTick $final
+}
+
+# --- intro de Angela: el logo de Lobotomy Corporation, el cartel del día con Angela en su silla y ella en la sala de monitores ---
+# La música es la suya (Neutral01): empieza con la intro y sigue sonando después. Al final se abre como dos puertas.
+$AgIntro = @{ Dia = 2600; Angela = 5400; Nombre = 6000; Fin = 8800 }
+function Transicion-Lobo($final) {
+    $k = $script:skin
+    if (-not $script:bmpHexIntro) { $script:bmpHexIntro = Fondo-Hexagonos 616 344 ([System.Drawing.Color]::FromArgb(60, 255, 170, 40)) }
+    $script:aiDia = Cargar-Img $k.IntroDia; $script:aiFondo = Cargar-Img $k.FondoImg; $script:aiAng = Cargar-Img 'skins\angela\a_angela.png'
+    $script:iRecursos = @($script:aiDia, $script:aiFondo, $script:aiAng)
+    $script:aiT0 = 0; $script:aiHechos = @{}
+    $pintar = {
+        param($g, $W, $H, $p)
+        $g.SmoothingMode = 'AntiAlias'; $g.InterpolationMode = 'HighQualityBilinear'; $g.TextRenderingHint = 'AntiAlias'
+        $AT = $AgIntro
+        $ms = if ($script:aiT0 -gt 0) { [Environment]::TickCount - $script:aiT0 } else { 0 }
+        $g.Clear((C 6 8 11))
+        $fmt = New-Object System.Drawing.StringFormat; $fmt.Alignment = 'Center'
+        if ($ms -lt $AT.Dia) {
+            # 1) el logo: hexágonos, LOBOTOMY CORPORATION escribiéndose y el lema
+            $g.DrawImage($script:bmpHexIntro, 0, 0, $W, $H)
+            $t1 = 'LOBOTOMY CORPORATION'; $n = [Math]::Min($t1.Length, [Math]::Max(0, [int](($ms - 200) / 55)))
+            $g.DrawString($t1.Substring(0, $n), (FntP('Bahnschrift', 26, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 255 176 50))), (New-Object System.Drawing.RectangleF(0, ($H / 2 - 64), $W, 46)), $fmt)
+            if ($ms -ge 1500) { $g.DrawString('Face the Fear, Build the Future', (FntP('Bahnschrift', 12)), (New-Object System.Drawing.SolidBrush((C 80 210 200))), (New-Object System.Drawing.RectangleF(0, ($H / 2 - 14), $W, 24)), $fmt) }
+            if ($ms -ge 1900) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 176 50))), [float]($W / 2 - 170), [float]($H / 2 + 18), 340, 2) }
+        } elseif ($ms -lt $AT.Angela -and $script:aiDia) {
+            # 2) Angela en su silla de la sala de control y el cartel rojo del día, como en el juego
+            [void](Dibujar-Cubriendo $g $script:aiDia $W $H (1.0 + ($ms - $AT.Dia) / 12000.0) 0.55 0.5)
+            $q = [Math]::Min(1.0, ($ms - $AT.Dia) / 350.0)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 196 36 36))), [float](24 - (1 - $q) * 200), 22, 168, 48)
+            $g.DrawString("DÍA $($script:aj.AngelaDia)", (FntP('Bahnschrift', 24, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, [float](34 - (1 - $q) * 200), 24)
+            if ($ms -ge $AT.Dia + 900) {
+                $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 170 6 8 11))), 0, ($H - 40), $W, 40)
+                $g.DrawString('Manager conectado.  Angela: en línea.', (FntP('Bahnschrift', 11)), (New-Object System.Drawing.SolidBrush((C 220 232 240))), 24, [float]($H - 32))
+            }
+        } elseif ($script:aiFondo) {
+            # 3) la sala de monitores: Angela entra desde la derecha y sale su nombre
+            [void](Dibujar-Cubriendo $g $script:aiFondo $W $H (1.0 + ($ms - $AT.Angela) / 9000.0) 0.6 0.5)
+            Degradado $g 0 0 ($W * 0.62) $H (ARGB 220 8 10 14) (ARGB 0 8 10 14) 0
+            if ($script:aiAng) {
+                $q = [Math]::Min(1.0, ($ms - $AT.Angela) / 600.0); $ee = 1 - [Math]::Pow(1 - $q, 3)
+                $nh = $H * 0.98; $nw = $script:aiAng.Width * $nh / $script:aiAng.Height
+                $g.DrawImage($script:aiAng, [float]($W * 0.78 - $nw / 2 + (1 - $ee) * $W * 0.4), [float]($H - $nh + [Math]::Sin($ms / 600.0) * 2), [float]$nw, [float]$nh)
+            }
+            if ($ms -ge $AT.Nombre) {
+                $q = [Math]::Min(1.0, ($ms - $AT.Nombre) / 400.0); $ee = 1 - [Math]::Pow(1 - $q, 3)
+                Texto-Color $g 'ANGELA' 'Bahnschrift' 56 (40 - (1 - $ee) * 320) 58 (C 236 240 244) (C 40 30 10) 8
+                $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 176 50))), [float](44 - (1 - $ee) * 320), 128, 230, 3)
+                if ($ms -ge $AT.Nombre + 450) { Texto-Color $g 'Asistente IA  ·  Lobotomy Corporation' 'Bahnschrift' 14 46 138 (C 255 176 50) (C 20 14 4) 4 }
+                if ($ms -ge $AT.Nombre + 1000) {
+                    $txt = 'Buenos días, Manager.'; $n = [Math]::Min($txt.Length, [int](($ms - $AT.Nombre - 1000) / 60))
+                    Texto-Color $g $txt.Substring(0, $n) 'Bahnschrift' 20 48 176 (C 255 255 255) (C 30 40 50) 5
+                }
+            }
+        }
+        # sale del negro al principio
+        if ($ms -lt 500) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](255 * (1 - $ms / 500.0)), 0, 0, 0))), 0, 0, $W, $H) }
+    }
+    $alTick = {
+        param($ov, $p)
+        $AT = $AgIntro
+        if ($p -eq 1) { $script:aiT0 = [Environment]::TickCount; Ag-Reset; Ag-Musica-On }
+        $ms = [Environment]::TickCount - $script:aiT0
+        foreach ($ev in @(@(300, 'trabajo'), @($AT.Dia, 'pebox'), @($AT.Angela, 'fin'))) {
+            if ($ms -ge $ev[0] -and -not $script:aiHechos.ContainsKey($ev[1])) { $script:aiHechos[$ev[1]] = $true; Sonido $ev[1] }
+        }
+        if ($ms -gt $AT.Fin -and $script:iPaso -lt $script:iTotal - 10) { $script:iPaso = $script:iTotal - 10 }
+        # al final se abre como dos puertas desde el centro
+        if ($p -gt $script:iTotal - 10) {
+            $W = $ov.Width; $H = $ov.Height; $banda = [int]($W * ($p - ($script:iTotal - 10)) / 10)
             $reg = New-Object System.Drawing.Region((New-Object System.Drawing.Rectangle(0, 0, $W, $H)))
             $reg.Exclude((New-Object System.Drawing.Rectangle([int](($W - $banda) / 2), 0, $banda, $H)))
             $viejo = $ov.Region; $ov.Region = $reg; if ($viejo) { $viejo.Dispose() }
         }
     }
-    Intro-Overlay 61 $pintar $alTick $final
+    Intro-Overlay 400 $pintar $alTick $final
 }
 
 # --- la mira del francotirador de Mikaela ---
@@ -5343,77 +8491,73 @@ function Transicion-Token($final) {
     Intro-Overlay 74 $pintar $alTick $final
 }
 # --- cinta VHS: pantalla azul, PLAY, escenas del videoclip y el cartel de neón de "Pop Music" ---
+# --- Tetra: la intro del videoclip de "You're Just Like Pop Music" (YonKaGor), sacada tal cual de YouTube: del título
+#     "YOU'RE JUST LIKE POP MUSIC" hasta justo antes de la primera estrofa (segundos 3,8 a 24 del vídeo, sin el aviso
+#     de epilepsia; el modo seguro ya quita las intros). El vídeo va en intro.gif y su audio en intro.mp3.
+#     El reloj es el propio audio, para que imagen y sonido no se separen. Al acabar (o al saltarla) la
+#     instrumental sigue por el mismo punto de la canción. ---
 function Transicion-Pop($final) {
-    $script:ppFotos = @($script:skin.Fotos | ForEach-Object { Cargar-Img $_ })
-    $script:ppImg = Cargar-Img $script:skin.Gif; $script:ppLogo = Cargar-Img $script:skin.Logo
-    $script:ppRosa = Imagen-Color $script:ppImg (C 255 70 190) 300; $script:ppCian = Imagen-Color $script:ppImg (C 60 230 255) 300
-    $script:iRecursos = @($script:ppFotos) + @($script:ppImg, $script:ppLogo, $script:ppRosa, $script:ppCian)
+    $script:ppIntro = Cargar-Img $script:skin.IntroImg
+    $script:ppInfo = if ($script:ppIntro) { Gif-Info $script:ppIntro } else { @{ N = 1; Del = @(100) } }
+    $script:ppMs = 0; foreach ($d in $script:ppInfo.Del) { $script:ppMs += $d }
+    $script:ppT0 = 0; $script:ppSaltar = $false; $script:ppAudio = $null; $script:ppFin = -1
+    $script:iRecursos = @($script:ppIntro)
     $pintar = {
         param($g, $W, $H, $p)
-        $g.SmoothingMode = 'AntiAlias'; $g.InterpolationMode = 'HighQualityBilinear'
-        $rn = New-Object System.Random ($p * 17 + 1)
-        if ($p -ge 8 -and $p -lt 46) { $g.InterpolationMode = 'Bilinear' }
-        $osd = FntP('Consolas', 15, [System.Drawing.FontStyle]::Bold)
-        if ($p -lt 8) {
-            # 1) pantalla azul del vídeo y "PLAY"
-            $g.Clear((C 24 34 196))
-            for ($i = 0; $i -lt 6; $i++) { $y = ($H - 60 + $p * 9 + $i * 7) % $H; $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 120 255 255 255))), $rn.Next(-100, 200), $y, $rn.Next(200, $W), 2) }
-            $g.DrawString('PLAY ▶', $osd, [System.Drawing.Brushes]::White, 26, 22)
-            $g.DrawString('SP', $osd, [System.Drawing.Brushes]::White, ($W - 70), 22)
-        } elseif ($p -lt 46) {
-            # 2) escenas del videoclip con la imagen temblando como una cinta vieja
-            $i = [Math]::Min($script:ppFotos.Count - 1, [int](($p - 8) / 7.6)); $img = $script:ppFotos[$i]
-            if ($img) {
-                $s = [Math]::Max($W / $img.Width, $H / $img.Height); $sw = $W / $s; $sh = $H / $s; $ox = ($img.Width - $sw) / 2; $oy = ($img.Height - $sh) / 2
-                $g.DrawImage($img, (New-Object System.Drawing.RectangleF(0, 0, [float]$W, [float]$H)), (New-Object System.Drawing.RectangleF([float]$ox, [float]$oy, [float]$sw, [float]$sh)), [System.Drawing.GraphicsUnit]::Pixel)
-                # franjas desplazadas
-                for ($k2 = 0; $k2 -lt 3; $k2++) {
-                    $by = $rn.Next(0, [int]($H - 20)); $bh = $rn.Next(4, 18); $dx = $rn.Next(-14, 15)
-                    $g.DrawImage($img, (New-Object System.Drawing.RectangleF([float]$dx, [float]$by, [float]$W, [float]$bh)), (New-Object System.Drawing.RectangleF([float]$ox, [float]($oy + $by / $s), [float]$sw, [float]($bh / $s))), [System.Drawing.GraphicsUnit]::Pixel)
-                }
-            }
-            # banda de "tracking" que baja
-            $ty = (($p * 23) % ($H + 40)) - 20
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 70 255 255 255))), 0, $ty, $W, 8)
-            for ($i2 = 0; $i2 -lt 30; $i2++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 150 255 255 255))), $rn.Next(0, $W), ($ty + $rn.Next(0, 8)), $rn.Next(2, 20), 1) }
-            # al cambiar de escena, un destello
-            if ((($p - 8) % 7.6) -lt 1) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 120 255 255 255))), 0, 0, $W, $H) }
-            $g.DrawString('PLAY ▶', $osd, [System.Drawing.Brushes]::White, 26, 22)
-            $seg = [int](($p - 8) * 0.045 * 10)
-            $g.DrawString(('SP  0:00:{0:00}' -f $seg), $osd, [System.Drawing.Brushes]::White, ($W - 170), 22)
-        } else {
-            # 3) cartel final de neón
-            $img = $script:ppFotos[0]
-            if ($img) { Imagen-Cubrir $g $img 0 0 $W $H 0.5 0.5 }
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 170 30 10 60))), 0, 0, $W, $H)
-            # Tetra entra desde la derecha dejando un rastro de colores
-            $t = [Math]::Min(1.0, ($p - 46) / 7.0); $e = 1 - [Math]::Pow(1 - $t, 3)
-            $th = $H * 0.94; $tw = $script:ppImg.Width * $th / $script:ppImg.Height
-            $tx = $W + 20 - $e * ($tw + 70); $ty = $H - $th + 4 + [Math]::Abs([Math]::Sin($p * 0.4)) * -6
-            Dibujar-RGB $g $script:ppImg $script:ppRosa $script:ppCian $tx $ty $tw $th (3 + (1 - $e) * 22)
-            if ($p -ge 50) {
-                $g.DrawString("you're just like", (FntP('Consolas', 15, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 60, 58)
-                $q = [Math]::Min(1.0, ($p - 50) / 4.0); $al = [int](255 * $q)
-                Texto-Color $g 'Pop Music' 'Brush Script MT' 78 30 76 (ARGB $al 255 92 190) (ARGB ([int]($al * 0.35)) 255 92 190) 16
-                Texto-Color $g 'Pop Music' 'Brush Script MT' 78 30 76 (ARGB $al 90 230 250) (ARGB $al 255 255 255) 2
-            }
-            if ($p -ge 56) {
-                Texto-Color $g 'TETRA' 'Arial Black' 30 64 196 (C 255 255 255) (C 255 92 190) 5
-                $g.DrawString('YonKaGor', (FntP('Consolas', 12, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 255 214 120))), 70, 240)
-            }
-            if ($script:ppLogo -and $p -ge 58) { $g.DrawImage($script:ppLogo, 300, 196, 78, 60) }
-            $sl = New-Object System.Drawing.Pen((ARGB 40 0 0 0), 1); for ($y = 0; $y -lt $H; $y += 3) { $g.DrawLine($sl, 0, $y, $W, $y) }; $sl.Dispose()
-            $g.DrawString($(if ($p -ge 66) { 'STOP ■' } else { 'PLAY ▶' }), $osd, [System.Drawing.Brushes]::White, 26, 18)
-        }
+        $g.Clear([System.Drawing.Color]::Black)
+        $img = $script:ppIntro; if (-not $img) { return }
+        $ms = Tetra-Intro-Ms
+        Gif-Frame $img $script:ppInfo ([int][Math]::Max(0.0, [Math]::Min([double]$ms, [double]($script:ppMs - 1))))
+        $g.InterpolationMode = 'HighQualityBilinear'
+        # detrás, el mismo fotograma ampliado y oscurecido rellena los lados
+        $sc = [Math]::Max([double]($W / $img.Width), [double]($H / $img.Height)); $cw = $img.Width * $sc; $ch = $img.Height * $sc
+        $g.DrawImage($img, [float](($W - $cw) / 2), [float](($H - $ch) / 2), [float]$cw, [float]$ch)
+        $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 175 10 4 24))), 0, 0, $W, $H)
+        # delante, el vídeo entero sin recortar
+        $s = [Math]::Min([double]($W / $img.Width), [double]($H / $img.Height)); $vw = $img.Width * $s; $vh = $img.Height * $s
+        $g.DrawImage($img, [float](($W - $vw) / 2), [float](($H - $vh) / 2), [float]$vw, [float]$vh)
+        # entra desde negro y se funde a negro al final
+        $a = 0.0
+        if ($ms -lt 300) { $a = 1 - $ms / 300.0 }
+        $resta = $script:ppMs - $ms; if ($resta -lt 400) { $a = 1 - $resta / 400.0 }
+        $a = [Math]::Max(0.0, [Math]::Min(1.0, $a))
+        if ($a -gt 0) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ([int](255 * $a)) 0 0 0))), 0, 0, $W, $H) }
     }
     $alTick = {
         param($ov, $p)
-        if ($p -eq 1) { Sonido 'vhs' }
-        if ($p -eq 8) { Sonido 'disco' }
-        if ($p -eq 50) { Sonido 'ping' }
-        if ($p -gt 68) { $ov.Top -= [int]($ov.Height / 5) }
+        if ($script:ppSaltar -or (Tetra-Intro-Ms) -ge $script:ppMs) {
+            Tetra-Intro-Terminar
+            if ($script:iPaso -lt $script:iTotal - 1) { $script:iPaso = $script:iTotal - 1 }
+        }
     }
-    Intro-Overlay 74 $pintar $alTick $final
+    # el vídeo y su audio arrancan a la vez
+    $script:ppT0 = [Environment]::TickCount
+    if ($script:aj.Sonido) {
+        try {
+            $mp = New-Object System.Windows.Media.MediaPlayer
+            $mp.Open([Uri](Ruta $script:skin.IntroAudio)); $mp.Volume = (Tetra-Volumen); $mp.Play()
+            $script:ppAudio = $mp
+        } catch { $script:ppAudio = $null }
+    }
+    Intro-Overlay 2000 $pintar $alTick $final
+    $script:iOv.Add_MouseDown({ $script:ppSaltar = $true })
+    $script:iOv.Cursor = 'Hand'
+}
+# milisegundos de intro: el audio manda; si no hay sonido (o aún no ha arrancado), el reloj del sistema
+function Tetra-Intro-Ms {
+    if ($script:ppT0 -le 0) { return 0 }
+    $ms = [Environment]::TickCount - $script:ppT0
+    if ($script:ppAudio) {
+        try { $pa = $script:ppAudio.Position.TotalMilliseconds; if ($pa -gt 0) { $ms = $pa } } catch {}
+    }
+    return [double]$ms
+}
+# fin de la intro (o SALTAR): se calla el audio del vídeo y la instrumental sigue por donde iba el vídeo
+function Tetra-Intro-Terminar {
+    if ($script:ppFin -ge 0 -or $script:ppT0 -le 0) { return }
+    $ms = [Math]::Min([double](Tetra-Intro-Ms), [double]$script:ppMs); $script:ppFin = $ms
+    if ($script:ppAudio) { try { $script:ppAudio.Stop(); $script:ppAudio.Close() } catch {}; $script:ppAudio = $null }
+    Tetra-Musica-Off; Tetra-Musica-On ([Math]::Max(0.0, [double]($ms + $TetraIntroDesde - $TetraDesfase)))
 }
 # --- Gran: la intro de su personaje en el vídeo de ANTIHUMAN (rayas grises, remolino de pintura, su cara y el busto
 #     con la jeringuilla), tal cual, con su canción. Va por tiempo, no por fotogramas. Un clic la salta. ---
@@ -6001,78 +9145,215 @@ function Yt-Miniatura($g, $img, $inf, $ms, $x, $y, $w, $h, $dur) {
     }
 }
 
-# --- Kennyoung: el cielo del atardecer, su silueta entra con la guitarra y, con un destello, su nombre ---
-# Imágenes de su vídeo: el cielo vacío (intro_cielo), la silueta (intro_silueta) y él en color (intro_kenny).
-# Va sincronizada con el reloj. Momentos (en milisegundos):
-$KyIntro = @{ Silueta = 1300; Acorde = 1750; Destello = 3300; Nombre = 3500; Lema = 4000; Fin = 6300 }
+# --- Kennyoung: su tablero de pegatinas. Se enciende el flexo y, al ritmo de Ready To Say, las escenas de sus
+#     vídeos se pegan una a una en la pared (los cuadros de su camisa); al final él mismo se pega en el centro con su nombre ---
+# Va sincronizada con la canción: el reloj es la posición del audio. Momentos (ms desde el principio de la canción),
+# puestos en sus golpes (un compás dura unos 2760 ms). La canción sigue sonando después en su escena.
+$KyIntro = @{ Flexo = 700; Luz = 860; Kenny = 7300; Nombre = 7640; Fin = 10400
+    Pegatinas = @(
+        @{ Esc = 'animado'; T = 1960; X = 0.15; Y = 0.24; Rot = -9.0 },
+        @{ Esc = 'tranquilo'; T = 2820; X = 0.85; Y = 0.25; Rot = 7.0 },
+        @{ Esc = 'solo'; T = 3340; X = 0.18; Y = 0.73; Rot = 5.0 },
+        @{ Esc = 'cansado'; T = 4540; X = 0.83; Y = 0.74; Rot = -6.0 },
+        @{ Esc = 'agobiado'; T = 5580; X = 0.31; Y = 0.47; Rot = -13.0 }
+    )
+    Palabras = @(
+        @{ Txt = 'MUSIC'; T = 8340; Col = @(255, 110, 170); Rot = -6.0 },
+        @{ Txt = 'ART'; T = 8860; Col = @(110, 235, 140); Rot = 4.0 },
+        @{ Txt = 'VIDEO'; T = 9020; Col = @(255, 236, 200); Rot = -3.0 }
+    ) }
+# el reloj de la intro: la posición de la canción (si aún no suena, espera hasta 1,5 s)
+function Ky-Intro-Ms {
+    if ($script:kyT0 -le 0) { return 0.0 }
+    $t = [double]([Environment]::TickCount - $script:kyT0)
+    if ($script:kyMusica) {
+        try { $pos = $script:kyMusica.Position.TotalMilliseconds; if ($pos -gt 30) { $t = $pos } elseif ($t -lt 1500) { $t = 0.0 } } catch {}
+    }
+    return $t
+}
+# copia un dibujo con su sombra (su silueta en negro, desplazada)
+function Ky-Con-Sombra($bmp, $dx, $dy, $alfa) {
+    $m = 4 + [Math]::Max([Math]::Abs($dx), [Math]::Abs($dy))
+    $out = New-Object System.Drawing.Bitmap(($bmp.Width + 2 * $m), ($bmp.Height + 2 * $m))
+    $g = [System.Drawing.Graphics]::FromImage($out); $g.InterpolationMode = 'HighQualityBilinear'
+    $cm = New-Object System.Drawing.Imaging.ColorMatrix; $cm.Matrix00 = 0; $cm.Matrix11 = 0; $cm.Matrix22 = 0; $cm.Matrix33 = [float]$alfa
+    $ia = New-Object System.Drawing.Imaging.ImageAttributes; $ia.SetColorMatrix($cm)
+    $g.DrawImage($bmp, (New-Object System.Drawing.Rectangle(($m + $dx), ($m + $dy), $bmp.Width, $bmp.Height)), 0, 0, $bmp.Width, $bmp.Height, [System.Drawing.GraphicsUnit]::Pixel, $ia)
+    $g.DrawImage($bmp, $m, $m, $bmp.Width, $bmp.Height)
+    $ia.Dispose(); $g.Dispose(); $bmp.Dispose()
+    return $out
+}
+# una escena de sus vídeos hecha pegatina: borde verde en zigzag y una etiqueta escrita a mano
+function Ky-Pegatina-Escena($img, $w, $h, $texto) {
+    $m = 12; $bmp = New-Object System.Drawing.Bitmap([int]($w + 2 * $m), [int]($h + 2 * $m + 6))
+    $g = [System.Drawing.Graphics]::FromImage($bmp); $g.SmoothingMode = 'AntiAlias'; $g.InterpolationMode = 'HighQualityBilinear'
+    Dibujar-Pegatina $g $m $m $w $h ([System.Drawing.Color]::White)
+    $r = Ruta-Redonda ($m + 4) ($m + 4) ($w - 8) ($h - 8) 7
+    if ($img) { $g.SetClip($r); $g.DrawImage($img, [float]($m + 4), [float]($m + 4), [float]($w - 8), [float]($h - 8)); $g.ResetClip() }
+    $g.DrawPath((New-Object System.Drawing.Pen((C 70 50 45), 1.5)), $r); $r.Dispose()
+    $f = FntP('Segoe Print', 7.5, [System.Drawing.FontStyle]::Bold); $tw = $g.MeasureString($texto, $f).Width
+    $et = Ruta-Redonda ($m + 8) ($m + $h - 16) ($tw + 8) 20 6
+    $g.FillPath((New-Object System.Drawing.SolidBrush((C 255 250 240))), $et); $g.DrawPath((New-Object System.Drawing.Pen((C 70 50 45), 1.5)), $et); $et.Dispose()
+    $g.DrawString($texto, $f, (New-Object System.Drawing.SolidBrush((C 70 50 45))), [float]($m + 12), [float]($m + $h - 17))
+    $g.Dispose()
+    return (Ky-Con-Sombra $bmp 4 5 0.35)
+}
+# él recortado, con un borde verde gordo de pegatina
+function Ky-Pegatina-Recorte($img, $h) {
+    $w = [int]($img.Width * $h / $img.Height); $h = [int]$h; $m = 10
+    $bmp = New-Object System.Drawing.Bitmap(($w + 2 * $m), ($h + 2 * $m))
+    $g = [System.Drawing.Graphics]::FromImage($bmp); $g.InterpolationMode = 'HighQualityBilinear'
+    $cm = New-Object System.Drawing.Imaging.ColorMatrix; $cm.Matrix00 = 0; $cm.Matrix11 = 0; $cm.Matrix22 = 0
+    $cm.Matrix40 = [float](110 / 255.0); $cm.Matrix41 = [float](235 / 255.0); $cm.Matrix42 = [float](140 / 255.0)
+    $ia = New-Object System.Drawing.Imaging.ImageAttributes; $ia.SetColorMatrix($cm)
+    for ($i = 0; $i -lt 16; $i++) {
+        $an = $i * [Math]::PI / 8; $ox = [int]([Math]::Cos($an) * 7); $oy = [int]([Math]::Sin($an) * 7)
+        $g.DrawImage($img, (New-Object System.Drawing.Rectangle(($m + $ox), ($m + $oy), $w, $h)), 0, 0, $img.Width, $img.Height, [System.Drawing.GraphicsUnit]::Pixel, $ia)
+    }
+    $g.DrawImage($img, $m, $m, $w, $h)
+    $ia.Dispose(); $g.Dispose()
+    return (Ky-Con-Sombra $bmp 5 6 0.35)
+}
+# su nombre como pegatina: letras crema, contorno oscuro y borde verde
+function Ky-Pegatina-Nombre($txt, $tam) {
+    $path = New-Object System.Drawing.Drawing2D.GraphicsPath
+    $path.AddString($txt, (Familia 'Arial Black'), 0, [float]$tam, (New-Object System.Drawing.PointF(0, 0)), [System.Drawing.StringFormat]::GenericTypographic)
+    $bb = $path.GetBounds(); $m = 14
+    $bmp = New-Object System.Drawing.Bitmap([int]($bb.Width + 2 * $m), [int]($bb.Height + 2 * $m))
+    $g = [System.Drawing.Graphics]::FromImage($bmp); $g.SmoothingMode = 'AntiAlias'
+    $g.TranslateTransform([float]($m - $bb.X), [float]($m - $bb.Y))
+    foreach ($pp in @(@(16, (C 110 235 140)), @(5, (C 70 50 45)))) { $pn = New-Object System.Drawing.Pen($pp[1], [float]$pp[0]); $pn.LineJoin = 'Round'; $g.DrawPath($pn, $path); $pn.Dispose() }
+    $g.FillPath((New-Object System.Drawing.SolidBrush((C 255 244 246))), $path)
+    $path.Dispose(); $g.Dispose()
+    return (Ky-Con-Sombra $bmp 4 5 0.35)
+}
+# una etiqueta de papel con una palabra
+function Ky-Etiqueta($txt, $col) {
+    $f = FntP('Arial Black', 11); $tmp = New-Object System.Drawing.Bitmap(1, 1); $gt = [System.Drawing.Graphics]::FromImage($tmp)
+    $tw = [int]$gt.MeasureString($txt, $f).Width; $gt.Dispose(); $tmp.Dispose()
+    $bmp = New-Object System.Drawing.Bitmap(($tw + 22), 34)
+    $g = [System.Drawing.Graphics]::FromImage($bmp); $g.SmoothingMode = 'AntiAlias'; $g.TextRenderingHint = 'AntiAliasGridFit'
+    $r = Ruta-Redonda 2 2 ($tw + 16) 28 6
+    $g.FillPath((New-Object System.Drawing.SolidBrush((C $col[0] $col[1] $col[2]))), $r); $g.DrawPath((New-Object System.Drawing.Pen((C 70 50 45), 2)), $r); $r.Dispose()
+    $g.DrawString($txt, $f, (New-Object System.Drawing.SolidBrush((C 46 34 30))), 9, 6)
+    $g.Dispose()
+    return (Ky-Con-Sombra $bmp 3 4 0.35)
+}
+# dibuja una pegatina que cae y se pega en (cx, cy) justo en el momento t0 (y rebota un poco)
+function Ky-Pegar($g, $bmp, $cx, $cy, $rot, $ms, $t0, $escala) {
+    $d = $ms - $t0; if ($d -lt -140 -or -not $bmp) { return }
+    if ($d -lt 0) { $q = - $d / 140.0; $s = 1 + 0.9 * $q * $q; $al = 1 - 0.75 * $q; $rot = $rot - 18 * $q }
+    else { $s = 1 + 0.06 * [Math]::Sin($d / 28.0) * [Math]::Exp(- $d / 90.0); $al = 1.0 }
+    $s = $s * $escala
+    $st = $g.Save(); $g.TranslateTransform([float]$cx, [float]$cy); $g.RotateTransform([float]$rot); $g.ScaleTransform([float]$s, [float]$s)
+    $w = $bmp.Width; $h = $bmp.Height
+    if ($al -ge 0.999) { $g.DrawImage($bmp, [float](- $w / 2), [float](- $h / 2), [float]$w, [float]$h) }
+    else {
+        $cm = New-Object System.Drawing.Imaging.ColorMatrix; $cm.Matrix33 = [float]$al
+        $ia = New-Object System.Drawing.Imaging.ImageAttributes; $ia.SetColorMatrix($cm)
+        $g.DrawImage($bmp, (New-Object System.Drawing.Rectangle([int](- $w / 2), [int](- $h / 2), $w, $h)), 0, 0, $w, $h, [System.Drawing.GraphicsUnit]::Pixel, $ia); $ia.Dispose()
+    }
+    $g.Restore($st)
+}
+# chispas de colores que salen al pegar
+function Ky-Chispas($g, $cx, $cy, $d, $n, $rad) {
+    if ($d -lt 0 -or $d -gt 520) { return }
+    $q = $d / 520.0; $al = [int](230 * (1 - $q)); $avance = 1 - [Math]::Pow(1 - $q, 3)
+    for ($i = 0; $i -lt $n; $i++) {
+        $an = $i * 2 * [Math]::PI / $n + 0.4; $r = $rad + 46 * $avance
+        $x = $cx + [Math]::Cos($an) * $r * 1.5; $y = $cy + [Math]::Sin($an) * $r
+        $col = switch ($i % 3) { 0 { [System.Drawing.Color]::FromArgb($al, 255, 110, 170) } 1 { [System.Drawing.Color]::FromArgb($al, 110, 235, 140) } default { [System.Drawing.Color]::FromArgb($al, 255, 244, 200) } }
+        $sz = 7 * (1 - $q) + 2
+        $b = New-Object System.Drawing.SolidBrush($col); $g.FillEllipse($b, [float]($x - $sz / 2), [float]($y - $sz / 2), [float]$sz, [float]$sz); $b.Dispose()
+    }
+}
+# la luz del flexo: un círculo de luz cálida que se balancea; fuera, la habitación a oscuras
+function Ky-Flexo($g, $W, $H, $ms, $oscuro) {
+    $cx = $W * 0.5 + [Math]::Sin($ms / 900.0) * 18; $cy = $H * 0.12; $rx = $W * 0.62; $ry = $H * 0.95
+    $gp = New-Object System.Drawing.Drawing2D.GraphicsPath; $gp.AddEllipse([float]($cx - $rx), [float]($cy - $ry), [float](2 * $rx), [float](2 * $ry))
+    $modo = $g.SmoothingMode; $g.SmoothingMode = 'None'   # sin suavizado: así no quedan rayas en el borde de la luz
+    $rg = New-Object System.Drawing.Region((New-Object System.Drawing.RectangleF(-20, -20, ($W + 40), ($H + 40)))); $rg.Exclude($gp)
+    $g.FillRegion((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb($oscuro, 12, 8, 10))), $rg); $rg.Dispose()
+    $pg = New-Object System.Drawing.Drawing2D.PathGradientBrush($gp); $pg.CenterPoint = New-Object System.Drawing.PointF([float]$cx, [float]$cy)
+    $pg.CenterColor = [System.Drawing.Color]::FromArgb(0, 255, 210, 150); $pg.SurroundColors = @([System.Drawing.Color]::FromArgb($oscuro, 12, 8, 10))
+    $pg.FocusScales = New-Object System.Drawing.PointF(0.35, 0.35)
+    $g.FillPath($pg, $gp); $pg.Dispose(); $gp.Dispose(); $g.SmoothingMode = $modo
+    # la lámpara colgando del techo
+    $g.DrawLine((New-Object System.Drawing.Pen((C 40 30 28), 2)), [float]$cx, 0, [float]$cx, 14)
+    $pts = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]($cx - 9), 13)), (New-Object System.Drawing.PointF([float]($cx + 9), 13)), (New-Object System.Drawing.PointF([float]($cx + 24), 31)), (New-Object System.Drawing.PointF([float]($cx - 24), 31)))
+    $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 110 235 140))), $pts); $g.DrawPolygon((New-Object System.Drawing.Pen((C 46 34 30), 2)), $pts)
+    $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 255 246 210))), [float]($cx - 8), 26, 16, 10)
+}
 function Transicion-Punk($final) {
-    $script:kiCielo = Cargar-Img 'skins\kennyoung\intro_cielo.jpg'; $script:kiSil = Cargar-Img 'skins\kennyoung\intro_silueta.png'; $script:kiKenny = Cargar-Img 'skins\kennyoung\intro_kenny.png'
-    $script:iRecursos = @($script:kiCielo, $script:kiSil, $script:kiKenny)
+    $W0 = [int]($form.ClientSize.Width / $script:K); $H0 = [int]($form.ClientSize.Height / $script:K); $T = $KyIntro
+    # todo se prepara antes: la pared, las pegatinas, él y su nombre
+    $script:kiPared = New-Object System.Drawing.Bitmap(($W0 + 24), ($H0 + 24))
+    $gp = [System.Drawing.Graphics]::FromImage($script:kiPared); Dibujar-Cuadros $gp 0 0 ($W0 + 24) ($H0 + 24); $gp.Dispose()
+    $pw = [int]($W0 * 0.2); $ph = [int]($pw * 444 / 712)
+    $script:kiPeg = @(foreach ($pg in $T.Pegatinas) { Ky-Pegatina-Escena (Ky-Img $pg.Esc) $pw $ph $KyEscenas[$pg.Esc].Nombre })
+    $ik = Cargar-Img 'skins\kennyoung\intro_kenny.png'
+    $script:kiKenny = if ($ik) { Ky-Pegatina-Recorte $ik ($H0 * 0.86) } else { $null }
+    if ($ik) { $ik.Dispose() }
+    $script:kiNombre = Ky-Pegatina-Nombre 'KENNYOUNG' (50 * $W0 / 760.0)
+    $script:kiPal = @(foreach ($pl in $T.Palabras) { Ky-Etiqueta $pl.Txt $pl.Col })
+    $script:iRecursos = @($script:kiPared, $script:kiKenny, $script:kiNombre) + $script:kiPeg + $script:kiPal
+    # los sonidos: el clic del flexo y un golpe por cada pegatina
+    $ev = New-Object System.Collections.ArrayList
+    [void]$ev.Add(@{ T = $T.Flexo; Id = 'flexo'; Son = 'flexo' })
+    $i = 0; foreach ($pg in $T.Pegatinas) { [void]$ev.Add(@{ T = $pg.T; Id = "p$i"; Son = 'pegar' }); $i++ }
+    [void]$ev.Add(@{ T = $T.Kenny; Id = 'kenny'; Son = 'pegar' }); [void]$ev.Add(@{ T = $T.Nombre; Id = 'nombre'; Son = 'pegar' })
+    $i = 0; foreach ($pl in $T.Palabras) { [void]$ev.Add(@{ T = $pl.T; Id = "w$i"; Son = 'pegar' }); $i++ }
+    $script:kiEventos = $ev.ToArray()
     $script:kyT0 = 0; $script:kyHechos = @{}
-    $r = New-Object System.Random 3
-    $script:kiEstrellas = @(for ($i = 0; $i -lt 40; $i++) { @{ X = $r.NextDouble(); Y = $r.NextDouble() * 0.5; F = $r.NextDouble() * 6; S = 1 + $r.NextDouble() * 1.6 } })
     $pintar = {
         param($g, $W, $H, $p)
         $g.SmoothingMode = 'AntiAlias'; $g.InterpolationMode = 'HighQualityBilinear'
-        $T = $KyIntro
-        $ms = if ($script:kyT0 -gt 0) { [Environment]::TickCount - $script:kyT0 } else { 0 }
-        # 1) el cielo del atardecer, moviéndose despacio, con estrellas que parpadean
-        $z = 1.08 - [Math]::Min(1.0, $ms / 6000.0) * 0.06
-        if ($script:kiCielo) { [void](Dibujar-Cubriendo $g $script:kiCielo $W $H $z 0.3 0.5) }
-        foreach ($e in $script:kiEstrellas) {
-            $al = [int](110 + 110 * [Math]::Sin($ms / 260.0 + $e.F))
-            $g.FillEllipse((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Max(0, $al), 255, 240, 250))), [float]($e.X * $W), [float]($e.Y * $H), [float]$e.S, [float]$e.S)
+        $T = $KyIntro; $ms = Ky-Intro-Ms
+        $g.Clear([System.Drawing.Color]::Black)
+        if ($ms -lt $T.Flexo -or ($ms -ge $T.Flexo + 60 -and $ms -lt $T.Luz)) { return }   # a oscuras (y el parpadeo al encender)
+        # la pared tiembla un poco con cada golpe
+        $sh = 0.0
+        foreach ($e in $script:kiEventos) {
+            $d = $ms - $e.T
+            if ($e.Id -ne 'flexo' -and $d -ge 0 -and $d -lt 160) { $amp = if ($e.Id -eq 'kenny') { 9 } else { 3.5 }; $sh += $amp * (1 - $d / 160.0) * [Math]::Sin($d / 14.0) }
         }
-        # el personaje: misma caja para la silueta y para él en color
-        $kh = $H * 0.93; $kx = $W * 0.73
-        if ($ms -ge $T.Silueta -and $ms -lt $T.Destello -and $script:kiSil) {
-            # 2) su silueta entra desde la derecha y se balancea con la guitarra
-            $tq = [Math]::Min(1.0, ($ms - $T.Silueta) / 450.0); $e = 1 - [Math]::Pow(1 - $tq, 3)
-            $sw = $script:kiSil.Width * $kh / $script:kiSil.Height
-            $bx = $kx - $sw / 2 + (1 - $e) * ($W * 0.5); $by = $H - $kh + [Math]::Sin($ms / 300.0) * 2
-            # brillo rosa detrás al tocar el acorde
-            if ($ms -ge $T.Acorde) {
-                $q = [Math]::Min(1.0, ($ms - $T.Acorde) / 500.0)
-                $gp = New-Object System.Drawing.Drawing2D.GraphicsPath; $gp.AddEllipse([float]($kx - $sw * 0.7), [float]($H * 0.1), [float]($sw * 1.4), [float]($H * 1.0))
-                $pg = New-Object System.Drawing.Drawing2D.PathGradientBrush($gp); $pg.CenterColor = [System.Drawing.Color]::FromArgb([int](140 * (1 - $q * 0.5)), 255, 150, 200); $pg.SurroundColors = @([System.Drawing.Color]::FromArgb(0, 255, 150, 200))
-                $g.FillPath($pg, $gp); $pg.Dispose(); $gp.Dispose()
-            }
-            $g.DrawImage($script:kiSil, [float]$bx, [float]$by, [float]$sw, [float]$kh)
+        $st0 = $g.Save(); $g.TranslateTransform([float]$sh, [float]($sh * 0.5))
+        $g.DrawImage($script:kiPared, -12, -12, ($W + 24), ($H + 24))
+        # 1) las escenas de sus vídeos, una por golpe
+        for ($i = 0; $i -lt $T.Pegatinas.Count; $i++) {
+            $pg = $T.Pegatinas[$i]; $cx = $W * $pg.X; $cy = $H * $pg.Y
+            Ky-Pegar $g $script:kiPeg[$i] $cx $cy $pg.Rot $ms $pg.T 1.0
+            Ky-Chispas $g $cx $cy ($ms - $pg.T) 8 ($script:kiPeg[$i].Height * 0.42)
         }
-        if ($ms -ge $T.Nombre -and $script:kiKenny) {
-            # 3) él en color y su nombre, que entra deslizando, inclinado
-            $q = [Math]::Min(1.0, ($ms - $T.Nombre) / 350.0); $e = 1 - [Math]::Pow(1 - $q, 3)
-            $cw = $script:kiKenny.Width * $kh / $script:kiKenny.Height
-            $g.DrawImage($script:kiKenny, [float]($kx - $cw / 2 + (1 - $e) * 30), [float]($H - $kh + [Math]::Sin($ms / 300.0) * 2), [float]$cw, [float]$kh)
-            $nx = 40 - (1 - $e) * 520; $ny = $H * 0.36
-            $st = $g.Save(); $g.TranslateTransform([float]$nx, [float]$ny)
-            $sesgo = New-Object System.Drawing.Drawing2D.Matrix(1, 0, -0.22, 1, 0, 0); $g.MultiplyTransform($sesgo)
-            # brillo rosa y letras blancas, como en su vídeo
-            $path = New-Object System.Drawing.Drawing2D.GraphicsPath
-            $path.AddString('KENNYOUNG', (Familia 'Arial Black'), 0, 58, (New-Object System.Drawing.PointF(0, 0)), [System.Drawing.StringFormat]::GenericDefault)
-            foreach ($gr in @(@(22, 40), @(14, 70), @(7, 110))) { $pn = New-Object System.Drawing.Pen([System.Drawing.Color]::FromArgb($gr[1], 255, 110, 170), [float]$gr[0]); $pn.LineJoin = 'Round'; $g.DrawPath($pn, $path); $pn.Dispose() }
-            $g.FillPath((New-Object System.Drawing.SolidBrush((C 255 244 246))), $path); $path.Dispose()
-            if ($ms -ge $T.Lema) {
-                $lema = 'MUSIC, ART, VIDEO'; $n = [Math]::Min($lema.Length, [int](($ms - $T.Lema) / 45))
-                $g.DrawString($lema.Substring(0, $n), (FntP('Arial', 12, ([System.Drawing.FontStyle]::Bold -bor [System.Drawing.FontStyle]::Italic))), (New-Object System.Drawing.SolidBrush((C 255 236 240))), 70, 74)
-            }
-            $g.Restore($st)
+        # 2) él, en el centro, que late con la música
+        if ($script:kiKenny) {
+            $kd = $ms - $T.Kenny; $pulso = 1.0
+            if ($kd -gt 300) { $pulso = 1 + 0.02 * [Math]::Exp(- (($kd % 690) / 110.0)) }
+            Ky-Pegar $g $script:kiKenny ($W * 0.5) ($H - $script:kiKenny.Height / 2 + 14) 0.0 $ms $T.Kenny $pulso
+            Ky-Chispas $g ($W * 0.5) ($H * 0.5) $kd 14 ($H * 0.36)
         }
-        # el destello blanco entre la silueta y él en color
-        if ($ms -ge $T.Destello -and $ms -lt $T.Nombre + 400) {
-            $q = ($ms - $T.Destello) / [double]($T.Nombre + 400 - $T.Destello); $al = if ($q -lt 0.35) { $q / 0.35 } else { 1 - ($q - 0.35) / 0.65 }
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](255 * [Math]::Max(0, [Math]::Min(1, $al))), 255, 255, 255))), 0, 0, $W, $H)
+        # 3) su nombre y MUSIC · ART · VIDEO
+        Ky-Pegar $g $script:kiNombre ($W * 0.5) ($H * 0.79) -4.0 $ms $T.Nombre 1.0
+        for ($i = 0; $i -lt $T.Palabras.Count; $i++) {
+            $pl = $T.Palabras[$i]
+            Ky-Pegar $g $script:kiPal[$i] ($W * 0.5 + ($i - 1) * 86) ($H * 0.93) $pl.Rot $ms $pl.T 1.0
         }
-        # al principio sale del negro
-        if ($ms -lt 600) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](255 * (1 - $ms / 600.0)), 0, 0, 0))), 0, 0, $W, $H) }
+        $g.Restore($st0)
+        # la luz del flexo (al pegarse él, la habitación se ilumina más)
+        $osc = 225
+        if ($ms -ge $T.Kenny) { $osc = [int](225 - 95 * [Math]::Min(1.0, ($ms - $T.Kenny) / 400.0)) }
+        Ky-Flexo $g $W $H $ms $osc
+        # un destello al pegarse él
+        $fd = $ms - $T.Kenny
+        if ($fd -ge 0 -and $fd -lt 220 -and -not $script:aj.Epilepsia) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](150 * (1 - $fd / 220.0)), 255, 255, 255))), 0, 0, $W, $H) }
     }
     $alTick = {
         param($ov, $p)
         $T = $KyIntro
-        if ($p -eq 1) { $script:kyT0 = [Environment]::TickCount }
-        $ms = [Environment]::TickCount - $script:kyT0
-        foreach ($ev in @(@($T.Acorde, 'acorde'), @($T.Destello, 'riff'))) {
-            if ($ms -ge $ev[0] -and -not $script:kyHechos.ContainsKey($ev[1])) { $script:kyHechos[$ev[1]] = $true; Sonido $ev[1] }
+        if ($p -eq 1) { $script:kyT0 = [Environment]::TickCount; Ky-Reset; Ky-Poner-Musica 'readytosay' 0 }
+        $ms = Ky-Intro-Ms
+        foreach ($ev in $script:kiEventos) {
+            if ($ms -ge $ev.T - 30 -and -not $script:kyHechos.ContainsKey($ev.Id)) { $script:kyHechos[$ev.Id] = $true; Sonido $ev.Son }
         }
         if ($ms -gt $T.Fin -and $script:iPaso -lt $script:iTotal - 7) { $script:iPaso = $script:iTotal - 7 }
         if ($p -gt $script:iTotal - 7) { $ov.Top -= [int]($ov.Height / 5) }
@@ -6252,6 +9533,271 @@ function Transicion-Knight($final) {
     Intro-Overlay 400 $pintar $alTick $final
 }
 
+# --- Dybbuk: "Them Kitty Bones" (la canción del Boneyard). La cámara entra por la puerta del cementerio, Dybbuk se asoma
+#     detrás de las lápidas, todo se queda a oscuras ("Ni la Muerte puede atraparme..."), sale su presentación de jefe
+#     y un lametazo gigante limpia la pantalla ---
+# Va sincronizada con el reloj (la música es un trozo de 18 s de la canción). Momentos (en milisegundos):
+$DyIntro = @{ Titulo = 700; Asoma1 = 3200; Colina = 6300; Asoma2 = 7900; Asoma3 = 10000; Oscuro = 12700; Jefe = 14200; Lengua = 16900; Fin = 18100 }
+# Dybbuk se asoma: sube desde abajo, mira y vuelve a esconderse (se dibuja antes del marco de lápidas, que lo tapa por abajo)
+function Dy-Asoma($g, $cx, $base, $alto, $tt, $dur) {
+    $img = $script:yiAsoma; if (-not $img -or $tt -lt 0 -or $tt -gt $dur) { return }
+    Gif-Frame $img $script:yiAsomaInf $tt
+    $sube = [Math]::Min(1.0, [Math]::Min($tt / 260.0, ($dur - $tt) / 260.0))
+    $iw = $img.Width * $alto / $img.Height
+    $g.DrawImage($img, [float]($cx - $iw / 2), [float]($base - $alto * $sube), [float]$iw, [float]$alto)
+}
+function Transicion-Dybbuk($final) {
+    $k = $script:skin
+    $script:yiPuerta = Cargar-Img $k.IntroPuerta; $script:yiColina = Cargar-Img $k.IntroColina; $script:yiJefe = Cargar-Img $k.IntroJefe
+    $script:yiMarco = Cargar-Img $k.IntroMarco; $script:yiAsoma = Cargar-Img $k.IntroAsoma; $script:yiLapida = Cargar-Img $k.Lapida; $script:yiWisp = Cargar-Img $k.Wisp
+    $script:yiAsomaInf = Gif-Info $script:yiAsoma
+    $script:iRecursos = @($script:yiPuerta, $script:yiColina, $script:yiJefe, $script:yiMarco, $script:yiAsoma, $script:yiLapida, $script:yiWisp)
+    $script:yiT0 = 0; $script:yiHechos = @{}
+    $pintar = {
+        param($g, $W, $H, $p)
+        $g.SmoothingMode = 'AntiAlias'; $g.InterpolationMode = 'HighQualityBilinear'; $g.TextRenderingHint = 'AntiAlias'
+        $YT = $DyIntro
+        $ms = if ($script:yiT0 -gt 0) { [Environment]::TickCount - $script:yiT0 } else { 0 }
+        $g.Clear([System.Drawing.Color]::Black)
+        if ($ms -lt $YT.Oscuro) {
+            if ($ms -lt $YT.Colina) {
+                # 1) la puerta del cementerio: la cámara avanza despacio por el camino
+                if ($script:yiPuerta) { [void](Dibujar-Cubriendo $g $script:yiPuerta $W $H (1.0 + ($ms / $YT.Colina) * 0.22) 0.5 0.6) }
+                Dy-Asoma $g ($W * 0.78) ($H * 0.98) ($H * 0.42) ($ms - $YT.Asoma1) 1900
+            } else {
+                # 2) la colina del jefe bajo la luna, con fuegos fatuos flotando
+                if ($script:yiColina) { [void](Dibujar-Cubriendo $g $script:yiColina $W $H (1.10 - (($ms - $YT.Colina) / ($YT.Oscuro - $YT.Colina)) * 0.08) 0.5 0.5) }
+                if ($script:yiWisp) {
+                    foreach ($q in @(@(0.18, 0.0), @(0.47, 2.1), @(0.83, 4.2))) {
+                        $fx = $W * $q[0] + [Math]::Sin($ms / 900.0 + $q[1]) * 18; $fy = $H * 0.42 + [Math]::Sin($ms / 500.0 + $q[1]) * 12
+                        Dy-Img $g $script:yiWisp $fx $fy 26 40 0.75
+                    }
+                }
+                Dy-Asoma $g ($W * 0.17) ($H * 0.98) ($H * 0.54) ($ms - $YT.Asoma2) 1800
+                Dy-Asoma $g ($W * 0.80) ($H * 0.98) ($H * 0.46) ($ms - $YT.Asoma3) 2300
+            }
+            # el marco de árboles y lápidas negras por delante de todo
+            if ($script:yiMarco) { [void](Dibujar-Cubriendo $g $script:yiMarco $W $H 1.0 0.5 0.62) }
+            # cartel del capítulo, como en el mapa del juego
+            if ($ms -ge $YT.Titulo -and $ms -lt $YT.Titulo + 4600) {
+                $tq = $ms - $YT.Titulo; $al = [Math]::Min(1.0, [Math]::Min($tq / 500.0, (4600 - $tq) / 600.0))
+                if ($script:yiLapida) { Dy-Img $g $script:yiLapida 22 18 56 64 $al }
+                Texto-Contorno $g 'CAPÍTULO 3' 'EdmundMcMillen_INTLv4' 14 88 24 (C 150 172 186) 3 ([int](255 * $al))
+                Texto-Contorno $g 'THE BONEYARD' 'EdmundMcMillen_INTLv4' 30 86 42 (C 236 234 226) 5 ([int](255 * $al))
+            }
+            # "¡Cucú!" cuando se asoma por tercera vez
+            if ($ms -ge $YT.Asoma3 + 300 -and $ms -lt $YT.Asoma3 + 2000) { Texto-Contorno $g '¡Cucú!' 'EdmundMcMillen_INTLv4' 26 ($W * 0.80 - 100) ($H * 0.40) (C 236 234 226) 5 }
+            # se apaga la luz
+            if ($ms -gt $YT.Oscuro - 700) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int][Math]::Min(255, ($ms - $YT.Oscuro + 700) * 255 / 700), 0, 0, 0))), 0, 0, $W, $H) }
+        } elseif ($ms -lt $YT.Jefe) {
+            # 3) a oscuras: la frase letra a letra y dos ojos que se abren
+            $frase = 'Ni la Muerte puede atraparme...'
+            $n = [Math]::Max(0, [Math]::Min($frase.Length, [int](($ms - $YT.Oscuro - 150) / 32)))
+            $tw = Ancho-Texto $frase 'EdmundMcMillen_INTLv4' 22
+            Texto-Contorno $g $frase.Substring(0, $n) 'EdmundMcMillen_INTLv4' 22 ($W / 2 - $tw / 2) ($H * 0.66) (C 236 234 226) 3
+            $ab = [Math]::Max(0.0, [Math]::Min(1.0, ($ms - $YT.Oscuro - 500) / 400.0))
+            foreach ($ox in @(-38, 38)) { $g.FillEllipse([System.Drawing.Brushes]::WhiteSmoke, [float]($W / 2 + $ox - 22), [float]($H * 0.40 - 10 * $ab), 44, [float](20 * $ab)); $g.FillRectangle([System.Drawing.Brushes]::Black, [float]($W / 2 + $ox - 2), [float]($H * 0.40 - 9 * $ab), 4, [float](18 * $ab)) }
+        } else {
+            # 4) la presentación del jefe, como en el juego: rayos, su arte de jefe y su nombre
+            $tq = $ms - $YT.Jefe
+            $sx = 0; $sy = 0; if ($tq -lt 450) { $sx = $Rnd.Next(-8, 9); $sy = $Rnd.Next(-6, 7) }
+            $st = $g.Save(); $g.TranslateTransform([float]$sx, [float]$sy)
+            $g.Clear((C 46 50 60))
+            $rayo = New-Object System.Drawing.SolidBrush((C 60 66 80)); $cx = $W * 0.66; $cy = $H * 0.55
+            for ($i = 0; $i -lt 12; $i++) {
+                $a1 = $i * [Math]::PI / 6 + $tq / 2400.0; $a2 = $a1 + [Math]::PI / 12
+                $g.FillPolygon($rayo, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$cx, [float]$cy)), (New-Object System.Drawing.PointF([float]($cx + [Math]::Cos($a1) * 1200), [float]($cy + [Math]::Sin($a1) * 1200))), (New-Object System.Drawing.PointF([float]($cx + [Math]::Cos($a2) * 1200), [float]($cy + [Math]::Sin($a2) * 1200)))))
+            }
+            $rayo.Dispose()
+            # el arte entra desde la derecha con un pequeño rebote
+            $q = [Math]::Min(1.0, $tq / 380.0); $ease = 1 + 2.2 * [Math]::Pow($q - 1, 3) + 1.2 * [Math]::Pow($q - 1, 2)
+            if ($script:yiJefe) {
+                $ih = $H * 0.96; $iw = $script:yiJefe.Width * $ih / $script:yiJefe.Height
+                $bob = [Math]::Sin($tq / 380.0) * 4
+                $g.DrawImage($script:yiJefe, [float]($W * 0.66 - $iw / 2 + (1 - $ease) * $W * 0.7), [float]($H - $ih + 6 + $bob), [float]$iw, [float]$ih)
+            }
+            # la franja de tinta con el nombre, desde la izquierda
+            $q2 = [Math]::Min(1.0, [Math]::Max(0.0, ($tq - 150) / 320.0)); $ox = (1 - $q2) * -480
+            $g.FillPolygon((New-Object System.Drawing.SolidBrush((ARGB 235 18 18 22))), [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$ox, [float]($H * 0.30))), (New-Object System.Drawing.PointF([float]($ox + 430), [float]($H * 0.26))), (New-Object System.Drawing.PointF([float]($ox + 400), [float]($H * 0.70))), (New-Object System.Drawing.PointF([float]$ox, [float]($H * 0.73)))))
+            Texto-Contorno $g 'DYBBUK' 'EdmundMcMillen_INTLv4' 62 ($ox + 26) ($H * 0.30) (C 236 234 226) 8
+            Texto-Contorno $g 'JEFE  ·  THE BONEYARD' 'EdmundMcMillen_INTLv4' 15 ($ox + 32) ($H * 0.53) (C 226 128 146) 4
+            if ($tq -gt 900) { Texto-Contorno $g '"¡Pilla pilla! ¡Te toca!"' 'EdmundMcMillen_INTLv4' 13 ($ox + 32) ($H * 0.61) (C 150 172 186) 3 }
+            $g.Restore($st)
+            if ($tq -lt 140) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](200 * (1 - $tq / 140.0)), 255, 255, 255))), 0, 0, $W, $H) }
+            # 5) el lametazo: una lengua gigante cruza la pantalla de derecha a izquierda
+            if ($ms -ge $YT.Lengua) {
+                $lq = [Math]::Min(1.0, ($ms - $YT.Lengua) / 750.0); $lq = 1 - (1 - $lq) * (1 - $lq)
+                $alto = $H + 120; $punta = $W + 40 - $lq * ($W + $alto * 0.7)
+                # la punta redonda con borde de tinta y, detrás, el resto de la lengua (tapa la otra mitad del borde)
+                $rosa = New-Object System.Drawing.SolidBrush((C 222 120 138))
+                $g.FillEllipse($rosa, [float]$punta, [float](-60), [float]($alto * 0.7), [float]$alto)
+                $g.DrawEllipse((New-Object System.Drawing.Pen((C 22 22 26), 6)), [float]$punta, [float](-60), [float]($alto * 0.7), [float]$alto)
+                $g.FillRectangle($rosa, [float]($punta + $alto * 0.35), [float](-70), [float]($W + 100), [float]($alto + 20)); $rosa.Dispose()
+                $surco = New-Object System.Drawing.Pen((C 186 82 104), 7); $surco.StartCap = 'Round'
+                $g.DrawLine($surco, [float]($punta + 90), [float]($H / 2), [float]($W + 60), [float]($H / 2)); $surco.Dispose()
+                $brillo = New-Object System.Drawing.SolidBrush((ARGB 120 255 230 236))
+                $g.FillEllipse($brillo, [float]($punta + 40), [float]($H * 0.22), 90, 40); $brillo.Dispose()
+                $pap = New-Object System.Drawing.SolidBrush((C 204 100 120)); $rn = New-Object System.Random 7
+                for ($i = 0; $i -lt 26; $i++) { $g.FillEllipse($pap, [float]($punta + 70 + $rn.Next(0, [int]($W + 60))), [float]($rn.Next(20, [int]($H - 20))), 7, 6) }
+                $pap.Dispose()
+            }
+        }
+    }
+    $alTick = {
+        param($ov, $p)
+        $YT = $DyIntro
+        if ($p -eq 1) { $script:yiT0 = [Environment]::TickCount; Sonido 'intro' }
+        $ms = [Environment]::TickCount - $script:yiT0
+        foreach ($ev in @(@($YT.Asoma1, 'a1', 'flip'), @($YT.Asoma2, 'a2', 'flip'), @($YT.Asoma3, 'a3', 'flip'), @($YT.Jefe, 'jefe', 'zombie'), @($YT.Lengua, 'lengua', 'lame'))) {
+            if ($ms -ge $ev[0] -and -not $script:yiHechos.ContainsKey($ev[1])) { $script:yiHechos[$ev[1]] = $true; Sonido $ev[2] }
+        }
+        if ($ms -gt $YT.Fin -and $script:iPaso -lt $script:iTotal - 7) { $script:iPaso = $script:iTotal - 7 }
+        # al final la pantalla (llena de lengua) se va hacia arriba y aparece el panel
+        if ($p -gt $script:iTotal - 7) { $ov.Top -= [int]($ov.Height / 5) }
+    }
+    Intro-Overlay 600 $pintar $alTick $final
+}
+
+# --- Ellie: vídeo cutre de "ALERTA". Sirena y luces rojas ("⚠ ALERTA ⚠ SELF INSERT DETECTADO"), ¡BUM!, sale el usuario de Ale
+#     en grande con un círculo rojo pintado a mano y una flecha gigante señalándolo, otro ¡BUM! con zoom, glitch y aparece Ellie ---
+# Va sincronizada con el reloj. Momentos (en milisegundos):
+$ElIntro = @{ Boom1 = 3300; Circulo = 3800; Flecha = 4400; Boom2 = 5700; Glitch = 6900; Ellie = 7500; Fin = 9800 }
+function Transicion-Ellie($final) {
+    $k = $script:skin
+    $script:liUser = Cargar-Img $k.Usuario; $script:liFondo = Cargar-Img $k.FondoImg; $script:liCuerpo = Cargar-Img $k.Gif
+    $script:liRojo = if ($script:liCuerpo) { Imagen-Color $script:liCuerpo (C 255 30 90) 300 } else { $null }
+    $script:liCian = if ($script:liCuerpo) { Imagen-Color $script:liCuerpo (C 60 230 255) 300 } else { $null }
+    $script:iRecursos = @($script:liUser, $script:liFondo, $script:liCuerpo, $script:liRojo, $script:liCian)
+    $script:liT0 = 0; $script:liHechos = @{}
+    $pintar = {
+        param($g, $W, $H, $p)
+        $g.SmoothingMode = 'AntiAlias'; $g.InterpolationMode = 'HighQualityBicubic'; $g.TextRenderingHint = 'AntiAlias'
+        $ET = $ElIntro
+        $ms = if ($script:liT0 -gt 0) { [Environment]::TickCount - $script:liT0 } else { 0 }
+        $fmc = New-Object System.Drawing.StringFormat; $fmc.Alignment = 'Center'
+        if ($ms -lt $ET.Boom1) {
+            # 1) la alarma: fondo rojo que late, dos focos de sirena girando y cinta de peligro arriba y abajo
+            $lat = 0.5 + 0.5 * [Math]::Sin($ms / 140.0)
+            $g.Clear([System.Drawing.Color]::FromArgb(255, [int](70 + 90 * $lat), 0, [int](8 + 10 * $lat)))
+            $ang = $ms / 6.0
+            foreach ($desf in @(0, 180)) { $g.FillPie((New-Object System.Drawing.SolidBrush((ARGB 70 255 220 200))), [float]($W / 2 - 700), [float]($H / 2 - 700), 1400, 1400, [float]($ang + $desf), 40) }
+            $amar = New-Object System.Drawing.SolidBrush((C 255 210 0)); $neg = [System.Drawing.Brushes]::Black
+            foreach ($cy in @(0, ($H - 30))) {
+                $g.FillRectangle($amar, 0, $cy, $W, 30)
+                $desp = ($ms / 12) % 40
+                for ($x = -40 + $desp; $x -lt $W + 40; $x += 40) { $g.FillPolygon($neg, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$x, [float]$cy)), (New-Object System.Drawing.PointF([float]($x + 20), [float]$cy)), (New-Object System.Drawing.PointF([float]($x + 5), [float]($cy + 30))), (New-Object System.Drawing.PointF([float]($x - 15), [float]($cy + 30))))) }
+            }
+            $amar.Dispose()
+            if (([int]($ms / 380)) % 2 -eq 0) {
+                $tw = Ancho-Texto 'ALERTA' 'Impact' 64
+                Texto-Contorno $g 'ALERTA' 'Impact' 64 ($W / 2 - $tw / 2) ($H * 0.22) (C 255 230 40) 9
+                # dos señales de peligro (triángulo amarillo con "!") a los lados
+                foreach ($tx0 in @(($W / 2 - $tw / 2 - 86), ($W / 2 + $tw / 2 + 18))) {
+                    $tri = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]($tx0 + 34), [float]($H * 0.24))), (New-Object System.Drawing.PointF([float]($tx0 + 68), [float]($H * 0.24 + 62))), (New-Object System.Drawing.PointF([float]$tx0, [float]($H * 0.24 + 62))))
+                    $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 255 230 40))), $tri)
+                    $g.DrawPolygon((New-Object System.Drawing.Pen([System.Drawing.Color]::Black, 5)), $tri)
+                    $g.FillRectangle([System.Drawing.Brushes]::Black, [float]($tx0 + 30), [float]($H * 0.24 + 20), 8, 24)
+                    $g.FillEllipse([System.Drawing.Brushes]::Black, [float]($tx0 + 29), [float]($H * 0.24 + 48), 10, 9)
+                }
+            }
+            $tw = Ancho-Texto 'SELF INSERT DETECTADO' 'Impact' 30
+            Texto-Contorno $g 'SELF INSERT DETECTADO' 'Impact' 30 ($W / 2 - $tw / 2) ($H * 0.58) (C 255 255 255) 6
+        } elseif ($ms -lt $ET.Glitch) {
+            # 2) el vídeo cutre: el usuario de Ale en grande, un círculo rojo a mano, una flecha gigante y zoom con ¡BUM!
+            $g.Clear((C 14 10 18))
+            $vig = New-Object System.Drawing.Drawing2D.GraphicsPath; $vig.AddEllipse([float](-$W * 0.2), [float](-$H * 0.4), [float]($W * 1.4), [float]($H * 1.8))
+            $pg = New-Object System.Drawing.Drawing2D.PathGradientBrush($vig); $pg.CenterColor = (C 70 40 80); $pg.SurroundColors = @((C 14 10 18))
+            $g.FillPath($pg, $vig); $pg.Dispose(); $vig.Dispose()
+            $sx = 0; $sy = 0
+            foreach ($bt in @($ET.Boom1, $ET.Boom2)) { if ($ms -ge $bt -and $ms -lt $bt + 350) { $sx = $Rnd.Next(-10, 11); $sy = $Rnd.Next(-8, 9) } }
+            $st = $g.Save()
+            if ($script:liUser) {
+                $sc = ($W * 0.82) / $script:liUser.Width; $uw = $script:liUser.Width * $sc; $uh = $script:liUser.Height * $sc
+                $ux = $W / 2 - $uw / 2; $uy = $H * 0.52 - $uh / 2
+                $acx = $ux + 22 * $sc; $acy = $uy + 21.5 * $sc; $rad = 17 * $sc
+                # zoom lento y, en el segundo ¡BUM!, zoom de golpe a la foto
+                $z = 1.0 + ($ms - $ET.Boom1) / 30000.0
+                if ($ms -ge $ET.Boom2) { $z = 1.0 + 1.1 * [Math]::Min(1.0, ($ms - $ET.Boom2) / 160.0) }
+                $g.TranslateTransform([float]($acx + $sx), [float]($acy + $sy)); $g.ScaleTransform([float]$z, [float]$z); $g.TranslateTransform([float](-$acx), [float](-$acy))
+                $g.InterpolationMode = 'NearestNeighbor'
+                $g.DrawImage($script:liUser, [float]$ux, [float]$uy, [float]$uw, [float]$uh)
+                $g.InterpolationMode = 'HighQualityBicubic'
+                # el círculo rojo, dibujado a mano (dos vueltas un poco torcidas)
+                if ($ms -ge $ET.Circulo) {
+                    $q = [Math]::Min(1.0, ($ms - $ET.Circulo) / 450.0)
+                    $pc = New-Object System.Drawing.Pen((C 235 20 20), 7); $pc.StartCap = 'Round'; $pc.EndCap = 'Round'
+                    $g.DrawArc($pc, [float]($acx - $rad * 1.6), [float]($acy - $rad * 1.45), [float]($rad * 3.2), [float]($rad * 2.9), -100, [float](360 * $q))
+                    if ($q -ge 1) { $g.DrawArc($pc, [float]($acx - $rad * 1.5), [float]($acy - $rad * 1.55), [float]($rad * 3.1), [float]($rad * 3.0), -80, 140) }
+                    $pc.Dispose()
+                }
+                # la flecha gigante, entrando desde abajo a la derecha
+                if ($ms -ge $ET.Flecha) {
+                    $q = [Math]::Min(1.0, ($ms - $ET.Flecha) / 220.0)
+                    $px = $acx + $rad * 1.5 + (1 - $q) * 300; $py = $acy + $rad * 1.2 + (1 - $q) * 200
+                    $vx = 0.83; $vy = 0.56; $lar = 210; $anc = 22; $pun = 46
+                    $nx = -$vy; $ny = $vx
+                    $bx = $px + $vx * $pun; $by = $py + $vy * $pun; $ex = $px + $vx * $lar; $ey = $py + $vy * $lar
+                    $fl = [System.Drawing.PointF[]]@(
+                        (New-Object System.Drawing.PointF([float]$px, [float]$py)),
+                        (New-Object System.Drawing.PointF([float]($bx + $nx * $anc * 2.2), [float]($by + $ny * $anc * 2.2))),
+                        (New-Object System.Drawing.PointF([float]($bx + $nx * $anc), [float]($by + $ny * $anc))),
+                        (New-Object System.Drawing.PointF([float]($ex + $nx * $anc), [float]($ey + $ny * $anc))),
+                        (New-Object System.Drawing.PointF([float]($ex - $nx * $anc), [float]($ey - $ny * $anc))),
+                        (New-Object System.Drawing.PointF([float]($bx - $nx * $anc), [float]($by - $ny * $anc))),
+                        (New-Object System.Drawing.PointF([float]($bx - $nx * $anc * 2.2), [float]($by - $ny * $anc * 2.2))))
+                    $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 235 20 20))), $fl)
+                    $g.DrawPolygon((New-Object System.Drawing.Pen([System.Drawing.Color]::White, 3)), $fl)
+                }
+            }
+            $g.Restore($st)
+            # los textos del vídeo
+            $tw = Ancho-Texto 'SELF INSERT DE ALE' 'Impact' 42
+            Texto-Contorno $g 'SELF INSERT DE ALE' 'Impact' 42 ($W / 2 - $tw / 2 + $sx) 12 (C 255 230 40) 7
+            $pie = if ($ms -ge $ET.Boom2) { 'ALE, ¿ERES TÚ?' } else { '(100% real, no fake)' }
+            $tw = Ancho-Texto $pie 'Impact' 24
+            Texto-Contorno $g $pie 'Impact' 24 ($W / 2 - $tw / 2) ($H - 46) (C 255 255 255) 5
+            if ($ms -ge $ET.Boom2 -and $ms -lt $ET.Boom2 + 120) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 150 255 255 255))), 0, 0, $W, $H) }
+        } else {
+            # 3) glitch y aparece Ellie, partida en rosa y cian, con su nombre corrompiéndose
+            $g.Clear((C 16 6 16))
+            if ($script:liFondo) { [void](Dibujar-Cubriendo $g $script:liFondo $W $H 1.0 0.85 0.5) }
+            if ($ms -ge $ET.Ellie -and $script:liCuerpo) {
+                $q = [Math]::Min(1.0, ($ms - $ET.Ellie) / 1800.0)
+                $ih = $H * 0.96; $iw = $script:liCuerpo.Width * $ih / $script:liCuerpo.Height
+                $ix = $W * 0.72 - $iw / 2; $iy = $H - $ih
+                $sep = 14 * (1 - $q) + 2
+                Dy-Img $g $script:liRojo ($ix - $sep) $iy $iw $ih 0.6
+                Dy-Img $g $script:liCian ($ix + $sep) $iy $iw $ih 0.6
+                $g.DrawImage($script:liCuerpo, [float]$ix, [float]$iy, [float]$iw, [float]$ih)
+                $nom = if ($ms -lt $ET.Ellie + 900) { Revolver 'ELLIE VELÁZQUEZ' } else { 'ELLIE VELÁZQUEZ' }
+                Texto-Contorno $g $nom 'Arial Black' 34 (30 - 3) ($H * 0.36) (C 90 230 255) 1 160
+                Texto-Contorno $g $nom 'Arial Black' 34 (30 + 3) ($H * 0.36) (C 255 40 90) 1 160
+                Texto-Contorno $g $nom 'Arial Black' 34 30 ($H * 0.36) (C 255 236 244) 6
+                if ($ms -ge $ET.Ellie + 600) {
+                    Texto-Contorno $g 'HUMANA CORRUPTA  ·  20 AÑOS' 'Arial Black' 14 34 ($H * 0.36 + 52) (C 255 92 170) 3
+                    Texto-Contorno $g "SELF INSERT DE ALE  ·  ALE'S VERSION" 'Arial Black' 11 34 ($H * 0.36 + 76) (C 90 230 255) 3
+                }
+            }
+            # bandas y bloques de glitch (más al principio)
+            $fuerza = [Math]::Max(0.0, 1 - ($ms - $ET.Glitch) / 1300.0)
+            $cols = @((C 255 40 80), (C 90 230 255), (C 255 230 60), (C 150 80 255), (C 255 255 255))
+            for ($i = 0; $i -lt [int](4 + 40 * $fuerza); $i++) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](120 + 120 * $fuerza), $cols[$Rnd.Next(5)].R, $cols[$Rnd.Next(5)].G, $cols[$Rnd.Next(5)].B))), [float]$Rnd.Next(-40, [int]$W), [float]$Rnd.Next(0, [int]$H), [float]$Rnd.Next(10, [int](40 + 300 * $fuerza)), [float]$Rnd.Next(3, 14)) }
+            if ($ms -gt $ET.Fin - 500) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int][Math]::Min(255, ($ms - $ET.Fin + 500) / 2), 0, 0, 0))), 0, 0, $W, $H) }
+        }
+    }
+    $alTick = {
+        param($ov, $p)
+        $ET = $ElIntro
+        if ($p -eq 1) { $script:liT0 = [Environment]::TickCount; Sonido 'sirena' }
+        $ms = [Environment]::TickCount - $script:liT0
+        foreach ($ev in @(@($ET.Boom1, 'b1', 'boom'), @($ET.Flecha, 'f', 'tele'), @($ET.Boom2, 'b2', 'boom'), @($ET.Glitch, 'g', 'glitch'), @($ET.Ellie, 'e', 'tele'))) {
+            if ($ms -ge $ev[0] -and -not $script:liHechos.ContainsKey($ev[1])) { $script:liHechos[$ev[1]] = $true; Sonido $ev[2] }
+        }
+        if ($ms -gt $ET.Fin -and $script:iPaso -lt $script:iTotal - 1) { $script:iPaso = $script:iTotal - 1 }
+    }
+    Intro-Overlay 600 $pintar $alTick $final
+}
+
 # --- Nanachi: descenso al Abismo capa a capa, la entrada del escondite y Nanachi entre los hilos del campo de fuerza ---
 # Va sincronizada con el reloj. Momentos (en milisegundos):
 $NnIntro = @{ Caliz = 0; Capa4 = 2600; Entrada = 4700; Nanachi = 5600; Nombre = 6400; Fin = 8800 }
@@ -6325,6 +9871,86 @@ function Transicion-Nanachi($final) {
     Intro-Overlay 400 $pintar $alTick $final
 }
 
+# --- intro de Malkuth: la sala de la Planta de Historia, Malkuth plantándole cara a Angela y ella con su libro ---
+# La música es la suya (Malkuth Story): empieza con la intro y sigue sonando después sin cortarse.
+$MkIntro = @{ Angela = 3200; Malkuth = 5800; Nombre = 6400; Fin = 9300 }
+function Transicion-Malkuth($final) {
+    $k = $script:skin
+    $script:miPlanta = Cargar-Img $k.IntroPlanta; $script:miAngela = Cargar-Img $k.IntroAngela
+    $script:miFondo = Cargar-Img $k.FondoImg; $script:miMalk = Cargar-Img 'skins\malkuth\malkuth.png'; $script:miEmb = Cargar-Img $k.Emblema
+    $script:iRecursos = @($script:miPlanta, $script:miAngela, $script:miFondo, $script:miMalk, $script:miEmb)
+    $script:miT0 = 0; $script:miHechos = @{}
+    $pintar = {
+        param($g, $W, $H, $p)
+        $g.SmoothingMode = 'AntiAlias'; $g.InterpolationMode = 'HighQualityBilinear'
+        $MT = $MkIntro
+        $ms = if ($script:miT0 -gt 0) { [Environment]::TickCount - $script:miT0 } else { 0 }
+        $g.Clear((C 24 16 8))
+        if ($ms -lt $MT.Angela -and $script:miPlanta) {
+            # 1) la sala de recepciones de la Planta de Historia, con zoom lento y el emblema de Malkuth
+            [void](Dibujar-Cubriendo $g $script:miPlanta $W $H (1.0 + $ms / 12000.0) 0.5 0.45)
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 90 20 12 4))), 0, 0, $W, $H)
+            if ($script:miEmb) {
+                $cm = New-Object System.Drawing.Imaging.ColorMatrix; $cm.Matrix33 = [float][Math]::Min(1.0, $ms / 900.0)
+                $ia = New-Object System.Drawing.Imaging.ImageAttributes; $ia.SetColorMatrix($cm); $es = 110
+                $g.DrawImage($script:miEmb, (New-Object System.Drawing.Rectangle([int]($W / 2 - $es / 2), [int]($H / 2 - $es / 2 - 30), $es, $es)), 0, 0, $script:miEmb.Width, $script:miEmb.Height, [System.Drawing.GraphicsUnit]::Pixel, $ia); $ia.Dispose()
+            }
+            if ($ms -ge 700) {
+                $al = [int](255 * [Math]::Min(1.0, ($ms - 700) / 500.0))
+                $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ([int]($al * 0.55)) 0 0 0))), 0, ($H - 74), $W, 74)
+                Texto-Color $g 'PLANTA DE HISTORIA' 'Palatino Linotype' 24 30 ($H - 70) (ARGB $al 250 232 180) (ARGB $al 40 24 8) 5
+                $g.DrawString('1.ª planta de la Biblioteca  ·  Library of Ruina', (FntP('Palatino Linotype', 11, [System.Drawing.FontStyle]::Italic)), (New-Object System.Drawing.SolidBrush((ARGB $al 236 196 106))), 32, [float]($H - 32))
+            }
+        } elseif ($ms -lt $MT.Malkuth -and $script:miAngela) {
+            # 2) Malkuth le planta cara a Angela (escena del episodio 1) con el lema de L Corp
+            [void](Dibujar-Cubriendo $g $script:miAngela $W $H (1.0 + ($ms - $MT.Angela) / 10000.0) 0.62 0.4)
+            $txt = '«Enfrenta el pasado, construye el futuro.»'; $n = [Math]::Min($txt.Length, [int](($ms - $MT.Angela - 300) / 45))
+            if ($n -gt 0) {
+                $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 150 0 0 0))), 0, ($H - 56), $W, 56)
+                Texto-Color $g $txt.Substring(0, $n) 'Palatino Linotype' 18 30 ($H - 46) (C 250 242 222) (C 30 20 10) 4
+            }
+        } elseif ($script:miFondo) {
+            # 3) la planta de los diálogos: Malkuth sube desde abajo con su libro y sale su nombre
+            [void](Dibujar-Cubriendo $g $script:miFondo $W $H (1.0 + ($ms - $MT.Malkuth) / 9000.0) 0.5 0.5)
+            Degradado $g 0 0 ($W * 0.62) $H (ARGB 210 30 22 12) (ARGB 0 30 22 12) 0
+            if ($script:miMalk) {
+                $q = [Math]::Min(1.0, ($ms - $MT.Malkuth) / 550.0); $ee = 1 - [Math]::Pow(1 - $q, 3)
+                $nh = $H * 0.98; $nw = $script:miMalk.Width * $nh / $script:miMalk.Height
+                $g.DrawImage($script:miMalk, [float]($W * 0.78 - $nw / 2), [float]($H - $nh + (1 - $ee) * $nh * 0.8 + [Math]::Sin($ms / 450.0) * 2), [float]$nw, [float]$nh)
+            }
+            if ($ms -ge $MT.Nombre) {
+                $q = [Math]::Min(1.0, ($ms - $MT.Nombre) / 400.0); $ee = 1 - [Math]::Pow(1 - $q, 3)
+                Texto-Color $g 'MALKUTH' 'Palatino Linotype' 58 (40 - (1 - $ee) * 320) 60 (C 250 232 180) (C 60 36 12) 10
+                if ($ms -ge $MT.Nombre + 450) { Texto-Color $g 'Bibliotecaria Patrona de la Planta de Historia' 'Palatino Linotype' 15 46 138 (C 236 196 106) (C 30 20 10) 5 }
+                if ($ms -ge $MT.Nombre + 1000) {
+                    $txt = '¡Encantada! ¡Que sea un combate justo!'; $n = [Math]::Min($txt.Length, [int](($ms - $MT.Nombre - 1000) / 55))
+                    Texto-Color $g $txt.Substring(0, $n) 'Segoe UI' 20 48 176 (C 255 255 255) (C 120 70 20) 5
+                }
+            }
+        }
+        # motas doradas de polvo de biblioteca que suben despacio
+        $tt = $ms / 1000.0
+        for ($i = 0; $i -lt 26; $i++) {
+            $px = ($i * 137 + 40) % $W + [Math]::Sin($tt + $i) * 8; $py = $H - (($tt * (18 + ($i % 7) * 4) + $i * 61) % ($H + 20))
+            $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB (60 + ($i % 5) * 25) 255 220 140))), [float]$px, [float]$py, [float](2 + $i % 3), [float](2 + $i % 3))
+        }
+        # sale del negro al principio
+        if ($ms -lt 600) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](255 * (1 - $ms / 600.0)), 0, 0, 0))), 0, 0, $W, $H) }
+    }
+    $alTick = {
+        param($ov, $p)
+        $MT = $MkIntro
+        if ($p -eq 1) { $script:miT0 = [Environment]::TickCount; Mk-Reset; Mk-Musica-On }
+        $ms = [Environment]::TickCount - $script:miT0
+        foreach ($ev in @(@(250, 'pagina'), @($MT.Malkuth, 'libro'))) {
+            if ($ms -ge $ev[0] -and -not $script:miHechos.ContainsKey($ev[1])) { $script:miHechos[$ev[1]] = $true; Sonido $ev[1] }
+        }
+        if ($ms -gt $MT.Fin -and $script:iPaso -lt $script:iTotal - 7) { $script:iPaso = $script:iTotal - 7 }
+        if ($p -gt $script:iTotal - 7) { $ov.Top -= [int]($ov.Height / 5) }
+    }
+    Intro-Overlay 400 $pintar $alTick $final
+}
+
 [System.Windows.Forms.Application]::add_ThreadException({
     try {
         switch ($script:skin.Estilo) {
@@ -6344,9 +9970,15 @@ function Transicion-Nanachi($final) {
             'punk' { Decir 'Algo se ha roto. No era la guitarra, por una vez. *Toca un acorde para arreglarlo.*' }
             'gran' { Decir 'Algo se ha roto. Un fallo del protocolo. Lo anoto y seguimos.' }
             'abismo' { Decir 'Algo se ha roto. Nnaa. Le pongo una venda y listo.' }
+            'historia' { Decir 'Algo se ha roto. *Casi se tropieza con el error.* ¡Uoh! ...lo apunto en el registro de incidencias. Con un dibujito.' }
+            'arana' { Decir 'Algo se ha roto, cielo. *Lo envuelve en seda.* Ya está. Lo que no se ve, no existe.' }
+            'clima' { Decir 'Algo se ha roto... *Mira a cámara.* Tenemos problemas técnicos. No se vayan. Por favor, no se vayan.' }
+            'pintor' { Decir 'Algo se ha roto. *(dibuja una carita asustada)* ¡Yo no he sido! ...bueno, a lo mejor el overclock. Un poco. Perdón.' }
             'evil' { Decir 'ALGO SE HA ROTO. *Evil Scary bota encima del error. El error desaparece. Tú casi también.*' }
             'niebla' { Decir 'Algo se ha roto. Yo no he sido: no puedo tocar nada. *Se pone transparente por si acaso.*' }
             'knight' { Decir '* Algo se ha roto. * El Knight lo ha cortado. * O igual ya venía roto.' }
+            'corrupta' { Decir 'Algo se ha roto. ...vale, igual he sido yo. Un poquito. Es la corrupción, se me escapa.' }
+            'boneyard' { Decir '*Algo se ha roto. Dybbuk le da un lametazo al error.* ¡Ya está! ...bueno, ahora está roto y pegajoso. Ñe-he-he.' }
             default { Decir 'Algo se ha roto. No he sido yo. Creo.' }
         }
     } catch {}
@@ -6527,6 +10159,35 @@ function Pintar-Boton($g, $b) {
             $g.DrawPath((New-Object System.Drawing.Pen((C 170 20 30), [float](1.6 * $Z))), $rr); $rr.Dispose()
             $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((C 236 220 220))), $rect, $fmt)
         }
+        'boneyard' {
+            # tarjeta de papel con borde de tinta irregular (como Mewgenics); al pasar el ratón, rosa lengua
+            $g.SmoothingMode = 'AntiAlias'
+            $g.Clear($(if ($enBarra) { (C 22 23 28) } else { (C 34 36 42) }))
+            $r = New-Object System.Random([Math]::Abs($b.Text.GetHashCode()) % 9973)
+            $j = { [float](($r.NextDouble() - 0.5) * 3 * $Z) }
+            $x1 = 2 * $Z; $y1 = 2 * $Z; $x2 = $W - 5 * $Z; $y2 = $H - 5 * $Z
+            $pts = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]($x1 + (& $j)), [float]($y1 + (& $j)))), (New-Object System.Drawing.PointF([float]($x2 + (& $j)), [float]($y1 + (& $j)))), (New-Object System.Drawing.PointF([float]($x2 + (& $j)), [float]($y2 + (& $j)))), (New-Object System.Drawing.PointF([float]($x1 + (& $j)), [float]($y2 + (& $j)))))
+            $somb = [System.Drawing.PointF[]]@($pts | ForEach-Object { New-Object System.Drawing.PointF(($_.X + 3 * $Z), ($_.Y + 3 * $Z)) })
+            $g.FillPolygon((New-Object System.Drawing.SolidBrush((C 12 12 16))), $somb)
+            $papel = if ($hover) { (C 226 128 146) } else { (C 238 236 226) }
+            $g.FillPolygon((New-Object System.Drawing.SolidBrush($papel)), $pts)
+            $tinta = New-Object System.Drawing.Pen((C 22 22 26), [float](2.5 * $Z)); $tinta.LineJoin = 'Round'
+            $g.DrawPolygon($tinta, $pts); $tinta.Dispose()
+            $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((C 22 22 26))), (New-Object System.Drawing.RectangleF(0, 0, ($W - 3 * $Z), ($H - 3 * $Z))), $fmt)
+        }
+        'corrupta' {
+            # botón oscuro con borde rosa; al pasar el ratón, el texto se parte en rosa y cian
+            $g.SmoothingMode = 'AntiAlias'
+            $g.Clear($(if ($enBarra) { (C 10 4 10) } else { (C 18 7 18) }))
+            $rr = Ruta-Redonda (1.5 * $Z) (1.5 * $Z) ($W - 4 * $Z) ($H - 4 * $Z) ([Math]::Min($H - 4 * $Z, 5 * $Z))
+            $g.FillPath((New-Object System.Drawing.SolidBrush($(if ($hover) { (C 120 24 74) } else { (C 34 12 32) }))), $rr)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 255 92 170), [float](1.6 * $Z))), $rr); $rr.Dispose()
+            if ($hover) {
+                $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((C 90 230 255))), (New-Object System.Drawing.RectangleF([float](-1.5 * $Z), 0, $W, $H)), $fmt)
+                $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((C 255 40 90))), (New-Object System.Drawing.RectangleF([float](1.5 * $Z), 0, $W, $H)), $fmt)
+            }
+            $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((C 255 236 244))), $rect, $fmt)
+        }
         'knight' {
             # botón negro con borde blanco; al pasar el ratón, amarillo (como una opción elegida en Deltarune)
             $g.SmoothingMode = 'None'
@@ -6552,6 +10213,68 @@ function Pintar-Boton($g, $b) {
             $g.FillPath((New-Object System.Drawing.SolidBrush($(if ($hover) { (C 236 170 190) } elseif ($enBarra) { (C 64 46 32) } else { (C 246 236 212) }))), $rr)
             $g.DrawPath((New-Object System.Drawing.Pen($(if ($enBarra) { (C 236 170 190) } else { (C 92 70 52) }), [float](2 * $Z))), $rr); $rr.Dispose()
             $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush($(if ($enBarra -and -not $hover) { (C 252 240 214) } else { (C 60 44 34) }))), $rect, $fmt)
+        }
+        'pintor' {
+            # botón gris con relieve, como los de Windows de antes; al pasar el ratón, azul con letras blancas
+            $g.SmoothingMode = 'None'
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush($(if ($hover) { (C 0 0 128) } else { (C 192 192 192) }))), 0, 0, $W, $H)
+            $z1 = [float][Math]::Max(1.0, $Z)
+            $pb = New-Object System.Drawing.Pen((C 255 255 255), $z1); $pg = New-Object System.Drawing.Pen((C 128 128 128), $z1); $pn = New-Object System.Drawing.Pen((C 0 0 0), $z1)
+            $g.DrawLine($pb, 0, 0, ($W - 1), 0); $g.DrawLine($pb, 0, 0, 0, ($H - 1))
+            $g.DrawLine($pn, 0, ($H - $z1 / 2), $W, ($H - $z1 / 2)); $g.DrawLine($pn, ($W - $z1 / 2), 0, ($W - $z1 / 2), $H)
+            $g.DrawLine($pg, $z1, ($H - $z1 * 1.5), ($W - $z1), ($H - $z1 * 1.5)); $g.DrawLine($pg, ($W - $z1 * 1.5), $z1, ($W - $z1 * 1.5), ($H - $z1))
+            $pb.Dispose(); $pg.Dispose(); $pn.Dispose()
+            $g.TextRenderingHint = 'ClearTypeGridFit'
+            $g.DrawString($b.Text, $b.Font, $(if ($hover) { [System.Drawing.Brushes]::White } else { [System.Drawing.Brushes]::Black }), $rect, $fmt)
+        }
+        'clima' {
+            # papel de periódico con letra de imprenta (como las letras del vídeo); al pasar el ratón, azul eléctrico
+            $g.SmoothingMode = 'AntiAlias'
+            $g.Clear($(if ($enBarra) { (C 100 116 162) } else { (C 136 148 182) }))
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 80 10 14 40))), [float](3 * $Z), [float](3 * $Z), [float]($W - 4 * $Z), [float]($H - 4 * $Z))
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush($(if ($hover) { (C 63 91 217) } elseif ($enBarra) { (C 38 48 92) } else { (C 248 249 253) }))), [float]$Z, [float]$Z, [float]($W - 4 * $Z), [float]($H - 4 * $Z))
+            $g.DrawRectangle((New-Object System.Drawing.Pen((C 38 48 92), [float]$Z)), [float]$Z, [float]$Z, [float]($W - 4 * $Z), [float]($H - 4 * $Z))
+            $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush($(if ($hover -or $enBarra) { [System.Drawing.Color]::White } else { (C 30 38 74) }))), $rect, $fmt)
+        }
+        'arana' {
+            # botón oscuro con borde rojo y una telarañita en la esquina; al pasar el ratón, rojo sangre
+            $g.SmoothingMode = 'AntiAlias'
+            $g.Clear($(if ($enBarra) { (C 10 4 8) } else { (C 21 9 17) }))
+            $rr = Ruta-Redonda (1.5 * $Z) (1.5 * $Z) ($W - 4 * $Z) ($H - 4 * $Z) ([Math]::Min($H - 4 * $Z, 6 * $Z))
+            $g.FillPath((New-Object System.Drawing.SolidBrush($(if ($hover) { (C 150 16 36) } else { (C 30 13 24) }))), $rr)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 200 24 44), [float](1.6 * $Z))), $rr); $rr.Dispose()
+            if (-not $enBarra) {
+                $tp = New-Object System.Drawing.Pen((ARGB 90 230 225 235), [float](0.8 * $Z))
+                foreach ($q in 1..3) { $g.DrawArc($tp, [float](-$q * 5 * $Z), [float](-$q * 5 * $Z), [float]($q * 10 * $Z), [float]($q * 10 * $Z), 0, 90) }
+                $g.DrawLine($tp, 0, 0, [float](14 * $Z), [float](6 * $Z)); $g.DrawLine($tp, 0, 0, [float](6 * $Z), [float](14 * $Z)); $tp.Dispose()
+            }
+            $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush((C 236 228 232))), $rect, $fmt)
+        }
+        'lobo' {
+            # botón de la consola de L Corp: pizarra oscura, borde ámbar con esquinas marcadas; al pasar el ratón, ámbar
+            $g.SmoothingMode = 'AntiAlias'
+            $g.Clear($(if ($enBarra) { (C 14 18 24) } else { (C 13 17 23) }))
+            $g.FillRectangle((New-Object System.Drawing.SolidBrush($(if ($hover) { (C 255 176 50) } else { (C 20 27 36) }))), [float](1.5 * $Z), [float](1.5 * $Z), [float]($W - 3 * $Z), [float]($H - 3 * $Z))
+            $g.DrawRectangle((New-Object System.Drawing.Pen((ARGB 120 255 170 40), [float]$Z)), [float](1.5 * $Z), [float](1.5 * $Z), [float]($W - 4 * $Z), [float]($H - 4 * $Z))
+            $esq = New-Object System.Drawing.Pen((C 255 170 40), [float](2 * $Z)); $L = 6 * $Z
+            $g.DrawLines($esq, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$Z, [float]($Z + $L))), (New-Object System.Drawing.PointF([float]$Z, [float]$Z)), (New-Object System.Drawing.PointF([float]($Z + $L), [float]$Z))))
+            $g.DrawLines($esq, [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]($W - 2 * $Z), [float]($H - 2 * $Z - $L))), (New-Object System.Drawing.PointF([float]($W - 2 * $Z), [float]($H - 2 * $Z))), (New-Object System.Drawing.PointF([float]($W - 2 * $Z - $L), [float]($H - 2 * $Z)))))
+            $esq.Dispose()
+            $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush($(if ($hover) { (C 12 14 18) } else { (C 220 232 240) }))), $rect, $fmt)
+        }
+        'historia' {
+            # botón como el lomo de un libro: cuero marrón con filetes dorados; al pasar el ratón, dorado
+            $g.SmoothingMode = 'AntiAlias'
+            $g.Clear($(if ($enBarra) { (C 96 68 32) } else { (C 38 28 18) }))
+            $rr = Ruta-Redonda (1.5 * $Z) (1.5 * $Z) ($W - 4 * $Z) ($H - 4 * $Z) ([Math]::Min($H - 4 * $Z, 4 * $Z))
+            $g.FillPath((New-Object System.Drawing.SolidBrush($(if ($hover) { (C 236 196 106) } elseif ($enBarra) { (C 74 52 24) } else { (C 92 60 30) }))), $rr)
+            $g.DrawPath((New-Object System.Drawing.Pen((C 214 170 90), [float](1.6 * $Z))), $rr); $rr.Dispose()
+            if (-not $enBarra) {
+                $fil = New-Object System.Drawing.Pen((ARGB 140 236 196 106), [float]$Z)
+                foreach ($fx2 in @((8 * $Z), ($W - 11 * $Z))) { $g.DrawLine($fil, [float]$fx2, [float](6 * $Z), [float]$fx2, [float]($H - 8 * $Z)) }
+                $fil.Dispose()
+            }
+            $g.DrawString($b.Text, $b.Font, (New-Object System.Drawing.SolidBrush($(if ($hover) { (C 50 32 14) } else { (C 250 236 200) }))), $rect, $fmt)
         }
         'enfosi' {
             $g.SmoothingMode = 'AntiAlias'
@@ -6611,6 +10334,8 @@ function Pintar-Boton($g, $b) {
         }
     }
     if ($script:telarana -and $b.Tag -is [hashtable] -and [object]::ReferenceEquals($b.Tag, $script:telarana)) { Dibujar-Telarana $g $W $H }
+    # Velvet: en la trampa del abracito, todos los botones quedan cubiertos de telaraña un momento
+    elseif ($k.Estilo -eq 'arana' -and $script:vv -and $script:vv.TrampaT -gt $VvTiempos.TrampaFin -and $b.Parent -eq $script:grid) { Dibujar-Telarana $g $W $H }
 }
 
 function Hover-Color($b) {
@@ -6637,13 +10362,10 @@ function Lanzar($item) {
             'hacker' { Glitch 3 $linea }
             'tele' { Corte-Senal 4; Decir $linea }
             'mew' { Guillotina-Ataque 'come' $linea }
-            'lobo' {
-                $antes = $script:energia
-                $script:energia = [Math]::Min(100, $script:energia + 10)
-                $form.Invalidate()
-                if ($antes -lt 100 -and $script:energia -ge 100) { Decir 'Cuota de energía completada. Excelente trabajo, Manager.' 'abiertos' }
-                else { Decir $linea 'abiertos' }
-            }
+            'lobo' { Ag-App $linea }
+            'arana' { Vv-App $linea }
+            'clima' { Wg-App $linea $item.Nombre }
+            'pintor' { Pr-App $linea $item.Nombre }
             'mlg' {
                 $script:lanzadas++; $script:hitsTotal++
                 Nuevo-Hit ([int]($Rnd.Next(30, 160) * $script:K)) ([int]($Rnd.Next(25, 125) * $script:K))
@@ -6693,9 +10415,12 @@ function Lanzar($item) {
             'punk' { Ky-App $linea }
             'gran' { Gran-Dosis $linea }
             'abismo' { Nn-App $linea }
+            'historia' { Mk-App $linea }
             'evil' { Es-App $linea }
             'niebla' { Sf-App $linea }
             'knight' { Kn-App $linea }
+            'corrupta' { El-App $linea }
+            'boneyard' { Dy-App $linea }
             'zorro' {
                 $script:antojo = [Math]::Min(100, $script:antojo + 5); $form.Invalidate()
                 if ($Rnd.Next(4) -eq 0) { Sonido 'ups'; Decir (Azar $k.Torpe) 'serio' } else { Decir $linea 'abiertos' }
@@ -6729,9 +10454,15 @@ function Lanzar($item) {
                 'punk' { Decir "No tienes $($item.Nombre). Te abro la web. Como cuando no tienes la guitarra y tocas con la de un amigo." }
                 'gran' { Decir "No tiene $($item.Nombre). Le abro la web. Anote el fallo en su expediente." }
                 'abismo' { Decir "No tienes $($item.Nombre). Te abro la web. Es como mandar un globo de correo: llega igual, pero más tarde." }
+                'historia' { Decir "No tienes $($item.Nombre). ¡Te abro la web! Un libro prestado de otra biblioteca también cuenta, ¿eh?" }
+                'pintor' { Sonido 'error'; Decir "No tienes $($item.Nombre). Te abro la web. *(dibuja un enlace roto)* Ahí dentro hay de todo. Menos paisajes bonitos." }
+                'clima' { Sonido 'tele'; Decir "No tienes $($item.Nombre). Te abro la web... *Mira a cámara.* Conectamos en directo con internet." }
+                'arana' { Decir "No tienes $($item.Nombre), cielo. Te abro la web. La web... qué palabra tan bonita. Es mi especialidad." }
                 'evil' { Decir "$($item.Nombre.ToUpper()) NO ESTÁ INSTALADO. ABRIENDO LA WEB. *Evil Scary te mira cargarla. No parpadea. No tiene ojos.*" }
                 'niebla' { Decir "No tienes $($item.Nombre). Te abro la web. Internet es como yo: está en todas partes y no se puede tocar." }
                 'knight' { Decir "* No tienes $($item.Nombre). * Te abro la web. * La sombra de la Fuente llega igual." }
+                'corrupta' { Decir "No tienes $($item.Nombre). Te abro la web. Saltar entre dimensiones es lo mío." }
+                'boneyard' { Decir "No tienes $($item.Nombre). Te abro la web. *Le da un lametazo mientras carga.* Así carga más rápido. Creo." }
                 default { Decir "$($item.Nombre) no está instalado. Te abro la web. De nada." }
             }
         } else {
@@ -6750,12 +10481,18 @@ function Lanzar($item) {
                 'enfosi' { Sonido 'buzzer'; Decir "¡$($item.Nombre) no aparece! Como la cara de un Enphosian disfrazado." }
                 'teto' { Sonido 'uhoh'; Decir "¡$($item.Nombre) se ha ido volando! Como un pájaro. Igual vuelve." }
                 'pizza' { Actor-Pose 'V' 'sudor' 2000; Decir "¡No encuentro $($item.Nombre)! ...¿Alguien lo ha tocado? ¿Como a mi pizza? *Suda.*" }
-                'punk' { Ky-Video 'piensa' 2500; Decir "No encuentro $($item.Nombre). Como mis canciones sin terminar: igual algún día aparece." }
+                'punk' { Decir "No encuentro $($item.Nombre). Como mis canciones sin terminar: igual algún día aparece." }
                 'gran' { Gran-Tapar 3000; Decir "$($item.Nombre) no está. Un sujeto que se escapa del estudio. No pasará dos veces." }
                 'abismo' { Nn-Cara 'nnaa' 2000; Decir "No encuentro $($item.Nombre). Se habrá caído al Abismo. Lo que cae ahí no vuelve." }
+                'historia' { Mk-Fallo "No encuentro $($item.Nombre)... *Busca en todas las estanterías.* Lo siento. Debería haberlo tenido preparado." }
+                'pintor' { Sonido 'error'; Pr-Cara 'mareo' 3500; Decir "$($item.Nombre) no está. *(se le cruzan los ojos)* Lo he buscado en toda la red del Blacksite. Hasta en las torretas. Nada." }
+                'clima' { Sonido 'trueno'; Decir "No encuentro $($item.Nombre)... *Revisa el guion.* Aquí pone que hoy habría claros. Se ve que no." }
+                'arana' { Sonido 'siseo'; Decir "$($item.Nombre) no está, cariño. Se habrá escapado de la telaraña. *Se relame.* Ya volverá. Siempre vuelven." }
                 'evil' { Es-Reset; Es-Rebote 3.0; Decir "NO SE ENCUENTRA $($item.Nombre.ToUpper()). *Se lo ha comido. O lo ha atravesado. Da igual.*" }
                 'niebla' { Actor-Pose 'F' 'cara' 1500; Decir "No encuentro $($item.Nombre). Se habrá vuelto niebla. Me pasa a mí también." }
                 'knight' { Actor-Pose 'K' 'risa' 1500; Decir "* $($item.Nombre) no está. * El Knight se lo ha llevado por la Gran Puerta. * Como a Undyne." }
+                'corrupta' { El-Rabia 8; Decir "¿$($item.Nombre)? No existe en este universo. Y eso me pone de MUY mal humor." }
+                'boneyard' { Actor-Pose 'D' 'flip' 800; Decir "No encuentro $($item.Nombre). ¡Se ha escondido! ¡Como yo detrás de una lápida! Ñe-he-he." }
                 default { Decir "No encuentro $($item.Nombre). Igual nunca existió." }
             }
         }
@@ -6765,7 +10502,7 @@ function Lanzar($item) {
 function Mostrar-Pagina {
     $grid.Controls.Clear()
     $script:bi = 0
-    $hacker = $script:skin.Estilo -in @('hacker', 'lobo', 'mlg', 'gunsaw')
+    $hacker = $script:skin.Estilo -in @('hacker', 'mlg', 'gunsaw')
     # el texto de la página vuelve a su tamaño normal (el menú Skins lo hace más pequeño)
     $script:lblPag.Font = Fnt($script:lblPag.Font.FontFamily.Name, 10, $script:lblPag.Font.Style)
     if ($script:modoSkins) {
@@ -6847,9 +10584,15 @@ function Efecto-Entrada($prev) {
         'punk' { Transicion-Punk $msg }
         'gran' { Transicion-Gran $msg }
         'abismo' { Transicion-Nanachi $msg }
+        'historia' { Transicion-Malkuth $msg }
+        'arana' { Transicion-Velvet $msg }
+        'clima' { Transicion-Clima $msg }
+        'pintor' { Transicion-Pintor $msg }
         'evil' { Transicion-Evil $msg }
         'niebla' { Transicion-Fuzzy $msg }
         'knight' { Transicion-Knight $msg }
+        'corrupta' { Transicion-Ellie $msg }
+        'boneyard' { Transicion-Dybbuk $msg }
     }
 }
 
@@ -7549,27 +11292,6 @@ $form.Add_Paint({
             $marco = Ruta-Redonda 2 2 ($W - 4) ($H - 4) 26
             $g.DrawPath((New-Object System.Drawing.Pen((C 10 4 12), 6)), $marco); $marco.Dispose()
         }
-        'lobo' {
-            if (-not $script:bmpHex) { $script:bmpHex = Fondo-Hexagonos 616 344 (C 30 38 48) }
-            $g.DrawImage($script:bmpHex, 0, 0, 616, 344)
-            $g.SmoothingMode = 'AntiAlias'
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 18 23 30))), 0, 0, $W, 52)
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 170 40))), 0, 52, $W, 2)
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 60 170 160))), 0, 56, $W, 1)
-            # esquinas del marco del retrato
-            $am = New-Object System.Drawing.Pen((C 255 170 40), 3)
-            $x1 = 406; $y1 = 62; $x2 = 604; $y2 = 218; $L = 16
-            $g.DrawLine($am, $x1, $y1, $x1 + $L, $y1); $g.DrawLine($am, $x1, $y1, $x1, $y1 + $L)
-            $g.DrawLine($am, $x2, $y1, $x2 - $L, $y1); $g.DrawLine($am, $x2, $y1, $x2, $y1 + $L)
-            $g.DrawLine($am, $x1, $y2, $x1 + $L, $y2); $g.DrawLine($am, $x1, $y2, $x1, $y2 - $L)
-            $g.DrawLine($am, $x2, $y2, $x2 - $L, $y2); $g.DrawLine($am, $x2, $y2, $x2, $y2 - $L)
-            $am.Dispose()
-            # cuota de energía
-            $g.DrawString("CUOTA DE ENERGÍA   $($script:energia)%", (FntP('Bahnschrift', 8)), (New-Object System.Drawing.SolidBrush((C 255 176 50))), 14, 274)
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 40 32 14))), 16, 290, 376, 8)
-            $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 170 40))), 16, 290, [int](376 * $script:energia / 100), 8)
-            $g.DrawRectangle((New-Object System.Drawing.Pen((C 120 85 25), 1)), 16, 290, 376, 8)
-        }
         'mlg' {
             $g.SmoothingMode = 'AntiAlias'
             # degradado azul -> rojo de PURSUITCORE con rayas diagonales
@@ -7592,7 +11314,7 @@ $form.Add_Paint({
             $g.DrawRectangle((New-Object System.Drawing.Pen((C 0 255 0), 1)), 410, 216, 190, 10)
             $g.DrawString("HITMARKERS: $($script:hitsTotal)    DO THE DEW: $($script:dew)", (FntP('Arial Black', 8)), (New-Object System.Drawing.SolidBrush((C 191 239 255))), 16, 280)
         }
-        { $_ -in @('culto', 'kaiju', 'zorro', 'mew', 'oeste', 'pressure', 'dod', 'teto', 'femta', 'pop', 'pizza', 'punk', 'enfosi', 'gran', 'abismo', 'evil', 'niebla', 'knight') } {
+        { $_ -in @('culto', 'kaiju', 'zorro', 'mew', 'oeste', 'pressure', 'dod', 'teto', 'femta', 'pop', 'pizza', 'punk', 'enfosi', 'gran', 'abismo', 'historia', 'lobo', 'arana', 'clima', 'pintor', 'evil', 'niebla', 'knight', 'boneyard', 'corrupta') } {
             # skins nuevas: fondo real + personajes grandes + efectos + bocadillo propio
             $g.SmoothingMode = 'AntiAlias'
             # el fondo se prepara siempre con el tamaño fijo de la skin (no con el de la ventana a medio montar)
@@ -7684,57 +11406,8 @@ $form.Add_Paint({
                     }
                 }
                 'punk' {
-                    # el minirreproductor de su canal: un vídeo suyo (la canción que suena o lo que esté pasando)
-                    $vx = 406; $vy = 64; $vw = 150; $vh = 84
-                    $v = if ($script:kyVideo -and [Environment]::TickCount -lt $script:kyVideo.Hasta) { $script:kyVideo.N } else { 'guitarra' }
-                    $vid = Ky-Gif $v
-                    $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 150 46 34 30))), (Ruta-Redonda ($vx + 3) ($vy + 3) $vw ($vh + 34) 10))
-                    $g.FillPath((New-Object System.Drawing.SolidBrush((C 255 248 240))), (Ruta-Redonda ($vx - 4) ($vy - 4) ($vw + 8) ($vh + 38) 10))
-                    if ($vid) { Yt-Miniatura $g $vid.Img $vid.Info ([Environment]::TickCount) $vx $vy $vw $vh $null }
-                    $dur = Ky-Duracion; $seg = $script:kyProg * $dur
-                    $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 140 0 0 0))), $vx, ($vy + $vh - 3), $vw, 3)
-                    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 255 0 0))), $vx, ($vy + $vh - 3), [float]($vw * $script:kyProg), 3)
-                    $titulo = if ($v -eq 'guitarra') { $k.Canciones[$script:kyCancion] } else { $vid.Titulo }
-                    $g.DrawString($titulo, (FntP('Segoe UI', 7.5, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 46 34 30))), (New-Object System.Drawing.RectangleF($vx, ($vy + $vh + 1), $vw, 14)))
-                    $g.DrawString("▶ $(Ky-Tiempo $seg) / $(Ky-Tiempo $dur)   ·   $(Ky-Numero (12400 + $script:kyVistas)) visitas", (FntP('Segoe UI Symbol', 6.5)), (New-Object System.Drawing.SolidBrush((C 110 90 84))), $vx, ($vy + $vh + 15))
-                    # la guitarra explota: destello y humo encima de Kenny
-                    if ($script:kyFlash -gt 0) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([Math]::Min(255, $script:kyFlash * 30), 255, 230, 160))), 400, 56, ($W - 400), ($H - 56)) }
-                    if ($script:kyFx -gt 0) {
-                        $rh = New-Object System.Random 4
-                        for ($i = 0; $i -lt 8; $i++) { $q = 50 - $script:kyFx; $hx = 510 + $rh.Next(0, 90); $hy = 250 - $q * (1.5 + $rh.NextDouble()); $hr = 14 + $q * 0.7
-                            if ($hy -gt 56) { $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB ([int]([Math]::Min(1.0, $script:kyFx / 20.0) * 120)) 80 70 70))), [float]($hx - $hr / 2), [float]$hy, [float]$hr, [float]$hr) } }
-                    }
-                    # concierto: focos de colores que barren el panel y "ENCORE!"
-                    if ($script:kyConc -gt 0) {
-                        $al = [int]([Math]::Min(1.0, $script:kyConc / 20.0) * 60)
-                        $cols = @((C 110 235 140), (C 255 120 160), (C 255 220 120))
-                        for ($i = 0; $i -lt 3; $i++) {
-                            $ox = 120 + $i * 260; $an = [Math]::Sin($script:fase * 0.8 + $i * 2) * 0.5
-                            $px1 = $ox + [Math]::Sin($an) * 300; $pts = [System.Drawing.PointF[]]@((New-Object System.Drawing.PointF([float]$ox, 52)), (New-Object System.Drawing.PointF([float]($px1 - 70), [float]$H)), (New-Object System.Drawing.PointF([float]($px1 + 70), [float]$H)))
-                            $g.FillPolygon((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb($al, $cols[$i].R, $cols[$i].G, $cols[$i].B))), $pts)
-                        }
-                        if ([Math]::Floor($script:fase * 2) % 2 -eq 0) { Texto-Color $g 'ENCORE!' 'Arial Black' 22 412 196 (C 255 255 255) (C 46 34 30) 6 }
-                    }
-                    # botón de suscribirse (en la barra de arriba)
-                    $sb = Ruta-Redonda $KyBoton[0] $KyBoton[1] $KyBoton[2] $KyBoton[3] 11
-                    $g.FillPath((New-Object System.Drawing.SolidBrush($(if ($script:kySub) { (C 70 54 50) } else { (C 230 30 30) }))), $sb)
-                    $g.DrawPath((New-Object System.Drawing.Pen((C 255 248 240), 1.5)), $sb); $sb.Dispose()
-                    $ts = if ($script:kySub) { 'SUSCRITO 🔔' } else { 'SUSCRIBIRSE' }
-                    $fs = FntP('Segoe UI Symbol', 7, [System.Drawing.FontStyle]::Bold); $tws = $g.MeasureString($ts, $fs).Width
-                    $g.DrawString($ts, $fs, [System.Drawing.Brushes]::White, [float]($KyBoton[0] + $KyBoton[2] / 2 - $tws / 2), [float]($KyBoton[1] + 4))
-                    # visitas, likes, guitarras rotas y el amplificador, en pastillas marrones
-                    $osc = (ARGB 235 80 60 54); $bl = [System.Drawing.Color]::White
-                    Yt-Pastilla $g 20 280 92 24 $osc "♥  $(Ky-Numero $script:kyLikes)" $bl 9
-                    Yt-Pastilla $g 116 280 112 24 $osc "▶  $(Ky-Numero $script:kyVistas) visitas" $bl 8.5
-                    Yt-Pastilla $g 232 280 56 24 $osc "⚡ $($script:kyRotas)" $bl 9
-                    Yt-Pastilla $g 292 280 100 24 $osc $null $null 9
-                    $g.DrawString('AMP', (FntP('Segoe UI', 7.5, [System.Drawing.FontStyle]::Bold)), [System.Drawing.Brushes]::White, 300, 285)
-                    for ($i = 0; $i -lt 8; $i++) {
-                        $bh = 5 + $i * 1.5; $bx = 328 + $i * 7.5
-                        $on = $script:kyAmp -ge ($i + 1) * 12.5 - 6
-                        $colA = if ($i -ge 6) { (C 255 60 60) } elseif ($i -ge 4) { (C 255 210 60) } else { (C 110 235 140) }
-                        $g.FillRectangle((New-Object System.Drawing.SolidBrush($(if ($on) { $colA } else { (C 120 100 94) }))), [float]$bx, [float](298 - $bh), 5, [float]$bh)
-                    }
+                    # su reproductor, su estudio, su canal y el ampli (Ky-Pintar)
+                    Ky-Pintar $g $W $H $k
                 }
                 'pizza' {
                     # la pizza de Kevin en su plato (o el plato vacío esperando al repartidor)
@@ -7778,33 +11451,43 @@ $form.Add_Paint({
                     $g.DrawRectangle((New-Object System.Drawing.Pen((C 20 20 20), 2)), 310, 285, 86, 12)
                 }
                 'pop' {
-                    # peces neón nadando
-                    foreach ($pz in $script:peces) { Dibujar-Tetra-Pez $g $pz.X ($pz.Y + [Math]::Sin($pz.F) * 3) $pz.E $pz.F }
-                    # notificación de mensaje de "neems"
+                    $tt = [Environment]::TickCount / 1000.0
+                    # brillos que tiemblan en la superficie del agua
+                    $bri = New-Object System.Drawing.SolidBrush((ARGB 46 255 255 255))
+                    for ($i = 0; $i -lt 6; $i++) { $sx = 406 + (($tt * 14 + $i * 61) % 350); $g.FillEllipse($bri, [float]$sx, [float](60 + ($i % 3) * 5 + [Math]::Sin($tt * 2 + $i) * 2), 46, 5) }
+                    $bri.Dispose()
+                    # burbujas que suben
+                    $pb2 = New-Object System.Drawing.Pen((ARGB 170 230 245 255), 1)
+                    foreach ($bu in $script:burbujas) { $bx = $bu.X + [Math]::Sin($bu.F) * 3; $g.DrawEllipse($pb2, [float]($bx - $bu.R), [float]($bu.Y - $bu.R), [float](2 * $bu.R), [float](2 * $bu.R)); $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 150 255 255 255))), [float]($bx - $bu.R * 0.4), [float]($bu.Y - $bu.R * 0.6), [float]($bu.R * 0.5), [float]($bu.R * 0.5)) }
+                    $pb2.Dispose()
+                    # los bancos de tetras neón
+                    $g.SetClip((New-Object System.Drawing.RectangleF(406, 58, [float]($W - 408), [float]($H - 60))))
+                    foreach ($pz in $script:peces) { Dibujar-Tetra-Pez $g $pz.X ($pz.Y + [Math]::Sin($pz.F) * 2) ($pz.E * [Math]::Sign($pz.V)) $pz.F }
+                    $g.ResetClip()
+                    # Tetra otra vez por encima: los peces nadan detrás de ella
+                    $ae = $script:actores['E']; if ($ae) { $mi = $g.InterpolationMode; $g.InterpolationMode = 'HighQualityBilinear'; Pintar-Actor $g $ae; $g.InterpolationMode = $mi }
+                    # notificación de mensaje de "neems", como en el móvil
                     if ($script:popNoti) {
                         $n = $script:popNoti; $dy = if ($n.T -gt 74) { (80 - $n.T) * 8 - 48 } elseif ($n.T -lt 8) { - (8 - $n.T) * 6 } else { 0 }
-                        $nr = Ruta-Redonda 420 (82 + $dy) 196 40 10
-                        $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 235 24 12 40))), $nr); $g.DrawPath((New-Object System.Drawing.Pen((C 90 230 250), 1.5)), $nr); $nr.Dispose()
-                        $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 236 196 140))), 428, (88 + $dy), 28, 28)
-                        $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 120 80 50))), 430, (88 + $dy), 10, 14); $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 120 80 50))), 444, (88 + $dy), 10, 14)
-                        $g.FillEllipse([System.Drawing.Brushes]::Black, 438, (102 + $dy), 7, 5)
-                        $g.DrawString('neems', (FntP('Trebuchet MS', 8.5, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 255 92 190))), 462, (84 + $dy))
-                        $g.DrawString($n.Txt, (FntP('Trebuchet MS', 8.5)), [System.Drawing.Brushes]::White, 462, (100 + $dy))
+                        $g.SetClip((New-Object System.Drawing.RectangleF(406, 58, [float]($W - 408), [float]($H - 60))))
+                        $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 90 0 0 0))), (Ruta-Redonda 423 (77 + $dy) 196 42 12))
+                        $nr = Ruta-Redonda 420 (74 + $dy) 196 42 12
+                        $g.FillPath((New-Object System.Drawing.SolidBrush((ARGB 240 250 246 255))), $nr); $g.DrawPath((New-Object System.Drawing.Pen((C 255 92 190), 1.5)), $nr); $nr.Dispose()
+                        $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 236 196 140))), 428, (81 + $dy), 28, 28)
+                        $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 120 80 50))), 430, (81 + $dy), 10, 14); $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 120 80 50))), 444, (81 + $dy), 10, 14)
+                        $g.FillEllipse([System.Drawing.Brushes]::Black, 438, (95 + $dy), 7, 5)
+                        $g.DrawString('neems', (FntP('Trebuchet MS', 8.5, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush((C 200 40 140))), 462, (77 + $dy))
+                        $g.DrawString('ahora', (FntP('Trebuchet MS', 7)), (New-Object System.Drawing.SolidBrush((C 150 140 170))), 576, (78 + $dy))
+                        $g.DrawString($n.Txt, (FntP('Trebuchet MS', 8.5)), (New-Object System.Drawing.SolidBrush((C 40 24 60))), 462, (93 + $dy))
+                        $g.ResetClip()
                     }
-                    # rayas de tele, banda de "tracking" y letras de la cinta (OSD)
-                    $sl = New-Object System.Drawing.Pen((ARGB 34 0 0 0), 1); for ($y = 58; $y -lt 276; $y += 3) { $g.DrawLine($sl, 410, $y, $W, $y) }; $sl.Dispose()
-                    $tky = 58 + (([Environment]::TickCount / 30) % 260)
-                    if ($tky -lt 270) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB 26 255 255 255))), 410, [float]$tky, ($W - 410), 6) }
-                    $seg = [int](([Environment]::TickCount - $script:popIni) / 1000)
-                    $osd = FntP('Consolas', 9.5, [System.Drawing.FontStyle]::Bold)
-                    $g.DrawString(('PLAY ▶   SP {0}:{1:00}:{2:00}' -f [int]($seg / 3600), [int](($seg / 60) % 60), ($seg % 60)), $osd, (New-Object System.Drawing.SolidBrush((ARGB 230 255 255 255))), 416, 60)
-                    $g.DrawString('SEP. 29 2021', $osd, (New-Object System.Drawing.SolidBrush((ARGB 200 255 214 120))), 668, 258)
-                    if ($script:popFx -gt 0) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ($script:popFx * 12) 255 92 190))), 410, 56, ($W - 410), 220) }
-                    # mensajes y No molestar
-                    Texto-Color $g "MENSAJES: $($script:popMsgs)" 'Trebuchet MS' 15 18 284 (C 255 255 255) (C 255 92 190) 3
-                    $dnd = if ($script:popDND) { 'NO MOLESTAR: SÍ' } else { 'NO MOLESTAR: NO' }
-                    Texto-Color $g $dnd 'Trebuchet MS' 13 168 286 $(if ($script:popDND) { (C 90 230 250) } else { (C 255 214 120) }) (C 30 10 50) 3
-                    if ($script:popDND) { $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 90 230 250))), 330, 286, 16, 16); $g.FillEllipse((New-Object System.Drawing.SolidBrush((C 30 14 52))), 335, 283, 15, 15) }
+                    if ($script:popFx -gt 0) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ($script:popFx * 6) 255 92 190))), 406, 58, ($W - 410), ($H - 62)) }
+                    # abajo: mensajes, No molestar y la canción
+                    $osc = (ARGB 230 24 10 46)
+                    Yt-Pastilla $g 16 280 124 24 $osc "✉  $($script:popMsgs) $(if ($script:popMsgs -eq 1) { 'mensaje' } else { 'mensajes' })" (C 255 255 255) 8.5
+                    if ($script:popDND) { Yt-Pastilla $g 146 280 146 24 (ARGB 235 40 120 150) '☾  No molestar: SÍ' (C 255 255 255) 8.5 }
+                    else { Yt-Pastilla $g 146 280 146 24 $osc '☾  No molestar: NO' (C 255 214 120) 8.5 }
+                    Yt-Pastilla $g 298 280 100 24 $osc $(if ($script:popMusica) { '♪ pop music' } else { '♪ silencio' }) (C 255 92 190) 8
                 }
                 'gran' {
                     $e = $script:gr
@@ -7823,6 +11506,88 @@ $form.Add_Paint({
                         Texto-Color $g "FURRIES: $($e.Exitos)" 'Bahnschrift' 14 150 284 (C 32 208 44) (C 0 0 0) 3
                         Texto-Color $g "ÉXITO: $pc %" 'Bahnschrift' 14 284 284 $(if ($pc -ge 60 -or $e.Sujetos -eq 0) { (C 200 255 205) } else { (C 255 110 130) }) (C 0 0 0) 3
                     }
+                }
+                'boneyard' {
+                    $dyb = $script:dy; $ahora = [Environment]::TickCount
+                    # fuegos fatuos (Summon Wisps): dos llamitas que flotan a los lados de Dybbuk
+                    if ($dyb -and $dyb.WispsHasta -gt $ahora) {
+                        if (-not $script:dyWisp) { $script:dyWisp = Cargar-Img $k.Wisp }
+                        $quedan = ($dyb.WispsHasta - $ahora) / [double]$DyTiempos.Wisps
+                        $al = [Math]::Min(1.0, [Math]::Min((1 - $quedan) * 5, $quedan * 4))
+                        foreach ($q in @(@(474, 0.0), @(668, 1.7))) {
+                            $fy = 128 + [Math]::Sin($ahora / 280.0 + $q[1]) * 10
+                            $gl = New-Object System.Drawing.Drawing2D.GraphicsPath; $gl.AddEllipse([float]($q[0] - 6), [float]($fy + 10), 62, 62)
+                            $pg = New-Object System.Drawing.Drawing2D.PathGradientBrush($gl); $pg.CenterColor = [System.Drawing.Color]::FromArgb([int](110 * $al), 120, 200, 255); $pg.SurroundColors = @([System.Drawing.Color]::FromArgb(0, 120, 200, 255))
+                            $g.FillPath($pg, $gl); $pg.Dispose(); $gl.Dispose()
+                            Dy-Img $g $script:dyWisp $q[0] $fy 50 78 $al
+                        }
+                    }
+                    # posesión: el panel se tiñe de morado fantasma (sin parpadeo en modo seguro)
+                    if ($dyb -and $dyb.Estado -eq 'posee') {
+                        $pulso = if ($script:aj.Epilepsia) { 0.5 } else { 0.5 + 0.5 * [Math]::Sin($ahora / 320.0) }
+                        $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](35 + 45 * $pulso), 110, 70, 190))), 404, 56, ($W - 404), ($H - 56))
+                        if ($ahora -ge $dyb.Fin) {
+                            $tw = Ancho-Texto '¡EL PANEL ESTÁ POSEÍDO!' 'EdmundMcMillen_INTLv4' 20
+                            Texto-Contorno $g '¡EL PANEL ESTÁ POSEÍDO!' 'EdmundMcMillen_INTLv4' 20 (582 - $tw / 2) 150 (C 220 200 255) 4
+                        }
+                    }
+                    # barra de vida de jefe (como la de Guillotina) con la lápida del Boneyard
+                    $hx = 432; $hy = 62; $hw = 314
+                    $placa = Ruta-Redonda ($hx - 4) ($hy - 3) ($hw + 8) 28 12
+                    $g.FillPath((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(230, 22, 23, 28))), $placa)
+                    $g.DrawPath((New-Object System.Drawing.Pen((C 120 142 156), 2.5)), $placa); $placa.Dispose()
+                    if (-not $script:dyLapida) { $script:dyLapida = Cargar-Img $k.Lapida }
+                    if ($script:dyLapida) { $g.DrawImage($script:dyLapida, ($hx - 2), ($hy - 2), 22, 25) }
+                    $bx = $hx + 28; $bw = $hw - 32
+                    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 70 22 26))), $bx, ($hy + 3), $bw, 16)
+                    $hp = if ($dyb) { $dyb.HP } else { 85 }; $mx = if ($dyb) { $dyb.Max } else { 85 }
+                    $frac = [Math]::Max(0, $hp) / [double]$mx
+                    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 200 35 45))), $bx, ($hy + 3), [int]($bw * $frac), 16)
+                    $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(70, 255, 255, 255))), $bx, ($hy + 3), [int]($bw * $frac), 5)
+                    $est = if ($dyb) { $dyb.Estado } else { 'vivo' }
+                    $etq = if ($est -eq 'muerto') { 'DYBBUK  BAJO TIERRA' } elseif ($est -eq 'posee') { "¡DYBBUK POSEYENDO!  $hp/$mx" } else { "DYBBUK  $hp/$mx" }
+                    Texto-Contorno $g $etq 'EdmundMcMillen_INTLv4' 14 ($bx + 6) ($hy + 2) (C 255 250 235) 3
+                    # abajo: el cementerio y el maná que lleva lamido
+                    Texto-Contorno $g 'THE BONEYARD' 'EdmundMcMillen_INTLv4' 15 16 277 (C 150 172 186) 3
+                    Texto-Contorno $g "MANÁ LAMIDO: $(if ($dyb) { $dyb.Mana } else { 0 })" 'EdmundMcMillen_INTLv4' 14 158 278 (C 232 234 226) 3
+                }
+                'corrupta' {
+                    $el2 = $script:el; $ahora = [Environment]::TickCount
+                    $rab = if ($el2) { $el2.Rabia } else { 0.0 }; $glt = $el2 -and $el2.Glitch
+                    # MODO GLITCH: todo rojo con rayas (en modo seguro, sin parpadeo)
+                    if ($glt) {
+                        $pulso = if ($script:aj.Epilepsia) { 0.5 } else { 0.5 + 0.5 * [Math]::Sin($ahora / 120.0) }
+                        $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int](60 + 50 * $pulso), 200, 0, 40))), 404, 56, ($W - 404), ($H - 56))
+                        $ray = New-Object System.Drawing.Pen((ARGB 40 0 0 0), 1); for ($yy = 58; $yy -lt $H; $yy += 4) { $g.DrawLine($ray, 404, $yy, $W, $yy) }; $ray.Dispose()
+                    }
+                    # con rabia (o en modo glitch) Ellie se parte en rosa y cian
+                    $a = $script:actores['E']
+                    if ($a -and $a.Visible -and ($rab -ge 60 -or $glt)) {
+                        $img = $a.Imgs['main']; $r = $a.Rect
+                        $s = [Math]::Min($r[2] / $img.Width, $r[3] / $img.Height); $iw = $img.Width * $s; $ih = $img.Height * $s
+                        $ix = $r[0] + ($r[2] - $iw) / 2 + $a.OX; $iy = $r[1] + $r[3] - $ih + $a.OY
+                        if (-not $script:elRojo) { $script:elRojo = Imagen-Color $img (C 255 30 90) $ih; $script:elCian = Imagen-Color $img (C 60 230 255) $ih }
+                        $sep = if ($glt) { if ($script:aj.Epilepsia) { 5 } else { 4 + $Rnd.Next(0, 7) } } else { 2 + ($rab - 60) / 10.0 }
+                        $al = if ($glt) { 0.32 } else { 0.3 }
+                        Dy-Img $g $script:elRojo ($ix - $sep) $iy $iw $ih $al
+                        Dy-Img $g $script:elCian ($ix + $sep) $iy $iw $ih $al
+                    }
+                    # píxeles corruptos
+                    if ($el2) { foreach ($bq in $el2.Bloques) { $g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb([int][Math]::Min(230, $bq.T * 18), $bq.C.R, $bq.C.G, $bq.C.B))), [float]$bq.X, [float]$bq.Y, [float]$bq.W, [float]$bq.H) } }
+                    if ($glt) {
+                        $tx = Ancho-Texto 'MODO GLITCH 100%' 'Arial Black' 20; $jit = if ($script:aj.Epilepsia) { 0 } else { $Rnd.Next(-3, 4) }
+                        Texto-Contorno $g 'MODO GLITCH 100%' 'Arial Black' 20 (590 - $tx / 2 + $jit) 62 (C 255 60 100) 4
+                    }
+                    # abajo a la izquierda: la barra GLITCH (su rabia)
+                    Texto-Contorno $g 'GLITCH' 'Arial Black' 13 16 278 (C 255 92 170) 3
+                    $bx = 92; $by = 281; $bw = 200
+                    $g.FillRectangle((New-Object System.Drawing.SolidBrush((C 40 10 30))), $bx, $by, $bw, 13)
+                    $colB = if ($glt) { (C 255 40 80) } elseif ($rab -ge 60) { (C 255 92 170) } else { (C 90 230 255) }
+                    $g.FillRectangle((New-Object System.Drawing.SolidBrush($colB)), $bx, $by, [int]($bw * $rab / 100.0), 13)
+                    $g.DrawRectangle((New-Object System.Drawing.Pen((C 255 92 170), 1.5)), $bx, $by, $bw, 13)
+                    $txt = if ($glt) { '100% !!' } else { "$([int]$rab)%" }
+                    Texto-Contorno $g $txt 'Arial Black' 11 ($bx + $bw + 8) 279 (C 255 236 244) 3
+                    Texto-Contorno $g "NATILLAS: $(if ($el2) { $el2.Natillas } else { 0 })" 'Arial Black' 10 300 300 (C 255 214 90) 3
                 }
                 'evil' {
                     $e = $script:es; $ahora = [Environment]::TickCount
@@ -7951,6 +11716,61 @@ $form.Add_Paint({
                     $g.FillPath((New-Object System.Drawing.SolidBrush((C 40 28 20))), (Ruta-Redonda 196 287 80 10 5))
                     if ($mv -gt 1) { $g.FillPath((New-Object System.Drawing.SolidBrush((C 236 170 190))), (Ruta-Redonda 196 287 ([Math]::Max(10.0, 80.0 * $mv / 100.0)) 10 5)) }
                     Yt-Pastilla $g 290 280 108 24 $osc '⬇ 4ª capa · 7.100 m' $cl 7.5
+                }
+                'lobo' { Ag-Pintar $g $W $H $k }
+                'arana' { Vv-Pintar $g $W $H $k }
+                'clima' { Wg-Pintar $g $W $H $k }
+                'pintor' { Pr-Pintar $g $W $H $k }
+                'historia' {
+                    $e = $script:mk
+                    # la mesa con los libros que van llegando y la vela-patata
+                    Mk-Pintar-Mesa $g $e
+                    # al subir el nivel de emoción, un brillo dorado suave sobre la escena
+                    if ($e -and $e.Fx -gt 0) { $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ([int][Math]::Min(100, $e.Fx * 8)) 255 210 110))), 404, 56, ($W - 404), 218) }
+                    # el ejercicio de respiración: un círculo dorado que crece (coger aire) y se encoge (soltarlo)
+                    if ($e -and $e.Respira -gt 0) {
+                        $q = [Math]::Min(1.0, ([Environment]::TickCount - $e.RespiraT0) / [double]$MkTiempos.Respira)
+                        $rad = 18 + 46 * [Math]::Sin($q * [Math]::PI); $cx = 508; $cy = 136
+                        $g.FillEllipse((New-Object System.Drawing.SolidBrush((ARGB 50 255 220 140))), [float]($cx - $rad), [float]($cy - $rad), [float](2 * $rad), [float](2 * $rad))
+                        $g.DrawEllipse((New-Object System.Drawing.Pen((ARGB 200 255 220 140), 2.5)), [float]($cx - $rad), [float]($cy - $rad), [float](2 * $rad), [float](2 * $rad))
+                        $g.DrawEllipse((New-Object System.Drawing.Pen((ARGB 90 255 220 140), 1)), [float]($cx - 64), [float]($cy - 64), 128, 128)
+                        $txr = if ($q -lt 0.5) { 'COGE AIRE' } else { 'SUÉLTALO' }
+                        $fr = FntP('Palatino Linotype', 10, [System.Drawing.FontStyle]::Bold); $tw = $g.MeasureString($txr, $fr).Width
+                        Texto-Color $g $txr 'Palatino Linotype' 13 ($cx - $tw / 2 - 2) ($cy - 9) (C 250 242 222) (C 60 40 20) 3
+                    }
+                    # Realización de la Planta: la carta "The Will to Stand up Straight"
+                    if ($e -and $e.EgoT -gt 0) {
+                        if (-not $script:mkEgo) { $script:mkEgo = Cargar-Img $k.Ego }
+                        $q = 90 - $e.EgoT; $esc = [Math]::Min(1.0, $q / 6.0); $alf = [Math]::Min(1.0, $e.EgoT / 10.0)
+                        $g.FillRectangle((New-Object System.Drawing.SolidBrush((ARGB ([int](150 * $alf)) 10 6 2))), 404, 56, ($W - 404), 218)
+                        if ($script:mkEgo) {
+                            $cw = 196 * (0.6 + 0.4 * $esc); $ch = $cw * $script:mkEgo.Height / $script:mkEgo.Width; $cx = 512 - $cw / 2; $cy = 132 - $ch / 2
+                            $cm = New-Object System.Drawing.Imaging.ColorMatrix; $cm.Matrix33 = [float]$alf
+                            $ia = New-Object System.Drawing.Imaging.ImageAttributes; $ia.SetColorMatrix($cm)
+                            $g.DrawImage($script:mkEgo, (New-Object System.Drawing.Rectangle([int]$cx, [int]$cy, [int]$cw, [int]$ch)), 0, 0, $script:mkEgo.Width, $script:mkEgo.Height, [System.Drawing.GraphicsUnit]::Pixel, $ia); $ia.Dispose()
+                            $g.DrawRectangle((New-Object System.Drawing.Pen((ARGB ([int](255 * $alf)) 236 196 106), 2)), [float]$cx, [float]$cy, [float]$cw, [float]$ch)
+                            Texto-Color $g 'THE WILL TO STAND UP STRAIGHT' 'Palatino Linotype' 11 418 ([float]($cy + $ch + 6)) (ARGB ([int](255 * $alf)) 250 232 180) (ARGB ([int](255 * $alf)) 30 20 10) 3
+                            $g.DrawString('Realización de la Planta de Historia', (FntP('Palatino Linotype', 8, [System.Drawing.FontStyle]::Italic)), (New-Object System.Drawing.SolidBrush((ARGB ([int](255 * $alf)) 236 196 106))), 420, [float]($cy + $ch + 24))
+                        }
+                    }
+                    # abajo: libros catalogados, NIVEL DE EMOCIÓN (5 puntos, como en el juego) y ÁNIMO
+                    $osc = (ARGB 230 60 40 18); $cl = (C 250 236 200)
+                    $nl = if ($e) { $e.Libros } else { 0 }
+                    Yt-Pastilla $g 16 280 98 24 $osc "📖 $nl $(if ($nl -eq 1) { 'libro' } else { 'libros' })" $cl 8.5
+                    Yt-Pastilla $g 120 280 150 24 $osc $null $null 8
+                    $g.DrawString('EMOCIÓN', (FntP('Segoe UI', 7.5, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($cl)), 128, 285)
+                    $nv = if ($e) { $e.Nivel } else { 0 }
+                    for ($i = 0; $i -lt 5; $i++) {
+                        $pc = if ($i -lt $nv) { (C 255 210 100) } else { (C 40 28 14) }
+                        $g.FillEllipse((New-Object System.Drawing.SolidBrush($pc)), [float](188 + $i * 15), 286, 11, 11)
+                        $g.DrawEllipse((New-Object System.Drawing.Pen((C 214 170 90), 1)), [float](188 + $i * 15), 286, 11, 11)
+                    }
+                    Yt-Pastilla $g 276 280 122 24 $osc $null $null 8
+                    $g.DrawString('ÁNIMO', (FntP('Segoe UI', 7.5, [System.Drawing.FontStyle]::Bold)), (New-Object System.Drawing.SolidBrush($cl)), 284, 285)
+                    $av = if ($e) { $e.Animo } else { 80 }
+                    $g.FillPath((New-Object System.Drawing.SolidBrush((C 40 28 14))), (Ruta-Redonda 322 287 68 10 5))
+                    $ca = if ($e -and $e.Hundida) { (C 120 130 150) } elseif ($av -lt 50) { (C 230 150 60) } else { (C 150 210 110) }
+                    if ($av -gt 1) { $g.FillPath((New-Object System.Drawing.SolidBrush($ca)), (Ruta-Redonda 322 287 ([Math]::Max(10.0, 68.0 * $av / 100.0)) 10 5)) }
                 }
                 'enfosi' {
                     $e = $script:ef
@@ -8206,7 +12026,7 @@ $form.Add_Paint({
             $g.FillRectangle((New-Object System.Drawing.SolidBrush($col)), $Rnd.Next(-50, $W), $Rnd.Next(0, $H), $Rnd.Next(40, 300), $Rnd.Next(1, 7))
         }
     }
-    $ancho = if ($k.Estilo -in @('tele', 'mew', 'oeste', 'culto', 'kaiju', 'femta')) { 4 } elseif ($k.Estilo -eq 'lobo') { 2 } else { 3 }
+    $ancho = if ($k.Estilo -in @('tele', 'mew', 'oeste', 'culto', 'kaiju', 'femta')) { 4 } else { 3 }
     $pen = New-Object System.Drawing.Pen($k.Borde, $ancho)
     $g.DrawRectangle($pen, 1, 1, $W - 3, $H - 3); $pen.Dispose()
 })
@@ -8237,18 +12057,24 @@ function Clic-Actor($id) {
         'punk' { Ky-Clic }
         'gran' { Gran-Clic }
         'abismo' { if ($id -eq 'M') { Nn-Mitty } else { Nn-Clic } }
+        'historia' { Mk-Clic }
+        'lobo' { Ag-Clic }
+        'arana' { Vv-Clic }
+        'clima' { Wg-Clic }
+        'pintor' { Pr-Clic }
         'evil' { Es-Clic }
         'niebla' { if ($id -eq 'G') { Sf-Gato } else { Sf-Clic } }
         'knight' { Kn-Clic }
+        'corrupta' { if ($id -eq 'N') { El-Natillas } else { El-Pinchar } }
+        'boneyard' { Dy-Clic }
     }
 }
 $mDown = {
     # Kevin: tocar su pizza (mala idea)
     if ($script:skin.Estilo -eq 'pizza' -and $_.Button -eq 'Left' -and (Pizza-En-Raton)) { Pizza-Tocar; return }
     # Kennyoung: botón de suscribirse del reproductor
-    if ($script:skin.Estilo -eq 'punk' -and $_.Button -eq 'Left' -and (Sub-En-Raton)) { Ky-Suscribir; return }
-    # Roaring Knight: botón FIGHT (el minijuego)
-    if ($script:skin.Estilo -eq 'knight' -and $_.Button -eq 'Left' -and (Kn-Fight-En-Raton)) { Kn-Combate; return }
+    # Kennyoung: él forma parte de la imagen de la escena (izquierdo = clic en él; derecho = charla)
+    if ($script:skin.Estilo -eq 'punk' -and (Ky-En-Escena)) { if ($_.Button -eq 'Right') { Iniciar-Discusion } else { Ky-Clic }; return }
     $id = Actor-En-Raton
     if ($id) { if ($_.Button -eq 'Right') { Iniciar-Discusion } else { Clic-Actor $id }; return }
     $script:drag = $true; $script:p0 = [System.Windows.Forms.Cursor]::Position; $script:f0 = $form.Location
@@ -8260,7 +12086,7 @@ $mDown = {
     }
 }
 $mMove = {
-    if ($script:actores.Count -gt 0 -and -not $script:drag) { $form.Cursor = $(if ((Actor-En-Raton) -or ($script:skin.Estilo -eq 'pizza' -and (Pizza-En-Raton)) -or ($script:skin.Estilo -eq 'punk' -and (Sub-En-Raton)) -or (Kn-Fight-En-Raton)) { [System.Windows.Forms.Cursors]::Hand } else { [System.Windows.Forms.Cursors]::Default }) }
+    if ($script:actores.Count -gt 0 -and -not $script:drag) { $form.Cursor = $(if ((Actor-En-Raton) -or ($script:skin.Estilo -eq 'pizza' -and (Pizza-En-Raton)) -or ($script:skin.Estilo -eq 'punk' -and (Ky-En-Escena)) -or (Kn-Fight-En-Raton) -or (Ag-Monitor-En-Raton) -or ((Vv-Capullo-En-Raton) -ge 0) -or (Wg-Paraguas-En-Raton)) { [System.Windows.Forms.Cursors]::Hand } else { [System.Windows.Forms.Cursors]::Default }) }
     if ($script:drag -and -not $script:glitching) {
         $p = [System.Windows.Forms.Cursor]::Position
         $form.Location = New-Object System.Drawing.Point(($script:f0.X + $p.X - $script:p0.X), ($script:f0.Y + $p.Y - $script:p0.Y))
@@ -8299,13 +12125,20 @@ function Construir-UI {
     # personajes dibujados y estado de las skins nuevas
     $actTimer.Stop(); $kRevTimer.Stop()
     if ($k.Estilo -ne 'gran') { Gran-Musica-Off }
+    if ($k.Estilo -ne 'historia') { Mk-Musica-Off }
+    if ($k.Estilo -ne 'lobo') { Ag-Musica-Off }
+    if ($k.Estilo -ne 'arana') { Vv-Musica-Off }
+    if ($k.Estilo -ne 'clima') { Wg-Musica-Off; if ($script:wgPortada) { $script:wgPortada.Dispose(); $script:wgPortada = $null } }
+    if ($k.Estilo -ne 'pintor') { Pr-Musica-Off; Pr-Voz-Off }
+    if ($k.Estilo -ne 'punk') { Ky-Musica-Off }
+    if ($k.Estilo -ne 'pop') { Tetra-Musica-Off; $script:popBaila = 0 }
     Quitar-Actores
     if ($script:bmpEscena) { $script:bmpEscena.Dispose(); $script:bmpEscena = $null }
     $script:fe = 60; $script:seguidores = 0; $script:ritualFx = 0
     Kaiju-Reiniciar
     $script:antojo = 0
     $script:pzFx = 0; $script:pzQueso = $false; $script:pzEnfado = 0.0; $script:pzGrito = $null; $script:pzLluvia.Clear()
-    $script:kyFx = 0; $script:kyConc = 0; $script:kyFlash = 0; $script:kyAmp = 0.0; $script:kyVideo = $null
+    if ($script:ky) { $script:ky.Fx = 0; $script:ky.Conc = 0; $script:ky.Flash = 0; $script:ky.Amp = 0.0 }
     if ($script:pzReparto -gt 0) { $script:pzReparto = 0; $script:pzTrozos = 8 }
     $form.Controls.Clear()
 
@@ -8355,7 +12188,7 @@ function Construir-UI {
     $bAjustes = Nuevo-Boton 'Ajustes' ($W - 226) 12 72 28; $bAjustes.ForeColor = $k.BarraBtnTexto
     $bAjustes.Add_Click({ Mostrar-Ajustes })
     $form.Controls.Add($bAjustes)
-    if ($k.Estilo -in @('hacker', 'lobo', 'mlg', 'gunsaw')) { Hover-Color $bAjustes }
+    if ($k.Estilo -in @('hacker', 'mlg', 'gunsaw')) { Hover-Color $bAjustes }
 
     $script:grid = New-Object System.Windows.Forms.Panel
     $grid.Location = New-Object System.Drawing.Point(16, (66 + $T))
@@ -8386,7 +12219,7 @@ function Construir-UI {
     $script:status = New-Object System.Windows.Forms.Label
     $status.ForeColor = $k.StatusColor
     $form.Controls.AddRange(@($bSkins, $bMin, $bCerrar, $grid, $bAnt, $lblPag, $bSig, $status))
-    if ($k.Estilo -in @('hacker', 'lobo', 'mlg', 'gunsaw')) { foreach ($b in @($bSkins, $bMin, $bCerrar, $bAnt, $bSig)) { Hover-Color $b } }
+    if ($k.Estilo -in @('hacker', 'mlg', 'gunsaw')) { foreach ($b in @($bSkins, $bMin, $bCerrar, $bAnt, $bSig)) { Hover-Color $b } }
 
     if ($k.Estilo -eq 'web') {
         $candado = New-Object System.Windows.Forms.Label
@@ -8413,11 +12246,25 @@ function Construir-UI {
         if ($k.Estilo -eq 'gran') { Gran-Reset } else { $script:gr = $null }
         # Nanachi: se guarda lo que lleva (estofados, mullido); al irse se liberan sus caras y la olla
         if ($k.Estilo -eq 'abismo') { Nn-Reset } else { Nn-Liberar; if ($script:nnOlla) { $script:nnOlla.Dispose(); $script:nnOlla = $null } }
+        # Velvet: guarda su seda, su hambre y sus capullos mientras se cambia de skin (la trampa se cancela)
+        if ($k.Estilo -eq 'arana') { Vv-Reset; $script:vv.TrampaT = 0; $script:vv.Mueve = -1 }
+        # Weathergirl: guarda el tiempo y las palabras sin decir; el fondo se pinta con el cielo que toque
+        if ($k.Estilo -eq 'clima') { Wg-Reset; $script:wg.Pintado = '' }
+        # Painter: guarda el calor y el paisaje mientras se cambia de skin (la minería se cancela)
+        if ($k.Estilo -eq 'pintor') { Pr-Reset; $script:pr.Mina = 0; $script:pr.CaraHasta = 0; $script:pr.Hex.Clear(); $script:pr.Saludado = $false }
+        # Angela: guarda la energía, el Qliphoth y la brecha mientras se cambia de skin; al irse se sueltan sus imágenes
+        if ($k.Estilo -eq 'lobo') { Ag-Reset; $script:ag.FiltroT = 0; $script:ag.Cara = 'main'; $script:ag.CaraHasta = 0 } else { Ag-Liberar }
+        # Malkuth: guarda sus libros, su emoción y su ánimo; al irse se suelta la carta de la Realización
+        if ($k.Estilo -eq 'historia') { Mk-Reset; $script:mk.Respira = 0; $script:mk.EgoT = 0; $script:mk.Ultima = [Environment]::TickCount; Mk-Base } elseif ($script:mkEgo) { $script:mkEgo.Dispose(); $script:mkEgo = $null }
         # Evil Scary: guarda su distancia y sus contadores; al irse se borra todo y se suelta la cara del susto
         if ($k.Estilo -eq 'evil') { Es-Reset } else { $script:es = $null; if ($script:esSusto) { $script:esSusto.Dispose(); $script:esSusto = $null } }
         # Soft Fuzzy Man: guarda su existencia y sus contadores mientras sea la skin activa
         if ($k.Estilo -eq 'niebla') { Sf-Reset } else { $script:sf = $null }
         if ($k.Estilo -eq 'knight') { Kn-Reset } else { $script:kn = $null }
+        # Ellie: guarda su rabia y sus contadores mientras sea la skin activa; sus copias de color se hacen al dibujarla
+        if ($k.Estilo -eq 'corrupta') { El-Reset } else { $script:el = $null; foreach ($im in @($script:elRojo, $script:elCian)) { if ($im) { $im.Dispose() } }; $script:elRojo = $null; $script:elCian = $null }
+        # Dybbuk: guarda su vida y su maná mientras sea la skin activa
+        if ($k.Estilo -eq 'boneyard') { Dy-Reset; Dy-Base } else { $script:dy = $null }
         $status.BackColor = [System.Drawing.Color]::Transparent
         $status.ForeColor = $k.BurTexto
         $status.UseMnemonic = $false

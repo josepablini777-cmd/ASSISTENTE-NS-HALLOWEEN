@@ -95,7 +95,11 @@
     "Gran": "* Gran se ha ido. * Quiso una muestra del Knight. * Solo consiguió ruido de televisión.",
     "Evil Scary": "* La bola negra se ha ido. * Botó hacia el Knight. * Volvió en dos mitades. Siguió botando.",
     "Soft Fuzzy Man": "* La niebla rosa se ha ido. * Ligó con el Knight. * El Knight le cortó en dos. La niebla se juntó otra vez.",
-    "Nanachi": "* Nanachi se ha ido. * Dijo \"ese no sigue ninguna regla\". * El Knight se rió."
+    "Nanachi": "* Nanachi se ha ido. * Dijo \"ese no sigue ninguna regla\". * El Knight se rió.",
+    "Dybbuk": "* Dybbuk se ha ido. * El Knight lanzó cien espadas. * Cien volteretas.",
+    "Malkuth": "* Malkuth se ha ido. * Apuntaba al Knight con su porra. * Le temblaba el brazo. * No la bajó.",
+    "Weathergirl": "* La presentadora ha cortado la emisión. * El cielo sigue negro. * Eso no lo ha hecho ella.",
+    "Painter": "* Se ha ido el ordenador. * Su pantalla se ha oscurecido. * No ha sido el Knight. * O sí."
   },
   "Opina": {
     "c00lgui": ["* c00lgui hackea servidores. * El Knight crea mundos enteros.", "* c00lkidd quiso un panel de admin para el Knight. * El Knight ya es el admin de los Mundos Oscuros."],
@@ -121,6 +125,10 @@
     "Gran": ["* Gran transforma gente. * El Knight transforma salas enteras en Mundos Oscuros.", "* Gran le pidió una muestra. * Le dio una astilla negra. * Gran no ha vuelto a ser el mismo."],
     "Evil Scary": ["* Evil Scary bota hacia todos. * Hacia el Knight bota más despacio.", "* Los dos son negros, con manos y dientes. * Solo uno tiene una espada."],
     "Soft Fuzzy Man": ["* Soft Fuzzy Man quiere sentir que existe. * El Knight hace que los mundos existan.", "* Le guiñó un ojo al Knight. * El Knight cortó la niebla. * Se volvió a juntar."],
-    "Nanachi": ["* Nanachi ve el campo de fuerza. * Alrededor del Knight está todo roto.", "* Nanachi pasa de todo. * Del Knight no. * Del Knight nadie pasa."]
+    "Nanachi": ["* Nanachi ve el campo de fuerza. * Alrededor del Knight está todo roto.", "* Nanachi pasa de todo. * Del Knight no. * Del Knight nadie pasa."],
+    "Dybbuk": ["* Dybbuk esquiva el Black Knife. * El Knight lo mira. * Sonríe con los dientes.", "* Dybbuk le saca la lengua al Knight. * Nadie había hecho eso antes. * Nadie."],
+    "Malkuth": ["* Malkuth quiere escribir la historia del Knight. * El Knight se ríe. * Hay páginas que nadie debería leer.", "* Malkuth no huye. * Para el Knight, eso es una mala costumbre."],
+    "Weathergirl": ["* La chica del tiempo anuncia lluvia. * El Knight trae la Fuente. * Hoy llueve oscuridad.", "* Se esconde detrás del guion. * El Knight lee el guion. * Pone su nombre."],
+    "Painter": ["* El Knight observa al ordenador. * Dibuja caras que sonríen. * El Knight sonríe de vuelta. * Con los dientes.", "* No salió en sus cámaras. * Eso lo hizo el Knight. * El ordenador lo sabe. * Y dibuja otra carita igual."]
   }
 }

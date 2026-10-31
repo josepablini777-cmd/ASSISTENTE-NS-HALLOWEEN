@@ -155,7 +155,11 @@
     "Evil Scary": "El de la sonrisa roja se ha ido. No compró nada. Solo botó encima del mostrador.",
     "Soft Fuzzy Man": "Se fue la nube rosa. No compró nada. No podía coger nada. Aun así se probó tres sombreros.",
     "Roaring Knight": "El caballero se ha ido. Se llevó todas las linternas. No pagó. Amigo, nadie me hace eso.",
-    "Nanachi": "Nanachi se ha ido. Le compré tres antídotos. Los voy a revender al doble, amigo."
+    "Nanachi": "Nanachi se ha ido. Le compré tres antídotos. Los voy a revender al doble, amigo.",
+    "Dybbuk": "El gatito fantasma se ha ido. Entró por la pared. Salió por la pared. No compró nada. Ni las pilas.",
+    "Malkuth": "Malkuth se ha ido, amigo. Le vendí una vela con forma de patata. Luego me dijo que las hace ella. Mal negocio.",
+    "Weathergirl": "Se fue la del tiempo, amigo. Se dejó el paraguas. Ya está en el escaparate.",
+    "Painter": "Se fue el kid, amigo. Prometí sacarlo del Blacksite. Y yo cumplo... siempre que el precio sea justo. Este lo es."
   },
   "Opina": {
     "c00lgui": ["c00lkidd intentó hackear mi tienda. Le cobré la entrada.", "Un hacker aquí abajo... no duraría ni una sala."],
@@ -181,6 +185,10 @@
     "Evil Scary": ["Le vendí un Flash Beacon a un cliente para usarlo contra Evil Scary. No funcionó. No devuelvo el dinero.", "Las entidades de Pressure le tienen miedo a Evil Scary, amigo. Y yo también."],
     "Soft Fuzzy Man": ["Le vendí un ambientador a Soft Fuzzy Man. Ahora huele a lavanda y a fantasma, amigo.", "Las entidades de Pressure también atraviesan paredes. Pero ninguna te dice que tienes unos ojos preciosos."],
     "Roaring Knight": ["El Knight crea Mundos Oscuros. Yo vendo linternas. Es el mejor cliente que no paga.", "Pressure da miedo. Una Fuente Oscura en la tienda da más."],
-    "Nanachi": ["Nanachi hace medicinas con setas. Mejores que mis botiquines. No se lo digas.", "Su escondite está lleno de monstruos y nadie se queja. Como mi tienda."]
+    "Nanachi": ["Nanachi hace medicinas con setas. Mejores que mis botiquines. No se lo digas.", "Su escondite está lleno de monstruos y nadie se queja. Como mi tienda."],
+    "Dybbuk": ["Dybbuk no paga. Atraviesa el mostrador. ¡Así no se puede llevar un negocio!", "Me lamió el escaparate. Tuve que poner un cartel: \"no se aceptan fantasmas\". Ni caso."],
+    "Malkuth": ["Malkuth quiere catalogar mi tienda. ¡Ni hablar! Mis precios son secreto comercial.", "Es muy alegre. Demasiado. Los clientes alegres no regatean... ¡ah, espera, eso es bueno, amigo!"],
+    "Weathergirl": ["La chica del tiempo dice que va a llover. ¡Paraguas a mitad de precio, amigo! ...bueno, a tres cuartos.", "Me compró un paraguas y no regateó. Clienta ideal. Demasiado buena para este mundo."],
+    "Painter": ["Painter es mi chico, amigo. Mi pequeño ordenador. Le debo un cumpleaños y una huida, por ese orden.", "Se pone nervioso cuando me ve entrar. Le subo la temperatura sin querer. Pero sonríe. Se le nota en la pantalla."]
   }
 }

@@ -76,7 +76,11 @@
     "Evil Scary": "¡Evil Scary se ha ido! ¡Ya puedo dejar de correr! ...¿por qué corría?",
     "Soft Fuzzy Man": "¡Soft Fuzzy Man se ha ido! ...¿quién? ¡Ah, sí! ¡La nube que liga!",
     "Roaring Knight": "¡El Knight se ha ido! ...¿quién era? ¡Ah, sí! ¡El alto que ruge!",
-    "Nanachi": "¡Nanachi se ha ido! ¡Su estofado me hizo olvidar mi nombre! ...¿cómo me llamaba?"
+    "Nanachi": "¡Nanachi se ha ido! ¡Su estofado me hizo olvidar mi nombre! ...¿cómo me llamaba?",
+    "Dybbuk": "¡Dybbuk se ha ido! ...¿o no? Siento que se ha metido en mi cabeza. ¡Más de lo normal!",
+    "Malkuth": "¡Malkuth se ha ido! ¡Me apuntó en su libro! ¡Ahora soy historia! ...¿eso es bueno? ¡Es bueno!",
+    "Weathergirl": "¡Weathergirl se ha ido! ¡Me dijo que mañana llueve! ...¿o era pasado? ¡Llevaré baguette por si acaso!",
+    "Painter": "¡Painter se ha ido! ¡Me dibujó una baguette con caritas! ¡Es la mejor baguette de mi vida! ¡Se la he enseñado a todas!"
   },
   "Opina": {
     "c00lgui": ["c00lgui habla todo en minúsculas. Yo hablo todo en ¡HIII!", "Le pedí a c00lgui que me hackeara más memoria. Me dio un pan. ¡Gracias!"],
@@ -102,6 +106,10 @@
     "Evil Scary": ["¡Me olvidé de que Evil Scary existía! ¡Y entonces sonó la alarma! ¡AAAH!", "¡Le dije \"hiii\"! ¡Me contestó \"STALL, STALL\"! ¡Qué maleducado!"],
     "Soft Fuzzy Man": ["¡Me olvidé de que Soft Fuzzy Man estaba aquí! ¡Él me lo recordó! ¡Cuatro veces!", "¡Le dije \"hiii\"! ¡Se puso rosa fuerte! ¡Qué mono!"],
     "Roaring Knight": ["¡Le dije \"hiii\"! ¡Me rugió! ¡Creo que es su forma de decir hola!", "¡Me olvidé de que existía! ¡Y entonces apareció detrás de mí! ¡AAAH!"],
-    "Nanachi": ["¡Nanachi tiene orejas de conejo de verdad! ¡Yo tengo taladros! ¡Somos un dúo de pelo!", "¡Le pregunté si podía tocarle! Dijo \"no\". ¡Muy claro! ¡Me encanta!"]
+    "Nanachi": ["¡Nanachi tiene orejas de conejo de verdad! ¡Yo tengo taladros! ¡Somos un dúo de pelo!", "¡Le pregunté si podía tocarle! Dijo \"no\". ¡Muy claro! ¡Me encanta!"],
+    "Dybbuk": ["¡Dybbuk dice que me ha poseído tres veces! ¡No me acuerdo de ninguna! ¡Qué suerte!", "Mi baguette está pegajosa. ¿Por qué está pegajosa? ...¡DYBBUK!"],
+    "Malkuth": ["¡Malkuth tiene una libreta para no olvidar nada! ¡Yo necesito una! ...¿qué necesitaba?", "¡Me dio una patata! ¡La metí en una baguette! ¡Invento nuevo!"],
+    "Weathergirl": ["¡Weathergirl también es una voz de Synthesizer V! ¡Como yo! ¡Somos primas! ¡Creo!", "¡Hice una versión de su canción! ¡Weathergirls! ¡En plural! ¡Con baguette!"],
+    "Painter": ["¡Painter es un ordenador que dibuja! ¡Yo canto! ¡Somos un dúo artístico! ¡Painter y Teto!", "¡Le pedí un dibujo de pan! ¡Me dibujó un paisaje con pan por las colinas! ¡Lloré de felicidad!"]
   }
 }

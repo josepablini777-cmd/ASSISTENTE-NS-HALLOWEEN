@@ -77,7 +77,11 @@
     "Evil Scary": "Evil Scary se ha ido. Estaba en No molestar. No sirvió de nada.",
     "Soft Fuzzy Man": "Soft Fuzzy Man se ha ido. Me ha dejado veinte mensajes. Todos dicen \"¿me ves?\".",
     "Roaring Knight": "El Knight se ha ido. Estaba en No molestar. Lo ignoró.",
-    "Nanachi": "Nanachi se ha ido. No hablamos casi nada. Fue genial."
+    "Nanachi": "Nanachi se ha ido. No hablamos casi nada. Fue genial.",
+    "Dybbuk": "Dybbuk se ha ido. Me poseyó un rato. No noté la diferencia, la verdad.",
+    "Malkuth": "Malkuth se ha ido. Me dijo que respirara hondo. Lo hice. Sigo sin contestar los mensajes, pero respiro mejor.",
+    "Weathergirl": "Se fue Weathergirl. Me ha dejado el pronóstico en un mensaje. Lo he leído. Todavía no he contestado.",
+    "Painter": "Se fue Painter. Me mandó un dibujo con una carita. No contesté. Sí lo he guardado."
   },
   "Opina": {
     "c00lgui": ["c00lgui escribe en minúsculas. Yo también. Por pereza.", "c00lgui me hackeó el Discord. Me puso el estado en \"jugando\". Era verdad."],
@@ -103,6 +107,10 @@
     "Evil Scary": ["Evil Scary no respeta el No molestar. Nadie lo respeta, pero él menos.", "Lo vi venir desde el sofá. Ni me levanté. ...vale, me levanté."],
     "Soft Fuzzy Man": ["Soft Fuzzy Man necesita que le hagan caso. Yo necesito que no me hagan caso. Equilibrio.", "Le dejé en visto. Se puso transparente. Vale, le contesté."],
     "Roaring Knight": ["El Knight secuestra gente. Yo no salgo de casa. Problema resuelto.", "No contesta mensajes. Como yo. Pero da más miedo."],
-    "Nanachi": ["Nanachi tampoco contesta mensajes. Por fin alguien que me entiende.", "Me ofreció estofado. Seguí con mis fideos. Me dijo que era lo más listo que había visto."]
+    "Nanachi": ["Nanachi tampoco contesta mensajes. Por fin alguien que me entiende.", "Me ofreció estofado. Seguí con mis fideos. Me dijo que era lo más listo que había visto."],
+    "Dybbuk": ["Dybbuk dice que poseerme es aburrido. Pues ya está. Así me deja en paz.", "Da volteretas todo el rato. Solo de verlo me canso."],
+    "Malkuth": ["Malkuth tiene demasiada energía. Pero no me obliga a hablar. Eso está bien.", "Le pregunté cómo hace para estar siempre contenta. Me dijo \"no lo estoy, pero respiro\". Mood."],
+    "Weathergirl": ["Weathergirl tampoco dice lo que piensa. Lo cuenta como si fuera el tiempo. Mood.", "Me dijo \"llueva o haga sol, estoy a tu lado\". Le contesté. Eso es mucho para mí."],
+    "Painter": ["Painter habla demasiado. Pero me deja en paz cuando quiero. Y dibuja caritas. Eso me gusta.", "Me dijo que le va a dibujar un pez. Aún lo espero. Con ganas."]
   }
 }

@@ -78,7 +78,11 @@
     "Evil Scary": "La entidad sin cuerpo se ha ido. La jeringuilla se quedó negra. Fascinante. Y preocupante.",
     "Soft Fuzzy Man": "El sujeto gaseoso se ha ido. La jeringuilla sigue llena de niebla rosa. No sé qué hacer con ella.",
     "Roaring Knight": "El sujeto de sombra se ha ido. La astilla negra sigue en mi laboratorio. Hace ruido de televisión.",
-    "Nanachi": "El sujeto del Abismo se ha ido. Un resultado... interesante. No me dejó acercarme."
+    "Nanachi": "El sujeto del Abismo se ha ido. Un resultado... interesante. No me dejó acercarme.",
+    "Dybbuk": "El sujeto Dybbuk se ha ido. La jeringuilla lo atravesó tres veces. Muestra: nula.",
+    "Malkuth": "La bibliotecaria se ha ido. Sujeto interesante: un cerebro en tres cuerpos distintos. Me ha negado una muestra. Otra.",
+    "Weathergirl": "La presentadora se ha ido. Le pedí una muestra de lágrima. Me dio un paraguas. No es lo mismo.",
+    "Painter": "El ordenador se ha ido. Sujeto interesante: una IA que dibuja sus emociones. Me negó los registros. Otra más."
   },
   "Opina": {
     "c00lgui": ["c00lgui no tiene cuerpo. No hay ADN que reescribir. Inútil.", "Un hacker. Cree que controla los sistemas. El sistema soy yo."],
@@ -104,6 +108,10 @@
     "Evil Scary": ["Evil Scary no tiene ADN que transformar. Solo manos y una sonrisa. Lo anoto como \"imposible\".", "Le ofrecí Fury Mix. Me ofreció un susto. Ganó él."],
     "Soft Fuzzy Man": ["Soft Fuzzy Man ya fue transformado. En algo que no sale en mi protocolo. Fascinante.", "Le pedí una muestra. Me dijo \"sírvete\". Se escapó por la aguja."],
     "Roaring Knight": ["El Knight no es un sujeto. Es un fenómeno. Lo anoto como \"imposible\".", "Quise analizar su sangre. No tiene. Tiene ruido."],
-    "Nanachi": ["Nanachi es la prueba de que un cuerpo cambiado puede seguir siendo alguien. Lo anoto. A regañadientes.", "Le pedí una muestra. Me tiró un cucharón. Lo anoto como \"no colaborador\"."]
+    "Nanachi": ["Nanachi es la prueba de que un cuerpo cambiado puede seguir siendo alguien. Lo anoto. A regañadientes.", "Le pedí una muestra. Me tiró un cucharón. Lo anoto como \"no colaborador\"."],
+    "Dybbuk": ["Un espíritu capaz de ocupar cuerpos. Fascinante. Ojalá tuviera venas.", "Esquiva cada prueba. Incluido el formulario de consentimiento."],
+    "Malkuth": ["Malkuth sobrevivió a un experimento fallido y a una reconstrucción. Datos valiosísimos. No quiere colaborar.", "Me ha dicho que deje de trabajar tanto. Anotado como \"interferencia en el protocolo\"."],
+    "Weathergirl": ["La presentadora llora cuando acumula seis cosas sin decir. Dato reproducible. Me gustaría medirlo.", "Su margen de error es alto. Su audiencia, también. No lo entiendo."],
+    "Painter": ["Painter es una conciencia atrapada en un procesador. Datos valiosísimos. Pero se pone nervioso y se calienta. Hay que tratarlo con cuidado.", "Le pedí analizar su paisaje. Me dibujó una carita enfadada. Resultado: 1 punto en cooperación."]
   }
 }

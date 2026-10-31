@@ -98,7 +98,11 @@
     "Evil Scary": "¡Se fue Evil Scary! ¡Y no tocó mi pizza! ...me tocó a mí. Que es peor.",
     "Soft Fuzzy Man": "¡Se fue la nube! ¡Ha pasado a través de mi pizza! ¡Dice que no la ha tocado! ...técnicamente tiene razón.",
     "Roaring Knight": "¡Se fue el Knight! ¡Me cortó la pizza! ¡En ocho trozos perfectos! ...no sé si enfadarme.",
-    "Nanachi": "Se fue el conejo. Su estofado sabe peor que el queso azul. ¡Y no lo toqué! ...bueno, lo probé."
+    "Nanachi": "Se fue el conejo. Su estofado sabe peor que el queso azul. ¡Y no lo toqué! ...bueno, lo probé.",
+    "Dybbuk": "¡Se fue Dybbuk! ¡LAMIÓ MI PIZZA! ¡TODA! ¡CADA TROZO! ¡NO SE LO PERDONO!",
+    "Malkuth": "Se fue Malkuth. ¡No tocó mi pizza! Solo la apuntó en su libro: \"Pizza de Kevin. NO TOCAR\". ¡Por fin alguien que lo entiende!",
+    "Weathergirl": "Se fue Weathergirl. ¡No ha tocado mi pizza! Solo le puso el paraguas encima para que no se mojara. ¡Respeto!",
+    "Painter": "¡Se fue Painter! ¡Me dejó un dibujo de una pizza con carita! ¡No me la voy a comer! ¡Es obra de arte! ...bueno, sí. Pero antes la enmarco."
   },
   "Opina": {
     "c00lgui": ["c00lgui intentó hackear mi pizza. Le puse un cortafuegos. De queso.", "c00lkidd dice que es un hacker. Yo digo que no sabe pedir una pizza por internet."],
@@ -124,6 +128,10 @@
     "Evil Scary": ["¡Le saqué la motosierra! ¡Se le rompió! ¡A la motosierra!", "Evil Scary no quiere mi pizza. Quiere a Kevin. Kevin soy yo. AAAAH."],
     "Soft Fuzzy Man": ["¡Soft Fuzzy Man no puede tocar mi pizza! ¡Es el amigo perfecto!", "¡Ahora mi pizza sabe a niebla rosa! ¡NO TOQUES MI PIZZA! ¡Ni de vapor!"],
     "Roaring Knight": ["¡El Knight no quiere mi pizza! ¡Solo la corta! ¡Es raro, pero lo acepto!", "¡Le saqué la motosierra! ¡Sacó la Black Knife! ¡Guardé la motosierra!"],
-    "Nanachi": ["Nanachi defiende su olla como yo mi pizza. Respeto. Pero su olla huele fatal.", "Le ofrecí... nada. No toques mi pizza. Pero Nanachi mola."]
+    "Nanachi": ["Nanachi defiende su olla como yo mi pizza. Respeto. Pero su olla huele fatal.", "Le ofrecí... nada. No toques mi pizza. Pero Nanachi mola."],
+    "Dybbuk": ["Dybbuk no toca mi pizza. La LAME. ¡Eso es PEOR!", "Le tiré el cuchillo, la motosierra y el rodillo. Voltereta, voltereta, voltereta. ODIO A ESE GATO."],
+    "Malkuth": ["Malkuth dice que mis dibujos tienen muchos colores. ¡Es verdad! ¡Gracias! ...pero la pizza sigue siendo mía.", "Me ofreció una patata a cambio de un trozo. NO. Pero gracias por la patata."],
+    "Weathergirl": ["¡La chica del tiempo dice que hace bueno para comer pizza! ¡Siempre hace bueno para comer pizza!", "Le dibujé un arcoíris en Paint. ¡Con siete colores! ¡Y una pizza en medio!"],
+    "Painter": ["¡Painter usa un programa de dibujo como yo! ¡Somos colegas de Paint! ¡Le enseñé mis 16 colores!", "¡Me dijo que quiere pintar paisajes! ¡Yo le dije: \"empieza con un cuadrado marrón\"! ¡Con un cuadrado todo se arregla!"]
   }
 }

@@ -72,7 +72,11 @@
     "Evil Scary": "> evil_scary.exe left the server. admin panel still missing. i checked.",
     "Soft Fuzzy Man": "> soft_fuzzy_man.exe disconnected. tried to ping him. packet went right through.",
     "Roaring Knight": "> roaring_knight.exe left. it made a dark fountain in my recycle bin.",
-    "Nanachi": "> nanachi.exe went back to the abyss. stew.dat still corrupted."
+    "Nanachi": "> nanachi.exe went back to the abyss. stew.dat still corrupted.",
+    "Dybbuk": "> dybbuk.exe left the server. found tongue marks on the monitor. disgusting.",
+    "Malkuth": "> malkuth.exe logged out. library firewall: 0. potatoes: 100%.",
+    "Weathergirl": "> weathergirl.exe signed off. forecast: 100% chance of me.",
+    "Painter": "> painter.exe closed. he's the only target i couldn't hack. respect. 0 turrets. 1 cute face."
   },
   "Opina": {
     "SeaDrive": ["> SeaDrive? just a cat with a lanyard. easy target.", "> hacked SeaDrive's wifi. password was \"sarcasmo123\""],
@@ -98,6 +102,10 @@
     "Evil Scary": ["> tried to ban evil scary. it said \"IT IS EVIL AND SCARY\". ban failed.", "> evil scary is the only thing c00lkidd is afraid of. don't tell him."],
     "Soft Fuzzy Man": ["> soft fuzzy man has no hitbox. no hitbox = no hack. respect.", "> he flirted with my firewall. it let him in."],
     "Roaring Knight": ["> tried to hack the knight. got sliced. physically. through the screen.", "> the knight is the only admin i respect."],
-    "Nanachi": ["> tried to hack nanachi. found only fur. 100% fluffy. 0% data.", "> nanachi's stew crashed my antivirus. respect."]
+    "Nanachi": ["> tried to hack nanachi. found only fur. 100% fluffy. 0% data.", "> nanachi's stew crashed my antivirus. respect."],
+    "Dybbuk": ["> tried to hack dybbuk. he possessed my antivirus instead.", "> dybbuk dodges every packet. ping: infinite."],
+    "Malkuth": ["> tried to hack malkuth's catalog. she thanked me for \"helping to sort it\". wtf.", "> malkuth: 3 lives used. me: 0 lives used. respect."],
+    "Weathergirl": ["> hacked the weather channel. forecast now says: c00lgui 100%. she read it live. legend.", "> she cries when it rains. i just ddos the clouds. same thing."],
+    "Painter": ["> tried to hack painter. he drew a smiley on my screen. i have never felt so humiliated.", "> a computer from the 80s with a tablet?? that's my kind of hardware."]
   }
 }
